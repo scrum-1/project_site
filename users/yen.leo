@@ -189,7 +189,15 @@ MISC</t>
 40323203
 40323214
 40323250</t>
-<t tx="amd.20160301011834.1">http://www.arc.id.au/CangoAnimationManual.html</t>
+<t tx="amd.20160301011834.1">http://www.arc.id.au/CangoAnimationManual.html
+
+https://github.com/alexrj/Slic3r
+
+https://github.com/stephomi/sculptgl
+
+https://github.com/kliment/Printrun
+
+</t>
 <t tx="leo.20151212173315.1"></t>
 <t tx="leo.20151212173315.2">QTreeWidget {
     /* These apply to the selected item, but not to editing items.*/

@@ -1,15 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-01T12:13:50+08:00</updated><entry><title>yen - Github Pages 網頁資料更新問題</title><link href="http://project.mde.tw/blog/yen-github-pages-wang-ye-zi-liao-geng-xin-wen-ti.html" rel="alternate"></link><updated>2016-03-01T12:13:50+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-01:blog/yen-github-pages-wang-ye-zi-liao-geng-xin-wen-ti.html</id><summary type="html">&lt;p&gt;突然間, Github Pages 的網頁轉換機制不再更新&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-01T14:33:18+08:00</updated><entry><title>40323130 - 使用者的範例網誌文章標題</title><link href="http://project.mde.tw/blog/40323130-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html" rel="alternate"></link><updated>2016-03-01T14:33:18+08:00</updated><author><name>40323130</name></author><id>tag:project.mde.tw,2016-03-01:blog/40323130-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 40323130 所寫的文章摘要&lt;/p&gt;
 
 
-&lt;p&gt;使用 Github Pages 建立網頁最大的問題就是, 在完全沒有任何錯誤訊息提醒的情況下, 送到 Github Pages 對應分支倉儲的資料不再成功轉為網頁資料.&lt;/p&gt;
-&lt;p&gt;因應之道, 只能刪除原先不再更新的倉儲, 另外再建立一個對應的 Github Pages 倉儲, 重新進行各項設定.&lt;/p&gt;</summary><category term="Github Pages"></category></entry><entry><title>40323123 - 專題組員的範例文章標題</title><link href="http://project.mde.tw/blog/40323123-zhuan-ti-zu-yuan-de-fan-li-wen-zhang-biao-ti.html" rel="alternate"></link><updated>2016-03-01T12:10:31+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-03-01:blog/40323123-zhuan-ti-zu-yuan-de-fan-li-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 40323123 所寫的文章摘要&lt;/p&gt;
-
-
-&lt;p&gt;這裡為 40323123 所寫的文章主要內容&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>user - 使用者的範例網誌文章標題</title><link href="http://project.mde.tw/blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html" rel="alternate"></link><updated>2016-03-01T12:10:31+08:00</updated><author><name>user</name></author><id>tag:project.mde.tw,2016-03-01:blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 user 所寫的文章摘要&lt;/p&gt;
-
-
-&lt;p&gt;這裡為 user 所寫的文章主要內容&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>yen - 2016 年專題啟動</title><link href="http://project.mde.tw/blog/yen-2016-nian-zhuan-ti-qi-dong.html" rel="alternate"></link><updated>2016-03-01T12:10:31+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-01:blog/yen-2016-nian-zhuan-ti-qi-dong.html</id><summary type="html">&lt;p&gt;利用 Github Pages 與 Pelican 建立協同專題製作網誌&lt;/p&gt;
+&lt;p&gt;這裡為 40323130 所寫的文章主要內容&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>yen - 2016 年專題啟動</title><link href="http://project.mde.tw/blog/yen-2016-nian-zhuan-ti-qi-dong.html" rel="alternate"></link><updated>2016-03-01T14:28:38+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-01:blog/yen-2016-nian-zhuan-ti-qi-dong.html</id><summary type="html">&lt;p&gt;利用 Github Pages 與 Pelican 建立協同專題製作網誌&lt;/p&gt;
 
 
 &lt;h2&gt;機械設計工程網誌啟動&lt;/h2&gt;
@@ -62,4 +55,14 @@
 &lt;ol&gt;
 &lt;li&gt;本網誌為了同時支援近端與遠端的資料內容使用, 資料轉檔分為近端按鈕與遠端按鈕, 協同成員在推送資料到遠端之前, 必須確定資料為遠端 Github Pages 格式.&lt;/li&gt;
 &lt;li&gt;鼓勵各成員深入研究本網誌的細節架構, 勇於提出問題, 解決問題, 打造出最適合機械設計工程團隊使用的網際協同架構、模式與系統工具.&lt;/li&gt;
-&lt;/ol&gt;</summary><category term="教學導引"></category><category term="網誌設定"></category></entry></feed>
+&lt;/ol&gt;</summary><category term="教學導引"></category><category term="網誌設定"></category></entry><entry><title>40323123 - 專題組員的範例文章標題</title><link href="http://project.mde.tw/blog/40323123-zhuan-ti-zu-yuan-de-fan-li-wen-zhang-biao-ti.html" rel="alternate"></link><updated>2016-03-01T14:28:38+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-03-01:blog/40323123-zhuan-ti-zu-yuan-de-fan-li-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 40323123 所寫的文章摘要&lt;/p&gt;
+
+
+&lt;p&gt;這裡為 40323123 所寫的文章主要內容&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>user - 使用者的範例網誌文章標題</title><link href="http://project.mde.tw/blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html" rel="alternate"></link><updated>2016-03-01T14:28:38+08:00</updated><author><name>user</name></author><id>tag:project.mde.tw,2016-03-01:blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 user 所寫的文章摘要&lt;/p&gt;
+
+
+&lt;p&gt;這裡為 user 所寫的文章主要內容&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>yen - Github Pages 網頁資料更新問題</title><link href="http://project.mde.tw/blog/yen-github-pages-wang-ye-zi-liao-geng-xin-wen-ti.html" rel="alternate"></link><updated>2016-03-01T14:28:38+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-01:blog/yen-github-pages-wang-ye-zi-liao-geng-xin-wen-ti.html</id><summary type="html">&lt;p&gt;突然間, Github Pages 的網頁轉換機制不再更新&lt;/p&gt;
+
+
+&lt;p&gt;使用 Github Pages 建立網頁最大的問題就是, 在完全沒有任何錯誤訊息提醒的情況下, 送到 Github Pages 對應分支倉儲的資料不再成功轉為網頁資料.&lt;/p&gt;
+&lt;p&gt;因應之道, 只能刪除原先不再更新的倉儲, 另外再建立一個對應的 Github Pages 倉儲, 重新進行各項設定.&lt;/p&gt;</summary><category term="Github Pages"></category></entry></feed>

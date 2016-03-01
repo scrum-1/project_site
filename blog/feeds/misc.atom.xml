@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/misc.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-01T14:28:38+08:00</updated><entry><title>yen - Github Pages 網頁資料更新問題</title><link href="http://project.mde.tw/blog/yen-github-pages-wang-ye-zi-liao-geng-xin-wen-ti.html" rel="alternate"></link><updated>2016-03-01T14:28:38+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-01:blog/yen-github-pages-wang-ye-zi-liao-geng-xin-wen-ti.html</id><summary type="html">&lt;p&gt;突然間, Github Pages 的網頁轉換機制不再更新&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/misc.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-01T16:35:21+08:00</updated><entry><title>yen - 協同產品設計課程 Task0 延伸練習</title><link href="http://project.mde.tw/blog/yen-xie-tong-chan-pin-she-ji-ke-cheng-task0-yan-shen-lian-xi.html" rel="alternate"></link><updated>2016-03-01T16:35:21+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-01:blog/yen-xie-tong-chan-pin-she-ji-ke-cheng-task0-yan-shen-lian-xi.html</id><summary type="html">&lt;p&gt;如何將電腦教室分組, 比序與排座位的流程網際自動化&lt;/p&gt;
+
+
+&lt;p&gt;在 &lt;a href="http://chiamingyen.github.io/kmolab/blog/2016-spring-cd-task0.html"&gt;http://chiamingyen.github.io/kmolab/blog/2016-spring-cd-task0.html&lt;/a&gt; 中, 說明了一個實際的電腦教室排座位的流程, 其中使用了網際即時試算表 &lt;a href="https://ethercalc.tw/"&gt;https://ethercalc.tw/&lt;/a&gt;, 以及幾個 Python3 的資料處理程式, 最後可以根據電腦教室的配置, 完成各組員的座位編排.&lt;/p&gt;
+&lt;p&gt;座位編排流程如下:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;讓所有學員自行分組&lt;/li&gt;
+&lt;li&gt;分組確定後, 根據學號比序, 產生各組組長&lt;/li&gt;
+&lt;li&gt;再根據各組組長學號, 再進行組長學號比序, 以決定各組的組序&lt;/li&gt;
+&lt;li&gt;完成各組序與各組內的組員順序後, 再根據座位編排規定, 最後列出學員座位表, 讓學員依序入座&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;本機械設計專題製作練習, 希望能夠利用網際程式方法, 以  &lt;a href="https://github.com/mitsuhiko/flask"&gt;https://github.com/mitsuhiko/flask&lt;/a&gt;, &lt;a href="https://www.sqlite.org/"&gt;https://www.sqlite.org/&lt;/a&gt; 將流程自動化, 當操作者從網際即時試算表中取得各組分組資料後, 可以輸入本練習所完成的網站表單中, 然後操作者可以根據頁面中的選項, 選擇各組選出組長的方式, 依據學號增量排序, 學號最小者為組長, 或遞減排序, 學號大者為組長, 或者亂數排序後, 排序第一組為組長等三種選擇.&lt;/p&gt;
+&lt;p&gt;接著操作者可以在頁面選擇組序排列的選項, 也是學號遞增排序, 學號遞減排序或學號亂數排序, 以便訂出各組的組序.&lt;/p&gt;
+&lt;p&gt;當操作者決定各組內與組外的排序選項後, 按下"排電腦教室座位" (也可加入排座位的選項, 列先排, 行先排或者全部按亂數排.&lt;/p&gt;
+&lt;p&gt;完成座位安排後, 必須將各組組員名單與分組名單分別存入資料庫, 以便後續讓使用者查詢各組座位與分組資訊, 並且在隨後
+加入各組員回報電腦使用情形與各組員自評登錄成績之應用.&lt;/p&gt;
+&lt;p&gt;原始倉儲資料: &lt;a href="https://github.com/2015fallhw/2016springcd/tree/gh-pages"&gt;https://github.com/2015fallhw/2016springcd/tree/gh-pages&lt;/a&gt;&lt;/p&gt;</summary><category term="Flask"></category><category term="Brython"></category><category term="Python"></category><category term="練習"></category><category term="流程自動化"></category></entry><entry><title>yen - Github Pages 網頁資料更新問題</title><link href="http://project.mde.tw/blog/yen-github-pages-wang-ye-zi-liao-geng-xin-wen-ti.html" rel="alternate"></link><updated>2016-03-01T14:28:38+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-01:blog/yen-github-pages-wang-ye-zi-liao-geng-xin-wen-ti.html</id><summary type="html">&lt;p&gt;突然間, Github Pages 的網頁轉換機制不再更新&lt;/p&gt;
 
 
 &lt;p&gt;使用 Github Pages 建立網頁最大的問題就是, 在完全沒有任何錯誤訊息提醒的情況下, 送到 Github Pages 對應分支倉儲的資料不再成功轉為網頁資料.&lt;/p&gt;

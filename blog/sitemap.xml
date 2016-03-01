@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://project.mde.tw/blog/</loc>
-<lastmod>2016-03-01T12:11:04-00:00</lastmod>
+<lastmod>2016-03-01T12:13:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://project.mde.tw/blog/archives.html</loc>
-<lastmod>2016-03-01T12:11:04-00:00</lastmod>
+<lastmod>2016-03-01T12:13:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://project.mde.tw/blog/tags.html</loc>
-<lastmod>2016-03-01T12:11:04-00:00</lastmod>
+<lastmod>2016-03-01T12:13:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://project.mde.tw/blog/categories.html</loc>
-<lastmod>2016-03-01T12:11:04-00:00</lastmod>
+<lastmod>2016-03-01T12:13:56-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -34,6 +34,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://project.mde.tw/blog/pages/about/</loc>
 <lastmod>2016-03-01T12:10:31+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/yen-github-pages-wang-ye-zi-liao-geng-xin-wen-ti.html</loc>
+<lastmod>2016-03-01T12:13:50+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -60,13 +67,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://project.mde.tw/blog/yen-github-pages-wang-ye-zi-liao-geng-xin-wen-ti.html</loc>
-<lastmod>2016-03-01T12:10:31+08:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://project.mde.tw/blog/category/2016g1.html</loc>
 <lastmod>2016-03-01T12:10:31+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -75,7 +75,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://project.mde.tw/blog/category/misc.html</loc>
-<lastmod>2016-03-01T12:10:31+08:06</lastmod>
+<lastmod>2016-03-01T12:13:50+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -88,15 +88,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://project.mde.tw/blog/tag/github-pages.html</loc>
+<loc>http://project.mde.tw/blog/tag/fan-li.html</loc>
 <lastmod>2016-03-01T12:10:31+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://project.mde.tw/blog/tag/fan-li.html</loc>
-<lastmod>2016-03-01T12:10:31+08:06</lastmod>
+<loc>http://project.mde.tw/blog/tag/github-pages.html</loc>
+<lastmod>2016-03-01T12:13:50+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -131,7 +131,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://project.mde.tw/blog/author/yen.html</loc>
-<lastmod>2016-03-01T12:10:31+08:06</lastmod>
+<lastmod>2016-03-01T12:13:50+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

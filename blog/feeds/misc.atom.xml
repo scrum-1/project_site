@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/misc.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-01T12:10:31+08:00</updated><entry><title>yen - Github Pages 網頁資料更新問題</title><link href="http://project.mde.tw/blog/yen-github-pages-wang-ye-zi-liao-geng-xin-wen-ti.html" rel="alternate"></link><updated>2016-03-01T12:10:31+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-01:blog/yen-github-pages-wang-ye-zi-liao-geng-xin-wen-ti.html</id><summary type="html">&lt;p&gt;突然間, Github Pages 的網頁轉換機制不再更新&lt;/p&gt;
+
+
+&lt;p&gt;使用 Github Pages 建立網頁最大的問題就是, 在完全沒有任何錯誤訊息提醒的情況下, 送到 Github Pages 對應分支倉儲的資料不再成功轉為網頁資料.&lt;/p&gt;
+&lt;p&gt;目前沒有任何對策!&lt;/p&gt;</summary><category term="Github Pages"></category></entry></feed>

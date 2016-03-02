@@ -15,14 +15,14 @@
 <v t="leo.20151212173315.3"><vh>@string initial_split_orientation = horizontal</vh></v>
 </v>
 <v t="amd.20160106095324.1" a="E"><vh>@path ./../</vh>
-<v t="leo.20151213173811.1" a="E"><vh>假如要送到 gh-pages 分支, 使用下列按鈕</vh>
+<v t="leo.20151213173811.1"><vh>假如要送到 gh-pages 分支, 使用下列按鈕</vh>
 <v t="leo.20151212173658.1"><vh>@button gh-pages pelican</vh></v>
 </v>
 <v t="leo.20151213173830.1" a="E"><vh>假如要在近端檢視, 使用下列按鈕</vh>
 <v t="leo.20151213085727.1"><vh>@button local pelican</vh></v>
 </v>
 <v t="amd.20160117010542.1"><vh>@button git rm -rf blog</vh></v>
-<v t="amd.20151215180106.1" a="E"><vh>設定與開發</vh>
+<v t="amd.20151215180106.1"><vh>設定與開發</vh>
 <v t="amd.20151216151325.1"><vh>@edit index.html</vh></v>
 <v t="amd.20151216152209.1"><vh>@edit README.md</vh></v>
 <v t="leo.20151213230723.1"><vh>Pelican 設定</vh>
@@ -75,7 +75,42 @@
 </v>
 </v>
 </v>
+<v t="amd.20160301205134.1" a="E"><vh>Flask 專案</vh>
+<v t="amd.20160301205148.1"><vh>@edit setup.py</vh></v>
+<v t="amd.20160301205822.1"><vh>@edit config.py</vh></v>
+<v t="amd.20160301205303.1"><vh>@edit wsgi.py</vh></v>
+<v t="amd.20160301205326.1" a="E"><vh>@clean myflaskapp.py</vh>
+<v t="amd.20160301205326.2"><vh>send_static</vh></v>
+<v t="amd.20160301205326.3"><vh>index</vh></v>
+<v t="amd.20160301205326.4"><vh>user</vh></v>
+<v t="amd.20160301205326.5"><vh>req1</vh></v>
+<v t="amd.20160301205326.6"><vh>red</vh></v>
+<v t="amd.20160301205326.7"><vh>guessform</vh></v>
+<v t="amd.20160301205326.8"><vh>docheck</vh></v>
+<v t="amd.20160301205326.9"><vh>addgithubform</vh></v>
+<v t="amd.20160301205326.10"><vh>addgithub</vh></v>
+<v t="amd.20160301205326.11"><vh>autho_index</vh></v>
+<v t="amd.20160301205326.12"><vh>autho_login</vh></v>
+<v t="amd.20160301205326.17"><vh>cadpaform</vh></v>
+<v t="amd.20160301205326.18"><vh>cadpaadd</vh></v>
+</v>
+<v t="amd.20160301205410.1" a="E"><vh>@path templates</vh>
+<v t="amd.20160301205410.2"><vh>@edit index.html</vh></v>
+<v t="amd.20160301205410.3"><vh>@edit user.html</vh></v>
+<v t="amd.20160301205410.4"><vh>@edit guessform.html</vh></v>
+<v t="amd.20160301205410.5"><vh>@edit docheck.html</vh></v>
+<v t="amd.20160301205410.6"><vh>@edit toobig.html</vh></v>
+<v t="amd.20160301205410.7"><vh>@edit toosmall.html</vh></v>
+<v t="amd.20160301205410.8"><vh>@edit autho_base.html</vh></v>
+<v t="amd.20160301205410.9"><vh>@edit autho_index.html</vh></v>
+<v t="amd.20160301205410.10"><vh>@edit autho_login.html</vh></v>
+<v t="amd.20160301205410.11"><vh>@edit addgithubform.html</vh></v>
+<v t="amd.20160301205410.15"><vh>@edit cadpaform.html</vh></v>
+<v t="amd.20160301205410.19"><vh>@edit cadpaerror.html</vh></v>
+</v>
+</v>
 <v t="amd.20160301010714.1"><vh>組員名單</vh></v>
+<v t="amd.20160301223228.1"><vh>程式測試</vh></v>
 <v t="amd.20160301011834.1"><vh>參考資料</vh></v>
 </v>
 <v t="amd.20151215170350.1"><vh>以下為 content 目錄中的 md 檔案</vh></v>
@@ -188,7 +223,315 @@ MISC</t>
 40323203
 40323214
 40323250</t>
-<t tx="amd.20160301011834.1">http://www.arc.id.au/CangoAnimationManual.html</t>
+<t tx="amd.20160301011834.1">http://www.arc.id.au/CangoAnimationManual.html
+
+https://github.com/google/oauth2client
+
+http://www.jianshu.com/p/f5fcc0931813
+
+https://developers.google.com/gmail/api/quickstart/python</t>
+<t tx="amd.20160301205134.1"></t>
+<t tx="amd.20160301205326.1">@language python
+# coding: utf-8
+from flask import Flask, send_from_directory, request, redirect, render_template, session, make_response
+import random
+import github3
+# for authomatic
+from authomatic.adapters import WerkzeugAdapter
+from authomatic import Authomatic
+# from config.py 導入 CONFIG
+from config import CONFIG
+
+app = Flask(__name__)
+
+# Instantiate Authomatic.
+authomatic = Authomatic(CONFIG, 'A0Zr9@8j/3yX R~XHH!jmN]LWX/,?R@T', report_errors=False)
+
+# 使用 session 必須要設定 secret_key
+# In order to use sessions you have to set a secret key
+# set the secret key.  keep this really secret:
+app.secret_key = 'A0Zr9@8j/3yX R~XHH!jmN]LWX/,?R@T'
+
+@others
+
+if __name__ == "__main__":
+    app.run()
+
+</t>
+<t tx="amd.20160301205326.10">@app.route('/addgithub')
+def addgithub():
+    #################################
+    filepath = "/home/amd/Desktop/data.txt"
+    with open(filepath, "r") as f:
+        datalist = f.read().splitlines()
+    #data.txt 格式
+    #url,https://github.com/username/repo.git
+    #repo,repo
+    #username,username
+    #password,password
+    url = datalist[0].split(",")[1]
+    repository = datalist[1].split(",")[1]
+    username = datalist[2].split(",")[1]
+    password = datalist[3].split(",")[1]
+    #################################
+    # 登入系統
+    g = github3.login(username, password)
+    # user = g.me()
+    # 以下修改 profile
+    '''
+    new_name = '2016測試用帳號'
+    blog = 'http://測試用.帳號/'
+    company = '測試用公司'
+    bio = "測試用 bio"
+    if g.update_me(new_name, blog, company, bio=bio):
+    print('Profile 已經更新.')
+    '''
+    # 以下則新增協同者
+    g.repository(username, repository).add_collaborator("coursemdetw")
+
+    return "done"</t>
+<t tx="amd.20160301205326.11">@app.route('/autho_index')
+def autho_index():
+    
+    return render_template('autho_index.html')</t>
+<t tx="amd.20160301205326.12">@app.route('/autho_login/&lt;provider_name&gt;/', methods=['GET', 'POST'])
+def autho_login(provider_name):
+    
+    # We need response object for the WerkzeugAdapter.
+    response = make_response()
+    
+    # Log the user in, pass it the adapter and the provider name.
+    result = authomatic.login(WerkzeugAdapter(request, response), provider_name)
+    
+    # If there is no LoginResult object, the login procedure is still pending.
+    if result:
+        if result.user:
+            # We need to update the user to get more info.
+            result.user.update()
+        
+        # The rest happens inside the template.
+        return render_template('autho_login.html', result=result)
+    
+    # Don't forget to return the response.
+    return response</t>
+<t tx="amd.20160301205326.17">@app.route('/cadpaform')
+def cadpaform():
+    # https://github.com/username/repository_title 協同者新增表單
+    return render_template("cadpaform.html")</t>
+<t tx="amd.20160301205326.18">@app.route('/cadpaadd', methods=['POST'])
+def cadpaadd():
+    #################################
+    filepath = "/home/amd/Desktop/data.txt"
+    with open(filepath, "r") as f:
+        datalist = f.read().splitlines()
+    #data.txt 格式
+    #url,https://github.com/username/repo.git
+    #repo,repo
+    #username,username
+    #password,password
+    url = datalist[0].split(",")[1]
+    repository = datalist[1].split(",")[1]
+    username = datalist[2].split(",")[1]
+    password = datalist[3].split(",")[1]
+    #################################
+    account = request.form["account"]
+    # 登入系統
+    g = github3.login(username, password)
+    # 以下則新增協同者
+    #g.repository(倉儲帳號, 倉儲名稱).add_collaborator(協同者 github 帳號)
+    # 若新增 collaborator 成功傳回 True 否則傳回 False
+    if g.repository(username, repository).add_collaborator(account):
+        # 共同使用 cpaadd.html
+        return render_template("cpaadd.html", account=account, repository=repository, url=url)
+    else:
+        return render_template("cadpaerror.html")</t>
+<t tx="amd.20160301205326.2"># setup static directory
+# 由於 gh-pages 對應的靜態文件位於 blog 目錄下, 因此將原先的 static 改為 blog
+@app.route('/blog/&lt;path:path&gt;')
+def send_static(path):
+    return send_from_directory('blog', path)</t>
+<t tx="amd.20160301205326.3">@app.route("/")
+def index():
+    #這是猜數字遊戲的起始表單, 主要在產生答案, 並且將 count 歸零
+    # 將標準答案存入 answer session 對應區
+    theanswer = random.randint(1, 100)
+    thecount = 0
+    # 將答案與計算次數變數存進 session 對應變數
+    session['answer'] = theanswer
+    session['count'] = thecount
+
+    return render_template("index.html", answer=theanswer, count=thecount)
+
+
+</t>
+<t tx="amd.20160301205326.4">@app.route('/user/&lt;name&gt;')
+def user(name):
+    return render_template("user.html", name=name)</t>
+<t tx="amd.20160301205326.5">@app.route('/req1')
+def req1():
+    user_agent = request.headers.get('User-Agent')
+    return '&lt;p&gt;Your browser is %s&lt;/p&gt;' % user_agent</t>
+<t tx="amd.20160301205326.6">@app.route('/red')
+def red():
+    # 重新導向 google
+    return redirect("http://www.google.com")</t>
+<t tx="amd.20160301205326.7">@app.route('/guessform')
+def guessform():
+    session["count"] += 1
+    guess = session.get("guess")
+    theanswer = session.get("answer")
+    count = session.get("count")
+    return render_template("guessform.html", guess=guess, answer=theanswer, count=count)</t>
+<t tx="amd.20160301205326.8">@app.route('/docheck', methods=['POST'])
+def docheck():
+    # session[] 存資料
+    # session.get() 取 session 資料
+    # 利用 request.form[] 取得表單欄位資料, 然後送到 template
+    guess = request.form["guess"]
+    session["guess"] = guess
+    # 假如使用者直接執行 doCheck, 則設法轉回根方法
+    if guess is None:
+        redirect("/")
+    # 從 session 取出 answer 對應資料, 且處理直接執行 docheck 時無法取 session 值情況
+    try:
+        theanswer = int(session.get('answer'))
+    except:
+        redirect("/")
+    # 經由表單所取得的 guess 資料型別為 string
+    try:
+        theguess = int(guess)
+    except:
+        return redirect("/guessform")
+    # 每執行 doCheck 一次,次數增量一次
+    session["count"] += 1
+    count = session.get("count")
+    # 答案與所猜數字進行比對
+    if theanswer &lt; theguess:
+        return render_template("toobig.html", guess=guess, answer=theanswer, count=count)
+    elif theanswer &gt; theguess:
+        return render_template("toosmall.html", guess=guess, answer=theanswer, count=count)
+    else:
+        # 已經猜對, 從 session 取出累計猜測次數
+        thecount = session.get('count')
+        return "猜了 "+str(thecount)+" 次, 終於猜對了, 正確答案為 "+str(theanswer)+": &lt;a href='/'&gt;再猜&lt;/a&gt;"
+    return render_template("docheck.html", guess=guess)
+ </t>
+<t tx="amd.20160301205326.9">@app.route('/addgithubform')
+def addgithubform():
+    return render_template("addfithubform.html")</t>
+<t tx="amd.20160301205410.1"></t>
+<t tx="amd.20160301205410.10">@language html
+{# autho_login.html #}
+{% extends "autho_base.html" %}
+
+{% block body %}
+
+    &lt;a href="/autho_index"&gt;Home&lt;/a&gt;
+    
+    {# Check for errors. #}
+    {% if result.error %}
+        &lt;h2&gt;Damn that error: {{ result.error.message }}&lt;/h2&gt;
+    {% endif %}
+    
+    {# Welcome the user. #}
+    {% if result.user %}
+        &lt;h1&gt;Hi {{ result.user.name}}&lt;/h1&gt;
+        &lt;h2&gt;Your id is: {{ result.user.id }}&lt;/h2&gt;
+        &lt;h2&gt;Your email is: {{ result.user.email }}&lt;/h2&gt;
+    {% endif %}
+
+
+{% endblock body %}</t>
+<t tx="amd.20160301205410.11">@language html
+{# addgithubform.html #}
+
+新增為倉儲協同者:
+
+&lt;br /&gt;
+&lt;form method="POST" action="/addgithub"&gt;
+請輸入您的 github 帳號:&lt;input type="text" name="account"&gt;&lt;br /&gt;
+&lt;input type="submit" value="send"&gt;
+&lt;/form&gt;</t>
+<t tx="amd.20160301205410.19">@language html
+發生錯誤!, 請重新設定:&lt;br /&gt;&lt;br /&gt;
+{% include 'cadpaform.html' %}
+</t>
+<t tx="amd.20160301205410.2">@language html
+正確答案為: {{ answer }}
+&lt;br /&gt;
+次數: {{ count }}
+&lt;br /&gt;
+{# 一旦使用者送出表單, 就交由 /docheck 處理後續表單內容處理, 並且導向條件判斷迴圈, 並回覆結果 #}
+&lt;form method="POST" action="/docheck"&gt;
+請輸入您所猜的整數:&lt;input type="text" name="guess"&gt;&lt;br /&gt;
+&lt;input type="submit" value="send"&gt;
+&lt;/form&gt;</t>
+<t tx="amd.20160301205410.3">@language html
+&lt;h1&gt;Hello, {{ name }}!&lt;/h1&gt;</t>
+<t tx="amd.20160301205410.4">@language html
+{# 需要從 render_template 呼叫中取得 guess, count 與 answer 變數值 #}
+猜的數字為: {{ guess }}
+&lt;br /&gt;
+已經猜了幾次: {{ count }}
+&lt;br /&gt;
+正確答案: {{ answer }}
+&lt;br /&gt;
+&lt;form method="POST" action="/docheck"&gt;
+請輸入您所猜的整數:&lt;input type="text" name="guess"&gt;&lt;br /&gt;
+&lt;input type="submit" value="send"&gt;
+&lt;/form&gt;</t>
+<t tx="amd.20160301205410.5">@language html
+your guess is {{ guess }}
+&lt;br /&gt;
+&lt;a href="/guessform"&gt;guessform&lt;/a&gt;</t>
+<t tx="amd.20160301205410.6">@language html
+太大了, 再猜
+&lt;br /&gt;
+{# 必須要從 docheck render_template 中取得 guessfor.html 所需要的變數值 #}
+{% include 'guessform.html' %}</t>
+<t tx="amd.20160301205410.7">@language html
+太小了, 再猜
+&lt;br /&gt;
+{# 必須要從 docheck render_template 中取得 guessfor.html 所需要的變數值 #}
+{% include 'guessform.html' %}</t>
+<t tx="amd.20160301205410.8">@language html
+{# autho_base.html #}
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+        &lt;title&gt;Authomatic Flask Example&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        {% block body %}{% endblock %}
+    &lt;/body&gt;
+&lt;/html&gt;</t>
+<t tx="amd.20160301205410.9">@language html
+{# autho_index.html #}
+{% extends "autho_base.html" %}
+{% block body %}
+
+    &lt;!--Links to the login handler--&gt;
+    Login with &lt;a href="autho_login/google"&gt;google&lt;/a&gt;.&lt;br /&gt;
+
+{% endblock %}</t>
+<t tx="amd.20160301223228.1">filepath = "/home/amd/Desktop/data.txt"
+with open(filepath, "r") as f:
+    datalist = f.read().splitlines()
+
+g.es(datalist)
+
+#第1行為 repository 的 url
+#第2行為 repository name
+#第3行為 username
+#第四行為 password
+url = datalist[0].split(",")[1]
+repository = datalist[1].split(",")[1]
+username = datalist[2].split(",")[1]
+password = datalist[3].split(",")[1]
+g.es(url)
+g.es(repository)
+g.es(username)
+g.es(password)</t>
 <t tx="leo.20151212173315.1"></t>
 <t tx="leo.20151212173315.2">QTreeWidget {
     /* These apply to the selected item, but not to editing items.*/

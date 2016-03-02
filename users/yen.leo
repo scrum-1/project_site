@@ -15,7 +15,7 @@
 <v t="leo.20151212173315.3"><vh>@string initial_split_orientation = horizontal</vh></v>
 </v>
 <v t="amd.20160106095324.1" a="E"><vh>@path ./../</vh>
-<v t="leo.20151213173811.1"><vh>假如要送到 gh-pages 分支, 使用下列按鈕</vh>
+<v t="leo.20151213173811.1" a="E"><vh>假如要送到 gh-pages 分支, 使用下列按鈕</vh>
 <v t="leo.20151212173658.1"><vh>@button gh-pages pelican</vh></v>
 </v>
 <v t="leo.20151213173830.1" a="E"><vh>假如要在近端檢視, 使用下列按鈕</vh>
@@ -75,7 +75,7 @@
 </v>
 </v>
 </v>
-<v t="amd.20160301205134.1" a="E"><vh>Flask 專案</vh>
+<v t="amd.20160301205134.1"><vh>Flask 專案</vh>
 <v t="amd.20160301205148.1"><vh>@edit setup.py</vh></v>
 <v t="amd.20160301205822.1"><vh>@edit config.py</vh></v>
 <v t="amd.20160301205303.1"><vh>@edit wsgi.py</vh></v>
@@ -111,7 +111,9 @@
 </v>
 <v t="amd.20160301010714.1"><vh>組員名單</vh></v>
 <v t="amd.20160301223228.1"><vh>程式測試</vh></v>
-<v t="amd.20160301011834.1"><vh>參考資料</vh></v>
+<v t="amd.20160301011834.1" a="E"><vh>參考資料</vh>
+<v t="amd.20160302110137.1"><vh>機械設計專案參考</vh></v>
+</v>
 </v>
 <v t="amd.20151215170350.1"><vh>以下為 content 目錄中的 md 檔案</vh></v>
 <v t="amd.20160106093610.1"><vh>協同網誌編寫規範</vh></v>
@@ -123,6 +125,7 @@
 <v t="amd.20160224170554.1"><vh>@edit yen_20160301.md</vh></v>
 <v t="amd.20160301114516.1"><vh>@edit yen_20160301-1.md</vh></v>
 <v t="leo.20160301161358.1"><vh>@edit yen_20160301-2.md</vh></v>
+<v t="amd.20160302114829.1"><vh>@edit yen_20160302.md</vh></v>
 </v>
 </v>
 </v>
@@ -421,100 +424,6 @@ def docheck():
 def addgithubform():
     return render_template("addfithubform.html")</t>
 <t tx="amd.20160301205410.1"></t>
-<t tx="amd.20160301205410.10">@language html
-{# autho_login.html #}
-{% extends "autho_base.html" %}
-
-{% block body %}
-
-    &lt;a href="/autho_index"&gt;Home&lt;/a&gt;
-    
-    {# Check for errors. #}
-    {% if result.error %}
-        &lt;h2&gt;Damn that error: {{ result.error.message }}&lt;/h2&gt;
-    {% endif %}
-    
-    {# Welcome the user. #}
-    {% if result.user %}
-        &lt;h1&gt;Hi {{ result.user.name}}&lt;/h1&gt;
-        &lt;h2&gt;Your id is: {{ result.user.id }}&lt;/h2&gt;
-        &lt;h2&gt;Your email is: {{ result.user.email }}&lt;/h2&gt;
-    {% endif %}
-
-
-{% endblock body %}</t>
-<t tx="amd.20160301205410.11">@language html
-{# addgithubform.html #}
-
-新增為倉儲協同者:
-
-&lt;br /&gt;
-&lt;form method="POST" action="/addgithub"&gt;
-請輸入您的 github 帳號:&lt;input type="text" name="account"&gt;&lt;br /&gt;
-&lt;input type="submit" value="send"&gt;
-&lt;/form&gt;</t>
-<t tx="amd.20160301205410.19">@language html
-發生錯誤!, 請重新設定:&lt;br /&gt;&lt;br /&gt;
-{% include 'cadpaform.html' %}
-</t>
-<t tx="amd.20160301205410.2">@language html
-正確答案為: {{ answer }}
-&lt;br /&gt;
-次數: {{ count }}
-&lt;br /&gt;
-{# 一旦使用者送出表單, 就交由 /docheck 處理後續表單內容處理, 並且導向條件判斷迴圈, 並回覆結果 #}
-&lt;form method="POST" action="/docheck"&gt;
-請輸入您所猜的整數:&lt;input type="text" name="guess"&gt;&lt;br /&gt;
-&lt;input type="submit" value="send"&gt;
-&lt;/form&gt;</t>
-<t tx="amd.20160301205410.3">@language html
-&lt;h1&gt;Hello, {{ name }}!&lt;/h1&gt;</t>
-<t tx="amd.20160301205410.4">@language html
-{# 需要從 render_template 呼叫中取得 guess, count 與 answer 變數值 #}
-猜的數字為: {{ guess }}
-&lt;br /&gt;
-已經猜了幾次: {{ count }}
-&lt;br /&gt;
-正確答案: {{ answer }}
-&lt;br /&gt;
-&lt;form method="POST" action="/docheck"&gt;
-請輸入您所猜的整數:&lt;input type="text" name="guess"&gt;&lt;br /&gt;
-&lt;input type="submit" value="send"&gt;
-&lt;/form&gt;</t>
-<t tx="amd.20160301205410.5">@language html
-your guess is {{ guess }}
-&lt;br /&gt;
-&lt;a href="/guessform"&gt;guessform&lt;/a&gt;</t>
-<t tx="amd.20160301205410.6">@language html
-太大了, 再猜
-&lt;br /&gt;
-{# 必須要從 docheck render_template 中取得 guessfor.html 所需要的變數值 #}
-{% include 'guessform.html' %}</t>
-<t tx="amd.20160301205410.7">@language html
-太小了, 再猜
-&lt;br /&gt;
-{# 必須要從 docheck render_template 中取得 guessfor.html 所需要的變數值 #}
-{% include 'guessform.html' %}</t>
-<t tx="amd.20160301205410.8">@language html
-{# autho_base.html #}
-&lt;!DOCTYPE html&gt;
-&lt;html&gt;
-    &lt;head&gt;
-        &lt;title&gt;Authomatic Flask Example&lt;/title&gt;
-    &lt;/head&gt;
-    &lt;body&gt;
-        {% block body %}{% endblock %}
-    &lt;/body&gt;
-&lt;/html&gt;</t>
-<t tx="amd.20160301205410.9">@language html
-{# autho_index.html #}
-{% extends "autho_base.html" %}
-{% block body %}
-
-    &lt;!--Links to the login handler--&gt;
-    Login with &lt;a href="autho_login/google"&gt;google&lt;/a&gt;.&lt;br /&gt;
-
-{% endblock %}</t>
 <t tx="amd.20160301223228.1">filepath = "/home/amd/Desktop/data.txt"
 with open(filepath, "r") as f:
     datalist = f.read().splitlines()
@@ -533,6 +442,47 @@ g.es(url)
 g.es(repository)
 g.es(username)
 g.es(password)</t>
+<t tx="amd.20160302110137.1">搜尋機械設計專案的目的在進行分類:
+
+機構 - 省力, 增加功能, 增加效能
+
+能源 - 省能源, 製能, 整合運用
+
+機電控制 - 提高效能
+
+方法:
+
+系統模擬
+
+數值分析
+
+自動控制
+
+工程資料管理 - PDM, PLM
+
+http://www.mtu.edu/mechanical/undergraduate/senior-design/spring-2015/
+
+客車或貨車尾門的設計
+
+    設計目的: 增加額外容量功能或休憩功能
+    
+綠色能源系統
+
+    設計目的: 家用風力發電, 運動器材發電, 太陽能發電與電力控管系統
+    
+https://capstone.me.ucsb.edu/past-projects
+
+https://www.youtube.com/results?search_query=mechanical+design+project
+
+http://poisson.me.dal.ca/~DP_MECH/past_projects.html
+
+http://poisson.me.dal.ca/~DP_MECH/
+
+https://www.me.washington.edu/students/ug/capstone.html
+
+https://projectselect.mecheng.adelaide.edu.au/
+
+https://engineering.temple.edu/departments-programs/senior-design-projects?filter=department/3</t>
 <t tx="leo.20151212173315.1"></t>
 <t tx="leo.20151212173315.2">QTreeWidget {
     /* These apply to the selected item, but not to editing items.*/

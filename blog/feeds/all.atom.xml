@@ -1,5 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-01T12:13:50+08:00</updated><entry><title>yen - Github Pages 網頁資料更新問題</title><link href="http://project.mde.tw/blog/yen-github-pages-wang-ye-zi-liao-geng-xin-wen-ti.html" rel="alternate"></link><updated>2016-03-01T12:13:50+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-01:blog/yen-github-pages-wang-ye-zi-liao-geng-xin-wen-ti.html</id><summary type="html">&lt;p&gt;突然間, Github Pages 的網頁轉換機制不再更新&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-02T10:41:40+08:00</updated><entry><title>40323130 - 說明如何參與協同機械設計專題網誌編寫</title><link href="http://project.mde.tw/blog/40323130-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html" rel="alternate"></link><updated>2016-03-02T10:41:40+08:00</updated><author><name>40323130</name></author><id>tag:project.mde.tw,2016-03-02:blog/40323130-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
+
+
+&lt;p&gt;這裡為 40323130 所寫的文章主要內容&lt;/p&gt;
+&lt;p&gt;本機械設計專題網誌的架構包含近端與遠端的資料檢視設計, 專案資料以 Leo Editor 進行管理.&lt;/p&gt;
+&lt;p&gt;以下教學影片示範從 &lt;a href="http://project.mde.tw"&gt;http://project.mde.tw&lt;/a&gt; 機械設計專題網誌中取得倉儲的網址後, 可以利用 git clone 複製倉儲資料, 之後:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;利用 git checkout gh-pages 將工作目錄指到 Github pages 的對應分支內容&lt;/li&gt;
+&lt;li&gt;以 Leo Editor 開啟 users 目錄下的 user_template.leo 檔案&lt;/li&gt;
+&lt;li&gt;根據自己的帳號, 修改 .md 檔案存檔的名稱, 目的在透過加入帳號與時間註記, 避免 content 目錄中的檔案彼此複寫&lt;/li&gt;
+&lt;li&gt;在 .md 的 Title 標題中, 冠上自己的帳號, 主要也是避免 Pelican 將 .md 根據標題轉成 html 時, 產生檔案複寫&lt;/li&gt;
+&lt;li&gt;本系統的 Pelican 分為近端與遠端轉檔按鈕, 因此若要在近端檢查時, 與要推送到 Github 時採用不同轉檔按鈕&lt;/li&gt;
+&lt;li&gt;為了簡化 git 指令的 add, commit 與 push, 加入 ungit, 只要啟動隨身系統候, 再利用 start_ungit.bat 開啟, 就可以在瀏覽器中簡化改版過程&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Vimeo:&lt;/p&gt;
+&lt;iframe src="https://player.vimeo.com/video/157247703" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;a href="https://vimeo.com/157247703"&gt;2016project_1&lt;/a&gt; from &lt;a href="https://vimeo.com/user24079973"&gt;虎尾科大機械設計工程&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Youtube:&lt;/p&gt;
+&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/hQR1wxALifU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="範例"></category></entry><entry><title>yen - 協同產品設計課程 Task0 延伸練習</title><link href="http://project.mde.tw/blog/yen-xie-tong-chan-pin-she-ji-ke-cheng-task0-yan-shen-lian-xi.html" rel="alternate"></link><updated>2016-03-02T10:41:40+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-02:blog/yen-xie-tong-chan-pin-she-ji-ke-cheng-task0-yan-shen-lian-xi.html</id><summary type="html">&lt;p&gt;如何將電腦教室分組, 比序與排座位的流程網際自動化&lt;/p&gt;
+
+
+&lt;p&gt;在 &lt;a href="http://chiamingyen.github.io/kmolab/blog/2016-spring-cd-task0.html"&gt;http://chiamingyen.github.io/kmolab/blog/2016-spring-cd-task0.html&lt;/a&gt; 中, 說明了一個實際的電腦教室排座位的流程, 其中使用了網際即時試算表 &lt;a href="https://ethercalc.tw/"&gt;https://ethercalc.tw/&lt;/a&gt;, 以及幾個 Python3 的資料處理程式, 最後可以根據電腦教室的配置, 完成各組員的座位編排.&lt;/p&gt;
+&lt;p&gt;座位編排流程如下:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;讓所有學員自行分組&lt;/li&gt;
+&lt;li&gt;分組確定後, 根據學號比序, 產生各組組長&lt;/li&gt;
+&lt;li&gt;再根據各組組長學號, 再進行組長學號比序, 以決定各組的組序&lt;/li&gt;
+&lt;li&gt;完成各組序與各組內的組員順序後, 再根據座位編排規定, 最後列出學員座位表, 讓學員依序入座&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;本機械設計專題製作練習, 希望能夠利用網際程式方法, 以  &lt;a href="https://github.com/mitsuhiko/flask"&gt;https://github.com/mitsuhiko/flask&lt;/a&gt;, &lt;a href="https://www.sqlite.org/"&gt;https://www.sqlite.org/&lt;/a&gt; 將流程自動化, 當操作者從網際即時試算表中取得各組分組資料後, 可以輸入本練習所完成的網站表單中, 然後操作者可以根據頁面中的選項, 選擇各組選出組長的方式, 依據學號增量排序, 學號最小者為組長, 或遞減排序, 學號大者為組長, 或者亂數排序後, 排序第一組為組長等三種選擇.&lt;/p&gt;
+&lt;p&gt;接著操作者可以在頁面選擇組序排列的選項, 也是學號遞增排序, 學號遞減排序或學號亂數排序, 以便訂出各組的組序.&lt;/p&gt;
+&lt;p&gt;當操作者決定各組內與組外的排序選項後, 按下"排電腦教室座位" (也可加入排座位的選項, 列先排, 行先排或者全部按亂數排.&lt;/p&gt;
+&lt;p&gt;完成座位安排後, 必須將各組組員名單與分組名單分別存入資料庫, 以便後續讓使用者查詢各組座位與分組資訊, 並且在隨後
+加入各組員回報電腦使用情形與各組員自評登錄成績之應用.&lt;/p&gt;
+&lt;p&gt;原始倉儲資料: &lt;a href="https://github.com/2015fallhw/2016springcd/tree/gh-pages"&gt;https://github.com/2015fallhw/2016springcd/tree/gh-pages&lt;/a&gt;&lt;/p&gt;</summary><category term="Flask"></category><category term="Brython"></category><category term="Python"></category><category term="練習"></category><category term="流程自動化"></category></entry><entry><title>yen - Github Pages 網頁資料更新問題</title><link href="http://project.mde.tw/blog/yen-github-pages-wang-ye-zi-liao-geng-xin-wen-ti.html" rel="alternate"></link><updated>2016-03-01T12:13:50+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-01:blog/yen-github-pages-wang-ye-zi-liao-geng-xin-wen-ti.html</id><summary type="html">&lt;p&gt;突然間, Github Pages 的網頁轉換機制不再更新&lt;/p&gt;
 
 
 &lt;p&gt;使用 Github Pages 建立網頁最大的問題就是, 在完全沒有任何錯誤訊息提醒的情況下, 送到 Github Pages 對應分支倉儲的資料不再成功轉為網頁資料.&lt;/p&gt;

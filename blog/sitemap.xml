@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://project.mde.tw/blog/</loc>
-<lastmod>2016-03-08T20:46:08-00:00</lastmod>
+<lastmod>2016-03-08T20:51:22-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://project.mde.tw/blog/archives.html</loc>
-<lastmod>2016-03-08T20:46:08-00:00</lastmod>
+<lastmod>2016-03-08T20:51:22-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://project.mde.tw/blog/tags.html</loc>
-<lastmod>2016-03-08T20:46:08-00:00</lastmod>
+<lastmod>2016-03-08T20:51:22-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://project.mde.tw/blog/categories.html</loc>
-<lastmod>2016-03-08T20:46:08-00:00</lastmod>
+<lastmod>2016-03-08T20:51:22-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -34,6 +34,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://project.mde.tw/blog/pages/about/</loc>
 <lastmod>2016-03-01T12:10:31+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/40323123-3d-printer.html</loc>
+<lastmod>2016-03-08T20:50:19+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -96,7 +103,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://project.mde.tw/blog/category/2016g1.html</loc>
-<lastmod>2016-03-02T10:41:40+08:06</lastmod>
+<lastmod>2016-03-08T20:50:19+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -116,22 +123,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://project.mde.tw/blog/tag/zhuan-ti.html</loc>
-<lastmod>2016-03-02T15:10:58+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://project.mde.tw/blog/tag/openshift.html</loc>
-<lastmod>2016-03-08T20:44:41+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://project.mde.tw/blog/tag/fan-li.html</loc>
+<loc>http://project.mde.tw/blog/tag/brython.html</loc>
 <lastmod>2016-03-02T10:41:40+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/jiao-xue-dao-yin.html</loc>
+<lastmod>2016-03-01T12:10:31+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -139,6 +139,13 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://project.mde.tw/blog/tag/flask.html</loc>
 <lastmod>2016-03-08T20:44:41+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/ji-jie-she-ji.html</loc>
+<lastmod>2016-03-02T15:10:58+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -158,29 +165,15 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://project.mde.tw/blog/tag/ji-jie-she-ji.html</loc>
-<lastmod>2016-03-02T15:10:58+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://project.mde.tw/blog/tag/brython.html</loc>
+<loc>http://project.mde.tw/blog/tag/liu-cheng-zi-dong-hua.html</loc>
 <lastmod>2016-03-02T10:41:40+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://project.mde.tw/blog/tag/jiao-xue-dao-yin.html</loc>
-<lastmod>2016-03-01T12:10:31+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://project.mde.tw/blog/tag/wang-zhi-she-ding.html</loc>
-<lastmod>2016-03-01T12:10:31+08:06</lastmod>
+<loc>http://project.mde.tw/blog/tag/fan-li.html</loc>
+<lastmod>2016-03-02T10:41:40+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -193,15 +186,36 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://project.mde.tw/blog/tag/liu-cheng-zi-dong-hua.html</loc>
-<lastmod>2016-03-02T10:41:40+08:06</lastmod>
+<loc>http://project.mde.tw/blog/tag/wang-zhi-she-ding.html</loc>
+<lastmod>2016-03-01T12:10:31+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/openshift.html</loc>
+<lastmod>2016-03-08T20:44:41+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/3d-printer.html</loc>
+<lastmod>2016-03-08T20:50:19+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/zhuan-ti.html</loc>
+<lastmod>2016-03-02T15:10:58+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://project.mde.tw/blog/author/40323123.html</loc>
-<lastmod>2016-03-01T12:10:31+08:06</lastmod>
+<lastmod>2016-03-08T20:50:19+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

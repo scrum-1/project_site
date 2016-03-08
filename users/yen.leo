@@ -75,7 +75,7 @@
 </v>
 </v>
 </v>
-<v t="amd.20160301205134.1"><vh>Flask 專案</vh>
+<v t="amd.20160301205134.1" a="E"><vh>Flask 專案</vh>
 <v t="amd.20160301205148.1"><vh>@edit setup.py</vh></v>
 <v t="amd.20160301205822.1"><vh>@edit config.py</vh></v>
 <v t="amd.20160301205303.1"><vh>@edit wsgi.py</vh></v>
@@ -113,6 +113,9 @@
 <v t="amd.20160301223228.1"><vh>程式測試</vh></v>
 <v t="amd.20160301011834.1" a="E"><vh>參考資料</vh>
 <v t="amd.20160302110137.1"><vh>機械設計專案參考</vh></v>
+<v t="amd.20160303145322.1"><vh>Node.js</vh></v>
+<v t="amd.20160303153826.1"><vh>jupyter</vh></v>
+<v t="amd.20160303163519.1"><vh>Windows</vh></v>
 </v>
 </v>
 <v t="amd.20151215170350.1"><vh>以下為 content 目錄中的 md 檔案</vh></v>
@@ -126,6 +129,7 @@
 <v t="amd.20160301114516.1"><vh>@edit yen_20160301-1.md</vh></v>
 <v t="leo.20160301161358.1"><vh>@edit yen_20160301-2.md</vh></v>
 <v t="amd.20160302114829.1"><vh>@edit yen_20160302.md</vh></v>
+<v t="amd.20160308202738.1"><vh>@edit yen_20160308.md</vh></v>
 </v>
 </v>
 </v>
@@ -483,6 +487,45 @@ https://www.me.washington.edu/students/ug/capstone.html
 https://projectselect.mecheng.adelaide.edu.au/
 
 https://engineering.temple.edu/departments-programs/senior-design-projects?filter=department/3</t>
+<t tx="amd.20160303145322.1">在 Ubuntu 14.04 安裝
+
+安裝 node.js
+
+    sudo apt-get update
+    
+    sudo apt-get install nodejs
+    
+    sudo apt-get install npm
+    
+安裝 ungit
+
+    sudo ln -s /usr/bin/nodejs /usr/bin/node
+
+    sudo npm install -g ungit</t>
+<t tx="amd.20160303153826.1">在 Ubuntu 14.04 安裝 jupyter
+
+先安裝開發系統:
+
+sudo apt-get install build-essential python3-dev
+
+sudo pip3 install jupyter
+
+更新 jupyter:
+
+    sudo pip3 install -U jupyter</t>
+<t tx="amd.20160303163519.1">Windows 工具網站:
+
+http://www.toolwiz.com/downloads/
+
+http://www.techbang.com/posts/19270-infinite-regeneration-windows-81-boot-restore-cheat-secretly-reported-74-special-feature
+
+http://blog.ilc.edu.tw/blog/blog/25793/post/73149/507902
+
+http://dyna.boe.ttct.edu.tw/data/user/506b8811c8839/files/201405071750211.pdf
+
+Browser in the box:
+
+http://download.sirrix.com/content/pages/bbdl-en.htm (linux and Windows)</t>
 <t tx="leo.20151212173315.1"></t>
 <t tx="leo.20151212173315.2">QTreeWidget {
     /* These apply to the selected item, but not to editing items.*/

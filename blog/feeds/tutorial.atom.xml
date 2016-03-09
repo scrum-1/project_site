@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/tutorial.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-08T20:44:41+08:00</updated><entry><title>yen - 網際 Flask 程式架構</title><link href="http://project.mde.tw/blog/yen-wang-ji-flask-cheng-shi-jia-gou.html" rel="alternate"></link><updated>2016-03-08T20:44:41+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-08:blog/yen-wang-ji-flask-cheng-shi-jia-gou.html</id><summary type="html">&lt;p&gt;Flask 是一套支援 Python3 的全球資訊網程式框架, 這裡希望用它來開發網際輔助機械設計程式.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/tutorial.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-09T13:45:51+08:00</updated><entry><title>yen - 如何參與 project.mde.tw 的協同編輯</title><link href="http://project.mde.tw/blog/yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html" rel="alternate"></link><updated>2016-03-09T13:45:51+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-09:blog/yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html</id><summary type="html">&lt;p&gt;只要是 KMOL 機械設計專題的成員, 就可以依照特定程序, 管理 project.mde.tw 網站上的資料&lt;/p&gt;
+
+
+&lt;p&gt;首先, 你必須是 &lt;a href="https://github.com/coursemdetw/project_site/watchers"&gt;https://github.com/coursemdetw/project_site/watchers&lt;/a&gt; 名單上的成員, 否則就必須透過 Pull Request 的方式來參與 &lt;a href="http://project.mde.tw"&gt;http://project.mde.tw&lt;/a&gt; 網誌內容的協同管理.&lt;/p&gt;
+&lt;p&gt;接下來, 利用 git clone 的方式, 將 &lt;a href="https://github.com/coursemdetw/project_site"&gt;https://github.com/coursemdetw/project_site&lt;/a&gt; 的倉儲資料複製到近端, 並且將分支切換到 gh-pages, 就可以利用 Leo Editor 開啟或建立, 位於 users 目錄中的 user_template.leo, 然後轉存為"學號.leo" 檔案, 透過這個 Leo Editor 的專案檔, 就可以新增文章, 修改其他人的文章, 甚至修改本網誌系統中的任何設定.&lt;/p&gt;
+&lt;p&gt;將 user_template.leo 轉存為 "學號.leo" 後, 第1件重要的事就是修改 @edit user_20160301.md 中的 user_20160301.md 的存檔檔名, 改為 學號_當天日期.md, 然後修改此一 md 檔案的文章標題: Title: user - 使用者的範例網誌文章標題, 因為這個網誌系統根據 Title: 之後的名稱來轉換 html, 若有兩個 .md 檔案的 Title: 資料完全一樣, Pelican 將無法轉檔, 並且會在轉檔的命令列中出現錯誤訊息.&lt;/p&gt;
+&lt;p&gt;其他的 .md 檔案中, Category: 為文章的類別, 可以參考現有的"2016g1, Misc 與 Tutorial" 等3個類別, 可以是組別或是文章的屬性類別.
+Tags: 則是文章的內容標籤,可以就文章的內容關鍵字加以界定, 至於 Author: 則是用戶的名稱.&lt;/p&gt;
+&lt;p&gt;在每一個 .md 檔案中, 出現在 "PELICAN_END_SUMMARY" 超文件註解標註之前的內容, Pelican 會視為文章的摘要, 當各文章並列時, 文章只會列出標題與摘要.&lt;/p&gt;
+&lt;p&gt;"PELICAN_END_SUMMARY" 超文件註解標註之後的內容就是文章的主要內容.&lt;/p&gt;
+&lt;p&gt;文章中的程式可以利用:&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="nb"&gt;range&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
+    &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s"&gt;&amp;quot;:hello&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;來加以標示.&lt;/p&gt;
+&lt;p&gt;圖檔則可以利用 img 標註引用:&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://raw.githubusercontent.com/chiamingyen/kmolab/gh-pages/logo/kmol_1172x340_color_3yrs.png" width="600" /&gt;&lt;/p&gt;
+&lt;p&gt;影片引用則可以直接使用 Vimeo 或 Youtube 的 embedded 語法.&lt;/p&gt;
+&lt;p&gt;因為本網誌能夠在近端與遠端等兩個不同環境下運作, 而兩端的關鍵字搜尋流程與格式不同, 因此轉檔的按鈕也分為 local-pelican 與 gh-pages-pelican 等兩個, 要在近端測試時, 必須滑鼠停在 local-pelican 轉檔按鈕的對應節點上, 然後按下 local-pelican, 經過瀏覽器檢查近端文章轉檔與內容無誤後, 必須將滑鼠停在 gh-pages-pelican 轉檔按鈕的對應節點上, 然後按下 gh-pages-pelican 按鈕, 之後若無任何問題, 就可以將資料提交推送到遠端倉儲的 gh-pages 分支中, 指令如下:&lt;/p&gt;
+&lt;p&gt;git add -A&lt;/p&gt;
+&lt;p&gt;git commit -m "提交說明訊息"&lt;/p&gt;
+&lt;p&gt;git push origin gh-pages&lt;/p&gt;</summary><category term="Pelican"></category><category term="Leo Editor"></category></entry><entry><title>yen - 網際 Flask 程式架構</title><link href="http://project.mde.tw/blog/yen-wang-ji-flask-cheng-shi-jia-gou.html" rel="alternate"></link><updated>2016-03-08T20:44:41+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-08:blog/yen-wang-ji-flask-cheng-shi-jia-gou.html</id><summary type="html">&lt;p&gt;Flask 是一套支援 Python3 的全球資訊網程式框架, 這裡希望用它來開發網際輔助機械設計程式.&lt;/p&gt;
 
 
 &lt;p&gt;&lt;a href="http://flask.pocoo.org/"&gt;http://flask.pocoo.org/&lt;/a&gt; 是一套簡潔的 Python3 網際程式框架, 在這一系列的導引資料中, 將利用 &lt;a href="https://github.com/2015fallhw/simpleflask"&gt;https://github.com/2015fallhw/simpleflask&lt;/a&gt; 倉儲來存放資料, 並將資料同步推送到 &lt;a href="http://simpleflask-2014openshift.rhcloud.com/"&gt;http://simpleflask-2014openshift.rhcloud.com/&lt;/a&gt; 執行.&lt;/p&gt;

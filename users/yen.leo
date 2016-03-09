@@ -18,7 +18,7 @@
 <v t="leo.20151213173811.1" a="E"><vh>假如要送到 gh-pages 分支, 使用下列按鈕</vh>
 <v t="leo.20151212173658.1"><vh>@button gh-pages pelican</vh></v>
 </v>
-<v t="leo.20151213173830.1" a="E"><vh>假如要在近端檢視, 使用下列按鈕</vh>
+<v t="leo.20151213173830.1"><vh>假如要在近端檢視, 使用下列按鈕</vh>
 <v t="leo.20151213085727.1"><vh>@button local pelican</vh></v>
 </v>
 <v t="amd.20160117010542.1"><vh>@button git rm -rf blog</vh></v>
@@ -121,20 +121,27 @@
 <v t="amd.20151215170350.1"><vh>以下為 content 目錄中的 md 檔案</vh></v>
 <v t="amd.20160106093610.1"><vh>協同網誌編寫規範</vh></v>
 <v t="amd.20160301001423.1"><vh>專題類別與標籤規劃</vh></v>
-<v t="amd.20160309073114.1"><vh>有關 pelican 與 WP 同步內容</vh>
+<v t="amd.20160309073114.1" a="E"><vh>有關 pelican 與 WP 同步內容</vh>
 <v t="amd.20160309073149.1"><vh>@button new to wp</vh></v>
 <v t="amd.20160309073204.1"><vh>@button edit to wp</vh></v>
 <v t="amd.20160309073217.1"><vh>@button get from wp</vh>
 <v t="amd.20160309073217.2"><vh>程式設計考量</vh></v>
 </v>
+<v t="amd.20160309103606.1" a="E"><vh>動靜整合條件</vh>
+<v t="amd.20160309103957.1"><vh>程式碼 hightligh</vh></v>
+<v t="amd.20160309103936.1"><vh>摘要與內文區隔</vh></v>
+<v t="amd.20160309104219.1"><vh>文章類別與 tags</vh></v>
+<v t="amd.20160309104821.1"><vh>為了整合而做的輸入原則</vh></v>
+<v t="amd.20160309105129.1"><vh>可行的整合方法</vh></v>
+</v>
 <v t="amd.20160309073903.1" a="E"><vh>wordpress-2014openshift.rhcloud.com</vh>
 <v t="amd.20160309073903.2" a="E"><vh>@url 連結網誌</vh>
 <v t="amd.20160309073903.3"><vh>如何使用 @url 節點</vh></v>
 </v>
-<v t="amd.20160309073903.4" a="E"><vh>測試 html.unescape 功能</vh>
+<v t="amd.20160309073903.4" a="E"><vh>CherryPy on OpenShift</vh>
 <v t="amd.20160309073903.5"><vh>文章 id</vh></v>
 </v>
-<v t="amd.20160309074045.1"><vh>希望 pelican 與 wordpress 同步</vh>
+<v t="amd.20160309074045.1" a="E"><vh>希望 pelican 與 wordpress 同步</vh>
 <v t="amd.20160309080306.1"><vh>文章 id</vh></v>
 </v>
 </v>
@@ -733,6 +740,8 @@ fo.close()
 wp_url = "https://"+p.parent().h+"/xmlrpc.php"
 wp_username = data[0]
 wp_password = data[1]
+#g.es(wp_url)
+#g.es(wp_username)
 #################################
 
 server = xmlrpc.client.ServerProxy(wp_url)
@@ -742,6 +751,7 @@ server = xmlrpc.client.ServerProxy(wp_url)
 # 從最後的 child 節點來取 post_id
 origin_post = p.getLastChild()
 post_id = origin_post.b
+#g.es(post_id)
 # 取回與 post_id 對應的網誌文章內容
 blog_content = server.metaWeblog.getPost (post_id, wp_username, wp_password)
 title = blog_content["title"]
@@ -890,18 +900,41 @@ wp_password = data[2]</t>
 <t tx="amd.20160309073903.1">/home/amd/Desktop/demo-2015course.txt</t>
 <t tx="amd.20160309073903.2">http://wordpress-2014openshift.rhcloud.com</t>
 <t tx="amd.20160309073903.3">按著 Ctrl+Alt 再按滑鼠左鍵, 就可以連結到上述網址</t>
-<t tx="amd.20160309073903.4">categories:Uncategorized, 
-tags:python, 測試
-這是第1週的摘要內容
-[python]
-for i in range(6):
-    可以 = 5
-    print (i,":",可以)
-    print("已經完成")
-[/python]
-這個程式的真正用途說明
-這筆資料從 Leo Editor 送出.</t>
-<t tx="amd.20160309073903.5">212</t>
+<t tx="amd.20160309073903.4">Categories:Uncategorized
+Tags:OpenShift, Cherrypy, Pelican
+當在 OpehShift 環境使用 CherryPy 時, 可以透過下列方法取得客戶端的 IP.
+
+&lt;!--more--&gt;
+
+
+以下使用 SyntaxHighlighter Evolved for Wordpress plugin:
+
+[code lang="python"]
+def client_ip():
+    try:
+        return cherrypy.request.headers["X-Forwarded-For"]
+    except:
+        return cherrypy.request.headers["Remote-Addr"]
+[/code]
+
+與 cherrypy.request.headers 有關的 dictionary 值:
+
+'Remote-Addr': 遠端電腦所使用的 IP, 若中間有代理主機, 無論是客戶端連線設定或者是伺服器端所使用的伺服代理主機, 若客戶端中間有代理主機, 則 Remote-Addr 傳回的 IP 將會是代理主機的 IP, 而非客戶端的真實 IP.
+
+'User-Agent': 使用者所使用的瀏覽器與操作系統相關資料.
+
+'X-Forwarded-Host': 伺服器 domain name 與 'Host' 相同.
+
+'Referer': 客戶端連線的完整 URL.
+
+'X-Forwarded-For': 當客戶端與伺服器端中間有代理主機時, X-Forwarded-For 將傳回客戶端的真實 IP.
+
+'X-Client-Ip': 與 'X-Forwarded-For' 相同.
+
+'X-Forwarded-Port': 連線埠號.
+
+&lt;a href="https://groups.google.com/forum/#!topic/cherrypy-users/zmNgprB9wtU"&gt;參考資料&lt;/a&gt;</t>
+<t tx="amd.20160309073903.5">91</t>
 <t tx="amd.20160309074045.1">categories:Uncategorized, 
 tags:python, 測試
 靜態與動態網誌的同步整合
@@ -919,8 +952,78 @@ Leo Editor 節點標題指令 @url 的用法, 滑鼠停在 @url 的節點, 然�
 
 Pelican 靜態網誌的好處是資料的終端內容全部都是 html, 而且使用者可以編寫 Markdown 格式的文檔, 然後再交由 Pelican, 以 Python 的程式方法, 將 Markdown 檔案轉成一系列有網誌架構的 html 終端檔案.
 
-Pelican 靜態網誌所建立的 html 檔案, 就可以放到 Github Pages 或其他網站, 比較容易維護.</t>
+Pelican 靜態網誌所建立的 html 檔案, 就可以放到 Github Pages 或其他網站, 比較容易維護.
+
+可否同步.</t>
 <t tx="amd.20160309080306.1">108</t>
+<t tx="amd.20160309103606.1">這裡希望先找出 Wordpress 與 Pelican 在文章資料提供上的差異進行比較, 然後再找出可行的整合方案</t>
+<t tx="amd.20160309103936.1">Wordpress 使用:
+
+    &lt;!--more--&gt;
+
+Pelican 使用:
+
+    &lt;!-- PELICAN_END_SUMMARY --&gt;</t>
+<t tx="amd.20160309103957.1">程式碼 hightlight 方式差異:
+
+在 Wordpress 中, 使用 code 的標註.
+
+    [code lang="python"]
+    def client_ip():
+        try:
+            return cherrypy.request.headers["X-Forwarded-For"]
+        except:
+            return cherrypy.request.headers["Remote-Addr"]
+    [/code]
+
+而 Pelican 目前則使用簡潔法.
+
+    ~~~python
+    print("hello")
+    ~~~
+
+因此理論上只要, 將
+
+[code lang="python"] 與 ~~~python 對應
+
+[/code] 與 ~~~&lt;br /&gt; 對應
+
+應該就有機會整合兩端的原始文章內容格式.</t>
+<t tx="amd.20160309104219.1">Wordpress 使用:
+
+    Categories: Uncategorized
+    Tags: OpenShift, Cherrypy
+    
+Pelican 使用:
+
+    Title: yen - 2016 年專題啟動
+    Category: Tutorial
+    Tags: 教學導引, 網誌設定
+    Author: yen
+
+</t>
+<t tx="amd.20160309104821.1">所有相關 anchor 連結, 不能再使用 Pelican Markdown 的 &lt;url&gt;, 而必須改為完整的 &lt;a href="url"&gt;url&lt;/a&gt; 格式編寫.
+
+而 image 檔案的引用, 則一律採用 img tags
+
+程式碼引用的前後標註, 則必須再看看是否能夠整合, 或者需要在整體內容推送前進行轉檔
+</t>
+<t tx="amd.20160309105129.1">每一篇文章的輸入, 必須先拆成:
+
+標題:
+
+類別:
+
+Tags:
+
+作者:
+
+摘要:
+
+內文:
+
+然後在推送到 Pelican md 檔案與 Wordpress 的文章內容前, 再次確認兩端的格式與資料處理與傳送方法.
+</t>
 <t tx="leo.20151212173315.1"></t>
 <t tx="leo.20151212173315.2">QTreeWidget {
     /* These apply to the selected item, but not to editing items.*/

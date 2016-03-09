@@ -18,7 +18,7 @@
 <v t="leo.20151213173811.1" a="E"><vh>假如要送到 gh-pages 分支, 使用下列按鈕</vh>
 <v t="leo.20151212173658.1"><vh>@button gh-pages pelican</vh></v>
 </v>
-<v t="leo.20151213173830.1"><vh>假如要在近端檢視, 使用下列按鈕</vh>
+<v t="leo.20151213173830.1" a="E"><vh>假如要在近端檢視, 使用下列按鈕</vh>
 <v t="leo.20151213085727.1"><vh>@button local pelican</vh></v>
 </v>
 <v t="amd.20160117010542.1"><vh>@button git rm -rf blog</vh></v>
@@ -116,6 +116,12 @@
 <v t="amd.20160303145322.1"><vh>Node.js</vh></v>
 <v t="amd.20160303153826.1"><vh>jupyter</vh></v>
 <v t="amd.20160303163519.1"><vh>Windows</vh></v>
+</v>
+<v t="amd.20160309123311.1" a="E"><vh>處理錯誤</vh>
+<v t="amd.20160309123318.1" a="E"><vh>@path content</vh>
+<v t="amd.20160309123402.1"><vh>@edit 40323130_20160301.md</vh></v>
+<v t="amd.20160309123451.1"><vh>@edit 40323143_20160309.md</vh></v>
+</v>
 </v>
 </v>
 <v t="amd.20151215170350.1"><vh>以下為 content 目錄中的 md 檔案</vh></v>
@@ -1024,6 +1030,8 @@ Tags:
 
 然後在推送到 Pelican md 檔案與 Wordpress 的文章內容前, 再次確認兩端的格式與資料處理與傳送方法.
 </t>
+<t tx="amd.20160309123311.1"></t>
+<t tx="amd.20160309123318.1"></t>
 <t tx="leo.20151212173315.1"></t>
 <t tx="leo.20151212173315.2">QTreeWidget {
     /* These apply to the selected item, but not to editing items.*/

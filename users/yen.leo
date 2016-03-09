@@ -75,7 +75,7 @@
 </v>
 </v>
 </v>
-<v t="amd.20160301205134.1" a="E"><vh>Flask 專案</vh>
+<v t="amd.20160301205134.1"><vh>Flask 專案</vh>
 <v t="amd.20160301205148.1"><vh>@edit setup.py</vh></v>
 <v t="amd.20160301205822.1"><vh>@edit config.py</vh></v>
 <v t="amd.20160301205303.1"><vh>@edit wsgi.py</vh></v>
@@ -111,7 +111,7 @@
 </v>
 <v t="amd.20160301010714.1"><vh>組員名單</vh></v>
 <v t="amd.20160301223228.1"><vh>程式測試</vh></v>
-<v t="amd.20160301011834.1" a="E"><vh>參考資料</vh>
+<v t="amd.20160301011834.1"><vh>參考資料</vh>
 <v t="amd.20160302110137.1"><vh>機械設計專案參考</vh></v>
 <v t="amd.20160303145322.1"><vh>Node.js</vh></v>
 <v t="amd.20160303153826.1"><vh>jupyter</vh></v>
@@ -121,6 +121,37 @@
 <v t="amd.20151215170350.1"><vh>以下為 content 目錄中的 md 檔案</vh></v>
 <v t="amd.20160106093610.1"><vh>協同網誌編寫規範</vh></v>
 <v t="amd.20160301001423.1"><vh>專題類別與標籤規劃</vh></v>
+<v t="amd.20160309073114.1"><vh>有關 pelican 與 WP 同步內容</vh>
+<v t="amd.20160309073149.1"><vh>@button new to wp</vh></v>
+<v t="amd.20160309073204.1"><vh>@button edit to wp</vh></v>
+<v t="amd.20160309073217.1"><vh>@button get from wp</vh>
+<v t="amd.20160309073217.2"><vh>程式設計考量</vh></v>
+</v>
+<v t="amd.20160309073903.1" a="E"><vh>wordpress-2014openshift.rhcloud.com</vh>
+<v t="amd.20160309073903.2" a="E"><vh>@url 連結網誌</vh>
+<v t="amd.20160309073903.3"><vh>如何使用 @url 節點</vh></v>
+</v>
+<v t="amd.20160309073903.4" a="E"><vh>測試 html.unescape 功能</vh>
+<v t="amd.20160309073903.5"><vh>文章 id</vh></v>
+</v>
+<v t="amd.20160309074045.1"><vh>希望 pelican 與 wordpress 同步</vh>
+<v t="amd.20160309080306.1"><vh>文章 id</vh></v>
+</v>
+</v>
+<v t="amd.20160309073330.1"><vh>程式開發討論</vh>
+<v t="amd.20160309073330.2" a="E"><vh>Leo 開發參考資料</vh>
+<v t="amd.20160309073330.3"><vh>@url Leo Editor API</vh>
+<v t="amd.20160309073330.4"><vh>如何使用 @url 節點</vh></v>
+</v>
+</v>
+<v t="amd.20160309073330.5"><vh>執行過程從 Minibuffer 欄位取輸入</vh></v>
+<v t="amd.20160309073330.6"><vh>利用 Leo Editor 作為 Wordpress client</vh></v>
+<v t="amd.20160309073330.7" a="E"><vh>節點資料應用範例</vh>
+<v t="amd.20160309073330.8"><vh>p 的用法</vh></v>
+<v t="amd.20160309073330.9"><vh>從檔案讀取帳號密碼</vh></v>
+</v>
+</v>
+</v>
 <v t="amd.20151216001126.1"><vh>md 檔案範例</vh></v>
 <v t="amd.20151215170031.1" a="E"><vh>@path ./../content</vh>
 <v t="amd.20160106093454.1" a="E"><vh>yen 所寫的網誌文章</vh>
@@ -130,10 +161,11 @@
 <v t="leo.20160301161358.1"><vh>@edit yen_20160301-2.md</vh></v>
 <v t="amd.20160302114829.1"><vh>@edit yen_20160302.md</vh></v>
 <v t="amd.20160308202738.1"><vh>@edit yen_20160308.md</vh></v>
+<v t="amd.20160309082155.1"><vh>@edit yen_20160309.md</vh></v>
 </v>
 </v>
 </v>
-<v t="amd.20160106094754.1" a="E"><vh>@path ./../content/pages</vh>
+<v t="amd.20160106094754.1"><vh>@path ./../content/pages</vh>
 <v t="amd.20160106094829.1" a="E"><vh>yen 所寫的 pages 文章</vh>
 <v t="amd.20160106094844.1"><vh>@edit yen_pages_1.md</vh></v>
 </v>
@@ -526,6 +558,369 @@ http://dyna.boe.ttct.edu.tw/data/user/506b8811c8839/files/201405071750211.pdf
 Browser in the box:
 
 http://download.sirrix.com/content/pages/bbdl-en.htm (linux and Windows)</t>
+<t tx="amd.20160309073114.1"></t>
+<t tx="amd.20160309073149.1">@language python
+#coding: utf-8
+import xmlrpc.client
+import datetime
+import os
+
+def get_cat_tag_content(data):
+    data_list = data.split("\n")
+    # 只有一項資料的 category 型別為字串
+    category = data_list[0]
+    # 只有一項資料的 tags 型別為字串
+    tags = data_list[1]
+    # 有多項資料的 content 型別為數列
+    # 再將第3行之後的資料數列串回成以跳行隔開的資料
+    content = "\n".join(data_list[2:])
+    return category, tags, content
+    
+os.environ['TZ'] = 'Asia/Taipei'
+
+#################################
+# Open a file
+fo = open(p.parent().b, "r+")
+data = []
+for line in fo.readlines():
+    data.append(line)
+    #print(line)
+#print(data[0])
+ 
+# Close opend file
+fo.close()
+ 
+# 從網誌節點的 parent().h 取得 wp_url
+# 從網誌節點的 parent().b 取得帳號與密碼對應的文字檔案路徑
+wp_url = "https://"+p.parent().h+"/xmlrpc.php"
+wp_username = data[0]
+wp_password = data[1]
+#################################
+wp_blogid = "0"
+ 
+status_draft = 0
+status_published = 1
+ 
+server = xmlrpc.client.ServerProxy(wp_url)
+ 
+title = p.h
+#content = p.b
+category_str, tags_str, content = get_cat_tag_content(p.b)
+# 指定時間出版
+'''
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime("2013-01-01 00:00",
+"%Y-%m-%d %H:%M"))
+'''
+# 以現在時間出版, 考慮與 Server 時間差八個小時 (480 分鐘), 因此要在 8 個小時前發表
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime((datetime.datetime.now()- \
+datetime.timedelta(minutes=480)).strftime('%Y-%m-%d %H:%M'),"%Y-%m-%d %H:%M"))
+#categories = ["Uncategorized"]
+#tags = ["python", "測試"]
+categories = [category_str.split(":")[1]]
+# 請注意, 因為 tags 用逗點隔開, 因此必須透過 split() 再分開成為 list 資料
+tags = tags_str.split(":")[1].split(",")
+data = {'title': title, 'description': content, 'dateCreated': date_created, 'categories': categories, 'mt_keywords': tags}
+ 
+post_id = server.metaWeblog.newPost(wp_blogid, wp_username, wp_password, data, status_published)
+# 利用最後的 child 節點來儲存 post_id
+to_save_post_id = p.insertAsLastChild()    
+to_save_post_id.b = post_id
+to_save_post_id.h = "文章 id"
+# 因為新增節點, commander 必須 redraw
+c.redraw() 
+
+g.es("post_id 為", post_id)
+g.es("已經送出資料!")
+'''
+其他 metaWeblog 的用法:
+metaWeblog.newPost (blogid, username, password, struct, publish) returns string(postid)
+metaWeblog.editPost (postid, username, password, struct, publish) returns true
+metaWeblog.getPost (postid, username, password) returns struct(blog content)
+'''</t>
+<t tx="amd.20160309073204.1">@language python
+#coding: utf-8
+import xmlrpc.client
+import datetime
+import os
+
+def get_cat_tag_content(data):
+    data_list = data.split("\n")
+    # 只有一項資料的 category 型別為字串
+    category = data_list[0]
+    # 只有一項資料的 tags 型別為字串
+    tags = data_list[1]
+    # 有多項資料的 content 型別為數列
+    # 再將第3行之後的資料數列串回成以跳行隔開的資料
+    content = "\n".join(data_list[2:])
+    return category, tags, content
+    
+os.environ['TZ'] = 'Asia/Taipei'
+ 
+#################################
+# Open a file
+fo = open(p.parent().b, "r+")
+data = []
+for line in fo.readlines():
+    data.append(line)
+    #print(line)
+#print(data[0])
+ 
+# Close opend file
+fo.close()
+
+# 從網誌節點的 parent().h 取得 wp_url
+# 從網誌節點的 parent().b 取得帳號與密碼對應的文字檔案路徑
+wp_url = "https://"+p.parent().h+"/xmlrpc.php"
+wp_username = data[0]
+wp_password = data[1]
+#################################
+wp_blogid = "0"
+ 
+status_draft = 0
+status_published = 1
+ 
+server = xmlrpc.client.ServerProxy(wp_url)
+ 
+title = p.h
+#content = p.b
+category_str, tags_str, content = get_cat_tag_content(p.b)
+# 指定時間出版
+'''
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime("2013-01-01 00:00",
+"%Y-%m-%d %H:%M"))
+'''
+# 以現在時間出版, 考慮與 Server 時間差八個小時 (480 分鐘), 因此要在 8 個小時前發表
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime((datetime.datetime.now()- \
+datetime.timedelta(minutes=480)).strftime('%Y-%m-%d %H:%M'),"%Y-%m-%d %H:%M"))
+#categories = ["Uncategorized"]
+#tags = ["python", "測試"]
+categories = [category_str.split(":")[1]]
+# 請注意, 因為 tags 用逗點隔開, 因此必須透過 split() 再分開成為 list 資料
+tags = tags_str.split(":")[1].split(",")
+data = {'title': title, 'description': content, 'dateCreated': date_created, 'categories': categories, 'mt_keywords': tags}
+
+# 設法取得原 post 的 id
+origin_post = p.getLastChild()
+post_id = origin_post.b
+status = server.metaWeblog.editPost(post_id, wp_username, wp_password, data, status_published)
+
+if status:
+    g.es("資料已經更新!")
+else:
+    g.es("有問題, 資料沒有更新!")
+'''
+其他 metaWeblog 的用法:
+metaWeblog.newPost (blogid, username, password, struct, publish) returns string(postid)
+metaWeblog.editPost (postid, username, password, struct, publish) returns true
+metaWeblog.getPost (postid, username, password) returns struct(blog content)
+'''</t>
+<t tx="amd.20160309073217.1">@language python
+#coding: utf-8
+import xmlrpc.client
+# 導入 html 模組, 使用 html.unescape 轉換 html 特殊符號
+import html
+ 
+#################################
+# Open a file
+fo = open(p.parent().b, "r+")
+data = []
+for line in fo.readlines():
+    data.append(line)
+fo.close()
+
+# 從網誌節點的 parent().h 取得 wp_url
+# 從網誌節點的 parent().b 取得帳號與密碼對應的文字檔案路徑
+wp_url = "https://"+p.parent().h+"/xmlrpc.php"
+wp_username = data[0]
+wp_password = data[1]
+#################################
+
+server = xmlrpc.client.ServerProxy(wp_url)
+
+# 設法透過上述網誌網址, 帳號與密碼, 以及文章 id, 取回 categories, tags, 文章標題, 文章內容等資
+
+# 從最後的 child 節點來取 post_id
+origin_post = p.getLastChild()
+post_id = origin_post.b
+# 取回與 post_id 對應的網誌文章內容
+blog_content = server.metaWeblog.getPost (post_id, wp_username, wp_password)
+title = blog_content["title"]
+# 這裡要利用 html.unescape 轉回特殊符號
+description = html.unescape(blog_content["description"])
+mt_text_more = html.unescape(blog_content["mt_text_more"])
+if mt_text_more != "":
+    post_content = description + "\n&lt;!--more--&gt;\n"+mt_text_more
+else:
+    post_content = description
+# 所取回的 categories 為 list
+categories = blog_content["categories"]
+# 索取回的 tags 為以逗點隔開的字串
+mt_keywords = blog_content["mt_keywords"]
+p.h = title
+categories_str = ""
+for category in categories:
+    # 假如不是最後一個
+    if category != categories[len(categories)-1]:
+        categories_str += category + ", "
+    else:
+        # 這是最後一個
+        categories_str += category
+p.b = "categories:"+categories_str+"\ntags:"+mt_keywords+"\n"+post_content
+# 因為節點資料更新, commander 必須 redraw
+c.redraw() 
+g.es("資料已經取回")
+
+
+</t>
+<t tx="amd.20160309073217.2">俱備取回資料的權限
+
+透過子節點的文章 id 與網誌網址, 以 xmlrpc 協定進行連線
+
+取回 categories, tags, 文章標題與文章內容, 還有作者帳號?
+
+分別按照格式, 將取回的資料放入對應節點
+
+</t>
+<t tx="amd.20160309073330.1">2015.04.02 - 目前還需要一個能夠從雲端網誌取回資料的按鈕
+
+2015.04.07 - 已經完成 get-from-wp 按鈕程式, 但是又希望能夠使用 Markdown
+格式來寫, 將 md 轉為 html 然後丟到 Wordpress 可能沒有問題, 但是取回時
+必須能夠將 html 轉回 md, 能夠辦到嗎?
+
+找到 https://github.com/aaronsw/html2text 應該有機會可以將 html 轉為 md
+
+更新的接續開發為 https://github.com/Alir3z4/html2text (Python 3 相容)
+
+pandoc 也可以將 html 轉為 md
+
+pandoc -s -r html http://www.gnu.org/software/make/ -o example12.text</t>
+<t tx="amd.20160309073330.2">所有與 Leo Editor 相關的程式開發資料, 放在這裡</t>
+<t tx="amd.20160309073330.3">http://leo-editor.readthedocs.org/en/latest/leo.core.html?highlight=insertaslastchild#leo.core.leoNodes.Position.insertAsLastChild
+
+按著 Ctrl+Alt 再按滑鼠左鍵, 就可以連結到上述網址</t>
+<t tx="amd.20160309073330.4">按著 Ctrl+Alt 再按滑鼠左鍵, 就可以連結到上述網址</t>
+<t tx="amd.20160309073330.5">def getInput (event=None):
+
+   stateName = 'get-input'
+   k = c.k
+   state = k.getState(stateName)
+
+   if state == 0:
+       k.setLabelBlue('輸入為: ')
+       k.getArg(event,stateName,1,getInput)
+   else:
+       k.clearState()
+       g.es_print('你的輸入為: %s' % k.arg)
+
+getInput()</t>
+<t tx="amd.20160309073330.6">首節點標題為 Wordpress site 的 domain name, 程式會加上 https:// 頭與 /xmlrpc.php 尾
+
+首節點對應的 body 內容為儲存發佈訊息的帳號密碼檔案的存放路徑
+
+新增 post 結束後, 程式會在訊息發佈節點的下屬, 新增一個"文章 id" 內文存放該對應內容的 post_id, 當 post 對應節點內容更動後, 就是透過此一 id 執行資料更新
+
+將 new-to-wp 與 edit-to-wp 設為 buttons
+
+記得在 WP 新增一個 author 帳號, 以便與 Leo Editor 中的 buttons 程式配合, 不要使用 site administrator 帳號.
+
+為了配合網誌更新流程中, 使用者在瀏覽器中更新既有的網誌文章, 然後再透過 Leo Editor 對應專案進行改版, 此時使用者必須先從網誌取下特定文章的內容之後, 才能根據最新文章加以改版. 換言之, 這裡需要一個 update-from-wp 透過"文章 id" 取下文章的最新內容, 而非使用 Leo Editor 中的舊內容進行改版.</t>
+<t tx="amd.20160309073330.7">'''在目前所選節點位置, 為 p, 執行
+insertAsLastChild(), 且隨後宣告其
+標題與內文'''
+child = p.insertAsLastChild()    
+child.b = "我的內文"
+child.h = "我的標題"
+'''將目前所選節點位置中, 取最後一個 Child, 然後對應給 added 變數
+這樣就可以取得 added 的標題與內文'''
+added = p.getLastChild()
+g.es("標題:"+added.h+"內文:"+added.b)
+
+c.redraw() </t>
+<t tx="amd.20160309073330.8">@language python
+'''
+for p in c.all_positions():
+    # 列出所有節點的 level() 與 h
+    # 第1層 p.level() 為 0, h 為節點標題
+    g.es(p.level(), p.h)
+'''
+'''
+# echo string 時, 利用 angleBrackets 圈住字串
+g.es(g.angleBrackets('abc'))
+# 若節點內容或架構更動, 需要利用 c.redraw() 重新繪製
+c.redraw_now()
+'''
+# 有關 generator
+'''
+A generator is simply a function which returns an object on which you can call next, such that for every call it returns some value, until it raises a StopIteration exception, signaling that all values have been generated. Such an object is called an iterator.
+
+Normal functions return a single value using return, just like in Java. In Python, however, there is an alternative, called yield. Using yield anywhere in a function makes it a generator.
+'''
+# 利用 yield 傳值以便定義 generator 函式
+def myGen(n):
+    yield n
+    yield n + 1
+data = myGen(6)
+g.es(next(data))
+g.es(next(data))
+
+# 若再呼叫 next(data) 就會出錯, 因為 yield 只有兩筆</t>
+<t tx="amd.20160309073330.9"># 改為讀檔案取得網誌連結, 帳號與密碼
+# Open a file
+fo = open("foo.txt", "r+")
+'''
+foo.txt 內容
+ 
+https://網誌網址/xmlrpc.php
+ 
+帳號
+密碼
+'''
+data = []
+for line in fo.readlines():
+    data.append(line)
+    #print(line)
+#print(data[0])
+ 
+# Close opend file
+fo.close()
+ 
+wp_url = data[0]
+wp_username = data[1]
+wp_password = data[2]</t>
+<t tx="amd.20160309073903.1">/home/amd/Desktop/demo-2015course.txt</t>
+<t tx="amd.20160309073903.2">http://wordpress-2014openshift.rhcloud.com</t>
+<t tx="amd.20160309073903.3">按著 Ctrl+Alt 再按滑鼠左鍵, 就可以連結到上述網址</t>
+<t tx="amd.20160309073903.4">categories:Uncategorized, 
+tags:python, 測試
+這是第1週的摘要內容
+[python]
+for i in range(6):
+    可以 = 5
+    print (i,":",可以)
+    print("已經完成")
+[/python]
+這個程式的真正用途說明
+這筆資料從 Leo Editor 送出.</t>
+<t tx="amd.20160309073903.5">212</t>
+<t tx="amd.20160309074045.1">categories:Uncategorized, 
+tags:python, 測試
+靜態與動態網誌的同步整合
+[python]
+for i in range(6):
+    可以 = 5
+    print (i,":",可以)
+    print("已經完成")
+[/python]
+希望找出兩種不同性質網誌的終極整合方法
+
+Leo Editor 節點標題指令 @url 的用法, 滑鼠停在 @url 的節點, 然後使用 Ctrl+Alt 再加上滑鼠左鍵, 就可以開啟瀏覽器, 連結到 @url 節點對應 body 內容中的網址
+
+這裡所謂的 Pelican 靜態網誌系統, 就是 &lt;a href="https://github.com/getpelican/pelican"&gt;https://github.com/getpelican/pelican&lt;/a&gt;
+
+Pelican 靜態網誌的好處是資料的終端內容全部都是 html, 而且使用者可以編寫 Markdown 格式的文檔, 然後再交由 Pelican, 以 Python 的程式方法, 將 Markdown 檔案轉成一系列有網誌架構的 html 終端檔案.
+
+Pelican 靜態網誌所建立的 html 檔案, 就可以放到 Github Pages 或其他網站, 比較容易維護.</t>
+<t tx="amd.20160309080306.1">108</t>
 <t tx="leo.20151212173315.1"></t>
 <t tx="leo.20151212173315.2">QTreeWidget {
     /* These apply to the selected item, but not to editing items.*/

@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/tutorial.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-09T13:58:08+08:00</updated><entry><title>yen - 如何參與 project.mde.tw 的協同編輯</title><link href="http://project.mde.tw/blog/yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html" rel="alternate"></link><updated>2016-03-09T13:58:08+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-09:blog/yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html</id><summary type="html">&lt;p&gt;只要是 KMOL 機械設計專題的成員, 就可以依照特定程序, 管理 project.mde.tw 網站上的資料&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/tutorial.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-11T22:13:50+08:00</updated><entry><title>yen - 編譯 Solvespace</title><link href="http://project.mde.tw/blog/yen-bian-yi-solvespace.html" rel="alternate"></link><updated>2016-03-11T22:13:50+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-11:blog/yen-bian-yi-solvespace.html</id><summary type="html">&lt;p&gt;我們有沒有能力在機械設計專題中, 自行編譯 Solvespace, 並且了解其中的原理後, 新增自己需要的零件設計功能?&lt;/p&gt;
+
+
+&lt;p&gt;&lt;a href="https://github.com/whitequark/solvespace"&gt;https://github.com/whitequark/solvespace&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://solvespace.com"&gt;http://solvespace.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;自行編譯 solvespace:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;從 &lt;a href="http://www.activestate.com/activeperl/downloads"&gt;http://www.activestate.com/activeperl/downloads&lt;/a&gt; 下載 ActivePerl, 並完成安裝.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下載並安裝 Visual Studio Express.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;從 Visual Studio Express 表單中啟動 Dos Command.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;進入 Solvespace Makefile 所在目錄, 執行 nmake.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;就可以完成 Solvespace.exe 的編譯.&lt;/p&gt;</summary><category term="Solvespace"></category><category term="MCAD"></category></entry><entry><title>yen - 如何參與 project.mde.tw 的協同編輯</title><link href="http://project.mde.tw/blog/yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html" rel="alternate"></link><updated>2016-03-09T13:58:08+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-09:blog/yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html</id><summary type="html">&lt;p&gt;只要是 KMOL 機械設計專題的成員, 就可以依照特定程序, 管理 project.mde.tw 網站上的資料&lt;/p&gt;
 
 
 &lt;p&gt;首先, 你必須是 &lt;a href="https://github.com/coursemdetw/project_site/watchers"&gt;https://github.com/coursemdetw/project_site/watchers&lt;/a&gt; 名單上的成員, 否則就必須透過 Pull Request 的方式來參與 &lt;a href="http://project.mde.tw"&gt;http://project.mde.tw&lt;/a&gt; 網誌內容的協同管理.&lt;/p&gt;

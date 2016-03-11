@@ -117,7 +117,7 @@
 <v t="amd.20160303153826.1"><vh>jupyter</vh></v>
 <v t="amd.20160303163519.1"><vh>Windows</vh></v>
 </v>
-<v t="amd.20160309123311.1" a="E"><vh>處理錯誤</vh>
+<v t="amd.20160309123311.1"><vh>處理錯誤</vh>
 <v t="amd.20160309123318.1" a="E"><vh>@path content</vh>
 <v t="amd.20160309123402.1"><vh>@edit 40323130_20160301.md</vh></v>
 <v t="amd.20160309123451.1"><vh>@edit 40323143_20160309.md</vh></v>
@@ -159,10 +159,12 @@
 <v t="amd.20160309082155.1"><vh>@edit yen_20160309.md</vh></v>
 <v t="amd.20160309132000.1"><vh>@edit yen_20160309-1.md</vh></v>
 <v t="amd.20160309194649.1"><vh>@edit yen_20160309-2.md</vh></v>
+<v t="amd.20160310181325.1"><vh>@edit yen_20160310.md</vh></v>
+<v t="amd.20160311215621.1"><vh>@edit yen_20160311.md</vh></v>
 </v>
 </v>
 </v>
-<v t="amd.20160106094754.1"><vh>@path ./../content/pages</vh>
+<v t="amd.20160106094754.1" a="E"><vh>@path ./../content/pages</vh>
 <v t="amd.20160106094829.1" a="E"><vh>yen 所寫的 pages 文章</vh>
 <v t="amd.20160106094844.1"><vh>@edit yen_pages_1.md</vh></v>
 </v>

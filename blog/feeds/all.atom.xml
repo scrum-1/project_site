@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-09T20:11:49+08:00</updated><entry><title>yen - Pelican 靜態網頁與 Wordpress 的整合方案</title><link href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html" rel="alternate"></link><updated>2016-03-09T20:11:49+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-09:blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html</id><summary type="html">&lt;p&gt;利用 Leo Editor 的節點資料程式方法, 可以讓 Pelican 靜態網誌的內容與 Wordpress 動態網誌保持同步.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-11T22:13:50+08:00</updated><entry><title>yen - 機械設計專題倉儲</title><link href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-cang-chu.html" rel="alternate"></link><updated>2016-03-11T22:13:50+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-11:blog/yen-ji-jie-she-ji-zhuan-ti-cang-chu.html</id><summary type="html">&lt;p&gt;機械設計工程師在面對四種主要的學門領域, 六種表達方式, 以及四種開發流程階段的交互串聯下, 能否在分散式版次管理系統的協助中, 勇往直前?&lt;/p&gt;
+
+
+&lt;p&gt;四種主要的學門領域: 熱流、固力、電子電機、資通.&lt;/p&gt;
+&lt;p&gt;六種表達方式: 口語、文字、2D、3D、理論分析、實體&lt;/p&gt;
+&lt;p&gt;四種流程階段: 設計、製造、控制、管理&lt;/p&gt;
+&lt;p&gt;機械設計專題倉儲: &lt;a href="https://github.com/2015fallproject"&gt;https://github.com/2015fallproject&lt;/a&gt;&lt;/p&gt;</summary><category term="2016g1"></category><category term="2016g2"></category><category term="2016g3"></category></entry><entry><title>yen - 編譯 Solvespace</title><link href="http://project.mde.tw/blog/yen-bian-yi-solvespace.html" rel="alternate"></link><updated>2016-03-11T22:13:50+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-11:blog/yen-bian-yi-solvespace.html</id><summary type="html">&lt;p&gt;我們有沒有能力在機械設計專題中, 自行編譯 Solvespace, 並且了解其中的原理後, 新增自己需要的零件設計功能?&lt;/p&gt;
+
+
+&lt;p&gt;&lt;a href="https://github.com/whitequark/solvespace"&gt;https://github.com/whitequark/solvespace&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://solvespace.com"&gt;http://solvespace.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;自行編譯 solvespace:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;從 &lt;a href="http://www.activestate.com/activeperl/downloads"&gt;http://www.activestate.com/activeperl/downloads&lt;/a&gt; 下載 ActivePerl, 並完成安裝.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下載並安裝 Visual Studio Express.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;從 Visual Studio Express 表單中啟動 Dos Command.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;進入 Solvespace Makefile 所在目錄, 執行 nmake.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;就可以完成 Solvespace.exe 的編譯.&lt;/p&gt;</summary><category term="Solvespace"></category><category term="MCAD"></category></entry><entry><title>yen - Pelican 靜態網頁與 Wordpress 的整合方案</title><link href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html" rel="alternate"></link><updated>2016-03-09T20:11:49+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-09:blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html</id><summary type="html">&lt;p&gt;利用 Leo Editor 的節點資料程式方法, 可以讓 Pelican 靜態網誌的內容與 Wordpress 動態網誌保持同步.&lt;/p&gt;
 
 
 &lt;p&gt;因為 Pelican 靜態網頁結合 Github Pages 網站, 可以完整保留各版本的所有差異資料 ,而 Wordpress 的動態特性也具有即時更新的優點, 因此本機械設計專題網站, 就利用 Leo Editor 建立了3個按鈕, 可以在靜態與動態網誌之間雙向交換內容.&lt;/p&gt;

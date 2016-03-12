@@ -37,6 +37,7 @@ def index():
 
 
 @app.route('/user/<name>')
+# 為了避免 syntaxhighlighter 自動加上 </name>, 在這裡先行用註解補上, 之後再找解決方案
 def user(name):
     return render_template("user.html", name=name)
 @app.route('/req1')

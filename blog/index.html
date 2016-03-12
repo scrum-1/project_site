@@ -181,12 +181,58 @@ init_mathjax();
         <link rel="stylesheet" href="http://project.mde.tw/blog/theme/css/bootstrap.united.min.css" type="text/css"/>
     <link href="http://project.mde.tw/blog/theme/css/font-awesome.min.css" rel="stylesheet">
 
-    <link href="http://project.mde.tw/blog/theme/css/pygments/fruity.css" rel="stylesheet">
+    <link href="http://project.mde.tw/blog/theme/css/pygments/monokai.css" rel="stylesheet">
     <link href="http://project.mde.tw/blog/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
     <link rel="stylesheet" href="http://project.mde.tw/blog/theme/css/style.css" type="text/css"/>
 
         <link href="http://project.mde.tw/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
               title="機械設計專題 ATOM Feed"/>
+
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://chiamingyen.github.io/kmolab_data/files/syntaxhighlighter/css/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://chiamingyen.github.io/kmolab_data/files/syntaxhighlighter/css/shThemeDefault.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
 
 </head>
 <body>
@@ -237,6 +283,38 @@ init_mathjax();
         <div class="col-sm-9">
 
             <article>
+                <h2><a href="http://project.mde.tw/blog/yen-wang-ji-flask-cheng-shi-jia-gou.html">yen - 網際 Flask 程式架構</a></h2>
+                <div class="summary"><p>Flask 是一套支援 Python3 的全球資訊網程式框架, 這裡希望用它來開發網際輔助機械設計程式.</p>
+
+                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/yen-wang-ji-flask-cheng-shi-jia-gou.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html">yen - Pelican 靜態網頁與 Wordpress 的整合方案</a></h2>
+                <div class="summary"><p>利用 Leo Editor 的節點資料程式方法, 可以讓 Pelican 靜態網誌的內容與 Wordpress 動態網誌保持同步.</p>
+
+                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://project.mde.tw/blog/yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html">yen - 如何參與 project.mde.tw 的協同編輯</a></h2>
+                <div class="summary"><p>只要是 KMOL 機械設計專題的成員, 就可以依照特定程序, 管理 project.mde.tw 網站上的資料</p>
+
+                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
+                <h2><a href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he.html">yen - Pelican 靜態網頁與 Wordpress 的整合</a></h2>
+                <div class="summary"><p>許多網路上的文章都只說明如何從動態的網誌系統轉到靜態網誌架構, 但當我們認定動靜之間各有優劣時, 能否兩者整合並存?</p>
+
+                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he.html">more ...</a>
+                </div>
+            </article>
+            <hr/>
+            <article>
                 <h2><a href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-sui-shen-kai-fa-dian-nao.html">yen - 機械設計專題隨身開發電腦</a></h2>
                 <div class="summary"><p>此項測試目的在利用樹莓派卡片電腦, 以無線網路取得區域網路 IP, 然後從電腦教室中的 Windows 10, 以 X-Windows Server 連線到 Raspberry Pi 電腦系統, 嘗試讓機械設計工程學員評估, 能否在 Windows 10 與隨身的 Ubuntu 電腦系統間, 搭建合用的協同產品開發環境.</p>
 
@@ -261,22 +339,6 @@ init_mathjax();
             </article>
             <hr/>
             <article>
-                <h2><a href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html">yen - Pelican 靜態網頁與 Wordpress 的整合方案</a></h2>
-                <div class="summary"><p>利用 Leo Editor 的節點資料程式方法, 可以讓 Pelican 靜態網誌的內容與 Wordpress 動態網誌保持同步.</p>
-
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://project.mde.tw/blog/yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html">yen - 如何參與 project.mde.tw 的協同編輯</a></h2>
-                <div class="summary"><p>只要是 KMOL 機械設計專題的成員, 就可以依照特定程序, 管理 project.mde.tw 網站上的資料</p>
-
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
                 <h2><a href="http://project.mde.tw/blog/40323143-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html">40323143 - 說明如何參與協同機械設計專題網誌編寫</a></h2>
                 <div class="summary"><p>只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容</p>
 
@@ -285,26 +347,10 @@ init_mathjax();
             </article>
             <hr/>
             <article>
-                <h2><a href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he.html">yen - Pelican 靜態網頁與 Wordpress 的整合</a></h2>
-                <div class="summary"><p>許多網路上的文章都只說明如何從動態的網誌系統轉到靜態網誌架構, 但當我們認定動靜之間各有優劣時, 能否兩者整合並存?</p>
-
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
                 <h2><a href="http://project.mde.tw/blog/40323123-3d-printer.html">40323123 - 3d printer</a></h2>
                 <div class="summary"><p>raspberry pi  connect 3d printer to control the 3d printer </p>
 
                     <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323123-3d-printer.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://project.mde.tw/blog/yen-wang-ji-flask-cheng-shi-jia-gou.html">yen - 網際 Flask 程式架構</a></h2>
-                <div class="summary"><p>Flask 是一套支援 Python3 的全球資訊網程式框架, 這裡希望用它來開發網際輔助機械設計程式.</p>
-
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/yen-wang-ji-flask-cheng-shi-jia-gou.html">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -336,18 +382,8 @@ init_mathjax();
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-sui-shen-kai-fa-dian-nao.html">
-                            yen - 機械設計專題隨身開發電腦
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-cang-chu.html">
-                            yen - 機械設計專題倉儲
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/yen-bian-yi-solvespace.html">
-                            yen - 編譯 Solvespace
+                        <a href="http://project.mde.tw/blog/yen-wang-ji-flask-cheng-shi-jia-gou.html">
+                            yen - 網際 Flask 程式架構
                         </a>
                     </li>
                     <li class="list-group-item">
@@ -358,6 +394,16 @@ init_mathjax();
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html">
                             yen - 如何參與 project.mde.tw 的協同編輯
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he.html">
+                            yen - Pelican 靜態網頁與 Wordpress 的整合
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-sui-shen-kai-fa-dian-nao.html">
+                            yen - 機械設計專題隨身開發電腦
                         </a>
                     </li>
                 </ul>

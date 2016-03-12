@@ -22,7 +22,7 @@
 <v t="leo.20151213085727.1"><vh>@button local pelican</vh></v>
 </v>
 <v t="amd.20160117010542.1"><vh>@button git rm -rf blog</vh></v>
-<v t="amd.20151215180106.1"><vh>設定與開發</vh>
+<v t="amd.20151215180106.1" a="E"><vh>設定與開發</vh>
 <v t="amd.20151216151325.1"><vh>@edit index.html</vh></v>
 <v t="amd.20151216152209.1"><vh>@edit README.md</vh></v>
 <v t="leo.20151213230723.1"><vh>Pelican 設定</vh>
@@ -42,7 +42,7 @@
 <v t="amd.20151215121849.1"><vh>@edit search.html</vh></v>
 <v t="amd.20151215152634.1"><vh>@edit tags.html</vh></v>
 </v>
-<v t="amd.20151216181314.1" a="E"><vh>@path static</vh>
+<v t="amd.20151216181314.1"><vh>@path static</vh>
 <v t="amd.20151216181314.2" a="E"><vh>@path css</vh>
 <v t="amd.20151216181314.3" a="E"><vh>@path pygments</vh>
 <v t="amd.20151216181314.4"><vh>@edit fruity.css</vh></v>
@@ -51,7 +51,7 @@
 </v>
 </v>
 <v t="amd.20151215154950.1" a="E"><vh>@path pelican-bootstrap3_local</vh>
-<v t="amd.20151215154950.2"><vh>@path templates</vh>
+<v t="amd.20151215154950.2" a="E"><vh>@path templates</vh>
 <v t="amd.20151215154950.3"><vh>@edit base.html</vh></v>
 <v t="amd.20151215154950.4"><vh>@edit search.html</vh></v>
 <v t="amd.20151215162536.1" a="E"><vh>@path includes</vh>
@@ -75,7 +75,7 @@
 </v>
 </v>
 </v>
-<v t="amd.20160301205134.1"><vh>Flask 專案</vh>
+<v t="amd.20160301205134.1" a="E"><vh>Flask 專案</vh>
 <v t="amd.20160301205148.1"><vh>@edit setup.py</vh></v>
 <v t="amd.20160301205822.1"><vh>@edit config.py</vh></v>
 <v t="amd.20160301205303.1"><vh>@edit wsgi.py</vh></v>
@@ -127,7 +127,7 @@
 <v t="amd.20151215170350.1"><vh>以下為 content 目錄中的 md 檔案</vh></v>
 <v t="amd.20160106093610.1"><vh>協同網誌編寫規範</vh></v>
 <v t="amd.20160301001423.1"><vh>專題類別與標籤規劃</vh></v>
-<v t="amd.20160309073114.1"><vh>有關 pelican 與 WP 同步內容</vh>
+<v t="amd.20160309073114.1" a="E"><vh>有關 pelican 與 WP 同步內容</vh>
 <v t="amd.20160309073149.1"><vh>@button new to wp</vh></v>
 <v t="amd.20160309073204.1"><vh>@button edit to wp</vh></v>
 <v t="amd.20160309073217.1" a="E"><vh>@button get from wp</vh>
@@ -197,7 +197,13 @@ Author: yen
 
 &lt;!-- PELICAN_END_SUMMARY --&gt;
 
-這裡為文章主要內容</t>
+這裡為文章主要內容
+
+程式碼
+
+&lt;pre class="brush: python; html-script: true"&gt;
+print("hello")
+&lt;/pre&gt;</t>
 <t tx="amd.20151216173334.1"></t>
 <t tx="amd.20151216173344.1"></t>
 <t tx="amd.20151216173352.1"></t>
@@ -405,6 +411,7 @@ def index():
 
 </t>
 <t tx="amd.20160301205326.4">@app.route('/user/&lt;name&gt;')
+# 為了避免 syntaxhighlighter 自動加上 &lt;/name&gt;, 在這裡先行用註解補上, 之後再找解決方案
 def user(name):
     return render_template("user.html", name=name)</t>
 <t tx="amd.20160301205326.5">@app.route('/req1')

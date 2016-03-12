@@ -177,7 +177,7 @@ init_mathjax();
         <meta property="og:title" content="yen - Pelican 靜態網頁與 Wordpress 的整合"/>
         <meta property="og:url" content="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he.html"/>
         <meta property="og:description" content="許多網路上的文章都只說明如何從動態的網誌系統轉到靜態網誌架構, 但當我們認定動靜之間各有優劣時, 能否兩者整合並存?"/>
-        <meta property="article:published_time" content="2016-03-12" />
+        <meta property="article:published_time" content="2016-03-13" />
             <meta property="article:section" content="Misc" />
             <meta property="article:tag" content="Pelican" />
             <meta property="article:tag" content="Wordpress" />
@@ -306,7 +306,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-03-12T23:40:41.009681+08:00"> 六 12 三月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-03-13T00:00:24.477670+08:00"> 日 13 三月 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/yen.html"><i class="fa fa-user"></i> yen</a>
@@ -332,7 +332,7 @@ init_mathjax();
 <p>可是 Pelican 純文本的 Markdown 與 html, 還有一個最大的好處, 就是可以透過 Github Pages 的網頁架構系統, 讓每一個版本的靜態網誌都以分散式版本系統管理, 這是 Wordpress 現存的版次管理 Plugin 所無法做到的功能, 因此一份內容, 同時呈現在 Wordpress 與 Pelican 網誌是最理想的情況, 但是該如何完成?</p>
 <p>由於要整合 Pelican 靜態網誌與 Wordpress 動態網誌, 需要透過程式方法來進行, 這裡只先提供可行的初步技術, 驗證魚與熊掌可以兼得, 我們所採用的管理系統為 Leo Editor: <a href="https://github.com/leo-editor/leo-editor">https://github.com/leo-editor/leo-editor</a>, 所有的資料處理流程都是依靠 Python3 程式完成.</p>
 <p>首先, 看看 Leo Editor 如何透過 Python3 的程式方法與 Wordpress 網誌互動, 這裡所使用的是 XMLRPC 協定 <a href="https://en.wikipedia.org/wiki/XML-RPC">https://en.wikipedia.org/wiki/XML-RPC</a>, 基本上, 從 Leo Editor 節點, 將新資料送到 Wordpress 系統的按鈕程式.</p>
-<pre class="brush: python; html-script: true">
+<pre class="brush: python;">
 # new_to_wp 按鍵
 #coding: utf-8
 import xmlrpc.client
@@ -416,7 +416,7 @@ metaWeblog.getPost (postid, username, password) returns struct(blog content)
 
 <p><br /></p>
 <p>至於在 Leo Editor 系統中, 用來編輯既有的 Wordpress 文章的按鈕節點程式碼, 則為:</p>
-<pre class="brush: python; html-script: true">
+<pre class="brush: python;">
 #edit_to_wp
 #coding: utf-8
 import xmlrpc.client
@@ -498,7 +498,7 @@ metaWeblog.getPost (postid, username, password) returns struct(blog content)
 
 <p><br /></p>
 <p>最後若要經由 Leo Editor 的節點按鈕, 取回既有的 Wordpress 網誌文章, 則可以使用 get_from_wp 按鈕節點:</p>
-<pre class="brush: python; html-script: true">
+<pre class="brush: python;">
 #get_from_wp
 #coding: utf-8
 import xmlrpc.client
@@ -603,11 +603,6 @@ g.es("資料已經取回")
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/yen-wang-ji-flask-cheng-shi-jia-gou.html">
-                            yen - 網際 Flask 程式架構
-                        </a>
-                    </li>
-                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html">
                             yen - Pelican 靜態網頁與 Wordpress 的整合方案
                         </a>
@@ -620,6 +615,11 @@ g.es("資料已經取回")
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he.html">
                             yen - Pelican 靜態網頁與 Wordpress 的整合
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/yen-wang-ji-flask-cheng-shi-jia-gou.html">
+                            yen - 網際 Flask 程式架構
                         </a>
                     </li>
                     <li class="list-group-item">

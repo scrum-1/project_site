@@ -1,5 +1,506 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-12T23:50:54+08:00</updated><entry><title>yen - 網際 Flask 程式架構</title><link href="http://project.mde.tw/blog/yen-wang-ji-flask-cheng-shi-jia-gou.html" rel="alternate"></link><updated>2016-03-12T23:50:54+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-12:blog/yen-wang-ji-flask-cheng-shi-jia-gou.html</id><summary type="html">&lt;p&gt;Flask 是一套支援 Python3 的全球資訊網程式框架, 這裡希望用它來開發網際輔助機械設計程式.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-13T00:00:24+08:00</updated><entry><title>yen - Pelican 靜態網頁與 Wordpress 的整合方案</title><link href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html" rel="alternate"></link><updated>2016-03-13T00:00:24+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-13:blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html</id><summary type="html">&lt;p&gt;利用 Leo Editor 的節點資料程式方法, 可以讓 Pelican 靜態網誌的內容與 Wordpress 動態網誌保持同步.&lt;/p&gt;
+
+
+&lt;p&gt;因為 Pelican 靜態網頁結合 Github Pages 網站, 可以完整保留各版本的所有差異資料 ,而 Wordpress 的動態特性也具有即時更新的優點, 因此本機械設計專題網站, 就利用 Leo Editor 建立了3個按鈕, 可以在靜態與動態網誌之間雙向交換內容.&lt;/p&gt;
+&lt;p&gt;首先是先編寫 Pelican 網誌的文章, 然後再經由下列 Leo Editor 的按鈕, 以 XML-RPC 協定, 將文章送到對應的 Wordpress 網誌.&lt;/p&gt;
+&lt;pre class="brush: python;"&gt;
+＃new-to-wp button
+#coding: utf-8
+import xmlrpc.client
+import datetime
+import os
+
+def get_cat_tag_content(data):
+    # 請注意, 因為 data 來自 .md 的 body pan 內容, 第1行為 @language python
+    # 用跳行符號分割
+    data_list = data.split("\n")
+    #第2行為 title
+    title= data_list[1]
+    #第3行為 category
+    category = data_list[2]
+    #第4行為 tags
+    tags = data_list[3]
+    # 有多項資料的 content 型別為數列
+    # 再將第7行之後的資料數列串回成以跳行隔開的資料
+    content = "\n".join(data_list[6:])
+    # 先將截斷摘要與內文的 pelican md 檔按符號, 換成 Wordpress 的 &lt;!-more-&gt;
+    content = content.replace('&lt;!-- PELICAN_END_SUMMARY --&gt;', '&lt;!--more--&gt;')
+    # 接著若內容有 ~~~python 與 ~~~ 則換成 Wordpress 格式
+    content = content.replace('~~~python', '[code lang="python"]')
+    content = content.replace('~~~', '[/code]')
+    return title, category, tags, content
+
+os.environ['TZ'] = 'Asia/Taipei'
+
+#################################
+filepath = "/your/wordpress/username/and/passwrod.txt"
+wordpress = "your.wordpress.site.domain"
+fo = open(filepath, "r+")
+data = []
+for line in fo.readlines():
+    data.append(line)
+fo.close()
+
+# 從網誌節點的 parent().h 取得 wp_url
+# 從網誌節點的 parent().b 取得帳號與密碼對應的文字檔案路徑
+wp_url = "https://"+wordpress+"/xmlrpc.php"
+wp_username = data[0]
+wp_password = data[1]
+#################################
+wp_blogid = "0"
+
+status_draft = 0
+status_published = 1
+
+server = xmlrpc.client.ServerProxy(wp_url)
+
+# 從目前所在節點的 body pan 中取出類別, tags 以及文章內容
+title_str, category_str, tags_str, content = get_cat_tag_content(p.b)
+# title 是一個單獨的字串
+title = title_str.split(":")[1]
+# 指定時間出版
+'''
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime("2013-01-01 00:00",
+"%Y-%m-%d %H:%M"))
+'''
+# 以現在時間出版, 考慮與 Server 時間差八個小時 (480 分鐘), 因此要在 8 個小時前發表
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime((datetime.datetime.now()- \
+datetime.timedelta(minutes=480)).strftime('%Y-%m-%d %H:%M'),"%Y-%m-%d %H:%M"))
+categories = [category_str.split(":")[1]]
+# 請注意, 因為 tags 用逗點隔開, 因此必須透過 split() 再分開成為 list 資料
+# 先用 : 斷開標投頭的 Tags:, 然後再透過逗點隔開, 將標註轉為數列資料
+tags = tags_str.split(":")[1].split(",")
+data = {'title': title, 'description': content, 'dateCreated': date_created, 'categories': categories, 'mt_keywords': tags}
+
+post_id = server.metaWeblog.newPost(wp_blogid, wp_username, wp_password, data, status_published)
+# 利用最後的 child 節點來儲存 post_id
+to_save_post_id = p.insertAsLastChild()   
+# 改為內文為空的節點, id 直接標在 head 標題 
+to_save_post_id.b = ""
+to_save_post_id.h = post_id
+# 因為新增節點, commander 必須 redraw
+c.redraw() 
+
+g.es("post_id 為", post_id)
+g.es("已經送出資料!")
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;其中 filepath 是存放 Wordpress 網誌管理帳號與密碼的存文字檔案路徑 (例如: "/home/user/file.txt"), 而 wordpress 則宣告希望對應連結的網址 (例如: "www.yoursite.blog").&lt;/p&gt;
+&lt;p&gt;當 Wordpress 的網誌文章新增後, 若 Pelican 端的文章改版, 則可以透過下列 edit-to-wp 按鈕進行更新:&lt;/p&gt;
+&lt;pre class="brush: python;"&gt;
+# edit-to-wp
+#coding: utf-8
+import xmlrpc.client
+import datetime
+import os
+
+def get_cat_tag_content(data):
+    # 請注意, 因為 data 來自 .md 的 body pan 內容, 第1行為 @language python
+    # 用跳行符號分割
+    data_list = data.split("\n")
+    #第2行為 title
+    title= data_list[1]
+    #第3行為 category
+    category = data_list[2]
+    #第4行為 tags
+    tags = data_list[3]
+    # 有多項資料的 content 型別為數列
+    # 再將第7行之後的資料數列串回成以跳行隔開的資料
+    content = "\n".join(data_list[6:])
+    # 先將截斷摘要與內文的 pelican md 檔按符號, 換成 Wordpress 的 &lt;!-more-&gt;
+    content = content.replace('&lt;!-- PELICAN_END_SUMMARY --&gt;', '&lt;!--more--&gt;')
+    # 接著若內容有 ~~~python 與 ~~~ 則換成 Wordpress 格式
+    content = content.replace('~~~python', '[code lang="python"]')
+    content = content.replace('~~~', '[/code]')
+    return title, category, tags, content
+
+os.environ['TZ'] = 'Asia/Taipei'
+
+#################################
+filepath = "/your/wordpress/username/and/passwrod.txt"
+wordpress = "your.wordpress.site.domain"
+fo = open(filepath, "r+")
+data = []
+for line in fo.readlines():
+    data.append(line)
+fo.close()
+
+wp_url = "https://"+wordpress+"/xmlrpc.php"
+wp_username = data[0]
+wp_password = data[1]
+#################################
+wp_blogid = "0"
+
+status_draft = 0
+status_published = 1
+
+server = xmlrpc.client.ServerProxy(wp_url)
+
+# 從目前所在節點的 body pan 中取出類別, tags 以及文章內容
+title_str, category_str, tags_str, content = get_cat_tag_content(p.b)
+# title 是一個單獨的字串
+title = title_str.split(":")[1]
+# 指定時間出版
+'''
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime("2013-01-01 00:00",
+"%Y-%m-%d %H:%M"))
+'''
+# 以現在時間出版, 考慮與 Server 時間差八個小時 (480 分鐘), 因此要在 8 個小時前發表
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime((datetime.datetime.now()- \
+datetime.timedelta(minutes=480)).strftime('%Y-%m-%d %H:%M'),"%Y-%m-%d %H:%M"))
+categories = [category_str.split(":")[1]]
+# 請注意, 因為 tags 用逗點隔開, 因此必須透過 split() 再分開成為 list 資料
+tags = tags_str.split(":")[1].split(",")
+data = {'title': title, 'description': content, 'dateCreated': date_created, 'categories': categories, 'mt_keywords': tags}
+
+# 設法取得原 post 的 id
+origin_post = p.getLastChild()
+# 直接從標題取得 post 的 id 號碼
+post_id = origin_post.h
+status = server.metaWeblog.editPost(post_id, wp_username, wp_password, data, status_published)
+
+if status:
+    g.es("資料已經更新!")
+else:
+    g.es("有問題, 資料沒有更新!")
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;最後, 假如使用者透過 Wordpress 的瀏覽器介面新增文章, Pelican 端也可以準備一個空白節點, 並將文章的 id 號碼作為該空白節點的子節點, 且將該子節點的 header, 設為文章的 id 數, 接下來再用滑鼠停在父空白節點上, 然後以滑鼠點按下列的 get-from-wp 按鈕, 就可以將 Wordpress 端的文章取回, 且節點標題會被填入該文章的標題, 之後 Pelican 端的使用者再依據規劃, 以 @clean 存檔的標題命名該節點.&lt;/p&gt;
+&lt;pre class="brush: python;"&gt;
+# get-from-wp
+#coding: utf-8
+import xmlrpc.client
+# 導入 html 模組, 使用 html.unescape 轉換 html 特殊符號
+import html
+
+#################################
+filepath = "/your/wordpress/username/and/passwrod.txt"
+wordpress = "your.wordpress.site.domain"
+fo = open(filepath, "r+")
+data = []
+for line in fo.readlines():
+    data.append(line)
+fo.close()
+
+# 從網誌節點的 parent().h 取得 wp_url
+# 從網誌節點的 parent().b 取得帳號與密碼對應的文字檔案路徑
+wp_url = "https://"+wordpress+"/xmlrpc.php"
+wp_username = data[0]
+wp_password = data[1]
+#################################
+
+server = xmlrpc.client.ServerProxy(wp_url)
+
+# 設法透過上述網誌網址, 帳號與密碼, 以及文章 id, 取回 categories, tags, 文章標題, 文章內容等資
+
+# 從最後的 child 節點來取 post_id
+origin_post = p.getLastChild()
+post_id = origin_post.h
+# 取回與 post_id 對應的網誌文章內容
+blog_content = server.metaWeblog.getPost(post_id, wp_username, wp_password)
+title = blog_content["title"]
+# 這裡要利用 html.unescape 轉回特殊符號
+description = html.unescape(blog_content["description"])
+mt_text_more = html.unescape(blog_content["mt_text_more"])
+if mt_text_more != "":
+    post_content = description + "\n&lt;!--more--&gt;\n"+mt_text_more
+else:
+    post_content = description
+# 所取回的 categories 為 list
+categories = blog_content["categories"]
+# 所取回的 tags 為以逗點隔開的字串
+mt_keywords = blog_content["mt_keywords"]
+# 取回文章作者
+author = blog_content["wp_author_display_name"]
+p.h = title
+categories_str = ""
+for category in categories:
+    # 假如不是最後一個
+    if category != categories[len(categories)-1]:
+        categories_str += category + ", "
+    else:
+        # 這是最後一個
+        categories_str += category
+line1 = "@language md\n"
+line2 = "Title: " +title + "\n"
+line3 = "Category: " + categories_str + "\n"
+line4 = "Tags: " + mt_keywords + "\n"
+line5 = "Author: " + author + "\n@others\n"
+post_content = post_content.replace('&lt;!--more--&gt;', '\n&lt;!-- PELICAN_END_SUMMARY --&gt;\n')
+post_content = post_content.replace('[code lang="python"]', '~~~python')
+post_content = post_content.replace('[/code]', '~~~')
+p.b = line1 + line2 + line3 + line4 + line5 + post_content + "\n"
+# 因為節點資料更新, commander 必須 redraw
+c.redraw() 
+g.es("資料已經取回")
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</summary><category term="Pelican"></category><category term="Wordpress"></category></entry><entry><title>yen - 如何參與 project.mde.tw 的協同編輯</title><link href="http://project.mde.tw/blog/yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html" rel="alternate"></link><updated>2016-03-13T00:00:24+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-13:blog/yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html</id><summary type="html">&lt;p&gt;只要是 KMOL 機械設計專題的成員, 就可以依照特定程序, 管理 project.mde.tw 網站上的資料&lt;/p&gt;
+
+
+&lt;p&gt;首先, 你必須是 &lt;a href="https://github.com/coursemdetw/project_site/watchers"&gt;https://github.com/coursemdetw/project_site/watchers&lt;/a&gt; 名單上的成員, 否則就必須透過 Pull Request 的方式來參與 &lt;a href="http://project.mde.tw"&gt;http://project.mde.tw&lt;/a&gt; 網誌內容的協同管理.&lt;/p&gt;
+&lt;p&gt;接下來, 利用 git clone 的方式, 將 &lt;a href="https://github.com/coursemdetw/project_site"&gt;https://github.com/coursemdetw/project_site&lt;/a&gt; 的倉儲資料複製到近端, 並且將分支切換到 gh-pages, 就可以利用 Leo Editor 開啟或建立, 位於 users 目錄中的 user_template.leo, 然後轉存為"學號.leo" 檔案, 透過這個 Leo Editor 的專案檔, 就可以新增文章, 修改其他人的文章, 甚至修改本網誌系統中的任何設定.&lt;/p&gt;
+&lt;p&gt;將 user_template.leo 轉存為 "學號.leo" 後, 第1件重要的事就是修改 @edit user_20160301.md 中的 user_20160301.md 的存檔檔名, 改為 學號_當天日期.md, 然後修改此一 md 檔案的文章標題: Title: user - 使用者的範例網誌文章標題, 因為這個網誌系統根據 Title: 之後的名稱來轉換 html, 若有兩個 .md 檔案的 Title: 資料完全一樣, Pelican 將無法轉檔, 並且會在轉檔的命令列中出現錯誤訊息.&lt;/p&gt;
+&lt;p&gt;其他的 .md 檔案中, Category: 為文章的類別, 可以參考現有的"2016g1, Misc 與 Tutorial" 等3個類別, 可以是組別或是文章的屬性類別.
+Tags: 則是文章的內容標籤,可以就文章的內容關鍵字加以界定, 至於 Author: 則是用戶的名稱.&lt;/p&gt;
+&lt;p&gt;在每一個 .md 檔案中, 出現在 "PELICAN_END_SUMMARY" 超文件註解標註之前的內容, Pelican 會視為文章的摘要, 當各文章並列時, 文章只會列出標題與摘要.&lt;/p&gt;
+&lt;p&gt;"PELICAN_END_SUMMARY" 超文件註解標註之後的內容就是文章的主要內容.&lt;/p&gt;
+&lt;p&gt;文章中的程式可以利用:&lt;/p&gt;
+&lt;pre class="brush: python;"&gt;
+for i in range(5):
+    print(i, ":hello")
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;來加以標示.&lt;/p&gt;
+&lt;p&gt;圖檔則可以利用 img 標註引用:&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://raw.githubusercontent.com/chiamingyen/kmolab/gh-pages/logo/kmol_1172x340_color_3yrs.png" width="600" /&gt;&lt;/p&gt;
+&lt;p&gt;影片引用則可以直接使用 Vimeo 或 Youtube 的 embedded 語法.&lt;/p&gt;
+&lt;p&gt;因為本網誌能夠在近端與遠端等兩個不同環境下運作, 而兩端的關鍵字搜尋流程與格式不同, 因此轉檔的按鈕也分為 local-pelican 與 gh-pages-pelican 等兩個, 要在近端測試時, 必須滑鼠停在 local-pelican 轉檔按鈕的對應節點上, 然後按下 local-pelican, 經過瀏覽器檢查近端文章轉檔與內容無誤後, 必須將滑鼠停在 gh-pages-pelican 轉檔按鈕的對應節點上, 然後按下 gh-pages-pelican 按鈕, 之後若無任何問題, 就可以將資料提交推送到遠端倉儲的 gh-pages 分支中, 指令如下:&lt;/p&gt;
+&lt;p&gt;git add -A&lt;/p&gt;
+&lt;p&gt;git commit -m "提交說明訊息"&lt;/p&gt;
+&lt;p&gt;git push origin gh-pages&lt;/p&gt;
+&lt;p&gt;最後, 與 &lt;a href="http://project.mde.tw"&gt;http://project.mde.tw&lt;/a&gt; 網站維護有關的訊息溝通或註記, 請透過 &lt;a href="https://github.com/coursemdetw/project_site/wiki/%E6%A9%9F%E6%A2%B0%E8%A8%AD%E8%A8%88%E5%B0%88%E9%A1%8C%E5%8D%94%E5%90%8C%E7%B6%B2%E7%AB%99%E8%A8%98%E4%BA%8B"&gt;倉儲 Wiki&lt;/a&gt; 進行.&lt;/p&gt;</summary><category term="Pelican"></category><category term="Leo Editor"></category></entry><entry><title>yen - Pelican 靜態網頁與 Wordpress 的整合</title><link href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he.html" rel="alternate"></link><updated>2016-03-13T00:00:24+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-13:blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he.html</id><summary type="html">&lt;p&gt;許多網路上的文章都只說明如何從動態的網誌系統轉到靜態網誌架構, 但當我們認定動靜之間各有優劣時, 能否兩者整合並存?&lt;/p&gt;
+
+
+&lt;p&gt;Worpress 是一套全世界最廣為使用的動態網誌系統, 採用 PHP 編寫, 一般使用 MySQL 資料庫存放資料, 由於 Wordpress 的安裝與使用都非常直覺, 從許多角度來看, 是一套接近完美的動態網誌系統.&lt;/p&gt;
+&lt;p&gt;但是, PHP 加上 MySQL 的架構仍然需要在伺服器中運行全球資訊網加上 PHP 解譯器, 同時還要 MySQL 資料庫的支援才能啟動運作, 假如管理者沒有跟上 Wordpress 程式碼或 plugin 的漏洞更新, 或者 MySQL 資料庫未能正常提供資料, 這個用 Wordpress 架構的網誌就會出現危機或者無法使用.&lt;/p&gt;
+&lt;p&gt;雖然 Wordpress 網誌中的動態程式與資料庫具有潛在缺點, 但是動態性也同時展現優點, 因為使用者一般可以透過瀏覽器, 隨時更改網誌系統的設定, 可以即時更新所有內容.&lt;/p&gt;
+&lt;p&gt;至於 Pellican 靜態網誌系統, 則針對 Wordpress 動態的問題, 將網誌的編寫格式定調在資料提供者能夠閱讀的 Markdown 或其他類似格式, 然後在近端用各種編輯器完成初步 Markdown 文章的存檔後, 再執行 Pelican 的轉檔指令, 讓 Python 程式將一堆設定與一堆 Markdown 資料中, 轉換成一整套所有內容之間互相串連的 html 檔案, 之後再將這批純 html 格式的文檔加上一些 css 與 Javascript 檔案, 送到全球資訊網伺服器中運行.&lt;/p&gt;
+&lt;p&gt;Pelican 的網誌內容, 因為不需要動態的程式編譯執行, 而只在全球資訊網伺服器中存有 html 與 Javascript, 因此沒有動態程式碼漏洞更新的問題, 也不會有線上的網誌管理系統被入侵的問題, 唯一會產生問題的只有全球資訊網伺服器, 運作或不運作, Javascript 有沒有正確存取的問題, 相較於 Wordpress 的動態程式與資料庫互動, 性質單純許多.&lt;/p&gt;
+&lt;p&gt;但是 Pelican 的靜態性也同時存在問題, 因為大多數的用戶通常採用文字編輯器來準備或管理 Markdown 檔案, 而且是採用命令列的方式來執行 Pelican 轉檔指令, 因此對於電腦程式操作較不熟悉的使用者來說, 導入 Pelican 靜態網誌的距離仍然遙遠, 況且靜態網誌也有不夠動態與直覺的問題, 許多在 Wordpress 線上能夠直接預覽的功能, 在 Pellican 就沒有那麼方便, 而且有很多的 html 與 css 的特定格式, Pelican 的 Markdown 語法根本就不支援.&lt;/p&gt;
+&lt;p&gt;可是 Pelican 純文本的 Markdown 與 html, 還有一個最大的好處, 就是可以透過 Github Pages 的網頁架構系統, 讓每一個版本的靜態網誌都以分散式版本系統管理, 這是 Wordpress 現存的版次管理 Plugin 所無法做到的功能, 因此一份內容, 同時呈現在 Wordpress 與 Pelican 網誌是最理想的情況, 但是該如何完成?&lt;/p&gt;
+&lt;p&gt;由於要整合 Pelican 靜態網誌與 Wordpress 動態網誌, 需要透過程式方法來進行, 這裡只先提供可行的初步技術, 驗證魚與熊掌可以兼得, 我們所採用的管理系統為 Leo Editor: &lt;a href="https://github.com/leo-editor/leo-editor"&gt;https://github.com/leo-editor/leo-editor&lt;/a&gt;, 所有的資料處理流程都是依靠 Python3 程式完成.&lt;/p&gt;
+&lt;p&gt;首先, 看看 Leo Editor 如何透過 Python3 的程式方法與 Wordpress 網誌互動, 這裡所使用的是 XMLRPC 協定 &lt;a href="https://en.wikipedia.org/wiki/XML-RPC"&gt;https://en.wikipedia.org/wiki/XML-RPC&lt;/a&gt;, 基本上, 從 Leo Editor 節點, 將新資料送到 Wordpress 系統的按鈕程式.&lt;/p&gt;
+&lt;pre class="brush: python;"&gt;
+# new_to_wp 按鍵
+#coding: utf-8
+import xmlrpc.client
+import datetime
+import os
+
+def get_cat_tag_content(data):
+    data_list = data.split("\n")
+    # 只有一項資料的 category 型別為字串
+    category = data_list[0]
+    # 只有一項資料的 tags 型別為字串
+    tags = data_list[1]
+    # 有多項資料的 content 型別為數列
+    # 再將第3行之後的資料數列串回成以跳行隔開的資料
+    content = "\n".join(data_list[2:])
+    return category, tags, content
+
+os.environ['TZ'] = 'Asia/Taipei'
+
+#################################
+# Open a file, 這裡將存取 Wordpress 網誌的對應帳號與密碼, 存在操作系統中
+# 路徑則從資料節點上層根節點的 body 內文取得
+fo = open(p.parent().b, "r+")
+data = []
+for line in fo.readlines():
+    data.append(line)
+    #print(line)
+#print(data[0])
+
+# Close opend file
+fo.close()
+
+# 從網誌節點的 parent().h 取得 wp_url
+# 從網誌節點的 parent().b 取得帳號與密碼對應的文字檔案路徑
+wp_url = "https://"+p.parent().h+"/xmlrpc.php"
+wp_username = data[0]
+wp_password = data[1]
+#################################
+wp_blogid = "0"
+
+status_draft = 0
+status_published = 1
+
+server = xmlrpc.client.ServerProxy(wp_url)
+
+title = p.h
+#content = p.b
+category_str, tags_str, content = get_cat_tag_content(p.b)
+# 指定時間出版
+'''
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime("2013-01-01 00:00",
+"%Y-%m-%d %H:%M"))
+'''
+# 以現在時間出版, 考慮與 Server 時間差八個小時 (480 分鐘), 因此要在 8 個小時前發表 (因為伺服主機與操作端時差而定)
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime((datetime.datetime.now()- \
+datetime.timedelta(minutes=480)).strftime('%Y-%m-%d %H:%M'),"%Y-%m-%d %H:%M"))
+#categories = ["Uncategorized"]
+#tags = ["python", "測試"]
+categories = [category_str.split(":")[1]]
+# 請注意, 因為 tags 用逗點隔開, 因此必須透過 split() 再分開成為 list 資料
+tags = tags_str.split(":")[1].split(",")
+data = {'title': title, 'description': content, 'dateCreated': date_created, 'categories': categories, 'mt_keywords': tags}
+
+post_id = server.metaWeblog.newPost(wp_blogid, wp_username, wp_password, data, status_published)
+# 利用最後的 child 節點來儲存 post_id
+to_save_post_id = p.insertAsLastChild()    
+to_save_post_id.b = post_id
+to_save_post_id.h = "文章 id"
+# 因為新增節點, commander 必須 redraw
+c.redraw() 
+
+g.es("post_id 為", post_id)
+g.es("已經送出資料!")
+'''
+其他 metaWeblog 的用法:
+metaWeblog.newPost (blogid, username, password, struct, publish) returns string(postid)
+metaWeblog.editPost (postid, username, password, struct, publish) returns true
+metaWeblog.getPost (postid, username, password) returns struct(blog content)
+'''
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;至於在 Leo Editor 系統中, 用來編輯既有的 Wordpress 文章的按鈕節點程式碼, 則為:&lt;/p&gt;
+&lt;pre class="brush: python;"&gt;
+#edit_to_wp
+#coding: utf-8
+import xmlrpc.client
+import datetime
+import os
+
+def get_cat_tag_content(data):
+    data_list = data.split("\n")
+    # 只有一項資料的 category 型別為字串
+    category = data_list[0]
+    # 只有一項資料的 tags 型別為字串
+    tags = data_list[1]
+    # 有多項資料的 content 型別為數列
+    # 再將第3行之後的資料數列串回成以跳行隔開的資料
+    content = "\n".join(data_list[2:])
+    return category, tags, content
+
+os.environ['TZ'] = 'Asia/Taipei'
+
+#################################
+# Open a file
+fo = open(p.parent().b, "r+")
+data = []
+for line in fo.readlines():
+    data.append(line)
+    #print(line)
+#print(data[0])
+
+# Close opend file
+fo.close()
+
+# 從網誌節點的 parent().h 取得 wp_url
+# 從網誌節點的 parent().b 取得帳號與密碼對應的文字檔案路徑
+wp_url = "https://"+p.parent().h+"/xmlrpc.php"
+wp_username = data[0]
+wp_password = data[1]
+#################################
+wp_blogid = "0"
+
+status_draft = 0
+status_published = 1
+
+server = xmlrpc.client.ServerProxy(wp_url)
+
+title = p.h
+#content = p.b
+category_str, tags_str, content = get_cat_tag_content(p.b)
+# 指定時間出版
+'''
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime("2013-01-01 00:00",
+"%Y-%m-%d %H:%M"))
+'''
+# 以現在時間出版, 考慮與 Server 時間差八個小時 (480 分鐘), 因此要在 8 個小時前發表 (因為伺服主機與操作端時差而定)
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime((datetime.datetime.now()- \
+datetime.timedelta(minutes=480)).strftime('%Y-%m-%d %H:%M'),"%Y-%m-%d %H:%M"))
+#categories = ["Uncategorized"]
+#tags = ["python", "測試"]
+categories = [category_str.split(":")[1]]
+# 請注意, 因為 tags 用逗點隔開, 因此必須透過 split() 再分開成為 list 資料
+tags = tags_str.split(":")[1].split(",")
+data = {'title': title, 'description': content, 'dateCreated': date_created, 'categories': categories, 'mt_keywords': tags}
+
+# 設法取得原 post 的 id
+origin_post = p.getLastChild()
+post_id = origin_post.b
+status = server.metaWeblog.editPost(post_id, wp_username, wp_password, data, status_published)
+
+if status:
+    g.es("資料已經更新!")
+else:
+    g.es("有問題, 資料沒有更新!")
+'''
+其他 metaWeblog 的用法:
+metaWeblog.newPost (blogid, username, password, struct, publish) returns string(postid)
+metaWeblog.editPost (postid, username, password, struct, publish) returns true
+metaWeblog.getPost (postid, username, password) returns struct(blog content)
+'''
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;最後若要經由 Leo Editor 的節點按鈕, 取回既有的 Wordpress 網誌文章, 則可以使用 get_from_wp 按鈕節點:&lt;/p&gt;
+&lt;pre class="brush: python;"&gt;
+#get_from_wp
+#coding: utf-8
+import xmlrpc.client
+# 導入 html 模組, 使用 html.unescape 轉換 html 特殊符號
+import html
+
+#################################
+# Open a file
+fo = open(p.parent().b, "r+")
+data = []
+for line in fo.readlines():
+    data.append(line)
+fo.close()
+
+# 從網誌節點的 parent().h 取得 wp_url
+# 從網誌節點的 parent().b 取得帳號與密碼對應的文字檔案路徑
+wp_url = "https://"+p.parent().h+"/xmlrpc.php"
+wp_username = data[0]
+wp_password = data[1]
+#################################
+
+server = xmlrpc.client.ServerProxy(wp_url)
+
+# 設法透過上述網誌網址, 帳號與密碼, 以及文章 id, 取回 categories, tags, 文章標題, 文章內容等資
+
+# 從最後的 child 節點來取 post_id
+origin_post = p.getLastChild()
+post_id = origin_post.b
+# 取回與 post_id 對應的網誌文章內容
+blog_content = server.metaWeblog.getPost (post_id, wp_username, wp_password)
+title = blog_content["title"]
+# 這裡要利用 html.unescape 轉回特殊符號
+description = html.unescape(blog_content["description"])
+mt_text_more = html.unescape(blog_content["mt_text_more"])
+if mt_text_more != "":
+    post_content = description + "\n&lt;!--more--&gt;\n"+mt_text_more
+else:
+    post_content = description
+# 所取回的 categories 為 list
+categories = blog_content["categories"]
+# 索取回的 tags 為以逗點隔開的字串
+mt_keywords = blog_content["mt_keywords"]
+p.h = title
+categories_str = ""
+for category in categories:
+    # 假如不是最後一個
+    if category != categories[len(categories)-1]:
+        categories_str += category + ", "
+    else:
+        # 這是最後一個
+        categories_str += category
+p.b = "categories:"+categories_str+"\ntags:"+mt_keywords+"\n"+post_content
+# 因為節點資料更新, commander 必須 redraw
+c.redraw() 
+g.es("資料已經取回")
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;好了, 上面的3個 Leo Editor 的按鈕節點程式, 只是從操作系統的特定路徑取出能夠管理遠端 Wordpress 網誌系統的帳號密碼, 然後再透過 XML-RPC 協定, 進行 Wordpress 網誌文章的新增、編輯與取回, 表示使用者可以在一個 Leo Editor 專案檔中完成這些事, 接下來則需要讓 Pelican 轉出的 html 檔案, 能夠同步送到對應的 Wordpress 動態網誌系統, 並且可以做到即時的內容同步, 既可保有靜態網誌的版次管理與單純伺服架構, 而且又可以將 Wordpress 視為 Pelican 的另外一個出口 (意思就是說, Wordpress 中只有特定的內容由 Pelican 端提供, 其他的使用者則仍然透過瀏覽器的方法對 Wordpress 網誌提供內容), 至於後續的處理與可行性驗證, 將在隨後的文章中進行討論.&lt;/p&gt;</summary><category term="Pelican"></category><category term="Wordpress"></category></entry><entry><title>yen - 網際 Flask 程式架構</title><link href="http://project.mde.tw/blog/yen-wang-ji-flask-cheng-shi-jia-gou.html" rel="alternate"></link><updated>2016-03-13T00:00:24+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-13:blog/yen-wang-ji-flask-cheng-shi-jia-gou.html</id><summary type="html">&lt;p&gt;Flask 是一套支援 Python3 的全球資訊網程式框架, 這裡希望用它來開發網際輔助機械設計程式.&lt;/p&gt;
 
 
 &lt;p&gt;&lt;a href="http://flask.pocoo.org/"&gt;http://flask.pocoo.org/&lt;/a&gt; 是一套簡潔的 Python3 網際程式框架, 在這一系列的導引資料中, 將利用 &lt;a href="https://github.com/2015fallhw/simpleflask"&gt;https://github.com/2015fallhw/simpleflask&lt;/a&gt; 倉儲來存放資料, 並將資料同步推送到 &lt;a href="http://simpleflask-2014openshift.rhcloud.com/"&gt;http://simpleflask-2014openshift.rhcloud.com/&lt;/a&gt; 執行.&lt;/p&gt;
@@ -7,7 +508,7 @@
 &lt;p&gt;假如在 Windows 環境中, 使用可攜套件: &lt;a href="https://github.com/chiamingyen/kmol2016"&gt;https://github.com/chiamingyen/kmol2016&lt;/a&gt;, 則已經內建 Flask 模組, 假如沒有, 可以利用&lt;/p&gt;
 &lt;p&gt;pip install Flask 安裝.&lt;/p&gt;
 &lt;p&gt;假如是在 Ubuntu, 可以要用 pip3 install Flask 安裝, 至於在 OpenShift 的 Python3 應用程式, 則是透過 setup.py 安裝.&lt;/p&gt;
-&lt;pre class="brush: python; html-script: true"&gt;
+&lt;pre class="brush: python;"&gt;
 #setup.py 檔案
 from setuptools import setup
 
@@ -23,7 +524,7 @@ setup(name='KMOL 2016 project',
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p&gt;由於這裡所開發的 Flask 程式, 需要在近端與 OpenShift 都能運作, 因此 wsgi.py 的內容設計為:&lt;/p&gt;
-&lt;pre class="brush: python; html-script: true"&gt;
+&lt;pre class="brush: python;"&gt;
 #!/usr/bin/python
 # 導入 os 模組, 主要用來判斷是否在 OpenShift 上執行
 import os
@@ -134,508 +635,7 @@ if __name__ == "__main__":
 &lt;/pre&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p&gt;此外, 因為 Flask 內定靜態目錄名稱為 static, 且 template 名稱為 templates, 因此在最基本的 Flask 程式架構中, 也需要自行建立這兩個目錄, 然後將靜態文件放入 static 目錄中, 而對應的  template 文件檔案, 則放入 templates 目錄中.&lt;/p&gt;</summary><category term="OpenShift"></category><category term="Flask"></category></entry><entry><title>yen - Pelican 靜態網頁與 Wordpress 的整合方案</title><link href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html" rel="alternate"></link><updated>2016-03-12T23:40:41+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-12:blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html</id><summary type="html">&lt;p&gt;利用 Leo Editor 的節點資料程式方法, 可以讓 Pelican 靜態網誌的內容與 Wordpress 動態網誌保持同步.&lt;/p&gt;
-
-
-&lt;p&gt;因為 Pelican 靜態網頁結合 Github Pages 網站, 可以完整保留各版本的所有差異資料 ,而 Wordpress 的動態特性也具有即時更新的優點, 因此本機械設計專題網站, 就利用 Leo Editor 建立了3個按鈕, 可以在靜態與動態網誌之間雙向交換內容.&lt;/p&gt;
-&lt;p&gt;首先是先編寫 Pelican 網誌的文章, 然後再經由下列 Leo Editor 的按鈕, 以 XML-RPC 協定, 將文章送到對應的 Wordpress 網誌.&lt;/p&gt;
-&lt;pre class="brush: python; html-script: true"&gt;
-＃new-to-wp button
-#coding: utf-8
-import xmlrpc.client
-import datetime
-import os
-
-def get_cat_tag_content(data):
-    # 請注意, 因為 data 來自 .md 的 body pan 內容, 第1行為 @language python
-    # 用跳行符號分割
-    data_list = data.split("\n")
-    #第2行為 title
-    title= data_list[1]
-    #第3行為 category
-    category = data_list[2]
-    #第4行為 tags
-    tags = data_list[3]
-    # 有多項資料的 content 型別為數列
-    # 再將第7行之後的資料數列串回成以跳行隔開的資料
-    content = "\n".join(data_list[6:])
-    # 先將截斷摘要與內文的 pelican md 檔按符號, 換成 Wordpress 的 &lt;!-more-&gt;
-    content = content.replace('&lt;!-- PELICAN_END_SUMMARY --&gt;', '&lt;!--more--&gt;')
-    # 接著若內容有 ~~~python 與 ~~~ 則換成 Wordpress 格式
-    content = content.replace('~~~python', '[code lang="python"]')
-    content = content.replace('~~~', '[/code]')
-    return title, category, tags, content
-
-os.environ['TZ'] = 'Asia/Taipei'
-
-#################################
-filepath = "/your/wordpress/username/and/passwrod.txt"
-wordpress = "your.wordpress.site.domain"
-fo = open(filepath, "r+")
-data = []
-for line in fo.readlines():
-    data.append(line)
-fo.close()
-
-# 從網誌節點的 parent().h 取得 wp_url
-# 從網誌節點的 parent().b 取得帳號與密碼對應的文字檔案路徑
-wp_url = "https://"+wordpress+"/xmlrpc.php"
-wp_username = data[0]
-wp_password = data[1]
-#################################
-wp_blogid = "0"
-
-status_draft = 0
-status_published = 1
-
-server = xmlrpc.client.ServerProxy(wp_url)
-
-# 從目前所在節點的 body pan 中取出類別, tags 以及文章內容
-title_str, category_str, tags_str, content = get_cat_tag_content(p.b)
-# title 是一個單獨的字串
-title = title_str.split(":")[1]
-# 指定時間出版
-'''
-date_created = xmlrpc.client.DateTime(datetime.datetime.strptime("2013-01-01 00:00",
-"%Y-%m-%d %H:%M"))
-'''
-# 以現在時間出版, 考慮與 Server 時間差八個小時 (480 分鐘), 因此要在 8 個小時前發表
-date_created = xmlrpc.client.DateTime(datetime.datetime.strptime((datetime.datetime.now()- \
-datetime.timedelta(minutes=480)).strftime('%Y-%m-%d %H:%M'),"%Y-%m-%d %H:%M"))
-categories = [category_str.split(":")[1]]
-# 請注意, 因為 tags 用逗點隔開, 因此必須透過 split() 再分開成為 list 資料
-# 先用 : 斷開標投頭的 Tags:, 然後再透過逗點隔開, 將標註轉為數列資料
-tags = tags_str.split(":")[1].split(",")
-data = {'title': title, 'description': content, 'dateCreated': date_created, 'categories': categories, 'mt_keywords': tags}
-
-post_id = server.metaWeblog.newPost(wp_blogid, wp_username, wp_password, data, status_published)
-# 利用最後的 child 節點來儲存 post_id
-to_save_post_id = p.insertAsLastChild()   
-# 改為內文為空的節點, id 直接標在 head 標題 
-to_save_post_id.b = ""
-to_save_post_id.h = post_id
-# 因為新增節點, commander 必須 redraw
-c.redraw() 
-
-g.es("post_id 為", post_id)
-g.es("已經送出資料!")
-&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p&gt;其中 filepath 是存放 Wordpress 網誌管理帳號與密碼的存文字檔案路徑 (例如: "/home/user/file.txt"), 而 wordpress 則宣告希望對應連結的網址 (例如: "www.yoursite.blog").&lt;/p&gt;
-&lt;p&gt;當 Wordpress 的網誌文章新增後, 若 Pelican 端的文章改版, 則可以透過下列 edit-to-wp 按鈕進行更新:&lt;/p&gt;
-&lt;pre class="brush: python; html-script: true"&gt;
-# edit-to-wp
-#coding: utf-8
-import xmlrpc.client
-import datetime
-import os
-
-def get_cat_tag_content(data):
-    # 請注意, 因為 data 來自 .md 的 body pan 內容, 第1行為 @language python
-    # 用跳行符號分割
-    data_list = data.split("\n")
-    #第2行為 title
-    title= data_list[1]
-    #第3行為 category
-    category = data_list[2]
-    #第4行為 tags
-    tags = data_list[3]
-    # 有多項資料的 content 型別為數列
-    # 再將第7行之後的資料數列串回成以跳行隔開的資料
-    content = "\n".join(data_list[6:])
-    # 先將截斷摘要與內文的 pelican md 檔按符號, 換成 Wordpress 的 &lt;!-more-&gt;
-    content = content.replace('&lt;!-- PELICAN_END_SUMMARY --&gt;', '&lt;!--more--&gt;')
-    # 接著若內容有 ~~~python 與 ~~~ 則換成 Wordpress 格式
-    content = content.replace('~~~python', '[code lang="python"]')
-    content = content.replace('~~~', '[/code]')
-    return title, category, tags, content
-
-os.environ['TZ'] = 'Asia/Taipei'
-
-#################################
-filepath = "/your/wordpress/username/and/passwrod.txt"
-wordpress = "your.wordpress.site.domain"
-fo = open(filepath, "r+")
-data = []
-for line in fo.readlines():
-    data.append(line)
-fo.close()
-
-wp_url = "https://"+wordpress+"/xmlrpc.php"
-wp_username = data[0]
-wp_password = data[1]
-#################################
-wp_blogid = "0"
-
-status_draft = 0
-status_published = 1
-
-server = xmlrpc.client.ServerProxy(wp_url)
-
-# 從目前所在節點的 body pan 中取出類別, tags 以及文章內容
-title_str, category_str, tags_str, content = get_cat_tag_content(p.b)
-# title 是一個單獨的字串
-title = title_str.split(":")[1]
-# 指定時間出版
-'''
-date_created = xmlrpc.client.DateTime(datetime.datetime.strptime("2013-01-01 00:00",
-"%Y-%m-%d %H:%M"))
-'''
-# 以現在時間出版, 考慮與 Server 時間差八個小時 (480 分鐘), 因此要在 8 個小時前發表
-date_created = xmlrpc.client.DateTime(datetime.datetime.strptime((datetime.datetime.now()- \
-datetime.timedelta(minutes=480)).strftime('%Y-%m-%d %H:%M'),"%Y-%m-%d %H:%M"))
-categories = [category_str.split(":")[1]]
-# 請注意, 因為 tags 用逗點隔開, 因此必須透過 split() 再分開成為 list 資料
-tags = tags_str.split(":")[1].split(",")
-data = {'title': title, 'description': content, 'dateCreated': date_created, 'categories': categories, 'mt_keywords': tags}
-
-# 設法取得原 post 的 id
-origin_post = p.getLastChild()
-# 直接從標題取得 post 的 id 號碼
-post_id = origin_post.h
-status = server.metaWeblog.editPost(post_id, wp_username, wp_password, data, status_published)
-
-if status:
-    g.es("資料已經更新!")
-else:
-    g.es("有問題, 資料沒有更新!")
-&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p&gt;最後, 假如使用者透過 Wordpress 的瀏覽器介面新增文章, Pelican 端也可以準備一個空白節點, 並將文章的 id 號碼作為該空白節點的子節點, 且將該子節點的 header, 設為文章的 id 數, 接下來再用滑鼠停在父空白節點上, 然後以滑鼠點按下列的 get-from-wp 按鈕, 就可以將 Wordpress 端的文章取回, 且節點標題會被填入該文章的標題, 之後 Pelican 端的使用者再依據規劃, 以 @clean 存檔的標題命名該節點.&lt;/p&gt;
-&lt;pre class="brush: python; html-script: true"&gt;
-# get-from-wp
-#coding: utf-8
-import xmlrpc.client
-# 導入 html 模組, 使用 html.unescape 轉換 html 特殊符號
-import html
-
-#################################
-filepath = "/your/wordpress/username/and/passwrod.txt"
-wordpress = "your.wordpress.site.domain"
-fo = open(filepath, "r+")
-data = []
-for line in fo.readlines():
-    data.append(line)
-fo.close()
-
-# 從網誌節點的 parent().h 取得 wp_url
-# 從網誌節點的 parent().b 取得帳號與密碼對應的文字檔案路徑
-wp_url = "https://"+wordpress+"/xmlrpc.php"
-wp_username = data[0]
-wp_password = data[1]
-#################################
-
-server = xmlrpc.client.ServerProxy(wp_url)
-
-# 設法透過上述網誌網址, 帳號與密碼, 以及文章 id, 取回 categories, tags, 文章標題, 文章內容等資
-
-# 從最後的 child 節點來取 post_id
-origin_post = p.getLastChild()
-post_id = origin_post.h
-# 取回與 post_id 對應的網誌文章內容
-blog_content = server.metaWeblog.getPost(post_id, wp_username, wp_password)
-title = blog_content["title"]
-# 這裡要利用 html.unescape 轉回特殊符號
-description = html.unescape(blog_content["description"])
-mt_text_more = html.unescape(blog_content["mt_text_more"])
-if mt_text_more != "":
-    post_content = description + "\n&lt;!--more--&gt;\n"+mt_text_more
-else:
-    post_content = description
-# 所取回的 categories 為 list
-categories = blog_content["categories"]
-# 所取回的 tags 為以逗點隔開的字串
-mt_keywords = blog_content["mt_keywords"]
-# 取回文章作者
-author = blog_content["wp_author_display_name"]
-p.h = title
-categories_str = ""
-for category in categories:
-    # 假如不是最後一個
-    if category != categories[len(categories)-1]:
-        categories_str += category + ", "
-    else:
-        # 這是最後一個
-        categories_str += category
-line1 = "@language md\n"
-line2 = "Title: " +title + "\n"
-line3 = "Category: " + categories_str + "\n"
-line4 = "Tags: " + mt_keywords + "\n"
-line5 = "Author: " + author + "\n@others\n"
-post_content = post_content.replace('&lt;!--more--&gt;', '\n&lt;!-- PELICAN_END_SUMMARY --&gt;\n')
-post_content = post_content.replace('[code lang="python"]', '~~~python')
-post_content = post_content.replace('[/code]', '~~~')
-p.b = line1 + line2 + line3 + line4 + line5 + post_content + "\n"
-# 因為節點資料更新, commander 必須 redraw
-c.redraw() 
-g.es("資料已經取回")
-&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</summary><category term="Pelican"></category><category term="Wordpress"></category></entry><entry><title>yen - 如何參與 project.mde.tw 的協同編輯</title><link href="http://project.mde.tw/blog/yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html" rel="alternate"></link><updated>2016-03-12T23:40:41+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-12:blog/yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html</id><summary type="html">&lt;p&gt;只要是 KMOL 機械設計專題的成員, 就可以依照特定程序, 管理 project.mde.tw 網站上的資料&lt;/p&gt;
-
-
-&lt;p&gt;首先, 你必須是 &lt;a href="https://github.com/coursemdetw/project_site/watchers"&gt;https://github.com/coursemdetw/project_site/watchers&lt;/a&gt; 名單上的成員, 否則就必須透過 Pull Request 的方式來參與 &lt;a href="http://project.mde.tw"&gt;http://project.mde.tw&lt;/a&gt; 網誌內容的協同管理.&lt;/p&gt;
-&lt;p&gt;接下來, 利用 git clone 的方式, 將 &lt;a href="https://github.com/coursemdetw/project_site"&gt;https://github.com/coursemdetw/project_site&lt;/a&gt; 的倉儲資料複製到近端, 並且將分支切換到 gh-pages, 就可以利用 Leo Editor 開啟或建立, 位於 users 目錄中的 user_template.leo, 然後轉存為"學號.leo" 檔案, 透過這個 Leo Editor 的專案檔, 就可以新增文章, 修改其他人的文章, 甚至修改本網誌系統中的任何設定.&lt;/p&gt;
-&lt;p&gt;將 user_template.leo 轉存為 "學號.leo" 後, 第1件重要的事就是修改 @edit user_20160301.md 中的 user_20160301.md 的存檔檔名, 改為 學號_當天日期.md, 然後修改此一 md 檔案的文章標題: Title: user - 使用者的範例網誌文章標題, 因為這個網誌系統根據 Title: 之後的名稱來轉換 html, 若有兩個 .md 檔案的 Title: 資料完全一樣, Pelican 將無法轉檔, 並且會在轉檔的命令列中出現錯誤訊息.&lt;/p&gt;
-&lt;p&gt;其他的 .md 檔案中, Category: 為文章的類別, 可以參考現有的"2016g1, Misc 與 Tutorial" 等3個類別, 可以是組別或是文章的屬性類別.
-Tags: 則是文章的內容標籤,可以就文章的內容關鍵字加以界定, 至於 Author: 則是用戶的名稱.&lt;/p&gt;
-&lt;p&gt;在每一個 .md 檔案中, 出現在 "PELICAN_END_SUMMARY" 超文件註解標註之前的內容, Pelican 會視為文章的摘要, 當各文章並列時, 文章只會列出標題與摘要.&lt;/p&gt;
-&lt;p&gt;"PELICAN_END_SUMMARY" 超文件註解標註之後的內容就是文章的主要內容.&lt;/p&gt;
-&lt;p&gt;文章中的程式可以利用:&lt;/p&gt;
-&lt;pre class="brush: python; html-script: true"&gt;
-for i in range(5):
-    print(i, ":hello")
-&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p&gt;來加以標示.&lt;/p&gt;
-&lt;p&gt;圖檔則可以利用 img 標註引用:&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://raw.githubusercontent.com/chiamingyen/kmolab/gh-pages/logo/kmol_1172x340_color_3yrs.png" width="600" /&gt;&lt;/p&gt;
-&lt;p&gt;影片引用則可以直接使用 Vimeo 或 Youtube 的 embedded 語法.&lt;/p&gt;
-&lt;p&gt;因為本網誌能夠在近端與遠端等兩個不同環境下運作, 而兩端的關鍵字搜尋流程與格式不同, 因此轉檔的按鈕也分為 local-pelican 與 gh-pages-pelican 等兩個, 要在近端測試時, 必須滑鼠停在 local-pelican 轉檔按鈕的對應節點上, 然後按下 local-pelican, 經過瀏覽器檢查近端文章轉檔與內容無誤後, 必須將滑鼠停在 gh-pages-pelican 轉檔按鈕的對應節點上, 然後按下 gh-pages-pelican 按鈕, 之後若無任何問題, 就可以將資料提交推送到遠端倉儲的 gh-pages 分支中, 指令如下:&lt;/p&gt;
-&lt;p&gt;git add -A&lt;/p&gt;
-&lt;p&gt;git commit -m "提交說明訊息"&lt;/p&gt;
-&lt;p&gt;git push origin gh-pages&lt;/p&gt;
-&lt;p&gt;最後, 與 &lt;a href="http://project.mde.tw"&gt;http://project.mde.tw&lt;/a&gt; 網站維護有關的訊息溝通或註記, 請透過 &lt;a href="https://github.com/coursemdetw/project_site/wiki/%E6%A9%9F%E6%A2%B0%E8%A8%AD%E8%A8%88%E5%B0%88%E9%A1%8C%E5%8D%94%E5%90%8C%E7%B6%B2%E7%AB%99%E8%A8%98%E4%BA%8B"&gt;倉儲 Wiki&lt;/a&gt; 進行.&lt;/p&gt;</summary><category term="Pelican"></category><category term="Leo Editor"></category></entry><entry><title>yen - Pelican 靜態網頁與 Wordpress 的整合</title><link href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he.html" rel="alternate"></link><updated>2016-03-12T23:40:41+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-12:blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he.html</id><summary type="html">&lt;p&gt;許多網路上的文章都只說明如何從動態的網誌系統轉到靜態網誌架構, 但當我們認定動靜之間各有優劣時, 能否兩者整合並存?&lt;/p&gt;
-
-
-&lt;p&gt;Worpress 是一套全世界最廣為使用的動態網誌系統, 採用 PHP 編寫, 一般使用 MySQL 資料庫存放資料, 由於 Wordpress 的安裝與使用都非常直覺, 從許多角度來看, 是一套接近完美的動態網誌系統.&lt;/p&gt;
-&lt;p&gt;但是, PHP 加上 MySQL 的架構仍然需要在伺服器中運行全球資訊網加上 PHP 解譯器, 同時還要 MySQL 資料庫的支援才能啟動運作, 假如管理者沒有跟上 Wordpress 程式碼或 plugin 的漏洞更新, 或者 MySQL 資料庫未能正常提供資料, 這個用 Wordpress 架構的網誌就會出現危機或者無法使用.&lt;/p&gt;
-&lt;p&gt;雖然 Wordpress 網誌中的動態程式與資料庫具有潛在缺點, 但是動態性也同時展現優點, 因為使用者一般可以透過瀏覽器, 隨時更改網誌系統的設定, 可以即時更新所有內容.&lt;/p&gt;
-&lt;p&gt;至於 Pellican 靜態網誌系統, 則針對 Wordpress 動態的問題, 將網誌的編寫格式定調在資料提供者能夠閱讀的 Markdown 或其他類似格式, 然後在近端用各種編輯器完成初步 Markdown 文章的存檔後, 再執行 Pelican 的轉檔指令, 讓 Python 程式將一堆設定與一堆 Markdown 資料中, 轉換成一整套所有內容之間互相串連的 html 檔案, 之後再將這批純 html 格式的文檔加上一些 css 與 Javascript 檔案, 送到全球資訊網伺服器中運行.&lt;/p&gt;
-&lt;p&gt;Pelican 的網誌內容, 因為不需要動態的程式編譯執行, 而只在全球資訊網伺服器中存有 html 與 Javascript, 因此沒有動態程式碼漏洞更新的問題, 也不會有線上的網誌管理系統被入侵的問題, 唯一會產生問題的只有全球資訊網伺服器, 運作或不運作, Javascript 有沒有正確存取的問題, 相較於 Wordpress 的動態程式與資料庫互動, 性質單純許多.&lt;/p&gt;
-&lt;p&gt;但是 Pelican 的靜態性也同時存在問題, 因為大多數的用戶通常採用文字編輯器來準備或管理 Markdown 檔案, 而且是採用命令列的方式來執行 Pelican 轉檔指令, 因此對於電腦程式操作較不熟悉的使用者來說, 導入 Pelican 靜態網誌的距離仍然遙遠, 況且靜態網誌也有不夠動態與直覺的問題, 許多在 Wordpress 線上能夠直接預覽的功能, 在 Pellican 就沒有那麼方便, 而且有很多的 html 與 css 的特定格式, Pelican 的 Markdown 語法根本就不支援.&lt;/p&gt;
-&lt;p&gt;可是 Pelican 純文本的 Markdown 與 html, 還有一個最大的好處, 就是可以透過 Github Pages 的網頁架構系統, 讓每一個版本的靜態網誌都以分散式版本系統管理, 這是 Wordpress 現存的版次管理 Plugin 所無法做到的功能, 因此一份內容, 同時呈現在 Wordpress 與 Pelican 網誌是最理想的情況, 但是該如何完成?&lt;/p&gt;
-&lt;p&gt;由於要整合 Pelican 靜態網誌與 Wordpress 動態網誌, 需要透過程式方法來進行, 這裡只先提供可行的初步技術, 驗證魚與熊掌可以兼得, 我們所採用的管理系統為 Leo Editor: &lt;a href="https://github.com/leo-editor/leo-editor"&gt;https://github.com/leo-editor/leo-editor&lt;/a&gt;, 所有的資料處理流程都是依靠 Python3 程式完成.&lt;/p&gt;
-&lt;p&gt;首先, 看看 Leo Editor 如何透過 Python3 的程式方法與 Wordpress 網誌互動, 這裡所使用的是 XMLRPC 協定 &lt;a href="https://en.wikipedia.org/wiki/XML-RPC"&gt;https://en.wikipedia.org/wiki/XML-RPC&lt;/a&gt;, 基本上, 從 Leo Editor 節點, 將新資料送到 Wordpress 系統的按鈕程式.&lt;/p&gt;
-&lt;pre class="brush: python; html-script: true"&gt;
-# new_to_wp 按鍵
-#coding: utf-8
-import xmlrpc.client
-import datetime
-import os
-
-def get_cat_tag_content(data):
-    data_list = data.split("\n")
-    # 只有一項資料的 category 型別為字串
-    category = data_list[0]
-    # 只有一項資料的 tags 型別為字串
-    tags = data_list[1]
-    # 有多項資料的 content 型別為數列
-    # 再將第3行之後的資料數列串回成以跳行隔開的資料
-    content = "\n".join(data_list[2:])
-    return category, tags, content
-
-os.environ['TZ'] = 'Asia/Taipei'
-
-#################################
-# Open a file, 這裡將存取 Wordpress 網誌的對應帳號與密碼, 存在操作系統中
-# 路徑則從資料節點上層根節點的 body 內文取得
-fo = open(p.parent().b, "r+")
-data = []
-for line in fo.readlines():
-    data.append(line)
-    #print(line)
-#print(data[0])
-
-# Close opend file
-fo.close()
-
-# 從網誌節點的 parent().h 取得 wp_url
-# 從網誌節點的 parent().b 取得帳號與密碼對應的文字檔案路徑
-wp_url = "https://"+p.parent().h+"/xmlrpc.php"
-wp_username = data[0]
-wp_password = data[1]
-#################################
-wp_blogid = "0"
-
-status_draft = 0
-status_published = 1
-
-server = xmlrpc.client.ServerProxy(wp_url)
-
-title = p.h
-#content = p.b
-category_str, tags_str, content = get_cat_tag_content(p.b)
-# 指定時間出版
-'''
-date_created = xmlrpc.client.DateTime(datetime.datetime.strptime("2013-01-01 00:00",
-"%Y-%m-%d %H:%M"))
-'''
-# 以現在時間出版, 考慮與 Server 時間差八個小時 (480 分鐘), 因此要在 8 個小時前發表 (因為伺服主機與操作端時差而定)
-date_created = xmlrpc.client.DateTime(datetime.datetime.strptime((datetime.datetime.now()- \
-datetime.timedelta(minutes=480)).strftime('%Y-%m-%d %H:%M'),"%Y-%m-%d %H:%M"))
-#categories = ["Uncategorized"]
-#tags = ["python", "測試"]
-categories = [category_str.split(":")[1]]
-# 請注意, 因為 tags 用逗點隔開, 因此必須透過 split() 再分開成為 list 資料
-tags = tags_str.split(":")[1].split(",")
-data = {'title': title, 'description': content, 'dateCreated': date_created, 'categories': categories, 'mt_keywords': tags}
-
-post_id = server.metaWeblog.newPost(wp_blogid, wp_username, wp_password, data, status_published)
-# 利用最後的 child 節點來儲存 post_id
-to_save_post_id = p.insertAsLastChild()    
-to_save_post_id.b = post_id
-to_save_post_id.h = "文章 id"
-# 因為新增節點, commander 必須 redraw
-c.redraw() 
-
-g.es("post_id 為", post_id)
-g.es("已經送出資料!")
-'''
-其他 metaWeblog 的用法:
-metaWeblog.newPost (blogid, username, password, struct, publish) returns string(postid)
-metaWeblog.editPost (postid, username, password, struct, publish) returns true
-metaWeblog.getPost (postid, username, password) returns struct(blog content)
-'''
-&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p&gt;至於在 Leo Editor 系統中, 用來編輯既有的 Wordpress 文章的按鈕節點程式碼, 則為:&lt;/p&gt;
-&lt;pre class="brush: python; html-script: true"&gt;
-#edit_to_wp
-#coding: utf-8
-import xmlrpc.client
-import datetime
-import os
-
-def get_cat_tag_content(data):
-    data_list = data.split("\n")
-    # 只有一項資料的 category 型別為字串
-    category = data_list[0]
-    # 只有一項資料的 tags 型別為字串
-    tags = data_list[1]
-    # 有多項資料的 content 型別為數列
-    # 再將第3行之後的資料數列串回成以跳行隔開的資料
-    content = "\n".join(data_list[2:])
-    return category, tags, content
-
-os.environ['TZ'] = 'Asia/Taipei'
-
-#################################
-# Open a file
-fo = open(p.parent().b, "r+")
-data = []
-for line in fo.readlines():
-    data.append(line)
-    #print(line)
-#print(data[0])
-
-# Close opend file
-fo.close()
-
-# 從網誌節點的 parent().h 取得 wp_url
-# 從網誌節點的 parent().b 取得帳號與密碼對應的文字檔案路徑
-wp_url = "https://"+p.parent().h+"/xmlrpc.php"
-wp_username = data[0]
-wp_password = data[1]
-#################################
-wp_blogid = "0"
-
-status_draft = 0
-status_published = 1
-
-server = xmlrpc.client.ServerProxy(wp_url)
-
-title = p.h
-#content = p.b
-category_str, tags_str, content = get_cat_tag_content(p.b)
-# 指定時間出版
-'''
-date_created = xmlrpc.client.DateTime(datetime.datetime.strptime("2013-01-01 00:00",
-"%Y-%m-%d %H:%M"))
-'''
-# 以現在時間出版, 考慮與 Server 時間差八個小時 (480 分鐘), 因此要在 8 個小時前發表 (因為伺服主機與操作端時差而定)
-date_created = xmlrpc.client.DateTime(datetime.datetime.strptime((datetime.datetime.now()- \
-datetime.timedelta(minutes=480)).strftime('%Y-%m-%d %H:%M'),"%Y-%m-%d %H:%M"))
-#categories = ["Uncategorized"]
-#tags = ["python", "測試"]
-categories = [category_str.split(":")[1]]
-# 請注意, 因為 tags 用逗點隔開, 因此必須透過 split() 再分開成為 list 資料
-tags = tags_str.split(":")[1].split(",")
-data = {'title': title, 'description': content, 'dateCreated': date_created, 'categories': categories, 'mt_keywords': tags}
-
-# 設法取得原 post 的 id
-origin_post = p.getLastChild()
-post_id = origin_post.b
-status = server.metaWeblog.editPost(post_id, wp_username, wp_password, data, status_published)
-
-if status:
-    g.es("資料已經更新!")
-else:
-    g.es("有問題, 資料沒有更新!")
-'''
-其他 metaWeblog 的用法:
-metaWeblog.newPost (blogid, username, password, struct, publish) returns string(postid)
-metaWeblog.editPost (postid, username, password, struct, publish) returns true
-metaWeblog.getPost (postid, username, password) returns struct(blog content)
-'''
-&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p&gt;最後若要經由 Leo Editor 的節點按鈕, 取回既有的 Wordpress 網誌文章, 則可以使用 get_from_wp 按鈕節點:&lt;/p&gt;
-&lt;pre class="brush: python; html-script: true"&gt;
-#get_from_wp
-#coding: utf-8
-import xmlrpc.client
-# 導入 html 模組, 使用 html.unescape 轉換 html 特殊符號
-import html
-
-#################################
-# Open a file
-fo = open(p.parent().b, "r+")
-data = []
-for line in fo.readlines():
-    data.append(line)
-fo.close()
-
-# 從網誌節點的 parent().h 取得 wp_url
-# 從網誌節點的 parent().b 取得帳號與密碼對應的文字檔案路徑
-wp_url = "https://"+p.parent().h+"/xmlrpc.php"
-wp_username = data[0]
-wp_password = data[1]
-#################################
-
-server = xmlrpc.client.ServerProxy(wp_url)
-
-# 設法透過上述網誌網址, 帳號與密碼, 以及文章 id, 取回 categories, tags, 文章標題, 文章內容等資
-
-# 從最後的 child 節點來取 post_id
-origin_post = p.getLastChild()
-post_id = origin_post.b
-# 取回與 post_id 對應的網誌文章內容
-blog_content = server.metaWeblog.getPost (post_id, wp_username, wp_password)
-title = blog_content["title"]
-# 這裡要利用 html.unescape 轉回特殊符號
-description = html.unescape(blog_content["description"])
-mt_text_more = html.unescape(blog_content["mt_text_more"])
-if mt_text_more != "":
-    post_content = description + "\n&lt;!--more--&gt;\n"+mt_text_more
-else:
-    post_content = description
-# 所取回的 categories 為 list
-categories = blog_content["categories"]
-# 索取回的 tags 為以逗點隔開的字串
-mt_keywords = blog_content["mt_keywords"]
-p.h = title
-categories_str = ""
-for category in categories:
-    # 假如不是最後一個
-    if category != categories[len(categories)-1]:
-        categories_str += category + ", "
-    else:
-        # 這是最後一個
-        categories_str += category
-p.b = "categories:"+categories_str+"\ntags:"+mt_keywords+"\n"+post_content
-# 因為節點資料更新, commander 必須 redraw
-c.redraw() 
-g.es("資料已經取回")
-&lt;/pre&gt;
-
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p&gt;好了, 上面的3個 Leo Editor 的按鈕節點程式, 只是從操作系統的特定路徑取出能夠管理遠端 Wordpress 網誌系統的帳號密碼, 然後再透過 XML-RPC 協定, 進行 Wordpress 網誌文章的新增、編輯與取回, 表示使用者可以在一個 Leo Editor 專案檔中完成這些事, 接下來則需要讓 Pelican 轉出的 html 檔案, 能夠同步送到對應的 Wordpress 動態網誌系統, 並且可以做到即時的內容同步, 既可保有靜態網誌的版次管理與單純伺服架構, 而且又可以將 Wordpress 視為 Pelican 的另外一個出口 (意思就是說, Wordpress 中只有特定的內容由 Pelican 端提供, 其他的使用者則仍然透過瀏覽器的方法對 Wordpress 網誌提供內容), 至於後續的處理與可行性驗證, 將在隨後的文章中進行討論.&lt;/p&gt;</summary><category term="Pelican"></category><category term="Wordpress"></category></entry><entry><title>yen - 機械設計專題隨身開發電腦</title><link href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-sui-shen-kai-fa-dian-nao.html" rel="alternate"></link><updated>2016-03-12T12:33:12+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-12:blog/yen-ji-jie-she-ji-zhuan-ti-sui-shen-kai-fa-dian-nao.html</id><summary type="html">&lt;p&gt;此項測試目的在利用樹莓派卡片電腦, 以無線網路取得區域網路 IP, 然後從電腦教室中的 Windows 10, 以 X-Windows Server 連線到 Raspberry Pi 電腦系統, 嘗試讓機械設計工程學員評估, 能否在 Windows 10 與隨身的 Ubuntu 電腦系統間, 搭建合用的協同產品開發環境.&lt;/p&gt;
+&lt;p&gt;此外, 因為 Flask 內定靜態目錄名稱為 static, 且 template 名稱為 templates, 因此在最基本的 Flask 程式架構中, 也需要自行建立這兩個目錄, 然後將靜態文件放入 static 目錄中, 而對應的  template 文件檔案, 則放入 templates 目錄中.&lt;/p&gt;</summary><category term="OpenShift"></category><category term="Flask"></category></entry><entry><title>yen - 機械設計專題隨身開發電腦</title><link href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-sui-shen-kai-fa-dian-nao.html" rel="alternate"></link><updated>2016-03-12T12:33:12+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-12:blog/yen-ji-jie-she-ji-zhuan-ti-sui-shen-kai-fa-dian-nao.html</id><summary type="html">&lt;p&gt;此項測試目的在利用樹莓派卡片電腦, 以無線網路取得區域網路 IP, 然後從電腦教室中的 Windows 10, 以 X-Windows Server 連線到 Raspberry Pi 電腦系統, 嘗試讓機械設計工程學員評估, 能否在 Windows 10 與隨身的 Ubuntu 電腦系統間, 搭建合用的協同產品開發環境.&lt;/p&gt;
 
 
 &lt;p&gt;Windows 10 環境中擬採用的 X-Windows Server: &lt;a href="https://sourceforge.net/projects/xming/"&gt;https://sourceforge.net/projects/xming/&lt;/a&gt;&lt;/p&gt;

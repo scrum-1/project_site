@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/misc.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-12T23:40:41+08:00</updated><entry><title>yen - Pelican 靜態網頁與 Wordpress 的整合方案</title><link href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html" rel="alternate"></link><updated>2016-03-12T23:40:41+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-12:blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html</id><summary type="html">&lt;p&gt;利用 Leo Editor 的節點資料程式方法, 可以讓 Pelican 靜態網誌的內容與 Wordpress 動態網誌保持同步.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/misc.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-13T00:00:24+08:00</updated><entry><title>yen - Pelican 靜態網頁與 Wordpress 的整合方案</title><link href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html" rel="alternate"></link><updated>2016-03-13T00:00:24+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-13:blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html</id><summary type="html">&lt;p&gt;利用 Leo Editor 的節點資料程式方法, 可以讓 Pelican 靜態網誌的內容與 Wordpress 動態網誌保持同步.&lt;/p&gt;
 
 
 &lt;p&gt;因為 Pelican 靜態網頁結合 Github Pages 網站, 可以完整保留各版本的所有差異資料 ,而 Wordpress 的動態特性也具有即時更新的優點, 因此本機械設計專題網站, 就利用 Leo Editor 建立了3個按鈕, 可以在靜態與動態網誌之間雙向交換內容.&lt;/p&gt;
 &lt;p&gt;首先是先編寫 Pelican 網誌的文章, 然後再經由下列 Leo Editor 的按鈕, 以 XML-RPC 協定, 將文章送到對應的 Wordpress 網誌.&lt;/p&gt;
-&lt;pre class="brush: python; html-script: true"&gt;
+&lt;pre class="brush: python;"&gt;
 ＃new-to-wp button
 #coding: utf-8
 import xmlrpc.client
@@ -89,7 +89,7 @@ g.es("已經送出資料!")
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p&gt;其中 filepath 是存放 Wordpress 網誌管理帳號與密碼的存文字檔案路徑 (例如: "/home/user/file.txt"), 而 wordpress 則宣告希望對應連結的網址 (例如: "www.yoursite.blog").&lt;/p&gt;
 &lt;p&gt;當 Wordpress 的網誌文章新增後, 若 Pelican 端的文章改版, 則可以透過下列 edit-to-wp 按鈕進行更新:&lt;/p&gt;
-&lt;pre class="brush: python; html-script: true"&gt;
+&lt;pre class="brush: python;"&gt;
 # edit-to-wp
 #coding: utf-8
 import xmlrpc.client
@@ -169,7 +169,7 @@ else:
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p&gt;最後, 假如使用者透過 Wordpress 的瀏覽器介面新增文章, Pelican 端也可以準備一個空白節點, 並將文章的 id 號碼作為該空白節點的子節點, 且將該子節點的 header, 設為文章的 id 數, 接下來再用滑鼠停在父空白節點上, 然後以滑鼠點按下列的 get-from-wp 按鈕, 就可以將 Wordpress 端的文章取回, 且節點標題會被填入該文章的標題, 之後 Pelican 端的使用者再依據規劃, 以 @clean 存檔的標題命名該節點.&lt;/p&gt;
-&lt;pre class="brush: python; html-script: true"&gt;
+&lt;pre class="brush: python;"&gt;
 # get-from-wp
 #coding: utf-8
 import xmlrpc.client
@@ -238,7 +238,7 @@ c.redraw()
 g.es("資料已經取回")
 &lt;/pre&gt;
 
-&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</summary><category term="Pelican"></category><category term="Wordpress"></category></entry><entry><title>yen - Pelican 靜態網頁與 Wordpress 的整合</title><link href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he.html" rel="alternate"></link><updated>2016-03-12T23:40:41+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-12:blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he.html</id><summary type="html">&lt;p&gt;許多網路上的文章都只說明如何從動態的網誌系統轉到靜態網誌架構, 但當我們認定動靜之間各有優劣時, 能否兩者整合並存?&lt;/p&gt;
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</summary><category term="Pelican"></category><category term="Wordpress"></category></entry><entry><title>yen - Pelican 靜態網頁與 Wordpress 的整合</title><link href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he.html" rel="alternate"></link><updated>2016-03-13T00:00:24+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-13:blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he.html</id><summary type="html">&lt;p&gt;許多網路上的文章都只說明如何從動態的網誌系統轉到靜態網誌架構, 但當我們認定動靜之間各有優劣時, 能否兩者整合並存?&lt;/p&gt;
 
 
 &lt;p&gt;Worpress 是一套全世界最廣為使用的動態網誌系統, 採用 PHP 編寫, 一般使用 MySQL 資料庫存放資料, 由於 Wordpress 的安裝與使用都非常直覺, 從許多角度來看, 是一套接近完美的動態網誌系統.&lt;/p&gt;
@@ -250,7 +250,7 @@ g.es("資料已經取回")
 &lt;p&gt;可是 Pelican 純文本的 Markdown 與 html, 還有一個最大的好處, 就是可以透過 Github Pages 的網頁架構系統, 讓每一個版本的靜態網誌都以分散式版本系統管理, 這是 Wordpress 現存的版次管理 Plugin 所無法做到的功能, 因此一份內容, 同時呈現在 Wordpress 與 Pelican 網誌是最理想的情況, 但是該如何完成?&lt;/p&gt;
 &lt;p&gt;由於要整合 Pelican 靜態網誌與 Wordpress 動態網誌, 需要透過程式方法來進行, 這裡只先提供可行的初步技術, 驗證魚與熊掌可以兼得, 我們所採用的管理系統為 Leo Editor: &lt;a href="https://github.com/leo-editor/leo-editor"&gt;https://github.com/leo-editor/leo-editor&lt;/a&gt;, 所有的資料處理流程都是依靠 Python3 程式完成.&lt;/p&gt;
 &lt;p&gt;首先, 看看 Leo Editor 如何透過 Python3 的程式方法與 Wordpress 網誌互動, 這裡所使用的是 XMLRPC 協定 &lt;a href="https://en.wikipedia.org/wiki/XML-RPC"&gt;https://en.wikipedia.org/wiki/XML-RPC&lt;/a&gt;, 基本上, 從 Leo Editor 節點, 將新資料送到 Wordpress 系統的按鈕程式.&lt;/p&gt;
-&lt;pre class="brush: python; html-script: true"&gt;
+&lt;pre class="brush: python;"&gt;
 # new_to_wp 按鍵
 #coding: utf-8
 import xmlrpc.client
@@ -334,7 +334,7 @@ metaWeblog.getPost (postid, username, password) returns struct(blog content)
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p&gt;至於在 Leo Editor 系統中, 用來編輯既有的 Wordpress 文章的按鈕節點程式碼, 則為:&lt;/p&gt;
-&lt;pre class="brush: python; html-script: true"&gt;
+&lt;pre class="brush: python;"&gt;
 #edit_to_wp
 #coding: utf-8
 import xmlrpc.client
@@ -416,7 +416,7 @@ metaWeblog.getPost (postid, username, password) returns struct(blog content)
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
 &lt;p&gt;最後若要經由 Leo Editor 的節點按鈕, 取回既有的 Wordpress 網誌文章, 則可以使用 get_from_wp 按鈕節點:&lt;/p&gt;
-&lt;pre class="brush: python; html-script: true"&gt;
+&lt;pre class="brush: python;"&gt;
 #get_from_wp
 #coding: utf-8
 import xmlrpc.client

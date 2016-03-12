@@ -201,7 +201,7 @@ Author: yen
 
 程式碼
 
-&lt;pre class="brush: python; html-script: true"&gt;
+&lt;pre class="brush: python;"&gt;
 print("hello")
 &lt;/pre&gt;</t>
 <t tx="amd.20151216173334.1"></t>

@@ -127,7 +127,7 @@
 <v t="amd.20151215170350.1"><vh>以下為 content 目錄中的 md 檔案</vh></v>
 <v t="amd.20160106093610.1"><vh>協同網誌編寫規範</vh></v>
 <v t="amd.20160301001423.1"><vh>專題類別與標籤規劃</vh></v>
-<v t="amd.20160309073114.1" a="E"><vh>有關 pelican 與 WP 同步內容</vh>
+<v t="amd.20160309073114.1"><vh>有關 pelican 與 WP 同步內容</vh>
 <v t="amd.20160309073149.1"><vh>@button new to wp</vh></v>
 <v t="amd.20160309073204.1"><vh>@button edit to wp</vh></v>
 <v t="amd.20160309073217.1" a="E"><vh>@button get from wp</vh>
@@ -161,6 +161,7 @@
 <v t="amd.20160309194649.1"><vh>@edit yen_20160309-2.md</vh></v>
 <v t="amd.20160310181325.1"><vh>@edit yen_20160310.md</vh></v>
 <v t="amd.20160311215621.1"><vh>@edit yen_20160311.md</vh></v>
+<v t="amd.20160312115755.1"><vh>@edit yen_20160312.md</vh></v>
 </v>
 </v>
 </v>

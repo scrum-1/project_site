@@ -1,5 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/misc.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-13T00:00:24+08:00</updated><entry><title>yen - Pelican 靜態網頁與 Wordpress 的整合方案</title><link href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html" rel="alternate"></link><updated>2016-03-13T00:00:24+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-13:blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html</id><summary type="html">&lt;p&gt;利用 Leo Editor 的節點資料程式方法, 可以讓 Pelican 靜態網誌的內容與 Wordpress 動態網誌保持同步.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/misc.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-13T18:24:34+08:00</updated><entry><title>yen - 導入 OpenCV 與 Python3</title><link href="http://project.mde.tw/blog/yen-dao-ru-opencv-yu-python3.html" rel="alternate"></link><updated>2016-03-13T18:24:34+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-13:blog/yen-dao-ru-opencv-yu-python3.html</id><summary type="html">&lt;p&gt;OpenCV (Open Source Computer Vision) 是一套實時影像程式庫, 這裡希望利用 Python3 來進行應用程式開發.&lt;/p&gt;
+
+
+&lt;h2&gt;安裝&lt;/h2&gt;
+&lt;h3&gt;Windows&lt;/h3&gt;
+&lt;p&gt;可以直接從 &lt;a href="https://github.com/chiamingyen/kmol2016"&gt;https://github.com/chiamingyen/kmol2016&lt;/a&gt; git clone 可攜系統.&lt;/p&gt;
+&lt;p&gt;測試程式:&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+import numpy as np
+import cv2
+
+# 建立一個黑色背景
+img = np.zeros((512,512,3), np.uint8)
+
+# 以寬度 5 px 畫一條藍色的對角線
+img = cv2.line(img,(0,0),(511,511),(255,0,0),5)
+# 呈現此影像
+cv2.imshow('image',img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+'''
+# 載入 jpg 圖檔
+image = cv2.imread("mario.jpg", flags=cv2.IMREAD_COLOR)
+
+# 然後呈現此影像
+cv2.imshow('image',image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+'''
+&lt;/pre&gt;
+
+&lt;p&gt;在 Windows 環境執行結果:&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/opencv_python3_windows.png" width="800" /&gt;&lt;/p&gt;
+&lt;h2&gt;Ubuntu 14.04&lt;/h2&gt;
+&lt;p&gt;在 Ubuntu 操作系統中 for Python2 與 Python3 的 OpenCV 程式庫編譯流程如下:&lt;/p&gt;
+&lt;pre class="brush: bash"&gt;
+# apt-get 更新
+$ sudo apt-get update
+# apt-get 升級
+$ sudo apt-get upgrade
+# 安裝所需的開發套件
+$ sudo apt-get install build-essential cmake git pkg-config
+# 安裝編譯過程所需的程式庫
+$ sudo apt-get install libjpeg8-dev libtiff4-dev libjasper-dev libpng12-dev
+# 安裝編譯過程所需的程式庫
+$ sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+# 安裝編譯過程所需的程式庫
+$ sudo apt-get install libgtk2.0-dev
+# 安裝編譯過程所需的 fortran 編譯器
+$ sudo apt-get install libatlas-base-dev gfortran
+# 安裝編譯過程所需的原始碼
+$ sudo apt-get install python3.4-dev
+# 本台機器的 python 為 2.7 版, 而 python3 則為 python 3.4, 這裡安裝 numpy  模組
+$ pip3 install numpy
+# 希望在帳號目錄下的 tmp 進行編譯工作
+$ cd
+# 更換目錄到 tmp
+$ cd tmp
+# 利用 git clone 取得原始碼
+$ git clone https://github.com/Itseez/opencv.git
+# 準備進入倉儲切換分支
+$ cd opencv
+# 採用 3.1.0 版
+$ git checkout 3.1.0
+# 回到用戶目錄
+$ cd ..
+# 再利用 git clone 下載原始碼
+$ git clone https://github.com/Itseez/opencv_contrib.git
+# 準備進入倉儲切換分支
+$ cd opencv_contrib
+# 與 opencv 配合, 採用 3.1.0 版
+$ git checkout 3.1.0
+
+$ cd ..
+# 準備開始建立程式庫
+$ cd opencv
+
+$ mkdir build
+
+$ cd build
+
+# 這裡會同時建立 Python2 與 Python3 的 OpenCV 程式庫檔案
+$ cmake -D CMAKE_BUILD_TYPE=RELEASE \
+    -D CMAKE_INSTALL_PREFIX=/usr/local \
+    -D INSTALL_C_EXAMPLES=OFF \
+    -D INSTALL_PYTHON_EXAMPLES=ON \
+    -D PYTHON_EXECUTABLE=$(which python3) \
+    -D OPENCV_EXTRA_MODULES_PATH= ./../../opencv_contrib/modules \
+    -D BUILD_EXAMPLES=ON ..
+
+$ make -j4
+
+$ sudo make install
+
+$ sudo ldconfig
+&lt;/pre&gt;
+
+&lt;p&gt;完成安裝後, 執行上一個測試程式結果:&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/opencv_python3_ubuntu.png" width="800" /&gt;&lt;/p&gt;</summary><category term="OpenCV"></category><category term="Python3"></category></entry><entry><title>yen - Pelican 靜態網頁與 Wordpress 的整合方案</title><link href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html" rel="alternate"></link><updated>2016-03-13T00:00:24+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-13:blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html</id><summary type="html">&lt;p&gt;利用 Leo Editor 的節點資料程式方法, 可以讓 Pelican 靜態網誌的內容與 Wordpress 動態網誌保持同步.&lt;/p&gt;
 
 
 &lt;p&gt;因為 Pelican 靜態網頁結合 Github Pages 網站, 可以完整保留各版本的所有差異資料 ,而 Wordpress 的動態特性也具有即時更新的優點, 因此本機械設計專題網站, 就利用 Leo Editor 建立了3個按鈕, 可以在靜態與動態網誌之間雙向交換內容.&lt;/p&gt;

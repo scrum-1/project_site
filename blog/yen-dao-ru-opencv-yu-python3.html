@@ -307,7 +307,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-03-13T18:24:34.439802+08:00"> 日 13 三月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-03-13T19:28:14.019916+08:00"> 日 13 三月 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/yen.html"><i class="fa fa-user"></i> yen</a>
@@ -421,6 +421,48 @@ $ sudo ldconfig
 
 <p>完成安裝後, 執行上一個測試程式結果:</p>
 <p><img src="http://coursemdetw.github.io/project_site_files/files/2016spring/opencv_python3_ubuntu.png" width="800" /></p>
+<p>以下則為人臉變識程式:<a href="https://github.com/shantnu/FaceDetect/">https://github.com/shantnu/FaceDetect/</a>:</p>
+<p>執行需要取得 <a href="http://coursemdetw.github.io/project_site_files/files/2016spring/haarcascade_frontalface_default.xml">haarcascade_frontalface_default.xml</a></p>
+<pre class="brush: python">
+import cv2
+import sys
+
+cascPath = "haarcascade_frontalface_default.xml"
+faceCascade = cv2.CascadeClassifier(cascPath)
+
+video_capture = cv2.VideoCapture(0)
+
+while True:
+    # 逐一以影格取像
+    ret, frame = video_capture.read()
+
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    faces = faceCascade.detectMultiScale(
+        gray,
+        scaleFactor=1.1,
+        minNeighbors=5,
+        minSize=(30, 30),
+        flags=cv2.CASCADE_SCALE_IMAGE
+    )
+
+    # 在辨識的臉形外圍畫一個矩形
+    for (x, y, w, h) in faces:
+        cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+
+    # 呈現影像
+    cv2.imshow('Video', frame)
+
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# 停止執行
+video_capture.release()
+cv2.destroyAllWindows()
+</pre>
+
+<p>人臉辨識程式執行結果:</p>
+<p><img src="http://coursemdetw.github.io/project_site_files/files/2016spring/opencv_python3_face_detect1.png" width="800" /></p>
             </div>
             <!-- /.entry-content -->
     <hr/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/misc.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-13T18:24:34+08:00</updated><entry><title>yen - 導入 OpenCV 與 Python3</title><link href="http://project.mde.tw/blog/yen-dao-ru-opencv-yu-python3.html" rel="alternate"></link><updated>2016-03-13T18:24:34+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-13:blog/yen-dao-ru-opencv-yu-python3.html</id><summary type="html">&lt;p&gt;OpenCV (Open Source Computer Vision) 是一套實時影像程式庫, 這裡希望利用 Python3 來進行應用程式開發.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/misc.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-13T19:28:14+08:00</updated><entry><title>yen - 導入 OpenCV 與 Python3</title><link href="http://project.mde.tw/blog/yen-dao-ru-opencv-yu-python3.html" rel="alternate"></link><updated>2016-03-13T19:28:14+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-13:blog/yen-dao-ru-opencv-yu-python3.html</id><summary type="html">&lt;p&gt;OpenCV (Open Source Computer Vision) 是一套實時影像程式庫, 這裡希望利用 Python3 來進行應用程式開發.&lt;/p&gt;
 
 
 &lt;h2&gt;安裝&lt;/h2&gt;
@@ -98,7 +98,49 @@ $ sudo ldconfig
 &lt;/pre&gt;
 
 &lt;p&gt;完成安裝後, 執行上一個測試程式結果:&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/opencv_python3_ubuntu.png" width="800" /&gt;&lt;/p&gt;</summary><category term="OpenCV"></category><category term="Python3"></category></entry><entry><title>yen - Pelican 靜態網頁與 Wordpress 的整合方案</title><link href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html" rel="alternate"></link><updated>2016-03-13T00:00:24+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-13:blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html</id><summary type="html">&lt;p&gt;利用 Leo Editor 的節點資料程式方法, 可以讓 Pelican 靜態網誌的內容與 Wordpress 動態網誌保持同步.&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/opencv_python3_ubuntu.png" width="800" /&gt;&lt;/p&gt;
+&lt;p&gt;以下則為人臉變識程式:&lt;a href="https://github.com/shantnu/FaceDetect/"&gt;https://github.com/shantnu/FaceDetect/&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;執行需要取得 &lt;a href="http://coursemdetw.github.io/project_site_files/files/2016spring/haarcascade_frontalface_default.xml"&gt;haarcascade_frontalface_default.xml&lt;/a&gt;&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+import cv2
+import sys
+
+cascPath = "haarcascade_frontalface_default.xml"
+faceCascade = cv2.CascadeClassifier(cascPath)
+
+video_capture = cv2.VideoCapture(0)
+
+while True:
+    # 逐一以影格取像
+    ret, frame = video_capture.read()
+
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    faces = faceCascade.detectMultiScale(
+        gray,
+        scaleFactor=1.1,
+        minNeighbors=5,
+        minSize=(30, 30),
+        flags=cv2.CASCADE_SCALE_IMAGE
+    )
+
+    # 在辨識的臉形外圍畫一個矩形
+    for (x, y, w, h) in faces:
+        cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+
+    # 呈現影像
+    cv2.imshow('Video', frame)
+
+    if cv2.waitKey(1) &amp; 0xFF == ord('q'):
+        break
+
+# 停止執行
+video_capture.release()
+cv2.destroyAllWindows()
+&lt;/pre&gt;
+
+&lt;p&gt;人臉辨識程式執行結果:&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/opencv_python3_face_detect1.png" width="800" /&gt;&lt;/p&gt;</summary><category term="OpenCV"></category><category term="Python3"></category></entry><entry><title>yen - Pelican 靜態網頁與 Wordpress 的整合方案</title><link href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html" rel="alternate"></link><updated>2016-03-13T00:00:24+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-13:blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html</id><summary type="html">&lt;p&gt;利用 Leo Editor 的節點資料程式方法, 可以讓 Pelican 靜態網誌的內容與 Wordpress 動態網誌保持同步.&lt;/p&gt;
 
 
 &lt;p&gt;因為 Pelican 靜態網頁結合 Github Pages 網站, 可以完整保留各版本的所有差異資料 ,而 Wordpress 的動態特性也具有即時更新的優點, 因此本機械設計專題網站, 就利用 Leo Editor 建立了3個按鈕, 可以在靜態與動態網誌之間雙向交換內容.&lt;/p&gt;

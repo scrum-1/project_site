@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>yen - 網際 Flask 程式架構 - 機械設計專題</title>
+    <title>yen - Python 數位運算與較有未來的技術 - 機械設計專題</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -166,21 +166,20 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 
-<link rel="canonical" href="http://project.mde.tw/blog/yen-wang-ji-flask-cheng-shi-jia-gou.html">
+<link rel="canonical" href="http://project.mde.tw/blog/yen-python-shu-wei-yun-suan-yu-jiao-you-wei-lai-de-ji-shu.html">
 
         <meta name="author" content="yen" />
-        <meta name="keywords" content="OpenShift,Flask" />
-        <meta name="description" content="Flask 是一套支援 Python3 的全球資訊網程式框架, 這裡希望用它來開發網際輔助機械設計程式." />
+        <meta name="keywords" content="Python3" />
+        <meta name="description" content="身為一位機械設計工程專長學員, 該如何看待數位運算, 那些技術較有未來?" />
 
         <meta property="og:site_name" content="機械設計專題" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="yen - 網際 Flask 程式架構"/>
-        <meta property="og:url" content="http://project.mde.tw/blog/yen-wang-ji-flask-cheng-shi-jia-gou.html"/>
-        <meta property="og:description" content="Flask 是一套支援 Python3 的全球資訊網程式框架, 這裡希望用它來開發網際輔助機械設計程式."/>
-        <meta property="article:published_time" content="2016-03-13" />
-            <meta property="article:section" content="Tutorial" />
-            <meta property="article:tag" content="OpenShift" />
-            <meta property="article:tag" content="Flask" />
+        <meta property="og:title" content="yen - Python 數位運算與較有未來的技術"/>
+        <meta property="og:url" content="http://project.mde.tw/blog/yen-python-shu-wei-yun-suan-yu-jiao-you-wei-lai-de-ji-shu.html"/>
+        <meta property="og:description" content="身為一位機械設計工程專長學員, 該如何看待數位運算, 那些技術較有未來?"/>
+        <meta property="article:published_time" content="2016-03-16" />
+            <meta property="article:section" content="Misc" />
+            <meta property="article:tag" content="Python3" />
             <meta property="article:author" content="yen" />
 
 
@@ -265,10 +264,10 @@ init_mathjax();
                         <li >
                             <a href="http://project.mde.tw/blog/category/2016g1.html">2016g1</a>
                         </li>
-                        <li >
+                        <li class="active">
                             <a href="http://project.mde.tw/blog/category/misc.html">Misc</a>
                         </li>
-                        <li class="active">
+                        <li >
                             <a href="http://project.mde.tw/blog/category/tutorial.html">Tutorial</a>
                         </li>
             </ul>
@@ -294,10 +293,10 @@ init_mathjax();
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="http://project.mde.tw/blog/yen-wang-ji-flask-cheng-shi-jia-gou.html"
+                    <a href="http://project.mde.tw/blog/yen-python-shu-wei-yun-suan-yu-jiao-you-wei-lai-de-ji-shu.html"
                        rel="bookmark"
-                       title="Permalink to yen - 網際 Flask 程式架構">
-                        yen - 網際 Flask 程式架構
+                       title="Permalink to yen - Python 數位運算與較有未來的技術">
+                        yen - Python 數位運算與較有未來的技術
                     </a>
                 </h1>
             </header>
@@ -307,7 +306,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-03-13T00:00:24.445670+08:00"> 日 13 三月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-03-16T22:01:47.076237+08:00"> 三 16 三月 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/yen.html"><i class="fa fa-user"></i> yen</a>
@@ -315,148 +314,16 @@ init_mathjax();
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://project.mde.tw/blog/tag/openshift.html">OpenShift</a>
-        /
-	<a href="http://project.mde.tw/blog/tag/flask.html">Flask</a>
+	<a href="http://project.mde.tw/blog/tag/python3.html">Python3</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>Flask 是一套支援 Python3 的全球資訊網程式框架, 這裡希望用它來開發網際輔助機械設計程式.</p>
+                <p>身為一位機械設計工程專長學員, 該如何看待數位運算, 那些技術較有未來?</p>
 
 
-<p><a href="http://flask.pocoo.org/">http://flask.pocoo.org/</a> 是一套簡潔的 Python3 網際程式框架, 在這一系列的導引資料中, 將利用 <a href="https://github.com/2015fallhw/simpleflask">https://github.com/2015fallhw/simpleflask</a> 倉儲來存放資料, 並將資料同步推送到 <a href="http://simpleflask-2014openshift.rhcloud.com/">http://simpleflask-2014openshift.rhcloud.com/</a> 執行.</p>
-<h2>程式環境</h2>
-<p>假如在 Windows 環境中, 使用可攜套件: <a href="https://github.com/chiamingyen/kmol2016">https://github.com/chiamingyen/kmol2016</a>, 則已經內建 Flask 模組, 假如沒有, 可以利用</p>
-<p>pip install Flask 安裝.</p>
-<p>假如是在 Ubuntu, 可以要用 pip3 install Flask 安裝, 至於在 OpenShift 的 Python3 應用程式, 則是透過 setup.py 安裝.</p>
-<pre class="brush: python;">
-#setup.py 檔案
-from setuptools import setup
-
-setup(name='KMOL 2016 project',
-      version='1.0',
-      description='OpenShift App',
-      author='KMOL',
-      author_email='course@mde.tw',
-      url='https://www.python.org/community/sigs/current/distutils-sig',
-      install_requires=['Flask>=0.10.1'],
-     )
-</pre>
-
-<p><br /></p>
-<p>由於這裡所開發的 Flask 程式, 需要在近端與 OpenShift 都能運作, 因此 wsgi.py 的內容設計為:</p>
-<pre class="brush: python;">
-#!/usr/bin/python
-# 導入 os 模組, 主要用來判斷是否在 OpenShift 上執行
-import os
-# 導入同目錄下的 myflaskapp.py
-import myflaskapp
-
-# 以下開始判斷在 OpenShift 或近端執行
-if 'OPENSHIFT_REPO_DIR' in os.environ.keys():
-    # 表示程式在雲端執行
-    application = myflaskapp.app
-else:
-    # 表示在近端執行, 以 python3 wsgi.py 執行,  若採 uwsgi 則與 Openshift 運作模式相同
-    myflaskapp.app.run(debug=True)
-</pre>
-
-<p><br /></p>
-<p>也就是說, wsgi.py  會透過os.environ.keys() 的值來判定執行的環境, 若是在 uwsgi 的環境執行時, 則必須使用與 OpenShift 環境相同的啟動模式.</p>
-<p>而 wsgi.py 中所導入的 myflaskapp.py 內容則為:</p>
-<pre class="brush: python; html-script: false">
-# coding: utf-8
-from flask import Flask, send_from_directory, request, redirect, render_template, session, make_response
-import random
-
-app = Flask(__name__)
-
-# 使用 session 必須要設定 secret_key
-# In order to use sessions you have to set a secret key
-# set the secret key.  keep this really secret:
-app.secret_key = 'A0Zr9@8j/3yX R~XHH!jmN]LWX/,?R@T'
-
-@app.route("/")
-def index():
-    #這是猜數字遊戲的起始表單, 主要在產生答案, 並且將 count 歸零
-    # 將標準答案存入 answer session 對應區
-    theanswer = random.randint(1, 100)
-    thecount = 0
-    # 將答案與計算次數變數存進 session 對應變數
-    session['answer'] = theanswer
-    session['count'] = thecount
-
-    return render_template("index.html", answer=theanswer, count=thecount)
-
-@app.route('/user/<name>')
-# 為了避免 syntaxhighlighter 自動加上 </name>, 在這裡先行用註解補上, 之後再找解決方案
-def user(name):
-    return render_template("user.html", name=name)
-@app.route('/red')
-def red():
-    # 重新導向 google
-    return redirect("http://www.google.com")
-@app.route('/guessform')
-def guessform():
-    session["count"] += 1
-    guess = session.get("guess")
-    theanswer = session.get("answer")
-    count = session.get("count")
-    return render_template("guessform.html", guess=guess, answer=theanswer, count=count)
-@app.route('/docheck', methods=['POST'])
-def docheck():
-    # session[] 存資料
-    # session.get() 取 session 資料
-    # 利用 request.form[] 取得表單欄位資料, 然後送到 template
-    guess = request.form["guess"]
-    session["guess"] = guess
-    # 假如使用者直接執行 doCheck, 則設法轉回根方法
-    if guess is None:
-        redirect("/")
-    # 從 session 取出 answer 對應資料, 且處理直接執行 docheck 時無法取 session 值情況
-    try:
-        theanswer = int(session.get('answer'))
-    except:
-        redirect("/")
-    # 經由表單所取得的 guess 資料型別為 string
-    try:
-        theguess = int(guess)
-    except:
-        return redirect("/guessform")
-    # 每執行 doCheck 一次,次數增量一次
-    session["count"] += 1
-    count = session.get("count")
-    # 答案與所猜數字進行比對
-    if theanswer < theguess:
-        return render_template("toobig.html", guess=guess, answer=theanswer, count=count)
-    elif theanswer > theguess:
-        return render_template("toosmall.html", guess=guess, answer=theanswer, count=count)
-    else:
-        # 已經猜對, 從 session 取出累計猜測次數
-        thecount = session.get('count')
-        return "猜了 "+str(thecount)+" 次, 終於猜對了, 正確答案為 "+str(theanswer)+": <a href='/'>再猜</a>"
-    return render_template("docheck.html", guess=guess)
-
-@app.route('/option', methods=["GET", "POST"])
-def option():
-    option_list1 = ["1", "2", "3", "4"]
-    option_list2 = ["a", "b"]
-
-    return render_template('option.html', option_list1=option_list1, option_list2=option_list2)
-@app.route('/optionaction', methods=['POST'])
-def optionaction():
-    # 這裡將根據使用者所選擇的選項值, 來進行後續的設計運算
-    return request.form["option1"] + ":" + request.form["option2"]
-    # 等運算或資料處理結束後, 再將相關值送到對應的 template 進行資料的展示
-    #return render_template('optionaction.html', option_list1=option_list1, option_list2=option_list2)
-
-
-if __name__ == "__main__":
-    app.run()
-</pre>
-
-<p><br /></p>
-<p>此外, 因為 Flask 內定靜態目錄名稱為 static, 且 template 名稱為 templates, 因此在最基本的 Flask 程式架構中, 也需要自行建立這兩個目錄, 然後將靜態文件放入 static 目錄中, 而對應的  template 文件檔案, 則放入 templates 目錄中.</p>
+<p>機械設計專題是一項資訊密集的動態流程, 資訊之所以密集, 肇因於後續的許多控制、製造與管理, 都以設計的發動起始, 因此機械設計者憑藉著口語, 文字, 2D/3D, 理論與實體, 來紀錄並驗證概念與規格的可行性, 即便產品交付客戶手中, 各種後續服務、回收與處理再利用的相關細節規劃, 所涉及的許多資訊與數據處理, 就產品生命週期的概念而言, 都是設計者該盡力思量的範疇.</p>
+<p>現在對於手握 Python3 作為數位運算的機械設計專題推動者, 有了福音, 因為 <a href="https://software.intel.com/en-us/python-distribution">https://software.intel.com/en-us/python-distribution</a> 的推出, 將可讓 Jupyter hub 上的各種機械設計純 Python3 最佳化運算速度提升幾十倍.</p>
+<p>並且, 從 <a href="http://www.infoworld.com/article/3039935/application-development/21-hot-programming-trends-and-21-going-cold.html">http://www.infoworld.com/article/3039935/application-development/21-hot-programming-trends-and-21-going-cold.html</a> 的提醒, 也可以讓即將參與機械設計專題的學員了解, 應該如何取捨工具與技術, 畢竟數位運算科技的快速發展, 應該是機械設計者的絕對利多, 假如大家真能妥善發揮這些較有未來科技功能於工作的每一個流程.</p>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -468,8 +335,8 @@ if __name__ == "__main__":
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'projectmdetw'; // required: replace example with your forum shortname
 
-                    var disqus_identifier = 'yen-wang-ji-flask-cheng-shi-jia-gou';
-                var disqus_url = 'http://project.mde.tw/blog/yen-wang-ji-flask-cheng-shi-jia-gou.html';
+                    var disqus_identifier = 'yen-python-shu-wei-yun-suan-yu-jiao-you-wei-lai-de-ji-shu';
+                var disqus_url = 'http://project.mde.tw/blog/yen-python-shu-wei-yun-suan-yu-jiao-you-wei-lai-de-ji-shu.html';
 
             var disqus_config = function () {
                 this.language = "en";

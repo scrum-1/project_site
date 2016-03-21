@@ -1,46 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-19T15:20:42+08:00</updated><entry><title>40323143 - 3D printer 列印完下料後的倉儲機構設計理念及繪圖</title><link href="http://project.mde.tw/blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html" rel="alternate"></link><updated>2016-03-19T15:20:42+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-03-19:blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="./" rel="alternate"></link><link href="./feeds/2016g1.atom.xml" rel="self"></link><id>./</id><updated>2016-03-21T08:23:05+08:00</updated><entry><title>40323143 - 3D printer 列印完下料後的倉儲機構設計理念及繪圖</title><link href="./40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html" rel="alternate"></link><updated>2016-03-21T08:23:05+08:00</updated><author><name>40323143</name></author><id>tag:,2016-03-21:./40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
 
 
 &lt;p&gt;這裡為 40323130 所寫的文章主要內容&lt;/p&gt;
 &lt;p&gt;這是設計構想的全圖
- &lt;script src="theme\images\40323143\asm0001.stl"&gt;&lt;/script&gt;&lt;/p&gt;
+ &lt;script src="https://github.com/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\asm0001.stl"&gt;&lt;/script&gt;&lt;/p&gt;
 &lt;p&gt;我的想法是讓3D printer 在一個輸送帶上的平面列印，在輸送帶後方因為曲率不同使成品自然脫落，然後用一個盛盤接住成品一動到固定位置，使成盤傾斜讓成品掉落我們想要放置的位置。&lt;/p&gt;
 &lt;p&gt;我使用一個由上而往看下呈一個工字型的機構，因為我認為這種機構機構簡單、組裝容易、運動路徑明確，控制上應該比較方便，可以節省很多製造、控制上的麻煩。&lt;/p&gt;
 &lt;p&gt;動力方面想使用馬達接上摩擦輪驅動另外兩個摩擦輪，原本想用齒輪作為動力傳輸，但考慮到組原想要自己製造出來的想法，齒輪對我們來說製造難度太高，所以改用摩擦輪。&lt;/p&gt;
 &lt;p&gt;組裝上也是盡量用簡單方便的方法組裝，例如摩擦輪就只是挖一個槽用重力固定，馬達安裝是用夾板鎖螺栓固定，其餘都是鎖螺栓夾緊，在組裝上應該不會有困難。&lt;/p&gt;
 &lt;p&gt;零件圖
-&lt;script src="theme\images\40323143\1long"&gt;&lt;/script&gt; 
-&lt;script src="theme\images\40323143\2long"&gt;&lt;/script&gt;
-&lt;script src="theme\images\40323143\3"&gt;&lt;/script&gt;
-&lt;script src="theme\images\40323143\3long"&gt;&lt;/script&gt;
-&lt;script src="theme\images\40323143\4-02"&gt;&lt;/script&gt;
-&lt;script src="theme\images\40323143\4-46"&gt;&lt;/script&gt;
-&lt;script src="theme\images\40323143\5"&gt;&lt;/script&gt;
-&lt;script src="theme\images\40323143\6"&gt;&lt;/script&gt;
-&lt;script src="theme\images\40323143\6-3"&gt;&lt;/script&gt;
-&lt;script src="theme\images\40323143\46-2"&gt;&lt;/script&gt;
-&lt;script src="theme\images\40323143\a"&gt;&lt;/script&gt;
-&lt;script src="theme\images\40323143\b"&gt;&lt;/script&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323123 - 3d printer</title><link href="http://project.mde.tw/blog/40323123-3d-printer.html" rel="alternate"></link><updated>2016-03-19T15:09:20+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-03-19:blog/40323123-3d-printer.html</id><summary type="html">&lt;p&gt;raspberry pi  connect 3d printer to control the 3d printer &lt;/p&gt;
-
-
-&lt;p&gt;遠端控制3D列印
-這邊使用的遠端列印是使用web client控制&lt;/p&gt;
-&lt;p&gt;目前有兩套在觀望的系統~
-一個是
-&lt;a href="http://octoprint.org/download/"&gt;octopi&lt;/a&gt;
-另一個是
-&lt;a href="https://www.astroprint.com/downloads"&gt;Astropromt&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;或者是我們自己寫一套
-兩套皆使用樹梅派當為控制電腦及server
-使用心得:在之前已經有安裝過octopi，使用狀況是不錯，但是gui介面有些許的問題，使用上是沒什麼大礙，在3D printer的控制板，做動方式，像是一般CNC一樣，接收
-G指令
-&lt;a href="http://reprap.org/wiki/G-code"&gt;Gcoce 大全&lt;/a&gt;
-&lt;a href="http://www.slideshare.net/roboard/3d-printer-marlin"&gt;控制系統的code解析&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;這兩套系統，都有開放原始碼，不過因為解析程式有巨大的阻礙，因為對python和樹梅派不熟悉，導致只會安裝不會自己編譯。&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>40323123 - 專題組員的範例文章標題</title><link href="http://project.mde.tw/blog/40323123-zhuan-ti-zu-yuan-de-fan-li-wen-zhang-biao-ti.html" rel="alternate"></link><updated>2016-03-19T15:09:20+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-03-19:blog/40323123-zhuan-ti-zu-yuan-de-fan-li-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 40323123 所寫的文章摘要&lt;/p&gt;
-
-
-&lt;p&gt;這裡為 40323123 所寫的文章主要內容&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323130 - 說明如何參與協同機械設計專題網誌編寫</title><link href="http://project.mde.tw/blog/40323130-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html" rel="alternate"></link><updated>2016-03-19T15:09:20+08:00</updated><author><name>40323130</name></author><id>tag:project.mde.tw,2016-03-19:blog/40323130-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
+&lt;script src="https://github.com/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\1long"&gt;&lt;/script&gt; 
+&lt;script src="https://github.com/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\2long"&gt;&lt;/script&gt;
+&lt;script src="https://github.com/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\3"&gt;&lt;/script&gt;
+&lt;script src="https://github.com/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\3long"&gt;&lt;/script&gt;
+&lt;script src="https://github.com/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\4-02"&gt;&lt;/script&gt;
+&lt;script src="https://github.com/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\4-46"&gt;&lt;/script&gt;
+&lt;script src="https://github.com/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\5"&gt;&lt;/script&gt;
+&lt;script src="https://github.com/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\6"&gt;&lt;/script&gt;
+&lt;script src="https://github.com/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\6-3"&gt;&lt;/script&gt;
+&lt;script src="https://github.com/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\46-2"&gt;&lt;/script&gt;
+&lt;script src="https://github.com/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\a"&gt;&lt;/script&gt;
+&lt;script src="https://github.com/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\b"&gt;&lt;/script&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 說明如何參與協同機械設計專題網誌編寫</title><link href="./40323143-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html" rel="alternate"></link><updated>2016-03-21T08:23:05+08:00</updated><author><name>40323143</name></author><id>tag:,2016-03-21:./40323143-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
 
 
 &lt;p&gt;這裡為 40323130 所寫的文章主要內容&lt;/p&gt;
@@ -60,7 +41,26 @@ G指令
 &lt;p&gt;&lt;a href="https://vimeo.com/157247703"&gt;2016project_1&lt;/a&gt; from &lt;a href="https://vimeo.com/user24079973"&gt;虎尾科大機械設計工程&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Youtube:&lt;/p&gt;
-&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/hQR1wxALifU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 說明如何參與協同機械設計專題網誌編寫</title><link href="http://project.mde.tw/blog/40323143-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html" rel="alternate"></link><updated>2016-03-19T15:09:20+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-03-19:blog/40323143-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
+&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/hQR1wxALifU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="範例"></category></entry><entry><title>40323123 - 3d printer</title><link href="./40323123-3d-printer.html" rel="alternate"></link><updated>2016-03-21T08:23:05+08:00</updated><author><name>40323123</name></author><id>tag:,2016-03-21:./40323123-3d-printer.html</id><summary type="html">&lt;p&gt;raspberry pi  connect 3d printer to control the 3d printer &lt;/p&gt;
+
+
+&lt;p&gt;遠端控制3D列印
+這邊使用的遠端列印是使用web client控制&lt;/p&gt;
+&lt;p&gt;目前有兩套在觀望的系統~
+一個是
+&lt;a href="http://octoprint.org/download/"&gt;octopi&lt;/a&gt;
+另一個是
+&lt;a href="https://www.astroprint.com/downloads"&gt;Astropromt&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;或者是我們自己寫一套
+兩套皆使用樹梅派當為控制電腦及server
+使用心得:在之前已經有安裝過octopi，使用狀況是不錯，但是gui介面有些許的問題，使用上是沒什麼大礙，在3D printer的控制板，做動方式，像是一般CNC一樣，接收
+G指令
+&lt;a href="http://reprap.org/wiki/G-code"&gt;Gcoce 大全&lt;/a&gt;
+&lt;a href="http://www.slideshare.net/roboard/3d-printer-marlin"&gt;控制系統的code解析&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;這兩套系統，都有開放原始碼，不過因為解析程式有巨大的阻礙，因為對python和樹梅派不熟悉，導致只會安裝不會自己編譯。&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>40323123 - 專題組員的範例文章標題</title><link href="./40323123-zhuan-ti-zu-yuan-de-fan-li-wen-zhang-biao-ti.html" rel="alternate"></link><updated>2016-03-21T08:23:05+08:00</updated><author><name>40323123</name></author><id>tag:,2016-03-21:./40323123-zhuan-ti-zu-yuan-de-fan-li-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 40323123 所寫的文章摘要&lt;/p&gt;
+
+
+&lt;p&gt;這裡為 40323123 所寫的文章主要內容&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323130 - 說明如何參與協同機械設計專題網誌編寫</title><link href="./40323130-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html" rel="alternate"></link><updated>2016-03-21T08:23:05+08:00</updated><author><name>40323130</name></author><id>tag:,2016-03-21:./40323130-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
 
 
 &lt;p&gt;這裡為 40323130 所寫的文章主要內容&lt;/p&gt;

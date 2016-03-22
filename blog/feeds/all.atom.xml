@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-22T23:27:44+08:00</updated><entry><title>yen - Raspberry Pi 3 基本設定</title><link href="http://project.mde.tw/blog/yen-raspberry-pi-3-ji-ben-she-ding.html" rel="alternate"></link><updated>2016-03-22T23:27:44+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-22:blog/yen-raspberry-pi-3-ji-ben-she-ding.html</id><summary type="html">&lt;p&gt;&lt;a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b/"&gt;Raspberry Pi 3 Model B&lt;/a&gt; 終於在 2016 年 2 月推出了, 這片採用 1.2GHz 64位元四核心 CPU ARMv8 晶片的卡片電腦, 將帶給機械設計專題更多應用的題目.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-22T23:30:39+08:00</updated><entry><title>40323143 - 3D printer 列印完下料後的倉儲機構設計理念及繪圖</title><link href="http://project.mde.tw/blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html" rel="alternate"></link><updated>2016-03-22T23:30:39+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-03-22:blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
+
+
+&lt;p&gt;這裡為 40323130 所寫的文章主要內容&lt;/p&gt;
+&lt;p&gt;這是設計構想的全圖
+ &lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\asm0001.stl"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;我的想法是讓3D printer 在一個輸送帶上的平面列印，在輸送帶後方因為曲率不同使成品自然脫落，然後用一個盛盤接住成品一動到固定位置，使成盤傾斜讓成品掉落我們想要放置的位置。&lt;/p&gt;
+&lt;p&gt;我使用一個由上而往看下呈一個工字型的機構，因為我認為這種機構機構簡單、組裝容易、運動路徑明確，控制上應該比較方便，可以節省很多製造、控制上的麻煩。&lt;/p&gt;
+&lt;p&gt;動力方面想使用馬達接上摩擦輪驅動另外兩個摩擦輪，原本想用齒輪作為動力傳輸，但考慮到組原想要自己製造出來的想法，齒輪對我們來說製造難度太高，所以改用摩擦輪。&lt;/p&gt;
+&lt;p&gt;組裝上也是盡量用簡單方便的方法組裝，例如摩擦輪就只是挖一個槽用重力固定，馬達安裝是用夾板鎖螺栓固定，其餘都是鎖螺栓夾緊，在組裝上應該不會有困難。&lt;/p&gt;
+&lt;p&gt;零件圖
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\1long"&gt;&lt;/script&gt; 
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\2long"&gt;&lt;/script&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\3"&gt;&lt;/script&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\3long"&gt;&lt;/script&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\4-02"&gt;&lt;/script&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\4-46"&gt;&lt;/script&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\5"&gt;&lt;/script&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\6"&gt;&lt;/script&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\6-3"&gt;&lt;/script&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\46-2"&gt;&lt;/script&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\a"&gt;&lt;/script&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/tree/gh-pages/theme\images\40323143\b"&gt;&lt;/script&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>yen - Raspberry Pi 3 基本設定</title><link href="http://project.mde.tw/blog/yen-raspberry-pi-3-ji-ben-she-ding.html" rel="alternate"></link><updated>2016-03-22T23:27:44+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-22:blog/yen-raspberry-pi-3-ji-ben-she-ding.html</id><summary type="html">&lt;p&gt;&lt;a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b/"&gt;Raspberry Pi 3 Model B&lt;/a&gt; 終於在 2016 年 2 月推出了, 這片採用 1.2GHz 64位元四核心 CPU ARMv8 晶片的卡片電腦, 將帶給機械設計專題更多應用的題目.&lt;/p&gt;
 
 
 &lt;h2&gt;raspbian 安裝&lt;/h2&gt;

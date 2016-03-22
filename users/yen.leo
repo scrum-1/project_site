@@ -127,7 +127,7 @@
 <v t="amd.20151215170350.1"><vh>以下為 content 目錄中的 md 檔案</vh></v>
 <v t="amd.20160106093610.1"><vh>協同網誌編寫規範</vh></v>
 <v t="amd.20160301001423.1"><vh>專題類別與標籤規劃</vh></v>
-<v t="amd.20160309073114.1" a="E"><vh>有關 pelican 與 WP 同步內容</vh>
+<v t="amd.20160309073114.1"><vh>有關 pelican 與 WP 同步內容</vh>
 <v t="amd.20160309073149.1"><vh>@button new to wp</vh></v>
 <v t="amd.20160309073204.1"><vh>@button edit to wp</vh></v>
 <v t="amd.20160309073217.1" a="E"><vh>@button get from wp</vh>
@@ -147,6 +147,12 @@
 </v>
 </v>
 </v>
+<v t="amd.20160317165434.1"><vh>有關 Flask 程式</vh></v>
+<v t="amd.20160317164722.1"><vh>有關 Firepick 專案</vh></v>
+<v t="amd.20160321213855.1" a="E"><vh>有關網際繪圖</vh>
+<v t="amd.20160321214152.1"><vh>正齒輪</vh></v>
+<v t="amd.20160321214628.1"><vh>模型製作</vh></v>
+</v>
 <v t="amd.20151216001126.1"><vh>md 檔案範例</vh></v>
 <v t="amd.20151215170031.1" a="E"><vh>@path ./../content</vh>
 <v t="amd.20160106093454.1" a="E"><vh>yen 所寫的網誌文章</vh>
@@ -164,6 +170,7 @@
 <v t="amd.20160312115755.1"><vh>@edit yen_20160312.md</vh></v>
 <v t="amd.20160313174506.1"><vh>@edit yen_20160313.md</vh></v>
 <v t="amd.20160316214216.1"><vh>@edit yen_20160315.md</vh></v>
+<v t="amd.20160322222650.1"><vh>@edit yen_20160322.md</vh></v>
 </v>
 </v>
 </v>
@@ -893,6 +900,320 @@ Tags:
 c: The commander of the present outline.
 g: The leo.core.leoGlobals module.
 p: The presently selected position, c.p.</t>
+<t tx="amd.20160317164722.1">http://delta.firepick.org/
+
+https://www.youtube.com/watch?v=46pLeLBYVTs
+
+https://www.youtube.com/watch?v=JIsRg-rxfuE
+
+https://hackaday.io/project/963-firepick-delta-the-open-source-microfactory
+
+http://diy3dprinting.blogspot.tw/2014/12/firepick-delta-open-source-diy-pick-and.html
+
+http://static1.squarespace.com/static/53c16638e4b0fb85d41808ab/53c71867e4b04b94d4ca05a5/54efea8be4b06321d2fefc3a/1425009385880/?format=750w
+
+http://3dprint.com/5445/firepick-delta-electronics/</t>
+<t tx="amd.20160317165434.1">Peewee ORM
+
+https://github.com/coleifer/peewee
+
+Pygments
+
+http://pygments.org/</t>
+<t tx="amd.20160321213855.1">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+	&lt;head&gt;
+		&lt;meta http-equiv="content-type" content="text/html;charset=utf-8"&gt;
+		&lt;title&gt;Spur Gear creator&lt;/title&gt;
+		&lt;script src="http://code.jquery.com/jquery-latest.min.js"&gt;&lt;/script&gt;
+		&lt;script&gt;
+			function getN() { 
+				var N = Number( $("#N").val() );
+				if( N&lt;3 ) {
+					N = 3;
+					setN( N );
+				}
+				return N;
+			}			
+			function setN( v ) { $("#N").val( v ); }			
+			function getD() { return Number( $("#D").val() ); }			
+			function setD( v ) { $("#D").val( v ); }			
+			function getP() { return Number( $("#P").val() ); }			
+			function setP( v ) { $("#P").val( v ); }			
+			function getscale() { return Number( $("#scale").val() ); }			
+			function setscale( v ) { $("#scale").val( v ); }			
+			
+			// --------------------------------------------------------------------------------------------------
+			var shift,
+				guides = true;
+
+			
+			function Nadd( a ) {
+				var N = getN()+a;
+				setN( N );
+				Nchange();
+				generateSVG();
+			}
+
+			function Nchange() {
+				if( shift ) {
+					shift = false;
+					var P = getN()/getD();
+					setP( P );
+				} else {
+					var D = getN()/getP();
+					setD( D );
+				}
+			}
+			function Dchange() {
+				if( shift ) {
+					shift = false;
+					var P = getN()/getD();
+					setP( P );
+				} else {
+					Pchange();
+				}
+			}
+			function Pchange() {
+				var N = getD()*getP();
+				N = Math.floor( N );
+				setN( N );
+				Nchange();
+			}
+
+			function calcP() {
+				var P = getN()/getD();
+				setP( P );
+			}
+
+
+			// --------------------------------------------------------------------------------------------------
+
+			function generateSVG() {
+				var w = 400,
+					h = 400,
+					sc = getscale(),
+					N = getN(),
+					D = getD(),
+					P = getP(),
+					A = 1/P,
+					B = 1.157/P,
+					OD = (N + 2)/P,
+					RD = (N - 2)/P,
+					BC = D*Math.cos(20*(Math.PI/180)),	//14.5
+					CP = Math.PI/P,
+					rmin = RD/2,
+					rmax = OD/2,
+					rbase = BC/2,
+					pts = [],
+					ac = 0,
+					
+					addpts = function( p ) {
+						pts.push( p );	
+					},
+					pt = function( r, a ) {
+						return { r: r, a: a };
+					},
+			
+				out = '&lt;svg version="1.2" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="'+w+'px" height="'+h+'px" viewBox="'+(-w/2)+' '+(-h/2)+' '+w+' '+h+'" overflow="scroll" xml:space="preserve"&gt;';
+				
+				if( guides ) {
+					out += '&lt;g opacity="0.2"&gt;';
+					// pitch circle
+					out += '&lt;circle fill="none" stroke="#f00" stroke-miterlimit="10" stroke-dasharray="4,4" cx="0" cy="0" r="'+(D/2)*sc+'"/&gt;';
+					// Root circle
+					out += '&lt;circle fill="none" stroke="#ccc" stroke-miterlimit="10" stroke-dasharray="4,4" cx="0" cy="0" r="'+(RD/2)*sc+'"/&gt;';
+					// Outer circle
+					out += '&lt;circle fill="none" stroke="#ccc" stroke-miterlimit="10" stroke-dasharray="4,4" cx="0" cy="0" r="'+(OD/2)*sc+'"/&gt;';
+					// Base circle
+					out += '&lt;circle fill="none" stroke="#00f" stroke-miterlimit="10" stroke-dasharray="4,4" cx="0" cy="0" r="'+(BC/2)*sc+'"/&gt;';
+					
+					out += '&lt;/g&gt;';
+				}
+
+				// calc
+				addpts( pt( rmin, 0 ) );					//first point
+				for( var i=1, pn=0; i&lt;200; i+=2 ) {
+					// get a point...
+					var bpl = polarToLinear( pt( rbase, -i ) ),			//base point linear
+						len = ((rbase*Math.PI*2)/360)*i,				//length
+						opl = polarToLinear( pt( len, -i+90 ) ),		//add line
+						np = linearToPolar( { x: bpl.x+opl.x, y: bpl.y+opl.y } );
+						
+					if( np.r&gt;= rmin ) {
+						pn++;
+						if( np.r&lt;D/2 ) ac = np.a;
+						if( np.r&gt; rmax ) {
+							np.r = rmax;
+							addpts( np );
+							break;	
+						}
+						addpts( np );
+					}
+				} 
+				// tukrozes
+				var fa = 360/N,	// final a
+					ma = fa/2 + 2*ac;	// mirror a		
+									
+				for( var i=pn; i&gt;=0; i-- ) {
+					var bp = pts[i],
+						na = ma-bp.a;					
+					addpts( pt( bp.r, na ) );
+				}
+
+				// repeat
+				for( var i=1, m=pts.length; i&lt;N; i++ ) {
+					for( var p=0; p&lt;m; p++ ) {
+						var bp = pts[p],
+							na = bp.a+fa*i;
+						addpts( pt( bp.r, na ) );
+					}
+				}
+				
+				// print points
+				out += '&lt;polygon fill="#fff" stroke="#444" stroke-width="0.5" stroke-miterlimit="10" points="';
+				for( var i=0; i&lt;pts.length; i++ ) {
+					var point = polarToLinear( pts[i] );
+					out += (point.x*sc)+','+(point.y*sc)+' ';
+				}
+				out += '"/&gt;';
+				
+				out += '&lt;/svg&gt;';
+				
+				$("#svg").html( out );
+				$("#out").html( out );
+			}
+			
+			function linearToPolar( c ) {
+				var x = c.x, y = c.y, r, a;
+				var AM = 180/Math.PI;
+				r = Math.sqrt( x*x + y*y );
+				a = Math.asin( y/r )*AM;
+				if( x&lt;0 ) a = 180-a;
+				a = (a+360)%360;
+				return { r: r, a: a }
+			}
+			function polarToLinear( p ) {
+				var r = p.r, a = p.a, x, y;
+				var AM = 180/Math.PI;
+				a = ((a+360)%360)/AM;
+				
+				x = Math.cos( a )*r;
+				y = -Math.sin( a )*r;
+				
+				return { x: x, y: y }
+			}
+
+			// --------------------------------------------------------------------------------------------------
+
+			function reset() {
+				$("#N").bind("enterKey",Nchange);
+				$("#D").bind("enterKey",Dchange);
+				$("#P").bind("enterKey",Pchange);
+				$("input").keyup("keyup",function(e){
+					//console.log("key: "+e.keyCode+" shift: "+e.shiftKey );
+					shift = e.shiftKey;
+					if(e.keyCode == 13) {
+						$(this).trigger("enterKey");
+						generateSVG();
+					}
+				});
+				generateSVG();
+			}
+			
+			/*
+				Drive
+				rotation RPM (+ Left/ - right)
+				btn: start pause stop
+
+				----------------
+				ID: 0,1,2 stb.
+				parent connection (Drive/0,1,2 stb) (ID 0 -nal csak Drive)
+				connection angle (only if gear connected)
+				connection type (Gear/Axle (if driven))
+				N,D
+				P (only if axle connected)
+				child connection(s) [0,1,2 stb]
+				
+				position and rotation:
+				A offset (needed for connection cycle)
+				R rotation (actual angle)
+				
+				BX,BY base X,Y (origo offset from top
+			
+			*/
+		&lt;/script&gt;
+		&lt;style&gt;
+			label {
+				display: inline-block;
+				width: 200px;
+			}
+			.ratio {
+				width: 30px;
+			}
+			#svg {
+				position: absolute;
+				top: 18px;
+				left: 432px;
+				/*background: #f8f8f8;*/
+			}
+			textarea {
+				margin-top: 16px;
+				width: 322px;
+				height: 104px;
+			}
+		&lt;/style&gt;
+	&lt;/head&gt;
+	&lt;body&gt;
+		&lt;p&gt;
+			&lt;label for="N"&gt;Number of gear teeth:&lt;/label&gt;
+			&lt;input type="text" id="N" value="18"&gt;* &lt;button onclick="Nadd(1)"&gt;+&lt;/button&gt;&lt;button onclick="Nadd(-1)"&gt;-&lt;/button&gt;&lt;br&gt;
+
+			&lt;label for="D"&gt;Pitch diameter:&lt;/label&gt;
+			&lt;input type="text" id="D" value="3"&gt;*&lt;br&gt;
+			
+			&lt;label for="P"&gt;Diametral pitch:&lt;/label&gt;
+			&lt;input type="text" id="P"&gt;&lt;br&gt;
+			
+			&lt;label for="scale"&gt;Pixel per Unit:&lt;/label&gt;
+			&lt;input type="text" id="scale" value="100"&gt;&lt;br&gt;
+
+			&lt;textarea id="out"&gt;&lt;/textarea&gt;
+		&lt;/p&gt;
+		&lt;p&gt;
+			* Shift + Enter: modifies the Diametral pitch 
+		&lt;/p&gt;
+		&lt;div id="svg"&gt;
+		&lt;/div&gt;
+	&lt;/body&gt;
+	&lt;script&gt;
+		calcP();
+		reset();
+	&lt;/script&gt;
+	&lt;script&gt;
+		(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', 'UA-780078-4', 'auto');
+		ga('send', 'pageview');
+	&lt;/script&gt;
+&lt;/html&gt;</t>
+<t tx="amd.20160321214152.1">http://hessmer.org/gears/InvoluteSpurGearBuilder.html
+
+原始碼:
+
+https://github.com/rainerhessmer/drh-horology/blob/BrowserBased/csg/InvoluteSpurGearBuilder.html
+
+http://geargenerator.com/
+
+http://geargenerator.com/index_proto.html
+
+相關產品:
+
+http://p208328.webspaceconfig.de/en/products/standard-gears/spur-gear-mechanisms/</t>
+<t tx="amd.20160321214628.1">http://lcamtuf.coredump.cx/gcnc/</t>
 <t tx="leo.20151212173315.1"></t>
 <t tx="leo.20151212173315.2">QTreeWidget {
     /* These apply to the selected item, but not to editing items.*/

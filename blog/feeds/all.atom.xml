@@ -1,5 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-16T22:01:47+08:00</updated><entry><title>yen - Python 數位運算與較有未來的技術</title><link href="http://project.mde.tw/blog/yen-python-shu-wei-yun-suan-yu-jiao-you-wei-lai-de-ji-shu.html" rel="alternate"></link><updated>2016-03-16T22:01:47+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-16:blog/yen-python-shu-wei-yun-suan-yu-jiao-you-wei-lai-de-ji-shu.html</id><summary type="html">&lt;p&gt;身為一位機械設計工程專長學員, 該如何看待數位運算, 那些技術較有未來?&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-22T23:27:44+08:00</updated><entry><title>yen - Raspberry Pi 3 基本設定</title><link href="http://project.mde.tw/blog/yen-raspberry-pi-3-ji-ben-she-ding.html" rel="alternate"></link><updated>2016-03-22T23:27:44+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-22:blog/yen-raspberry-pi-3-ji-ben-she-ding.html</id><summary type="html">&lt;p&gt;&lt;a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b/"&gt;Raspberry Pi 3 Model B&lt;/a&gt; 終於在 2016 年 2 月推出了, 這片採用 1.2GHz 64位元四核心 CPU ARMv8 晶片的卡片電腦, 將帶給機械設計專題更多應用的題目.&lt;/p&gt;
+
+
+&lt;h2&gt;raspbian 安裝&lt;/h2&gt;
+&lt;p&gt;首先, 為了簡化新的 Raspberry Pi 3 安裝 &lt;a href="https://www.raspberrypi.org/downloads/noobs/"&gt;https://www.raspberrypi.org/downloads/noobs/&lt;/a&gt; 多重開機系統的過程, &lt;a href="http://cadlab.mde.tw"&gt;http://cadlab.mde.tw&lt;/a&gt; 特別採購一批支援 &lt;a href="https://zh.wikipedia.org/zh-tw/HDMI"&gt;HDMI&lt;/a&gt; 介面的電腦螢幕.&lt;/p&gt;
+&lt;p&gt;由於 noobs 內含的 &lt;a href="https://www.raspberrypi.org/downloads/raspbian/"&gt;https://www.raspberrypi.org/downloads/raspbian/&lt;/a&gt; 與 Ubuntu 操作系統都屬於 Debian 系列, 因此未來幾年, 本地端與區域網路上的伺服器, 都將安裝 Ubuntu 16.04 LTS, 而希望學生人手一塊的 Raspberry Pi 3, 就以安裝 noobs 為主.&lt;/p&gt;
+&lt;p&gt;完成操作系統安裝後, 必須 enable SSH, 並且參考&lt;a href="http://www.kenming.idv.tw/raspberry-pi_post-installation_and_zh-tw-locale_building"&gt;這裡&lt;/a&gt;的說明, 安裝並設定中文系統.&lt;/p&gt;
+&lt;p&gt;基本過程為:&lt;/p&gt;
+&lt;p&gt;安裝繁體中文語系:&lt;/p&gt;
+&lt;p&gt;$ sudo locale-gen zh_TW.UTF-8&lt;/p&gt;
+&lt;p&gt;將 /etc/locale.gen 檔案內 # zh_TW.UTF-8 UTF-8 的註解# 拿掉:&lt;/p&gt;
+&lt;p&gt;$ sudo vi /etc/locale.gen&lt;/p&gt;
+&lt;p&gt;產生繁體中文語系:&lt;/p&gt;
+&lt;p&gt;$ sudo locale-gen&lt;/p&gt;
+&lt;p&gt;更改預設語系為 zh_TW.UTF-8:&lt;/p&gt;
+&lt;p&gt;$ sudo vi /etc/default/locale
+LANG=zh_TW.UTF-8&lt;/p&gt;
+&lt;p&gt;安裝繁體中文字型:&lt;/p&gt;
+&lt;p&gt;$ sudo apt-get install ttf-wqy-microhei ttf-wqy-zenhei xfonts-wqy&lt;/p&gt;
+&lt;p&gt;安裝 scim 注音輸入:&lt;/p&gt;
+&lt;p&gt;$ sudo apt-get install scim scim-tables-zh scim-chewing&lt;/p&gt;
+&lt;h2&gt;PYQt5 與 Leo Editor 安裝&lt;/h2&gt;
+&lt;p&gt;因為 Raspberry Pi 3 在機械設計專題流程中仍以機電控制為主, 而且 raspbian 已經內建 Python3 與 pip3, 因此只要利用 sudo apt-get install python3-pyqt5 安裝 PyQt5 即可.&lt;/p&gt;
+&lt;p&gt;只是在實際操作 sudo pip3 install https://github.com/leo-editor/leo-editor/archive/master.zip 時, 發現 Leo Editor 無法正確完成安裝, 最後只好下載 Leo Editor 原始碼, 並且將 leo 模組目錄, 直接放到 /usr/local/lib/python3.4/dist-packages 目錄下, 然後再利用 python3 launchLeo.py 啟動 Leo Editor.&lt;/p&gt;
+&lt;p&gt;launchLeo.py 程式碼:&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+#!/usr/bin/env python
+
+""" Leo launcher script
+A minimal script to launch leo.
+"""
+
+import leo.core.runLeo
+leo.core.runLeo.run()
+&lt;/pre&gt;
+
+&lt;h2&gt;Raspberry Pi 無線網路設定&lt;/h2&gt;
+&lt;p&gt;利用 sudo vi 編輯 /etc/wpa_supplicant/wpa_supplicant.conf, 並且採用下列格式, 將周遭卡片電腦移動時可能擷取的無線網路, 以並列的方式進行設定登記.&lt;/p&gt;
+&lt;p&gt;格式:&lt;/p&gt;
+&lt;pre class="brush: bash"&gt;
+network={
+    ssid="net1"
+    psk="net1_wifi_password"
+    key_mgmt=WPA-PSK
+}
+
+network={
+    ssid="net2"
+    psk="net2_wifi_password"
+    key_mgmt=WPA-PSK
+}
+&lt;/pre&gt;
+
+&lt;p&gt;相關指令:&lt;/p&gt;
+&lt;p&gt;sudo ifdown wlan0 (關閉無線網路)&lt;/p&gt;
+&lt;p&gt;sudo ifup wlan0 (啟動無線網路)&lt;/p&gt;
+&lt;p&gt;ifconfig (察看網路設定)&lt;/p&gt;
+&lt;h2&gt;Webcam 拍照&lt;/h2&gt;
+&lt;p&gt;請參考 &lt;a href="https://www.raspberrypi.org/documentation/usage/webcams/"&gt;https://www.raspberrypi.org/documentation/usage/webcams/&lt;/a&gt;, 讓 Raspberry Pi 可以帶著 Webcam, 以 Python3 程式控制拍照流程.&lt;/p&gt;
+&lt;p&gt;至於安裝 OpenCV 與 Python3 的過程與 &lt;a href="http://project.mde.tw/blog/yen-dao-ru-opencv-yu-python3.html"&gt;http://project.mde.tw/blog/yen-dao-ru-opencv-yu-python3.html&lt;/a&gt; 中的說明完全相同, 一旦完成, Raspberry Pi 就可以與其他機構結合, 進行基本的影像辨識應用.&lt;/p&gt;</summary><category term="Python3"></category><category term="Raspberry Pi"></category></entry><entry><title>yen - Python 數位運算與較有未來的技術</title><link href="http://project.mde.tw/blog/yen-python-shu-wei-yun-suan-yu-jiao-you-wei-lai-de-ji-shu.html" rel="alternate"></link><updated>2016-03-16T22:01:47+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-16:blog/yen-python-shu-wei-yun-suan-yu-jiao-you-wei-lai-de-ji-shu.html</id><summary type="html">&lt;p&gt;身為一位機械設計工程專長學員, 該如何看待數位運算, 那些技術較有未來?&lt;/p&gt;
 
 
 &lt;p&gt;機械設計專題是一項資訊密集的動態流程, 資訊之所以密集, 肇因於後續的許多控制、製造與管理, 都以設計的發動起始, 因此機械設計者憑藉著口語, 文字, 2D/3D, 理論與實體, 來紀錄並驗證概念與規格的可行性, 即便產品交付客戶手中, 各種後續服務、回收與處理再利用的相關細節規劃, 所涉及的許多資訊與數據處理, 就產品生命週期的概念而言, 都是設計者該盡力思量的範疇.&lt;/p&gt;

@@ -22,7 +22,7 @@
 <v t="leo.20151213085727.1"><vh>@button local pelican</vh></v>
 </v>
 <v t="amd.20160117010542.1"><vh>@button git rm -rf blog</vh></v>
-<v t="amd.20151215180106.1" a="E"><vh>設定與開發</vh>
+<v t="amd.20151215180106.1"><vh>設定與開發</vh>
 <v t="amd.20151216151325.1"><vh>@edit index.html</vh></v>
 <v t="amd.20151216152209.1"><vh>@edit README.md</vh></v>
 <v t="leo.20151213230723.1"><vh>Pelican 設定</vh>
@@ -155,7 +155,7 @@
 </v>
 <v t="amd.20151216001126.1"><vh>md 檔案範例</vh></v>
 <v t="amd.20151215170031.1" a="E"><vh>@path ./../content</vh>
-<v t="amd.20160106093454.1"><vh>yen 所寫的網誌文章</vh>
+<v t="amd.20160106093454.1" a="E"><vh>yen 所寫的網誌文章</vh>
 <v t="amd.20160213095053.1" a="E"><vh>201603</vh>
 <v t="amd.20160224170554.1"><vh>@edit yen_20160301.md</vh></v>
 <v t="amd.20160301114516.1"><vh>@edit yen_20160301-1.md</vh></v>
@@ -172,10 +172,12 @@
 <v t="amd.20160316214216.1"><vh>@edit yen_20160315.md</vh></v>
 <v t="amd.20160322222650.1"><vh>@edit yen_20160322.md</vh></v>
 <v t="amd.20160322234659.1"><vh>@edit yen_20160322-1.md</vh></v>
+<v t="amd.20160324224258.1"><vh>@edit yen_20160324.md</vh></v>
 </v>
 </v>
-<v t="amd.20160323000221.1"><vh>40323143</vh></v>
+<v t="amd.20160323000221.1"><vh>40323143 所寫的文章</vh>
 <v t="amd.20160323000247.1"><vh>@edit 40323143_20160319.md</vh></v>
+</v>
 </v>
 <v t="amd.20160106094754.1" a="E"><vh>@path ./../content/pages</vh>
 <v t="amd.20160106094829.1" a="E"><vh>yen 所寫的 pages 文章</vh>

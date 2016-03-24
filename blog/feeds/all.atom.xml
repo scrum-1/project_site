@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-23T00:07:35+08:00</updated><entry><title>40323143 - 3D printer 列印完下料後的倉儲機構設計理念及繪圖</title><link href="http://project.mde.tw/blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html" rel="alternate"></link><updated>2016-03-23T00:07:35+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-03-23:blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-24T23:05:33+08:00</updated><entry><title>yen - 機械設計專題學員的隨身 Jupyter hub</title><link href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-xue-yuan-de-sui-shen-jupyter-hub.html" rel="alternate"></link><updated>2016-03-24T23:05:33+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-24:blog/yen-ji-jie-she-ji-zhuan-ti-xue-yuan-de-sui-shen-jupyter-hub.html</id><summary type="html">&lt;p&gt;我們知道自從 2013 年底開始, 與 Raspberry Pi 搭配的 Raspbian 操作系統, 就已經免費放入 Mathematica 相關的套件系統, 但是只允許非營利使用, 相較之下, 以 Python3 為主打造的 &lt;a href="http://jupyter.org/"&gt;Jupyter&lt;/a&gt; 就比較自由, 而且全部開源, 因此更值得推廣.&lt;/p&gt;
+
+
+&lt;p&gt;這裡就以 Raspberry Pi 3 卡片電腦上的 &lt;a href="https://github.com/jupyter/jupyterhub"&gt;Jupyter hub&lt;/a&gt; 安裝與啟動為例, 希望作為機械設計專題學員隨身的網際工程運算系統.&lt;/p&gt;
+&lt;p&gt;最新的 Raspbian 操作系統已經內建 Python3 以及 node.js, 因此當基本的操作系統配置完成, 而且啟動 SSH 之後, 就可以透過下列步驟安裝 &lt;a href="https://github.com/jupyter/jupyterhub"&gt;Jupyter hub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;jupyterhub 安裝&lt;/h2&gt;
+&lt;p&gt;sudo apt-get install npm nodejs-legacy&lt;/p&gt;
+&lt;p&gt;sudo npm install -g configurable-http-proxy&lt;/p&gt;
+&lt;p&gt;sudo pip3 install jupyterhub&lt;/p&gt;
+&lt;p&gt;sudo pip3 install IPython&lt;/p&gt;
+&lt;p&gt;sudo pip3 install jupyter&lt;/p&gt;
+&lt;h2&gt;以 SSL 啟動:&lt;/h2&gt;
+&lt;p&gt;先建立 key 與 certificate: sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout jupyterhub.key -out jupyterhub.crt&lt;/p&gt;
+&lt;p&gt;以指定的 IP 啟動:&lt;/p&gt;
+&lt;p&gt;jupyterhub --ip 192.168.1.1 --port 443 --ssl-key jupyterhub.key --ssl-cert jupyterhub.crt&lt;/p&gt;
+&lt;p&gt;或不指定 IP:&lt;/p&gt;
+&lt;p&gt;jupyterhub  --port 9443 --ssl-key jupyterhub.key --ssl-cert jupyterhub.crt&lt;/p&gt;
+&lt;p&gt;之後則可以 http://jupyterIP:9443 或 https://jupyterIP:9443 連線 &lt;/p&gt;</summary><category term="Jupyter"></category><category term="Jupyterhub"></category><category term="Python3"></category></entry><entry><title>40323143 - 3D printer 列印完下料後的倉儲機構設計理念及繪圖</title><link href="http://project.mde.tw/blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html" rel="alternate"></link><updated>2016-03-23T00:07:35+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-03-23:blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
 
 
 &lt;p&gt;這裡為 40323130 所寫的文章主要內容&lt;/p&gt;

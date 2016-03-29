@@ -22,7 +22,7 @@
 <v t="leo.20151213085727.1"><vh>@button local pelican</vh></v>
 </v>
 <v t="amd.20160117010542.1"><vh>@button git rm -rf blog</vh></v>
-<v t="amd.20151215180106.1"><vh>設定與開發</vh>
+<v t="amd.20151215180106.1" a="E"><vh>設定與開發</vh>
 <v t="amd.20151216151325.1"><vh>@edit index.html</vh></v>
 <v t="amd.20151216152209.1"><vh>@edit README.md</vh></v>
 <v t="leo.20151213230723.1"><vh>Pelican 設定</vh>
@@ -173,6 +173,10 @@
 <v t="amd.20160322222650.1"><vh>@edit yen_20160322.md</vh></v>
 <v t="amd.20160322234659.1"><vh>@edit yen_20160322-1.md</vh></v>
 <v t="amd.20160324224258.1"><vh>@edit yen_20160324.md</vh></v>
+<v t="amd.20160326152310.1"><vh>@@edit yen_20160326.md</vh></v>
+<v t="amd.20160326184051.1"><vh>@@edit yen_20160326-1.md</vh></v>
+<v t="amd.20160327224113.1"><vh>@@edit yen_20160327.md</vh></v>
+<v t="amd.20160327224200.1"><vh>@@edit yen_20160327-1.md</vh></v>
 </v>
 </v>
 <v t="amd.20160323000221.1"><vh>40323143 所寫的文章</vh>
@@ -1220,6 +1224,48 @@ http://geargenerator.com/index_proto.html
 http://p208328.webspaceconfig.de/en/products/standard-gears/spur-gear-mechanisms/</t>
 <t tx="amd.20160321214628.1">http://lcamtuf.coredump.cx/gcnc/</t>
 <t tx="amd.20160323000221.1"></t>
+<t tx="amd.20160326152310.1">@language md
+Title: yen - Raspberry Pi 3 的語音控制應用
+Category: Misc
+Tags: Raspberry Pi, Alexa Voice Service
+Author: yen
+
+我們之前曾經提過機械設計工程師必須要了解六種表達方式的基本特性, 除了精通中英文模式的口語與文字表達外, 更要善用 2D/3D 靜態與動態的模擬工具與表現手法, 儘量利用理論分析與數位運算的方法, 在產品實體完成前後, 妥善找到自己的定位, 使用最佳化流程, 創造團隊的最高價值.
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+當然, 在語音辨識與機電整合的技術一日千里的現在, 透過一只連網的卡片電腦與喇叭及麥克風, 就可以使用 Alexa Voice Service, 以下是相關介紹:
+
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/frH9HaQTFL8" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;a href="https://github.com/amzn/alexa-avs-raspberry-pi"&gt;https://github.com/amzn/alexa-avs-raspberry-pi&lt;/a&gt;</t>
+<t tx="amd.20160326184051.1">@language md
+Title: yen - 利用機械手臂模擬學習 Python
+Category: Misc
+Tags: Robot, Python
+Author: yen
+
+先看看能否可攜
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+Robodk: http://www.robodk.com/
+
+http://140.130.17.17/public/2016spring/RoboDK.7z
+
+V-rep: http://www.coppeliarobotics.com/
+
+http://140.130.17.17/public/2016spring/V-REP_PRO_EDU.7z</t>
+<t tx="amd.20160327224113.1">
+
+印一隻機械臂
+
+http://www.thingiverse.com/thing:30163
+
+http://robotica.webs.upv.es/en/introduction-vrep-arm/</t>
+<t tx="amd.20160327224200.1">opentoonz
+
+https://opentoonz.github.io/e/index.html</t>
 <t tx="leo.20151212173315.1"></t>
 <t tx="leo.20151212173315.2">QTreeWidget {
     /* These apply to the selected item, but not to editing items.*/

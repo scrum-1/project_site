@@ -22,7 +22,7 @@
 <v t="leo.20151213085727.1"><vh>@button local pelican</vh></v>
 </v>
 <v t="amd.20160117010542.1"><vh>@button git rm -rf blog</vh></v>
-<v t="amd.20151215180106.1" a="E"><vh>設定與開發</vh>
+<v t="amd.20151215180106.1"><vh>設定與開發</vh>
 <v t="amd.20151216151325.1"><vh>@edit index.html</vh></v>
 <v t="amd.20151216152209.1"><vh>@edit README.md</vh></v>
 <v t="leo.20151213230723.1"><vh>Pelican 設定</vh>
@@ -177,6 +177,7 @@
 <v t="amd.20160326184051.1"><vh>@@edit yen_20160326-1.md</vh></v>
 <v t="amd.20160327224113.1"><vh>@@edit yen_20160327.md</vh></v>
 <v t="amd.20160327224200.1"><vh>@@edit yen_20160327-1.md</vh></v>
+<v t="amd.20160401184837.1"><vh>@edit yen_20160401.md</vh></v>
 </v>
 </v>
 <v t="amd.20160323000221.1"><vh>40323143 所寫的文章</vh>
@@ -613,8 +614,8 @@ def get_cat_tag_content(data):
 os.environ['TZ'] = 'Asia/Taipei'
 
 #################################
-filepath = "/home/amd/Desktop/www-code4future.txt"
-wordpress = "www.code4future.org"
+filepath = "/home/amd/Desktop/account_password.txt"
+wordpress = "the.wordpress.site.url"
 fo = open(filepath, "r+")
 data = []
 for line in fo.readlines():
@@ -699,8 +700,8 @@ def get_cat_tag_content(data):
 os.environ['TZ'] = 'Asia/Taipei'
  
 #################################
-filepath = "/home/amd/Desktop/www-code4future.txt"
-wordpress = "www.code4future.org"
+filepath = "/home/amd/Desktop/account_password.txt"
+wordpress = "the.wordpress.site.url"
 fo = open(filepath, "r+")
 data = []
 for line in fo.readlines():
@@ -758,8 +759,8 @@ import xmlrpc.client
 import html
  
 #################################
-filepath = "/home/amd/Desktop/www-code4future.txt"
-wordpress = "www.code4future.org"
+filepath = "/home/amd/Desktop/account_password.txt"
+wordpress = "the.wordpress.site.url"
 fo = open(filepath, "r+")
 data = []
 for line in fo.readlines():
@@ -1256,14 +1257,30 @@ http://140.130.17.17/public/2016spring/RoboDK.7z
 V-rep: http://www.coppeliarobotics.com/
 
 http://140.130.17.17/public/2016spring/V-REP_PRO_EDU.7z</t>
-<t tx="amd.20160327224113.1">
+<t tx="amd.20160327224113.1">@language md
+Title: yen - 印一隻機械臂
+Category: Misc
+Tags: Robot, Python
+Author: yen
 
-印一隻機械臂
+先看看能否可行
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 http://www.thingiverse.com/thing:30163
 
 http://robotica.webs.upv.es/en/introduction-vrep-arm/</t>
-<t tx="amd.20160327224200.1">opentoonz
+<t tx="amd.20160327224200.1">@language md
+Title: yen - opentoonz
+Category: Misc
+Tags: Robot, Python
+Author: yen
+
+先看看能否可行
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+opentoonz
 
 https://opentoonz.github.io/e/index.html</t>
 <t tx="leo.20151212173315.1"></t>

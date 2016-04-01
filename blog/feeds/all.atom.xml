@@ -1,5 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-03-24T23:05:33+08:00</updated><entry><title>yen - 機械設計專題學員的隨身 Jupyter hub</title><link href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-xue-yuan-de-sui-shen-jupyter-hub.html" rel="alternate"></link><updated>2016-03-24T23:05:33+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-24:blog/yen-ji-jie-she-ji-zhuan-ti-xue-yuan-de-sui-shen-jupyter-hub.html</id><summary type="html">&lt;p&gt;我們知道自從 2013 年底開始, 與 Raspberry Pi 搭配的 Raspbian 操作系統, 就已經免費放入 Mathematica 相關的套件系統, 但是只允許非營利使用, 相較之下, 以 Python3 為主打造的 &lt;a href="http://jupyter.org/"&gt;Jupyter&lt;/a&gt; 就比較自由, 而且全部開源, 因此更值得推廣.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-04-01T19:26:33+08:00</updated><entry><title>yen - 機械設計專題的表達、技術領域與考量層面</title><link href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-de-biao-da-ji-shu-ling-yu-yu-kao-liang-ceng-mian.html" rel="alternate"></link><updated>2016-04-01T19:26:33+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-04-01:blog/yen-ji-jie-she-ji-zhuan-ti-de-biao-da-ji-shu-ling-yu-yu-kao-liang-ceng-mian.html</id><summary type="html">&lt;p&gt;這是一個利用 Python3 的模組 blockdiag: &lt;a href="http://blockdiag.com/en/"&gt;http://blockdiag.com/en/&lt;/a&gt;, 將文字敘述轉為 2D 流程圖的範例.&lt;/p&gt;
+
+
+&lt;p&gt;機械設計專題內容流程圖：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/mde_project.png" width="800"/&gt;&lt;/p&gt;
+&lt;p&gt;機械設計專題&lt;a href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-sui-shen-kai-fa-dian-nao.html"&gt;隨身卡片電腦規劃&lt;/a&gt;流程圖：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/rpi_shopping_flow.png" width="800"/&gt;&lt;/p&gt;
+&lt;p&gt;機械設計專題內容流程圖的文字敘述:&lt;/p&gt;
+&lt;pre class="brush: bash"&gt;
+blockdiag {
+    default_shape = roundedbox;
+    // 內定寬度為 128
+    node_width = 140;
+    // 內定高度為 40
+    node_height = 50;
+    default_fontsize = 15;
+    default_node_color = "lightyellow";
+    edge_layout = flowchart;
+    // 表達方式
+    表達 [label = "六種表達方式"];
+    1 [label = "口語表達(聲音)"];
+    2 [label = "文字表達"];
+    3 [label = "2D表達(靜態影像)"];
+    4 [label = "3D表達(動態影像)"];
+    5 [label = "理論表達(定量分析)"];
+    6 [label = "實體表達"];
+    表達 -&gt; 1;
+    表達 -&gt; 2;
+    表達 -&gt; 3;
+    表達 -&gt; 4;
+    表達 -&gt; 5;
+    表達 -&gt; 6;
+    // 學門
+    學門 [label = "四種技術領域"];
+    學門1 [label = "熱流力學"];
+    學門2 [label = "固體力學"];
+    學門3 [label = "電機電子"];
+    學門4 [label = "資訊通信"];
+    學門 -&gt; 學門1;
+    學門 -&gt; 學門2;
+    學門 -&gt; 學門3;
+    學門 -&gt; 學門4;
+    // 流程
+    流程 [label = "四個層面"];
+    流程1 [label = "設計"];
+    流程2 [label = "製造"];
+    流程3 [label = "控制"];
+    流程4 [label = "管理"];
+    流程 -&gt; 流程1;
+    流程 -&gt; 流程2;
+    流程 -&gt; 流程3;
+    流程 -&gt; 流程4;
+    //專題
+    專題 [label = "機械設計專題", stacked];
+    專題 -&gt; 表達;
+    專題 -&gt; 流程;
+    專題 -&gt; 學門;
+}
+&lt;/pre&gt;
+
+&lt;p&gt;機械設計專題&lt;a href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-sui-shen-kai-fa-dian-nao.html"&gt;隨身卡片電腦規劃&lt;/a&gt;流程圖的文字敘述:&lt;/p&gt;
+&lt;pre class="brush: bash"&gt;
+blockdiag {
+    default_shape = roundedbox;
+    // 內定寬度為 128
+    node_width = 140;
+    // 內定高度為 40
+    node_height = 50;
+    default_fontsize = 15;
+    default_node_color = "lightyellow";
+    edge_layout = flowchart;
+    // 表達方式
+    表達 [label = "六種表達方式"];
+    1 [label = "口語表達(聲音)"];
+    2 [label = "文字表達", color="#99ff33"];
+    3 [label = "2D表達(靜態影像)"];
+    4 [label = "3D表達(動態影像)"];
+    5 [label = "理論表達(定量分析)"];
+    6 [label = "實體表達", color="#99ff33"];
+    表達 -&gt; 1;
+    表達 -&gt; 2;
+    表達 -&gt; 3;
+    表達 -&gt; 4;
+    表達 -&gt; 5;
+    表達 -&gt; 6;
+    // 學門
+    學門 [label = "四種技術領域"];
+    學門1 [label = "熱流力學"];
+    學門2 [label = "固體力學"];
+    學門3 [label = "電機電子"];
+    學門4 [label = "資訊通信", color="#99ff33"];
+    學門 -&gt; 學門1;
+    學門 -&gt; 學門2;
+    學門 -&gt; 學門3;
+    學門 -&gt; 學門4;
+    // 流程
+    流程 [label = "四個層面"];
+    流程1 [label = "設計", color="#99ff33"];
+    流程2 [label = "製造"];
+    流程3 [label = "控制"];
+    流程4 [label = "管理", color="#99ff33"];
+    流程 -&gt; 流程1;
+    流程 -&gt; 流程2;
+    流程 -&gt; 流程3;
+    流程 -&gt; 流程4;
+    //專題
+    //專題 [label = "機械設計專題", stacked];
+    專題 [label = "隨身卡片電腦選購", stacked, color="#ff5050"];
+    專題 -&gt; 表達;
+    專題 -&gt; 流程;
+    專題 -&gt; 學門;
+}
+&lt;/pre&gt;</summary><category term="專題分類"></category></entry><entry><title>yen - 機械設計專題學員的隨身 Jupyter hub</title><link href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-xue-yuan-de-sui-shen-jupyter-hub.html" rel="alternate"></link><updated>2016-03-24T23:05:33+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-24:blog/yen-ji-jie-she-ji-zhuan-ti-xue-yuan-de-sui-shen-jupyter-hub.html</id><summary type="html">&lt;p&gt;我們知道自從 2013 年底開始, 與 Raspberry Pi 搭配的 Raspbian 操作系統, 就已經免費放入 Mathematica 相關的套件系統, 但是只允許非營利使用, 相較之下, 以 Python3 為主打造的 &lt;a href="http://jupyter.org/"&gt;Jupyter&lt;/a&gt; 就比較自由, 而且全部開源, 因此更值得推廣.&lt;/p&gt;
 
 
 &lt;p&gt;這裡就以 Raspberry Pi 3 卡片電腦上的 &lt;a href="https://github.com/jupyter/jupyterhub"&gt;Jupyter hub&lt;/a&gt; 安裝與啟動為例, 希望作為機械設計專題學員隨身的網際工程運算系統.&lt;/p&gt;

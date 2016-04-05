@@ -22,7 +22,7 @@
 <v t="leo.20151213085727.1"><vh>@button local pelican</vh></v>
 </v>
 <v t="amd.20160117010542.1"><vh>@button git rm -rf blog</vh></v>
-<v t="amd.20151215180106.1"><vh>設定與開發</vh>
+<v t="amd.20151215180106.1" a="E"><vh>設定與開發</vh>
 <v t="amd.20151216151325.1"><vh>@edit index.html</vh></v>
 <v t="amd.20151216152209.1"><vh>@edit README.md</vh></v>
 <v t="leo.20151213230723.1"><vh>Pelican 設定</vh>
@@ -178,6 +178,7 @@
 <v t="amd.20160327224113.1"><vh>@@edit yen_20160327.md</vh></v>
 <v t="amd.20160327224200.1"><vh>@@edit yen_20160327-1.md</vh></v>
 <v t="amd.20160401184837.1"><vh>@edit yen_20160401.md</vh></v>
+<v t="amd.20160405235750.1"><vh>@edit yen_20160405.md</vh></v>
 </v>
 </v>
 <v t="amd.20160323000221.1"><vh>40323143 所寫的文章</vh>

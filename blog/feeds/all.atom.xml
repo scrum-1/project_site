@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-04-06T00:09:14+08:00</updated><entry><title>yen - Solvespace 與 V-rep 結合應用</title><link href="http://project.mde.tw/blog/yen-solvespace-yu-v-rep-jie-he-ying-yong.html" rel="alternate"></link><updated>2016-04-06T00:09:14+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-04-06:blog/yen-solvespace-yu-v-rep-jie-he-ying-yong.html</id><summary type="html">&lt;p&gt;Solvespace 是一套小型的參數式 3D 繪圖開源套件, 而 V-rep 則是一套允許教育界免費使用的開源動態模擬套件, 結合這兩個套件在機械設計專題應用, 一方面使用者可以在可攜的架構下來進行產品開發與模擬, 更重要的是, 使用者可以透過原始程式碼, 一窺專業人士編寫電腦輔助機械設計與分析工具時, 所應用的理論分析與基本架構.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-04-08T22:30:59+08:00</updated><entry><title>yen - 如何建立一好的 Wordpress 網站</title><link href="http://project.mde.tw/blog/yen-ru-he-jian-li-yi-hao-de-wordpress-wang-zhan.html" rel="alternate"></link><updated>2016-04-08T22:30:59+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-04-08:blog/yen-ru-he-jian-li-yi-hao-de-wordpress-wang-zhan.html</id><summary type="html">&lt;p&gt;機械設計專題專用的 Wordpress 必須俱備幾項特點: 能夠輸入數學公式, 能夠放入高亮顯示的程式碼, 能夠內嵌影片, 能夠利用 Gmail 帳號寄信, 能夠納入 Disqus 討論區, 能夠杜絕垃圾註冊.&lt;/p&gt;
+
+
+&lt;p&gt;當然假如能夠如 &lt;a href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html"&gt;http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html&lt;/a&gt; 中所言, 可以利用 Leo Editor 的指令按鈕, 讓 Wordpress 網誌內容能與 Pelican 靜態網誌內容保持同步, 或許就能同時擁有改版歷程資料與即時動態維護內容的優點.&lt;/p&gt;
+&lt;p&gt;Disqus 的討論區留言首推: &lt;a href="https://wordpress.org/plugins/disqus-comment-system/"&gt;https://wordpress.org/plugins/disqus-comment-system/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;嵌入影片專用: &lt;a href="https://wordpress.org/plugins/iframe/"&gt;https://wordpress.org/plugins/iframe/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;程式碼的高亮則建議使用: &lt;a href="https://wordpress.org/plugins/syntaxhighlighter/"&gt;https://wordpress.org/plugins/syntaxhighlighter/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;輸入數學公式: &lt;a href="https://wordpress.org/plugins/wp-latex/"&gt;https://wordpress.org/plugins/wp-latex/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;寄信 plugin: &lt;a href="https://wordpress.org/plugins/wp-latex/"&gt;https://wordpress.org/plugins/wp-latex/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;防止垃圾註冊 plugin: &lt;a href="https://wordpress.org/plugins/wp-recaptcha/"&gt;https://wordpress.org/plugins/wp-recaptcha/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;至於, 在 WordPress 網誌中利用 &lt;a href="https://wordpress.org/plugins/wp-mail-smtp/"&gt;https://wordpress.org/plugins/wp-mail-smtp/&lt;/a&gt; Plugin 與 Gmail 帳號寄信的設定, 有兩個關鍵:&lt;/p&gt;
+&lt;p&gt;第1項就是設定選項:&lt;/p&gt;
+&lt;p&gt;選擇 Send all WordPress emails via SMTP&lt;/p&gt;
+&lt;p&gt;選擇 smtp.gmail.com: 465&lt;/p&gt;
+&lt;p&gt;選擇 Use SSL encryption&lt;/p&gt;
+&lt;p&gt;選擇 Use SMTP authentication&lt;/p&gt;
+&lt;p&gt;然後給定對應的 Gmail 帳號 與 Gmail 密碼 之後存檔.&lt;/p&gt;
+&lt;p&gt;第2項設定則是必須配合所使用的 Gmail 帳號, 利用 &lt;a href="https://www.google.com/settings/security/lesssecureapps"&gt;https://www.google.com/settings/security/lesssecureapps&lt;/a&gt; 將原定的 Turn off 改為 Turn on, 也就是降低安全設定等級, 接著就可以寄出測試信件, 若成功, 則 WordPress 中的其他模組就可以利用設定寄信.&lt;/p&gt;</summary><category term="Wordpress"></category></entry><entry><title>yen - Solvespace 與 V-rep 結合應用</title><link href="http://project.mde.tw/blog/yen-solvespace-yu-v-rep-jie-he-ying-yong.html" rel="alternate"></link><updated>2016-04-06T00:09:14+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-04-06:blog/yen-solvespace-yu-v-rep-jie-he-ying-yong.html</id><summary type="html">&lt;p&gt;Solvespace 是一套小型的參數式 3D 繪圖開源套件, 而 V-rep 則是一套允許教育界免費使用的開源動態模擬套件, 結合這兩個套件在機械設計專題應用, 一方面使用者可以在可攜的架構下來進行產品開發與模擬, 更重要的是, 使用者可以透過原始程式碼, 一窺專業人士編寫電腦輔助機械設計與分析工具時, 所應用的理論分析與基本架構.&lt;/p&gt;
 
 
 &lt;p&gt;Solvespace: &lt;a href="http://solvespace.com/"&gt;http://solvespace.com/&lt;/a&gt; 與 &lt;a href="https://github.com/whitequark/solvespace"&gt;https://github.com/whitequark/solvespace&lt;/a&gt;&lt;/p&gt;

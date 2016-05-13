@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-05-13T22:36:24+08:00</updated><entry><title>40323123 - 專題參考資料</title><link href="http://project.mde.tw/blog/40323123-zhuan-ti-can-kao-zi-liao.html" rel="alternate"></link><updated>2016-05-13T22:36:24+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-05-13:blog/40323123-zhuan-ti-can-kao-zi-liao.html</id><summary type="html">&lt;p&gt;raspberry pi  connect 3d printer to control the 3d printer &lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-05-13T22:58:11+08:00</updated><entry><title>保養3D列印機</title><link href="http://project.mde.tw/blog/bao-yang-3dlie-yin-ji.html" rel="alternate"></link><updated>2016-05-13T22:58:11+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-05-13:blog/bao-yang-3dlie-yin-ji.html</id><summary type="html">&lt;p&gt;Control 3D printer and some Question&lt;/p&gt;
+
+
+&lt;p&gt;1.第一步清理平台&lt;/p&gt;
+&lt;p&gt;2.幫滑軌上專用潤滑油&lt;/p&gt;
+&lt;p&gt;3.加熱後將線材退出&lt;/p&gt;
+&lt;p&gt;4.清理機台外觀&lt;/p&gt;
+&lt;p&gt;5.確保滑軌滑動順利&lt;/p&gt;
+&lt;p&gt;約兩個禮拜做一次，自動校正，不要太長使用，會導致買新的噴頭。
+詳細注意事項，在另行公告&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>40323123 - 專題參考資料</title><link href="http://project.mde.tw/blog/40323123-zhuan-ti-can-kao-zi-liao.html" rel="alternate"></link><updated>2016-05-13T22:36:24+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-05-13:blog/40323123-zhuan-ti-can-kao-zi-liao.html</id><summary type="html">&lt;p&gt;raspberry pi  connect 3d printer to control the 3d printer &lt;/p&gt;
 
 
 &lt;p&gt;1.回報目前專題進度:

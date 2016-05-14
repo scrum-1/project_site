@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-05-14T20:24:26+08:00</updated><entry><title>OpenCv實作</title><link href="http://project.mde.tw/blog/opencvshi-zuo.html" rel="alternate"></link><updated>2016-05-14T20:24:26+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-05-14:blog/opencvshi-zuo.html</id><summary type="html">&lt;p&gt;OpenCv in python and use&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-05-14T20:44:12+08:00</updated><entry><title>OpenCv實作</title><link href="http://project.mde.tw/blog/opencvshi-zuo.html" rel="alternate"></link><updated>2016-05-14T20:44:12+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-05-14:blog/opencvshi-zuo.html</id><summary type="html">&lt;p&gt;OpenCv in python and use&lt;/p&gt;
 
 
 &lt;p&gt;實作系統Ubuntu 14.04&lt;/p&gt;
@@ -59,8 +59,9 @@
     -D BUILD_EXAMPLES=ON ..&lt;/p&gt;
 &lt;p&gt;$ make -j4&lt;/p&gt;
 &lt;p&gt;$ sudo make install&lt;/p&gt;
-&lt;p&gt;$ sudo ldconfig
-&lt;/pre&gt;&lt;/p&gt;
+&lt;p&gt;$ sudo ldconfig&lt;/p&gt;
+&lt;/pre&gt;
+
 &lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/opencv_python3_windows.png" width="800" /&gt;&lt;/p&gt;
 &lt;p&gt;有做些許更改同樣也可以達到使用上的設定&lt;/p&gt;
 &lt;p&gt;windows中

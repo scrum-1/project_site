@@ -1,5 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-05-21T23:27:40+08:00</updated><entry><title>yen - RGA 基因演算法</title><link href="http://project.mde.tw/blog/yen-rga-ji-yin-yan-suan-fa.html" rel="alternate"></link><updated>2016-05-21T23:27:40+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-05-21:blog/yen-rga-ji-yin-yan-suan-fa.html</id><summary type="html">&lt;p&gt;RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-05-21T23:32:53+08:00</updated><entry><title>40323123 - 專題參考資料</title><link href="http://project.mde.tw/blog/40323123-zhuan-ti-can-kao-zi-liao.html" rel="alternate"></link><updated>2016-05-21T23:32:53+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-05-21:blog/40323123-zhuan-ti-can-kao-zi-liao.html</id><summary type="html">&lt;p&gt;raspberry pi  connect 3d printer to control the 3d printer &lt;/p&gt;
+
+
+&lt;p&gt;1.回報目前專題進度:
+事項一:目前題目定義 製作一台3D printer跟atom同樣款式的
+事項二:因為有三組的成員，目前分配如下所示&lt;/p&gt;
+&lt;p&gt;40323123 這組:利用octopi來進行遠端控制，以及自動下料等的問題，自動下料的機構利用GA進行運算&lt;/p&gt;
+&lt;p&gt;40323250 這組:進行組裝，設計，Onshape組裝，V-Rep(組裝設計模擬)&lt;/p&gt;
+&lt;p&gt;黃婉菁這組:先利用opencv來產生3d module並轉換成stl進行列印(主要目的影像建模出3Dstl)&lt;/p&gt;
+&lt;p&gt;參考資料:
+1.octopi
+&lt;a href="http://plugins.octoprint.org/"&gt;octopi&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2.octoprintDocs
+&lt;a href="http://docs.octoprint.org/en/master/"&gt;octoprint Docs&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;3.octopi_github
+&lt;a href="https://github.com/foosel/OctoPrint/wiki"&gt;octoprint WIKI&lt;/a&gt;
+&lt;a href="https://github.com/foosel/OctoPrint/wiki/FAQ"&gt;FAQ&lt;/a&gt;
+&lt;a href="https://github.com/guysoft/OctoPi"&gt;Github&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;4.flux 3d printer中的底板樣式以及掃描方式
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/l9ZISxSo2X0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;
+&lt;p&gt;5.OpenCv 3d nodule
+&lt;a href="http://www.opencv.org.cn/"&gt;OpenCv可參考&lt;/a&gt;&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>保養3D列印機</title><link href="http://project.mde.tw/blog/bao-yang-3dlie-yin-ji.html" rel="alternate"></link><updated>2016-05-21T23:32:53+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-05-21:blog/bao-yang-3dlie-yin-ji.html</id><summary type="html">&lt;p&gt;Control 3D printer and some Question&lt;/p&gt;
+
+
+&lt;p&gt;1.第一步清理平台&lt;/p&gt;
+&lt;p&gt;2.幫滑軌上專用潤滑油&lt;/p&gt;
+&lt;p&gt;3.加熱後將線材退出&lt;/p&gt;
+&lt;p&gt;4.清理機台外觀&lt;/p&gt;
+&lt;p&gt;5.確保滑軌滑動順利&lt;/p&gt;
+&lt;p&gt;約兩個禮拜做一次，自動校正，不要太長使用，會導致買新的噴頭。
+詳細注意事項，在另行公告&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>OpenCv實作</title><link href="http://project.mde.tw/blog/opencvshi-zuo.html" rel="alternate"></link><updated>2016-05-21T23:32:53+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-05-21:blog/opencvshi-zuo.html</id><summary type="html">&lt;p&gt;OpenCv in python and use&lt;/p&gt;
+
+
+&lt;p&gt;實作系統Ubuntu 14.04&lt;/p&gt;
+&lt;p&gt;剛開始必須要先安裝依些相關的compiler以及設定黨
+步驟如同老師所下載的順序
+&lt;pre class="brush: bash"&gt;&lt;/p&gt;
+&lt;h1&gt;apt-get 更新&lt;/h1&gt;
+&lt;p&gt;$ sudo apt-get update&lt;/p&gt;
+&lt;h1&gt;apt-get 升級&lt;/h1&gt;
+&lt;p&gt;$ sudo apt-get upgrade&lt;/p&gt;
+&lt;h1&gt;安裝所需的開發套件&lt;/h1&gt;
+&lt;p&gt;$ sudo apt-get install build-essential cmake git pkg-config&lt;/p&gt;
+&lt;h1&gt;安裝編譯過程所需的程式庫&lt;/h1&gt;
+&lt;p&gt;$ sudo apt-get install libjpeg8-dev libtiff4-dev libjasper-dev libpng12-dev&lt;/p&gt;
+&lt;h1&gt;安裝編譯過程所需的程式庫&lt;/h1&gt;
+&lt;p&gt;$ sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev&lt;/p&gt;
+&lt;h1&gt;安裝編譯過程所需的程式庫&lt;/h1&gt;
+&lt;p&gt;$ sudo apt-get install libgtk2.0-dev&lt;/p&gt;
+&lt;h1&gt;安裝編譯過程所需的 fortran 編譯器&lt;/h1&gt;
+&lt;p&gt;$ sudo apt-get install libatlas-base-dev gfortran&lt;/p&gt;
+&lt;h1&gt;安裝編譯過程所需的原始碼&lt;/h1&gt;
+&lt;p&gt;$ sudo apt-get install python3.4-dev&lt;/p&gt;
+&lt;h1&gt;本台機器的 python 為 2.7 版, 而 python3 則為 python 3.4, 這裡安裝 numpy  模組&lt;/h1&gt;
+&lt;p&gt;$ sudo pip3 install numpy&lt;/p&gt;
+&lt;h1&gt;希望在帳號目錄下的 tmp 進行編譯工作&lt;/h1&gt;
+&lt;p&gt;$ cd&lt;/p&gt;
+&lt;h1&gt;new folder&lt;/h1&gt;
+&lt;p&gt;$ mkdir tmp&lt;/p&gt;
+&lt;h1&gt;更換目錄到 tmp&lt;/h1&gt;
+&lt;p&gt;$ cd tmp&lt;/p&gt;
+&lt;h1&gt;利用 git clone 取得原始碼&lt;/h1&gt;
+&lt;p&gt;$ git clone https://github.com/Itseez/opencv.git&lt;/p&gt;
+&lt;h1&gt;準備進入倉儲切換分支&lt;/h1&gt;
+&lt;p&gt;$ cd opencv&lt;/p&gt;
+&lt;h1&gt;採用 3.1.0 版&lt;/h1&gt;
+&lt;p&gt;$ git checkout 3.1.0&lt;/p&gt;
+&lt;h1&gt;回到用戶目錄&lt;/h1&gt;
+&lt;p&gt;$ cd ..&lt;/p&gt;
+&lt;h1&gt;再利用 git clone 下載原始碼&lt;/h1&gt;
+&lt;p&gt;$ git clone https://github.com/Itseez/opencv_contrib.git&lt;/p&gt;
+&lt;h1&gt;準備進入倉儲切換分支&lt;/h1&gt;
+&lt;p&gt;$ cd opencv_contrib&lt;/p&gt;
+&lt;h1&gt;與 opencv 配合, 採用 3.1.0 版&lt;/h1&gt;
+&lt;p&gt;$ git checkout 3.1.0&lt;/p&gt;
+&lt;p&gt;$ cd ..&lt;/p&gt;
+&lt;h1&gt;準備開始建立程式庫&lt;/h1&gt;
+&lt;p&gt;$ cd opencv&lt;/p&gt;
+&lt;p&gt;$ mkdir build&lt;/p&gt;
+&lt;p&gt;$ cd build&lt;/p&gt;
+&lt;h1&gt;這裡會同時建立 Python2 與 Python3 的 OpenCV 程式庫檔案&lt;/h1&gt;
+&lt;p&gt;$ cmake -D CMAKE_BUILD_TYPE=RELEASE \
+    -D CMAKE_INSTALL_PREFIX=/usr/local \
+    -D INSTALL_C_EXAMPLES=OFF \
+    -D INSTALL_PYTHON_EXAMPLES=ON \
+    -D PYTHON_EXECUTABLE=$(which python3) \
+    -D OPENCV_EXTRA_MODULES_PATH= ./../../opencv_contrib/modules \
+    -D BUILD_EXAMPLES=ON ..&lt;/p&gt;
+&lt;p&gt;$ make -j4&lt;/p&gt;
+&lt;p&gt;$ sudo make install&lt;/p&gt;
+&lt;p&gt;$ sudo ldconfig&lt;/p&gt;
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/opencv_python3_windows.png" width="800" /&gt;&lt;/p&gt;
+&lt;p&gt;有做些許更改同樣也可以達到使用上的設定&lt;/p&gt;
+&lt;p&gt;windows中
+只需要開起2016spring中把py檔
+用cmd line 來執行
+下python3 你的程式碼的名子
+只要有攝影機就可以執行
+請注意
+必須要裝好攝影機的驅動才可以執行cvcapture(0)
+否則無法執行
+0是預設的第1台攝影機
+1是第2台
+以此類推&lt;/p&gt;</summary><category term="OpenCv"></category></entry><entry><title>R2C2的資料</title><link href="http://project.mde.tw/blog/r2c2de-zi-liao.html" rel="alternate"></link><updated>2016-05-21T23:32:53+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-05-21:blog/r2c2de-zi-liao.html</id><summary type="html">&lt;p&gt;新的R2C2資料&lt;/p&gt;
+
+
+&lt;p&gt;中間有新的資料for raspberrypi
+是使用node.js啟動server
+client端可以看到的
+https://github.com/nneves/Raspberrypi_NodeJS&lt;/p&gt;
+&lt;p&gt;&lt;a href = "https://github.com/nneves/R2C2_WebInterface/blob/master/README.md"&gt;RaspberryPi R2C2&lt;/a&gt;&lt;/p&gt;</summary><category term="client control"></category></entry><entry><title>yen - RGA 基因演算法</title><link href="http://project.mde.tw/blog/yen-rga-ji-yin-yan-suan-fa.html" rel="alternate"></link><updated>2016-05-21T23:27:40+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-05-21:blog/yen-rga-ji-yin-yan-suan-fa.html</id><summary type="html">&lt;p&gt;RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.&lt;/p&gt;
 
 
 &lt;pre class="brush: python"&gt;

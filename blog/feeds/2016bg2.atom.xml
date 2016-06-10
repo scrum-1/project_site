@@ -2,11 +2,11 @@
 <feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-06-10T19:32:18+08:00</updated><entry><title>OpenCv範例執行</title><link href="http://project.mde.tw/blog/opencvfan-li-zhi-xing.html" rel="alternate"></link><updated>2016-06-10T19:32:18+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-06-10:blog/opencvfan-li-zhi-xing.html</id><summary type="html">&lt;p&gt;OpenCv example with python test&lt;/p&gt;
 
 
-&lt;h4&gt;實作系統Ubuntu 14.04 以及 老師整合的檔案&lt;/h4&gt;
+&lt;h3&gt;實作系統Ubuntu 14.04 以及 老師整合的檔案&lt;/h3&gt;
 
 &lt;p&gt;&lt;/br&gt;
-&lt;a href="https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_gui/py_image_display/py_image_display.html#display-image"&gt;範例網址1.&lt;/a&gt;
-&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/picture/messi.jpg"&gt;使用到的圖片&lt;/a&gt;
+&lt;p&gt;&lt;a href="https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_gui/py_image_display/py_image_display.html#display-image"&gt;範例網址1.&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/picture/messi.jpg"&gt;使用到的圖片&lt;/a&gt;&lt;/p&gt;
 &lt;h4&gt;程式碼&lt;/h4&gt;
 &lt;pre class="brush: bash"&gt;
 import numpy as np
@@ -20,5 +20,57 @@ elif k == ord('s'): # wait for 's' key to save and exit
     cv2.imwrite('messigray.png',img)
     cv2.destroyAllWindows()
 &lt;/pre&gt;
-&lt;h4&gt;執行結果&lt;/h4&gt;
-&lt;img src="http://i.imgur.com/tI55TDf.png"&gt;&lt;/p&gt;</summary><category term="OpenCv"></category></entry></feed>
+&lt;h3&gt;執行結果&lt;/h3&gt;
+&lt;img src="http://i.imgur.com/tI55TDf.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;p&gt;&lt;a href="https://opencv-python-tutroals.readthedocs.io/en/latest/py_tutorials/py_gui/py_video_display/py_video_display.html#display-video"&gt;範例網址2.&lt;/a&gt;&lt;/p&gt;
+&lt;h4&gt;程式碼&lt;/h4&gt;
+&lt;pre class="brush: bash"&gt;
+import numpy as np
+import cv2
+cap = cv2.VideoCapture(0)
+while(True):
+    # Capture frame-by-frame
+    ret, frame = cap.read()
+    # Our operations on the frame come here
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    # Display the resulting frame
+    cv2.imshow('frame',gray)
+    if cv2.waitKey(1) &amp;amp; 0xFF == ord('q'):
+        break&lt;/p&gt;
+&lt;h1&gt;When everything done, release the capture&lt;/h1&gt;
+&lt;p&gt;cap.release()
+cv2.destroyAllWindows()
+&lt;/pre&gt;
+&lt;h3&gt;執行結果&lt;/h3&gt;
+&lt;img src="http://i.imgur.com/MOL03LL.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;p&gt;範例網址3.(同上)&lt;/p&gt;
+&lt;h4&gt;程式碼&lt;/h4&gt;
+&lt;pre class="brush: bash"&gt;
+import numpy as np
+import cv2
+cap = cv2.VideoCapture(0)&lt;/p&gt;
+&lt;h1&gt;Define the codec and create VideoWriter object&lt;/h1&gt;
+&lt;p&gt;fourcc = cv2.VideoWriter_fourcc(*'XVID')
+out = cv2.VideoWriter('output.avi',fourcc, 20.0, (640,480))
+while(cap.isOpened()):
+    ret, frame = cap.read()
+    if ret==True:
+        frame = cv2.flip(frame,1)
+        # write the flipped frame
+        out.write(frame)
+        cv2.imshow('frame',frame)
+        if cv2.waitKey(1) &amp;amp; 0xFF == ord('q'):
+            break
+    else:
+        break&lt;/p&gt;
+&lt;h1&gt;Release everything if job is finished&lt;/h1&gt;
+&lt;p&gt;cap.release()
+out.release()
+cv2.destroyAllWindows()
+&lt;/pre&gt;
+&lt;h3&gt;執行結果&lt;/h3&gt;
+&lt;h4&gt;得到檔案名稱為output的avi影片檔&lt;/h4&gt;&lt;/p&gt;</summary><category term="OpenCv"></category></entry></feed>

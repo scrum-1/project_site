@@ -30,7 +30,7 @@
 <v t="amd.20160106093510.1" a="E"><vh>201606</vh>
 <v t="amd.20160106093531.1" a="E"><vh>w1 - 文章務必要冠上用戶名稱</vh>
 <v t="roger.20160514194102.1"><vh>@edit 40323250_20160610.md</vh></v>
-<v t="leo.20160623170048.1"><vh>edit 40323250_20160623.md</vh></v>
+<v t="leo.20160623170048.1"><vh>@edit 40323250_20160623.md</vh></v>
 </v>
 </v>
 </v>
@@ -166,32 +166,5 @@ g.es("admin pelican 近端執行完畢")
 </t>
 <t tx="leo.20151213173811.1"></t>
 <t tx="leo.20151213173830.1"></t>
-<t tx="leo.20160623170048.1">@language md
-Title: Summer Plan
-Category: 2016bg2
-Tags: Kmol 
-Author: 40323250
-
-
-Summer project
-
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-1.畫3D Printer (V-rep ,Onshape)
-2.實驗室網站介面
-3.Octopi ,機械手臂
-4.OpenCV 
-5.RGA演算
-6.認證主機(Virtual Box)
-7.Proxy
-8.報告(拍照 ,內容整理)
-9.找碩班教授
-&lt;/br&gt;
-暑期人數 : 
-七月:第一組3人 ,第二組4人
-八月:第一組3人 ,第二組4人 ,第三組1人
-
-
-
-</t>
 </tnodes>
 </leo_file>

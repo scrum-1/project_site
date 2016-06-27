@@ -1,14 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-06-27T15:32:16+08:00</updated><entry><title>40323143 - 日誌 105年6月27日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-6yue-27ri.html" rel="alternate"></link><updated>2016-06-27T15:32:16+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-06-27:blog/40323143-ri-zhi-105nian-6yue-27ri.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-06-27T16:02:08+08:00</updated><entry><title>40323143 - 日誌 105年6月27日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-6yue-27ri.html" rel="alternate"></link><updated>2016-06-27T16:02:08+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-06-27:blog/40323143-ri-zhi-105nian-6yue-27ri.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;p&gt;今天將個人Onshape上的機械手臂部分零件合進零件庫，設定六個參數，分別是motor_fixhole , motor_x , motor_y , motor_z , suan_pan , degore 六個參數，motor_fixhole為設定馬達固定孔大小，motor_x , motor_y , motor_z為設定馬達的長寬高， suan_pan為設定旋盤的大小，大小為motor_y的1.7倍，degore為設定底座的直徑，大小為3倍的suan_pan。&lt;/p&gt;
 &lt;p&gt;合進零件庫的零件&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/VoMTC8g.png"&gt;&lt;/p&gt;
 &lt;p&gt;參數設定&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/AsRWjtd.png"&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 3D printer 列印完下料後的倉儲機構設計理念及繪圖</title><link href="http://project.mde.tw/blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html" rel="alternate"></link><updated>2016-06-27T15:04:18+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-06-27:blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
-=======
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-06-27T15:45:57+08:00</updated><entry><title>樹梅派指令表和使用</title><link href="http://project.mde.tw/blog/shu-mei-pai-zhi-ling-biao-he-shi-yong.html" rel="alternate"></link><updated>2016-06-27T15:45:57+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-27:blog/shu-mei-pai-zhi-ling-biao-he-shi-yong.html</id><summary type="html">&lt;p&gt;找到的些許文章和探討&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/AsRWjtd.png"&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>樹梅派指令表和使用</title><link href="http://project.mde.tw/blog/shu-mei-pai-zhi-ling-biao-he-shi-yong.html" rel="alternate"></link><updated>2016-06-27T15:45:57+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-27:blog/shu-mei-pai-zhi-ling-biao-he-shi-yong.html</id><summary type="html">&lt;p&gt;找到的些許文章和探討&lt;/p&gt;
 
 
 &lt;p&gt;在Octoprint底下有個資料夾&lt;/p&gt;
@@ -21,7 +18,7 @@
 
 #先檢查自己找到的usb數量
 $ sudo fdisk -l
-#...省略...
+#...省略....
 #Device         Boot  Start      End  Sectors  Size Id Type
 #/dev/mmcblk0p1        8192   137215   129024   63M  c W95 FAT32 (LBA)
 #/dev/mmcblk0p2      137216 31116287 30979072 14.8G 83 Linux
@@ -54,7 +51,6 @@ $ sudo umount /media/usbstick
 client端可以看到的
 https://github.com/nneves/Raspberrypi_NodeJS&lt;/p&gt;
 &lt;p&gt;&lt;a href = "https://github.com/nneves/R2C2_WebInterface/blob/master/README.md"&gt;RaspberryPi R2C2&lt;/a&gt;&lt;/p&gt;</summary><category term="client control"></category></entry><entry><title>40323143 - 3D printer 列印完下料後的倉儲機構設計理念及繪圖</title><link href="http://project.mde.tw/blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html" rel="alternate"></link><updated>2016-05-15T15:22:02+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-05-15:blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
->>>>>>> 7133da6f862beb2cc39ba166e70500a098d43214
 
 
 &lt;p&gt;這裡為 40323130 所寫的文章主要內容&lt;/p&gt;
@@ -77,11 +73,7 @@ https://github.com/nneves/Raspberrypi_NodeJS&lt;/p&gt;
 &lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/6-3.stl"&gt;&lt;/script&gt;
 &lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/46-2.stl"&gt;&lt;/script&gt;
 &lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/a.stl"&gt;&lt;/script&gt;
-<<<<<<< HEAD
-&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/b.stl"&gt;&lt;/script&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 說明如何參與協同機械設計專題網誌編寫</title><link href="http://project.mde.tw/blog/40323143-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html" rel="alternate"></link><updated>2016-06-27T15:04:18+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-06-27:blog/40323143-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
-=======
 &lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/b.stl"&gt;&lt;/script&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 說明如何參與協同機械設計專題網誌編寫</title><link href="http://project.mde.tw/blog/40323143-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html" rel="alternate"></link><updated>2016-05-15T15:22:02+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-05-15:blog/40323143-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
->>>>>>> 7133da6f862beb2cc39ba166e70500a098d43214
 
 
 &lt;p&gt;這裡為 40323130 所寫的文章主要內容&lt;/p&gt;
@@ -101,11 +93,7 @@ https://github.com/nneves/Raspberrypi_NodeJS&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://vimeo.com/157247703"&gt;2016project_1&lt;/a&gt; from &lt;a href="https://vimeo.com/user24079973"&gt;虎尾科大機械設計工程&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Youtube:&lt;/p&gt;
-<<<<<<< HEAD
-&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/hQR1wxALifU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="範例"></category></entry><entry><title>40323130 - 說明如何參與協同機械設計專題網誌編寫</title><link href="http://project.mde.tw/blog/40323130-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html" rel="alternate"></link><updated>2016-06-27T15:04:18+08:00</updated><author><name>40323130</name></author><id>tag:project.mde.tw,2016-06-27:blog/40323130-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
-=======
 &lt;iframe width="420" height="315" src="https://www.youtube.com/embed/hQR1wxALifU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="範例"></category></entry><entry><title>40323130 - 說明如何參與協同機械設計專題網誌編寫</title><link href="http://project.mde.tw/blog/40323130-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html" rel="alternate"></link><updated>2016-05-15T15:22:02+08:00</updated><author><name>40323130</name></author><id>tag:project.mde.tw,2016-05-15:blog/40323130-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
->>>>>>> 7133da6f862beb2cc39ba166e70500a098d43214
 
 
 &lt;p&gt;這裡為 40323130 所寫的文章主要內容&lt;/p&gt;
@@ -125,16 +113,6 @@ https://github.com/nneves/Raspberrypi_NodeJS&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://vimeo.com/157247703"&gt;2016project_1&lt;/a&gt; from &lt;a href="https://vimeo.com/user24079973"&gt;虎尾科大機械設計工程&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Youtube:&lt;/p&gt;
-<<<<<<< HEAD
-&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/hQR1wxALifU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="範例"></category></entry><entry><title>R2C2的資料</title><link href="http://project.mde.tw/blog/r2c2de-zi-liao.html" rel="alternate"></link><updated>2016-06-27T15:04:18+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-27:blog/r2c2de-zi-liao.html</id><summary type="html">&lt;p&gt;新的R2C2資料&lt;/p&gt;
-
-
-&lt;p&gt;中間有新的資料for raspberrypi
-是使用node.js啟動server
-client端可以看到的
-https://github.com/nneves/Raspberrypi_NodeJS&lt;/p&gt;
-&lt;p&gt;&lt;a href = "https://github.com/nneves/R2C2_WebInterface/blob/master/README.md"&gt;RaspberryPi R2C2&lt;/a&gt;&lt;/p&gt;</summary><category term="client control"></category></entry><entry><title>OpenCv實作</title><link href="http://project.mde.tw/blog/opencvshi-zuo.html" rel="alternate"></link><updated>2016-06-27T15:04:18+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-27:blog/opencvshi-zuo.html</id><summary type="html">&lt;p&gt;OpenCv in python and use&lt;/p&gt;
-=======
 &lt;iframe width="420" height="315" src="https://www.youtube.com/embed/hQR1wxALifU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="範例"></category></entry><entry><title>保養3D列印機</title><link href="http://project.mde.tw/blog/bao-yang-3dlie-yin-ji.html" rel="alternate"></link><updated>2016-05-15T15:22:02+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-05-15:blog/bao-yang-3dlie-yin-ji.html</id><summary type="html">&lt;p&gt;Control 3D printer and some Question&lt;/p&gt;
 
 
@@ -145,7 +123,6 @@ https://github.com/nneves/Raspberrypi_NodeJS&lt;/p&gt;
 &lt;p&gt;5.確保滑軌滑動順利&lt;/p&gt;
 &lt;p&gt;約兩個禮拜做一次，自動校正，不要太長使用，會導致買新的噴頭。
 詳細注意事項，在另行公告&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>OpenCv實作</title><link href="http://project.mde.tw/blog/opencvshi-zuo.html" rel="alternate"></link><updated>2016-05-15T15:22:02+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-05-15:blog/opencvshi-zuo.html</id><summary type="html">&lt;p&gt;OpenCv in python and use&lt;/p&gt;
->>>>>>> 7133da6f862beb2cc39ba166e70500a098d43214
 
 
 &lt;p&gt;實作系統Ubuntu 14.04&lt;/p&gt;
@@ -220,18 +197,6 @@ https://github.com/nneves/Raspberrypi_NodeJS&lt;/p&gt;
 否則無法執行
 0是預設的第1台攝影機
 1是第2台
-<<<<<<< HEAD
-以此類推&lt;/p&gt;</summary><category term="OpenCv"></category></entry><entry><title>保養3D列印機</title><link href="http://project.mde.tw/blog/bao-yang-3dlie-yin-ji.html" rel="alternate"></link><updated>2016-06-27T15:04:18+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-27:blog/bao-yang-3dlie-yin-ji.html</id><summary type="html">&lt;p&gt;Control 3D printer and some Question&lt;/p&gt;
-
-
-&lt;p&gt;1.第一步清理平台&lt;/p&gt;
-&lt;p&gt;2.幫滑軌上專用潤滑油&lt;/p&gt;
-&lt;p&gt;3.加熱後將線材退出&lt;/p&gt;
-&lt;p&gt;4.清理機台外觀&lt;/p&gt;
-&lt;p&gt;5.確保滑軌滑動順利&lt;/p&gt;
-&lt;p&gt;約兩個禮拜做一次，自動校正，不要太長使用，會導致買新的噴頭。
-詳細注意事項，在另行公告&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>40323123 - 專題參考資料</title><link href="http://project.mde.tw/blog/40323123-zhuan-ti-can-kao-zi-liao.html" rel="alternate"></link><updated>2016-06-27T15:04:18+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-27:blog/40323123-zhuan-ti-can-kao-zi-liao.html</id><summary type="html">&lt;p&gt;raspberry pi  connect 3d printer to control the 3d printer &lt;/p&gt;
-=======
 以此類推&lt;/p&gt;</summary><category term="OpenCv"></category></entry><entry><title>40323123 - 3d printer</title><link href="http://project.mde.tw/blog/40323123-3d-printer.html" rel="alternate"></link><updated>2016-05-15T15:22:02+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-05-15:blog/40323123-3d-printer.html</id><summary type="html">&lt;p&gt;raspberry pi  connect 3d printer to control the 3d printer &lt;/p&gt;
 
 
@@ -249,7 +214,6 @@ G指令
 &lt;a href="http://reprap.org/wiki/G-code"&gt;Gcoce 大全&lt;/a&gt;
 &lt;a href="http://www.slideshare.net/roboard/3d-printer-marlin"&gt;控制系統的code解析&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;這兩套系統，都有開放原始碼，不過因為解析程式有巨大的阻礙，因為對python和樹梅派不熟悉，導致只會安裝不會自己編譯。&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>40323123 - 專題參考資料</title><link href="http://project.mde.tw/blog/40323123-zhuan-ti-can-kao-zi-liao.html" rel="alternate"></link><updated>2016-05-15T15:22:02+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-05-15:blog/40323123-zhuan-ti-can-kao-zi-liao.html</id><summary type="html">&lt;p&gt;raspberry pi  connect 3d printer to control the 3d printer &lt;/p&gt;
->>>>>>> 7133da6f862beb2cc39ba166e70500a098d43214
 
 
 &lt;p&gt;1.回報目前專題進度:
@@ -270,27 +234,7 @@ G指令
 &lt;p&gt;4.flux 3d printer中的底板樣式以及掃描方式
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/l9ZISxSo2X0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;
 &lt;p&gt;5.OpenCv 3d nodule
-<<<<<<< HEAD
-&lt;a href="http://www.opencv.org.cn/"&gt;OpenCv可參考&lt;/a&gt;&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>40323123 - 3d printer</title><link href="http://project.mde.tw/blog/40323123-3d-printer.html" rel="alternate"></link><updated>2016-06-27T15:04:18+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-27:blog/40323123-3d-printer.html</id><summary type="html">&lt;p&gt;raspberry pi  connect 3d printer to control the 3d printer &lt;/p&gt;
-
-
-&lt;p&gt;遠端控制3D列印
-這邊使用的遠端列印是使用web client控制&lt;/p&gt;
-&lt;p&gt;目前有兩套在觀望的系統~
-一個是
-&lt;a href="http://octoprint.org/download/"&gt;octopi&lt;/a&gt;
-另一個是
-&lt;a href="https://www.astroprint.com/downloads"&gt;Astropromt&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;或者是我們自己寫一套
-兩套皆使用樹梅派當為控制電腦及server
-使用心得:在之前已經有安裝過octopi，使用狀況是不錯，但是gui介面有些許的問題，使用上是沒什麼大礙，在3D printer的控制板，做動方式，像是一般CNC一樣，接收
-G指令
-&lt;a href="http://reprap.org/wiki/G-code"&gt;Gcoce 大全&lt;/a&gt;
-&lt;a href="http://www.slideshare.net/roboard/3d-printer-marlin"&gt;控制系統的code解析&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;這兩套系統，都有開放原始碼，不過因為解析程式有巨大的阻礙，因為對python和樹梅派不熟悉，導致只會安裝不會自己編譯。&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>40323123 - 專題組員的範例文章標題</title><link href="http://project.mde.tw/blog/40323123-zhuan-ti-zu-yuan-de-fan-li-wen-zhang-biao-ti.html" rel="alternate"></link><updated>2016-06-27T15:04:18+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-27:blog/40323123-zhuan-ti-zu-yuan-de-fan-li-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 40323123 所寫的文章摘要&lt;/p&gt;
-=======
 &lt;a href="http://www.opencv.org.cn/"&gt;OpenCv可參考&lt;/a&gt;&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>40323123 - 專題組員的範例文章標題</title><link href="http://project.mde.tw/blog/40323123-zhuan-ti-zu-yuan-de-fan-li-wen-zhang-biao-ti.html" rel="alternate"></link><updated>2016-05-15T15:22:02+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-05-15:blog/40323123-zhuan-ti-zu-yuan-de-fan-li-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 40323123 所寫的文章摘要&lt;/p&gt;
->>>>>>> 7133da6f862beb2cc39ba166e70500a098d43214
 
 
 &lt;p&gt;這裡為 40323123 所寫的文章主要內容&lt;/p&gt;</summary><category term="範例"></category></entry></feed>

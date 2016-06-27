@@ -329,23 +329,29 @@ init_mathjax();
 <p>linux指令:</p>
 <p>cp</p>
 <p>mv</p>
-<p>指令再raspberry pi 要熟悉，因為在搬移檔案以及設定檔案，會常使用到，以及設定需要的檔案，像是網路的方法，以及未來可能要用到的USB掛載
-<pre class="brush: python"></p>
-<h1>先檢查自己找到的usb數量</h1>
-<p>$ sudo fdisk -l</p>
-<h1>...省略...</h1>
-<h1>Device         Boot  Start      End  Sectors  Size Id Type</h1>
-<h1>/dev/mmcblk0p1        8192   137215   129024   63M  c W95 FAT32 (LBA)</h1>
-<h1>/dev/mmcblk0p2      137216 31116287 30979072 14.8G 83 Linux</h1>
-<p>$ sudo mkdir /media/usbstick
-$ sudo chown pi:pi /media/usbstick </p>
-<h1>手動掛載</h1>
-<p>$ sudo mount -t vfat -o uid=pi,gid=pi /dev/sda1 /media/usbstick</p>
-<h1>就可以進行存取</h1>
-<h1>要拔除時要下指令</h1>
-<p>$ sudo umount /media/usbstick</p>
-<p></pre>
-<img src="http://i.imgur.com/kkeiJv2.jpg"></p>
+<p>指令再raspberry pi 要熟悉，因為在搬移檔案以及設定檔案，會常使用到，以及設定需要的檔案，像是網路的方法，以及未來可能要用到的USB掛載</p>
+<pre class="brush: python">
+
+#先檢查自己找到的usb數量
+$ sudo fdisk -l
+#...省略...
+#Device         Boot  Start      End  Sectors  Size Id Type
+#/dev/mmcblk0p1        8192   137215   129024   63M  c W95 FAT32 (LBA)
+#/dev/mmcblk0p2      137216 31116287 30979072 14.8G 83 Linux
+
+$ sudo mkdir /media/usbstick
+$ sudo chown pi:pi /media/usbstick 
+
+#手動掛載
+$ sudo mount -t vfat -o uid=pi,gid=pi /dev/sda1 /media/usbstick
+#就可以進行存取
+
+#要拔除時要下指令
+$ sudo umount /media/usbstick
+
+</pre>
+
+<p><img src="http://i.imgur.com/kkeiJv2.jpg"></p>
 <p><img src="http://i.imgur.com/DeYzBNo.jpg"></p>
 <p>在這些設定檔中使用到的可以更改圖片或者是把程式碼拿出來理解目前解讀進度:</p>
 <p>1.再octoprint中有將各模組拆開來，近日把python的設定看完，可能會接近5%的進度</p>

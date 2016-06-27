@@ -7,23 +7,29 @@
 &lt;p&gt;linux指令:&lt;/p&gt;
 &lt;p&gt;cp&lt;/p&gt;
 &lt;p&gt;mv&lt;/p&gt;
-&lt;p&gt;指令再raspberry pi 要熟悉，因為在搬移檔案以及設定檔案，會常使用到，以及設定需要的檔案，像是網路的方法，以及未來可能要用到的USB掛載
-&lt;pre class="brush: python"&gt;&lt;/p&gt;
-&lt;h1&gt;先檢查自己找到的usb數量&lt;/h1&gt;
-&lt;p&gt;$ sudo fdisk -l&lt;/p&gt;
-&lt;h1&gt;...省略...&lt;/h1&gt;
-&lt;h1&gt;Device         Boot  Start      End  Sectors  Size Id Type&lt;/h1&gt;
-&lt;h1&gt;/dev/mmcblk0p1        8192   137215   129024   63M  c W95 FAT32 (LBA)&lt;/h1&gt;
-&lt;h1&gt;/dev/mmcblk0p2      137216 31116287 30979072 14.8G 83 Linux&lt;/h1&gt;
-&lt;p&gt;$ sudo mkdir /media/usbstick
-$ sudo chown pi:pi /media/usbstick &lt;/p&gt;
-&lt;h1&gt;手動掛載&lt;/h1&gt;
-&lt;p&gt;$ sudo mount -t vfat -o uid=pi,gid=pi /dev/sda1 /media/usbstick&lt;/p&gt;
-&lt;h1&gt;就可以進行存取&lt;/h1&gt;
-&lt;h1&gt;要拔除時要下指令&lt;/h1&gt;
-&lt;p&gt;$ sudo umount /media/usbstick&lt;/p&gt;
-&lt;p&gt;&lt;/pre&gt;
-&lt;img src="http://i.imgur.com/kkeiJv2.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;指令再raspberry pi 要熟悉，因為在搬移檔案以及設定檔案，會常使用到，以及設定需要的檔案，像是網路的方法，以及未來可能要用到的USB掛載&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+
+#先檢查自己找到的usb數量
+$ sudo fdisk -l
+#...省略...
+#Device         Boot  Start      End  Sectors  Size Id Type
+#/dev/mmcblk0p1        8192   137215   129024   63M  c W95 FAT32 (LBA)
+#/dev/mmcblk0p2      137216 31116287 30979072 14.8G 83 Linux
+
+$ sudo mkdir /media/usbstick
+$ sudo chown pi:pi /media/usbstick 
+
+#手動掛載
+$ sudo mount -t vfat -o uid=pi,gid=pi /dev/sda1 /media/usbstick
+#就可以進行存取
+
+#要拔除時要下指令
+$ sudo umount /media/usbstick
+
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/kkeiJv2.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/DeYzBNo.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;在這些設定檔中使用到的可以更改圖片或者是把程式碼拿出來理解目前解讀進度:&lt;/p&gt;
 &lt;p&gt;1.再octoprint中有將各模組拆開來，近日把python的設定看完，可能會接近5%的進度&lt;/p&gt;

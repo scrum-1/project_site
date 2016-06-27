@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-06-27T15:04:18+08:00</updated><entry><title>Summer Plan</title><link href="http://project.mde.tw/blog/summer-plan.html" rel="alternate"></link><updated>2016-06-27T15:04:18+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-06-27:blog/summer-plan.html</id><summary type="html">&lt;p&gt;Summer project&lt;/p&gt;
+=======
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-06-27T14:34:31+08:00</updated><entry><title>Summer Plan</title><link href="http://project.mde.tw/blog/summer-plan.html" rel="alternate"></link><updated>2016-06-27T14:34:31+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-06-27:blog/summer-plan.html</id><summary type="html">&lt;p&gt;Summer project&lt;/p&gt;
+>>>>>>> 7133da6f862beb2cc39ba166e70500a098d43214
 
 
 &lt;p&gt;1.畫3D Printer (V-rep ,Onshape)&lt;/p&gt;
@@ -23,7 +27,11 @@
 &lt;p&gt;&lt;/br&gt;
 &lt;p&gt;暑期人數 : &lt;/p&gt;
 &lt;p&gt;七月:第一組3人 ,第二組4人&lt;/p&gt;
+<<<<<<< HEAD
 &lt;p&gt;八月:第一組3人 ,第二組4人 ,第三組1人&lt;/p&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>OpenCv範例執行</title><link href="http://project.mde.tw/blog/opencvfan-li-zhi-xing.html" rel="alternate"></link><updated>2016-06-27T15:04:18+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-06-27:blog/opencvfan-li-zhi-xing.html</id><summary type="html">&lt;p&gt;OpenCv example with python test&lt;/p&gt;
+=======
+&lt;p&gt;八月:第一組3人 ,第二組4人 ,第三組1人&lt;/p&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>OpenCv範例執行</title><link href="http://project.mde.tw/blog/opencvfan-li-zhi-xing.html" rel="alternate"></link><updated>2016-06-27T14:34:31+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-06-27:blog/opencvfan-li-zhi-xing.html</id><summary type="html">&lt;p&gt;OpenCv example with python test&lt;/p&gt;
+>>>>>>> 7133da6f862beb2cc39ba166e70500a098d43214
 
 
 &lt;h3&gt;實作系統Ubuntu 14.04 以及 老師整合的檔案&lt;/h3&gt;

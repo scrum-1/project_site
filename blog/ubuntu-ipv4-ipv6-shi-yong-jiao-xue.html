@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>Summer Plan - 機械設計專題 (虎尾科大MDE)</title>
+    <title>ubuntu IPV4 IPV6 使用教學 - 機械設計專題 (虎尾科大MDE)</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -166,21 +166,21 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 
-<link rel="canonical" href="./summer-plan.html">
+<link rel="canonical" href="./ubuntu-ipv4-ipv6-shi-yong-jiao-xue.html">
 
-        <meta name="author" content="40323250" />
-        <meta name="keywords" content="Kmol" />
-        <meta name="description" content="Summer project" />
+        <meta name="author" content="40323123" />
+        <meta name="keywords" content="ubuntu 網路設定" />
+        <meta name="description" content="關於IPV4 IPV6設定" />
 
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Summer Plan"/>
-        <meta property="og:url" content="./summer-plan.html"/>
-        <meta property="og:description" content="Summer project"/>
+        <meta property="og:title" content="ubuntu IPV4 IPV6 使用教學"/>
+        <meta property="og:url" content="./ubuntu-ipv4-ipv6-shi-yong-jiao-xue.html"/>
+        <meta property="og:description" content="關於IPV4 IPV6設定"/>
         <meta property="article:published_time" content="2016-06-28" />
-            <meta property="article:section" content="2016bg2" />
-            <meta property="article:tag" content="Kmol" />
-            <meta property="article:author" content="40323250" />
+            <meta property="article:section" content="2016g1" />
+            <meta property="article:tag" content="ubuntu 網路設定" />
+            <meta property="article:author" content="40323123" />
 
 
     <!-- Bootstrap -->
@@ -261,10 +261,10 @@ init_mathjax();
                          <li><a href="./pages/about/">
                              About
                           </a></li>
-                        <li class="active">
+                        <li >
                             <a href="./category/2016bg2.html">2016bg2</a>
                         </li>
-                        <li >
+                        <li class="active">
                             <a href="./category/2016g1.html">2016g1</a>
                         </li>
                         <li >
@@ -296,10 +296,10 @@ init_mathjax();
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="./summer-plan.html"
+                    <a href="./ubuntu-ipv4-ipv6-shi-yong-jiao-xue.html"
                        rel="bookmark"
-                       title="Permalink to Summer Plan">
-                        Summer Plan
+                       title="Permalink to ubuntu IPV4 IPV6 使用教學">
+                        ubuntu IPV4 IPV6 使用教學
                     </a>
                 </h1>
             </header>
@@ -309,43 +309,50 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-06-28T14:43:03.327110+08:00"> 二 28 六月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-06-28T15:54:34.211259+08:00"> 二 28 六月 2016</time>
     </span>
             <span class="label label-default">By</span>
-            <a href="./author/40323250.html"><i class="fa fa-user"></i> 40323250</a>
+            <a href="./author/40323123.html"><i class="fa fa-user"></i> 40323123</a>
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="./tag/kmol.html">Kmol</a>
+	<a href="./tag/ubuntu-wang-lu-she-ding.html">ubuntu 網路設定</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>Summer project</p>
+                <p>關於IPV4  IPV6設定</p>
 
 
-<p>1.畫3D Printer (V-rep ,Onshape)</p>
+<pre class="brush: python">
 
-<p>2.實驗室網站介面</p>
+#先檢查網路
+$ ifconfig
+#修改/etc/network/interface的檔案
+# interfaces(5) file used by ifup(8) and ifdown(8)
+auto lo
+iface lo inet loopback
 
-<p>3.Octopi ,機械手臂</p>
+sudo eth0
+iface eth0 inet static
+address 140.130.17.105
+netmask 255.255.255.0
+network 140.130.17.0
+broadcast 140.130.17.255
+gateway 140.130.17.254
+# dns-* options are implemented by the resolvconf package, if $
+dns-nameservers 140.130.1.2 140.130.17.3 168.95.1.1
+dns-search mde.nfu.edu.tw
 
-<p>4.OpenCV </p>
+#老師的地址3004
 
-<p>5.RGA演算</p>
+#從新啟動
 
-<p>6.認證主機(Virtual Box)</p>
+可以到IPV6的網站測試是否可以連線
 
-<p>7.Proxy</p>
+</pre>
 
-<p>8.報告(拍照 ,內容整理)</p>
-
-<p>9.找碩班教授</p>
-
-<p></br>
-<p>暑期人數 : </p>
-<p>七月:第一組3人 ,第二組4人</p>
-<p>八月:第一組3人 ,第二組4人 ,第三組1人</p></p>
+<p>試用ubuntu系統改成IPV6和IPV4使用，並測試速度的使用上的問題，主要是在沒有IPV6的網站沒辦法連上去，這部份可能需要依靠proxy進行代理伺服器</p>
             </div>
             <!-- /.entry-content -->
         </article>

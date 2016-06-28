@@ -2,10 +2,17 @@
 <feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-06-28T19:03:45+08:00</updated><entry><title>g2日誌 - 105/06/28</title><link href="http://project.mde.tw/blog/g2ri-zhi-1050628.html" rel="alternate"></link><updated>2016-06-28T19:03:45+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-06-28:blog/g2ri-zhi-1050628.html</id><summary type="html">&lt;p&gt;暑期第一個禮拜的 星期二&lt;/p&gt;
 
 
-&lt;h3&gt;先放圖測試&lt;/h3&gt;
+&lt;h3&gt;目前組合進度&lt;/h3&gt;
 
 &lt;p&gt;&lt;/br&gt;
-&lt;img src="http://i.imgur.com/D2k3uqk.gif"&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>Summer Plan</title><link href="http://project.mde.tw/blog/summer-plan.html" rel="alternate"></link><updated>2016-06-28T18:57:43+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-06-28:blog/summer-plan.html</id><summary type="html">&lt;p&gt;Summer project&lt;/p&gt;
+&lt;img src="http://i.imgur.com/D2k3uqk.gif"&gt;
+&lt;/br&gt;
+&lt;h3&gt;目前遇到的狀況&lt;/h3&gt;
+&lt;h4&gt;我把滑塊設定為slider，能在滑軌上做相對移動，但是在拉到一半的時候，Onshape整個圖形就消失了，然後點選左方的zoom to section還是能顯示，但呈現以下狀態&lt;/h4&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/W3N5pkC.png"&gt;
+&lt;/br&gt;
+&lt;h4&gt;滑鼠選轉及縮放也跟著出問題，點選右方試圖方塊圖又會不見，只能重新再組一次。&lt;/h4&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>Summer Plan</title><link href="http://project.mde.tw/blog/summer-plan.html" rel="alternate"></link><updated>2016-06-28T18:57:43+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-06-28:blog/summer-plan.html</id><summary type="html">&lt;p&gt;Summer project&lt;/p&gt;
 
 
 &lt;p&gt;1.畫3D Printer (V-rep ,Onshape)&lt;/p&gt;

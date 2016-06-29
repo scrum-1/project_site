@@ -9,6 +9,7 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
+<v t="roger.20160629121020.1"><vh>整理出來的node test.leo</vh></v>
 <v t="roger.20160629094453.1"><vh>@path printrun</vh>
 <v t="roger.20160629100446.1"><vh>@path gl</vh>
 <v t="roger.20160629100711.1"><vh>@path libtatlin</vh>
@@ -59,6 +60,8 @@
 </v>
 <v t="roger.20160629101557.1"><vh>@edit pronterface.py</vh></v>
 <v t="roger.20160629103730.1"><vh>@edit setup.py</vh></v>
+<v t="roger.20160629120344.1"><vh>@edit pronterface.py</vh></v>
+<v t="roger.20160629120947.1"><vh>@edit pronsole.py</vh></v>
 </vnodes>
 <tnodes>
 <t tx="roger.20160629094453.1"></t>
@@ -14937,5 +14940,6 @@ def deinhibit_sleep_osx():
     return AssertionRelease(inhibit_sleep_osx.framework,
                             inhibit_sleep_osx.assertion_id)
 </t>
+<t tx="roger.20160629121020.1"></t>
 </tnodes>
 </leo_file>

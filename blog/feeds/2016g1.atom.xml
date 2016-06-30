@@ -1,5 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-06-29T20:04:05+08:00</updated><entry><title>40323143 - 日誌 105年6月28日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-6yue-28ri.html" rel="alternate"></link><updated>2016-06-29T20:04:05+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-06-29:blog/40323143-ri-zhi-105nian-6yue-28ri.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-06-30T21:16:51+08:00</updated><entry><title>40323131日誌 105/06/30</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050630.html" rel="alternate"></link><updated>2016-06-30T21:16:51+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-06-30:blog/40323131ri-zhi-1050630.html</id><summary type="html">&lt;p&gt;安裝wxpython 與 將control_3dprinter 從原本python2語法 修改成python3語法
+&lt;/p&gt;
+&lt;h3&gt;python2語法 修改成python3語法&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;原本圖片的紅框處為 except IOError, x:為python2語法，將它修改成能在python3上執行&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;img src="http://i.imgur.com/yONrOlL.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;原來python2 為Queue 將它修改成queue 因為python3裡頭更改成queue了&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/sbLTZIj.png"&gt;
+&lt;/br&gt;
+&lt;h3&gt;還有要加上括號，因為python2上執行可以不需要括號起來，但是在python3上執行要加上小括號，目前找到這些語法問題
+&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;目前遇到的問題&lt;/h3&gt;
+
+&lt;h4&gt;在下圖執行的時候跑出name 'reload' is not define &lt;/h4&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;img src="http://i.imgur.com/FjZQHVW.png"&gt;
+&lt;/br&gt;
+&lt;h4&gt;上網google一下，找到了有可能是沒有reload到，所以多 import imp &lt;/h4&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/HhP42Gs.png"&gt;
+&lt;/br&gt;
+&lt;h4&gt;可是又遇到了下圖的問題，好像是python2默認的使用的是ascii，要將它更改成utf-8，不過看起來沒有成功&lt;/h4&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/KZJt1YS.png"&gt;
+&lt;/br&gt;
+&lt;h4&gt;想要執行一下，來確認一下是否更改成功，不過不知道為什麼又跑出name 'reload' is not define&lt;/h4&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/UmwpPJd.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h4&gt;目前卡在這邊，無法想通為什麼會變成這樣&lt;/h4&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323143 - 日誌 105年6月28日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-6yue-28ri.html" rel="alternate"></link><updated>2016-06-29T14:04:41+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-06-29:blog/40323143-ri-zhi-105nian-6yue-28ri.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;p&gt;今天將所有機械手臂零件全部合進零件庫，並用零件庫的零件再組合出一個組圖。今天沒有設定新的變數，未來將會新增有關手臂長度的零件參數，並由實際使用需求及感測器尺寸調整參數。&lt;/p&gt;
 &lt;p&gt;備註:&lt;/p&gt;
@@ -7,13 +44,13 @@
 &lt;p&gt;6/28零件庫&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/wrPCKrc.png"&gt;&lt;/p&gt;
 &lt;p&gt;組合圖&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/GrrtDHo.png"&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 日誌 105年6月27日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-6yue-27ri.html" rel="alternate"></link><updated>2016-06-29T20:04:05+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-06-29:blog/40323143-ri-zhi-105nian-6yue-27ri.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/GrrtDHo.png"&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 日誌 105年6月27日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-6yue-27ri.html" rel="alternate"></link><updated>2016-06-29T14:04:41+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-06-29:blog/40323143-ri-zhi-105nian-6yue-27ri.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;p&gt;今天將個人Onshape上的機械手臂部分零件合進零件庫，設定六個參數，分別是motor_fixhole , motor_x , motor_y , motor_z , suan_pan , degore 六個參數，motor_fixhole為設定馬達固定孔大小，motor_x , motor_y , motor_z為設定馬達的長寬高， suan_pan為設定旋盤的大小，大小為motor_y的1.7倍，degore為設定底座的直徑，大小為3倍的suan_pan。&lt;/p&gt;
 &lt;p&gt;合進零件庫的零件&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/VoMTC8g.png"&gt;&lt;/p&gt;
 &lt;p&gt;參數設定&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/AsRWjtd.png"&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 3D printer 列印完下料後的倉儲機構設計理念及繪圖</title><link href="http://project.mde.tw/blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html" rel="alternate"></link><updated>2016-06-29T20:04:05+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-06-29:blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/AsRWjtd.png"&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 3D printer 列印完下料後的倉儲機構設計理念及繪圖</title><link href="http://project.mde.tw/blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html" rel="alternate"></link><updated>2016-06-29T14:04:41+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-06-29:blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
 
 
 &lt;p&gt;這裡為 40323130 所寫的文章主要內容&lt;/p&gt;
@@ -36,7 +73,7 @@
 &lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/6-3.stl"&gt;&lt;/script&gt;
 &lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/46-2.stl"&gt;&lt;/script&gt;
 &lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/a.stl"&gt;&lt;/script&gt;
-&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/b.stl"&gt;&lt;/script&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 說明如何參與協同機械設計專題網誌編寫</title><link href="http://project.mde.tw/blog/40323143-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html" rel="alternate"></link><updated>2016-06-29T20:04:05+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-06-29:blog/40323143-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/b.stl"&gt;&lt;/script&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 說明如何參與協同機械設計專題網誌編寫</title><link href="http://project.mde.tw/blog/40323143-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html" rel="alternate"></link><updated>2016-06-29T14:04:41+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-06-29:blog/40323143-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
 
 
 &lt;p&gt;這裡為 40323130 所寫的文章主要內容&lt;/p&gt;
@@ -56,7 +93,7 @@
 &lt;p&gt;&lt;a href="https://vimeo.com/157247703"&gt;2016project_1&lt;/a&gt; from &lt;a href="https://vimeo.com/user24079973"&gt;虎尾科大機械設計工程&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Youtube:&lt;/p&gt;
-&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/hQR1wxALifU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="範例"></category></entry><entry><title>40323131日誌 105/06/28</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050628.html" rel="alternate"></link><updated>2016-06-29T20:04:05+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-06-29:blog/40323131ri-zhi-1050628.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/hQR1wxALifU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="範例"></category></entry><entry><title>40323131日誌 105/06/28</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050628.html" rel="alternate"></link><updated>2016-06-29T14:04:41+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-06-29:blog/40323131ri-zhi-1050628.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;h3&gt;研讀Octopi的設定檔&lt;/h3&gt;
 
@@ -78,7 +115,7 @@
 
 &lt;p&gt;&lt;/br&gt;
 &lt;img src="http://i.imgur.com/9sqNCk1.png"&gt;
-&lt;/br&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323130 - 說明如何參與協同機械設計專題網誌編寫</title><link href="http://project.mde.tw/blog/40323130-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html" rel="alternate"></link><updated>2016-06-29T20:04:05+08:00</updated><author><name>40323130</name></author><id>tag:project.mde.tw,2016-06-29:blog/40323130-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
+&lt;/br&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323130 - 說明如何參與協同機械設計專題網誌編寫</title><link href="http://project.mde.tw/blog/40323130-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html" rel="alternate"></link><updated>2016-06-29T14:04:41+08:00</updated><author><name>40323130</name></author><id>tag:project.mde.tw,2016-06-29:blog/40323130-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
 
 
 &lt;p&gt;這裡為 40323130 所寫的文章主要內容&lt;/p&gt;
@@ -98,7 +135,7 @@
 &lt;p&gt;&lt;a href="https://vimeo.com/157247703"&gt;2016project_1&lt;/a&gt; from &lt;a href="https://vimeo.com/user24079973"&gt;虎尾科大機械設計工程&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Youtube:&lt;/p&gt;
-&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/hQR1wxALifU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="範例"></category></entry><entry><title>Octopi測試與實作</title><link href="http://project.mde.tw/blog/octopice-shi-yu-shi-zuo.html" rel="alternate"></link><updated>2016-06-29T20:04:05+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-29:blog/octopice-shi-yu-shi-zuo.html</id><summary type="html">&lt;p&gt;設定使用octopi與實作&lt;/p&gt;
+&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/hQR1wxALifU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="範例"></category></entry><entry><title>Octopi測試與實作</title><link href="http://project.mde.tw/blog/octopice-shi-yu-shi-zuo.html" rel="alternate"></link><updated>2016-06-29T14:04:41+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-29:blog/octopice-shi-yu-shi-zuo.html</id><summary type="html">&lt;p&gt;設定使用octopi與實作&lt;/p&gt;
 
 
 &lt;p&gt;octopi走乙太網路線進行控制以及連線&lt;/p&gt;
@@ -106,7 +143,7 @@
 &lt;p&gt;&lt;img src="http://i.imgur.com/Umf1J3w.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/zMUAcXs.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/Sqh1bWP.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/PzFmXoH.jpg"&gt;&lt;/p&gt;</summary><category term="Octopi"></category></entry><entry><title>ubuntu IPV4 IPV6 使用教學</title><link href="http://project.mde.tw/blog/ubuntu-ipv4-ipv6-shi-yong-jiao-xue.html" rel="alternate"></link><updated>2016-06-29T20:04:05+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-29:blog/ubuntu-ipv4-ipv6-shi-yong-jiao-xue.html</id><summary type="html">&lt;p&gt;關於IPV4  IPV6設定&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/PzFmXoH.jpg"&gt;&lt;/p&gt;</summary><category term="Octopi"></category></entry><entry><title>ubuntu IPV4 IPV6 使用教學</title><link href="http://project.mde.tw/blog/ubuntu-ipv4-ipv6-shi-yong-jiao-xue.html" rel="alternate"></link><updated>2016-06-29T14:04:41+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-29:blog/ubuntu-ipv4-ipv6-shi-yong-jiao-xue.html</id><summary type="html">&lt;p&gt;關於IPV4  IPV6設定&lt;/p&gt;
 
 
 &lt;pre class="brush: python"&gt;
@@ -137,7 +174,7 @@ dns-search mde.nfu.edu.tw
 
 &lt;/pre&gt;
 
-&lt;p&gt;試用ubuntu系統改成IPV6和IPV4使用，並測試速度的使用上的問題，主要是在沒有IPV6的網站沒辦法連上去，這部份可能需要依靠proxy進行代理伺服器&lt;/p&gt;</summary><category term="ubuntu 網路設定"></category></entry><entry><title>樹梅派指令表和使用</title><link href="http://project.mde.tw/blog/shu-mei-pai-zhi-ling-biao-he-shi-yong.html" rel="alternate"></link><updated>2016-06-29T20:04:05+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-29:blog/shu-mei-pai-zhi-ling-biao-he-shi-yong.html</id><summary type="html">&lt;p&gt;找到的些許文章和探討&lt;/p&gt;
+&lt;p&gt;試用ubuntu系統改成IPV6和IPV4使用，並測試速度的使用上的問題，主要是在沒有IPV6的網站沒辦法連上去，這部份可能需要依靠proxy進行代理伺服器&lt;/p&gt;</summary><category term="ubuntu 網路設定"></category></entry><entry><title>樹梅派指令表和使用</title><link href="http://project.mde.tw/blog/shu-mei-pai-zhi-ling-biao-he-shi-yong.html" rel="alternate"></link><updated>2016-06-29T14:04:41+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-29:blog/shu-mei-pai-zhi-ling-biao-he-shi-yong.html</id><summary type="html">&lt;p&gt;找到的些許文章和探討&lt;/p&gt;
 
 
 &lt;p&gt;在Octoprint底下有個資料夾&lt;/p&gt;
@@ -175,14 +212,14 @@ $ sudo umount /media/usbstick
 &lt;p&gt;待完成部分:&lt;/p&gt;
 &lt;p&gt;1.javascript&lt;/p&gt;
 &lt;p&gt;2.往後寫出一套for our flask.py&lt;/p&gt;
-&lt;p&gt;3.plugin部分&lt;/p&gt;</summary><category term="octopi"></category></entry><entry><title>R2C2的資料</title><link href="http://project.mde.tw/blog/r2c2de-zi-liao.html" rel="alternate"></link><updated>2016-06-29T20:04:05+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-29:blog/r2c2de-zi-liao.html</id><summary type="html">&lt;p&gt;新的R2C2資料&lt;/p&gt;
+&lt;p&gt;3.plugin部分&lt;/p&gt;</summary><category term="octopi"></category></entry><entry><title>R2C2的資料</title><link href="http://project.mde.tw/blog/r2c2de-zi-liao.html" rel="alternate"></link><updated>2016-06-29T14:04:41+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-29:blog/r2c2de-zi-liao.html</id><summary type="html">&lt;p&gt;新的R2C2資料&lt;/p&gt;
 
 
 &lt;p&gt;中間有新的資料for raspberrypi
 是使用node.js啟動server
 client端可以看到的
 https://github.com/nneves/Raspberrypi_NodeJS&lt;/p&gt;
-&lt;p&gt;&lt;a href = "https://github.com/nneves/R2C2_WebInterface/blob/master/README.md"&gt;RaspberryPi R2C2&lt;/a&gt;&lt;/p&gt;</summary><category term="client control"></category></entry><entry><title>OpenCv實作</title><link href="http://project.mde.tw/blog/opencvshi-zuo.html" rel="alternate"></link><updated>2016-06-29T20:04:05+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-29:blog/opencvshi-zuo.html</id><summary type="html">&lt;p&gt;OpenCv in python and use&lt;/p&gt;
+&lt;p&gt;&lt;a href = "https://github.com/nneves/R2C2_WebInterface/blob/master/README.md"&gt;RaspberryPi R2C2&lt;/a&gt;&lt;/p&gt;</summary><category term="client control"></category></entry><entry><title>OpenCv實作</title><link href="http://project.mde.tw/blog/opencvshi-zuo.html" rel="alternate"></link><updated>2016-06-29T14:04:41+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-29:blog/opencvshi-zuo.html</id><summary type="html">&lt;p&gt;OpenCv in python and use&lt;/p&gt;
 
 
 &lt;p&gt;實作系統Ubuntu 14.04&lt;/p&gt;
@@ -257,7 +294,7 @@ https://github.com/nneves/Raspberrypi_NodeJS&lt;/p&gt;
 否則無法執行
 0是預設的第1台攝影機
 1是第2台
-以此類推&lt;/p&gt;</summary><category term="OpenCv"></category></entry><entry><title>保養3D列印機</title><link href="http://project.mde.tw/blog/bao-yang-3dlie-yin-ji.html" rel="alternate"></link><updated>2016-06-29T20:04:05+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-29:blog/bao-yang-3dlie-yin-ji.html</id><summary type="html">&lt;p&gt;Control 3D printer and some Question&lt;/p&gt;
+以此類推&lt;/p&gt;</summary><category term="OpenCv"></category></entry><entry><title>保養3D列印機</title><link href="http://project.mde.tw/blog/bao-yang-3dlie-yin-ji.html" rel="alternate"></link><updated>2016-06-29T14:04:41+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-29:blog/bao-yang-3dlie-yin-ji.html</id><summary type="html">&lt;p&gt;Control 3D printer and some Question&lt;/p&gt;
 
 
 &lt;p&gt;1.第一步清理平台&lt;/p&gt;
@@ -266,7 +303,7 @@ https://github.com/nneves/Raspberrypi_NodeJS&lt;/p&gt;
 &lt;p&gt;4.清理機台外觀&lt;/p&gt;
 &lt;p&gt;5.確保滑軌滑動順利&lt;/p&gt;
 &lt;p&gt;約兩個禮拜做一次，自動校正，不要太長使用，會導致買新的噴頭。
-詳細注意事項，在另行公告&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>40323123 - 專題參考資料</title><link href="http://project.mde.tw/blog/40323123-zhuan-ti-can-kao-zi-liao.html" rel="alternate"></link><updated>2016-06-29T20:04:05+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-29:blog/40323123-zhuan-ti-can-kao-zi-liao.html</id><summary type="html">&lt;p&gt;raspberry pi  connect 3d printer to control the 3d printer &lt;/p&gt;
+詳細注意事項，在另行公告&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>40323123 - 專題參考資料</title><link href="http://project.mde.tw/blog/40323123-zhuan-ti-can-kao-zi-liao.html" rel="alternate"></link><updated>2016-06-29T14:04:41+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-29:blog/40323123-zhuan-ti-can-kao-zi-liao.html</id><summary type="html">&lt;p&gt;raspberry pi  connect 3d printer to control the 3d printer &lt;/p&gt;
 
 
 &lt;p&gt;1.回報目前專題進度:
@@ -287,7 +324,7 @@ https://github.com/nneves/Raspberrypi_NodeJS&lt;/p&gt;
 &lt;p&gt;4.flux 3d printer中的底板樣式以及掃描方式
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/l9ZISxSo2X0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;
 &lt;p&gt;5.OpenCv 3d nodule
-&lt;a href="http://www.opencv.org.cn/"&gt;OpenCv可參考&lt;/a&gt;&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>40323123 - 3d printer</title><link href="http://project.mde.tw/blog/40323123-3d-printer.html" rel="alternate"></link><updated>2016-06-29T20:04:05+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-29:blog/40323123-3d-printer.html</id><summary type="html">&lt;p&gt;raspberry pi  connect 3d printer to control the 3d printer &lt;/p&gt;
+&lt;a href="http://www.opencv.org.cn/"&gt;OpenCv可參考&lt;/a&gt;&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>40323123 - 3d printer</title><link href="http://project.mde.tw/blog/40323123-3d-printer.html" rel="alternate"></link><updated>2016-06-29T14:04:41+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-29:blog/40323123-3d-printer.html</id><summary type="html">&lt;p&gt;raspberry pi  connect 3d printer to control the 3d printer &lt;/p&gt;
 
 
 &lt;p&gt;遠端控制3D列印
@@ -303,7 +340,7 @@ https://github.com/nneves/Raspberrypi_NodeJS&lt;/p&gt;
 G指令
 &lt;a href="http://reprap.org/wiki/G-code"&gt;Gcoce 大全&lt;/a&gt;
 &lt;a href="http://www.slideshare.net/roboard/3d-printer-marlin"&gt;控制系統的code解析&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;這兩套系統，都有開放原始碼，不過因為解析程式有巨大的阻礙，因為對python和樹梅派不熟悉，導致只會安裝不會自己編譯。&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>40323123 - 專題組員的範例文章標題</title><link href="http://project.mde.tw/blog/40323123-zhuan-ti-zu-yuan-de-fan-li-wen-zhang-biao-ti.html" rel="alternate"></link><updated>2016-06-29T20:04:05+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-29:blog/40323123-zhuan-ti-zu-yuan-de-fan-li-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 40323123 所寫的文章摘要&lt;/p&gt;
+&lt;p&gt;這兩套系統，都有開放原始碼，不過因為解析程式有巨大的阻礙，因為對python和樹梅派不熟悉，導致只會安裝不會自己編譯。&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>40323123 - 專題組員的範例文章標題</title><link href="http://project.mde.tw/blog/40323123-zhuan-ti-zu-yuan-de-fan-li-wen-zhang-biao-ti.html" rel="alternate"></link><updated>2016-06-29T14:04:41+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-29:blog/40323123-zhuan-ti-zu-yuan-de-fan-li-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 40323123 所寫的文章摘要&lt;/p&gt;
 
 
 &lt;p&gt;這裡為 40323123 所寫的文章主要內容&lt;/p&gt;</summary><category term="範例"></category></entry></feed>

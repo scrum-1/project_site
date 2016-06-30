@@ -21,7 +21,11 @@ import sys
 import time
 import threading
 import traceback
+<<<<<<< HEAD
 import io
+=======
+import io.StringIO as StringIO
+>>>>>>> 1ff1a2ace4123f05200db6650502309b793091aa
 import subprocess
 import glob
 import logging

@@ -1,5 +1,697 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-06-30T20:58:13+08:00</updated><entry><title>PySerial</title><link href="http://project.mde.tw/blog/pyserial.html" rel="alternate"></link><updated>2016-06-30T20:58:13+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-30:blog/pyserial.html</id><summary type="html">&lt;p&gt;更新資料Wxpython for python3&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="./" rel="alternate"></link><link href="./feeds/2016g1.atom.xml" rel="self"></link><id>./</id><updated>2016-07-01T21:22:46+08:00</updated><entry><title>PySerial進度</title><link href="./pyserialjin-du.html" rel="alternate"></link><updated>2016-07-01T21:22:46+08:00</updated><author><name>40323123</name></author><id>tag:,2016-07-01:./pyserialjin-du.html</id><summary type="html">&lt;p&gt;今日讀的進度，以及筆記&lt;/p&gt;
+
+
+&lt;h3&gt;三個要件&lt;/h3&gt;
+
+&lt;p&gt;1.pyserial&lt;/p&gt;
+&lt;p&gt;2.wxpython with Phoenix&lt;/p&gt;
+&lt;p&gt;3.python3以上的版本&lt;/p&gt;
+&lt;h3&gt;2.7版的wxxpython和phoenix wxpython api比較&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href="https://wxpython.org/Phoenix/docs/html/classic_vs_phoenix.html#classic-vs-phoenix"&gt;網站連結&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;PySerial documation about io control&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href="http://pyserial.readthedocs.io/en/latest/shortintro.html"&gt;網站連結&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Wxxpython API Module&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href="https://wxpython.org/Phoenix/docs/html/main.html"&gt;網站連結&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;Wxxpython GUI Bulider wxGlade&lt;/h3&gt;
+
+&lt;p&gt;今日寫程式遇到的問題點&lt;/p&gt;
+&lt;p&gt;1.在wxTeriminal中遇到問題來自於他沒辦法顯示我傳給他的值&lt;/p&gt;
+&lt;p&gt;2.以及他的pyserial中，需要詳細測試他所收到以及送的值的格式&lt;/p&gt;
+&lt;p&gt;3.才能自己寫一套for python3 Gui的程式控制&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/GUqnneU.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;要能成功執行下方的程式必須要安裝&lt;/p&gt;
+&lt;p&gt;1.python 3.4+&lt;/p&gt;
+&lt;p&gt;2.wxPython Phoenix&lt;/p&gt;
+&lt;p&gt;3.pyserial&lt;/p&gt;
+&lt;h3&gt;關於程式碼有更改後的&lt;/h3&gt;
+
+&lt;pre class="brush: python"&gt;
+
+#file name wxSerialConfigDialog.py
+
+import wx
+import serial
+import serial.tools.list_ports
+
+SHOW_BAUDRATE = 1 &lt;&lt; 0
+SHOW_FORMAT = 1 &lt;&lt; 1
+SHOW_FLOW = 1 &lt;&lt; 2
+SHOW_TIMEOUT = 1 &lt;&lt; 3
+SHOW_ALL = SHOW_BAUDRATE | SHOW_FORMAT | SHOW_FLOW | SHOW_TIMEOUT
+
+
+class SerialConfigDialog(wx.Dialog):
+    """\
+    Serial Port configuration dialog, to be used with pySerial 2.0+
+    When instantiating a class of this dialog, then the "serial" keyword
+    argument is mandatory. It is a reference to a serial.Serial instance.
+    the optional "show" keyword argument can be used to show/hide different
+    settings. The default is SHOW_ALL which corresponds to
+    SHOW_BAUDRATE|SHOW_FORMAT|SHOW_FLOW|SHOW_TIMEOUT. All constants can be
+    found in this module (not the class).
+    """
+
+    def __init__(self, *args, **kwds):
+        # grab the serial keyword and remove it from the dict
+        self.serial = kwds['serial']
+        del kwds['serial']
+        self.show = SHOW_ALL
+        if 'show' in kwds:
+            self.show = kwds.pop('show')
+        # begin wxGlade: SerialConfigDialog.__init__
+        kwds["style"] = wx.DEFAULT_DIALOG_STYLE
+        wx.Dialog.__init__(self, *args, **kwds)
+        self.label_2 = wx.StaticText(self, -1, "Port")
+        self.choice_port = wx.Choice(self, -1, choices=[])
+        self.label_1 = wx.StaticText(self, -1, "Baudrate")
+        self.combo_box_baudrate = wx.ComboBox(self, -1, choices=[], style=wx.CB_DROPDOWN)
+        self.sizer_1_staticbox = wx.StaticBox(self, -1, "Basics")
+        self.panel_format = wx.Panel(self, -1)
+        self.label_3 = wx.StaticText(self.panel_format, -1, "Data Bits")
+        self.choice_databits = wx.Choice(self.panel_format, -1, choices=["choice 1"])
+        self.label_4 = wx.StaticText(self.panel_format, -1, "Stop Bits")
+        self.choice_stopbits = wx.Choice(self.panel_format, -1, choices=["choice 1"])
+        self.label_5 = wx.StaticText(self.panel_format, -1, "Parity")
+        self.choice_parity = wx.Choice(self.panel_format, -1, choices=["choice 1"])
+        self.sizer_format_staticbox = wx.StaticBox(self.panel_format, -1, "Data Format")
+        self.panel_timeout = wx.Panel(self, -1)
+        self.checkbox_timeout = wx.CheckBox(self.panel_timeout, -1, "Use Timeout")
+        self.text_ctrl_timeout = wx.TextCtrl(self.panel_timeout, -1, "")
+        self.label_6 = wx.StaticText(self.panel_timeout, -1, "seconds")
+        self.sizer_timeout_staticbox = wx.StaticBox(self.panel_timeout, -1, "Timeout")
+        self.panel_flow = wx.Panel(self, -1)
+        self.checkbox_rtscts = wx.CheckBox(self.panel_flow, -1, "RTS/CTS")
+        self.checkbox_xonxoff = wx.CheckBox(self.panel_flow, -1, "Xon/Xoff")
+        self.sizer_flow_staticbox = wx.StaticBox(self.panel_flow, -1, "Flow Control")
+        self.button_ok = wx.Button(self, wx.ID_OK, "")
+        self.button_cancel = wx.Button(self, wx.ID_CANCEL, "")
+
+        self.__set_properties()
+        self.__do_layout()
+        # end wxGlade
+        # attach the event handlers
+        self.__attach_events()
+
+    def __set_properties(self):
+        # begin wxGlade: SerialConfigDialog.__set_properties
+        self.SetTitle("Serial Port Configuration")
+        self.choice_databits.SetSelection(0)
+        self.choice_stopbits.SetSelection(0)
+        self.choice_parity.SetSelection(0)
+        self.text_ctrl_timeout.Enable(False)
+        self.button_ok.SetDefault()
+        # end wxGlade
+        self.SetTitle("Serial Port Configuration")
+        if self.show &amp; SHOW_TIMEOUT:
+            self.text_ctrl_timeout.Enable(0)
+        self.button_ok.SetDefault()
+
+        if not self.show &amp; SHOW_BAUDRATE:
+            self.label_1.Hide()
+            self.combo_box_baudrate.Hide()
+        if not self.show &amp; SHOW_FORMAT:
+            self.panel_format.Hide()
+        if not self.show &amp; SHOW_TIMEOUT:
+            self.panel_timeout.Hide()
+        if not self.show &amp; SHOW_FLOW:
+            self.panel_flow.Hide()
+
+        # fill in ports and select current setting
+        preferred_index = 0
+        self.choice_port.Clear()
+        self.ports = []
+        for n, (portname, desc, hwid) in enumerate(sorted(serial.tools.list_ports.comports())):
+            self.choice_port.Append('{} - {}'.format(portname, desc))
+            self.ports.append(portname)
+            if self.serial.name == portname:
+                preferred_index = n
+        self.choice_port.SetSelection(preferred_index)
+        if self.show &amp; SHOW_BAUDRATE:
+            preferred_index = None
+            # fill in baud rates and select current setting
+            self.combo_box_baudrate.Clear()
+            for n, baudrate in enumerate(self.serial.BAUDRATES):
+                self.combo_box_baudrate.Append(str(baudrate))
+                if self.serial.baudrate == baudrate:
+                    preferred_index = n
+            if preferred_index is not None:
+                self.combo_box_baudrate.SetSelection(preferred_index)
+            else:
+                self.combo_box_baudrate.SetValue('{}'.format(self.serial.baudrate))
+        if self.show &amp; SHOW_FORMAT:
+            # fill in data bits and select current setting
+            self.choice_databits.Clear()
+            for n, bytesize in enumerate(self.serial.BYTESIZES):
+                self.choice_databits.Append(str(bytesize))
+                if self.serial.bytesize == bytesize:
+                    index = n
+            self.choice_databits.SetSelection(index)
+            # fill in stop bits and select current setting
+            self.choice_stopbits.Clear()
+            for n, stopbits in enumerate(self.serial.STOPBITS):
+                self.choice_stopbits.Append(str(stopbits))
+                if self.serial.stopbits == stopbits:
+                    index = n
+            self.choice_stopbits.SetSelection(index)
+            # fill in parities and select current setting
+            self.choice_parity.Clear()
+            for n, parity in enumerate(self.serial.PARITIES):
+                self.choice_parity.Append(str(serial.PARITY_NAMES[parity]))
+                if self.serial.parity == parity:
+                    index = n
+            self.choice_parity.SetSelection(index)
+        if self.show &amp; SHOW_TIMEOUT:
+            # set the timeout mode and value
+            if self.serial.timeout is None:
+                self.checkbox_timeout.SetValue(False)
+                self.text_ctrl_timeout.Enable(False)
+            else:
+                self.checkbox_timeout.SetValue(True)
+                self.text_ctrl_timeout.Enable(True)
+                self.text_ctrl_timeout.SetValue(str(self.serial.timeout))
+        if self.show &amp; SHOW_FLOW:
+            # set the rtscts mode
+            self.checkbox_rtscts.SetValue(self.serial.rtscts)
+            # set the rtscts mode
+            self.checkbox_xonxoff.SetValue(self.serial.xonxoff)
+
+    def __do_layout(self):
+        # begin wxGlade: SerialConfigDialog.__do_layout
+        sizer_2 = wx.BoxSizer(wx.VERTICAL)
+        sizer_3 = wx.BoxSizer(wx.HORIZONTAL)
+        self.sizer_flow_staticbox.Lower()
+        sizer_flow = wx.StaticBoxSizer(self.sizer_flow_staticbox, wx.HORIZONTAL)
+        self.sizer_timeout_staticbox.Lower()
+        sizer_timeout = wx.StaticBoxSizer(self.sizer_timeout_staticbox, wx.HORIZONTAL)
+        self.sizer_format_staticbox.Lower()
+        sizer_format = wx.StaticBoxSizer(self.sizer_format_staticbox, wx.VERTICAL)
+        grid_sizer_1 = wx.FlexGridSizer(3, 2, 0, 0)
+        self.sizer_1_staticbox.Lower()
+        sizer_1 = wx.StaticBoxSizer(self.sizer_1_staticbox, wx.VERTICAL)
+        sizer_basics = wx.FlexGridSizer(3, 2, 0, 0)
+        sizer_basics.Add(self.label_2, 0, wx.ALL | wx.ALIGN_CENTER_VERTICAL, 4)
+        sizer_basics.Add(self.choice_port, 0, wx.EXPAND, 0)
+        sizer_basics.Add(self.label_1, 0, wx.ALL | wx.ALIGN_CENTER_VERTICAL, 4)
+        sizer_basics.Add(self.combo_box_baudrate, 0, wx.EXPAND, 0)
+        sizer_basics.AddGrowableCol(1)
+        sizer_1.Add(sizer_basics, 0, wx.EXPAND, 0)
+        sizer_2.Add(sizer_1, 0, wx.EXPAND, 0)
+        grid_sizer_1.Add(self.label_3, 1, wx.ALL | wx.ALIGN_CENTER_VERTICAL, 4)
+        grid_sizer_1.Add(self.choice_databits, 1, wx.EXPAND | wx.ALIGN_RIGHT, 0)
+        grid_sizer_1.Add(self.label_4, 1, wx.ALL | wx.ALIGN_CENTER_VERTICAL, 4)
+        grid_sizer_1.Add(self.choice_stopbits, 1, wx.EXPAND | wx.ALIGN_RIGHT, 0)
+        grid_sizer_1.Add(self.label_5, 1, wx.ALL | wx.ALIGN_CENTER_VERTICAL, 4)
+        grid_sizer_1.Add(self.choice_parity, 1, wx.EXPAND | wx.ALIGN_RIGHT, 0)
+        sizer_format.Add(grid_sizer_1, 1, wx.EXPAND, 0)
+        self.panel_format.SetSizer(sizer_format)
+        sizer_2.Add(self.panel_format, 0, wx.EXPAND, 0)
+        sizer_timeout.Add(self.checkbox_timeout, 0, wx.ALL | wx.ALIGN_CENTER_VERTICAL, 4)
+        sizer_timeout.Add(self.text_ctrl_timeout, 0, 0, 0)
+        sizer_timeout.Add(self.label_6, 0, wx.ALL | wx.ALIGN_CENTER_VERTICAL, 4)
+        self.panel_timeout.SetSizer(sizer_timeout)
+        sizer_2.Add(self.panel_timeout, 0, wx.EXPAND, 0)
+        sizer_flow.Add(self.checkbox_rtscts, 0, wx.ALL | wx.ALIGN_CENTER_VERTICAL, 4)
+        sizer_flow.Add(self.checkbox_xonxoff, 0, wx.ALL | wx.ALIGN_CENTER_VERTICAL, 4)
+        sizer_flow.Add((10, 10), 1, wx.EXPAND, 0)
+        self.panel_flow.SetSizer(sizer_flow)
+        sizer_2.Add(self.panel_flow, 0, wx.EXPAND, 0)
+        sizer_3.Add(self.button_ok, 0, 0, 0)
+        sizer_3.Add(self.button_cancel, 0, 0, 0)
+        sizer_2.Add(sizer_3, 0, wx.ALL | wx.ALIGN_RIGHT, 4)
+        self.SetSizer(sizer_2)
+        sizer_2.Fit(self)
+        self.Layout()
+        # end wxGlade
+
+    def __attach_events(self):
+        wx.EVT_BUTTON(self, self.button_ok.GetId(), self.OnOK)
+        wx.EVT_BUTTON(self, self.button_cancel.GetId(), self.OnCancel)
+        if self.show &amp; SHOW_TIMEOUT:
+            wx.EVT_CHECKBOX(self, self.checkbox_timeout.GetId(), self.OnTimeout)
+
+    def OnOK(self, events):
+        success = True
+        self.serial.port = self.ports[self.choice_port.GetSelection()]
+        if self.show &amp; SHOW_BAUDRATE:
+            try:
+                b = int(self.combo_box_baudrate.GetValue())
+            except ValueError:
+                with wx.MessageDialog(
+                        self,
+                        'Baudrate must be a numeric value',
+                        'Value Error',
+                        wx.OK | wx.ICON_ERROR) as dlg:
+                    dlg.ShowModal()
+                success = False
+            else:
+                self.serial.baudrate = b
+        if self.show &amp; SHOW_FORMAT:
+            self.serial.bytesize = self.serial.BYTESIZES[self.choice_databits.GetSelection()]
+            self.serial.stopbits = self.serial.STOPBITS[self.choice_stopbits.GetSelection()]
+            self.serial.parity = self.serial.PARITIES[self.choice_parity.GetSelection()]
+        if self.show &amp; SHOW_FLOW:
+            self.serial.rtscts = self.checkbox_rtscts.GetValue()
+            self.serial.xonxoff = self.checkbox_xonxoff.GetValue()
+        if self.show &amp; SHOW_TIMEOUT:
+            if self.checkbox_timeout.GetValue():
+                try:
+                    self.serial.timeout = float(self.text_ctrl_timeout.GetValue())
+                except ValueError:
+                    with wx.MessageDialog(
+                            self,
+                            'Timeout must be a numeric value',
+                            'Value Error',
+                            wx.OK | wx.ICON_ERROR) as dlg:
+                        dlg.ShowModal()
+                    success = False
+            else:
+                self.serial.timeout = None
+        if success:
+            self.EndModal(wx.ID_OK)
+
+    def OnCancel(self, events):
+        self.EndModal(wx.ID_CANCEL)
+
+    def OnTimeout(self, events):
+        if self.checkbox_timeout.GetValue():
+            self.text_ctrl_timeout.Enable(True)
+        else:
+            self.text_ctrl_timeout.Enable(False)
+
+# end of class SerialConfigDialog
+
+
+class MyApp(wx.App):
+    """Test code"""
+    def OnInit(self):
+        wx.InitAllImageHandlers()
+
+        ser = serial.Serial()
+        print(ser)
+        # loop until cancel is pressed, old values are used as start for the next run
+        # show the different views, one after the other
+        # value are kept.
+        for flags in (SHOW_BAUDRATE, SHOW_FLOW, SHOW_FORMAT, SHOW_TIMEOUT, SHOW_ALL):
+            dialog_serial_cfg = SerialConfigDialog(None, -1, "", serial=ser, show=flags)
+            self.SetTopWindow(dialog_serial_cfg)
+            result = dialog_serial_cfg.ShowModal()
+            print(ser)
+            if result != wx.ID_OK:
+                break
+        # the user can play around with the values, CANCEL aborts the loop
+        while True:
+            dialog_serial_cfg = SerialConfigDialog(None, -1, "", serial=ser)
+            self.SetTopWindow(dialog_serial_cfg)
+            result = dialog_serial_cfg.ShowModal()
+            print(ser)
+            if result != wx.ID_OK:
+                break
+        return 0
+
+# end of class MyApp
+
+if __name__ == "__main__":
+    app = MyApp(0)
+    app.MainLoop()
+
+&lt;/pre&gt;
+
+&lt;h3&gt;主程式部分&lt;/h3&gt;
+
+&lt;pre class="brush: python"&gt;
+
+#file name wxTerminal.py
+
+import codecs
+import serial
+import threading
+import wx
+import wxSerialConfigDialog
+
+# ----------------------------------------------------------------------
+# Create an own event type, so that GUI updates can be delegated
+# this is required as on some platforms only the main thread can
+# access the GUI without crashing. wxMutexGuiEnter/wxMutexGuiLeave
+# could be used too, but an event is more elegant.
+
+SERIALRX = wx.NewEventType()
+# bind to serial data receive events
+EVT_SERIALRX = wx.PyEventBinder(SERIALRX, 0)
+
+
+class SerialRxEvent(wx.PyCommandEvent):
+    eventType = SERIALRX
+
+    def __init__(self, windowID, data):
+        wx.PyCommandEvent.__init__(self, self.eventType, windowID)
+        self.data = data
+
+    def Clone(self):
+        self.__class__(self.GetId(), self.data)
+
+# ----------------------------------------------------------------------
+
+ID_CLEAR = wx.NewId()
+ID_SAVEAS = wx.NewId()
+ID_SETTINGS = wx.NewId()
+ID_TERM = wx.NewId()
+ID_EXIT = wx.NewId()
+ID_RTS = wx.NewId()
+ID_DTR = wx.NewId()
+
+NEWLINE_CR = 0
+NEWLINE_LF = 1
+NEWLINE_CRLF = 2
+
+
+class TerminalSetup:
+    """
+    Placeholder for various terminal settings. Used to pass the
+    options to the TerminalSettingsDialog.
+    """
+    def __init__(self):
+        self.echo = False
+        self.unprintable = False
+        self.newline = NEWLINE_CRLF
+
+
+class TerminalSettingsDialog(wx.Dialog):
+    """Simple dialog with common terminal settings like echo, newline mode."""
+
+    def __init__(self, *args, **kwds):
+        self.settings = kwds['settings']
+        del kwds['settings']
+        # begin wxGlade: TerminalSettingsDialog.__init__
+        kwds["style"] = wx.DEFAULT_DIALOG_STYLE
+        wx.Dialog.__init__(self, *args, **kwds)
+        self.checkbox_echo = wx.CheckBox(self, -1, "Local Echo")
+        self.checkbox_unprintable = wx.CheckBox(self, -1, "Show unprintable characters")
+        self.radio_box_newline = wx.RadioBox(self, -1, "Newline Handling", choices=["CR only", "LF only", "CR+LF"], majorDimension=0, style=wx.RA_SPECIFY_ROWS)
+        self.sizer_4_staticbox = wx.StaticBox(self, -1, "Input/Output")
+        self.button_ok = wx.Button(self, wx.ID_OK, "")
+        self.button_cancel = wx.Button(self, wx.ID_CANCEL, "")
+
+        self.__set_properties()
+        self.__do_layout()
+        # end wxGlade
+        self.__attach_events()
+        self.checkbox_echo.SetValue(self.settings.echo)
+        self.checkbox_unprintable.SetValue(self.settings.unprintable)
+        self.radio_box_newline.SetSelection(self.settings.newline)
+
+    def __set_properties(self):
+        # begin wxGlade: TerminalSettingsDialog.__set_properties
+        self.SetTitle("Terminal Settings")
+        self.radio_box_newline.SetSelection(0)
+        self.button_ok.SetDefault()
+        # end wxGlade
+
+    def __do_layout(self):
+        # begin wxGlade: TerminalSettingsDialog.__do_layout
+        sizer_2 = wx.BoxSizer(wx.VERTICAL)
+        sizer_3 = wx.BoxSizer(wx.HORIZONTAL)
+        self.sizer_4_staticbox.Lower()
+        sizer_4 = wx.StaticBoxSizer(self.sizer_4_staticbox, wx.VERTICAL)
+        sizer_4.Add(self.checkbox_echo, 0, wx.ALL, 4)
+        sizer_4.Add(self.checkbox_unprintable, 0, wx.ALL, 4)
+        sizer_4.Add(self.radio_box_newline, 0, 0, 0)
+        sizer_2.Add(sizer_4, 0, wx.EXPAND, 0)
+        sizer_3.Add(self.button_ok, 0, 0, 0)
+        sizer_3.Add(self.button_cancel, 0, 0, 0)
+        sizer_2.Add(sizer_3, 0, wx.ALL | wx.ALIGN_RIGHT, 4)
+        self.SetSizer(sizer_2)
+        sizer_2.Fit(self)
+        self.Layout()
+        # end wxGlade
+
+    def __attach_events(self):
+        self.Bind(wx.EVT_BUTTON, self.OnOK, id=self.button_ok.GetId())
+        self.Bind(wx.EVT_BUTTON, self.OnCancel, id=self.button_cancel.GetId())
+
+    def OnOK(self, events):
+        """Update data wil new values and close dialog."""
+        self.settings.echo = self.checkbox_echo.GetValue()
+        self.settings.unprintable = self.checkbox_unprintable.GetValue()
+        self.settings.newline = self.radio_box_newline.GetSelection()
+        self.EndModal(wx.ID_OK)
+
+    def OnCancel(self, events):
+        """Do not update data but close dialog."""
+        self.EndModal(wx.ID_CANCEL)
+
+# end of class TerminalSettingsDialog
+
+
+class TerminalFrame(wx.Frame):
+    """Simple terminal program for wxPython"""
+
+    def __init__(self, *args, **kwds):
+        self.serial = serial.Serial()
+        self.serial.timeout = 0.5   # make sure that the alive event can be checked from time to time
+        self.settings = TerminalSetup()  # placeholder for the settings
+        self.thread = None
+        self.alive = threading.Event()
+        # begin wxGlade: TerminalFrame.__init__
+        kwds["style"] = wx.DEFAULT_FRAME_STYLE
+        wx.Frame.__init__(self, *args, **kwds)
+
+        # Menu Bar
+        self.frame_terminal_menubar = wx.MenuBar()
+        wxglade_tmp_menu = wx.Menu()
+        wxglade_tmp_menu.Append(ID_CLEAR, "&amp;Clear", "", wx.ITEM_NORMAL)
+        wxglade_tmp_menu.Append(ID_SAVEAS, "&amp;Save Text As...", "", wx.ITEM_NORMAL)
+        wxglade_tmp_menu.AppendSeparator()
+        wxglade_tmp_menu.Append(ID_TERM, "&amp;Terminal Settings...", "", wx.ITEM_NORMAL)
+        wxglade_tmp_menu.AppendSeparator()
+        wxglade_tmp_menu.Append(ID_EXIT, "&amp;Exit", "", wx.ITEM_NORMAL)
+        self.frame_terminal_menubar.Append(wxglade_tmp_menu, "&amp;File")
+        wxglade_tmp_menu = wx.Menu()
+        wxglade_tmp_menu.Append(ID_RTS, "RTS", "", wx.ITEM_CHECK)
+        wxglade_tmp_menu.Append(ID_DTR, "&amp;DTR", "", wx.ITEM_CHECK)
+        wxglade_tmp_menu.Append(ID_SETTINGS, "&amp;Port Settings...", "", wx.ITEM_NORMAL)
+        self.frame_terminal_menubar.Append(wxglade_tmp_menu, "Serial Port")
+        self.SetMenuBar(self.frame_terminal_menubar)
+        # Menu Bar end
+        self.text_ctrl_output = wx.TextCtrl(self, -1, "", style=wx.TE_MULTILINE | wx.TE_READONLY)
+
+        self.__set_properties()
+        self.__do_layout()
+
+        self.Bind(wx.EVT_MENU, self.OnClear, id=ID_CLEAR)
+        self.Bind(wx.EVT_MENU, self.OnSaveAs, id=ID_SAVEAS)
+        self.Bind(wx.EVT_MENU, self.OnTermSettings, id=ID_TERM)
+        self.Bind(wx.EVT_MENU, self.OnExit, id=ID_EXIT)
+        self.Bind(wx.EVT_MENU, self.OnRTS, id=ID_RTS)
+        self.Bind(wx.EVT_MENU, self.OnDTR, id=ID_DTR)
+        self.Bind(wx.EVT_MENU, self.OnPortSettings, id=ID_SETTINGS)
+        # end wxGlade
+        self.__attach_events()          # register events
+        self.OnPortSettings(None)       # call setup dialog on startup, opens port
+        if not self.alive.isSet():
+            self.Close()
+
+    def StartThread(self):
+        """Start the receiver thread"""
+        self.thread = threading.Thread(target=self.ComPortThread)
+        self.thread.setDaemon(1)
+        self.alive.set()
+        self.thread.start()
+        self.serial.rts = True
+        self.serial.dtr = True
+        self.frame_terminal_menubar.Check(ID_RTS, self.serial.rts)
+        self.frame_terminal_menubar.Check(ID_DTR, self.serial.dtr)
+
+    def StopThread(self):
+        """Stop the receiver thread, wait until it's finished."""
+        if self.thread is not None:
+            self.alive.clear()          # clear alive event for thread
+            self.thread.join()          # wait until thread has finished
+            self.thread = None
+
+    def __set_properties(self):
+        # begin wxGlade: TerminalFrame.__set_properties
+        self.SetTitle("Serial Terminal")
+        self.SetSize((546, 383))
+        self.text_ctrl_output.SetFont(wx.Font(9, wx.MODERN, wx.NORMAL, wx.NORMAL, 0, ""))
+        # end wxGlade
+
+    def __do_layout(self):
+        # begin wxGlade: TerminalFrame.__do_layout
+        sizer_1 = wx.BoxSizer(wx.VERTICAL)
+        sizer_1.Add(self.text_ctrl_output, 1, wx.EXPAND, 0)
+        self.SetSizer(sizer_1)
+        self.Layout()
+        # end wxGlade
+
+    def __attach_events(self):
+        # register events at the controls
+        self.Bind(wx.EVT_MENU, self.OnClear, id=ID_CLEAR)
+        self.Bind(wx.EVT_MENU, self.OnSaveAs, id=ID_SAVEAS)
+        self.Bind(wx.EVT_MENU, self.OnExit, id=ID_EXIT)
+        self.Bind(wx.EVT_MENU, self.OnPortSettings, id=ID_SETTINGS)
+        self.Bind(wx.EVT_MENU, self.OnTermSettings, id=ID_TERM)
+        self.text_ctrl_output.Bind(wx.EVT_CHAR, self.OnKey)
+        self.Bind(EVT_SERIALRX, self.OnSerialRead)
+        self.Bind(wx.EVT_CLOSE, self.OnClose)
+
+    def OnExit(self, event):  # wxGlade: TerminalFrame.&lt;event_handler&gt;
+        """Menu point Exit"""
+        self.Close()
+
+    def OnClose(self, event):
+        """Called on application shutdown."""
+        self.StopThread()               # stop reader thread
+        self.serial.close()             # cleanup
+        self.Destroy()                  # close windows, exit app
+
+    def OnSaveAs(self, event):  # wxGlade: TerminalFrame.&lt;event_handler&gt;
+        """Save contents of output window."""
+        with wx.FileDialog(
+                None,
+                "Save Text As...",
+                ".",
+                "",
+                "Text File|*.txt|All Files|*",
+                wx.SAVE) as dlg:
+            if dlg.ShowModal() == wx.ID_OK:
+                filename = dlg.GetPath()
+                with codecs.open(filename, 'w', encoding='utf-8') as f:
+                    text = self.text_ctrl_output.GetValue().encode("utf-8")
+                    f.write(text)
+
+    def OnClear(self, event):  # wxGlade: TerminalFrame.&lt;event_handler&gt;
+        """Clear contents of output window."""
+        self.text_ctrl_output.Clear()
+
+    def OnPortSettings(self, event):  # wxGlade: TerminalFrame.&lt;event_handler&gt;
+        """
+        Show the port settings dialog. The reader thread is stopped for the
+        settings change.
+        """
+        if event is not None:           # will be none when called on startup
+            self.StopThread()
+            self.serial.close()
+        ok = False
+        while not ok:
+            with wxSerialConfigDialog.SerialConfigDialog(
+                    self,
+                    -1,
+                    "",
+                    show=wxSerialConfigDialog.SHOW_BAUDRATE | wxSerialConfigDialog.SHOW_FORMAT | wxSerialConfigDialog.SHOW_FLOW,
+                    serial=self.serial) as dialog_serial_cfg:
+                dialog_serial_cfg.CenterOnParent()
+                result = dialog_serial_cfg.ShowModal()
+            # open port if not called on startup, open it on startup and OK too
+            if result == wx.ID_OK or event is not None:
+                try:
+                    self.serial.open()
+                except serial.SerialException as e:
+                    with wx.MessageDialog(self, str(e), "Serial Port Error", wx.OK | wx.ICON_ERROR)as dlg:
+                        dlg.ShowModal()
+                else:
+                    self.StartThread()
+                    self.SetTitle("Serial Terminal on {} [{},{},{},{}{}{}]".format(
+                        self.serial.portstr,
+                        self.serial.baudrate,
+                        self.serial.bytesize,
+                        self.serial.parity,
+                        self.serial.stopbits,
+                        ' RTS/CTS' if self.serial.rtscts else '',
+                        ' Xon/Xoff' if self.serial.xonxoff else '',
+                        ))
+                    ok = True
+            else:
+                # on startup, dialog aborted
+                self.alive.clear()
+                ok = True
+
+    def OnTermSettings(self, event):  # wxGlade: TerminalFrame.&lt;event_handler&gt;
+        """\
+        Menu point Terminal Settings. Show the settings dialog
+        with the current terminal settings.
+        """
+        with TerminalSettingsDialog(self, -1, "", settings=self.settings) as dialog:
+            dialog.CenterOnParent()
+            dialog.ShowModal()
+
+    def OnKey(self, event):
+        """\
+        Key event handler. If the key is in the ASCII range, write it to the
+        serial port. Newline handling and local echo is also done here.
+        """
+        code = event.GetUnicodeKey()
+        if code &lt; 256:   # XXX bug in some versions of wx returning only capital letters
+            code = event.GetKeyCode()
+        if code == 13:                      # is it a newline? (check for CR which is the RETURN key)
+            if self.settings.echo:          # do echo if needed
+                self.text_ctrl_output.AppendText('\n')
+            if self.settings.newline == NEWLINE_CR:
+                self.serial.write(b'\r')     # send CR
+            elif self.settings.newline == NEWLINE_LF:
+                self.serial.write(b'\n')     # send LF
+            elif self.settings.newline == NEWLINE_CRLF:
+                self.serial.write(b'\r\n')   # send CR+LF
+        else:
+            char = chr(code)
+            if self.settings.echo:          # do echo if needed
+                self.WriteText(char)
+            self.serial.write(char.encode('UTF-8', 'replace'))         # send the character
+
+    def WriteText(self, text):
+        if self.settings.unprintable:
+            text = ''.join([c if (c &gt;= ' ' and c != '\x7f') else chr(0x2400 + ord(c)) for c in text])
+        self.text_ctrl_output.AppendText(text)
+
+    def OnSerialRead(self, event):
+        """Handle input from the serial port."""
+        self.WriteText(event.data.decode('UTF-8', 'replace'))
+
+    def ComPortThread(self):
+        """\
+        Thread that handles the incoming traffic. Does the basic input
+        transformation (newlines) and generates an SerialRxEvent
+        """
+        while self.alive.isSet():
+            b = self.serial.read(self.serial.in_waiting or 1)
+            if b:
+                # newline transformation
+                if self.settings.newline == NEWLINE_CR:
+                    b = b.replace(b'\r', b'\n')
+                elif self.settings.newline == NEWLINE_LF:
+                    pass
+                elif self.settings.newline == NEWLINE_CRLF:
+                    b = b.replace(b'\r\n', b'\n')
+                event = SerialRxEvent(self.GetId(), b)
+                self.GetEventHandler().AddPendingEvent(event)
+
+    def OnRTS(self, event):  # wxGlade: TerminalFrame.&lt;event_handler&gt;
+        self.serial.rts = event.IsChecked()
+
+    def OnDTR(self, event):  # wxGlade: TerminalFrame.&lt;event_handler&gt;
+        self.serial.dtr = event.Checked()
+
+# end of class TerminalFrame
+
+
+class MyApp(wx.App):
+    def OnInit(self):
+        wx.InitAllImageHandlers()
+        frame_terminal = TerminalFrame(None, -1, "")
+        self.SetTopWindow(frame_terminal)
+        frame_terminal.Show(True)
+        return 1
+
+# end of class MyApp
+
+if __name__ == "__main__":
+    app = MyApp(0)
+    app.MainLoop()
+
+&lt;/pre&gt;</summary><category term="wxpython"></category></entry><entry><title>PySerial</title><link href="./pyserial.html" rel="alternate"></link><updated>2016-06-30T20:58:13+08:00</updated><author><name>40323123</name></author><id>tag:,2016-06-30:./pyserial.html</id><summary type="html">&lt;p&gt;更新資料Wxpython for python3&lt;/p&gt;
 
 
 &lt;p&gt;安裝方法
@@ -697,7 +1389,7 @@ if __name__ == "__main__":
 
 &lt;/pre&gt;
 
-&lt;p&gt;&lt;img src="http://i.imgur.com/ciQDIeh.png"&gt;&lt;/p&gt;</summary><category term="wxpython"></category></entry><entry><title>40323143 - 日誌 105年6月28日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-6yue-28ri.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-06-30:blog/40323143-ri-zhi-105nian-6yue-28ri.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/ciQDIeh.png"&gt;&lt;/p&gt;</summary><category term="wxpython"></category></entry><entry><title>40323143 - 日誌 105年6月28日</title><link href="./40323143-ri-zhi-105nian-6yue-28ri.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323143</name></author><id>tag:,2016-06-30:./40323143-ri-zhi-105nian-6yue-28ri.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;p&gt;今天將所有機械手臂零件全部合進零件庫，並用零件庫的零件再組合出一個組圖。今天沒有設定新的變數，未來將會新增有關手臂長度的零件參數，並由實際使用需求及感測器尺寸調整參數。&lt;/p&gt;
 &lt;p&gt;備註:&lt;/p&gt;
@@ -705,13 +1397,13 @@ if __name__ == "__main__":
 &lt;p&gt;6/28零件庫&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/wrPCKrc.png"&gt;&lt;/p&gt;
 &lt;p&gt;組合圖&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/GrrtDHo.png"&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 日誌 105年6月27日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-6yue-27ri.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-06-30:blog/40323143-ri-zhi-105nian-6yue-27ri.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/GrrtDHo.png"&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 日誌 105年6月27日</title><link href="./40323143-ri-zhi-105nian-6yue-27ri.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323143</name></author><id>tag:,2016-06-30:./40323143-ri-zhi-105nian-6yue-27ri.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;p&gt;今天將個人Onshape上的機械手臂部分零件合進零件庫，設定六個參數，分別是motor_fixhole , motor_x , motor_y , motor_z , suan_pan , degore 六個參數，motor_fixhole為設定馬達固定孔大小，motor_x , motor_y , motor_z為設定馬達的長寬高， suan_pan為設定旋盤的大小，大小為motor_y的1.7倍，degore為設定底座的直徑，大小為3倍的suan_pan。&lt;/p&gt;
 &lt;p&gt;合進零件庫的零件&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/VoMTC8g.png"&gt;&lt;/p&gt;
 &lt;p&gt;參數設定&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/AsRWjtd.png"&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 3D printer 列印完下料後的倉儲機構設計理念及繪圖</title><link href="http://project.mde.tw/blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-06-30:blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/AsRWjtd.png"&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 3D printer 列印完下料後的倉儲機構設計理念及繪圖</title><link href="./40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323143</name></author><id>tag:,2016-06-30:./40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
 
 
 &lt;p&gt;這裡為 40323130 所寫的文章主要內容&lt;/p&gt;
@@ -734,7 +1426,7 @@ if __name__ == "__main__":
 &lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/6-3.stl"&gt;&lt;/script&gt;
 &lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/46-2.stl"&gt;&lt;/script&gt;
 &lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/a.stl"&gt;&lt;/script&gt;
-&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/b.stl"&gt;&lt;/script&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 說明如何參與協同機械設計專題網誌編寫</title><link href="http://project.mde.tw/blog/40323143-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-06-30:blog/40323143-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/b.stl"&gt;&lt;/script&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 說明如何參與協同機械設計專題網誌編寫</title><link href="./40323143-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323143</name></author><id>tag:,2016-06-30:./40323143-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
 
 
 &lt;p&gt;這裡為 40323130 所寫的文章主要內容&lt;/p&gt;
@@ -754,7 +1446,7 @@ if __name__ == "__main__":
 &lt;p&gt;&lt;a href="https://vimeo.com/157247703"&gt;2016project_1&lt;/a&gt; from &lt;a href="https://vimeo.com/user24079973"&gt;虎尾科大機械設計工程&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Youtube:&lt;/p&gt;
-&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/hQR1wxALifU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="範例"></category></entry><entry><title>40323131日誌 105/06/28</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050628.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-06-30:blog/40323131ri-zhi-1050628.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/hQR1wxALifU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="範例"></category></entry><entry><title>40323131日誌 105/06/28</title><link href="./40323131ri-zhi-1050628.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323131</name></author><id>tag:,2016-06-30:./40323131ri-zhi-1050628.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;h3&gt;研讀Octopi的設定檔&lt;/h3&gt;
 
@@ -776,7 +1468,7 @@ if __name__ == "__main__":
 
 &lt;p&gt;&lt;/br&gt;
 &lt;img src="http://i.imgur.com/9sqNCk1.png"&gt;
-&lt;/br&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323130 - 說明如何參與協同機械設計專題網誌編寫</title><link href="http://project.mde.tw/blog/40323130-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323130</name></author><id>tag:project.mde.tw,2016-06-30:blog/40323130-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
+&lt;/br&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323130 - 說明如何參與協同機械設計專題網誌編寫</title><link href="./40323130-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323130</name></author><id>tag:,2016-06-30:./40323130-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
 
 
 &lt;p&gt;這裡為 40323130 所寫的文章主要內容&lt;/p&gt;
@@ -796,7 +1488,7 @@ if __name__ == "__main__":
 &lt;p&gt;&lt;a href="https://vimeo.com/157247703"&gt;2016project_1&lt;/a&gt; from &lt;a href="https://vimeo.com/user24079973"&gt;虎尾科大機械設計工程&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Youtube:&lt;/p&gt;
-&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/hQR1wxALifU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="範例"></category></entry><entry><title>Octopi測試與實作</title><link href="http://project.mde.tw/blog/octopice-shi-yu-shi-zuo.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-30:blog/octopice-shi-yu-shi-zuo.html</id><summary type="html">&lt;p&gt;設定使用octopi與實作&lt;/p&gt;
+&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/hQR1wxALifU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="範例"></category></entry><entry><title>Octopi測試與實作</title><link href="./octopice-shi-yu-shi-zuo.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323123</name></author><id>tag:,2016-06-30:./octopice-shi-yu-shi-zuo.html</id><summary type="html">&lt;p&gt;設定使用octopi與實作&lt;/p&gt;
 
 
 &lt;p&gt;octopi走乙太網路線進行控制以及連線&lt;/p&gt;
@@ -804,7 +1496,7 @@ if __name__ == "__main__":
 &lt;p&gt;&lt;img src="http://i.imgur.com/Umf1J3w.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/zMUAcXs.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/Sqh1bWP.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/PzFmXoH.jpg"&gt;&lt;/p&gt;</summary><category term="Octopi"></category></entry><entry><title>ubuntu IPV4 IPV6 使用教學</title><link href="http://project.mde.tw/blog/ubuntu-ipv4-ipv6-shi-yong-jiao-xue.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-30:blog/ubuntu-ipv4-ipv6-shi-yong-jiao-xue.html</id><summary type="html">&lt;p&gt;關於IPV4  IPV6設定&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/PzFmXoH.jpg"&gt;&lt;/p&gt;</summary><category term="Octopi"></category></entry><entry><title>ubuntu IPV4 IPV6 使用教學</title><link href="./ubuntu-ipv4-ipv6-shi-yong-jiao-xue.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323123</name></author><id>tag:,2016-06-30:./ubuntu-ipv4-ipv6-shi-yong-jiao-xue.html</id><summary type="html">&lt;p&gt;關於IPV4  IPV6設定&lt;/p&gt;
 
 
 &lt;pre class="brush: python"&gt;
@@ -835,7 +1527,7 @@ dns-search mde.nfu.edu.tw
 
 &lt;/pre&gt;
 
-&lt;p&gt;試用ubuntu系統改成IPV6和IPV4使用，並測試速度的使用上的問題，主要是在沒有IPV6的網站沒辦法連上去，這部份可能需要依靠proxy進行代理伺服器&lt;/p&gt;</summary><category term="ubuntu 網路設定"></category></entry><entry><title>樹梅派指令表和使用</title><link href="http://project.mde.tw/blog/shu-mei-pai-zhi-ling-biao-he-shi-yong.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-30:blog/shu-mei-pai-zhi-ling-biao-he-shi-yong.html</id><summary type="html">&lt;p&gt;找到的些許文章和探討&lt;/p&gt;
+&lt;p&gt;試用ubuntu系統改成IPV6和IPV4使用，並測試速度的使用上的問題，主要是在沒有IPV6的網站沒辦法連上去，這部份可能需要依靠proxy進行代理伺服器&lt;/p&gt;</summary><category term="ubuntu 網路設定"></category></entry><entry><title>樹梅派指令表和使用</title><link href="./shu-mei-pai-zhi-ling-biao-he-shi-yong.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323123</name></author><id>tag:,2016-06-30:./shu-mei-pai-zhi-ling-biao-he-shi-yong.html</id><summary type="html">&lt;p&gt;找到的些許文章和探討&lt;/p&gt;
 
 
 &lt;p&gt;在Octoprint底下有個資料夾&lt;/p&gt;
@@ -873,14 +1565,14 @@ $ sudo umount /media/usbstick
 &lt;p&gt;待完成部分:&lt;/p&gt;
 &lt;p&gt;1.javascript&lt;/p&gt;
 &lt;p&gt;2.往後寫出一套for our flask.py&lt;/p&gt;
-&lt;p&gt;3.plugin部分&lt;/p&gt;</summary><category term="octopi"></category></entry><entry><title>R2C2的資料</title><link href="http://project.mde.tw/blog/r2c2de-zi-liao.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-30:blog/r2c2de-zi-liao.html</id><summary type="html">&lt;p&gt;新的R2C2資料&lt;/p&gt;
+&lt;p&gt;3.plugin部分&lt;/p&gt;</summary><category term="octopi"></category></entry><entry><title>R2C2的資料</title><link href="./r2c2de-zi-liao.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323123</name></author><id>tag:,2016-06-30:./r2c2de-zi-liao.html</id><summary type="html">&lt;p&gt;新的R2C2資料&lt;/p&gt;
 
 
 &lt;p&gt;中間有新的資料for raspberrypi
 是使用node.js啟動server
 client端可以看到的
 https://github.com/nneves/Raspberrypi_NodeJS&lt;/p&gt;
-&lt;p&gt;&lt;a href = "https://github.com/nneves/R2C2_WebInterface/blob/master/README.md"&gt;RaspberryPi R2C2&lt;/a&gt;&lt;/p&gt;</summary><category term="client control"></category></entry><entry><title>OpenCv實作</title><link href="http://project.mde.tw/blog/opencvshi-zuo.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-30:blog/opencvshi-zuo.html</id><summary type="html">&lt;p&gt;OpenCv in python and use&lt;/p&gt;
+&lt;p&gt;&lt;a href = "https://github.com/nneves/R2C2_WebInterface/blob/master/README.md"&gt;RaspberryPi R2C2&lt;/a&gt;&lt;/p&gt;</summary><category term="client control"></category></entry><entry><title>OpenCv實作</title><link href="./opencvshi-zuo.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323123</name></author><id>tag:,2016-06-30:./opencvshi-zuo.html</id><summary type="html">&lt;p&gt;OpenCv in python and use&lt;/p&gt;
 
 
 &lt;p&gt;實作系統Ubuntu 14.04&lt;/p&gt;
@@ -955,7 +1647,7 @@ https://github.com/nneves/Raspberrypi_NodeJS&lt;/p&gt;
 否則無法執行
 0是預設的第1台攝影機
 1是第2台
-以此類推&lt;/p&gt;</summary><category term="OpenCv"></category></entry><entry><title>保養3D列印機</title><link href="http://project.mde.tw/blog/bao-yang-3dlie-yin-ji.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-30:blog/bao-yang-3dlie-yin-ji.html</id><summary type="html">&lt;p&gt;Control 3D printer and some Question&lt;/p&gt;
+以此類推&lt;/p&gt;</summary><category term="OpenCv"></category></entry><entry><title>保養3D列印機</title><link href="./bao-yang-3dlie-yin-ji.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323123</name></author><id>tag:,2016-06-30:./bao-yang-3dlie-yin-ji.html</id><summary type="html">&lt;p&gt;Control 3D printer and some Question&lt;/p&gt;
 
 
 &lt;p&gt;1.第一步清理平台&lt;/p&gt;
@@ -964,7 +1656,7 @@ https://github.com/nneves/Raspberrypi_NodeJS&lt;/p&gt;
 &lt;p&gt;4.清理機台外觀&lt;/p&gt;
 &lt;p&gt;5.確保滑軌滑動順利&lt;/p&gt;
 &lt;p&gt;約兩個禮拜做一次，自動校正，不要太長使用，會導致買新的噴頭。
-詳細注意事項，在另行公告&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>40323123 - 專題參考資料</title><link href="http://project.mde.tw/blog/40323123-zhuan-ti-can-kao-zi-liao.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-30:blog/40323123-zhuan-ti-can-kao-zi-liao.html</id><summary type="html">&lt;p&gt;raspberry pi  connect 3d printer to control the 3d printer &lt;/p&gt;
+詳細注意事項，在另行公告&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>40323123 - 專題參考資料</title><link href="./40323123-zhuan-ti-can-kao-zi-liao.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323123</name></author><id>tag:,2016-06-30:./40323123-zhuan-ti-can-kao-zi-liao.html</id><summary type="html">&lt;p&gt;raspberry pi  connect 3d printer to control the 3d printer &lt;/p&gt;
 
 
 &lt;p&gt;1.回報目前專題進度:
@@ -985,7 +1677,7 @@ https://github.com/nneves/Raspberrypi_NodeJS&lt;/p&gt;
 &lt;p&gt;4.flux 3d printer中的底板樣式以及掃描方式
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/l9ZISxSo2X0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;
 &lt;p&gt;5.OpenCv 3d nodule
-&lt;a href="http://www.opencv.org.cn/"&gt;OpenCv可參考&lt;/a&gt;&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>40323123 - 3d printer</title><link href="http://project.mde.tw/blog/40323123-3d-printer.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-30:blog/40323123-3d-printer.html</id><summary type="html">&lt;p&gt;raspberry pi  connect 3d printer to control the 3d printer &lt;/p&gt;
+&lt;a href="http://www.opencv.org.cn/"&gt;OpenCv可參考&lt;/a&gt;&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>40323123 - 3d printer</title><link href="./40323123-3d-printer.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323123</name></author><id>tag:,2016-06-30:./40323123-3d-printer.html</id><summary type="html">&lt;p&gt;raspberry pi  connect 3d printer to control the 3d printer &lt;/p&gt;
 
 
 &lt;p&gt;遠端控制3D列印
@@ -1001,7 +1693,7 @@ https://github.com/nneves/Raspberrypi_NodeJS&lt;/p&gt;
 G指令
 &lt;a href="http://reprap.org/wiki/G-code"&gt;Gcoce 大全&lt;/a&gt;
 &lt;a href="http://www.slideshare.net/roboard/3d-printer-marlin"&gt;控制系統的code解析&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;這兩套系統，都有開放原始碼，不過因為解析程式有巨大的阻礙，因為對python和樹梅派不熟悉，導致只會安裝不會自己編譯。&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>40323123 - 專題組員的範例文章標題</title><link href="http://project.mde.tw/blog/40323123-zhuan-ti-zu-yuan-de-fan-li-wen-zhang-biao-ti.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-30:blog/40323123-zhuan-ti-zu-yuan-de-fan-li-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 40323123 所寫的文章摘要&lt;/p&gt;
+&lt;p&gt;這兩套系統，都有開放原始碼，不過因為解析程式有巨大的阻礙，因為對python和樹梅派不熟悉，導致只會安裝不會自己編譯。&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>40323123 - 專題組員的範例文章標題</title><link href="./40323123-zhuan-ti-zu-yuan-de-fan-li-wen-zhang-biao-ti.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323123</name></author><id>tag:,2016-06-30:./40323123-zhuan-ti-zu-yuan-de-fan-li-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 40323123 所寫的文章摘要&lt;/p&gt;
 
 
 &lt;p&gt;這裡為 40323123 所寫的文章主要內容&lt;/p&gt;</summary><category term="範例"></category></entry></feed>

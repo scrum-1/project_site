@@ -1,5 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-06-30T20:28:15+08:00</updated><entry><title>40323250日誌 - 105/06/28</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050628.html" rel="alternate"></link><updated>2016-06-30T20:28:15+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-06-30:blog/40323250ri-zhi-1050628.html</id><summary type="html">&lt;p&gt;暑期第一個禮拜的 星期二&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-01T21:31:07+08:00</updated><entry><title>40323250日誌 - 105/07/01</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050701.html" rel="alternate"></link><updated>2016-07-01T21:31:07+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-01:blog/40323250ri-zhi-1050701.html</id><summary type="html">&lt;p&gt;V-rep 的使用與學習&lt;/p&gt;
+
+
+&lt;h3&gt;暑期第一個禮拜的 星期四&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;h4&gt;今天在網路上找了一堆範例影片 ,每一部片都快一個小時 ,然後都不知道怎麼運用 ,但至少對V-rep功能多了解一些了。&lt;/h4&gt;
+&lt;/br&gt;
+&lt;/hr&gt;
+&lt;/br&gt;
+&lt;h3&gt;暑期第一個禮拜的 星期五&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h4&gt;導入stl檔案&lt;/h4&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/import.png" width="800" /&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h4&gt;先點選導入的檔案 ,然後點選Edit選單下的Grouping / Merging ,點選 Divide selected shapes 分離零件&lt;/h4&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/divide_objects.png" width="800" /&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h4&gt;分離完成&lt;/h4&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/divide_done.png" width="800" /&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h4&gt;拆解可能遇到的問題&lt;/h4&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/vrep_problems.png" width="800" /&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h4&gt;加入旋轉軸 : 在右側視窗點選右鍵 , 新增 → 節點 → 旋轉軸
+&lt;/h4&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/Revolute.png" width="800" /&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h4&gt;新增完成 ,快點兩下圖示 ,可以設定相關性質&lt;/h4&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/Revolute_icon.png" width="800" /&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h4&gt;橘色框框為旋轉軸長度及直徑 ,旋轉酬最後可以設定隱藏&lt;/h4&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/Revolute_properties.png" width="800" /&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h4&gt;移動旋轉軸至零件主軸 : 先點選欲移動之物件(a.)後 ,按著shift並點選欲移動到的物件(b.) ,之後點選移動調整性質&lt;/h4&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/move.png" width="800" /&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h4&gt;綠色框框內分別為X、Y、Z重合 ,使旋轉軸與物體在同一軸線上 &lt;/h4&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/move_properties.png" width="800" /&gt;
+&lt;/br&gt;
+&lt;/br&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - 105/06/28</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050628.html" rel="alternate"></link><updated>2016-07-01T21:30:56+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-01:blog/40323250ri-zhi-1050628.html</id><summary type="html">&lt;p&gt;暑期第一個禮拜的 星期二&lt;/p&gt;
 
 
 &lt;h3&gt;目前組合進度&lt;/h3&gt;
@@ -12,7 +69,7 @@
 &lt;/br&gt;
 &lt;img src="http://i.imgur.com/W3N5pkC.png"&gt;
 &lt;/br&gt;
-&lt;h4&gt;滑鼠選轉及縮放也跟著出問題，點選右方試圖方塊圖又會不見，只能重新再組一次。&lt;/h4&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - 105/06/29</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050629.html" rel="alternate"></link><updated>2016-06-30T20:28:15+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-06-30:blog/40323250ri-zhi-1050629.html</id><summary type="html">&lt;p&gt;暑期第一個禮拜的 星期三&lt;/p&gt;
+&lt;h4&gt;滑鼠選轉及縮放也跟著出問題，點選右方試圖方塊圖又會不見，只能重新再組一次。&lt;/h4&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - 105/06/29</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050629.html" rel="alternate"></link><updated>2016-07-01T21:30:56+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-01:blog/40323250ri-zhi-1050629.html</id><summary type="html">&lt;p&gt;暑期第一個禮拜的 星期三&lt;/p&gt;
 
 
 &lt;h3&gt;進度&lt;/h3&gt;
@@ -41,31 +98,7 @@
 &lt;/br&gt;
 &lt;h3&gt;明天應該就可以開始測試模擬了。&lt;/h3&gt;
 &lt;/br&gt;
-&lt;h3&gt;Onshape零件及兩個stl檔案都放在users/g2_files目錄下，歡迎取用。&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>Summer Plan</title><link href="http://project.mde.tw/blog/summer-plan.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-06-30:blog/summer-plan.html</id><summary type="html">&lt;p&gt;Summer project&lt;/p&gt;
-
-
-&lt;p&gt;1.畫3D Printer (V-rep ,Onshape)&lt;/p&gt;
-
-&lt;p&gt;2.實驗室網站介面&lt;/p&gt;
-
-&lt;p&gt;3.Octopi ,機械手臂&lt;/p&gt;
-
-&lt;p&gt;4.OpenCV &lt;/p&gt;
-
-&lt;p&gt;5.RGA演算&lt;/p&gt;
-
-&lt;p&gt;6.認證主機(Virtual Box)&lt;/p&gt;
-
-&lt;p&gt;7.Proxy&lt;/p&gt;
-
-&lt;p&gt;8.報告(拍照 ,內容整理)&lt;/p&gt;
-
-&lt;p&gt;9.找碩班教授&lt;/p&gt;
-
-&lt;p&gt;&lt;/br&gt;
-&lt;p&gt;暑期人數 : &lt;/p&gt;
-&lt;p&gt;七月:第一組3人 ,第二組4人&lt;/p&gt;
-&lt;p&gt;八月:第一組3人 ,第二組4人 ,第三組1人&lt;/p&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>OpenCv範例執行</title><link href="http://project.mde.tw/blog/opencvfan-li-zhi-xing.html" rel="alternate"></link><updated>2016-06-30T15:53:33+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-06-30:blog/opencvfan-li-zhi-xing.html</id><summary type="html">&lt;p&gt;OpenCv example with python test&lt;/p&gt;
+&lt;h3&gt;Onshape零件及兩個stl檔案都放在users/g2_files目錄下，歡迎取用。&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>OpenCv範例執行</title><link href="http://project.mde.tw/blog/opencvfan-li-zhi-xing.html" rel="alternate"></link><updated>2016-07-01T21:30:56+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-01:blog/opencvfan-li-zhi-xing.html</id><summary type="html">&lt;p&gt;OpenCv example with python test&lt;/p&gt;
 
 
 &lt;h3&gt;實作系統Ubuntu 14.04 以及 老師整合的檔案&lt;/h3&gt;
@@ -139,4 +172,28 @@ out.release()
 cv2.destroyAllWindows()
 &lt;/pre&gt;
 &lt;h3&gt;執行結果&lt;/h3&gt;
-&lt;h4&gt;得到檔案名稱為output的avi影片檔&lt;/h4&gt;&lt;/p&gt;</summary><category term="OpenCv"></category></entry></feed>
+&lt;h4&gt;得到檔案名稱為output的avi影片檔&lt;/h4&gt;&lt;/p&gt;</summary><category term="OpenCv"></category></entry><entry><title>Summer Plan</title><link href="http://project.mde.tw/blog/summer-plan.html" rel="alternate"></link><updated>2016-07-01T21:30:56+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-01:blog/summer-plan.html</id><summary type="html">&lt;p&gt;Summer project&lt;/p&gt;
+
+
+&lt;p&gt;1.畫3D Printer (V-rep ,Onshape)&lt;/p&gt;
+
+&lt;p&gt;2.實驗室網站介面&lt;/p&gt;
+
+&lt;p&gt;3.Octopi ,機械手臂&lt;/p&gt;
+
+&lt;p&gt;4.OpenCV &lt;/p&gt;
+
+&lt;p&gt;5.RGA演算&lt;/p&gt;
+
+&lt;p&gt;6.認證主機(Virtual Box)&lt;/p&gt;
+
+&lt;p&gt;7.Proxy&lt;/p&gt;
+
+&lt;p&gt;8.報告(拍照 ,內容整理)&lt;/p&gt;
+
+&lt;p&gt;9.找碩班教授&lt;/p&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;p&gt;暑期人數 : &lt;/p&gt;
+&lt;p&gt;七月:第一組3人 ,第二組4人&lt;/p&gt;
+&lt;p&gt;八月:第一組3人 ,第二組4人 ,第三組1人&lt;/p&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry></feed>

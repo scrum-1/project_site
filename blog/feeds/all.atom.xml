@@ -11,6 +11,8 @@
 &lt;/br&gt;
 &lt;h2&gt;★暑期第一個禮拜的 星期五★&lt;/h2&gt;
 &lt;/br&gt;
+&lt;h3&gt;基本功能 : &lt;/h3&gt;
+&lt;/br&gt;
 &lt;h3&gt;導入stl檔案&lt;/h3&gt;
 &lt;/br&gt;
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/import.png" &gt;
@@ -42,7 +44,7 @@
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/Revolute_icon.png"&gt;
 &lt;/br&gt;
 &lt;/br&gt;
-&lt;h3&gt;橘色框框為旋轉軸長度及直徑 ,旋轉酬最後可以設定隱藏&lt;/h3&gt;
+&lt;h3&gt;橘色框框為旋轉軸長度及直徑 ,旋轉軸最後可以設定隱藏&lt;/h3&gt;
 &lt;/br&gt;
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/Revolute_properties.png"&gt;
 &lt;/br&gt;
@@ -74,7 +76,12 @@
 俗話說的好 「良藥苦口」,好用的東西種剛開始總是特別棘手 ,這些我都接受 ,
 可是對於一個無心對團體有貢獻的人來說 ,我就很討厭了 ,
 講也講不聽 ,叫你幫忙你跑去哪裡? 什麼都不做 ,真的要我開罵嗎? 
-如果你看到這篇 最好自覺一下 ,不要等到最後才在後悔。  &lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>yen - RGA 基因演算法</title><link href="http://project.mde.tw/blog/yen-rga-ji-yin-yan-suan-fa.html" rel="alternate"></link><updated>2016-07-01T21:30:56+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-01:blog/yen-rga-ji-yin-yan-suan-fa.html</id><summary type="html">&lt;p&gt;RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.&lt;/p&gt;
+如果你看到這篇 最好自覺一下 ,不要等到最後才在後悔。  &lt;/h3&gt;
+&lt;/br&gt;
+&lt;hr&gt;
+&lt;/br&gt;
+&lt;h2&gt;★暑期第一個禮拜的 星期六★&lt;/h2&gt;
+&lt;/br&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>yen - RGA 基因演算法</title><link href="http://project.mde.tw/blog/yen-rga-ji-yin-yan-suan-fa.html" rel="alternate"></link><updated>2016-07-01T21:30:56+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-01:blog/yen-rga-ji-yin-yan-suan-fa.html</id><summary type="html">&lt;p&gt;RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.&lt;/p&gt;
 
 
 &lt;pre class="brush: python"&gt;

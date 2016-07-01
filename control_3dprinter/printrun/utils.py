@@ -27,12 +27,12 @@ import logging
 # found (windows)
 def install_locale(domain):
     if os.path.exists('/usr/share/pronterface/locale'):
-        gettext.install(domain, '/usr/share/pronterface/locale', unicode = 1)
+        gettext.install(domain, '/usr/share/pronterface/locale', str = 1)
     elif os.path.exists('/usr/local/share/pronterface/locale'):
         gettext.install(domain, '/usr/local/share/pronterface/locale',
-                        unicode = 1)
+                        str = 1)
     else:
-        gettext.install(domain, './locale', unicode = 1)
+        gettext.install(domain, './locale')
 
 class LogFormatter(logging.Formatter):
     def __init__(self, format_default, format_info):
@@ -121,7 +121,7 @@ def prepare_command(command, replaces = None):
     command = shlex.split(command.replace("\\", "\\\\").encode())
     if replaces:
         replaces["$python"] = sys.executable
-        for pattern, rep in replaces.items():
+        for pattern, rep in list(replaces.items()):
             command = [bit.replace(pattern, rep) for bit in command]
     command = [bit.encode() for bit in command]
     return command
@@ -191,7 +191,7 @@ def parse_build_dimensions(bdim):
     # etc
     bdl = re.findall("([-+]?[0-9]*\.?[0-9]*)", bdim)
     defaults = [200, 200, 100, 0, 0, 0, 0, 0, 0]
-    bdl = filter(None, bdl)
+    bdl = [_f for _f in bdl if _f]
     bdl_float = [float(value) if value else defaults[i] for i, value in enumerate(bdl)]
     if len(bdl_float) < len(defaults):
         bdl_float += [defaults[i] for i in range(len(bdl_float), len(defaults))]
@@ -205,7 +205,7 @@ def get_home_pos(build_dimensions):
 def hexcolor_to_float(color, components):
     color = color[1:]
     numel = len(color)
-    ndigits = numel / components
+    ndigits = int(numel / components)
     div = 16 ** ndigits - 1
     return tuple(round(float(int(color[i:i + ndigits], 16)) / div, 2)
                  for i in range(0, numel, ndigits))

@@ -21,7 +21,7 @@ import sys
 import time
 import threading
 import traceback
-import io.StringIO as StringIO
+import io as StringIO
 import subprocess
 import glob
 import logging
@@ -160,7 +160,7 @@ class PronterWindow(MainWindow, pronsole.pronsole):
         self.current_pos = [0, 0, 0]
         self.paused = False
         self.uploading = False
-        self.sentglines = Queue.Queue(0)
+        self.sentglines = queue.Queue(0)
         self.cpbuttons = {
             "motorsoff": SpecialButton(_("Motors off"), ("M84"), (250, 250, 250), _("Switch all motors off")),
             "extrude": SpecialButton(_("Extrude"), ("pront_extrude"), (225, 200, 200), _("Advance extruder by set length")),
@@ -193,12 +193,12 @@ class PronterWindow(MainWindow, pronsole.pronsole):
         self.panel.SetBackgroundColour(self.bgcolor)
         customdict = {}
         try:
-            execfile(configfile("custombtn.txt"), customdict)
+            exec(compile(open(configfile("custombtn.txt")).read(), configfile("custombtn.txt"), 'exec'), customdict)
             if len(customdict["btns"]):
                 if not len(self.custombuttons):
                     try:
                         self.custombuttons = customdict["btns"]
-                        for n in xrange(len(self.custombuttons)):
+                        for n in range(len(self.custombuttons)):
                             self.cbutton_save(n, self.custombuttons[n])
                         os.rename("custombtn.txt", "custombtn.old")
                         rco = open("custombtn.txt", "w")
@@ -385,10 +385,10 @@ class PronterWindow(MainWindow, pronsole.pronsole):
 
     def do_settemp(self, l = ""):
         try:
-            if l.__class__ not in (str, unicode) or not len(l):
+            if l.__class__ not in (str, str) or not len(l):
                 l = str(self.htemp.GetValue().split()[0])
             l = l.lower().replace(", ", ".")
-            for i in self.temps.keys():
+            for i in list(self.temps.keys()):
                 l = l.replace(i, self.temps[i])
             f = float(l)
             if f >= 0:
@@ -405,10 +405,10 @@ class PronterWindow(MainWindow, pronsole.pronsole):
 
     def do_bedtemp(self, l = ""):
         try:
-            if l.__class__ not in (str, unicode) or not len(l):
+            if l.__class__ not in (str, str) or not len(l):
                 l = str(self.btemp.GetValue().split()[0])
             l = l.lower().replace(", ", ".")
-            for i in self.bedtemps.keys():
+            for i in list(self.bedtemps.keys()):
                 l = l.replace(i, self.bedtemps[i])
             f = float(l)
             if f >= 0:
@@ -425,7 +425,7 @@ class PronterWindow(MainWindow, pronsole.pronsole):
 
     def do_setspeed(self, l = ""):
         try:
-            if l.__class__ not in (str, unicode) or not len(l):
+            if l.__class__ not in (str, str) or not len(l):
                 l = str(self.speed_slider.GetValue())
             else:
                 l = l.lower()
@@ -854,7 +854,7 @@ Printrun. If not, see <http://www.gnu.org/licenses/>123123."""
         self.settings._add(HiddenSetting("last_window_maximized", False))
         self.settings._add(HiddenSetting("last_sash_position", -1))
         self.settings._add(HiddenSetting("last_bed_temperature", 0.0))
-        self.settings._add(HiddenSetting("last_file_path", u""))
+        self.settings._add(HiddenSetting("last_file_path", ""))
         self.settings._add(HiddenSetting("last_temperature", 0.0))
         self.settings._add(StaticTextSetting("separator_2d_viewer", _("2D viewer options"), "", group = "Viewer"))
         self.settings._add(FloatSpinSetting("preview_extrusion_width", 0.5, 0, 10, _("Preview extrusion width"), _("Width of Extrusion in Preview"), "Viewer", increment = 0.1), self.update_gviz_params)
@@ -1249,7 +1249,7 @@ Printrun. If not, see <http://www.gnu.org/licenses/>123123."""
             pararray = prepare_command(self.settings.slicecommand,
                                        {"$s": self.filename, "$o": output_filename})
             if self.settings.slic3rintegration:
-                for cat, config in self.slic3r_configs.items():
+                for cat, config in list(self.slic3r_configs.items()):
                     if config:
                         fpath = os.path.join(self.slic3r_configpath, cat, config)
                         pararray += ["--load", fpath]
@@ -1405,7 +1405,7 @@ Printrun. If not, see <http://www.gnu.org/licenses/>123123."""
     def post_gcode_load(self, print_stats = True):
         # Must be called in wx.CallAfter for safety
         self.loading_gcode = False
-        self.SetTitle(_(u"Pronterface - %s") % self.filename)
+        self.SetTitle(_("Pronterface - %s") % self.filename)
         message = _("Loaded %s, %d lines") % (self.filename, len(self.fgcode),)
         self.log(message)
         self.statusbar.SetStatusText(message)
@@ -1453,14 +1453,14 @@ Printrun. If not, see <http://www.gnu.org/licenses/>123123."""
                 if max_layer is None:
                     break
                 while next_layer <= max_layer:
-                    assert(generator.next() == next_layer)
+                    assert(next(generator) == next_layer)
                     next_layer += 1
                 time.sleep(0.1)
-            generator_output = generator.next()
+            generator_output = next(generator)
             while generator_output is not None:
                 assert(generator_output in (None, next_layer))
                 next_layer += 1
-                generator_output = generator.next()
+                generator_output = next(generator)
         else:
             # If GCode is not being loaded asynchroneously, it is already
             # loaded, so let's make visualization sequentially
@@ -1841,9 +1841,9 @@ Printrun. If not, see <http://www.gnu.org/licenses/>123123."""
             self.save_in_rc(("button %d" % n), '')
         elif bdef.background:
             colour = bdef.background
-            if type(colour) not in (str, unicode):
+            if type(colour) not in (str, str):
                 if type(colour) == tuple and tuple(map(type, colour)) == (int, int, int):
-                    colour = map(lambda x: x % 256, colour)
+                    colour = [x % 256 for x in colour]
                     colour = wx.Colour(*colour).GetAsString(wx.C2S_NAME | wx.C2S_HTML_SYNTAX)
                 else:
                     colour = wx.Colour(colour).GetAsString(wx.C2S_NAME | wx.C2S_HTML_SYNTAX)
@@ -1859,9 +1859,9 @@ Printrun. If not, see <http://www.gnu.org/licenses/>123123."""
             bedit.command.SetValue(button.properties.command)
             if button.properties.background:
                 colour = button.properties.background
-                if type(colour) not in (str, unicode):
+                if type(colour) not in (str, str):
                     if type(colour) == tuple and tuple(map(type, colour)) == (int, int, int):
-                        colour = map(lambda x: x % 256, colour)
+                        colour = [x % 256 for x in colour]
                         colour = wx.Colour(*colour).GetAsString(wx.C2S_NAME | wx.C2S_HTML_SYNTAX)
                     else:
                         colour = wx.Colour(colour).GetAsString(wx.C2S_NAME | wx.C2S_HTML_SYNTAX)
@@ -2111,7 +2111,7 @@ Printrun. If not, see <http://www.gnu.org/licenses/>123123."""
                 self.macros_menu.DeleteItem(item)
         except:
             pass
-        for macro in self.macros.keys():
+        for macro in list(self.macros.keys()):
             self.Bind(wx.EVT_MENU, lambda x, m = macro: self.start_macro(m, self.macros[m]), self.macros_menu.Append(-1, macro))
 
     #  --------------------------------------------------------------
@@ -2149,8 +2149,8 @@ Printrun. If not, see <http://www.gnu.org/licenses/>123123."""
 
     def read_slic3r_config(self, configfile, parser = None):
         """Helper to read a Slic3r configuration file"""
-        import ConfigParser
-        parser = ConfigParser.RawConfigParser()
+        import configparser
+        parser = configparser.RawConfigParser()
 
         class add_header(object):
             def __init__(self, f):

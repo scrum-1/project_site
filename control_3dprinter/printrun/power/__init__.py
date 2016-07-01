@@ -16,6 +16,7 @@
 import platform
 import logging
 import os
+import collections
 
 if platform.system() == "Darwin":
     from .osx import inhibit_sleep_osx, deinhibit_sleep_osx
@@ -65,7 +66,7 @@ else:
                 return
             inhibit_sleep_handler.UnInhibit(inhibit_sleep_token)
             inhibit_sleep_token = None
-    except Exception, e:
+    except Exception as e:
         logging.warning("Could not setup DBus for sleep inhibition: %s" % e)
 
         def inhibit_sleep(reason):
@@ -79,14 +80,14 @@ try:
 
     def get_nice(nice, p = None):
         if not p: p = psutil.Process(os.getpid())
-        if callable(p.nice):
+        if isinstance(p.nice, collections.Callable):
             return p.nice()
         else:
             return p.nice
 
     def set_nice(nice, p = None):
         if not p: p = psutil.Process(os.getpid())
-        if callable(p.nice):
+        if isinstance(p.nice, collections.Callable):
             p.nice(nice)
         else:
             p.nice = nice
@@ -107,7 +108,7 @@ try:
                     set_nice(i, p)
                     high_priority_nice = i
                     break
-                except psutil.AccessDenied, e:
+                except psutil.AccessDenied as e:
                     pass
             set_nice(orig_nice, p)
 
@@ -132,7 +133,7 @@ try:
     def powerset_print_stop():
         reset_priority()
         deinhibit_sleep()
-except ImportError, e:
+except ImportError as e:
     logging.warning("psutil unavailable, could not import power utils:" + str(e))
 
     def powerset_print_start(reason):

@@ -83,7 +83,7 @@
 &lt;/br&gt;
 &lt;h2&gt;★暑期第一個禮拜的 星期六★&lt;/h2&gt;
 &lt;/br&gt;
-&lt;p&gt;&lt;font size="5" face="Arial"&gt;&lt;marquee border="0" scrollamount="8" behavior="alternate&gt;跑馬燈跑跑跑&lt;/marquee&gt;&lt;/font&gt;&lt;/p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;font size="5" face="Arial"&gt;&lt;marquee border="0" scrollamount="8" behavior="alternate"&gt;跑馬燈跑跑跑&lt;/marquee&gt;&lt;/font&gt;&lt;/p&gt;&lt;/p&gt;
 &lt;p&gt;&lt;/br&gt;
 &lt;hr size="3" align="center" noshade width="100%" color=blue&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>yen - RGA 基因演算法</title><link href="http://project.mde.tw/blog/yen-rga-ji-yin-yan-suan-fa.html" rel="alternate"></link><updated>2016-07-01T21:30:56+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-01:blog/yen-rga-ji-yin-yan-suan-fa.html</id><summary type="html">&lt;p&gt;RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.&lt;/p&gt;
 

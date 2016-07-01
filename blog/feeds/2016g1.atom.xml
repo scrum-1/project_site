@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-06-30T21:45:09+08:00</updated><entry><title>PySerial</title><link href="http://project.mde.tw/blog/pyserial.html" rel="alternate"></link><updated>2016-06-30T21:45:09+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-30:blog/pyserial.html</id><summary type="html">&lt;p&gt;更新資料Wxpython for python3&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-01T20:41:15+08:00</updated><entry><title>40323131日誌 105/07/01</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050701.html" rel="alternate"></link><updated>2016-07-01T20:41:15+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-01:blog/40323131ri-zhi-1050701.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;h3&gt;python2語法 修改成python3語法&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;下圖框框處，原本的程式碼是 gettext.install(domain, './locale', unicode = 1)，我是將unicode = 1 拿掉&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;img src="http://i.imgur.com/S4niXlw.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;底下的程式碼原本為imp.reload(sys) 
+sys.setdefaultencoding('utf-8') ，在這裡我是將後面的sys.setdefaultencoding('utf-8') 拿掉，因為好像python3默認的編碼原本就是utf-8了&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/g1UJkp7.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;目前遇到的問題&lt;/h3&gt;
+&lt;h4&gt;下面的錯誤是說模組沒有被loaded，所以無法導入，不過我去找了一下它的目錄裡頭是有bufferedcanvas這個檔案的，所以就不清楚錯誤出在哪裡&lt;/h4&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/K3srBRX.png"&gt;
+&lt;/br&gt;
+&lt;h4&gt;接著底下的這個問題大概是我卡最久的地方，self.bgcolor = wx.Colour()，錯誤是說Colour這個物件沒有歸類在SetFromName裡頭，我試了蠻多次，結果都差不多....&lt;/h4&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/tgWDvca.png"&gt;
+&lt;/br&gt;
+&lt;h4&gt;於是我又進到wx套件裡頭去找有沒有Colour這個物件，是找到蠻多有Colour字母的檔案，不過我不清楚要import哪一個&lt;/h4&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/k3SVgXL.png"&gt;
+&lt;/br&gt;
+&lt;h3&gt;由於自己對於python的物件導向沒什麼概念，class跟__init__這些都不是很熟，感覺整天修改下來根本沒改什麼東西，所以感覺蠻有挫折感的...，另外用python3裡頭內建的2to3.py檔下去修改python2轉成python3語法的錯誤，感覺方便許多，我用的指令是python y:\Python34\Tools\Scipts\2to3.py -w 要修改的py檔，y:\Python34\Tools\Scipts\2to3.py 這裡是給定2to3.py檔的位置給它，-w是write的意思，然後才是要修改的py檔案&lt;/h3&gt;
+&lt;/br&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>PySerial</title><link href="http://project.mde.tw/blog/pyserial.html" rel="alternate"></link><updated>2016-06-30T21:45:09+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-30:blog/pyserial.html</id><summary type="html">&lt;p&gt;更新資料Wxpython for python3&lt;/p&gt;
 
 
 &lt;p&gt;安裝方法

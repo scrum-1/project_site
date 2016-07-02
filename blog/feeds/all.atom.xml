@@ -29,7 +29,11 @@
 &lt;/br&gt;&lt;hr&gt;&lt;/br&gt;
 &lt;h3&gt;組裝上可以使用「滑塊主動噴頭連動」或「噴頭主動滑塊連動」的方式，但是在從屬關係上必須顛倒，程式寫法也不一樣。「滑塊主動噴頭連動」的方式較符合3D印表機的物理運作。&lt;/h3&gt;
 &lt;/br&gt;
-&lt;img src="http://i.imgur.com/caU2SLx.jpg" &gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323131日誌 105/07/01</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050701.html" rel="alternate"></link><updated>2016-07-02T12:49:15+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-02:blog/40323131ri-zhi-1050701.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;img src="http://i.imgur.com/caU2SLx.jpg" &gt;
+&lt;/br&gt;&lt;hr&gt;&lt;/br&gt;
+&lt;h3&gt;目前整理完幾何部件的檔案。存於\users\g2_files\VREP_Simulation.ttt中。&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/jNvEHRc.jpg" &gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323131日誌 105/07/01</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050701.html" rel="alternate"></link><updated>2016-07-02T12:49:15+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-02:blog/40323131ri-zhi-1050701.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;h3&gt;python2語法 修改成python3語法&lt;/h3&gt;
 

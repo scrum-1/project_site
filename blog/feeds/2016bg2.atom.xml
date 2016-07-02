@@ -11,6 +11,12 @@
 &lt;/br&gt;
 &lt;h3&gt;The "Scene hierarchy" panel can show whole of outward and entity parts in a tree.&lt;/h3&gt;
 &lt;/br&gt;
+&lt;h3&gt;
+&lt;address&gt;
+        &lt;a href="http://www.coppeliarobotics.com/helpFiles/en/userInterface.htm#SceneHierarchy"&gt;Scene hierarchy&lt;/a&gt;
+&lt;/address&gt;
+&lt;/h3&gt;
+&lt;/br&gt;
 &lt;img src="http://i.imgur.com/cqIHtFn.jpg" &gt;
 &lt;/br&gt;
 &lt;h3&gt;In this case, a group of parts will in the same level. they are outward, entity and joint parts. Maybe some sensor parts will put into this group.&lt;/h3&gt;

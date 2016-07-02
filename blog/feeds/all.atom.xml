@@ -9,11 +9,11 @@
 &lt;/br&gt;
 &lt;h2&gt;Notes :&lt;/h2&gt;
 &lt;/br&gt;
-&lt;h3&gt;The "Scene hierarchy" panel can show whole of outward and entity parts in a tree.&lt;/h3&gt;
+&lt;h3&gt;The "Scene hierarchy" panel can show whole of outward and entity in a tree.&lt;/h3&gt;
 &lt;/br&gt;
-&lt;h3&gt;&lt;/p&gt;
-&lt;h1&gt;&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/userInterface.htm#SceneHierarchy" title="coppeliarobotics.com"&gt;Scene hierarchy&lt;/a&gt; Description page&lt;/h1&gt;
-&lt;p&gt;&lt;/h3&gt;
+&lt;h3&gt;
+&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/userInterface.htm#SceneHierarchy" title="coppeliarobotics.com"&gt;Scene hierarchy&lt;/a&gt; Description page
+&lt;/h3&gt;
 &lt;/br&gt;
 &lt;img src="http://i.imgur.com/cqIHtFn.jpg" &gt;
 &lt;/br&gt;
@@ -21,11 +21,11 @@
 &lt;/br&gt;
 &lt;h3&gt;Any parts can insert a script to control them.&lt;/h3&gt;
 &lt;/br&gt;
-&lt;h3&gt;"Dummy" parts .&lt;/h3&gt;
+&lt;h3&gt;"Dummy" parts is a calculation modules. They are collidable, measurable and detectable like the entity. &lt;/h3&gt;
 &lt;/br&gt;
-&lt;h3&gt;&lt;/p&gt;
-&lt;h1&gt;&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/dummies.htm" title="coppeliarobotics.com"&gt;Dummy&lt;/a&gt; Description page&lt;/h1&gt;
-&lt;p&gt;&lt;/h3&gt;
+&lt;h3&gt;
+&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/dummies.htm" title="coppeliarobotics.com"&gt;Dummy&lt;/a&gt; Description page
+&lt;/h3&gt;
 &lt;/br&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323131日誌 105/07/01</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050701.html" rel="alternate"></link><updated>2016-07-02T12:49:15+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-02:blog/40323131ri-zhi-1050701.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;h3&gt;python2語法 修改成python3語法&lt;/h3&gt;

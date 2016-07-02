@@ -21,12 +21,15 @@
 &lt;/br&gt;
 &lt;h3&gt;Any parts can insert a script to control them.&lt;/h3&gt;
 &lt;/br&gt;
-&lt;h3&gt;"Dummy" parts is a calculation modules. They are collidable, measurable and detectable like the entity. &lt;/h3&gt;
+&lt;h3&gt;"Dummy" parts is a calculation module. They are collidable, measurable and detectable like the entity. But now we are't clearly known it's application.&lt;/h3&gt;
 &lt;/br&gt;
 &lt;h3&gt;
 &lt;a href="http://www.coppeliarobotics.com/helpFiles/en/dummies.htm" title="coppeliarobotics.com"&gt;Dummy&lt;/a&gt; Description page
 &lt;/h3&gt;
-&lt;/br&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - 105/07/01</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050701.html" rel="alternate"></link><updated>2016-07-02T12:49:15+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-02:blog/40323250ri-zhi-1050701.html</id><summary type="html">&lt;p&gt;V-rep 的使用與學習&lt;/p&gt;
+&lt;/br&gt;&lt;hr&gt;&lt;/br&gt;
+&lt;h3&gt;組裝上可以使用「滑塊主動噴頭連動」或「噴頭主動滑塊連動」的方式，但是在從屬關係上必須顛倒，程式寫法也不一樣。「滑塊主動噴頭連動」的方式較符合3D印表機的物理運作。&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/caU2SLx.jpg" &gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - 105/07/01</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050701.html" rel="alternate"></link><updated>2016-07-02T12:49:15+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-02:blog/40323250ri-zhi-1050701.html</id><summary type="html">&lt;p&gt;V-rep 的使用與學習&lt;/p&gt;
 
 
 &lt;h2&gt;★暑期第一個禮拜的 星期四★&lt;/h2&gt;

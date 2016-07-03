@@ -1,20 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-03T18:49:04+08:00</updated><entry><title>40323230日誌 - 105/07/03</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703.html" rel="alternate"></link><updated>2016-07-03T18:49:04+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-03:blog/40323230ri-zhi-1050703.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace(更新)&lt;/p&gt;
-
-
-&lt;h2&gt;使用CMake連接Solvespace原始碼 :&lt;/h2&gt;
-
-&lt;p&gt;下載了放在140.130.17.17/public/Netbeans/的可攜式環境，也裝入了Netbeans套件，不過還尚未使用。&lt;/p&gt;
-&lt;p&gt;在新的可攜式環境中存入了從GitHub下載的Solvespace的原始碼，並依照其Readme的方式，用git submodule update --init指令更新模組，並存了一個備份檔。&lt;/p&gt;
-&lt;p&gt;CMake的方面使用可攜版的Zip檔，而非Msi安裝。將CMake放在W:的根目錄下。相較於使用指令，因為可攜式環境沒辦法呼叫外部程式支援，所以用cmake-gui.exe圖形介面來設定相關環境。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/nk3qTV4.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;一開始對cmake-gui.exe的兩個位置指向不太清楚，所以嘗試了很多次。&lt;/p&gt;
-&lt;p&gt;要在Solvespace的目錄中建立一個/build資料夾，以存放binaries。Source code的部分是填程式專案的目錄，binaries的地方填/build資料夾，再按Configure鈕設定編譯器，完成後會設置CMake的檔案。雖然之前的目錄已經有檔案了，但是如果binaries直接設目錄內，貌似會衝突產生問題，也無法復原設定檔，幸好有先備份資料能復原。&lt;/p&gt;
-&lt;p&gt;Configure的部分選擇Specify native compilers來自訂編譯器，我是選用可攜系統的SciTE，安裝版的可以使用Visual Studio或其他的編譯器來撰寫。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/Wa8VWsa.jpg" &gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;目前還不會使用MinGW或Netbeans套件，所以暫時先放在可攜環境git2016中，之後會找資料學習如何編譯Solvespace的功能。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/03</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703.html" rel="alternate"></link><updated>2016-07-03T18:49:04+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-03:blog/40323230ri-zhi-1050703.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace(更新)&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-03T18:49:04+08:00</updated><entry><title>40323230日誌 - 105/07/03-2</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703-2.html" rel="alternate"></link><updated>2016-07-03T18:49:04+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-03:blog/40323230ri-zhi-1050703-2.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace(更新)&lt;/p&gt;
 
 
 &lt;h2&gt;使用CMake連接Solvespace原始碼 :&lt;/h2&gt;
@@ -83,22 +68,6 @@ if __name__ == "__main__":
 
 &lt;p&gt;&lt;img src="http://i.imgur.com/9MkMv7u.png"&gt;&lt;/p&gt;
 &lt;p&gt;有關執行緒的部分有多種方式可以使用，上面只是其中一個，還有別種方法是利用class的方法，不過在python3中用的方法都比較嚴謹，沒辦法隨意使用，以及他使用的語法和C其實差蠻多的，有可能後面做法做看看，利用python控制C的程式，說不定會簡單一點，但是不一定，也要實作才知道，最主要python2和python3的差別來自於他們對於編碼的方式不同，而且相對於他們使用的嚴謹，for example (encode . decode)部分的可能要需要再研讀一陣子。&lt;/p&gt;</summary><category term="python串列傳輸實作"></category></entry><entry><title>40323230日誌 - 105/07/03</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703.html" rel="alternate"></link><updated>2016-07-03T14:50:30+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-03:blog/40323230ri-zhi-1050703.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace&lt;/p&gt;
-
-
-&lt;h2&gt;編譯 Solvespace 前的準備 :&lt;/h2&gt;
-
-&lt;p&gt;從&lt;a href="http://www.activestate.com/activeperl/downloads" title="activestate.com"&gt;Active State&lt;/a&gt;下載了 ActivePerl，使用的是5.24.0／x64版。&lt;/p&gt;
-&lt;p&gt;從&lt;a href="https://www.visualstudio.com/downloads/download-visual-studio-vs" title="visualstudio.com"&gt;Microsoft&lt;/a&gt;下載並安裝了Visual Studio Professional 2015，安裝好像無法選擇C:以外的磁碟。&lt;/p&gt;
-&lt;p&gt;從&lt;a href="https://github.com/whitequark/solvespace" title="github.com"&gt;GitHub&lt;/a&gt;下載Solvespace的原始碼，另外在&lt;a href="http://solvespace.com/download.pl" title="solvespace.com"&gt;Solvespace&lt;/a&gt;提供下載的頁面中也有一個較舊版的原始碼。&lt;/p&gt;
-&lt;p&gt;裝完之後用Developer Command Prompt切換至專案目錄執行nmake，就能下相關指令了。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/we7AKIF.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;用CMD從安裝目錄的\VC\bin啟動vcvars32.bat，執行nmake好像也可以，不知道其差異性。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/iCFeYAe.jpg" &gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;關於NMAKE的使用方法，找了幾個中國的網站介紹：&lt;/p&gt;
-&lt;p&gt;1.&lt;a href="http://www.cnblogs.com/kekec/archive/2013/04/21/3007277.html" title="cnblogs.com"&gt;NMAKE的指令&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;2.&lt;a href="http://blog.csdn.net/cneaglelee/article/details/11714803" title="csdn.net"&gt;NMAKE的開發環境設置&lt;/a&gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/03</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703.html" rel="alternate"></link><updated>2016-07-03T14:50:30+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-03:blog/40323230ri-zhi-1050703.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace&lt;/p&gt;
 
 
 &lt;h2&gt;編譯 Solvespace 前的準備 :&lt;/h2&gt;

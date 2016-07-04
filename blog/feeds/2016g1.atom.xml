@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-04T10:12:29+08:00</updated><entry><title>40323131日誌 105/07/03</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050703.html" rel="alternate"></link><updated>2016-07-04T10:12:29+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323131ri-zhi-1050703.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-04T22:26:52+08:00</updated><entry><title>40323143 - 日誌 105年7月4日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-4ri.html" rel="alternate"></link><updated>2016-07-04T22:26:52+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323143-ri-zhi-105nian-7yue-4ri.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;今天將Onshape平台上的因馬達尺寸測量錯誤導致機械手臂零件與馬達不能配合的錯誤修正，並增加馬達的外部特徵(電線接頭)及新增參數。以及因應手臂上馬達線路的配置改變設計，目前修改的有承臂末端新增一個槽及一個孔。還有嘗試一個夾頭的連桿構想，但是沒有成功。&lt;/p&gt;
+&lt;p&gt;備註:&lt;/p&gt;
+&lt;p&gt;1.馬達固定端的寬度由和馬達邊相等的20mm改成實際尺寸18mm，因應改變馬達固定孔中心距由原本的12mm變成10mm。&lt;/p&gt;
+&lt;p&gt;2.新增arm_fixhole_diameter(承臂及馬達連接孔的孔徑)和arm_fixhole_disdance(承臂及馬達連接孔的中心距)兩個參數，arm_fixhole_diameter=1.5，arm_fixhole_disdance=21。&lt;/p&gt;
+&lt;p&gt;3.承臂末端新增一個11*10的槽，以及一個直徑為6的孔。&lt;/p&gt;
+&lt;p&gt;4.夾頭的連桿構想在Assembly 3裡，原先想將兩根從動桿分別裝在主動桿不同位置，利用其旋轉時不同的位移來帶動前方橫桿的作動，達成像握住般的夾持，結果兩側的夾持變得太少，所以沒有成功。&lt;/p&gt;
+&lt;p&gt;馬達固定孔的尺寸修改&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/Lx2ImtA.png"&gt;&lt;/p&gt;
+&lt;p&gt;承臂與馬達連接孔尺寸修改&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/Z69YQxk.png"&gt;&lt;/p&gt;
+&lt;p&gt;夾頭構想圖&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/JdPYWaP.png"&gt;&lt;/p&gt;
+&lt;p&gt;提問:&lt;/p&gt;
+&lt;p&gt;請問有沒有機構能讓有連接線的物體作360度旋轉，卻不會讓線纏住的機構？&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323131日誌 105/07/03</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050703.html" rel="alternate"></link><updated>2016-07-04T10:12:29+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323131ri-zhi-1050703.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;h3&gt;學習python3 物件導向&lt;/h3&gt;
 

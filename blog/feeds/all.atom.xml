@@ -1,5 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-04T21:40:55+08:00</updated><entry><title>40323230日誌 - 105/07/04-2</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050704-2.html" rel="alternate"></link><updated>2016-07-04T21:40:55+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050704-2.html</id><summary type="html">&lt;p&gt;NetBeans的相關探索&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-04T22:26:52+08:00</updated><entry><title>40323218日誌 - 105/07/04</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050704.html" rel="alternate"></link><updated>2016-07-04T22:26:52+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323218ri-zhi-1050704.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
+
+
+&lt;h3&gt;熟悉 V-Rep 基本操作&lt;/h3&gt;
+
+&lt;p&gt;&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2//40323218/introduce1.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;1. 2D移動&lt;br&gt;
+2. 3D旋轉&lt;br&gt;
+3. 遠近&lt;br&gt;
+4. 移動畫面至物體&lt;br&gt;
+5. 物體定位(x,y,z)&lt;br&gt;
+6. 物體旋轉(x,y,z)&lt;br&gt;
+7. 開始模擬&lt;br&gt;
+8. 暫停模擬&lt;br&gt;
+9. 結束模擬&lt;br&gt;
+10. 慢速&lt;br&gt;
+11. 加速&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;嘗試製作 one_link_robot&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2//40323218/step1.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;File→import→Mesh...(從資料夾中輸入 stl檔)&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;選擇單位和方向&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2//40323218/step3.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;點選物體使用object shift,調整Z軸距離&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;點選物體 右鍵→Edit→Grouping/Merging→Divide selected shapes(使物體解體)&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;右鍵→Add→Joint→Revolute(增加旋轉軸)&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;連點兩下Revolute icon 打開 Scene Object Properties , 下面 Visual properties修改旋轉軸的長和直徑&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;接著點下面 Show dynamic properties dialog , 打勾Motor enabled 和 Lock motor ...
+&lt;br&gt;
+&lt;h3&gt;再來點旋轉軸 , Ctrl+左鍵點圓柱 , 使用 object shift 在XYZ都點Apply to selection , 在 Orientation/Rotations 也點 Apply , 使兩軸重疊&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2//40323218/step6.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;點選圓柱 icon , 點最下面Show dynamic properties dialog , 打勾Body is dynamic(使物體可作動)
+&lt;/h3&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;iframe src="https://player.vimeo.com/video/173321561" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;p&gt;&lt;a href="https://vimeo.com/173321561"&gt;V-Rep one_link_robot&lt;/a&gt; from &lt;a href="https://vimeo.com/user44943624"&gt;Li Steven&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323143 - 日誌 105年7月4日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-4ri.html" rel="alternate"></link><updated>2016-07-04T22:26:52+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323143-ri-zhi-105nian-7yue-4ri.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;今天將Onshape平台上的因馬達尺寸測量錯誤導致機械手臂零件與馬達不能配合的錯誤修正，並增加馬達的外部特徵(電線接頭)及新增參數。以及因應手臂上馬達線路的配置改變設計，目前修改的有承臂末端新增一個槽及一個孔。還有嘗試一個夾頭的連桿構想，但是沒有成功。&lt;/p&gt;
+&lt;p&gt;備註:&lt;/p&gt;
+&lt;p&gt;1.馬達固定端的寬度由和馬達邊相等的20mm改成實際尺寸18mm，因應改變馬達固定孔中心距由原本的12mm變成10mm。&lt;/p&gt;
+&lt;p&gt;2.新增arm_fixhole_diameter(承臂及馬達連接孔的孔徑)和arm_fixhole_disdance(承臂及馬達連接孔的中心距)兩個參數，arm_fixhole_diameter=1.5，arm_fixhole_disdance=21。&lt;/p&gt;
+&lt;p&gt;3.承臂末端新增一個11*10的槽，以及一個直徑為6的孔。&lt;/p&gt;
+&lt;p&gt;4.夾頭的連桿構想在Assembly 3裡，原先想將兩根從動桿分別裝在主動桿不同位置，利用其旋轉時不同的位移來帶動前方橫桿的作動，達成像握住般的夾持，結果兩側的夾持變得太少，所以沒有成功。&lt;/p&gt;
+&lt;p&gt;馬達固定孔的尺寸修改&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/Lx2ImtA.png"&gt;&lt;/p&gt;
+&lt;p&gt;承臂與馬達連接孔尺寸修改&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/Z69YQxk.png"&gt;&lt;/p&gt;
+&lt;p&gt;夾頭構想圖&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/JdPYWaP.png"&gt;&lt;/p&gt;
+&lt;p&gt;提問:&lt;/p&gt;
+&lt;p&gt;請問有沒有機構能讓有連接線的物體作360度旋轉，卻不會讓線纏住的機構？&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323230日誌 - 105/07/04-2</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050704-2.html" rel="alternate"></link><updated>2016-07-04T21:40:55+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050704-2.html</id><summary type="html">&lt;p&gt;NetBeans的相關探索&lt;/p&gt;
 
 
 &lt;h2&gt;NetBeans設定 :&lt;/h2&gt;
@@ -28,7 +92,7 @@
 &lt;p&gt;&lt;img src="http://i.imgur.com/mFKn2Pc.jpg" &gt;&lt;/p&gt;
 &lt;hr&gt;
 
-&lt;p&gt;這次也是使用之前備份更新過的原始碼操作，免得被之前的檔案影響。&lt;/p&gt;
+&lt;p&gt;這次也是使用之前備份並更新過的Solvespace原始碼操作，免得被之前的檔案影響。&lt;/p&gt;
 &lt;p&gt;雖然和SciTE一樣是文字編譯軟體，但是NetBeans能夠隨時呼叫需要使用的工具來支援。與Visual Studio相比還能夠在可攜環境中保存設定檔，更為方便。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050704.html" rel="alternate"></link><updated>2016-07-04T10:31:32+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050704.html</id><summary type="html">&lt;p&gt;改用CMD設定CMake&lt;/p&gt;
 
 
@@ -288,7 +352,7 @@ sys.setdefaultencoding('utf-8') ，在這裡我是將後面的sys.setdefaultenco
 &lt;/br&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - 105/07/01</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050701.html" rel="alternate"></link><updated>2016-07-02T12:49:15+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-02:blog/40323250ri-zhi-1050701.html</id><summary type="html">&lt;p&gt;V-rep 的使用與學習&lt;/p&gt;
 
 
-&lt;h2&gt;★暑期第一個禮拜的 星期四★&lt;/h2&gt;
+&lt;h2&gt;★暑期第一個禮拜的 星期四 - 06/30★&lt;/h2&gt;
 
 &lt;p&gt;&lt;/br&gt;
 &lt;h2&gt;心得 :&lt;/h2&gt;
@@ -296,7 +360,7 @@ sys.setdefaultencoding('utf-8') ，在這裡我是將後面的sys.setdefaultenco
 &lt;/br&gt;
 &lt;hr&gt;
 &lt;/br&gt;
-&lt;h2&gt;★暑期第一個禮拜的 星期五★&lt;/h2&gt;
+&lt;h2&gt;★暑期第一個禮拜的 星期五 - 07/01★&lt;/h2&gt;
 &lt;/br&gt;
 &lt;h3&gt;基本功能 : &lt;/h3&gt;
 &lt;/br&gt;
@@ -364,13 +428,57 @@ sys.setdefaultencoding('utf-8') ，在這裡我是將後面的sys.setdefaultenco
 &lt;/br&gt;
 &lt;hr&gt;
 &lt;/br&gt;
-&lt;h2&gt;★暑期第一個禮拜的 星期六★&lt;/h2&gt;
+&lt;h2&gt;★暑期第一個禮拜的 星期六 - 07/02★&lt;/h2&gt;
 &lt;/br&gt;
 &lt;h3&gt;工廠認證 及 探查狀況&lt;/h3&gt;
 &lt;h3&gt;傳統機臺幾乎沒有精度可言 ,一年級時故障的機臺也都沒有維修 ,只怕使用傳統機臺會成為受害者 ,不敢使用!!&lt;/h3&gt;
 &lt;/br&gt;
 &lt;hr&gt;
 &lt;/br&gt;
+&lt;h2&gt;旋轉軸(馬達)設定&lt;/h2&gt;
+&lt;/br&gt;
+&lt;h3&gt;先將各部位組立完成&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/Revolute_pin.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;設定底座Dynamic性質 , ( X = 不打勾 )
+&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/dynamic_properties_1.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;設定Revolute_joint(馬達)性質 &lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/dynamic_properties_2.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;設定旋轉軸Dynamic性質 ,設為動態物件
+&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/dynamic_properties_3.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;設定旋轉桿Dynamic性質&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/dynamic_properties_4.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;都設定好之後 ,設定旋轉軸(馬達)程式 ,點選左方文件圖示 ,之後在右方Scripts新增一個子程式&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/scripts_code_1.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;在Assciated object選擇STL_Imported_sub(主體) &lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/scripts_code_2.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;設定完之後就可以按start ,跑老師的python範例了&lt;/h3&gt;
+&lt;/br&gt;
+&lt;hr&gt;
+&lt;/br&gt;
+&lt;h2&gt;★暑期第二個禮拜的 星期一 - 07/04★&lt;/h2&gt;
 &lt;h2&gt;加入攝影機&lt;/h2&gt;
 &lt;/br&gt;
 &lt;h3&gt;在物件視窗點選滑鼠右鍵 → add → vision sensor →選擇其中一種類型&lt;/h3&gt;
@@ -385,7 +493,7 @@ a.為orthographic type  及  b.為perspective type&lt;/h3&gt;
 &lt;/br&gt;
 &lt;/br&gt;
 &lt;h3&gt;點兩下圖示設定攝影機性質 ,橘色框框為攝影範圍 ,
-綠色框框為範圍內的px格數(?) (2^n ,2~256) ,棕色框框為攝影機大小&lt;/h3&gt;
+綠色框框為範圍內的解析度 (2^n ,2~256) ,棕色框框為攝影機大小&lt;/h3&gt;
 &lt;/br&gt;
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/vision_sensor_properties.png"&gt;
 &lt;/br&gt;
@@ -425,6 +533,7 @@ a.為orthographic type  及  b.為perspective type&lt;/h3&gt;
 &lt;/br&gt;
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/vision.gif"&gt;
 &lt;/br&gt;
+&lt;hr&gt;
 &lt;/br&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>PySerial進度</title><link href="http://project.mde.tw/blog/pyserialjin-du.html" rel="alternate"></link><updated>2016-07-02T12:49:15+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-02:blog/pyserialjin-du.html</id><summary type="html">&lt;p&gt;今日讀的進度，以及筆記&lt;/p&gt;
 
 

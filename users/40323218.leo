@@ -26,16 +26,10 @@
 <v t="amd.20160106093610.1"><vh>協同網誌編寫規範</vh></v>
 <v t="amd.20151216001126.1"><vh>md 檔案範例</vh></v>
 <v t="amd.20151215170031.1" a="E"><vh>@path ./../content</vh>
-<v t="amd.20160106093454.1" a="E"><vh>40323230 網誌文章</vh>
+<v t="amd.20160106093454.1" a="E"><vh>user 網誌文章</vh>
 <v t="amd.20160106093510.1" a="E"><vh>201607</vh>
-<v t="amd.20160106093531.1" a="E"><vh>w2</vh>
-<v t="leo.20160702131016.1"><vh>@edit 40323230_20160702.md</vh></v>
-</v>
-<v t="leo.20160703102920.1" a="E"><vh>w3</vh>
-<v t="leo.20160703102920.2"><vh>@edit 40323230_20160703.md</vh></v>
-<v t="leo.20160703183352.1"><vh>@edit 40323230_20160703-2.md</vh></v>
-<v t="leo.20160704102804.1"><vh>@edit 40323230_20160704.md</vh></v>
-<v t="leo.20160704205512.1"><vh>@edit 40323230_20160704-2.md</vh></v>
+<v t="amd.20160106093531.1" a="E"><vh>w1 - 文章務必要冠上用戶名稱</vh>
+<v t="leo.20160704141133.1"><vh>@edit 40323218_20160704.md</vh></v>
 </v>
 </v>
 </v>
@@ -159,15 +153,17 @@ import os
 #os.system("pelican content -o ./ -s publishconf.py -t theme/pelican-bootstrap3")
 os.system("pelican content -o blog -s publishconf.py")
 g.es("admin pelican 執行完畢")
+
 </t>
 <t tx="leo.20151213085727.1">@language python
 import os
 #os.system("pelican content -o output -s local_publishconf.py -t theme/pelican-bootstrap3")
 os.system("pelican content -o blog -s local_publishconf.py")
 g.es("admin pelican 近端執行完畢")
+
+
 </t>
 <t tx="leo.20151213173811.1"></t>
 <t tx="leo.20151213173830.1"></t>
-<t tx="leo.20160703102920.1"></t>
 </tnodes>
 </leo_file>

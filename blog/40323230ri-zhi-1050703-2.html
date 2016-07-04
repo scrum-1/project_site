@@ -329,16 +329,27 @@ init_mathjax();
 
 <h2>使用CMake連接Solvespace原始碼 :</h2>
 
-<p>下載了放在140.130.17.17/public/Netbeans/的可攜式環境，也裝入了Netbeans套件，不過還尚未使用。</p>
+<p>下載了放在140.130.17.17/public/Netbeans/的可攜式環境git2016，該環境使用的是W:磁碟機，不會和撰寫網誌的Y:環境衝突，可以同時開啟，。之後放入了Netbeans套件，不過還尚未使用。</p>
 <p>在新的可攜式環境中存入了從GitHub下載的Solvespace的原始碼，並依照其Readme的方式，用git submodule update --init指令更新模組，並存了一個備份檔。</p>
 <p>CMake的方面使用可攜版的Zip檔，而非Msi安裝。將CMake放在W:的根目錄下。相較於使用指令，因為可攜式環境沒辦法呼叫外部程式支援，所以用cmake-gui.exe圖形介面來設定相關環境。</p>
 <p><img src="http://i.imgur.com/nk3qTV4.jpg" ></p>
 <p>一開始對cmake-gui.exe的兩個位置指向不太清楚，所以嘗試了很多次。</p>
-<p>要在Solvespace的目錄中建立一個/build資料夾，以存放binaries。Source code的部分是填程式專案的目錄，binaries的地方填/build資料夾，再按Configure鈕設定編譯器，完成後會設置CMake的檔案。雖然之前的目錄已經有檔案了，但是如果binaries直接設目錄內，貌似會衝突產生問題，也無法復原設定檔，幸好有先備份資料能復原。</p>
-<p>Configure的部分選擇Specify native compilers來自訂編譯器，我是選用可攜系統的SciTE，安裝版的可以使用Visual Studio或其他的編譯器來撰寫。</p>
-<p><img src="http://i.imgur.com/Wa8VWsa.jpg" ></p>
+<p>要在Solvespace的目錄中建立一個/build資料夾，以存放binaries。</p>
+<p>Source code的部分是填程式專案的目錄，binaries的地方填/build資料夾，再按Configure鈕設定編譯器，完成後會設置CMake的檔案。</p>
+<p>雖然之前的目錄已經有檔案了，但是如果binaries直接設目錄內，貌似會衝突產生問題，也無法復原設定檔，幸好有先備份資料能復原。</p>
+<p>Configure的部分嘗試選擇MinGW的選項。</p>
+<p><img src="http://imgur.com/5br2VyW" ></p>
+<p>下面則選Specify native compilers來自訂編譯器位置，這時執行出現一個錯誤，無法執行MinGW。</p>
+<p><img src="http://imgur.com/OljnPa7" ></p>
+<p>上網尋找似乎要修改系統環境參數到MinGW的bin資料夾才找的到原本就存在的libgmp-10.dll，不知道可攜式環境有沒有其他解法。</p>
 <hr>
 
+<p><img src="http://i.imgur.com/TSfLb5n.jpg" ></p>
+<hr>
+
+<p>參考資料：</p>
+<p>1.<a href="https://www.youtube.com/watch?v=gYmgbqGfv-8" title="youtube.com">教學影片-VC</a></p>
+<p>2.<a href="https://www.youtube.com/watch?v=2A-iRgOhL8A" title="youtube.com">教學影片-Mingw</a></p>
 <p>目前還不會使用MinGW或Netbeans套件，所以暫時先放在可攜環境git2016中，之後會找資料學習如何編譯Solvespace的功能。</p>
             </div>
             <!-- /.entry-content -->

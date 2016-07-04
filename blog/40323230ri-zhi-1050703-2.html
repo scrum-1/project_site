@@ -310,7 +310,11 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
+<<<<<<< HEAD
         <i class="fa fa-calendar"></i><time datetime="2016-07-04T14:09:44.010129+08:00"> 週一 04 七月 2016</time>
+=======
+        <i class="fa fa-calendar"></i><time datetime="2016-07-04T15:50:40.912984+08:00"> 週一 04 七月 2016</time>
+>>>>>>> 39856b572527778043196fac294f1d2cf15e8280
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -329,49 +333,31 @@ init_mathjax();
 
 <h2>使用CMake連接Solvespace原始碼 :</h2>
 
-<h3>Readme的GUI build<h3>
+<h3>Readme的GUI build</h3>
 
-下載了放在140.130.17.17/public/Netbeans/的可攜式環境git2016，該環境使用的是W:磁碟機，不會和撰寫網誌的Y:環境衝突，可以同時開啟。之後放入了Netbeans套件，不過還尚未使用。
-
-在新的可攜式環境中存入了從GitHub下載的Solvespace的原始碼，並依照其Readme的方式，用git submodule update --init指令更新模組，並存了一個備份檔。
-
-CMake的方面使用可攜版的Zip檔，而非Msi安裝。將CMake放在W:的根目錄下。相較於使用指令，因為可攜式環境沒辦法呼叫外部程式支援，所以用cmake-gui.exe圖形介面來設定相關環境。
-
-<img src="http://i.imgur.com/nk3qTV4.jpg" >
-
-一開始對cmake-gui.exe的兩個位置指向不太清楚，所以嘗試了很多次。
-
-要在Solvespace的目錄中建立一個/build資料夾，以存放binaries。
-
-Source code的部分是填程式專案的目錄，binaries的地方填/build資料夾，再按Configure鈕設定編譯器，完成後會設置CMake的檔案。
-
-雖然之前的目錄已經有檔案了，但是如果binaries直接設目錄內，貌似會衝突產生問題，也無法復原設定檔，幸好有先備份資料能復原。
-
-Configure的部分嘗試選擇MinGW的選項。
-
-<img src="http://i.imgur.com/5br2VyW.jpg" >
-
-下面則選Specify native compilers來自訂編譯器位置，這時執行出現一個錯誤，無法執行MinGW。
-
-<img src="http://i.imgur.com/OljnPa7.jpg" >
-
-上網尋找似乎要修改系統環境參數到MinGW的bin資料夾才找的到原本就存在的libgmp-10.dll，不知道可攜式環境有沒有其他解法。
-
+<p>下載了放在140.130.17.17/public/Netbeans/的可攜式環境git2016，該環境使用的是W:磁碟機，不會和撰寫網誌的Y:環境衝突，可以同時開啟；但是其一關閉時會把所有cmd關掉。之後放入了Netbeans套件，不過還尚未使用。</p>
+<p>在新的可攜式環境中存入了從GitHub下載的Solvespace的原始碼，並依照其Readme的方式，用git submodule update --init指令更新模組，並存了一個備份檔。</p>
+<p>CMake的方面使用可攜版的Zip檔，而非Msi安裝。將CMake放在W:的根目錄下。相較於使用指令，因為可攜式環境沒辦法呼叫外部程式支援，所以用cmake-gui.exe圖形介面來設定相關環境。</p>
+<p><img src="http://i.imgur.com/nk3qTV4.jpg" ></p>
+<p>一開始對cmake-gui.exe的兩個位置指向不太清楚，所以嘗試了很多次。</p>
+<p>要在Solvespace的目錄中建立一個/build資料夾，以存放binaries。</p>
+<p>Source code的部分是填程式專案的目錄，binaries的地方填/build資料夾，再按Configure鈕設定編譯器，完成後會設置CMake的檔案。</p>
+<p>雖然之前的目錄已經有檔案了，但是如果binaries直接設目錄內，貌似會衝突產生問題，也無法復原設定檔，幸好有先備份資料能復原。</p>
+<p>Configure的部分嘗試選擇MinGW的選項。</p>
+<p><img src="http://i.imgur.com/5br2VyW.jpg" ></p>
+<p>下面則選Specify native compilers來自訂編譯器位置，這時執行出現一個錯誤，無法執行MinGW。</p>
+<p><img src="http://i.imgur.com/OljnPa7.jpg" ></p>
+<p>上網尋找似乎要修改系統環境參數到MinGW的bin資料夾才找的到原本就存在的libgmp-10.dll，不知道可攜式環境有沒有其他解法。</p>
 <hr>
 
-暫時用Visual Studio的設定，但是結果似乎不理想。
-
-<img src="http://i.imgur.com/TSfLb5n.jpg" >
-
+<p>暫時用Visual Studio的設定，但是結果似乎不理想。</p>
+<p><img src="http://i.imgur.com/TSfLb5n.jpg" ></p>
 <hr>
 
-參考資料：
-
-1.[教學影片-Visual Studio](https://www.youtube.com/watch?v=gYmgbqGfv-8"youtube.com")
-
-2.[教學影片-Mingw](https://www.youtube.com/watch?v=2A-iRgOhL8A"youtube.com")
-
-目前還不會使用MinGW或Netbeans套件，所以暫時先放在可攜環境git2016中，之後會找資料學習如何編譯Solvespace的功能。
+<p>參考資料：</p>
+<p>1.<a href="https://www.youtube.com/watch?v=gYmgbqGfv-8" title="youtube.com">教學影片-Visual Studio</a></p>
+<p>2.<a href="https://www.youtube.com/watch?v=2A-iRgOhL8A" title="youtube.com">教學影片-Mingw</a></p>
+<p>目前還不會使用MinGW或Netbeans套件，所以暫時先放在可攜環境git2016中，之後會找資料學習如何編譯Solvespace的功能。</p>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -417,8 +403,13 @@ Configure的部分嘗試選擇MinGW的選項。
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
+<<<<<<< HEAD
                         <a href="http://project.mde.tw/blog/40323218ri-zhi-1050704.html">
                             40323218日誌 - 105/07/04
+=======
+                        <a href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-4ri.html">
+                            40323143 -  日誌  105年7月4日
+>>>>>>> 39856b572527778043196fac294f1d2cf15e8280
                         </a>
                     </li>
                     <li class="list-group-item">
@@ -432,6 +423,7 @@ Configure的部分嘗試選擇MinGW的選項。
                         </a>
                     </li>
                     <li class="list-group-item">
+<<<<<<< HEAD
                         <a href="http://project.mde.tw/blog/yen-solvespace-yu-v-rep-jie-he-ying-yong.html">
                             yen - Solvespace 與 V-rep 結合應用
                         </a>
@@ -439,6 +431,15 @@ Configure的部分嘗試選擇MinGW的選項。
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-de-biao-da-ji-shu-ling-yu-yu-kao-liang-ceng-mian.html">
                             yen - 機械設計專題的表達、技術領域與考量層面
+=======
+                        <a href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-de-biao-da-ji-shu-ling-yu-yu-kao-liang-ceng-mian.html">
+                            yen - 機械設計專題的表達、技術領域與考量層面
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/yen-solvespace-yu-v-rep-jie-he-ying-yong.html">
+                            yen - Solvespace 與 V-rep 結合應用
+>>>>>>> 39856b572527778043196fac294f1d2cf15e8280
                         </a>
                     </li>
                 </ul>

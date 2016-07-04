@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>40323123 - 3d printer - 機械設計專題 (虎尾科大MDE)</title>
+    <title>40323143 - 日誌 105年7月4日 - 機械設計專題 (虎尾科大MDE)</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -166,21 +166,20 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 
-<link rel="canonical" href="http://project.mde.tw/blog/40323123-3d-printer.html">
+<link rel="canonical" href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-4ri.html">
 
-        <meta name="author" content="40323123" />
-        <meta name="keywords" content="3d printer" />
-        <meta name="description" content="raspberry pi connect 3d printer to control the 3d printer" />
+        <meta name="author" content="40323143" />
+        <meta name="keywords" content="範例" />
 
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="40323123 - 3d printer"/>
-        <meta property="og:url" content="http://project.mde.tw/blog/40323123-3d-printer.html"/>
-        <meta property="og:description" content="raspberry pi connect 3d printer to control the 3d printer"/>
+        <meta property="og:title" content="40323143 - 日誌 105年7月4日"/>
+        <meta property="og:url" content="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-4ri.html"/>
+        <meta property="og:description" content=""/>
         <meta property="article:published_time" content="2016-07-04" />
             <meta property="article:section" content="2016g1" />
-            <meta property="article:tag" content="3d printer" />
-            <meta property="article:author" content="40323123" />
+            <meta property="article:tag" content="範例" />
+            <meta property="article:author" content="40323143" />
 
 
     <!-- Bootstrap -->
@@ -296,10 +295,10 @@ init_mathjax();
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="http://project.mde.tw/blog/40323123-3d-printer.html"
+                    <a href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-4ri.html"
                        rel="bookmark"
-                       title="Permalink to 40323123 - 3d printer">
-                        40323123 - 3d printer
+                       title="Permalink to 40323143 - 日誌 105年7月4日">
+                        40323143 -  日誌  105年7月4日
                     </a>
                 </h1>
             </header>
@@ -309,35 +308,34 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-07-04T15:50:40.881983+08:00"> 週一 04 七月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-07-04T16:36:57.813814+08:00"> 週一 04 七月 2016</time>
     </span>
             <span class="label label-default">By</span>
-            <a href="http://project.mde.tw/blog/author/40323123.html"><i class="fa fa-user"></i> 40323123</a>
+            <a href="http://project.mde.tw/blog/author/40323143.html"><i class="fa fa-user"></i> 40323143</a>
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://project.mde.tw/blog/tag/3d-printer.html">3d printer</a>
+	<a href="http://project.mde.tw/blog/tag/fan-li.html">範例</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>raspberry pi  connect 3d printer to control the 3d printer </p>
+                <!-- PELICAN_END_SUMMARY -->
 
-
-<p>遠端控制3D列印
-這邊使用的遠端列印是使用web client控制</p>
-<p>目前有兩套在觀望的系統~
-一個是
-<a href="http://octoprint.org/download/">octopi</a>
-另一個是
-<a href="https://www.astroprint.com/downloads">Astropromt</a></p>
-<p>或者是我們自己寫一套
-兩套皆使用樹梅派當為控制電腦及server
-使用心得:在之前已經有安裝過octopi，使用狀況是不錯，但是gui介面有些許的問題，使用上是沒什麼大礙，在3D printer的控制板，做動方式，像是一般CNC一樣，接收
-G指令
-<a href="http://reprap.org/wiki/G-code">Gcoce 大全</a>
-<a href="http://www.slideshare.net/roboard/3d-printer-marlin">控制系統的code解析</a></p>
-<p>這兩套系統，都有開放原始碼，不過因為解析程式有巨大的阻礙，因為對python和樹梅派不熟悉，導致只會安裝不會自己編譯。</p>
+<p>今天將Onshape平台上的因馬達尺寸測量錯誤導致機械手臂零件與馬達不能配合的錯誤修正，並增加馬達的外部特徵(電線接頭)及新增參數。以及因應手臂上馬達線路的配置改變設計，目前修改的有承臂末端新增一個槽及一個孔。還有嘗試一個夾頭的連桿構想，但是沒有成功。</p>
+<p>備註:</p>
+<p>1.馬達固定端的寬度由和馬達邊相等的20mm改成實際尺寸18mm，因應改變馬達固定孔中心距由原本的12mm變成10mm。</p>
+<p>2.新增arm_fixhole_diameter(承臂及馬達連接孔的孔徑)和arm_fixhole_disdance(承臂及馬達連接孔的中心距)兩個參數，arm_fixhole_diameter=1.5，arm_fixhole_disdance=21。</p>
+<p>3.承臂末端新增一個11*10的槽，以及一個直徑為6的孔。</p>
+<p>4.夾頭的連桿構想在Assembly 3裡，原先想將兩根從動桿分別裝在主動桿不同位置，利用其旋轉時不同的位移來帶動前方橫桿的作動，達成像握住般的夾持，結果兩側的夾持變得太少，所以沒有成功。</p>
+<p>馬達固定孔的尺寸修改</p>
+<p><img src="http://i.imgur.com/Lx2ImtA.png"></p>
+<p>承臂與馬達連接孔尺寸修改</p>
+<p><img src="http://i.imgur.com/Z69YQxk.png"></p>
+<p>夾頭構想圖</p>
+<p><img src="http://i.imgur.com/JdPYWaP.png"></p>
+<p>提問:</p>
+<p>請問有沒有機構能讓有連接線的物體作360度旋轉，卻不會讓線纏住的機構？</p>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -349,8 +347,8 @@ G指令
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'projectmdetw'; // required: replace example with your forum shortname
 
-                    var disqus_identifier = '40323123-3d-printer';
-                var disqus_url = 'http://project.mde.tw/blog/40323123-3d-printer.html';
+                    var disqus_identifier = '40323143-ri-zhi-105nian-7yue-4ri';
+                var disqus_url = 'http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-4ri.html';
 
             var disqus_config = function () {
                 this.language = "en";

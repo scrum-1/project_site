@@ -1,116 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-04T10:31:32+08:00</updated><entry><title>40323230日誌 - 105/07/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050704.html" rel="alternate"></link><updated>2016-07-04T10:31:32+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050704.html</id><summary type="html">&lt;p&gt;改用CMD設定CMake&lt;/p&gt;
-
-
-&lt;h2&gt;CMD命令cmake連接Solvespace原始碼 :&lt;/h2&gt;
-
-&lt;h3&gt;Readme的Command-line build&lt;/h3&gt;
-
-&lt;p&gt;使用可攜式環境的Command Prompt到外部呼叫Visual Studio的vcvarsall.bat。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/F6tBRr1.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;然後為cmake的bin資料夾設定啟動位置(Path4)，可以正常呼叫。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/2h18M7K.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;到CMD中下Readme中提供的指令。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/zpzsMMZ.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;接著下nmake的指令。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/SMlMAQc.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;但是在最後出現一些錯誤，不知道原因為何。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/CZ2wMoU.jpg" &gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;與此同時可以用Visual Studio的相關功能。CMake也算是設定完成了。&lt;/p&gt;
-&lt;p&gt;如果要改用NetBeans，就不用下nmake的指令。&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3&gt;Readme的MSVC build&lt;/h3&gt;
-
-&lt;p&gt;這次也把MinGW的bin設定進啟動位置(Path5)，可以正常呼叫。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/8D6cRvV.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;接著同樣按照Readme的說明用CMD下指令。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/iXmV4cR.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;不過後面的make指令會說無法讀取makefile檔。&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;Readme中說可以使用MinGW，只要確保git和MinGW的gcc在作業環境內就行了。至於gcc的功能繁多，還需要研究一下。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/03-2</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703-2.html" rel="alternate"></link><updated>2016-07-03T18:49:04+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-03:blog/40323230ri-zhi-1050703-2.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace(更新)&lt;/p&gt;
-
-
-&lt;h2&gt;使用CMake連接Solvespace原始碼 :&lt;/h2&gt;
-
-&lt;h3&gt;Readme的GUI build&lt;/h3&gt;
-
-&lt;p&gt;下載了放在140.130.17.17/public/Netbeans/的可攜式環境git2016，該環境使用的是W:磁碟機，不會和撰寫網誌的Y:環境衝突，可以同時開啟；但是其一關閉時會把所有cmd關掉。之後放入了Netbeans套件，不過還尚未使用。&lt;/p&gt;
-&lt;p&gt;在新的可攜式環境中存入了從GitHub下載的Solvespace的原始碼，並依照其Readme的方式，用git submodule update --init指令更新模組，並存了一個備份檔。&lt;/p&gt;
-&lt;p&gt;CMake的方面使用可攜版的Zip檔，而非Msi安裝。將CMake放在W:的根目錄下。相較於使用指令，因為可攜式環境沒辦法呼叫外部程式支援，所以用cmake-gui.exe圖形介面來設定相關環境。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/nk3qTV4.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;一開始對cmake-gui.exe的兩個位置指向不太清楚，所以嘗試了很多次。&lt;/p&gt;
-&lt;p&gt;要在Solvespace的目錄中建立一個/build資料夾，以存放binaries。&lt;/p&gt;
-&lt;p&gt;Source code的部分是填程式專案的目錄，binaries的地方填/build資料夾，再按Configure鈕設定編譯器，完成後會設置CMake的檔案。&lt;/p&gt;
-&lt;p&gt;雖然之前的目錄已經有檔案了，但是如果binaries直接設目錄內，貌似會衝突產生問題，也無法復原設定檔，幸好有先備份資料能復原。&lt;/p&gt;
-&lt;p&gt;Configure的部分嘗試選擇MinGW的選項。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/5br2VyW.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;下面則選Specify native compilers來自訂編譯器位置，這時執行出現一個錯誤，無法執行MinGW。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/OljnPa7.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;上網尋找似乎要修改系統環境參數到MinGW的bin資料夾才找的到原本就存在的libgmp-10.dll，不知道可攜式環境有沒有其他解法。&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;暫時用Visual Studio的設定，但是結果似乎不理想。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/TSfLb5n.jpg" &gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;參考資料：&lt;/p&gt;
-&lt;p&gt;1.&lt;a href="https://www.youtube.com/watch?v=gYmgbqGfv-8" title="youtube.com"&gt;教學影片-Visual Studio&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;2.&lt;a href="https://www.youtube.com/watch?v=2A-iRgOhL8A" title="youtube.com"&gt;教學影片-Mingw&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;目前還不會使用MinGW或Netbeans套件，所以暫時先放在可攜環境git2016中，之後會找資料學習如何編譯Solvespace的功能。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/03</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703.html" rel="alternate"></link><updated>2016-07-03T14:50:30+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-03:blog/40323230ri-zhi-1050703.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace&lt;/p&gt;
-
-
-&lt;h2&gt;編譯 Solvespace 前的準備 :&lt;/h2&gt;
-
-&lt;p&gt;從&lt;a href="http://www.activestate.com/activeperl/downloads" title="activestate.com"&gt;Active State&lt;/a&gt;下載了 ActivePerl，使用的是5.24.0／x64版。&lt;/p&gt;
-&lt;p&gt;從&lt;a href="https://www.visualstudio.com/downloads/download-visual-studio-vs" title="visualstudio.com"&gt;Microsoft&lt;/a&gt;下載並安裝了Visual Studio Professional 2015，安裝好像無法選擇C:以外的磁碟。&lt;/p&gt;
-&lt;p&gt;從&lt;a href="https://github.com/whitequark/solvespace" title="github.com"&gt;GitHub&lt;/a&gt;下載Solvespace的原始碼，另外在&lt;a href="http://solvespace.com/download.pl" title="solvespace.com"&gt;Solvespace&lt;/a&gt;提供下載的頁面中也有一個較舊版的原始碼。&lt;/p&gt;
-&lt;p&gt;裝完之後用Developer Command Prompt切換至專案目錄執行nmake，就能下相關指令了。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/we7AKIF.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;用CMD從安裝目錄的\VC\bin啟動vcvars32.bat，執行nmake好像也可以，不知道其差異性。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/iCFeYAe.jpg" &gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;關於NMAKE的使用方法，找了幾個中國的網站介紹：&lt;/p&gt;
-&lt;p&gt;1.&lt;a href="http://www.cnblogs.com/kekec/archive/2013/04/21/3007277.html" title="cnblogs.com"&gt;NMAKE的指令&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;2.&lt;a href="http://blog.csdn.net/cneaglelee/article/details/11714803" title="csdn.net"&gt;NMAKE的開發環境設置&lt;/a&gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230紀錄</title><link href="http://project.mde.tw/blog/40323230ji-lu.html" rel="alternate"></link><updated>2016-07-02T13:30:01+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-02:blog/40323230ji-lu.html</id><summary type="html">&lt;p&gt;V-REP從範本學得的一些紀錄&lt;/p&gt;
-
-
-&lt;h2&gt;V-REP Example Learning Reviews&lt;/h2&gt;
-
-&lt;p&gt;&lt;/br&gt;
-&lt;h4&gt;嘗試用英文說明&lt;/h4&gt;
-&lt;/br&gt;
-&lt;h2&gt;Notes :&lt;/h2&gt;
-&lt;/br&gt;
-&lt;h3&gt;The "Scene hierarchy" panel can show whole of outward and entity in a tree.&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;
-&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/userInterface.htm#SceneHierarchy" title="coppeliarobotics.com"&gt;Scene hierarchy&lt;/a&gt; Description page
-&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://i.imgur.com/cqIHtFn.jpg" &gt;
-&lt;/br&gt;
-&lt;h3&gt;In this case, a group of parts will in the same level. they are outward, entity and joint parts. Maybe some sensor parts will put into this group.&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;Any parts can insert a script to control them.&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;"Dummy" parts is a calculation module. They are collidable, measurable and detectable like the entity. But now we are't clearly known it's application.&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;
-&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/dummies.htm" title="coppeliarobotics.com"&gt;Dummy&lt;/a&gt; Description page
-&lt;/h3&gt;
-&lt;/br&gt;&lt;hr&gt;&lt;/br&gt;
-&lt;h3&gt;組裝上可以使用「滑塊主動噴頭連動」或「噴頭主動滑塊連動」的方式，但是在從屬關係上必須顛倒，程式寫法也不一樣。「滑塊主動噴頭連動」的方式較符合3D印表機的物理運作。&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://i.imgur.com/caU2SLx.jpg" &gt;
-&lt;/br&gt;&lt;hr&gt;&lt;/br&gt;
-&lt;h3&gt;目前整理完幾何部件的檔案。存於\users\g2_files\VREP_Simulation.ttt中。&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://i.imgur.com/jNvEHRc.jpg" &gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="V-rep"></category></entry><entry><title>40323250日誌 - 105/07/01</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050701.html" rel="alternate"></link><updated>2016-07-02T12:49:15+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-02:blog/40323250ri-zhi-1050701.html</id><summary type="html">&lt;p&gt;V-rep 的使用與學習&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-04T15:50:40+08:00</updated><entry><title>40323250日誌 - 105/07/01</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050701.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323250ri-zhi-1050701.html</id><summary type="html">&lt;p&gt;V-rep 的使用與學習&lt;/p&gt;
 
 
 &lt;h2&gt;★暑期第一個禮拜的 星期四★&lt;/h2&gt;
@@ -250,7 +139,7 @@ a.為orthographic type  及  b.為perspective type&lt;/h3&gt;
 &lt;/br&gt;
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/vision.gif"&gt;
 &lt;/br&gt;
-&lt;/br&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - 105/06/28</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050628.html" rel="alternate"></link><updated>2016-07-01T12:10:06+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-01:blog/40323250ri-zhi-1050628.html</id><summary type="html">&lt;p&gt;暑期第一個禮拜的 星期二&lt;/p&gt;
+&lt;/br&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - 105/06/28</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050628.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323250ri-zhi-1050628.html</id><summary type="html">&lt;p&gt;暑期第一個禮拜的 星期二&lt;/p&gt;
 
 
 &lt;h3&gt;目前組合進度&lt;/h3&gt;
@@ -263,7 +152,7 @@ a.為orthographic type  及  b.為perspective type&lt;/h3&gt;
 &lt;/br&gt;
 &lt;img src="http://i.imgur.com/W3N5pkC.png"&gt;
 &lt;/br&gt;
-&lt;h4&gt;滑鼠選轉及縮放也跟著出問題，點選右方試圖方塊圖又會不見，只能重新再組一次。&lt;/h4&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - 105/06/29</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050629.html" rel="alternate"></link><updated>2016-07-01T12:10:06+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-01:blog/40323250ri-zhi-1050629.html</id><summary type="html">&lt;p&gt;暑期第一個禮拜的 星期三&lt;/p&gt;
+&lt;h4&gt;滑鼠選轉及縮放也跟著出問題，點選右方試圖方塊圖又會不見，只能重新再組一次。&lt;/h4&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - 105/06/29</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050629.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323250ri-zhi-1050629.html</id><summary type="html">&lt;p&gt;暑期第一個禮拜的 星期三&lt;/p&gt;
 
 
 &lt;h3&gt;進度&lt;/h3&gt;
@@ -292,32 +181,7 @@ a.為orthographic type  及  b.為perspective type&lt;/h3&gt;
 &lt;/br&gt;
 &lt;h3&gt;明天應該就可以開始測試模擬了。&lt;/h3&gt;
 &lt;/br&gt;
-&lt;h3&gt;Onshape零件及兩個stl檔案都放在users/g2_files目錄下，歡迎取用。&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>Summer Plan</title><link href="http://project.mde.tw/blog/summer-plan.html" rel="alternate"></link><updated>2016-07-01T12:10:06+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-01:blog/summer-plan.html</id><summary type="html">&lt;p&gt;Summer project&lt;/p&gt;
-
-
-&lt;p&gt;1.畫3D Printer (V-rep ,Onshape)&lt;/p&gt;
-
-&lt;p&gt;2.實驗室網站介面&lt;/p&gt;
-
-&lt;p&gt;3.Octopi ,機械手臂&lt;/p&gt;
-
-&lt;p&gt;4.OpenCV &lt;/p&gt;
-
-&lt;p&gt;5.RGA演算&lt;/p&gt;
-
-&lt;p&gt;6.認證主機(Virtual Box)&lt;/p&gt;
-
-&lt;p&gt;7.Proxy&lt;/p&gt;
-
-&lt;p&gt;8.報告(拍照 ,內容整理)&lt;/p&gt;
-
-&lt;p&gt;9.找碩班教授&lt;/p&gt;
-
-&lt;p&gt;&lt;/br&gt;
-&lt;p&gt;暑期人數 : &lt;/p&gt;
-&lt;p&gt;七月:第一組3人 ,第二組4人&lt;/p&gt;
-&lt;p&gt;八月:第一組3人 ,第二組4人 ,第三組1人&lt;/p&gt;
-&lt;p&gt;&lt;font size="5" face="Arial"&gt;&lt;marquee border="0" scrollamount="50" behavior="alternate"&gt;You can't see me&lt;/marquee&gt;&lt;/font&gt;&lt;/p&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>OpenCv範例執行</title><link href="http://project.mde.tw/blog/opencvfan-li-zhi-xing.html" rel="alternate"></link><updated>2016-07-01T12:10:06+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-01:blog/opencvfan-li-zhi-xing.html</id><summary type="html">&lt;p&gt;OpenCv example with python test&lt;/p&gt;
+&lt;h3&gt;Onshape零件及兩個stl檔案都放在users/g2_files目錄下，歡迎取用。&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>OpenCv範例執行</title><link href="http://project.mde.tw/blog/opencvfan-li-zhi-xing.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-04:blog/opencvfan-li-zhi-xing.html</id><summary type="html">&lt;p&gt;OpenCv example with python test&lt;/p&gt;
 
 
 &lt;h3&gt;實作系統Ubuntu 14.04 以及 老師整合的檔案&lt;/h3&gt;
@@ -391,4 +255,140 @@ out.release()
 cv2.destroyAllWindows()
 &lt;/pre&gt;
 &lt;h3&gt;執行結果&lt;/h3&gt;
-&lt;h4&gt;得到檔案名稱為output的avi影片檔&lt;/h4&gt;&lt;/p&gt;</summary><category term="OpenCv"></category></entry></feed>
+&lt;h4&gt;得到檔案名稱為output的avi影片檔&lt;/h4&gt;&lt;/p&gt;</summary><category term="OpenCv"></category></entry><entry><title>Summer Plan</title><link href="http://project.mde.tw/blog/summer-plan.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-04:blog/summer-plan.html</id><summary type="html">&lt;p&gt;Summer project&lt;/p&gt;
+
+
+&lt;p&gt;1.畫3D Printer (V-rep ,Onshape)&lt;/p&gt;
+
+&lt;p&gt;2.實驗室網站介面&lt;/p&gt;
+
+&lt;p&gt;3.Octopi ,機械手臂&lt;/p&gt;
+
+&lt;p&gt;4.OpenCV &lt;/p&gt;
+
+&lt;p&gt;5.RGA演算&lt;/p&gt;
+
+&lt;p&gt;6.認證主機(Virtual Box)&lt;/p&gt;
+
+&lt;p&gt;7.Proxy&lt;/p&gt;
+
+&lt;p&gt;8.報告(拍照 ,內容整理)&lt;/p&gt;
+
+&lt;p&gt;9.找碩班教授&lt;/p&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;p&gt;暑期人數 : &lt;/p&gt;
+&lt;p&gt;七月:第一組3人 ,第二組4人&lt;/p&gt;
+&lt;p&gt;八月:第一組3人 ,第二組4人 ,第三組1人&lt;/p&gt;
+&lt;p&gt;&lt;font size="5" face="Arial"&gt;&lt;marquee border="0" scrollamount="50" behavior="alternate"&gt;You can't see me&lt;/marquee&gt;&lt;/font&gt;&lt;/p&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230紀錄</title><link href="http://project.mde.tw/blog/40323230ji-lu.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ji-lu.html</id><summary type="html">&lt;p&gt;V-REP從範本學得的一些紀錄&lt;/p&gt;
+
+
+&lt;h2&gt;V-REP Example Learning Reviews&lt;/h2&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;h4&gt;嘗試用英文說明&lt;/h4&gt;
+&lt;/br&gt;
+&lt;h2&gt;Notes :&lt;/h2&gt;
+&lt;/br&gt;
+&lt;h3&gt;The "Scene hierarchy" panel can show whole of outward and entity in a tree.&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;
+&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/userInterface.htm#SceneHierarchy" title="coppeliarobotics.com"&gt;Scene hierarchy&lt;/a&gt; Description page
+&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/cqIHtFn.jpg" &gt;
+&lt;/br&gt;
+&lt;h3&gt;In this case, a group of parts will in the same level. they are outward, entity and joint parts. Maybe some sensor parts will put into this group.&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;Any parts can insert a script to control them.&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;"Dummy" parts is a calculation module. They are collidable, measurable and detectable like the entity. But now we are't clearly known it's application.&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;
+&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/dummies.htm" title="coppeliarobotics.com"&gt;Dummy&lt;/a&gt; Description page
+&lt;/h3&gt;
+&lt;/br&gt;&lt;hr&gt;&lt;/br&gt;
+&lt;h3&gt;組裝上可以使用「滑塊主動噴頭連動」或「噴頭主動滑塊連動」的方式，但是在從屬關係上必須顛倒，程式寫法也不一樣。「滑塊主動噴頭連動」的方式較符合3D印表機的物理運作。&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/caU2SLx.jpg" &gt;
+&lt;/br&gt;&lt;hr&gt;&lt;/br&gt;
+&lt;h3&gt;目前整理完幾何部件的檔案。存於\users\g2_files\VREP_Simulation.ttt中。&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/jNvEHRc.jpg" &gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="V-rep"></category></entry><entry><title>40323230日誌 - 105/07/03</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050703.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace&lt;/p&gt;
+
+
+&lt;h2&gt;編譯 Solvespace 前的準備 :&lt;/h2&gt;
+
+&lt;p&gt;從&lt;a href="http://www.activestate.com/activeperl/downloads" title="activestate.com"&gt;Active State&lt;/a&gt;下載了 ActivePerl，使用的是5.24.0／x64版。&lt;/p&gt;
+&lt;p&gt;從&lt;a href="https://www.visualstudio.com/downloads/download-visual-studio-vs" title="visualstudio.com"&gt;Microsoft&lt;/a&gt;下載並安裝了Visual Studio Professional 2015，安裝好像無法選擇C:以外的磁碟。&lt;/p&gt;
+&lt;p&gt;從&lt;a href="https://github.com/whitequark/solvespace" title="github.com"&gt;GitHub&lt;/a&gt;下載Solvespace的原始碼，另外在&lt;a href="http://solvespace.com/download.pl" title="solvespace.com"&gt;Solvespace&lt;/a&gt;提供下載的頁面中也有一個較舊版的原始碼。&lt;/p&gt;
+&lt;p&gt;裝完之後用Developer Command Prompt切換至專案目錄執行nmake，就能下相關指令了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/we7AKIF.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;用CMD從安裝目錄的\VC\bin啟動vcvars32.bat，執行nmake好像也可以，不知道其差異性。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/iCFeYAe.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;關於NMAKE的使用方法，找了幾個中國的網站介紹：&lt;/p&gt;
+&lt;p&gt;1.&lt;a href="http://www.cnblogs.com/kekec/archive/2013/04/21/3007277.html" title="cnblogs.com"&gt;NMAKE的指令&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2.&lt;a href="http://blog.csdn.net/cneaglelee/article/details/11714803" title="csdn.net"&gt;NMAKE的開發環境設置&lt;/a&gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/03-2</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703-2.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050703-2.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace(更新)&lt;/p&gt;
+
+
+&lt;h2&gt;使用CMake連接Solvespace原始碼 :&lt;/h2&gt;
+
+&lt;h3&gt;Readme的GUI build&lt;/h3&gt;
+
+&lt;p&gt;下載了放在140.130.17.17/public/Netbeans/的可攜式環境git2016，該環境使用的是W:磁碟機，不會和撰寫網誌的Y:環境衝突，可以同時開啟；但是其一關閉時會把所有cmd關掉。之後放入了Netbeans套件，不過還尚未使用。&lt;/p&gt;
+&lt;p&gt;在新的可攜式環境中存入了從GitHub下載的Solvespace的原始碼，並依照其Readme的方式，用git submodule update --init指令更新模組，並存了一個備份檔。&lt;/p&gt;
+&lt;p&gt;CMake的方面使用可攜版的Zip檔，而非Msi安裝。將CMake放在W:的根目錄下。相較於使用指令，因為可攜式環境沒辦法呼叫外部程式支援，所以用cmake-gui.exe圖形介面來設定相關環境。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/nk3qTV4.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;一開始對cmake-gui.exe的兩個位置指向不太清楚，所以嘗試了很多次。&lt;/p&gt;
+&lt;p&gt;要在Solvespace的目錄中建立一個/build資料夾，以存放binaries。&lt;/p&gt;
+&lt;p&gt;Source code的部分是填程式專案的目錄，binaries的地方填/build資料夾，再按Configure鈕設定編譯器，完成後會設置CMake的檔案。&lt;/p&gt;
+&lt;p&gt;雖然之前的目錄已經有檔案了，但是如果binaries直接設目錄內，貌似會衝突產生問題，也無法復原設定檔，幸好有先備份資料能復原。&lt;/p&gt;
+&lt;p&gt;Configure的部分嘗試選擇MinGW的選項。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/5br2VyW.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;下面則選Specify native compilers來自訂編譯器位置，這時執行出現一個錯誤，無法執行MinGW。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/OljnPa7.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;上網尋找似乎要修改系統環境參數到MinGW的bin資料夾才找的到原本就存在的libgmp-10.dll，不知道可攜式環境有沒有其他解法。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;暫時用Visual Studio的設定，但是結果似乎不理想。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/TSfLb5n.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;參考資料：&lt;/p&gt;
+&lt;p&gt;1.&lt;a href="https://www.youtube.com/watch?v=gYmgbqGfv-8" title="youtube.com"&gt;教學影片-Visual Studio&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2.&lt;a href="https://www.youtube.com/watch?v=2A-iRgOhL8A" title="youtube.com"&gt;教學影片-Mingw&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;目前還不會使用MinGW或Netbeans套件，所以暫時先放在可攜環境git2016中，之後會找資料學習如何編譯Solvespace的功能。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050704.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050704.html</id><summary type="html">&lt;p&gt;改用CMD設定CMake&lt;/p&gt;
+
+
+&lt;h2&gt;CMD命令cmake連接Solvespace原始碼 :&lt;/h2&gt;
+
+&lt;h3&gt;Readme的Command-line build&lt;/h3&gt;
+
+&lt;p&gt;使用可攜式環境的Command Prompt到外部呼叫Visual Studio的vcvarsall.bat。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/F6tBRr1.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;然後為cmake的bin資料夾設定啟動位置(Path4)，可以正常呼叫。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/2h18M7K.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;到CMD中下Readme中提供的指令。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/zpzsMMZ.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;接著下nmake的指令。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/SMlMAQc.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;但是在最後出現一些錯誤，不知道原因為何。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/CZ2wMoU.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;與此同時可以用Visual Studio的相關功能。CMake也算是設定完成了。&lt;/p&gt;
+&lt;p&gt;如果要改用NetBeans，就不用下nmake的指令。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3&gt;Readme的MSVC build&lt;/h3&gt;
+
+&lt;p&gt;這次也把MinGW的bin設定進啟動位置(Path5)，可以正常呼叫。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/8D6cRvV.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;接著同樣按照Readme的說明用CMD下指令。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/iXmV4cR.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;不過後面的make指令會說無法讀取makefile檔。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;Readme中說可以使用MinGW，只要確保git和MinGW的gcc在作業環境內就行了。至於gcc的功能繁多，還需要研究一下。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry></feed>

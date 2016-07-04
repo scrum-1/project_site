@@ -1,32 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-03T18:49:04+08:00</updated><entry><title>40323230日誌 - 105/07/03-2</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703-2.html" rel="alternate"></link><updated>2016-07-03T18:49:04+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-03:blog/40323230ri-zhi-1050703-2.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace(更新)&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-04T10:31:32+08:00</updated><entry><title>40323230日誌 - 105/07/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050704.html" rel="alternate"></link><updated>2016-07-04T10:31:32+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050704.html</id><summary type="html">&lt;p&gt;將CMake的編譯器設定成MinGW&lt;/p&gt;
+
+
+&lt;h2&gt;CMD命令cmake連接Solvespace原始碼 :&lt;/h2&gt;
+
+&lt;h3&gt;Readme的Command-line build&lt;h3&gt;
+
+使用可攜式環境的Command Prompt到外部呼叫Visual Studio的vcvarsall.bat。
+
+&lt;img src="http://i.imgur.com/F6tBRr1.jpg" &gt;
+
+然後為cmake的bin資料夾設定啟動位置(Path4)，可以正常呼叫。
+
+&lt;img src="http://i.imgur.com/2h18M7K.jpg" &gt;
+
+到CMD中下Readme中提供的指令。
+
+&lt;img src="http://i.imgur.com/zpzsMMZ.jpg" &gt;
+
+接著下nmake的指令。
+
+&lt;img src="http://i.imgur.com/SMlMAQc.jpg" &gt;
+
+但是在最後出現一些錯誤，不知道原因為何。
+
+&lt;img src="http://i.imgur.com/CZ2wMoU.jpg" &gt;
+
+&lt;hr&gt;
+
+與此同時可以用Visual Studio的相關功能。CMake也算是設定完成了。
+
+如果要改用NetBeans，就不用下nmake的指令。只是MinGW的用法仍不太了解。</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/03-2</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703-2.html" rel="alternate"></link><updated>2016-07-03T18:49:04+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-03:blog/40323230ri-zhi-1050703-2.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace(更新)&lt;/p&gt;
 
 
 &lt;h2&gt;使用CMake連接Solvespace原始碼 :&lt;/h2&gt;
 
-&lt;p&gt;下載了放在140.130.17.17/public/Netbeans/的可攜式環境git2016，該環境使用的是W:磁碟機，不會和撰寫網誌的Y:環境衝突，可以同時開啟。之後放入了Netbeans套件，不過還尚未使用。&lt;/p&gt;
-&lt;p&gt;在新的可攜式環境中存入了從GitHub下載的Solvespace的原始碼，並依照其Readme的方式，用git submodule update --init指令更新模組，並存了一個備份檔。&lt;/p&gt;
-&lt;p&gt;CMake的方面使用可攜版的Zip檔，而非Msi安裝。將CMake放在W:的根目錄下。相較於使用指令，因為可攜式環境沒辦法呼叫外部程式支援，所以用cmake-gui.exe圖形介面來設定相關環境。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/nk3qTV4.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;一開始對cmake-gui.exe的兩個位置指向不太清楚，所以嘗試了很多次。&lt;/p&gt;
-&lt;p&gt;要在Solvespace的目錄中建立一個/build資料夾，以存放binaries。&lt;/p&gt;
-&lt;p&gt;Source code的部分是填程式專案的目錄，binaries的地方填/build資料夾，再按Configure鈕設定編譯器，完成後會設置CMake的檔案。&lt;/p&gt;
-&lt;p&gt;雖然之前的目錄已經有檔案了，但是如果binaries直接設目錄內，貌似會衝突產生問題，也無法復原設定檔，幸好有先備份資料能復原。&lt;/p&gt;
-&lt;p&gt;Configure的部分嘗試選擇MinGW的選項。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/5br2VyW.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;下面則選Specify native compilers來自訂編譯器位置，這時執行出現一個錯誤，無法執行MinGW。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/OljnPa7.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;上網尋找似乎要修改系統環境參數到MinGW的bin資料夾才找的到原本就存在的libgmp-10.dll，不知道可攜式環境有沒有其他解法。&lt;/p&gt;
+&lt;h3&gt;Readme的GUI build&lt;h3&gt;
+
+下載了放在140.130.17.17/public/Netbeans/的可攜式環境git2016，該環境使用的是W:磁碟機，不會和撰寫網誌的Y:環境衝突，可以同時開啟。之後放入了Netbeans套件，不過還尚未使用。
+
+在新的可攜式環境中存入了從GitHub下載的Solvespace的原始碼，並依照其Readme的方式，用git submodule update --init指令更新模組，並存了一個備份檔。
+
+CMake的方面使用可攜版的Zip檔，而非Msi安裝。將CMake放在W:的根目錄下。相較於使用指令，因為可攜式環境沒辦法呼叫外部程式支援，所以用cmake-gui.exe圖形介面來設定相關環境。
+
+&lt;img src="http://i.imgur.com/nk3qTV4.jpg" &gt;
+
+一開始對cmake-gui.exe的兩個位置指向不太清楚，所以嘗試了很多次。
+
+要在Solvespace的目錄中建立一個/build資料夾，以存放binaries。
+
+Source code的部分是填程式專案的目錄，binaries的地方填/build資料夾，再按Configure鈕設定編譯器，完成後會設置CMake的檔案。
+
+雖然之前的目錄已經有檔案了，但是如果binaries直接設目錄內，貌似會衝突產生問題，也無法復原設定檔，幸好有先備份資料能復原。
+
+Configure的部分嘗試選擇MinGW的選項。
+
+&lt;img src="http://i.imgur.com/5br2VyW.jpg" &gt;
+
+下面則選Specify native compilers來自訂編譯器位置，這時執行出現一個錯誤，無法執行MinGW。
+
+&lt;img src="http://i.imgur.com/OljnPa7.jpg" &gt;
+
+上網尋找似乎要修改系統環境參數到MinGW的bin資料夾才找的到原本就存在的libgmp-10.dll，不知道可攜式環境有沒有其他解法。
+
 &lt;hr&gt;
 
-&lt;p&gt;暫時用Visual Studio的設定，但是結果似乎不理想。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/TSfLb5n.jpg" &gt;&lt;/p&gt;
+暫時用Visual Studio的設定，但是結果似乎不理想。
+
+&lt;img src="http://i.imgur.com/TSfLb5n.jpg" &gt;
+
 &lt;hr&gt;
 
-&lt;p&gt;參考資料：&lt;/p&gt;
-&lt;p&gt;1.&lt;a href="https://www.youtube.com/watch?v=gYmgbqGfv-8" title="youtube.com"&gt;教學影片-Visual Studio&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;2.&lt;a href="https://www.youtube.com/watch?v=2A-iRgOhL8A" title="youtube.com"&gt;教學影片-Mingw&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;目前還不會使用MinGW或Netbeans套件，所以暫時先放在可攜環境git2016中，之後會找資料學習如何編譯Solvespace的功能。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/03</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703.html" rel="alternate"></link><updated>2016-07-03T14:50:30+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-03:blog/40323230ri-zhi-1050703.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace&lt;/p&gt;
+參考資料：
+
+1.[教學影片-Visual Studio](https://www.youtube.com/watch?v=gYmgbqGfv-8"youtube.com")
+
+2.[教學影片-Mingw](https://www.youtube.com/watch?v=2A-iRgOhL8A"youtube.com")
+
+目前還不會使用MinGW或Netbeans套件，所以暫時先放在可攜環境git2016中，之後會找資料學習如何編譯Solvespace的功能。</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/03</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703.html" rel="alternate"></link><updated>2016-07-03T14:50:30+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-03:blog/40323230ri-zhi-1050703.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace&lt;/p&gt;
 
 
 &lt;h2&gt;編譯 Solvespace 前的準備 :&lt;/h2&gt;

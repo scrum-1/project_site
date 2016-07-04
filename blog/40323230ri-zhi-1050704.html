@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>user - 使用者的範例網誌文章標題 - 機械設計專題 (虎尾科大MDE)</title>
+    <title>40323230日誌 - 105/07/04 - 機械設計專題 (虎尾科大MDE)</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -166,21 +166,22 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 
-<link rel="canonical" href="http://project.mde.tw/blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html">
+<link rel="canonical" href="http://project.mde.tw/blog/40323230ri-zhi-1050704.html">
 
-        <meta name="author" content="user" />
-        <meta name="keywords" content="範例" />
-        <meta name="description" content="這裡放入 user 所寫的文章摘要" />
+        <meta name="author" content="40323230" />
+        <meta name="keywords" content="Kmol,Solvespace" />
+        <meta name="description" content="將CMake的編譯器設定成MinGW" />
 
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="user - 使用者的範例網誌文章標題"/>
-        <meta property="og:url" content="http://project.mde.tw/blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html"/>
-        <meta property="og:description" content="這裡放入 user 所寫的文章摘要"/>
-        <meta property="article:published_time" content="2016-07-01" />
-            <meta property="article:section" content="Tutorial" />
-            <meta property="article:tag" content="範例" />
-            <meta property="article:author" content="user" />
+        <meta property="og:title" content="40323230日誌 - 105/07/04"/>
+        <meta property="og:url" content="http://project.mde.tw/blog/40323230ri-zhi-1050704.html"/>
+        <meta property="og:description" content="將CMake的編譯器設定成MinGW"/>
+        <meta property="article:published_time" content="2016-07-04" />
+            <meta property="article:section" content="2016bg2" />
+            <meta property="article:tag" content="Kmol" />
+            <meta property="article:tag" content="Solvespace" />
+            <meta property="article:author" content="40323230" />
 
 
     <!-- Bootstrap -->
@@ -261,7 +262,7 @@ init_mathjax();
                          <li><a href="http://project.mde.tw/blog/pages/about/">
                              About
                           </a></li>
-                        <li >
+                        <li class="active">
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
                         <li >
@@ -270,7 +271,7 @@ init_mathjax();
                         <li >
                             <a href="http://project.mde.tw/blog/category/misc.html">Misc</a>
                         </li>
-                        <li class="active">
+                        <li >
                             <a href="http://project.mde.tw/blog/category/tutorial.html">Tutorial</a>
                         </li>
             </ul>
@@ -296,10 +297,10 @@ init_mathjax();
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="http://project.mde.tw/blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html"
+                    <a href="http://project.mde.tw/blog/40323230ri-zhi-1050704.html"
                        rel="bookmark"
-                       title="Permalink to user - 使用者的範例網誌文章標題">
-                        user - 使用者的範例網誌文章標題
+                       title="Permalink to 40323230日誌 - 105/07/04">
+                        40323230日誌 - 105/07/04
                     </a>
                 </h1>
             </header>
@@ -309,22 +310,52 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-07-01T12:10:06.032354+08:00"> 週五 01 七月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-07-04T10:31:32.672934+08:00"> 週一 04 七月 2016</time>
     </span>
             <span class="label label-default">By</span>
-            <a href="http://project.mde.tw/blog/author/user.html"><i class="fa fa-user"></i> user</a>
+            <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://project.mde.tw/blog/tag/fan-li.html">範例</a>
+	<a href="http://project.mde.tw/blog/tag/kmol.html">Kmol</a>
+        /
+	<a href="http://project.mde.tw/blog/tag/solvespace.html">Solvespace</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>這裡放入 user 所寫的文章摘要</p>
+                <p>將CMake的編譯器設定成MinGW</p>
 
 
-<p>這裡為 user 所寫的文章主要內容</p>
+<h2>CMD命令cmake連接Solvespace原始碼 :</h2>
+
+<h3>Readme的Command-line build<h3>
+
+使用可攜式環境的Command Prompt到外部呼叫Visual Studio的vcvarsall.bat。
+
+<img src="http://i.imgur.com/F6tBRr1.jpg" >
+
+然後為cmake的bin資料夾設定啟動位置(Path4)，可以正常呼叫。
+
+<img src="http://i.imgur.com/2h18M7K.jpg" >
+
+到CMD中下Readme中提供的指令。
+
+<img src="http://i.imgur.com/zpzsMMZ.jpg" >
+
+接著下nmake的指令。
+
+<img src="http://i.imgur.com/SMlMAQc.jpg" >
+
+但是在最後出現一些錯誤，不知道原因為何。
+
+<img src="http://i.imgur.com/CZ2wMoU.jpg" >
+
+<hr>
+
+與此同時可以用Visual Studio的相關功能。CMake也算是設定完成了。
+
+如果要改用NetBeans，就不用下nmake的指令。只是MinGW的用法仍不太了解。
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -336,8 +367,8 @@ init_mathjax();
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'projectmdetw'; // required: replace example with your forum shortname
 
-                    var disqus_identifier = 'user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti';
-                var disqus_url = 'http://project.mde.tw/blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html';
+                    var disqus_identifier = '40323230ri-zhi-1050704';
+                var disqus_url = 'http://project.mde.tw/blog/40323230ri-zhi-1050704.html';
 
             var disqus_config = function () {
                 this.language = "en";

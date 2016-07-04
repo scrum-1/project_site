@@ -309,7 +309,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-07-04T22:26:52.559010+08:00"> 週一 04 七月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-07-04T23:56:38.565362+08:00"> 週一 04 七月 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323218.html"><i class="fa fa-user"></i> 40323218</a>
@@ -327,7 +327,7 @@ init_mathjax();
 <h3>熟悉 V-Rep 基本操作</h3>
 
 <p><br>
-<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2//40323218/introduce1.png" weight=600 >
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/introduce1.PNG">
 <br>
 <h3>1. 2D移動<br>
 2. 3D旋轉<br>
@@ -343,15 +343,15 @@ init_mathjax();
 <br>
 <h3>嘗試製作 one_link_robot</h3>
 <br>
-<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2//40323218/step1.png" weight=600 >
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step1.png" weight=600 >
 <br>
 <h3>File→import→Mesh...(從資料夾中輸入 stl檔)</h3>
 <br>
 <h3>選擇單位和方向</h3>
 <br>
-<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2//40323218/step3.png" weight=600 >
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step3.png" weight=600 >
 <br>
-<h3>點選物體使用object shift,調整Z軸距離</h3>
+<h3>點選物體使用"object shift"調整Z軸距離</h3>
 <br>
 <h3>點選物體 右鍵→Edit→Grouping/Merging→Divide selected shapes(使物體解體)</h3>
 <br>
@@ -361,13 +361,33 @@ init_mathjax();
 <br>
 <h3>接著點下面 Show dynamic properties dialog , 打勾Motor enabled 和 Lock motor ...
 <br>
-<h3>再來點旋轉軸 , Ctrl+左鍵點圓柱 , 使用 object shift 在XYZ都點Apply to selection , 在 Orientation/Rotations 也點 Apply , 使兩軸重疊</h3>
+<h3>再來點旋轉軸 , Ctrl+左鍵點圓柱 , 使用"object shift"在XYZ都點Apply to selection , 在"Orientation/Rotations"也點 Apply , 使兩軸重疊</h3>
 <br>
-<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2//40323218/step6.png" weight=600 >
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step6.png" weight=600 >
 <br>
 <h3>點選圓柱 icon , 點最下面Show dynamic properties dialog , 打勾Body is dynamic(使物體可作動)
 </h3>
-<br></p>
+<br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step7.png" weight=600 >
+<br>
+<h3>
+使圓柱降階成為旋轉軸的Child<br>
+使旋轉物降階成為圓柱的Child<br>
+使旋轉軸降階成為底座的Child</h3>
+<br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step8.png" weight=600 >
+<br>
+<h3>按左側"Script" →Insert new script→Script type 選擇 Child script (threaded) , 下方 Associated object 選擇底座.</h3>
+<br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step9.png" weight=600 >
+<br>
+<h3>double - click the child script,  在最下面加上SimExtRemoteApiStart(19999)(參考老師範例研究中) </h3>
+<br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/Round.gif" weight=600 >
+<br>
+<h3>點選"Start simulation" 啟動模擬 , 用SciTE 開啟老師的檔案 one_link_robot_remoteAPI.py , F5執行就會轉囉~~</h3></p>
+<h3>製作影片：</h3>
+
 <iframe src="https://player.vimeo.com/video/173321561" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 
 <p><p><a href="https://vimeo.com/173321561">V-Rep one_link_robot</a> from <a href="https://vimeo.com/user44943624">Li Steven</a> on <a href="https://vimeo.com">Vimeo</a>.</p></p>
@@ -416,28 +436,28 @@ init_mathjax();
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323218ri-zhi-1050704.html">
-                            40323218日誌 - 105/07/04
+                        <a href="http://project.mde.tw/blog/yen-rga-ji-yin-yan-suan-fa.html">
+                            yen - RGA 基因演算法
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-4ri.html">
-                            40323143 -  日誌  105年7月4日
+                        <a href="http://project.mde.tw/blog/yen-ru-he-jian-li-yi-hao-de-wordpress-wang-zhan.html">
+                            yen - 如何建立一好的 Wordpress 網站
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1050704-2.html">
-                            40323230日誌 - 105/07/04-2
+                        <a href="http://project.mde.tw/blog/yen-solvespace-yu-v-rep-jie-he-ying-yong.html">
+                            yen - Solvespace 與 V-rep 結合應用
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1050704.html">
-                            40323230日誌 - 105/07/04
+                        <a href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-de-biao-da-ji-shu-ling-yu-yu-kao-liang-ceng-mian.html">
+                            yen - 機械設計專題的表達、技術領域與考量層面
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323131ri-zhi-1050703.html">
-                            40323131日誌 105/07/03
+                        <a href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-xue-yuan-de-sui-shen-jupyter-hub.html">
+                            yen - 機械設計專題學員的隨身 Jupyter hub
                         </a>
                     </li>
                 </ul>

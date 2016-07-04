@@ -19,6 +19,7 @@
 &lt;p&gt;上網尋找似乎要修改系統環境參數到MinGW的bin資料夾才找的到原本就存在的libgmp-10.dll，不知道可攜式環境有沒有其他解法。&lt;/p&gt;
 &lt;hr&gt;
 
+&lt;p&gt;暫時用VC的設定，但是結果似乎不理想。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/TSfLb5n.jpg" &gt;&lt;/p&gt;
 &lt;hr&gt;
 

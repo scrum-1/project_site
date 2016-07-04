@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-04T10:31:32+08:00</updated><entry><title>40323230日誌 - 105/07/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050704.html" rel="alternate"></link><updated>2016-07-04T10:31:32+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050704.html</id><summary type="html">&lt;p&gt;改用CMD設定CMake&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-04T21:40:55+08:00</updated><entry><title>40323230日誌 - 105/07/04-2</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050704-2.html" rel="alternate"></link><updated>2016-07-04T21:40:55+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050704-2.html</id><summary type="html">&lt;p&gt;NetBeans的相關探索&lt;/p&gt;
+
+
+&lt;h2&gt;NetBeans設定 :&lt;/h2&gt;
+
+&lt;p&gt;從&lt;a href="https://nuwen.net/mingw.html" title="nuwen.net"&gt;MinGW Distro - nuwen.net&lt;/a&gt;下載了新版配有gcc 6.1.0和Boost 1.61.0的MinGW，原本可攜式環境的MinGW是用gcc 4.9.3，暫且在名稱加上.old不使用。&lt;/p&gt;
+&lt;p&gt;下圖是新版和舊版的比對。新版的資料夾有付一個README_STL.txt文件說明內涵的附加元件版本。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/QusRHMc.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;NetBeans的版本是8.1，存放於跟目錄W:，已經是最新版。&lt;/p&gt;
+&lt;p&gt;先在Option裡設定C語言用的Build Tool，再新增的下拉選單設定使用MinGW，並指定到MinGW的目錄。成功新增Tool後，NetBeans會自己抓到gcc.exe、g++.exe、as.exe、gdb.exe，最下方則是有QMake和CMake的選項，將CMake指定到存放的位置。&lt;/p&gt;
+&lt;p&gt;設定裡所有的位置都是指定於可攜式環境內，沒用到任何外部資料夾。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/aY6AzV5.jpg" &gt;&lt;/p&gt;
+&lt;h2&gt;NetBeans專案 :&lt;/h2&gt;
+
+&lt;p&gt;之後新建專案，選擇C語言已有源代碼的專案。&lt;/p&gt;
+&lt;p&gt;選擇模式部分選擇Solvespace的目錄。工具只有剛才設定的MinGW，並選擇自訂查看一下。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/MOdwa0P.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;基本上是使用Predefined Command，使用的是CMake的gui設定，也就是Solvespace目錄存放的CMakeLists.txt檔。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/f4sSsvQ.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;接下來是清理和建置指令，就和打在CMD視窗裡的一樣。&lt;/p&gt;
+&lt;p&gt;幾乎每個環節都會詢問工作環境，但是Solvespace沒特別區分的話就是原本目錄內，所以直接按下一步。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/HrGJNnU.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;按下完成鈕後會花個幾秒載入。然後就會在左側讀入原始碼資料夾和檔案的結構。&lt;/p&gt;
+&lt;p&gt;下面則會執行並顯示CMake和Clean指令輸出的訊息，最後完成後就完成編譯環境了。&lt;/p&gt;
+&lt;p&gt;左側的欄位分成Project、Files和Services。只要在Project或Files的檔案樹點兩下就能在中央開啟文件編輯。Services則可以呼叫MinGW的附加元件來用（包含gcc）。&lt;/p&gt;
+&lt;p&gt;左下的導航欄似乎能執行CMake的指令。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/mFKn2Pc.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;這次也是使用之前備份更新過的原始碼操作，免得被之前的檔案影響。&lt;/p&gt;
+&lt;p&gt;雖然和SciTE一樣是文字編譯軟體，但是NetBeans能夠隨時呼叫需要使用的工具來支援。與Visual Studio相比還能夠在可攜環境中保存設定檔，更為方便。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050704.html" rel="alternate"></link><updated>2016-07-04T10:31:32+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050704.html</id><summary type="html">&lt;p&gt;改用CMD設定CMake&lt;/p&gt;
 
 
 &lt;h2&gt;CMD命令cmake連接Solvespace原始碼 :&lt;/h2&gt;

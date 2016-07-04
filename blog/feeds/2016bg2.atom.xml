@@ -4,33 +4,22 @@
 
 &lt;h2&gt;CMD命令cmake連接Solvespace原始碼 :&lt;/h2&gt;
 
-&lt;h3&gt;Readme的Command-line build&lt;h3&gt;
+&lt;h3&gt;Readme的Command-line build&lt;/h3&gt;
 
-使用可攜式環境的Command Prompt到外部呼叫Visual Studio的vcvarsall.bat。
-
-&lt;img src="http://i.imgur.com/F6tBRr1.jpg" &gt;
-
-然後為cmake的bin資料夾設定啟動位置(Path4)，可以正常呼叫。
-
-&lt;img src="http://i.imgur.com/2h18M7K.jpg" &gt;
-
-到CMD中下Readme中提供的指令。
-
-&lt;img src="http://i.imgur.com/zpzsMMZ.jpg" &gt;
-
-接著下nmake的指令。
-
-&lt;img src="http://i.imgur.com/SMlMAQc.jpg" &gt;
-
-但是在最後出現一些錯誤，不知道原因為何。
-
-&lt;img src="http://i.imgur.com/CZ2wMoU.jpg" &gt;
-
+&lt;p&gt;使用可攜式環境的Command Prompt到外部呼叫Visual Studio的vcvarsall.bat。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/F6tBRr1.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;然後為cmake的bin資料夾設定啟動位置(Path4)，可以正常呼叫。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/2h18M7K.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;到CMD中下Readme中提供的指令。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/zpzsMMZ.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;接著下nmake的指令。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/SMlMAQc.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;但是在最後出現一些錯誤，不知道原因為何。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/CZ2wMoU.jpg" &gt;&lt;/p&gt;
 &lt;hr&gt;
 
-與此同時可以用Visual Studio的相關功能。CMake也算是設定完成了。
-
-如果要改用NetBeans，就不用下nmake的指令。只是MinGW的用法仍不太了解。</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/03-2</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703-2.html" rel="alternate"></link><updated>2016-07-03T18:49:04+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-03:blog/40323230ri-zhi-1050703-2.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace(更新)&lt;/p&gt;
+&lt;p&gt;與此同時可以用Visual Studio的相關功能。CMake也算是設定完成了。&lt;/p&gt;
+&lt;p&gt;如果要改用NetBeans，就不用下nmake的指令。只是MinGW的用法仍不太了解。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/03-2</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703-2.html" rel="alternate"></link><updated>2016-07-03T18:49:04+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-03:blog/40323230ri-zhi-1050703-2.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace(更新)&lt;/p&gt;
 
 
 &lt;h2&gt;使用CMake連接Solvespace原始碼 :&lt;/h2&gt;

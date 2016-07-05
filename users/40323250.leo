@@ -28,18 +28,36 @@
 <v t="amd.20151215170031.1" a="E"><vh>@path ./../content</vh>
 <v t="amd.20160106093454.1" a="E"><vh>user 網誌文章</vh>
 <v t="amd.20160106093510.1" a="E"><vh>201606</vh>
-<v t="amd.20160106093531.1" a="E"><vh>w1 - 文章務必要冠上用戶名稱</vh>
+<v t="amd.20160106093531.1" a="E"><vh>文章務必要冠上用戶名稱</vh>
 <v t="roger.20160514194102.1"><vh>@edit 40323250_20160610.md</vh></v>
 <v t="leo.20160623170048.1"><vh>@edit 40323250_20160623.md</vh></v>
 <v t="leo.20160628185840.1"><vh>@edit 40323250_20160628.md</vh></v>
 <v t="leo.20160629200450.1"><vh>@edit 40323250_20160629.md</vh></v>
 <v t="544.20160701213106.1"><vh>@edit 40323250_20160701.md</vh></v>
+<v t="544.20160705214619.1"><vh>edit 40323250_20160705.md</vh></v>
 </v>
 </v>
 </v>
 </v>
 </vnodes>
 <tnodes>
+<t tx="544.20160705214619.1">@language md
+Title: 40323250日誌 - 105/07/05
+Category: 2016bg2
+Tags: solvespace&amp;v-rep
+Author: 40323250
+
+
+V-rep 與 Solvespace的結合應用
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;h3&gt;
+最近開了很多V-rep的範例檔來看 ,但都不太有收穫 ,為了避免浪費時間 ,回去找了之前老師提到的solvespace和vrep的共同運用 ,也因為要完成3D - Printer就要先了解基本觀念和用法 ,所以就抓了檔案來測試 &lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;(檔案位於solvespace官網的 tutorial : linkages)
+&lt;/h3&gt;&lt;p&gt;&lt;a href="http://solvespace.com/dl/mechanisms.zip "&gt;壓縮檔載點&lt;/a&gt;&lt;/p&gt;
+&lt;/br&gt;
+更新中</t>
 <t tx="amd.20151215170031.1"></t>
 <t tx="amd.20151215170350.1"></t>
 <t tx="amd.20151216001126.1">@language md

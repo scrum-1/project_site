@@ -37,8 +37,8 @@
 &lt;p&gt;讀取檔案後會顯示第4個欄位Class，是拆解程式後的物件樹，點擊兩下會開啟程式碼。&lt;/p&gt;
 &lt;p&gt;在物件上點擊兩下會移到該物件所在的檔案位置。&lt;/p&gt;
 &lt;p&gt;在物件上打關鍵字並使用上下鍵移動能夠搜尋檔案中的物件。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/XBywmpk.jpg" &gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/rTjJ0jx.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/XBywmpk.jpg" &gt;&lt;/p&gt;
 &lt;p&gt;工具列的功能說明：&lt;/p&gt;
 &lt;p&gt;1：Source-切換至編輯原始碼模式。&lt;/p&gt;
 &lt;p&gt;2：History-切換至編輯記錄模式。&lt;/p&gt;

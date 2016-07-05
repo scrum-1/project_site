@@ -2,21 +2,22 @@
 <feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-05T21:51:25+08:00</updated><entry><title>40323250日誌 - 105/07/05</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050705.html" rel="alternate"></link><updated>2016-07-05T21:51:25+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-05:blog/40323250ri-zhi-1050705.html</id><summary type="html">&lt;p&gt;V-rep 與 Solvespace的結合應用&lt;/p&gt;
 
 
-&lt;h3&gt;最近開了很多V-rep的範例檔來看 ,但都不太有收穫 ,為了避免浪費時間 ,&lt;/h3&gt;
-
-&lt;h3&gt;回去找了之前老師提到的solvespace和vrep的共同運用 ,也因為要完成3D - Printer&lt;/h3&gt;
-
-&lt;h3&gt;就要先了解基本觀念和用法 ,所以就抓了檔案來測試 &lt;/h3&gt;
+&lt;h3&gt;最近開了很多V-rep的範例檔來看 ,但都不太有收穫 ,為了避免浪費時間 ,回去找了之前老師提到的solvespace和vrep的共同運用 ,也因為要完成3D - Printer就要先了解基本觀念和用法 ,所以就抓了檔案來測試 &lt;/h3&gt;
 
 &lt;p&gt;&lt;/br&gt;
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/vrep_solvespace.png" &gt;
 &lt;h3&gt;(檔案位於solvespace官網的 tutorial : linkages)
 &lt;/h3&gt;&lt;p&gt;&lt;a href="http://solvespace.com/dl/mechanisms.zip "&gt;壓縮檔載點&lt;/a&gt;&lt;/p&gt;
 &lt;/br&gt;
-&lt;h3&gt;由於各零件之軸孔沒有畫軸 ,導致旋轉軸無法放置 ,所以我把軸都畫上去了 ,檔案為g2目錄下的solvespcae_vrep&lt;/h3&gt;
+&lt;h3&gt;由於各零件之軸孔沒有軸連接 ,導致旋轉軸無法放置 ,所以我把軸都畫上去了 ,檔案為g2目錄下的solvespcae_vrep&lt;/h3&gt;
 &lt;/br&gt;
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/solvespace_vrep.png"&gt;
-&lt;/br&gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>yen - RGA 基因演算法</title><link href="http://project.mde.tw/blog/yen-rga-ji-yin-yan-suan-fa.html" rel="alternate"></link><updated>2016-07-05T21:45:36+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-05:blog/yen-rga-ji-yin-yan-suan-fa.html</id><summary type="html">&lt;p&gt;RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.&lt;/p&gt;
+&lt;/br&gt;
+&lt;h3&gt;Solvespace的長料與除料功能真的不太習慣 ,很容易造成運算錯誤&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;軸都放好了 ,只是從屬關係還是不太清楚要如何放置&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/solvespace_vrep_allaxis.png"&gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>yen - RGA 基因演算法</title><link href="http://project.mde.tw/blog/yen-rga-ji-yin-yan-suan-fa.html" rel="alternate"></link><updated>2016-07-05T21:45:36+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-05:blog/yen-rga-ji-yin-yan-suan-fa.html</id><summary type="html">&lt;p&gt;RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.&lt;/p&gt;
 
 
 &lt;pre class="brush: python"&gt;

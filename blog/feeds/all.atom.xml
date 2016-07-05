@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-04T16:36:57+08:00</updated><entry><title>40323143 - 日誌 105年7月4日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-4ri.html" rel="alternate"></link><updated>2016-07-04T16:36:57+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323143-ri-zhi-105nian-7yue-4ri.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-05T17:00:46+08:00</updated><entry><title>40323143 - 日誌 105年7月5日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-5ri.html" rel="alternate"></link><updated>2016-07-05T17:00:46+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-05:blog/40323143-ri-zhi-105nian-7yue-5ri.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;今天將買了三種不同接觸點種類的極限開關，並將其中一種新增進入零件庫，且由其尺寸在承臂上新增其安裝位置，在Onshape上目測沒有和其他零件有接觸，承臂上的極限開關配置應該已經確定了，但夾頭座的極限開關配置找不到適合的位置，可能需要變更夾頭座的外型，或是在畫外接的零件，底座的極限開關配置還沒有畫出來，但應該會是在底座配置極限開關，在旋盤上設置接觸點觸發極限開關。&lt;/p&gt;
+&lt;p&gt;備註:&lt;/p&gt;
+&lt;p&gt;1.應祐生要求，將會在極限開關配置完成後利用3D列印印出一組非工作尺寸的手臂。&lt;/p&gt;
+&lt;p&gt;2.Onshape上只有話接觸點最長的極限開關，實際使用時會依照實際狀況運用三種不同階典的極限開關。&lt;/p&gt;
+&lt;p&gt;3.即先開關是在虎尾的國輝電子買的，三種接頭各三顆，原先想連滑環一起買，但沒有賣。&lt;/p&gt;
+&lt;p&gt;4.想自己做滑環，但是怕會燒掉。&lt;/p&gt;
+&lt;p&gt;極限開關的實體圖及量測尺寸&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/SssLtym.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;承臂上極限開關裝置位置&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/0BTAGoI.png"&gt;&lt;/p&gt;
+&lt;p&gt;極限開關&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/uJ9mhD7.png"&gt;&lt;/p&gt;
+&lt;p&gt;極限開關組合完-1&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/gykOTCW.png"&gt;&lt;/p&gt;
+&lt;p&gt;極限開關組合完-2&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/te6PT6l.png"&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 日誌 105年7月4日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-4ri.html" rel="alternate"></link><updated>2016-07-04T16:36:57+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323143-ri-zhi-105nian-7yue-4ri.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;p&gt;今天將Onshape平台上的因馬達尺寸測量錯誤導致機械手臂零件與馬達不能配合的錯誤修正，並增加馬達的外部特徵(電線接頭)及新增參數。以及因應手臂上馬達線路的配置改變設計，目前修改的有承臂末端新增一個槽及一個孔。還有嘗試一個夾頭的連桿構想，但是沒有成功。&lt;/p&gt;
 &lt;p&gt;備註:&lt;/p&gt;
@@ -14,7 +31,7 @@
 &lt;p&gt;夾頭構想圖&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/JdPYWaP.png"&gt;&lt;/p&gt;
 &lt;p&gt;提問:&lt;/p&gt;
-&lt;p&gt;請問有沒有機構能讓有連接線的物體作360度旋轉，卻不會讓線纏住的機構？&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>yen - RGA 基因演算法</title><link href="http://project.mde.tw/blog/yen-rga-ji-yin-yan-suan-fa.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-04:blog/yen-rga-ji-yin-yan-suan-fa.html</id><summary type="html">&lt;p&gt;RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.&lt;/p&gt;
+&lt;p&gt;請問有沒有機構能讓有連接線的物體作360度旋轉，卻不會讓線纏住的機構？  &lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>yen - RGA 基因演算法</title><link href="http://project.mde.tw/blog/yen-rga-ji-yin-yan-suan-fa.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-04:blog/yen-rga-ji-yin-yan-suan-fa.html</id><summary type="html">&lt;p&gt;RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.&lt;/p&gt;
 
 
 &lt;pre class="brush: python"&gt;

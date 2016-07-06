@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-05T17:24:02+08:00</updated><entry><title>40323230日誌 - 105/07/05</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050705.html" rel="alternate"></link><updated>2016-07-05T17:24:02+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-05:blog/40323230ri-zhi-1050705.html</id><summary type="html">&lt;p&gt;NetBeans的相關探索-2&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-06T17:04:59+08:00</updated><entry><title>40323143 - 日誌 105年7月6日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-6ri.html" rel="alternate"></link><updated>2016-07-06T17:04:59+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-06:blog/40323143-ri-zhi-105nian-7yue-6ri.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;今天將第二種極限開關新增到零件庫中，並在底座上依其尺寸新增了一個安裝位置，以及在懸盤上新增了一個用來安裝觸發極限開關突出物的安裝孔，和觸發極限開關的圓桿。&lt;/p&gt;
+&lt;p&gt;今天還發現原本馬達和承臂的組合方式在實際使用上的問題，問題原因是原本的組合方式是想將馬達上原本就有的固定孔與承臂上的固定孔用螺絲或桿件等連接材將兩個元件結合，但因為孔徑的問題使中心的連接材找不到適合的東西使用，所以今天在承臂與馬達組裝的位置新增了配合實驗室馬達尺寸的凹槽，列印出來安裝測試效果很不錯，實際使用應該就是如此了。&lt;/p&gt;
+&lt;p&gt;備註:&lt;/p&gt;
+&lt;p&gt;1.原先想用滑環或是其他具相同用途的機構解決線路纏繞的問題，但這些要在這禮拜內完成有難度，所以目前決定在底座設置極限開關作極限點，還會看情況修改。&lt;/p&gt;
+&lt;p&gt;2.馬達在Onshape上分為兩部分，在Onshape上分別是Part3和Part4，為了配合承臂上的組合點修改，馬達旋轉端( Part4 )的圖也修改為實際上馬達的外型。&lt;/p&gt;
+&lt;p&gt;3.夾頭部分因為在這禮拜完成極限開關的安裝有很大的困難，經討論後決定暫時將這部分放置，等安裝測試完成後繼續。&lt;/p&gt;
+&lt;p&gt;Oshape上的極限開關&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/ScvGzdi.png"&gt;&lt;/p&gt;
+&lt;p&gt;底座上極限開關裝置結果&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/B51Lwxj.png"&gt;&lt;/p&gt;
+&lt;p&gt;安裝觸發極限開關突出物的安裝孔&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/G7J9Wh3.png"&gt;&lt;/p&gt;
+&lt;p&gt;承臂與馬達組裝位置&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/AZZyUBd.png"&gt;&lt;/p&gt;
+&lt;p&gt;承臂與馬達組裝位置實際測試結果&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/eoxikJN.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;舊的承臂上安裝馬達極極限開關&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/603pE3d.jpg"&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323230日誌 - 105/07/05</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050705.html" rel="alternate"></link><updated>2016-07-05T17:24:02+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-05:blog/40323230ri-zhi-1050705.html</id><summary type="html">&lt;p&gt;NetBeans的相關探索-2&lt;/p&gt;
 &lt;p&gt;註：發現目前最新的原始碼內好像很多錯誤，不知道該怎麼辦。&lt;/p&gt;
 
 

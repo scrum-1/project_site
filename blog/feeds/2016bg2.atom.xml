@@ -37,30 +37,15 @@
 
 &lt;h3&gt;超連結為下載處。&lt;/h3&gt;
 
-&lt;h3&gt;
-1.[Whitequark的倉儲](https://github.com/whitequark/solvespace/tree/master"github.com")：非官方人員開發的原始碼。
-&lt;/h3&gt;
-
+&lt;p&gt;1.&lt;a href="https://github.com/whitequark/solvespace/tree/master" title="github.com"&gt;Whitequark的倉儲&lt;/a&gt;：非官方人員開發的原始碼。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/dcchKn7.jpg" &gt;&lt;/p&gt;
-&lt;h3&gt;
-2.[Solvespace 2.0](http://solvespace.com/download.pl"solvespace.com")：官方舊版2.0的原始碼。結構很簡單，沒有cmake建置的檔案。
-&lt;/h3&gt;
-
+&lt;p&gt;2.&lt;a href="http://solvespace.com/download.pl" title="solvespace.com"&gt;Solvespace 2.0&lt;/a&gt;：官方舊版2.0的原始碼。結構很簡單，沒有cmake建置的檔案。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/HBZ0DM4.jpg" &gt;&lt;/p&gt;
-&lt;h3&gt;
-3.[Solvespace 2.1](https://github.com/solvespace/solvespace/releases/tag/v2.1"github.com")：官方最新穩定的版本。結構類似現在開發中的樣式。但是用NetBeans建置時會顯示\extlib資料夾中很多資料夾是空的錯誤，2.0版沒有這些資料夾，這些空的資料夾似乎和[solvespace/libdxfrw](https://github.com/solvespace/libdxfrw"github.com")有關聯。
-&lt;/h3&gt;
-
+&lt;p&gt;3.&lt;a href="https://github.com/solvespace/solvespace/releases/tag/v2.1" title="github.com"&gt;Solvespace 2.1&lt;/a&gt;：官方最新穩定的版本。結構類似現在開發中的樣式。但是用NetBeans建置時會顯示\extlib資料夾中很多資料夾是空的錯誤，2.0版沒有這些資料夾，這些空的資料夾似乎和&lt;a href="https://github.com/solvespace/libdxfrw" title="github.com"&gt;solvespace/libdxfrw&lt;/a&gt;有關聯。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/Zqu4j7i.jpg" &gt;&lt;/p&gt;
-&lt;h3&gt;
-4.[Solvespace的倉儲](https://github.com/solvespace/solvespace/tree/2.x"github.com")：官方開發中的2.2版。好像不能clone下來，只能載zip檔。也有2.1那些空資料夾。
-&lt;/h3&gt;
-
+&lt;p&gt;4.&lt;a href="https://github.com/solvespace/solvespace/tree/2.x" title="github.com"&gt;Solvespace的倉儲&lt;/a&gt;：官方開發中的2.2版。好像不能clone下來，只能載zip檔。也有2.1那些空資料夾。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/UYXGcF7.jpg" &gt;&lt;/p&gt;
-&lt;h3&gt;
-相關連結：版本差異紀錄-[Solvespace的倉儲](https://github.com/solvespace/solvespace/blob/2.x/CHANGELOG.md"github.com")
-&lt;/h3&gt;
-
+&lt;p&gt;相關連結：版本差異紀錄-&lt;a href="https://github.com/solvespace/solvespace/blob/2.x/CHANGELOG.md" title="github.com"&gt;Solvespace的倉儲&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 
 &lt;p&gt;NetBeans方面，同樣使用C/C++ Project with Existing Sources建置檔案，官方的版本都會因為libdxfrw、libfreetype、libpng、zlib沒東西而顯示建置錯誤。&lt;/p&gt;

@@ -1,5 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-05T10:47:11+08:00</updated><entry><title>40323230日誌 - 105/07/05</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050705.html" rel="alternate"></link><updated>2016-07-05T10:47:11+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-05:blog/40323230ri-zhi-1050705.html</id><summary type="html">&lt;p&gt;NetBeans的相關探索-2&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-06T15:13:15+08:00</updated><entry><title>40323230紀錄 - Solvespace</title><link href="http://project.mde.tw/blog/40323230ji-lu-solvespace.html" rel="alternate"></link><updated>2016-07-06T15:13:15+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-06:blog/40323230ji-lu-solvespace.html</id><summary type="html">&lt;p&gt;找到的Solvespace原始碼版本&lt;/p&gt;
+
+
+&lt;h2&gt;目前可攜式環境內存放的Solvespace原始碼 :&lt;/h2&gt;
+
+&lt;p&gt;超連結為下載處。&lt;/p&gt;
+&lt;p&gt;1.&lt;a href="https://github.com/whitequark/solvespace/tree/master" title="github.com"&gt;Whitequark的倉儲&lt;/a&gt;：非官方人員開發的原始碼。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/dcchKn7.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;2.&lt;a href="http://solvespace.com/download.pl" title="solvespace.com"&gt;Solvespace 2.0&lt;/a&gt;：官方舊版2.0的原始碼。結構很簡單，沒有cmake建置的檔案。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/HBZ0DM4.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;3.&lt;a href="https://github.com/solvespace/solvespace/releases/tag/v2.1" title="github.com"&gt;Solvespace 2.1&lt;/a&gt;：官方最新穩定的版本。結構類似現在開發中的樣式。但是用NetBeans建置時會顯示\extlib資料夾中很多資料夾是空的錯誤，2.0版沒有這些資料夾，這些空的資料夾似乎和&lt;a href="https://github.com/solvespace/libdxfrw" title="github.com"&gt;solvespace/libdxfrw&lt;/a&gt;有關聯。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/Zqu4j7i.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;4.&lt;a href="https://github.com/solvespace/solvespace/tree/2.x" title="github.com"&gt;Solvespace的倉儲&lt;/a&gt;：官方開發中的2.2版。好像不能clone下來，只能載zip檔。也有2.1那些空資料夾。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/UYXGcF7.jpg" &gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/05</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050705.html" rel="alternate"></link><updated>2016-07-05T10:47:11+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-05:blog/40323230ri-zhi-1050705.html</id><summary type="html">&lt;p&gt;NetBeans的相關探索-2&lt;/p&gt;
 &lt;p&gt;註：發現目前最新的原始碼內好像很多錯誤，不知道該怎麼辦。&lt;/p&gt;
 
 

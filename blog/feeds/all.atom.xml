@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-07T18:47:00+08:00</updated><entry><title>40323131日誌 105/07/07</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050707.html" rel="alternate"></link><updated>2016-07-07T18:47:00+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-07:blog/40323131ri-zhi-1050707.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-07T22:29:44+08:00</updated><entry><title>40323143 - 日誌 105年7月7日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-7ri.html" rel="alternate"></link><updated>2016-07-07T22:29:44+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-07:blog/40323143-ri-zhi-105nian-7yue-7ri.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;今天將兩個承臂與馬達和極限開關組裝固定 ，馬達固定是利用單心線的線芯穿過馬達與承臂上的固定孔鎖緊，因為昨天新增的凹槽可以承受馬達扭轉的力量，只需要讓他不會脫落即可。另外今天還發現固定設計在承臂上極限開關的固定桿強度不足，原因可能是因為列印的方向為桿件的徑向，導致桿在承受外力時列印接合面沒有足夠的強度支撐而產生破壞，解決方法是買5分的自攻螺釘將其鎖固。&lt;/p&gt;
+&lt;p&gt;今天新增了一個新物件，目的是為了要使馬達可以有效的對懸盤輸出，與承臂上馬達安裝位置一樣。並且在旋盤底部新增了兩個直徑2.5的孔，其目的是為了配合今天新增的物件鎖固。&lt;/p&gt;
+&lt;p&gt;今天將這旋盤以上除了夾頭外的東西組裝完，並由實物來預估線路的配置，線路配置目前的方案是將電線拉的比元件與電源的距離更長，讓電線在空中以圓弧狀放置，然後在底座上極限開關接點指向方向上將所有的線集中，然後拉到安裝在底座的arduino上。實際把線抓在安裝的預備位置轉動手臂測試時，目測在旋盤再碰觸到兩個極限開關的位置間旋轉應該是沒有問題，但今天沒有足夠的時間將底座印出來，沒有實際測試。&lt;/p&gt;
+&lt;p&gt;備註:&lt;/p&gt;
+&lt;p&gt;1.5分的自攻螺釘是在虎尾的大盤大買的。單心線的線芯是在工具箱拿的，固定大概用10公分。&lt;/p&gt;
+&lt;p&gt;2.與極限開關相撞的桿子是用免洗筷剪短裝上去的，免洗筷是從系館後面的7-11跟店員要來的，十分堅固。&lt;/p&gt;
+&lt;p&gt;3.目前的線路配置絕對不是個好方法，真的絕對不是個好方法。&lt;/p&gt;
+&lt;p&gt;4.不直接在旋盤底面新增新特徵，而是新增新物件，原因是為了方便列印旋盤。&lt;/p&gt;
+&lt;p&gt;斷裂的固定桿及其光滑的斷面&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/lRDKIzp.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;承臂與馬達固定&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/4T1Z4rD.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/08grS9t.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;極限開關的鎖固&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/LzJqB6t.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;觸發極限開關的桿子&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/WkMM6Wg.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;底座上電線大概的集中位置&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/u3uzFJ6.png"&gt;&lt;/p&gt;
+&lt;p&gt;旋盤新增的孔&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/oYsv4NR.png"&gt;&lt;/p&gt;
+&lt;p&gt;新增的零件&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/YBxVUiq.png"&gt;&lt;/p&gt;
+&lt;p&gt;提問:&lt;/p&gt;
+&lt;p&gt;實際上在設計機構，機構上的電路配置有什麼重點需要注意?有沒有固定的配置方式?&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323131日誌 105/07/07</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050707.html" rel="alternate"></link><updated>2016-07-07T18:47:00+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-07:blog/40323131ri-zhi-1050707.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;h3&gt;學習python&lt;/h3&gt;
 
@@ -457,7 +483,7 @@
 &lt;p&gt;備註:&lt;/p&gt;
 &lt;p&gt;1.應祐生要求，將會在極限開關配置完成後利用3D列印印出一組非工作尺寸的手臂。&lt;/p&gt;
 &lt;p&gt;2.Onshape上只有話接觸點最長的極限開關，實際使用時會依照實際狀況運用三種不同階典的極限開關。&lt;/p&gt;
-&lt;p&gt;3.即先開關是在虎尾的國輝電子買的，三種接頭各三顆，原先想連滑環一起買，但沒有賣。&lt;/p&gt;
+&lt;p&gt;3.極限開關是在虎尾的國輝電子買的，三種接頭各三顆，原先想連滑環一起買，但沒有賣。&lt;/p&gt;
 &lt;p&gt;4.想自己做滑環，但是怕會燒掉。&lt;/p&gt;
 &lt;p&gt;極限開關的實體圖及量測尺寸&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/SssLtym.jpg"&gt;&lt;/p&gt;

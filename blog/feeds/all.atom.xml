@@ -1,5 +1,50 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-07T10:38:52+08:00</updated><entry><title>40323143 - 日誌 105年7月7日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-7ri.html" rel="alternate"></link><updated>2016-07-07T10:38:52+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-07:blog/40323143-ri-zhi-105nian-7yue-7ri.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-07T17:07:56+08:00</updated><entry><title>40323230紀錄 - 編譯Solvespace流程</title><link href="http://project.mde.tw/blog/40323230ji-lu-bian-yi-solvespaceliu-cheng.html" rel="alternate"></link><updated>2016-07-07T17:07:56+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-07:blog/40323230ji-lu-bian-yi-solvespaceliu-cheng.html</id><summary type="html">&lt;p&gt;由原始碼編譯出Solvespace和CDemo的執行檔&lt;/p&gt;
+
+
+&lt;h2&gt;安裝工具 :&lt;/h2&gt;
+
+&lt;p&gt;必須存放於可攜式環境內的工具，可以協助我們建立Solvespace和CDemo的執行檔。&lt;/p&gt;
+&lt;p&gt;連結為下載處。&lt;/p&gt;
+&lt;p&gt;1.MinGW (Not official version), &lt;a href="https://nuwen.net/mingw.html" title="nuwen.net"&gt;https://nuwen.net/mingw.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2.msys (Official version), &lt;a href="http://www.mingw.org/wiki/msys" title="mingw.org"&gt;http://www.mingw.org/wiki/msys&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;3.CMake  (Official version), &lt;a href="https://cmake.org/download/" title="cmake.org"&gt;https://cmake.org/download/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;4.NetBeans (Our storage), &lt;a href="http://140.130.17.17/public/Netbeans/" title="140.130.17.17/public/"&gt;http://140.130.17.17/public/Netbeans/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;存放位置除了CMake之外皆為W:內，CMake存於W:\app資料夾中。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/kHQFc1g.jpg" &gt;&lt;/p&gt;
+&lt;h2&gt;下載Solvespace原始碼 :&lt;/h2&gt;
+
+&lt;p&gt;從&lt;a href="https://github.com/whitequark/solvespace/tree/master" title="github.com"&gt;Whitequark的倉儲&lt;/a&gt;git clone最新的原始碼到W:\tmp資料夾內，並執行git submodule update --init命令以從相關倉儲下載submodule的原始碼。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/KUJCPoJ.jpg" &gt;&lt;/p&gt;
+&lt;h2&gt;NetBeans設定 :&lt;/h2&gt;
+
+&lt;p&gt;從\NetBeans\bin執行NetBeans，亦可編輯start.bat和stop.bat後，在啟動時呼叫和關閉它。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/m7uH7TA.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;在Tools-&amp;gt;Options的C/C++中新增編譯工具，選擇GNU MinGW，並填入MinGW的存放位置。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/D6TKKRZ.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;大部分的程式位置會自動填入，不過還要指定msys的make.exe和cmake的位置。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/rame7tV.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;若有必要可以為NetBeans安裝CMake的附加元件。&lt;/p&gt;
+&lt;p&gt;在Tools-&amp;gt;Plugins的Available Plugins中搜尋cmake就能找到，勾選後按下Install鈕就能夠安裝。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/6mi2Lz1.jpg" &gt;&lt;/p&gt;
+&lt;h2&gt;執行Build :&lt;/h2&gt;
+
+&lt;p&gt;接著按下New Project...新增專案。&lt;/p&gt;
+&lt;p&gt;選擇Project with Existing Sources繼續。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/TxisGUv.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;然後選擇Whitequark的Solvespace原始碼目錄。&lt;/p&gt;
+&lt;p&gt;並使用Automatic讓cmake自動清理專案，直接按完成就會開始Clean和嘗試Build。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/Gzqb7so.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;這時在Build時會出現錯誤，顯示一串類似undefined reference to `BZ2_bzDecompressEnd'的訊息，是因為沒有加入bz2的程式庫連結所致。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/DF15llN.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;這時開啟專案內的\src\CMakeLists.txt，找到target_link_libraries這一行，並將bz2加到最後的括弧內，就可以繼續完成Build。&lt;/p&gt;
+&lt;p&gt;註：如果不是填在最後一項會有讀取順序錯誤的問題。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/rAC4a2W.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;修改CMake的清單後，就能順利建立solvespace.exe和CDemo.exe，分別存放在\src和\exposed資料夾下。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/0CEdXhu.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;接下來就是研究如何應用CDemo的解題程式協助解開範例，最後再修改供Python3呼叫和取用其動態連結庫。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category><category term="CDemo"></category></entry><entry><title>40323143 - 日誌 105年7月7日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-7ri.html" rel="alternate"></link><updated>2016-07-07T10:38:52+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-07:blog/40323143-ri-zhi-105nian-7yue-7ri.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;p&gt;今天將兩個承臂與馬達和極限開關組裝固定 ，馬達固定是利用單心線的線芯穿過馬達與承臂上的固定孔鎖緊，因為昨天新增的凹槽可以承受馬達扭轉的力量，只需要讓他不會脫落即可。另外今天還發現固定設計在承臂上極限開關的固定桿強度不足，原因可能是因為列印的方向為桿件的徑向，導致桿在承受外力時列印接合面沒有足夠的強度支撐而產生破壞，解決方法是買5分的自攻螺釘將其鎖固。&lt;/p&gt;
 &lt;p&gt;今天新增了一個新物件，目的是為了要使馬達可以有效的對懸盤輸出，與承臂上馬達安裝位置一樣。並且在旋盤底部新增了兩個直徑2.5的孔，其目的是為了配合今天新增的物件鎖固。&lt;/p&gt;

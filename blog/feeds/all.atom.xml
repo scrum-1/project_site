@@ -9,7 +9,7 @@
 &lt;p&gt;1.MinGW (Not official version), &lt;a href="https://nuwen.net/mingw.html" title="nuwen.net"&gt;https://nuwen.net/mingw.html&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;2.msys (Official version), &lt;a href="http://www.mingw.org/wiki/msys" title="mingw.org"&gt;http://www.mingw.org/wiki/msys&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;3.CMake  (Official version), &lt;a href="https://cmake.org/download/" title="cmake.org"&gt;https://cmake.org/download/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;4.NetBeans (Our storage), &lt;a href="http://140.130.17.17/public/Netbeans/" title="140.130.17.17/public/"&gt;&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;4.NetBeans (Our storage), &lt;a href="http://140.130.17.17/public/Netbeans/" title="140.130.17.17/public/"&gt;http://140.130.17.17/public/Netbeans/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;存放位置除了CMake之外皆為W:內，CMake存於W:\app資料夾中。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/kHQFc1g.jpg" &gt;&lt;/p&gt;
 &lt;h2&gt;下載Solvespace原始碼 :&lt;/h2&gt;

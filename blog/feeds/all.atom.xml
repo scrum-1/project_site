@@ -108,7 +108,7 @@ int main()
         return 1;
     }
     else{
-        if(lim&lt;o+r){
+        if(lim&lt; o+r){
             printf("---ERRO---\nSpace is not enough.\n");
             return 2;
         }
@@ -195,6 +195,7 @@ double solve_minangle(int lim, int a, int b, int r)
     }
     return th;
 }
+
 &lt;/pre&gt;
 
 &lt;p&gt;最後執行的結果：&lt;/p&gt;

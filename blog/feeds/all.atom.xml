@@ -25,7 +25,7 @@
 &lt;p&gt;演算法概念：&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/iOuX4ks.jpg" &gt;&lt;/p&gt;
 &lt;p&gt;途中查了很多數學公式，無奈常常打錯又不知道正確性，重複試了很多次才成功。&lt;/p&gt;
-&lt;pre class="brush: C++"&gt;
+&lt;pre class="brush: c"&gt;
 #include &lt;stdio.h&gt;
 #include &lt;math.h&gt;
 
@@ -63,7 +63,7 @@ int main()
 &lt;p&gt;&lt;img src="http://i.imgur.com/jbtn7X1.jpg" &gt;&lt;/p&gt;
 &lt;p&gt;第一支程式是剛開始寫輸入端介面，供使用者輸入自訂參數，後來再把第二支程式的模型搬回來用，並另外寫一個解最大路徑和最小角度的程式，所有例外狀況也是在這裡排除。&lt;/p&gt;
 &lt;p&gt;後來還不知道怎麼讓副程式傳回double或其他浮點數，查一下才知道要在開始前宣告一次。&lt;/p&gt;
-&lt;pre class="brush: C++"&gt;
+&lt;pre class="brush: c"&gt;
 #include &lt;stdio.h&gt;
 #include &lt;math.h&gt;
 

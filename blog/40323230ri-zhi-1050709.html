@@ -433,7 +433,7 @@ int main()
         return 1;
     }
     else{
-        if(lim< o+r){
+        if(o+r>lim){
             printf("---ERRO---\nSpace is not enough.\n");
             return 2;
         }
@@ -454,7 +454,7 @@ int main()
 double solve_minpath(int k, int h, int a, int b, int r)
 {
     double deg =pi/180;
-    for (int j=45*num; j<=180*num; j++){
+    for (int j=45*num; 180*num>=j; j++){
         double num0=num;
         double th=j/num0*deg;
         double x1=a*cos(th);
@@ -462,7 +462,7 @@ double solve_minpath(int k, int h, int a, int b, int r)
         double x2=x1+sqrt(b*b-y1*y1);
         double m=tan(th);
         double r1=abs((x2-x1)*(h-y1)-(0-y1)*(k/2-x1))/sqrt(y1*y1+(x2-x1)*(x2-x1));
-        if(r1<=r){
+        if(r>=r1){
             printf("(%f,%f) (%f,0)\n%f\n%f r=%f\nm=%f\n", x1, y1, x2, th/deg, r, r1, m);
             return x2;
             break;
@@ -474,7 +474,7 @@ double solve_minpath(int k, int h, int a, int b, int r)
 double solve_maxangle(int k, int h, int a, int b, int r)
 {
     double deg =pi/180;
-    for (int j=45*num; j<=180*num; j++){
+    for (int j=45*num; 180*num>=j; j++){
         double num0=num;
         double th=j/num0*deg;
         double x1=a*cos(th);
@@ -482,7 +482,7 @@ double solve_maxangle(int k, int h, int a, int b, int r)
         double x2=x1+sqrt(b*b-y1*y1);
         double m=tan(th);
         double r1=abs((x2-x1)*(h-y1)-(0-y1)*(k/2-x1))/sqrt(y1*y1+(x2-x1)*(x2-x1));
-        if(r1<=r){
+        if(r>=r1){
             printf("(%f,%f) (%f,0)\n%f\n%f r=%f\nm=%f\n", x1, y1, x2, th/deg, r, r1, m);
             return th/deg;
             break;
@@ -495,7 +495,7 @@ double solve_maxpath(int lim, int a, int b, int r)
 {
     double n;
     double th;
-    if (a+b+r<lim){
+    if (lim>a+b+r){
         n=a+b;
         th=0;
     }
@@ -510,7 +510,7 @@ double solve_minangle(int lim, int a, int b, int r)
 {
     double n;
     double th;
-    if (a+b+r<lim){
+    if (lim>a+b+r){
         n=a+b;
         th=0;
     }

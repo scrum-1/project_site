@@ -197,7 +197,7 @@ double solve_minangle(int lim, int a, int b, int r)
 }
 &lt;/pre&gt;
 
-&lt;p&gt;最後的執行結果：&lt;/p&gt;
+&lt;p&gt;最後執行的結果：&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/S6oj3vJ.jpg" &gt;&lt;/p&gt;
 &lt;hr&gt;
 

@@ -1,5 +1,208 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-07T16:54:36+08:00</updated><entry><title>40323230紀錄 - 編譯Solvespace流程</title><link href="http://project.mde.tw/blog/40323230ji-lu-bian-yi-solvespaceliu-cheng.html" rel="alternate"></link><updated>2016-07-07T16:54:36+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-07:blog/40323230ji-lu-bian-yi-solvespaceliu-cheng.html</id><summary type="html">&lt;p&gt;由原始碼編譯出Solvespace和CDemo的執行檔&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-09T00:00:19+08:00</updated><entry><title>40323230日誌 - 105/07/09</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050709.html" rel="alternate"></link><updated>2016-07-09T00:00:19+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-09:blog/40323230ri-zhi-1050709.html</id><summary type="html">&lt;p&gt;嘗試用C語言解題&lt;/p&gt;
+
+
+&lt;h2&gt;BUG fix :&lt;/h2&gt;
+
+&lt;p&gt;W:槽的SciTE有點小問題，因為設定檔是從Y:複製來的，所以需要重新定義TinyC的位置。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/nXiTYLx.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;只要修改cpp.properties的路徑就可以了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/zjc51Kz.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2&gt;Nutcracker Solution :&lt;/h2&gt;
+
+&lt;p&gt;上學期的&lt;a href="http://chiamingyen.github.io/kmolab/blog/2015-fall-cadp-w16.html" title="github.io"&gt;Nutcracker網誌內容&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/Tfik6jG.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;之前的python題目，稍微研究一下後轉成C語言。&lt;/p&gt;
+&lt;p&gt;不過如果直接運行會跑很久。但是這裡可以練習一下小型演算法的模式。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/RwJbKM9.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;先做了兩個程式，不過第一是介面而已，第二個才是主要架構。&lt;/p&gt;
+&lt;p&gt;撰寫的途中使用Solvespace研究，由於數學邏輯不太好，很多幾何的東西沒那麼直觀。&lt;/p&gt;
+&lt;p&gt;有時候會偷吃步測試一些解法。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/PDHq9QA.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;第二支程式是從python的範例改來的，不過後來做了很多變化，只有解最小路徑最大角度。&lt;/p&gt;
+&lt;p&gt;演算法概念：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/iOuX4ks.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;途中查了很多數學公式，無奈常常打錯又不知道正確性，重複試了很多次才成功。&lt;/p&gt;
+&lt;pre class="brush: C"&gt;
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+int k=40;
+int h=10;
+int a=40;
+int b=80;
+double r=10;
+double pi=M_PI;
+int num=1000;
+
+int main()
+{
+    double deg =pi/180;
+    for (int j=45*num; j&lt;=180*num; j++){
+        double num0=num;
+        double th=j/num0*deg;
+        double x1=a*cos(th);
+        double y1=a*sin(th);
+        double x2=x1+sqrt(b*b-y1*y1);
+        double m=tan(th);
+        double r1=abs((x2-x1)*(h-y1)-(0-y1)*(k/2-x1))/sqrt(y1*y1+(x2-x1)*(x2-x1));
+        printf("%g\n", (int)(j/num0*100000+.5)/100000.);
+        if(r1&lt;=r){
+            printf("(%f,%f) (%f,0)\n%f\n%f r=%f\nm=%f\n", x1, y1, x2, th/deg, r, r1, m);
+            break;
+        }
+    }
+    return 0;
+}
+&lt;/pre&gt;
+
+&lt;p&gt;第二支程式的最後成果。&lt;/p&gt;
+&lt;p&gt;最後精確度還是沒有很高，不知道問題出在哪裡。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/jbtn7X1.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;第一支程式是剛開始寫輸入端介面，供使用者輸入自訂參數，後來再把第二支程式的模型搬回來用，並另外寫一個解最大路徑和最小角度的程式，所有例外狀況也是在這裡排除。&lt;/p&gt;
+&lt;p&gt;後來還不知道怎麼讓副程式傳回double或其他浮點數，查一下才知道要在開始前宣告一次。&lt;/p&gt;
+&lt;pre class="brush: C"&gt;
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+int a, b, k, h, r, lim;
+double o, wp, thmin, thmax;
+double pi=M_PI;
+int num=1000;
+
+double solve_minpath(int, int, int, int, int);
+double solve_maxangle(int, int, int, int, int);
+double solve_maxpath(int, int, int, int);
+double solve_minangle(int, int, int, int);
+
+int main()
+{
+    scanf("%d,%d,%d,%d,%d,%d", &amp;a, &amp;b, &amp;k, &amp;h, &amp;r, &amp;lim);
+//強制正值
+    a=abs(a);
+    b=abs(b);
+    h=abs(h);
+    k=abs(k);
+    r=abs(r);
+    lim=abs(lim);
+    printf("\n---\n");
+    printf("Used pi= %f\n", pi);
+    printf("---\n");
+    printf("Connecting Rod:\n");
+    printf("a= %d b= %d\n", a, b);
+    printf("Rod radius= %d\n", r);
+    printf("Rod width= %d\n", r*2);
+    printf("Space Usage:\n");
+    printf("h= %d k= %d\n", h, k);
+    printf("Work Path= %d\n", lim);
+    printf("---\n\n");
+//相關參數代入副程式解題
+    o=solve_minpath(k, h, a, b, r);
+    wp=solve_maxpath(lim, a, b, r)-o;
+    thmin=solve_minangle(lim, a, b, r);
+    thmax=solve_maxangle(k, h, a, b, r);
+    if(a*b*lim==0){
+        printf("---ERRO---\nSome value can't be zero.\n");
+        return 1;
+    }
+    else{
+        if(lim&lt;o+r){
+            printf("---ERRO---\nSpace is not enough.\n");
+            return 2;
+        }
+        else{
+            printf("\n---\n---Result---\n");
+            printf("Distance:\n");
+            printf("Offset distance:\n");
+            printf("o= %f\n", o);
+            printf("Work distance:\n");
+            printf("wp= %f\n", wp);
+            printf("Angle(Degree):\n");
+            printf("min= %f max= %f\n---\n", thmin, thmax);
+            return 0;
+        }
+    }
+}
+
+double solve_minpath(int k, int h, int a, int b, int r)
+{
+    double deg =pi/180;
+    for (int j=45*num; j&lt;=180*num; j++){
+        double num0=num;
+        double th=j/num0*deg;
+        double x1=a*cos(th);
+        double y1=a*sin(th);
+        double x2=x1+sqrt(b*b-y1*y1);
+        double m=tan(th);
+        double r1=abs((x2-x1)*(h-y1)-(0-y1)*(k/2-x1))/sqrt(y1*y1+(x2-x1)*(x2-x1));
+        if(r1&lt;=r){
+            printf("(%f,%f) (%f,0)\n%f\n%f r=%f\nm=%f\n", x1, y1, x2, th/deg, r, r1, m);
+            return x2;
+            break;
+        }
+    }
+    return 0;
+}
+
+double solve_maxangle(int k, int h, int a, int b, int r)
+{
+    double deg =pi/180;
+    for (int j=45*num; j&lt;=180*num; j++){
+        double num0=num;
+        double th=j/num0*deg;
+        double x1=a*cos(th);
+        double y1=a*sin(th);
+        double x2=x1+sqrt(b*b-y1*y1);
+        double m=tan(th);
+        double r1=abs((x2-x1)*(h-y1)-(0-y1)*(k/2-x1))/sqrt(y1*y1+(x2-x1)*(x2-x1));
+        if(r1&lt;=r){
+            printf("(%f,%f) (%f,0)\n%f\n%f r=%f\nm=%f\n", x1, y1, x2, th/deg, r, r1, m);
+            return th/deg;
+            break;
+        }
+    }
+    return 0;
+}
+
+double solve_maxpath(int lim, int a, int b, int r)
+{
+    double n;
+    double th;
+    if (a+b+r&lt;lim){
+        n=a+b;
+        th=0;
+    }
+    else{
+        n=lim-r;
+        th=acos((a*a+n*n-b*b)/2*a*n);
+    }
+    return n;
+}
+
+double solve_minangle(int lim, int a, int b, int r)
+{
+    double n;
+    double th;
+    if (a+b+r&lt;lim){
+        n=a+b;
+        th=0;
+    }
+    else{
+        n=lim-r;
+        th=acos((a*a+n*n-b*b)/(2*a*n));
+    }
+    return th;
+}
+&lt;/pre&gt;
+
+&lt;p&gt;最後的執行結果：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/S6oj3vJ.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;剛開始還以為是用公式推導座標點的結果，後來回去看網誌才知道用演算法計算。電腦演算時如果一邊列出結果，會拖慢速度，所以在最後的程式碼中只留檢查用的結果。&lt;/p&gt;
+&lt;p&gt;後來也有上網看其他人使用基因演算法的案例，未能完全了解，還有很多要學習的地方。這次解題複習了一些C語言的概念，希望在往後利用上能夠駕輕就熟。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230紀錄 - 編譯Solvespace流程</title><link href="http://project.mde.tw/blog/40323230ji-lu-bian-yi-solvespaceliu-cheng.html" rel="alternate"></link><updated>2016-07-07T13:02:29+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-07:blog/40323230ji-lu-bian-yi-solvespaceliu-cheng.html</id><summary type="html">&lt;p&gt;由原始碼編譯出Solvespace和CDemo的執行檔&lt;/p&gt;
 
 
 &lt;h2&gt;安裝工具 :&lt;/h2&gt;
@@ -44,7 +247,7 @@
 &lt;p&gt;&lt;img src="http://i.imgur.com/0CEdXhu.jpg" &gt;&lt;/p&gt;
 &lt;hr&gt;
 
-&lt;p&gt;接下來就是研究如何應用CDemo的解題程式協助解開範例，最後再修改供Python3呼叫和取用其動態連結庫。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category><category term="CDemo"></category></entry><entry><title>40323250日誌 - 105/07/05</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050705.html" rel="alternate"></link><updated>2016-07-07T16:54:36+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-07:blog/40323250ri-zhi-1050705.html</id><summary type="html">&lt;p&gt;V-rep 與 Solvespace的結合應用&lt;/p&gt;
+&lt;p&gt;接下來就是研究如何應用CDemo的解題程式協助解開範例，最後再修改供Python3呼叫和取用其動態連結庫。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category><category term="CDemo"></category></entry><entry><title>40323250日誌 - 105/07/05</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050705.html" rel="alternate"></link><updated>2016-07-06T15:40:27+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-06:blog/40323250ri-zhi-1050705.html</id><summary type="html">&lt;p&gt;V-rep 與 Solvespace的結合應用&lt;/p&gt;
 
 
 &lt;h3&gt;最近開了很多V-rep的範例檔來看 ,但都不太有收穫 ,為了避免浪費時間 ,回去找了之前老師提到的solvespace和vrep的共同運用 ,也因為要完成3D - Printer就要先了解基本觀念和用法 ,所以就抓了檔案來測試 &lt;/h3&gt;
@@ -75,7 +278,7 @@
 &lt;/br&gt;
 &lt;h3&gt;感覺和各個旋轉軸速度也有關係&lt;/h3&gt;
 &lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_test2.gif"&gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323230紀錄 - Solvespace</title><link href="http://project.mde.tw/blog/40323230ji-lu-solvespace.html" rel="alternate"></link><updated>2016-07-07T16:54:36+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-07:blog/40323230ji-lu-solvespace.html</id><summary type="html">&lt;p&gt;找到的Solvespace原始碼版本&lt;/p&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_test2.gif"&gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323230紀錄 - Solvespace</title><link href="http://project.mde.tw/blog/40323230ji-lu-solvespace.html" rel="alternate"></link><updated>2016-07-06T15:13:15+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-06:blog/40323230ji-lu-solvespace.html</id><summary type="html">&lt;p&gt;找到的Solvespace原始碼版本&lt;/p&gt;
 
 
 &lt;h2&gt;目前可攜式環境內存放的Solvespace原始碼 :&lt;/h2&gt;
@@ -97,39 +300,7 @@
 &lt;p&gt;&lt;img src="http://i.imgur.com/ZGLaQ0j.jpg" &gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/WkmsWPq.jpg" &gt;&lt;/p&gt;
 &lt;p&gt;點開記錄錯誤的視窗：&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/52VlrUJ.jpg" &gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050704.html" rel="alternate"></link><updated>2016-07-07T16:54:36+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-07:blog/40323230ri-zhi-1050704.html</id><summary type="html">&lt;p&gt;改用CMD設定CMake&lt;/p&gt;
-
-
-&lt;h2&gt;CMD命令cmake連接Solvespace原始碼 :&lt;/h2&gt;
-
-&lt;h3&gt;Readme的Command-line build&lt;/h3&gt;
-
-&lt;p&gt;使用可攜式環境的Command Prompt到外部呼叫Visual Studio的vcvarsall.bat。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/F6tBRr1.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;然後為cmake的bin資料夾設定啟動位置(Path4)，可以正常呼叫。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/2h18M7K.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;到CMD中下Readme中提供的指令。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/zpzsMMZ.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;接著下nmake的指令。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/SMlMAQc.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;但是在最後出現一些錯誤，不知道原因為何。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/CZ2wMoU.jpg" &gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;與此同時可以用Visual Studio的相關功能。CMake也算是設定完成了。&lt;/p&gt;
-&lt;p&gt;如果要改用NetBeans，就不用下nmake的指令。&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3&gt;Readme的MSVC build&lt;/h3&gt;
-
-&lt;p&gt;這次也把MinGW的bin設定進啟動位置(Path5)，可以正常呼叫。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/8D6cRvV.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;接著同樣按照Readme的說明用CMD下指令。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/iXmV4cR.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;不過後面的make指令會說無法讀取makefile檔。&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;Readme中說可以使用MinGW，只要確保git和MinGW的gcc在作業環境內就行了。至於gcc的功能繁多，還需要研究一下。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/05</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050705.html" rel="alternate"></link><updated>2016-07-07T16:54:36+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-07:blog/40323230ri-zhi-1050705.html</id><summary type="html">&lt;p&gt;NetBeans的相關探索-2&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/52VlrUJ.jpg" &gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/05</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050705.html" rel="alternate"></link><updated>2016-07-05T10:47:11+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-05:blog/40323230ri-zhi-1050705.html</id><summary type="html">&lt;p&gt;NetBeans的相關探索-2&lt;/p&gt;
 &lt;p&gt;註：發現目前最新的原始碼內好像很多錯誤，不知道該怎麼辦。&lt;/p&gt;
 
 
@@ -193,38 +364,7 @@
 &lt;hr&gt;
 
 &lt;p&gt;使用一款未接觸過的軟體，都會先研究它的介面和基本操作方式還有額外的設定，不過有些專業用詞不知道影響的關聯性。&lt;/p&gt;
-&lt;p&gt;以前只用過Visual Studio撰寫和測試一些簡單的程式，對這種大型的架構瞭解較少，應該會再找些相關資訊學習。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/04-2</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050704-2.html" rel="alternate"></link><updated>2016-07-07T16:54:36+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-07:blog/40323230ri-zhi-1050704-2.html</id><summary type="html">&lt;p&gt;NetBeans的相關探索&lt;/p&gt;
-
-
-&lt;h2&gt;NetBeans設定 :&lt;/h2&gt;
-
-&lt;p&gt;從&lt;a href="https://nuwen.net/mingw.html" title="nuwen.net"&gt;MinGW Distro - nuwen.net&lt;/a&gt;下載了新版配有gcc 6.1.0和Boost 1.61.0的MinGW，原本可攜式環境的MinGW是用gcc 4.9.3，暫且在名稱加上.old不使用。&lt;/p&gt;
-&lt;p&gt;下圖是新版和舊版的比對。新版的資料夾有附一個README_STL.txt文件說明內含的附加元件版本。&lt;/p&gt;
-&lt;p&gt;這個MinGW裡還配有一個比較簡單的git工具。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/QusRHMc.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;NetBeans的版本是8.1，存放於根目錄W:，已經是最新版。&lt;/p&gt;
-&lt;p&gt;先在Option裡設定C語言用的Build Tool，在新增工具的下拉選單設定使用MinGW，並指定到MinGW的目錄。成功新增Tool後，NetBeans會自己抓到gcc.exe、g++.exe、as.exe、gdb.exe，最下方則是有QMake和CMake的選項，將CMake指定到存放的位置。&lt;/p&gt;
-&lt;p&gt;設定裡所有的位置都是指定於可攜式環境內，沒用到任何外部資料夾。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/aY6AzV5.jpg" &gt;&lt;/p&gt;
-&lt;h2&gt;NetBeans專案 :&lt;/h2&gt;
-
-&lt;p&gt;之後新建專案，選擇C語言已有源代碼的專案。&lt;/p&gt;
-&lt;p&gt;選擇模式部分選擇Solvespace的目錄。工具只有剛才設定的MinGW，並選擇自訂查看一下。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/MOdwa0P.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;基本上是使用Predefined Command，使用的是CMake的gui設定，也就是Solvespace目錄存放的CMakeLists.txt檔。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/f4sSsvQ.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;接下來是清理和建置指令，就和打在CMD視窗裡的一樣。&lt;/p&gt;
-&lt;p&gt;幾乎每個環節都會詢問工作環境，但是Solvespace沒特別區分的話就是原本目錄內，所以直接按下一步。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/HrGJNnU.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;按下完成鈕後會花個幾秒載入。然後就會在左側讀入原始碼資料夾和檔案的結構。&lt;/p&gt;
-&lt;p&gt;下面則會執行並顯示CMake和Clean指令輸出的訊息，最後完成後就完成編譯環境了。&lt;/p&gt;
-&lt;p&gt;左側的欄位分成Project、Files和Services。只要在Project或Files的檔案樹點兩下就能在中央開啟文件編輯。Services則可以呼叫MinGW的附加元件來用（包含gcc）。&lt;/p&gt;
-&lt;p&gt;左下的導航欄似乎能執行CMake的指令。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/mFKn2Pc.jpg" &gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;這次也是使用之前備份並更新過的Solvespace原始碼操作，免得被之前的檔案影響。&lt;/p&gt;
-&lt;p&gt;雖然和SciTE一樣是文字編譯軟體，但是NetBeans能夠隨時呼叫需要使用的工具來支援。與Visual Studio相比還能夠在可攜環境中保存設定檔，更為方便。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323218日誌 - 105/07/04</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050704.html" rel="alternate"></link><updated>2016-07-07T16:54:36+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-07:blog/40323218ri-zhi-1050704.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
+&lt;p&gt;以前只用過Visual Studio撰寫和測試一些簡單的程式，對這種大型的架構瞭解較少，應該會再找些相關資訊學習。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323218日誌 - 105/07/04</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050704.html" rel="alternate"></link><updated>2016-07-04T22:26:52+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323218ri-zhi-1050704.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
 
 
 &lt;h3&gt;熟悉 V-Rep 基本操作&lt;/h3&gt;
@@ -293,7 +433,149 @@
 
 &lt;iframe src="https://player.vimeo.com/video/173321561" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
 
-&lt;p&gt;&lt;p&gt;&lt;a href="https://vimeo.com/173321561"&gt;V-Rep one_link_robot&lt;/a&gt; from &lt;a href="https://vimeo.com/user44943624"&gt;Li Steven&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - 105/07/01</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050701.html" rel="alternate"></link><updated>2016-07-03T21:05:05+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-03:blog/40323250ri-zhi-1050701.html</id><summary type="html">&lt;p&gt;V-rep 的使用與學習&lt;/p&gt;
+&lt;p&gt;&lt;p&gt;&lt;a href="https://vimeo.com/173321561"&gt;V-Rep one_link_robot&lt;/a&gt; from &lt;a href="https://vimeo.com/user44943624"&gt;Li Steven&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/04-2</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050704-2.html" rel="alternate"></link><updated>2016-07-04T21:40:55+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050704-2.html</id><summary type="html">&lt;p&gt;NetBeans的相關探索&lt;/p&gt;
+
+
+&lt;h2&gt;NetBeans設定 :&lt;/h2&gt;
+
+&lt;p&gt;從&lt;a href="https://nuwen.net/mingw.html" title="nuwen.net"&gt;MinGW Distro - nuwen.net&lt;/a&gt;下載了新版配有gcc 6.1.0和Boost 1.61.0的MinGW，原本可攜式環境的MinGW是用gcc 4.9.3，暫且在名稱加上.old不使用。&lt;/p&gt;
+&lt;p&gt;下圖是新版和舊版的比對。新版的資料夾有附一個README_STL.txt文件說明內含的附加元件版本。&lt;/p&gt;
+&lt;p&gt;這個MinGW裡還配有一個比較簡單的git工具。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/QusRHMc.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;NetBeans的版本是8.1，存放於根目錄W:，已經是最新版。&lt;/p&gt;
+&lt;p&gt;先在Option裡設定C語言用的Build Tool，在新增工具的下拉選單設定使用MinGW，並指定到MinGW的目錄。成功新增Tool後，NetBeans會自己抓到gcc.exe、g++.exe、as.exe、gdb.exe，最下方則是有QMake和CMake的選項，將CMake指定到存放的位置。&lt;/p&gt;
+&lt;p&gt;設定裡所有的位置都是指定於可攜式環境內，沒用到任何外部資料夾。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/aY6AzV5.jpg" &gt;&lt;/p&gt;
+&lt;h2&gt;NetBeans專案 :&lt;/h2&gt;
+
+&lt;p&gt;之後新建專案，選擇C語言已有源代碼的專案。&lt;/p&gt;
+&lt;p&gt;選擇模式部分選擇Solvespace的目錄。工具只有剛才設定的MinGW，並選擇自訂查看一下。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/MOdwa0P.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;基本上是使用Predefined Command，使用的是CMake的gui設定，也就是Solvespace目錄存放的CMakeLists.txt檔。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/f4sSsvQ.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;接下來是清理和建置指令，就和打在CMD視窗裡的一樣。&lt;/p&gt;
+&lt;p&gt;幾乎每個環節都會詢問工作環境，但是Solvespace沒特別區分的話就是原本目錄內，所以直接按下一步。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/HrGJNnU.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;按下完成鈕後會花個幾秒載入。然後就會在左側讀入原始碼資料夾和檔案的結構。&lt;/p&gt;
+&lt;p&gt;下面則會執行並顯示CMake和Clean指令輸出的訊息，最後完成後就完成編譯環境了。&lt;/p&gt;
+&lt;p&gt;左側的欄位分成Project、Files和Services。只要在Project或Files的檔案樹點兩下就能在中央開啟文件編輯。Services則可以呼叫MinGW的附加元件來用（包含gcc）。&lt;/p&gt;
+&lt;p&gt;左下的導航欄似乎能執行CMake的指令。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/mFKn2Pc.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;這次也是使用之前備份並更新過的Solvespace原始碼操作，免得被之前的檔案影響。&lt;/p&gt;
+&lt;p&gt;雖然和SciTE一樣是文字編譯軟體，但是NetBeans能夠隨時呼叫需要使用的工具來支援。與Visual Studio相比還能夠在可攜環境中保存設定檔，更為方便。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050704.html" rel="alternate"></link><updated>2016-07-04T10:31:32+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050704.html</id><summary type="html">&lt;p&gt;改用CMD設定CMake&lt;/p&gt;
+
+
+&lt;h2&gt;CMD命令cmake連接Solvespace原始碼 :&lt;/h2&gt;
+
+&lt;h3&gt;Readme的Command-line build&lt;/h3&gt;
+
+&lt;p&gt;使用可攜式環境的Command Prompt到外部呼叫Visual Studio的vcvarsall.bat。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/F6tBRr1.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;然後為cmake的bin資料夾設定啟動位置(Path4)，可以正常呼叫。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/2h18M7K.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;到CMD中下Readme中提供的指令。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/zpzsMMZ.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;接著下nmake的指令。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/SMlMAQc.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;但是在最後出現一些錯誤，不知道原因為何。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/CZ2wMoU.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;與此同時可以用Visual Studio的相關功能。CMake也算是設定完成了。&lt;/p&gt;
+&lt;p&gt;如果要改用NetBeans，就不用下nmake的指令。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3&gt;Readme的MSVC build&lt;/h3&gt;
+
+&lt;p&gt;這次也把MinGW的bin設定進啟動位置(Path5)，可以正常呼叫。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/8D6cRvV.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;接著同樣按照Readme的說明用CMD下指令。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/iXmV4cR.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;不過後面的make指令會說無法讀取makefile檔。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;Readme中說可以使用MinGW，只要確保git和MinGW的gcc在作業環境內就行了。至於gcc的功能繁多，還需要研究一下。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/03-2</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703-2.html" rel="alternate"></link><updated>2016-07-03T18:49:04+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-03:blog/40323230ri-zhi-1050703-2.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace(更新)&lt;/p&gt;
+
+
+&lt;h2&gt;使用CMake連接Solvespace原始碼 :&lt;/h2&gt;
+
+&lt;h3&gt;Readme的GUI build&lt;/h3&gt;
+
+&lt;p&gt;下載了放在140.130.17.17/public/Netbeans/的可攜式環境git2016，該環境使用的是W:磁碟機，不會和撰寫網誌的Y:環境衝突，可以同時開啟；但是其一關閉時會把所有cmd關掉。之後放入了Netbeans套件，不過還尚未使用。&lt;/p&gt;
+&lt;p&gt;在新的可攜式環境中存入了從GitHub下載的Solvespace的原始碼，並依照其Readme的方式，用git submodule update --init指令更新模組，並存了一個備份檔。&lt;/p&gt;
+&lt;p&gt;CMake的方面使用可攜版的Zip檔，而非Msi安裝。將CMake放在W:的根目錄下。相較於使用指令，因為可攜式環境沒辦法呼叫外部程式支援，所以用cmake-gui.exe圖形介面來設定相關環境。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/nk3qTV4.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;一開始對cmake-gui.exe的兩個位置指向不太清楚，所以嘗試了很多次。&lt;/p&gt;
+&lt;p&gt;要在Solvespace的目錄中建立一個/build資料夾，以存放binaries。&lt;/p&gt;
+&lt;p&gt;Source code的部分是填程式專案的目錄，binaries的地方填/build資料夾，再按Configure鈕設定編譯器，完成後會設置CMake的檔案。&lt;/p&gt;
+&lt;p&gt;雖然之前的目錄已經有檔案了，但是如果binaries直接設目錄內，貌似會衝突產生問題，也無法復原設定檔，幸好有先備份資料能復原。&lt;/p&gt;
+&lt;p&gt;Configure的部分嘗試選擇MinGW的選項。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/5br2VyW.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;下面則選Specify native compilers來自訂編譯器位置，這時執行出現一個錯誤，無法執行MinGW。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/OljnPa7.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;上網尋找似乎要修改系統環境參數到MinGW的bin資料夾才找的到原本就存在的libgmp-10.dll，不知道可攜式環境有沒有其他解法。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;暫時用Visual Studio的設定，但是結果似乎不理想。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/TSfLb5n.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;參考資料：&lt;/p&gt;
+&lt;p&gt;1.&lt;a href="https://www.youtube.com/watch?v=gYmgbqGfv-8" title="youtube.com"&gt;教學影片-Visual Studio&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2.&lt;a href="https://www.youtube.com/watch?v=2A-iRgOhL8A" title="youtube.com"&gt;教學影片-Mingw&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;目前還不會使用MinGW或Netbeans套件，所以暫時先放在可攜環境git2016中，之後會找資料學習如何編譯Solvespace的功能。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/03</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703.html" rel="alternate"></link><updated>2016-07-03T14:50:30+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-03:blog/40323230ri-zhi-1050703.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace&lt;/p&gt;
+
+
+&lt;h2&gt;編譯 Solvespace 前的準備 :&lt;/h2&gt;
+
+&lt;p&gt;從&lt;a href="http://www.activestate.com/activeperl/downloads" title="activestate.com"&gt;Active State&lt;/a&gt;下載了 ActivePerl，使用的是5.24.0／x64版。&lt;/p&gt;
+&lt;p&gt;從&lt;a href="https://www.visualstudio.com/downloads/download-visual-studio-vs" title="visualstudio.com"&gt;Microsoft&lt;/a&gt;下載並安裝了Visual Studio Professional 2015，安裝好像無法選擇C:以外的磁碟。&lt;/p&gt;
+&lt;p&gt;從&lt;a href="https://github.com/whitequark/solvespace" title="github.com"&gt;GitHub&lt;/a&gt;下載Solvespace的原始碼，另外在&lt;a href="http://solvespace.com/download.pl" title="solvespace.com"&gt;Solvespace&lt;/a&gt;提供下載的頁面中也有一個較舊版的原始碼。&lt;/p&gt;
+&lt;p&gt;裝完之後用Developer Command Prompt切換至專案目錄執行nmake，就能下相關指令了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/we7AKIF.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;用CMD從安裝目錄的\VC\bin啟動vcvars32.bat，執行nmake好像也可以，不知道其差異性。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/iCFeYAe.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;關於NMAKE的使用方法，找了幾個中國的網站介紹：&lt;/p&gt;
+&lt;p&gt;1.&lt;a href="http://www.cnblogs.com/kekec/archive/2013/04/21/3007277.html" title="cnblogs.com"&gt;NMAKE的指令&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2.&lt;a href="http://blog.csdn.net/cneaglelee/article/details/11714803" title="csdn.net"&gt;NMAKE的開發環境設置&lt;/a&gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230紀錄</title><link href="http://project.mde.tw/blog/40323230ji-lu.html" rel="alternate"></link><updated>2016-07-02T13:30:01+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-02:blog/40323230ji-lu.html</id><summary type="html">&lt;p&gt;V-REP從範本學得的一些紀錄&lt;/p&gt;
+
+
+&lt;h2&gt;V-REP Example Learning Reviews&lt;/h2&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;h4&gt;嘗試用英文說明&lt;/h4&gt;
+&lt;/br&gt;
+&lt;h2&gt;Notes :&lt;/h2&gt;
+&lt;/br&gt;
+&lt;h3&gt;The "Scene hierarchy" panel can show whole of outward and entity in a tree.&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;
+&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/userInterface.htm#SceneHierarchy" title="coppeliarobotics.com"&gt;Scene hierarchy&lt;/a&gt; Description page
+&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/cqIHtFn.jpg" &gt;
+&lt;/br&gt;
+&lt;h3&gt;In this case, a group of parts will in the same level. they are outward, entity and joint parts. Maybe some sensor parts will put into this group.&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;Any parts can insert a script to control them.&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;"Dummy" parts is a calculation module. They are collidable, measurable and detectable like the entity. But now we are't clearly known it's application.&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;
+&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/dummies.htm" title="coppeliarobotics.com"&gt;Dummy&lt;/a&gt; Description page
+&lt;/h3&gt;
+&lt;/br&gt;&lt;hr&gt;&lt;/br&gt;
+&lt;h3&gt;組裝上可以使用「滑塊主動噴頭連動」或「噴頭主動滑塊連動」的方式，但是在從屬關係上必須顛倒，程式寫法也不一樣。「滑塊主動噴頭連動」的方式較符合3D印表機的物理運作。&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/caU2SLx.jpg" &gt;
+&lt;/br&gt;&lt;hr&gt;&lt;/br&gt;
+&lt;h3&gt;目前整理完幾何部件的檔案。存於\users\g2_files\VREP_Simulation.ttt中。&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/jNvEHRc.jpg" &gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="V-rep"></category></entry><entry><title>40323250日誌 - 105/07/01</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050701.html" rel="alternate"></link><updated>2016-07-02T12:49:15+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-02:blog/40323250ri-zhi-1050701.html</id><summary type="html">&lt;p&gt;V-rep 的使用與學習&lt;/p&gt;
 
 
 &lt;h2&gt;★暑期第一個禮拜的 星期四 - 06/30★&lt;/h2&gt;
@@ -483,86 +765,20 @@ a.為orthographic type  及  b.為perspective type&lt;/h3&gt;
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/vision.gif"&gt;
 &lt;/br&gt;
 &lt;hr&gt;
-&lt;/br&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/03</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703.html" rel="alternate"></link><updated>2016-07-03T21:05:05+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-03:blog/40323230ri-zhi-1050703.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace&lt;/p&gt;
+&lt;/br&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - 105/06/28</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050628.html" rel="alternate"></link><updated>2016-07-01T12:10:06+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-01:blog/40323250ri-zhi-1050628.html</id><summary type="html">&lt;p&gt;暑期第一個禮拜的 星期二&lt;/p&gt;
 
 
-&lt;h2&gt;編譯 Solvespace 前的準備 :&lt;/h2&gt;
-
-&lt;p&gt;從&lt;a href="http://www.activestate.com/activeperl/downloads" title="activestate.com"&gt;Active State&lt;/a&gt;下載了 ActivePerl，使用的是5.24.0／x64版。&lt;/p&gt;
-&lt;p&gt;從&lt;a href="https://www.visualstudio.com/downloads/download-visual-studio-vs" title="visualstudio.com"&gt;Microsoft&lt;/a&gt;下載並安裝了Visual Studio Professional 2015，安裝好像無法選擇C:以外的磁碟。&lt;/p&gt;
-&lt;p&gt;從&lt;a href="https://github.com/whitequark/solvespace" title="github.com"&gt;GitHub&lt;/a&gt;下載Solvespace的原始碼，另外在&lt;a href="http://solvespace.com/download.pl" title="solvespace.com"&gt;Solvespace&lt;/a&gt;提供下載的頁面中也有一個較舊版的原始碼。&lt;/p&gt;
-&lt;p&gt;裝完之後用Developer Command Prompt切換至專案目錄執行nmake，就能下相關指令了。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/we7AKIF.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;用CMD從安裝目錄的\VC\bin啟動vcvars32.bat，執行nmake好像也可以，不知道其差異性。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/iCFeYAe.jpg" &gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;關於NMAKE的使用方法，找了幾個中國的網站介紹：&lt;/p&gt;
-&lt;p&gt;1.&lt;a href="http://www.cnblogs.com/kekec/archive/2013/04/21/3007277.html" title="cnblogs.com"&gt;NMAKE的指令&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;2.&lt;a href="http://blog.csdn.net/cneaglelee/article/details/11714803" title="csdn.net"&gt;NMAKE的開發環境設置&lt;/a&gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/03-2</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703-2.html" rel="alternate"></link><updated>2016-07-03T21:05:05+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-03:blog/40323230ri-zhi-1050703-2.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace(更新)&lt;/p&gt;
-
-
-&lt;h2&gt;使用CMake連接Solvespace原始碼 :&lt;/h2&gt;
-
-&lt;h3&gt;Readme的GUI build&lt;/h3&gt;
-
-&lt;p&gt;下載了放在140.130.17.17/public/Netbeans/的可攜式環境git2016，該環境使用的是W:磁碟機，不會和撰寫網誌的Y:環境衝突，可以同時開啟；但是其一關閉時會把所有cmd關掉。之後放入了Netbeans套件，不過還尚未使用。&lt;/p&gt;
-&lt;p&gt;在新的可攜式環境中存入了從GitHub下載的Solvespace的原始碼，並依照其Readme的方式，用git submodule update --init指令更新模組，並存了一個備份檔。&lt;/p&gt;
-&lt;p&gt;CMake的方面使用可攜版的Zip檔，而非Msi安裝。將CMake放在W:的根目錄下。相較於使用指令，因為可攜式環境沒辦法呼叫外部程式支援，所以用cmake-gui.exe圖形介面來設定相關環境。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/nk3qTV4.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;一開始對cmake-gui.exe的兩個位置指向不太清楚，所以嘗試了很多次。&lt;/p&gt;
-&lt;p&gt;要在Solvespace的目錄中建立一個/build資料夾，以存放binaries。&lt;/p&gt;
-&lt;p&gt;Source code的部分是填程式專案的目錄，binaries的地方填/build資料夾，再按Configure鈕設定編譯器，完成後會設置CMake的檔案。&lt;/p&gt;
-&lt;p&gt;雖然之前的目錄已經有檔案了，但是如果binaries直接設目錄內，貌似會衝突產生問題，也無法復原設定檔，幸好有先備份資料能復原。&lt;/p&gt;
-&lt;p&gt;Configure的部分嘗試選擇MinGW的選項。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/5br2VyW.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;下面則選Specify native compilers來自訂編譯器位置，這時執行出現一個錯誤，無法執行MinGW。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/OljnPa7.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;上網尋找似乎要修改系統環境參數到MinGW的bin資料夾才找的到原本就存在的libgmp-10.dll，不知道可攜式環境有沒有其他解法。&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;暫時用Visual Studio的設定，但是結果似乎不理想。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/TSfLb5n.jpg" &gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;參考資料：&lt;/p&gt;
-&lt;p&gt;1.&lt;a href="https://www.youtube.com/watch?v=gYmgbqGfv-8" title="youtube.com"&gt;教學影片-Visual Studio&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;2.&lt;a href="https://www.youtube.com/watch?v=2A-iRgOhL8A" title="youtube.com"&gt;教學影片-Mingw&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;目前還不會使用MinGW或Netbeans套件，所以暫時先放在可攜環境git2016中，之後會找資料學習如何編譯Solvespace的功能。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230紀錄</title><link href="http://project.mde.tw/blog/40323230ji-lu.html" rel="alternate"></link><updated>2016-07-03T21:05:05+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-03:blog/40323230ji-lu.html</id><summary type="html">&lt;p&gt;V-REP從範本學得的一些紀錄&lt;/p&gt;
-
-
-&lt;h2&gt;V-REP Example Learning Reviews&lt;/h2&gt;
+&lt;h3&gt;目前組合進度&lt;/h3&gt;
 
 &lt;p&gt;&lt;/br&gt;
-&lt;h4&gt;嘗試用英文說明&lt;/h4&gt;
+&lt;img src="http://i.imgur.com/D2k3uqk.gif"&gt;
 &lt;/br&gt;
-&lt;h2&gt;Notes :&lt;/h2&gt;
+&lt;h3&gt;目前遇到的狀況&lt;/h3&gt;
+&lt;h4&gt;我把滑塊設定為slider，能在滑軌上做相對移動，但是在拉到一半的時候，Onshape整個圖形就消失了，然後點選左方的zoom to section還是能顯示，但呈現以下狀態&lt;/h4&gt;
 &lt;/br&gt;
-&lt;h3&gt;The "Scene hierarchy" panel can show whole of outward and entity in a tree.&lt;/h3&gt;
+&lt;img src="http://i.imgur.com/W3N5pkC.png"&gt;
 &lt;/br&gt;
-&lt;h3&gt;
-&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/userInterface.htm#SceneHierarchy" title="coppeliarobotics.com"&gt;Scene hierarchy&lt;/a&gt; Description page
-&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://i.imgur.com/cqIHtFn.jpg" &gt;
-&lt;/br&gt;
-&lt;h3&gt;In this case, a group of parts will in the same level. they are outward, entity and joint parts. Maybe some sensor parts will put into this group.&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;Any parts can insert a script to control them.&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;"Dummy" parts is a calculation module. They are collidable, measurable and detectable like the entity. But now we are't clearly known it's application.&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;
-&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/dummies.htm" title="coppeliarobotics.com"&gt;Dummy&lt;/a&gt; Description page
-&lt;/h3&gt;
-&lt;/br&gt;&lt;hr&gt;&lt;/br&gt;
-&lt;h3&gt;組裝上可以使用「滑塊主動噴頭連動」或「噴頭主動滑塊連動」的方式，但是在從屬關係上必須顛倒，程式寫法也不一樣。「滑塊主動噴頭連動」的方式較符合3D印表機的物理運作。&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://i.imgur.com/caU2SLx.jpg" &gt;
-&lt;/br&gt;&lt;hr&gt;&lt;/br&gt;
-&lt;h3&gt;目前整理完幾何部件的檔案。存於\users\g2_files\VREP_Simulation.ttt中。&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://i.imgur.com/jNvEHRc.jpg" &gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="V-rep"></category></entry><entry><title>40323250日誌 - 105/06/29</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050629.html" rel="alternate"></link><updated>2016-06-30T20:49:43+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-06-30:blog/40323250ri-zhi-1050629.html</id><summary type="html">&lt;p&gt;暑期第一個禮拜的 星期三&lt;/p&gt;
+&lt;h4&gt;滑鼠選轉及縮放也跟著出問題，點選右方試圖方塊圖又會不見，只能重新再組一次。&lt;/h4&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - 105/06/29</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050629.html" rel="alternate"></link><updated>2016-07-01T12:10:06+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-01:blog/40323250ri-zhi-1050629.html</id><summary type="html">&lt;p&gt;暑期第一個禮拜的 星期三&lt;/p&gt;
 
 
 &lt;h3&gt;進度&lt;/h3&gt;
@@ -591,20 +807,7 @@ a.為orthographic type  及  b.為perspective type&lt;/h3&gt;
 &lt;/br&gt;
 &lt;h3&gt;明天應該就可以開始測試模擬了。&lt;/h3&gt;
 &lt;/br&gt;
-&lt;h3&gt;Onshape零件及兩個stl檔案都放在users/g2_files目錄下，歡迎取用。&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - 105/06/28</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050628.html" rel="alternate"></link><updated>2016-06-29T14:04:41+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-06-29:blog/40323250ri-zhi-1050628.html</id><summary type="html">&lt;p&gt;暑期第一個禮拜的 星期二&lt;/p&gt;
-
-
-&lt;h3&gt;目前組合進度&lt;/h3&gt;
-
-&lt;p&gt;&lt;/br&gt;
-&lt;img src="http://i.imgur.com/D2k3uqk.gif"&gt;
-&lt;/br&gt;
-&lt;h3&gt;目前遇到的狀況&lt;/h3&gt;
-&lt;h4&gt;我把滑塊設定為slider，能在滑軌上做相對移動，但是在拉到一半的時候，Onshape整個圖形就消失了，然後點選左方的zoom to section還是能顯示，但呈現以下狀態&lt;/h4&gt;
-&lt;/br&gt;
-&lt;img src="http://i.imgur.com/W3N5pkC.png"&gt;
-&lt;/br&gt;
-&lt;h4&gt;滑鼠選轉及縮放也跟著出問題，點選右方試圖方塊圖又會不見，只能重新再組一次。&lt;/h4&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>Summer Plan</title><link href="http://project.mde.tw/blog/summer-plan.html" rel="alternate"></link><updated>2016-06-29T14:04:41+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-06-29:blog/summer-plan.html</id><summary type="html">&lt;p&gt;Summer project&lt;/p&gt;
+&lt;h3&gt;Onshape零件及兩個stl檔案都放在users/g2_files目錄下，歡迎取用。&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>Summer Plan</title><link href="http://project.mde.tw/blog/summer-plan.html" rel="alternate"></link><updated>2016-07-01T12:10:06+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-01:blog/summer-plan.html</id><summary type="html">&lt;p&gt;Summer project&lt;/p&gt;
 
 
 &lt;p&gt;1.畫3D Printer (V-rep ,Onshape)&lt;/p&gt;
@@ -629,7 +832,7 @@ a.為orthographic type  及  b.為perspective type&lt;/h3&gt;
 &lt;p&gt;暑期人數 : &lt;/p&gt;
 &lt;p&gt;七月:第一組3人 ,第二組4人&lt;/p&gt;
 &lt;p&gt;八月:第一組3人 ,第二組4人 ,第三組1人&lt;/p&gt;
-&lt;p&gt;&lt;font size="5" face="Arial"&gt;&lt;marquee border="0" scrollamount="50" behavior="alternate"&gt;You can't see me&lt;/marquee&gt;&lt;/font&gt;&lt;/p&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>OpenCv範例執行</title><link href="http://project.mde.tw/blog/opencvfan-li-zhi-xing.html" rel="alternate"></link><updated>2016-06-29T14:04:41+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-06-29:blog/opencvfan-li-zhi-xing.html</id><summary type="html">&lt;p&gt;OpenCv example with python test&lt;/p&gt;
+&lt;p&gt;&lt;font size="5" face="Arial"&gt;&lt;marquee border="0" scrollamount="50" behavior="alternate"&gt;You can't see me&lt;/marquee&gt;&lt;/font&gt;&lt;/p&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>OpenCv範例執行</title><link href="http://project.mde.tw/blog/opencvfan-li-zhi-xing.html" rel="alternate"></link><updated>2016-07-01T12:10:06+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-01:blog/opencvfan-li-zhi-xing.html</id><summary type="html">&lt;p&gt;OpenCv example with python test&lt;/p&gt;
 
 
 &lt;h3&gt;實作系統Ubuntu 14.04 以及 老師整合的檔案&lt;/h3&gt;

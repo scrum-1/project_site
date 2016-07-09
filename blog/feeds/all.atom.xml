@@ -15,8 +15,10 @@
 &lt;p&gt;3.SWIG概念&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://user.frdm.info/ckhung/b/mi/swig.php" title="user.frdm.info"&gt;http://user.frdm.info/ckhung/b/mi/swig.php&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;接著從&lt;a href="http://www.swig.org/download.html" title="swig.org"&gt;swig.org&lt;/a&gt;下載最新版的SWIG 3.0.10，將壓縮包解至W:內。&lt;/p&gt;
+&lt;p&gt;SWIG能夠給Windows/Unix/MacOSX三個平台使用，所以壓縮檔的附檔名是三個平台都共通的".tar.gz"。&lt;/p&gt;
+&lt;p&gt;解壓縮後，在Windows環境中有很多檔案是打不開的，不過說明檔是沒有附檔名的，隨便用任何文字編輯軟體都能查看。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/G3moEiW.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;SWIG能夠給Windows/Unix/MacOSX三個平台使用。&lt;/p&gt;
+&lt;p&gt;如果該步驟需要完整的流程，\Doc\Manual中有寫好的html網頁手冊，用網頁瀏覽器就能開啟。&lt;/p&gt;
 &lt;p&gt;在閱讀\Doc\Manual\Windows.html的說明之後，手冊解釋SWIG並不是使用通常的Windows類型安裝程式。&lt;/p&gt;
 &lt;p&gt;只要在編譯器中（手冊的範例是Visual Studio）設置環境變數就能使用其範例檔。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/VHvu5ps.jpg" &gt;&lt;/p&gt;

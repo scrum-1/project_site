@@ -8,11 +8,11 @@
 &lt;h2&gt;安裝工具 :&lt;/h2&gt;
 
 &lt;p&gt;除了英文的資料，另外還讀了一下關於SWIG的相關中文資料：&lt;/p&gt;
-&lt;p&gt;Python的資料庫形式&lt;/p&gt;
+&lt;p&gt;1.Python的資料庫形式&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://read01.com/PnGeDg.html" title="read01.com"&gt;https://read01.com/PnGeDg.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Python在Windows中用SWIG呼叫C/C++的函式（VC）&lt;/p&gt;
+&lt;p&gt;2.Python在Windows中用SWIG呼叫C/C++的函式（VC）&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://falldog7.blogspot.tw/2013/07/python-swig-c-function.html" title="falldog7.blogspot.tw"&gt;http://falldog7.blogspot.tw/2013/07/python-swig-c-function.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;SWIG概念&lt;/p&gt;
+&lt;p&gt;3.SWIG概念&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://user.frdm.info/ckhung/b/mi/swig.php" title="user.frdm.info"&gt;http://user.frdm.info/ckhung/b/mi/swig.php&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;接著從&lt;a href="http://www.swig.org/download.html" title="swig.org"&gt;swig.org&lt;/a&gt;下載最新版的SWIG 3.0.10，將壓縮包解至W:內。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/G3moEiW.jpg" &gt;&lt;/p&gt;

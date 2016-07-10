@@ -1,5 +1,103 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-09T19:05:03+08:00</updated><entry><title>40323230紀錄 - 瞭解SWIG &amp; CDemo的資源</title><link href="http://project.mde.tw/blog/40323230ji-lu-liao-jie-swig-cdemode-zi-yuan.html" rel="alternate"></link><updated>2016-07-09T19:05:03+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-09:blog/40323230ji-lu-liao-jie-swig-cdemode-zi-yuan.html</id><summary type="html">&lt;p&gt;安裝SWIG&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-10T18:50:59+08:00</updated><entry><title>40323230練習 - 105/07/10</title><link href="http://project.mde.tw/blog/40323230lian-xi-1050710.html" rel="alternate"></link><updated>2016-07-10T18:50:59+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-10:blog/40323230lian-xi-1050710.html</id><summary type="html">&lt;p&gt;由於不熟悉動態連結庫的運作方式，先練習C語言呼叫動態連結庫，之後再研究python的方式。&lt;/p&gt;
+
+
+&lt;h2&gt;編譯出C的動態連結庫 :&lt;/h2&gt;
+
+&lt;p&gt;找到了一個別人學校的DLL簡單範例。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://pws.niu.edu.tw/~ttlee/sp.100.2/dll/" title="niu.edu.tw"&gt;http://pws.niu.edu.tw/~ttlee/sp.100.2/dll/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;雖然NetBeans在截圖時很容易閃退，但是Visual Studio的專案又會把檔案搞得太複雜，所以就將就點使用NetBeans了。&lt;/p&gt;
+&lt;p&gt;使用NetBeans建立了一個C/C++ Dynamic Library。&lt;/p&gt;
+&lt;p&gt;若沒有預設Make file，也不是二進位資料，又需要動態連結庫的話，這個類別的專案是項很好的選擇。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/vLbLF1a.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;新建完成後，Projects的欄位就會幫使用者分類：&lt;/p&gt;
+&lt;p&gt;Header Files, Resource Files, Source Files, Test Files.&lt;/p&gt;
+&lt;p&gt;這些分類預設是空的，而在NetBeans中沒有分類的檔案是不能編譯的。&lt;/p&gt;
+&lt;p&gt;如果要讓既有的檔案歸類，在想添加的目錄上按下右鍵，選擇"Add Existing Item..."，再選擇想加入的檔案就行了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/K1LuZ3T.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;按照範例先在SciTE中寫好了三個檔案。&lt;/p&gt;
+&lt;p&gt;編譯成DLL文件的是dllmain.c和dll.h，編譯成執行檔的是call DLL.c，在標頭檔dll.h中有相關紀錄。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/acz9z6v.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;DLL中的Add函式中輸入三個類型分別是char&lt;em&gt;、int、int的值，會回傳一串文字，類型是char&lt;/em&gt;。&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+DLLIMPORT char* Add(char*str, int a, int b)
+{
+    printf("This is your ID(8):\n");
+    printf("Your ID: %s\n", str);
+    printf("%d+%d=%d:\n", a, b, a+b);
+    return "OK";
+}
+&lt;/pre&gt;
+
+&lt;p&gt;標頭檔中也有這一段匯入，供可執行檔呼叫。&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+DLLIMPORT char* Add(char*, int, int);
+&lt;/pre&gt;
+
+&lt;p&gt;這時候先編譯動態連結庫，在專案上按右鍵，選擇Properties。&lt;/p&gt;
+&lt;p&gt;在Build的設定中，Configuration Type的選項選擇Dynamic Library，設定好後按下Build鈕。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/B5driZY.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;這時候會顯示成功，並在\dist\Debug\MinGW的資料中編譯出dll檔，動態連結庫就算是成功了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/L3U9skL.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2&gt;編譯出C的可執行檔 :&lt;/h2&gt;
+
+&lt;p&gt;這時再把call DLL.c加入Source File中。&lt;/p&gt;
+&lt;p&gt;call DLL.exe主要就是接受使用者輸入的三個值，並讓動態連結庫處理完顯示值後，再把顯示值回傳，顯示給使用者看。&lt;/p&gt;
+&lt;p&gt;call DLL.c的主程式如下：&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+int main(void)
+{
+    int i1, i2;
+    char str1[9];
+    printf("Key in:\n");
+    scanf("%s,%d,%d", &amp;str1, i1, i2);
+    printf("\n");
+
+    HMODULE hInst=LoadLibrary("DLLtest.dll");
+    if(hInst==NULL){
+        printf("Can't load library.\n");
+        system("PAUSE");
+        return 1;
+    }
+    char* (*CallDll)(char*, int, int);
+    (FARPROC*)(CallDll)=GetProcAddress(hInst, "Add");
+    if(CallDll==NULL){
+        printf("NO Value.\n");
+        system("PAUSE");
+        return 2;
+    }
+    printf("Result: %s\n", CallDll(str1, i1,i2));
+    FreeLibrary(hInst);
+    system("PAUSE");
+    return 0;
+}
+&lt;/pre&gt;
+
+&lt;p&gt;然而在編譯時，NetBeans卻顯示了下列訊息：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/JjwIcXD.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;顯示是在這段出了問題：&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+(FARPROC*)(CallDll)=GetProcAddress(hInst, "Add");
+&lt;/pre&gt;
+
+&lt;p&gt;這裡的問題是定義項和被定義項的關係錯誤。&lt;/p&gt;
+&lt;p&gt;上網查了一些資料，使用的語法都試過了，但是問題仍然無法解決。&lt;/p&gt;
+&lt;p&gt;由於是內建函式，所以不太了解其格式甚麼的。&lt;/p&gt;
+&lt;p&gt;於是回去觀察Solvespace的標頭檔，發現CDemo是直接使用這段：&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+DLL void Slvs_Solve(Slvs_System *sys, Slvs_hGroup hg);
+&lt;/pre&gt;
+
+&lt;p&gt;完全不用呼叫dll名稱什麼的。&lt;/p&gt;
+&lt;p&gt;因為在slvs.h中，所有的格式在開始就寫得清清楚楚，所以若要使用，必須將需要的數值按照規定的格式填入，然後由最高層的"Slvs_"指派計算。&lt;/p&gt;
+&lt;p&gt;編譯後，動態連結庫取代了標頭檔的功能，包裝各項副程式後，在同個目錄下，可以供其他想使用函式的可執行檔使用。&lt;/p&gt;
+&lt;p&gt;至於工程師規定的格式在slvs.h的註解中有所說明。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;雖然這次編譯基礎程式時失敗了，但是瞭解這些引用功能的方式，仍然是有所收穫。&lt;/p&gt;
+&lt;p&gt;下次應該是模仿CDemo寫題目給libslvs.dll求解，不過若之後是要使用python的話還需要再研究一下SWIG的功能。&lt;/p&gt;</summary><category term="Kmol"></category><category term="CDemo"></category></entry><entry><title>40323230紀錄 - 瞭解SWIG &amp; CDemo的資源</title><link href="http://project.mde.tw/blog/40323230ji-lu-liao-jie-swig-cdemode-zi-yuan.html" rel="alternate"></link><updated>2016-07-09T19:05:03+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-09:blog/40323230ji-lu-liao-jie-swig-cdemode-zi-yuan.html</id><summary type="html">&lt;p&gt;安裝SWIG&lt;/p&gt;
 &lt;p&gt;並檢視下列檔案：&lt;/p&gt;
 &lt;p&gt;CDemo.exe&lt;/p&gt;
 &lt;p&gt;CDemo.c&lt;/p&gt;
@@ -295,7 +393,7 @@ void Example2d()
 
 &lt;p&gt;閱讀完pyd檔案的作用後，大約知道它和dll的關聯性了。&lt;/p&gt;
 &lt;p&gt;不過libslvs.dll究竟是從哪裡編譯出來的呢？是從主要的cpp檔還是標頭檔建立的？Build完之後多出了libslvs.dll.a和config.h。&lt;/p&gt;
-&lt;p&gt;雖然一些簡單的dll可以直接打開編輯，不過libslvs.dll應該是不能這樣做。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="SWIG"></category></entry><entry><title>40323230日誌 - 105/07/09</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050709.html" rel="alternate"></link><updated>2016-07-09T00:00:19+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-09:blog/40323230ri-zhi-1050709.html</id><summary type="html">&lt;p&gt;嘗試用C語言解題&lt;/p&gt;
+&lt;p&gt;雖然一些簡單的dll可以直接打開編輯，不過libslvs.dll應該是不能這樣做。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="SWIG"></category></entry><entry><title>40323230練習 - 105/07/09</title><link href="http://project.mde.tw/blog/40323230lian-xi-1050709.html" rel="alternate"></link><updated>2016-07-09T00:00:19+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-09:blog/40323230lian-xi-1050709.html</id><summary type="html">&lt;p&gt;嘗試用C語言解題&lt;/p&gt;
 
 
 &lt;h2&gt;BUG fix :&lt;/h2&gt;

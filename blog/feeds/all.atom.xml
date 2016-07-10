@@ -18,7 +18,7 @@
 &lt;p&gt;按照範例先在SciTE中寫好了三個檔案。&lt;/p&gt;
 &lt;p&gt;編譯成DLL文件的是dllmain.c和dll.h，編譯成執行檔的是call DLL.c，在標頭檔dll.h中有相關紀錄。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/acz9z6v.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;DLL中的Add函式中輸入三個類型分別是char&lt;em&gt;、int、int的值，會回傳一串文字，類型是char&lt;/em&gt;。&lt;/p&gt;
+&lt;p&gt;DLL中的Add函式中輸入三個類型分別是char、int、int的值，會回傳一串文字，類型是char。&lt;/p&gt;
 &lt;pre class="brush: c"&gt;
 DLLIMPORT char* Add(char*str, int a, int b)
 {

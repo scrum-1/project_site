@@ -29,7 +29,11 @@
 &lt;/br&gt;
 &lt;/br&gt;
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/code_error1.png" &gt;
-&lt;h3&gt;如果是用左邊的script就不會有simWait的錯誤 ,但是它只會走90度 ,然後simWait就不會動了&lt;/h3&gt;&lt;/p&gt;</summary><category term="v-rep"></category></entry><entry><title>yen - RGA 基因演算法</title><link href="http://project.mde.tw/blog/yen-rga-ji-yin-yan-suan-fa.html" rel="alternate"></link><updated>2016-07-10T12:13:16+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-10:blog/yen-rga-ji-yin-yan-suan-fa.html</id><summary type="html">&lt;p&gt;RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.&lt;/p&gt;
+&lt;h3&gt;如果是用左邊的script就不會有simWait的錯誤 ,但是它只會走90度 ,然後simWait就不會動了&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;參考 :&lt;/h3&gt;
+&lt;p&gt;&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/jointDescription.htm "&gt;Joint types and operation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/childScripts.htm#threaded "&gt;Child Scripts&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;</summary><category term="v-rep"></category></entry><entry><title>yen - RGA 基因演算法</title><link href="http://project.mde.tw/blog/yen-rga-ji-yin-yan-suan-fa.html" rel="alternate"></link><updated>2016-07-10T12:13:16+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-10:blog/yen-rga-ji-yin-yan-suan-fa.html</id><summary type="html">&lt;p&gt;RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.&lt;/p&gt;
 
 
 &lt;pre class="brush: python"&gt;

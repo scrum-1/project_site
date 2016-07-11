@@ -1,5 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-11T15:53:26+08:00</updated><entry><title>40323230練習 - 105/07/10</title><link href="http://project.mde.tw/blog/40323230lian-xi-1050710.html" rel="alternate"></link><updated>2016-07-11T15:53:26+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323230lian-xi-1050710.html</id><summary type="html">&lt;p&gt;由於不熟悉動態連結庫的運作方式，先練習C語言呼叫動態連結庫，之後再研究python的方式。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-11T21:42:41+08:00</updated><entry><title>40323230練習 - 105/07/11</title><link href="http://project.mde.tw/blog/40323230lian-xi-1050711.html" rel="alternate"></link><updated>2016-07-11T21:42:41+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323230lian-xi-1050711.html</id><summary type="html">&lt;p&gt;使用2015cp範本練習".py"呼叫".pyd"。&lt;/p&gt;
+
+
+&lt;h2&gt;編譯出Python的動態連結庫 :&lt;/h2&gt;
+
+&lt;p&gt;從&lt;a href="https://github.com/coursemdetw/2015cp" title="coursemdetw/2015cp"&gt;https://github.com/coursemdetw/2015cp&lt;/a&gt;下載老師的範本練習。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/vifdEXt.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;C程式的部分分成pymod和pyfun。&lt;/p&gt;
+&lt;p&gt;這兩組底下都有3個Node，分別是編譯Python動態連結庫用的button、呼叫用的Python程式和一個C++編成的函式。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/kanLiEj.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;button裡的內容如下：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+...
+# compile
+os.system("Z:/C/MinGW/bin/gcc.exe -c -g -IV:/IDE/Python33/include  -MMD -MP -MF build/"+target_name+".o.d -o build/"+target_name+".o "+filename)
+# link 因為 .c 程式中起始為 PyInit_sum, 因此
+os.system("Z:/C/MinGW/bin/gcc.exe -shared -o dist/"+module_name+".pyd build/"+target_name+".o V:/IDE/Python33/libs/libpython33.a")
+g.es("done")
+&lt;/pre&gt;
+
+&lt;p&gt;在執行時顯然對應不到W:槽的MinGW和Python34，所以必須改一下它的指令。&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+...
+# compile
+os.system("gcc -c -g -IW:/Python34/include  -MMD -MP -MF build/"+target_name+".o.d -o build/"+target_name+".o "+filename)
+# link 因為 .c 程式中起始為 PyInit_sum, 因此
+os.system("gcc -shared -o dist/"+module_name+".pyd build/"+target_name+".o W:/Python34/libs/python34.lib")
+g.es("pymod done")
+&lt;/pre&gt;
+
+&lt;p&gt;而另一邊的pyfun同理。&lt;/p&gt;
+&lt;p&gt;接著就能在\dist資料夾中編譯出sum.pyd和pyfun.pyd了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/CF0b3Ff.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2&gt;使用mypy.py :&lt;/h2&gt;
+
+&lt;p&gt;接著回到@edit programs/dist/mypy.py和mypy2.py的兩個Node，只要在.leo中存檔就能建立和編輯它們。&lt;/p&gt;
+&lt;p&gt;mypy.py中導入sum，並使用它裡面的函式sum()。&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+print(sum.sum(1, 30))
+&lt;/pre&gt;
+
+&lt;p&gt;在sum.pyd中，函式sum()是sum2()在sum.pyd中被定義的外部名稱，由以下可知。&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+// 定義內部運算的函式內容
+int sum2(int a, int b)
+{
+    return a+b;
+}
+
+// sum 函式的 interface
+static PyObject* mod_sum(PyObject *self, PyObject *args)
+{
+    int a;
+    int b;
+    int s;
+    // ii 表示兩個輸入變數都是整數
+    if (!PyArg_ParseTuple(args,"ii",&amp;a,&amp;b))
+       return NULL;
+    // 這裡的 sum2 則是內部的函式定義, 與外部呼叫模組或函式名稱沒有直接關係
+    s = sum2(a,b);
+    // i 表示 s 為整數
+    return Py_BuildValue("i",s);
+}
+
+// 這裡的 sum 是外部模組的呼叫名稱, 而 mod_sum 則是內部的呼叫名稱 (即 interface function)
+// Mod_Methods 為函式 (方法) 結構定義
+static struct PyMethodDef Mod_Methods[] = {
+    {"sum", mod_sum, METH_VARARGS, "Description.."},
+    {NULL,NULL,0,NULL}
+};
+&lt;/pre&gt;
+
+&lt;p&gt;sum2()函式回傳的是兩個輸入值（pyd內部名為a和b），所以mypy.py收到後會顯示在畫面上。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/00d1W9j.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;另一邊的mypy2.py是使用pyfun.pyd，不過有兩個檔案太麻煩了，乾脆讓mypy.py導入兩個pyd就好了。&lt;/p&gt;
+&lt;p&gt;這次是加入一段字串。&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+print(pyfun.pyfun("我的字串"))
+&lt;/pre&gt;
+
+&lt;p&gt;在pyfun.pyd中，pyfun()的外部名稱和它同名，在它的函式中，建立了一個指標to_who，偵測使用動態連結庫的對象，並把輸入進來的字串傳回。&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+pyfun(PyObject *self,PyObject *args)
+{
+    const char *to_who;
+    if(!PyArg_ParseTuple(args,"s",&amp;to_who))
+        return NULL;
+     // pyfun 函式會將輸入字串變數傳回
+    return PyUnicode_FromString(to_who);
+}
+&lt;/pre&gt;
+
+&lt;p&gt;執行後的結果：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/FhNTo1L.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;不過這兩個pyd的結尾不太一樣。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;sum.pyd&lt;/em&gt;&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+// 模組啟始, PyInit_ 後必須使用"名稱".pyd 中的模組名稱, 以便啟動
+// 換言之, 若編譯連結後的動態模組名稱為 sum.pyd, 則此地的起始函式名稱必須為 PyInit_sum
+PyMODINIT_FUNC
+PyInit_sum(void)
+{
+    // 建立模組的起始, 輸入為模組結構名稱之 address
+    (void) PyModule_Create(&amp;ModMethods);
+}
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;pyfun.pyd&lt;/em&gt;&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+// 此 pyd 必須命名為 pyfun.pyd, 因為必須與 PyInit_後的名稱相同
+PyInit_pyfun(void)
+{
+    PyObject *m;
+    m = PyModule_Create(&amp;moduledef);
+    return m;
+}
+&lt;/pre&gt;
+
+&lt;p&gt;意思似乎是一樣的，不過pyfun.pyd將PyModule_Create當作回傳值回傳了，不知道用意為何。&lt;/p&gt;
+&lt;p&gt;若要瞭解Python的函式用法，應該要查閱Python.h或是相關說明才能明白。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2&gt;延伸應用 :&lt;/h2&gt;
+
+&lt;p&gt;只使用既定的範本實在是太簡略了，所以試著在pyd中加一些自己寫的函式。&lt;/p&gt;
+&lt;p&gt;在sum中加入新的函式sum3，並讓它的傳回值設定為a和b相加後開平方根，再乘上10。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/DYEFA1M.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;添加了下列指令：&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+//導入
+#include "math.h"
+//宣告
+int sum3(int a, int b);
+//副程式sum3
+int sum3(int a, int b)
+{
+    return sqrt(a+b)*10;
+}
+//定義輸入值和sum3的外部名稱score
+static PyObject* mod_score(PyObject *self, PyObject *args)
+{
+    int a;
+    int b;
+    int t;
+    if (!PyArg_ParseTuple(args,"ii",&amp;a,&amp;b))
+       return NULL;
+    t = sum3(a,b);
+    return Py_BuildValue("i",t);
+}
+&lt;/pre&gt;
+
+&lt;p&gt;並在PyMethodDef Mod_Methods[]中再新增一串：&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+{"score", mod_score, METH_VARARGS, "Description.."},
+&lt;/pre&gt;
+
+&lt;p&gt;接著在mypy.py中呼叫sum.score()就行了。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;Leo的搜尋功能和復原功能真的不太實在。常常搜尋時就跳到其他Node去，搜尋目標也要每次都重新調整；復原直接還原到存檔前的樣子，所以用它來編譯程式真的滿吃力的。&lt;/p&gt;
+&lt;p&gt;這次使用的是Python，所以SciTE和只能寫C語言的NetBeans幫不上忙，因為無法呼叫Python.h。說不定設定環境係數可以奏效？&lt;/p&gt;
+&lt;p&gt;不然只靠Leo編輯，它的函式分類也不是很清楚，常常不知道Python.h中的函式原型用法是甚麼，不像NetBeans可以連進去查看stdio.h或是windows.h所引用的函式。&lt;/p&gt;</summary><category term="Kmol"></category><category term="CDemo"></category></entry><entry><title>40323230練習 - 105/07/10</title><link href="http://project.mde.tw/blog/40323230lian-xi-1050710.html" rel="alternate"></link><updated>2016-07-11T15:53:26+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323230lian-xi-1050710.html</id><summary type="html">&lt;p&gt;由於不熟悉動態連結庫的運作方式，先練習C語言呼叫動態連結庫，之後再研究python的方式。&lt;/p&gt;
 
 
 &lt;h2&gt;編譯出C的動態連結庫 :&lt;/h2&gt;
@@ -738,7 +901,34 @@ double solve_minangle(int lim, int a, int b, int r)
 &lt;/br&gt;
 &lt;h3&gt;參考 :&lt;/h3&gt;
 &lt;p&gt;&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/jointDescription.htm "&gt;Joint types and operation&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/childScripts.htm#threaded "&gt;Child Scripts&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323230紀錄 - Solvespace</title><link href="http://project.mde.tw/blog/40323230ji-lu-solvespace.html" rel="alternate"></link><updated>2016-07-07T16:54:36+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-07:blog/40323230ji-lu-solvespace.html</id><summary type="html">&lt;p&gt;找到的Solvespace原始碼版本&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/childScripts.htm#threaded "&gt;Child Scripts&lt;/a&gt;&lt;/p&gt;
+&lt;/br&gt;
+&lt;hr&gt;
+&lt;/br&gt;
+&lt;h3&gt;105 - 07/11更新&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;Joint 種類分成以下4種 :&lt;/h3&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/joint-types.png" &gt;
+&lt;/br&gt;
+&lt;h4&gt;1. 為旋轉軸, 只有一個自由度 (旋轉), 用於一般旋轉軸。&lt;/h4&gt;
+&lt;h4&gt;2. 為平移軸, 只有一個自由度 (平移), 物體能沿著軸線做平移。 &lt;/h4&gt;
+&lt;h4&gt;3. 為旋轉與平移軸的結合, 只有一個自由度, 能夠使物體沿著軸做旋轉移動, 如同螺絲。&lt;/h4&gt;
+&lt;h4&gt;4. 為球窩接頭, 有三個自由度, 用於類似關節的地方。&lt;/h4&gt;
+&lt;/br&gt;
+&lt;h3&gt;Control the joint :&lt;/h3&gt;
+&lt;h4&gt;1.simSetJointPosition : when your joint is not in force/torque mode&lt;/h4&gt;
+&lt;h4&gt;2.simSetJointTargetPosition : when your joint is in force/torque mode, its motor enabled and its control loop also enabled&lt;/h4&gt;
+&lt;h4&gt;3.simSetJointTargetVelocity : when your joint is in force/torque mode, its motor enabled, and its control loop NOT enabled&lt;/h4&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;今天回去翻老師的信, 才發現裡面有四連桿的範例, 以下為測試:&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/4_links_move.png" &gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/4_links_move.gif" &gt;
+&lt;/br&gt;
+&lt;h3&gt;只要設定一個轉軸, 其他設定好就可以跟著一起做動, 但是在程式部分, if 條件還是不太懂, 很容易出現lua錯誤, 還有很多語法要理解。&lt;/h3&gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323230紀錄 - Solvespace</title><link href="http://project.mde.tw/blog/40323230ji-lu-solvespace.html" rel="alternate"></link><updated>2016-07-07T16:54:36+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-07:blog/40323230ji-lu-solvespace.html</id><summary type="html">&lt;p&gt;找到的Solvespace原始碼版本&lt;/p&gt;
 
 
 &lt;h2&gt;目前可攜式環境內存放的Solvespace原始碼 :&lt;/h2&gt;

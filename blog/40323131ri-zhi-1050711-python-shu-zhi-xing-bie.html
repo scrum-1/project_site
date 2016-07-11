@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>yen - Pelican 靜態網頁與 Wordpress 的整合方案 - 機械設計專題 (虎尾科大MDE)</title>
+    <title>40323131日誌 105/07/11 Python 數值型別 - 機械設計專題 (虎尾科大MDE)</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -166,22 +166,20 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 
-<link rel="canonical" href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html">
+<link rel="canonical" href="http://project.mde.tw/blog/40323131ri-zhi-1050711-python-shu-zhi-xing-bie.html">
 
-        <meta name="author" content="yen" />
-        <meta name="keywords" content="Pelican,Wordpress" />
-        <meta name="description" content="利用 Leo Editor 的節點資料程式方法, 可以讓 Pelican 靜態網誌的內容與 Wordpress 動態網誌保持同步." />
+        <meta name="author" content="40323131" />
+        <meta name="keywords" content="Kmol" />
 
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="yen - Pelican 靜態網頁與 Wordpress 的整合方案"/>
-        <meta property="og:url" content="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html"/>
-        <meta property="og:description" content="利用 Leo Editor 的節點資料程式方法, 可以讓 Pelican 靜態網誌的內容與 Wordpress 動態網誌保持同步."/>
-        <meta property="article:published_time" content="2016-06-29" />
-            <meta property="article:section" content="Misc" />
-            <meta property="article:tag" content="Pelican" />
-            <meta property="article:tag" content="Wordpress" />
-            <meta property="article:author" content="yen" />
+        <meta property="og:title" content="40323131日誌 105/07/11 Python 數值型別"/>
+        <meta property="og:url" content="http://project.mde.tw/blog/40323131ri-zhi-1050711-python-shu-zhi-xing-bie.html"/>
+        <meta property="og:description" content=""/>
+        <meta property="article:published_time" content="2016-07-11" />
+            <meta property="article:section" content="2016g1" />
+            <meta property="article:tag" content="Kmol" />
+            <meta property="article:author" content="40323131" />
 
 
     <!-- Bootstrap -->
@@ -265,10 +263,10 @@ init_mathjax();
                         <li >
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
-                        <li >
+                        <li class="active">
                             <a href="http://project.mde.tw/blog/category/2016g1.html">2016g1</a>
                         </li>
-                        <li class="active">
+                        <li >
                             <a href="http://project.mde.tw/blog/category/misc.html">Misc</a>
                         </li>
                         <li >
@@ -297,10 +295,10 @@ init_mathjax();
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html"
+                    <a href="http://project.mde.tw/blog/40323131ri-zhi-1050711-python-shu-zhi-xing-bie.html"
                        rel="bookmark"
-                       title="Permalink to yen - Pelican 靜態網頁與 Wordpress 的整合方案">
-                        yen - Pelican 靜態網頁與 Wordpress 的整合方案
+                       title="Permalink to 40323131日誌 105/07/11 Python 數值型別">
+                        40323131日誌 105/07/11 Python 數值型別
                     </a>
                 </h1>
             </header>
@@ -310,260 +308,111 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-06-29T14:04:41.451731+08:00"> 週三 29 六月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-07-11T18:36:41.817634+08:00"> 週一 11 七月 2016</time>
     </span>
             <span class="label label-default">By</span>
-            <a href="http://project.mde.tw/blog/author/yen.html"><i class="fa fa-user"></i> yen</a>
+            <a href="http://project.mde.tw/blog/author/40323131.html"><i class="fa fa-user"></i> 40323131</a>
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://project.mde.tw/blog/tag/pelican.html">Pelican</a>
-        /
-	<a href="http://project.mde.tw/blog/tag/wordpress.html">Wordpress</a>
+	<a href="http://project.mde.tw/blog/tag/kmol.html">Kmol</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>利用 Leo Editor 的節點資料程式方法, 可以讓 Pelican 靜態網誌的內容與 Wordpress 動態網誌保持同步.</p>
+                <!-- PELICAN_END_SUMMARY -->
 
+<h3>整數(int)與浮點數(float)</h3>
 
-<p>因為 Pelican 靜態網頁結合 Github Pages 網站, 可以完整保留各版本的所有差異資料 ,而 Wordpress 的動態特性也具有即時更新的優點, 因此本機械設計專題網站, 就利用 Leo Editor 建立了3個按鈕, 可以在靜態與動態網誌之間雙向交換內容.</p>
-<p>首先是先編寫 Pelican 網誌的文章, 然後再經由下列 Leo Editor 的按鈕, 以 XML-RPC 協定, 將文章送到對應的 Wordpress 網誌.</p>
-<pre class="brush: python;">
-＃new-to-wp button
-#coding: utf-8
-import xmlrpc.client
-import datetime
-import os
-
-def get_cat_tag_content(data):
-    # 請注意, 因為 data 來自 .md 的 body pan 內容, 第1行為 @language python
-    # 用跳行符號分割
-    data_list = data.split("\n")
-    #第2行為 title
-    title= data_list[1]
-    #第3行為 category
-    category = data_list[2]
-    #第4行為 tags
-    tags = data_list[3]
-    # 有多項資料的 content 型別為數列
-    # 再將第7行之後的資料數列串回成以跳行隔開的資料
-    content = "\n".join(data_list[6:])
-    # 先將截斷摘要與內文的 pelican md 檔按符號, 換成 Wordpress 的 <!-more->
-    content = content.replace('<!-- PELICAN_END_SUMMARY -->', '<!--more-->')
-    # 接著若內容有 ~~~python 與 ~~~ 則換成 Wordpress 格式
-    content = content.replace('~~~python', '[code lang="python"]')
-    content = content.replace('~~~', '[/code]')
-    return title, category, tags, content
-
-os.environ['TZ'] = 'Asia/Taipei'
-
-#################################
-filepath = "/your/wordpress/username/and/passwrod.txt"
-wordpress = "your.wordpress.site.domain"
-fo = open(filepath, "r+")
-data = []
-for line in fo.readlines():
-    data.append(line)
-fo.close()
-
-# 從網誌節點的 parent().h 取得 wp_url
-# 從網誌節點的 parent().b 取得帳號與密碼對應的文字檔案路徑
-wp_url = "https://"+wordpress+"/xmlrpc.php"
-wp_username = data[0]
-wp_password = data[1]
-#################################
-wp_blogid = "0"
-
-status_draft = 0
-status_published = 1
-
-server = xmlrpc.client.ServerProxy(wp_url)
-
-# 從目前所在節點的 body pan 中取出類別, tags 以及文章內容
-title_str, category_str, tags_str, content = get_cat_tag_content(p.b)
-# title 是一個單獨的字串
-title = title_str.split(":")[1]
-# 指定時間出版
-'''
-date_created = xmlrpc.client.DateTime(datetime.datetime.strptime("2013-01-01 00:00",
-"%Y-%m-%d %H:%M"))
-'''
-# 以現在時間出版, 考慮與 Server 時間差八個小時 (480 分鐘), 因此要在 8 個小時前發表
-date_created = xmlrpc.client.DateTime(datetime.datetime.strptime((datetime.datetime.now()- \
-datetime.timedelta(minutes=480)).strftime('%Y-%m-%d %H:%M'),"%Y-%m-%d %H:%M"))
-categories = [category_str.split(":")[1]]
-# 請注意, 因為 tags 用逗點隔開, 因此必須透過 split() 再分開成為 list 資料
-# 先用 : 斷開標投頭的 Tags:, 然後再透過逗點隔開, 將標註轉為數列資料
-tags = tags_str.split(":")[1].split(",")
-data = {'title': title, 'description': content, 'dateCreated': date_created, 'categories': categories, 'mt_keywords': tags}
-
-post_id = server.metaWeblog.newPost(wp_blogid, wp_username, wp_password, data, status_published)
-# 利用最後的 child 節點來儲存 post_id
-to_save_post_id = p.insertAsLastChild()   
-# 改為內文為空的節點, id 直接標在 head 標題 
-to_save_post_id.b = ""
-to_save_post_id.h = post_id
-# 因為新增節點, commander 必須 redraw
-c.redraw() 
-
-g.es("post_id 為", post_id)
-g.es("已經送出資料!")
-</pre>
-
-<p><br /></p>
-<p>其中 filepath 是存放 Wordpress 網誌管理帳號與密碼的存文字檔案路徑 (例如: "/home/user/file.txt"), 而 wordpress 則宣告希望對應連結的網址 (例如: "www.yoursite.blog").</p>
-<p>當 Wordpress 的網誌文章新增後, 若 Pelican 端的文章改版, 則可以透過下列 edit-to-wp 按鈕進行更新:</p>
-<pre class="brush: python;">
-# edit-to-wp
-#coding: utf-8
-import xmlrpc.client
-import datetime
-import os
-
-def get_cat_tag_content(data):
-    # 請注意, 因為 data 來自 .md 的 body pan 內容, 第1行為 @language python
-    # 用跳行符號分割
-    data_list = data.split("\n")
-    #第2行為 title
-    title= data_list[1]
-    #第3行為 category
-    category = data_list[2]
-    #第4行為 tags
-    tags = data_list[3]
-    # 有多項資料的 content 型別為數列
-    # 再將第7行之後的資料數列串回成以跳行隔開的資料
-    content = "\n".join(data_list[6:])
-    # 先將截斷摘要與內文的 pelican md 檔按符號, 換成 Wordpress 的 <!-more->
-    content = content.replace('<!-- PELICAN_END_SUMMARY -->', '<!--more-->')
-    # 接著若內容有 ~~~python 與 ~~~ 則換成 Wordpress 格式
-    content = content.replace('~~~python', '[code lang="python"]')
-    content = content.replace('~~~', '[/code]')
-    return title, category, tags, content
-
-os.environ['TZ'] = 'Asia/Taipei'
-
-#################################
-filepath = "/your/wordpress/username/and/passwrod.txt"
-wordpress = "your.wordpress.site.domain"
-fo = open(filepath, "r+")
-data = []
-for line in fo.readlines():
-    data.append(line)
-fo.close()
-
-wp_url = "https://"+wordpress+"/xmlrpc.php"
-wp_username = data[0]
-wp_password = data[1]
-#################################
-wp_blogid = "0"
-
-status_draft = 0
-status_published = 1
-
-server = xmlrpc.client.ServerProxy(wp_url)
-
-# 從目前所在節點的 body pan 中取出類別, tags 以及文章內容
-title_str, category_str, tags_str, content = get_cat_tag_content(p.b)
-# title 是一個單獨的字串
-title = title_str.split(":")[1]
-# 指定時間出版
-'''
-date_created = xmlrpc.client.DateTime(datetime.datetime.strptime("2013-01-01 00:00",
-"%Y-%m-%d %H:%M"))
-'''
-# 以現在時間出版, 考慮與 Server 時間差八個小時 (480 分鐘), 因此要在 8 個小時前發表
-date_created = xmlrpc.client.DateTime(datetime.datetime.strptime((datetime.datetime.now()- \
-datetime.timedelta(minutes=480)).strftime('%Y-%m-%d %H:%M'),"%Y-%m-%d %H:%M"))
-categories = [category_str.split(":")[1]]
-# 請注意, 因為 tags 用逗點隔開, 因此必須透過 split() 再分開成為 list 資料
-tags = tags_str.split(":")[1].split(",")
-data = {'title': title, 'description': content, 'dateCreated': date_created, 'categories': categories, 'mt_keywords': tags}
-
-# 設法取得原 post 的 id
-origin_post = p.getLastChild()
-# 直接從標題取得 post 的 id 號碼
-post_id = origin_post.h
-status = server.metaWeblog.editPost(post_id, wp_username, wp_password, data, status_published)
-
-if status:
-    g.es("資料已經更新!")
-else:
-    g.es("有問題, 資料沒有更新!")
-</pre>
-
-<p><br /></p>
-<p>最後, 假如使用者透過 Wordpress 的瀏覽器介面新增文章, Pelican 端也可以準備一個空白節點, 並將文章的 id 號碼作為該空白節點的子節點, 且將該子節點的 header, 設為文章的 id 數, 接下來再用滑鼠停在父空白節點上, 然後以滑鼠點按下列的 get-from-wp 按鈕, 就可以將 Wordpress 端的文章取回, 且節點標題會被填入該文章的標題, 之後 Pelican 端的使用者再依據規劃, 以 @clean 存檔的標題命名該節點.</p>
-<pre class="brush: python;">
-# get-from-wp
-#coding: utf-8
-import xmlrpc.client
-# 導入 html 模組, 使用 html.unescape 轉換 html 特殊符號
-import html
-
-#################################
-filepath = "/your/wordpress/username/and/passwrod.txt"
-wordpress = "your.wordpress.site.domain"
-fo = open(filepath, "r+")
-data = []
-for line in fo.readlines():
-    data.append(line)
-fo.close()
-
-# 從網誌節點的 parent().h 取得 wp_url
-# 從網誌節點的 parent().b 取得帳號與密碼對應的文字檔案路徑
-wp_url = "https://"+wordpress+"/xmlrpc.php"
-wp_username = data[0]
-wp_password = data[1]
-#################################
-
-server = xmlrpc.client.ServerProxy(wp_url)
-
-# 設法透過上述網誌網址, 帳號與密碼, 以及文章 id, 取回 categories, tags, 文章標題, 文章內容等資
-
-# 從最後的 child 節點來取 post_id
-origin_post = p.getLastChild()
-post_id = origin_post.h
-# 取回與 post_id 對應的網誌文章內容
-blog_content = server.metaWeblog.getPost(post_id, wp_username, wp_password)
-title = blog_content["title"]
-# 這裡要利用 html.unescape 轉回特殊符號
-description = html.unescape(blog_content["description"])
-mt_text_more = html.unescape(blog_content["mt_text_more"])
-if mt_text_more != "":
-    post_content = description + "\n<!--more-->\n"+mt_text_more
-else:
-    post_content = description
-# 所取回的 categories 為 list
-categories = blog_content["categories"]
-# 所取回的 tags 為以逗點隔開的字串
-mt_keywords = blog_content["mt_keywords"]
-# 取回文章作者
-author = blog_content["wp_author_display_name"]
-p.h = title
-categories_str = ""
-for category in categories:
-    # 假如不是最後一個
-    if category != categories[len(categories)-1]:
-        categories_str += category + ", "
-    else:
-        # 這是最後一個
-        categories_str += category
-line1 = "@language md\n"
-line2 = "Title: " +title + "\n"
-line3 = "Category: " + categories_str + "\n"
-line4 = "Tags: " + mt_keywords + "\n"
-line5 = "Author: " + author + "\n@others\n"
-post_content = post_content.replace('<!--more-->', '\n<!-- PELICAN_END_SUMMARY -->\n')
-post_content = post_content.replace('[code lang="python"]', '~~~python')
-post_content = post_content.replace('[/code]', '~~~')
-p.b = line1 + line2 + line3 + line4 + line5 + post_content + "\n"
-# 因為節點資料更新, commander 必須 redraw
-c.redraw() 
-g.es("資料已經取回")
-</pre>
-
-<p><br /></p>
+<p></br>
+<h3>整數(int)</h3>
+<h4>在Python語言裡由型式int代表，在2.x版裡，分為固定精確度的整數型別int與無窮精確度的長整數型別long，一旦數值超過界限，便自動轉程長整數型別，長整數會在尾巴加上(L)作標示</h4>
+<h4>在3.x版裡則統和為一，只有型別int(無窮精確度)</h4>
+</br>
+<h3>浮點數(float)</h3>
+<h4>在電腦裡會以二進位表示法來表示，但使用二進位表示法的話，有些值並無法以二進位表示法完美表示，只能儲存近似值</h4>
+</br>
+<img src="http://i.imgur.com/Y6vocOG.jpg">
+</br>
+<h4>當浮點數要比較大小時，不該直接使用 == 運算子，而是應該設定誤差值，例如:0.001，然後比較兩數差值之絕對值是否小於此誤差，若在誤差值內應視為相等。</h4>
+</br>
+<h3>整數的表示法</h3>
+<h4>整數的字面值，除了以十進位(decimal)書寫，也能以二進位(binary)、十六進位(hexadecimal)、八進位(octal)書寫，分別在數字之前加上 0b 、0x 、0o即可 </h4> 
+</br>
+<img src="http://i.imgur.com/NcZOXdm.jpg">
+</br>
+</br>
+<img src="http://i.imgur.com/DFhMBP1.jpg">
+</br>
+<h3>浮點數的表示法</h3>
+<h4>除了一般帶有小數點 . 的表示法，也能使用科學記號法，以指數來表示，例如: 300 等於3乘上10的2次方，寫在程式碼裡會以 e 隔開前後 ，寫成3e2</h4>
+</br>
+<img src="http://i.imgur.com/4V8GcNp.jpg">
+</br>
+<h3>運算</h3>
+<h4>數值型別的運算子 (+、-、<em>、</em>*、/、//、%)，相關內建函式abs()絕對值，divmod()商和餘數，pow()冪次方，round()四捨五入，須特別注意round()</h4>
+</br>
+<img src="http://i.imgur.com/3KutZxq.jpg">
+</br>
+</br>
+<img src="http://i.imgur.com/qmNcvvr.jpg">
+</br>
+<h4>模組math有很多數學運算相關函式，想求 x 的 1/n次方。傳入參數，必須注意 1/3 在2.x版與3.x版裡代表不同意思</h4>
+</br>
+<img src="http://i.imgur.com/sCGqFCW.jpg">
+</br>
+</br>
+<img src="http://i.imgur.com/lvF2ACh.jpg">
+</br>
+<h3>條件運算式(三元運算子)</h3>
+<h4>x if y else z</h4>
+<h4>其中 x 、 y 、z可以是任何運算式，當 y 為真時，運算式的結果會是 x ，當 y 為假時，結果是 z</h4>
+</br>
+<img src="http://i.imgur.com/CgHHMet.jpg">
+</br>
+<h3>物件 型別 方法</h3>
+<h4>將運算子與內建函式視同"方法(method)"</h4>
+</br>
+<img src="http://i.imgur.com/7PHWFcp.jpg">
+</br>
+<h4>方法幾乎等同於函式，只不過方法附屬於某種型別的物件，當要呼叫方法時，其一般型式為"物件.方法(參數)"。舉例: li是個串列， li.append(3)便可將整數物件3附加在此串列的尾端。</h4>
+</br>
+<img src="http://i.imgur.com/iJsiyLT.jpg">
+</br>
+<h3>複數(complex)</h3>
+<h4>由實部(real part)與虛部(imaginary part)組合而成，皆為浮點數。</h4>
+<h4>跟int、float一樣，complex為不可變物件，一但建立就不能修改，有內建函式complex()，接受一或兩個數字作為參數，或一個符合格式的字串，建立出complex物件</h4>
+</br>
+<img src="http://i.imgur.com/yKCsEsl.jpg">
+</br>
+<h3>屬性項</h3>
+<h4>當想取出複數的實部或虛部，並沒有運算子或內建函式可用，僅能透過型別complex的屬性項real與imag來取用</h4>
+</br>
+<img src="http://i.imgur.com/w87YljF.jpg">
+</br>
+<h4>支援complex的運算子與內建函式，跟int與 float差不多，其中須特別注意的有 : complex不支援比較運算子(&lt;、&lt;=、&gt;、&gt;=)，3.x版的複數不支援運算子(//、%)與內建函式 divmod</h4>
+</br>
+<h4>模組cmath含有跟comple相關的函式，如直角座標系(笛卡兒座標系)與極座標系的轉換</h4>
+</br>
+<img src="http://i.imgur.com/AhCA2mp.jpg">
+</br>
+<h3>轉型</h3>
+<h4>在運算式中若混用不同的數值型別，須轉成相同的型別才可運算， 'hello'+5 其實是'hello'.<strong>add</strong>(5)，而Python並不會自動把數字5轉成字 '5' 。</h4>
+</br>
+<img src="http://i.imgur.com/qIf6Bpa.jpg">
+</br>
+<h4><strong>repr</strong>，與__str__非常類似，也是回傳字串表示，但__repr__回傳的字串可當作程式碼，再給直譯器的話，建立出相同的物件，而__str__的用意是回傳給我們易讀易懂得字串來表示該物件</h4>
+</br>
+<img src="http://i.imgur.com/QJ2XnLa.jpg">
+</br>
+<h3>底下的部分，因為不太常接觸到，所以就稍微提到而已，如果需要的話，會再補充</h3>
+</br>
+<h4>十進位數(Decimal): Decimal物件屬於不可變物件</h4>
+<h4>分數(Fraction):有時只需處理有理數，也就是以(分子/分母)型式所表示出來的數字;用 float 無法精確表示1/10，用Decimal也不能完美表示無限位數 1 / 3 ，需要能夠記錄分子與分母的型別，用 Fraction，屬於不可變</h4>
+<h4>位元運算: 不把數字當做(一個數值)，而是把數字當做"一連串的位元(bit)"，以位元為單位進行運算。運算元只能是整數，因為浮點數的位元運算並無意義</h4>
+</br>
+<h3>結語</h3>
+<h4>主要重心在於了解型別int跟 float ，以及新概念:方法跟屬性項，對於型別跟物件的了解有更進一步</h4></p>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -575,8 +424,8 @@ g.es("資料已經取回")
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'projectmdetw'; // required: replace example with your forum shortname
 
-                    var disqus_identifier = 'yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an';
-                var disqus_url = 'http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html';
+                    var disqus_identifier = '40323131ri-zhi-1050711-python-shu-zhi-xing-bie';
+                var disqus_url = 'http://project.mde.tw/blog/40323131ri-zhi-1050711-python-shu-zhi-xing-bie.html';
 
             var disqus_config = function () {
                 this.language = "en";

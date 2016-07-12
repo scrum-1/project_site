@@ -299,7 +299,7 @@ extern double Foo;
 &lt;/pre&gt;
 
 &lt;p&gt;然後用cmd到/Examples/python/simple中下指令：&lt;/p&gt;
-&lt;pre class="brush: powershell"&gt;
+&lt;pre class="brush: c"&gt;
 swig -python example.i
 &lt;/pre&gt;
 

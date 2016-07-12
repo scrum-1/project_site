@@ -75,7 +75,7 @@ swig -python example.i
 &lt;p&gt;SWIG的操作大致知道了，但是仍有些許不瞭解的地方。&lt;/p&gt;
 &lt;p&gt;像是Interface的檔案撰寫，有將網路上一些範例存起來，但是下swig的指令時就出現".i"文件格式錯誤的訊息。&lt;/p&gt;
 &lt;p&gt;而在Netbeans裡要如何設定gcc編譯成pyd呢？在CMD裡下了跟2015cp.leo按鈕一樣的參數，可是好像都會出現上面Build的錯誤。&lt;/p&gt;
-&lt;p&gt;另外，按照SWIG的邏輯，萬一使用者的Python版本比它還低，它會修改編譯語法嗎？覺得在編譯時的錯誤應該就是3.4到3.5之間的衝突。&lt;/p&gt;
+&lt;p&gt;另外，按照SWIG的邏輯，萬一使用者的Python版本比它還低，它會修改編譯語法嗎？覺得在編譯時的錯誤可能是3.4到3.5之間的衝突。&lt;/p&gt;
 &lt;hr&gt;
 
 &lt;p&gt;今天上網找資料的時候，發現了ctype，可以讓python直接讀取DLL的文件，好像是SWIG之後的產物，只是Python本身必須加裝模組。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category></entry><entry><title>40323218日誌 - 105/07/11</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050711.html" rel="alternate"></link><updated>2016-07-11T17:45:41+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323218ri-zhi-1050711.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;

@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>40323230練習 - 105/07/09 - 機械設計專題 (虎尾科大MDE)</title>
+    <title>40323230日誌 - 105/07/13 - 機械設計專題 (虎尾科大MDE)</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -166,21 +166,20 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 
-<link rel="canonical" href="http://project.mde.tw/blog/40323230lian-xi-1050709.html">
+<link rel="canonical" href="http://project.mde.tw/blog/40323230ri-zhi-1050713.html">
 
         <meta name="author" content="40323230" />
-        <meta name="keywords" content="Kmol,Solvespace" />
-        <meta name="description" content="嘗試用C語言解題" />
+        <meta name="keywords" content="Kmol" />
+        <meta name="description" content="Python 3.5.2軟體更新" />
 
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="40323230練習 - 105/07/09"/>
-        <meta property="og:url" content="http://project.mde.tw/blog/40323230lian-xi-1050709.html"/>
-        <meta property="og:description" content="嘗試用C語言解題"/>
-        <meta property="article:published_time" content="2016-07-11" />
+        <meta property="og:title" content="40323230日誌 - 105/07/13"/>
+        <meta property="og:url" content="http://project.mde.tw/blog/40323230ri-zhi-1050713.html"/>
+        <meta property="og:description" content="Python 3.5.2軟體更新"/>
+        <meta property="article:published_time" content="2016-07-13" />
             <meta property="article:section" content="2016bg2" />
             <meta property="article:tag" content="Kmol" />
-            <meta property="article:tag" content="Solvespace" />
             <meta property="article:author" content="40323230" />
 
 
@@ -297,10 +296,10 @@ init_mathjax();
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="http://project.mde.tw/blog/40323230lian-xi-1050709.html"
+                    <a href="http://project.mde.tw/blog/40323230ri-zhi-1050713.html"
                        rel="bookmark"
-                       title="Permalink to 40323230練習 - 105/07/09">
-                        40323230練習 - 105/07/09
+                       title="Permalink to 40323230日誌 - 105/07/13">
+                        40323230日誌 - 105/07/13
                     </a>
                 </h1>
             </header>
@@ -310,7 +309,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-07-11T11:22:51.748181+08:00"> 週一 11 七月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-07-13T19:18:19.156479+08:00"> 週三 13 七月 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -319,216 +318,77 @@ init_mathjax();
 
 <span class="label label-default">Tags</span>
 	<a href="http://project.mde.tw/blog/tag/kmol.html">Kmol</a>
-        /
-	<a href="http://project.mde.tw/blog/tag/solvespace.html">Solvespace</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>嘗試用C語言解題</p>
+                <p>Python 3.5.2軟體更新</p>
 
 
-<h2>BUG fix :</h2>
+<h2>軟體更新目標 :</h2>
 
-<p>W:槽的SciTE有點小問題，因為設定檔是從Y:複製來的，所以需要重新定義TinyC的位置。</p>
-<p><img src="http://i.imgur.com/nXiTYLx.jpg" ></p>
-<p>只要修改cpp.properties的路徑就可以了。</p>
-<p><img src="http://i.imgur.com/zjc51Kz.jpg" ></p>
+<p>之前W:沒安裝Python和Leo，所以暫時把Y:的複製過來用。</p>
+<p>以W:為主，Y:用來撰寫網誌暫不需要更新。</p>
+<p>1.Python 3.5及之前安裝的套件。</p>
+<p>2.Leo 5.3正式版。</p>
 <hr>
 
-<h2>Nutcracker Solution :</h2>
+<h2>Python及套件更新步驟 :</h2>
 
-<p>上學期的<a href="http://chiamingyen.github.io/kmolab/blog/2015-fall-cadp-w16.html" title="github.io">Nutcracker網誌內容</a>。</p>
-<p><img src="http://i.imgur.com/Tfik6jG.jpg" ></p>
-<p>之前的python題目，稍微研究一下後轉成C語言。</p>
-<p>不過如果直接運行會跑很久。但是這裡可以練習一下小型演算法的模式。</p>
-<p><img src="http://i.imgur.com/RwJbKM9.jpg" ></p>
-<p>先做了兩個程式，不過第一是介面而已，第二個才是主要架構。</p>
-<p>撰寫的途中使用Solvespace研究，由於數學邏輯不太好，很多幾何的東西沒那麼直觀。</p>
-<p>有時候會偷吃步測試一些解法。</p>
-<p><img src="http://i.imgur.com/PDHq9QA.jpg" ></p>
-<p>第二支程式是從python的範例改來的，不過後來做了很多變化，只有解最小路徑最大角度。</p>
-<p>演算法概念：</p>
-<p><img src="http://i.imgur.com/iOuX4ks.jpg" ></p>
-<p>途中查了很多數學公式，無奈常常打錯又不知道正確性，重複試了很多次才成功。</p>
+<p>將W:槽的Python 3.4.4 RC1更新至最新的3.5.2。</p>
+<p>Python 3.5.2下載處：</p>
+<p><a href="https://www.python.org/downloads/" title="python.org">https://www.python.org/downloads/</a></p>
+<p>刪除Python34資料的所有內容後，將安裝完的Python35放進W:內，並將start.bat內的Python34位置全數改成Python35。</p>
+<p><img src="http://i.imgur.com/xgAInox.jpg" ></p>
+<p>在Y:槽中執行以下指令以取得舊有的軟體資訊，存成名為rq.txt的清單。</p>
 <pre class="brush: c">
-#include <stdio.h>
-#include <math.h>
-
-int k=40;
-int h=10;
-int a=40;
-int b=80;
-double r=10;
-double pi=M_PI;
-int num=1000;
-
-int main()
-{
-    double deg =pi/180;
-    for (int j=45*num; j<=180*num; j++){
-        double num0=num;
-        double th=j/num0*deg;
-        double x1=a*cos(th);
-        double y1=a*sin(th);
-        double x2=x1+sqrt(b*b-y1*y1);
-        double m=tan(th);
-        double r1=abs((x2-x1)*(h-y1)-(0-y1)*(k/2-x1))/sqrt(y1*y1+(x2-x1)*(x2-x1));
-        printf("%g\n", (int)(j/num0*100000+.5)/100000.);
-        if(r1<=r){
-            printf("(%f,%f) (%f,0)\n%f\n%f r=%f\nm=%f\n", x1, y1, x2, th/deg, r, r1, m);
-            break;
-        }
-    }
-    return 0;
-}
+pip freeze > rq.txt
 </pre>
 
-<p>第二支程式的最後成果。</p>
-<p>最後精確度還是沒有很高，不知道問題出在哪裡。</p>
-<p><img src="http://i.imgur.com/jbtn7X1.jpg" ></p>
-<p>第一支程式是剛開始寫輸入端介面，供使用者輸入自訂參數，後來再把第二支程式的模型搬回來用，並另外寫一個解最大路徑和最小角度的程式，所有例外狀況也是在這裡排除。</p>
-<p>後來還不知道怎麼讓副程式傳回double或其他浮點數，查一下才知道要在開始前宣告一次。</p>
+<p>清單中列的就是Python 3.4安裝的套件版本。</p>
+<p><img src="http://i.imgur.com/pUMf021.jpg" ></p>
+<p>進入Python 3.5後使用pip指令時出現類似"Fatal error in launcher"的訊息，原因是官方的pip版本較舊。</p>
+<p>如果不更新，只能用"python -m pip"的方式驅動它，所以先命令它為自己升級。</p>
 <pre class="brush: c">
-#include <stdio.h>
-#include <math.h>
-
-int a, b, k, h, r, lim;
-double o, wp, thmin, thmax;
-double pi=M_PI;
-int num=1000;
-
-double solve_minpath(int, int, int, int, int);
-double solve_maxangle(int, int, int, int, int);
-double solve_maxpath(int, int, int, int);
-double solve_minangle(int, int, int, int);
-
-int main()
-{
-    scanf("%d,%d,%d,%d,%d,%d", &a, &b, &k, &h, &r, &lim);
-//強制正值
-    a=abs(a);
-    b=abs(b);
-    h=abs(h);
-    k=abs(k);
-    r=abs(r);
-    lim=abs(lim);
-    printf("\n---\n");
-    printf("Used pi= %f\n", pi);
-    printf("---\n");
-    printf("Connecting Rod:\n");
-    printf("a= %d b= %d\n", a, b);
-    printf("Rod radius= %d\n", r);
-    printf("Rod width= %d\n", r*2);
-    printf("Space Usage:\n");
-    printf("h= %d k= %d\n", h, k);
-    printf("Work Path= %d\n", lim);
-    printf("---\n\n");
-//相關參數代入副程式解題
-    o=solve_minpath(k, h, a, b, r);
-    wp=solve_maxpath(lim, a, b, r)-o;
-    thmin=solve_minangle(lim, a, b, r);
-    thmax=solve_maxangle(k, h, a, b, r);
-    if(a*b*lim==0){
-        printf("---ERRO---\nSome value can't be zero.\n");
-        return 1;
-    }
-    else{
-        if(o+r>lim){
-            printf("---ERRO---\nSpace is not enough.\n");
-            return 2;
-        }
-        else{
-            printf("\n---\n---Result---\n");
-            printf("Distance:\n");
-            printf("Offset distance:\n");
-            printf("o= %f\n", o);
-            printf("Work distance:\n");
-            printf("wp= %f\n", wp);
-            printf("Angle(Degree):\n");
-            printf("min= %f max= %f\n---\n", thmin, thmax);
-            return 0;
-        }
-    }
-}
-
-double solve_minpath(int k, int h, int a, int b, int r)
-{
-    double deg =pi/180;
-    for (int j=45*num; 180*num>=j; j++){
-        double num0=num;
-        double th=j/num0*deg;
-        double x1=a*cos(th);
-        double y1=a*sin(th);
-        double x2=x1+sqrt(b*b-y1*y1);
-        double m=tan(th);
-        double r1=abs((x2-x1)*(h-y1)-(0-y1)*(k/2-x1))/sqrt(y1*y1+(x2-x1)*(x2-x1));
-        if(r>=r1){
-            printf("(%f,%f) (%f,0)\n%f\n%f r=%f\nm=%f\n", x1, y1, x2, th/deg, r, r1, m);
-            return x2;
-            break;
-        }
-    }
-    return 0;
-}
-
-double solve_maxangle(int k, int h, int a, int b, int r)
-{
-    double deg =pi/180;
-    for (int j=45*num; 180*num>=j; j++){
-        double num0=num;
-        double th=j/num0*deg;
-        double x1=a*cos(th);
-        double y1=a*sin(th);
-        double x2=x1+sqrt(b*b-y1*y1);
-        double m=tan(th);
-        double r1=abs((x2-x1)*(h-y1)-(0-y1)*(k/2-x1))/sqrt(y1*y1+(x2-x1)*(x2-x1));
-        if(r>=r1){
-            printf("(%f,%f) (%f,0)\n%f\n%f r=%f\nm=%f\n", x1, y1, x2, th/deg, r, r1, m);
-            return th/deg;
-            break;
-        }
-    }
-    return 0;
-}
-
-double solve_maxpath(int lim, int a, int b, int r)
-{
-    double n;
-    double th;
-    if (lim>a+b+r){
-        n=a+b;
-        th=0;
-    }
-    else{
-        n=lim-r;
-        th=acos((a*a+n*n-b*b)/2*a*n);
-    }
-    return n;
-}
-
-double solve_minangle(int lim, int a, int b, int r)
-{
-    double n;
-    double th;
-    if (lim>a+b+r){
-        n=a+b;
-        th=0;
-    }
-    else{
-        n=lim-r;
-        th=acos((a*a+n*n-b*b)/(2*a*n));
-    }
-    return th;
-}
-
+python -m pip install pip --upgrade
 </pre>
 
-<p>最後執行的結果：</p>
-<p><img src="http://i.imgur.com/S6oj3vJ.jpg" ></p>
+<p>然後再利用Y:槽傳來的清單安裝，不過之前的Leo 5.1沒有在pip的下載網站裡，5.3版也要從Leo的官方下載，所以暫時先把leo剔除。</p>
+<p><img src="http://i.imgur.com/PN2P60t.jpg" ></p>
+<p>接著利用下列指令更新：</p>
+<pre class="brush: c">
+pip install -r rq.txt
+</pre>
+
+<p>就會裝回所有的套件了。</p>
+<p><img src="http://i.imgur.com/RuXhQhT.jpg" ></p>
+<p>使用下列指令可以查看已安裝的套件。</p>
+<p>而只要在安裝時加入--upgrade參數就能更新，不過目前沒有全部更新的指令。</p>
+<pre class="brush: c">
+//已安裝套件
+pip freeze
+//過期套件
+pip list --outdated
+</pre>
+
 <hr>
 
-<p>剛開始還以為是用公式推導座標點的結果，後來回去看網誌才知道用演算法計算。電腦演算時如果一邊列出結果，會拖慢速度，所以在最後的程式碼中只留檢查用的結果。</p>
-<p>後來也有上網看其他人使用基因演算法的案例，未能完全了解，還有很多要學習的地方。這次解題複習了一些C語言的概念，希望在往後利用上能夠駕輕就熟。</p>
+<h2>Leo更新步驟 :</h2>
+
+<p>至於安裝Leo，到<a href="http://sourceforge.net/projects/leo/files/Leo/" title="sourceforge.net">http://sourceforge.net/projects/leo/files/Leo/</a>下載5.3的安裝檔，並暫時解壓縮到根目錄。</p>
+<p>接著進入\Leo-5.3-final\leo\dist資料夾，執行下面指令：</p>
+<pre class="brush: c">
+python setup.py install
+</pre>
+
+<p>安裝完後，接著就能把解壓縮的檔案刪除了。</p>
+<p>不過在pip的紀錄中還是5.0 Bata2的樣子。</p>
+<p>新版的Leo介面（設定檔複製之前的）。</p>
+<p><img src="http://i.imgur.com/DZGSNFn.jpg" ></p>
+<hr>
+
+<p>上次的swig還是沒成功，"_wrap.c"中似乎還要加一些python3的判斷式。</p>
+<p><a href="http://python3porting.com/cextensions.html#module-initialization" title="python3porting.com">http://python3porting.com/cextensions.html#module-initialization</a></p>
+<p>這裡的作者描述還是有點看不懂，雖然下了-py3的指令，但是設定還是沒調。</p>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -540,8 +400,8 @@ double solve_minangle(int lim, int a, int b, int r)
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'projectmdetw'; // required: replace example with your forum shortname
 
-                    var disqus_identifier = '40323230lian-xi-1050709';
-                var disqus_url = 'http://project.mde.tw/blog/40323230lian-xi-1050709.html';
+                    var disqus_identifier = '40323230ri-zhi-1050713';
+                var disqus_url = 'http://project.mde.tw/blog/40323230ri-zhi-1050713.html';
 
             var disqus_config = function () {
                 this.language = "en";

@@ -1,5 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-12T20:53:29+08:00</updated><entry><title>40323250日誌 - 105/07/05</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050705.html" rel="alternate"></link><updated>2016-07-12T20:53:29+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-12:blog/40323250ri-zhi-1050705.html</id><summary type="html">&lt;p&gt;V-rep 與 Solvespace的結合應用&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-13T19:18:19+08:00</updated><entry><title>40323230日誌 - 105/07/13</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050713.html" rel="alternate"></link><updated>2016-07-13T19:18:19+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-13:blog/40323230ri-zhi-1050713.html</id><summary type="html">&lt;p&gt;Python 3.5.2軟體更新&lt;/p&gt;
+
+
+&lt;h2&gt;軟體更新目標 :&lt;/h2&gt;
+
+&lt;p&gt;之前W:沒安裝Python和Leo，所以暫時把Y:的複製過來用。&lt;/p&gt;
+&lt;p&gt;以W:為主，Y:用來撰寫網誌暫不需要更新。&lt;/p&gt;
+&lt;p&gt;1.Python 3.5及之前安裝的套件。&lt;/p&gt;
+&lt;p&gt;2.Leo 5.3正式版。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2&gt;Python及套件更新步驟 :&lt;/h2&gt;
+
+&lt;p&gt;將W:槽的Python 3.4.4 RC1更新至最新的3.5.2。&lt;/p&gt;
+&lt;p&gt;Python 3.5.2下載處：&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.python.org/downloads/" title="python.org"&gt;https://www.python.org/downloads/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;刪除Python34資料的所有內容後，將安裝完的Python35放進W:內，並將start.bat內的Python34位置全數改成Python35。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/xgAInox.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;在Y:槽中執行以下指令以取得舊有的軟體資訊，存成名為rq.txt的清單。&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+pip freeze &gt; rq.txt
+&lt;/pre&gt;
+
+&lt;p&gt;清單中列的就是Python 3.4安裝的套件版本。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/pUMf021.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;進入Python 3.5後使用pip指令時出現類似"Fatal error in launcher"的訊息，原因是官方的pip版本較舊。&lt;/p&gt;
+&lt;p&gt;如果不更新，只能用"python -m pip"的方式驅動它，所以先命令它為自己升級。&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+python -m pip install pip --upgrade
+&lt;/pre&gt;
+
+&lt;p&gt;然後再利用Y:槽傳來的清單安裝，不過之前的Leo 5.1沒有在pip的下載網站裡，5.3版也要從Leo的官方下載，所以暫時先把leo剔除。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/PN2P60t.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;接著利用下列指令更新：&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+pip install -r rq.txt
+&lt;/pre&gt;
+
+&lt;p&gt;就會裝回所有的套件了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/RuXhQhT.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;使用下列指令可以查看已安裝的套件。&lt;/p&gt;
+&lt;p&gt;而只要在安裝時加入--upgrade參數就能更新，不過目前沒有全部更新的指令。&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+//已安裝套件
+pip freeze
+//過期套件
+pip list --outdated
+&lt;/pre&gt;
+
+&lt;hr&gt;
+
+&lt;h2&gt;Leo更新步驟 :&lt;/h2&gt;
+
+&lt;p&gt;至於安裝Leo，到&lt;a href="http://sourceforge.net/projects/leo/files/Leo/" title="sourceforge.net"&gt;http://sourceforge.net/projects/leo/files/Leo/&lt;/a&gt;下載5.3的安裝檔，並暫時解壓縮到根目錄。&lt;/p&gt;
+&lt;p&gt;接著進入\Leo-5.3-final\leo\dist資料夾，執行下面指令：&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+python setup.py install
+&lt;/pre&gt;
+
+&lt;p&gt;安裝完後，接著就能把解壓縮的檔案刪除了。&lt;/p&gt;
+&lt;p&gt;不過在pip的紀錄中還是5.0 Bata2的樣子。&lt;/p&gt;
+&lt;p&gt;新版的Leo介面（設定檔複製之前的）。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/DZGSNFn.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;上次的swig還是沒成功，"_wrap.c"中似乎還要加一些python3的判斷式。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://python3porting.com/cextensions.html#module-initialization" title="python3porting.com"&gt;http://python3porting.com/cextensions.html#module-initialization&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;這裡的作者描述還是有點看不懂，雖然下了-py3的指令，但是設定還是沒調。&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - 105/07/05</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050705.html" rel="alternate"></link><updated>2016-07-12T20:53:29+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-12:blog/40323250ri-zhi-1050705.html</id><summary type="html">&lt;p&gt;V-rep 與 Solvespace的結合應用&lt;/p&gt;
 
 
 &lt;h3&gt;最近開了很多V-rep的範例檔來看 ,但都不太有收穫 ,為了避免浪費時間 ,回去找了之前老師提到的solvespace和vrep的共同運用 ,也因為要完成3D - Printer就要先了解基本觀念和用法 ,所以就抓了檔案來測試 &lt;/h3&gt;

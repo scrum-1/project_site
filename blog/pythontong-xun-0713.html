@@ -333,53 +333,69 @@ For python3的部分</p>
 <li>Humidity:濕度值
 <li>Flag:控制指標值
 </ul>
-在Arduino程式碼的部分可以看到有serial write
-<pre class="brush: python"></p>
-<h1>include <dht.h></h1>
-<h1>define dht_dpin A0 //定義訊號要從Pin A0 進來</h1>
-<p>dht DHT; <br />
-boolean flagPlot = true;</p>
-<p>void setup(){ <br />
-Serial.begin(9600); <br />
-delay(300);             //Let system settle <br />
-//Serial.println("Humidity and temperature\n\n"); <br />
-             //Wait rest of 1000ms recommended delay before <br />
-                        //accessing sensor <br />
-}</p>
-<p>void loop(){ <br />
-DHT.read11(dht_dpin);   //去library裡面找DHT.read11<br />
-Serial.print("temperature:"); <br />
-Serial.println(DHT.temperature); <br />
+在Arduino程式碼的部分可以看到有serial write</p>
+<pre class="brush: c">
+
+#include <dht.h>
+
+#define dht_dpin A0 //定義訊號要從Pin A0 進來  
+
+dht DHT;   
+boolean flagPlot = true;
+
+void setup(){   
+Serial.begin(9600);   
+delay(300);             //Let system settle   
+//Serial.println("Humidity and temperature\n\n");   
+             //Wait rest of 1000ms recommended delay before   
+                        //accessing sensor   
+}
+
+void loop(){   
+DHT.read11(dht_dpin);   //去library裡面找DHT.read11  
+Serial.print("temperature:");   
+Serial.println(DHT.temperature);   
 delay(200); 
-Serial.print("Humidity:"); <br />
-Serial.println(DHT.humidity); <br />
-//Serial.print("% "); <br />
+Serial.print("Humidity:");   
+Serial.println(DHT.humidity);   
+//Serial.print("% ");   
 delay(200); 
 Serial.print("Flag:");
 Serial.println(flagPlot);
-delay(200);   </p>
-<p>}  </p>
+delay(200);   
+
+
+}  
+
 </pre>
 
-<p>在python程式的部分程式有使用Tkinter
-<pre class="brush: python"></p>
-<h1>!/usr/bin/python3</h1>
-<p>import serial
+<p>在python程式的部分程式有使用Tkinter</p>
+<pre class="brush: python">
+#!/usr/bin/python3
+
+import serial
 import sys
 import numpy as np
 import tkinter
-from matplotlib import pyplot, rcParams</p>
-<p>port = serial.Serial('COM6', 9600, timeout=1)</p>
-<h1>Tkinter canvas</h1>
-<p>top = tkinter.Tk()
-top.title("Tkinter + matplotlib")</p>
-<h1>Create flag to work with indefinite while loop</h1>
-<p>flag = tkinter.BooleanVar(top)
-flag.set(True)</p>
-<p>def cleanText(data):
+from matplotlib import pyplot, rcParams
+
+port = serial.Serial('COM6', 9600, timeout=1)
+
+# Tkinter canvas
+top = tkinter.Tk()
+top.title("Tkinter + matplotlib")
+
+# Create flag to work with indefinite while loop
+flag = tkinter.BooleanVar(top)
+flag.set(True)
+
+
+def cleanText(data):
     data = data.replace("\r\n", "")
-    return data</p>
-<p>def onStartButtonPress():
+    return data
+
+
+def onStartButtonPress():
     while True:
         if flag.get():
             line = port.readline().decode('UTF-8')
@@ -393,114 +409,91 @@ flag.set(True)</p>
                         TempUnitLabel.update_idletasks()
   #                  if reading[0] == "Temperature(F)":
  #                       TempLabel.config(text=cleanText(reading[1]))
- #                       TempUnitLabel.config(text="F")</p>
-<h1>TempUnitLabel.update_idletasks()</h1>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre>                if reading[0] == &quot;Humidity&quot;:
-                    HumdLabel.config(text=cleanText(reading[1]))
-                    pData.append(float(reading[1]))
-                    del pData[0]
-</pre></div>
-</td></tr></table>
+ #                       TempUnitLabel.config(text="F")
+#                        TempUnitLabel.update_idletasks()
+                    if reading[0] == "Humidity":
+                        HumdLabel.config(text=cleanText(reading[1]))
+                        pData.append(float(reading[1]))
+                        del pData[0]
+#                    if reading[0] == "Light(lx)":
+  #                      LighLabel.config(text=cleanText(reading[1]))
+                    if reading[0] == "Flag":
+#                        print (reading[1])
+                        if int(reading[1]) == 1:
+                            try:
+                                print ("In flag")
+                                print ("In flag -> if ")
+                                l1.set_xdata(np.arange(len(pData)))
+                                l1.set_ydata(pData)  # update the data
+                                pyplot.ylim([0, 100])
+                                pyplot.draw()  # update the plot
+                            except:
+                                print ("In flag except")
+                                pyplot.figure()
+                                pyplot.title('Humidity')
+                                ax1 = pyplot.axes()
+                                l1, = pyplot.plot(pData)
+                                pyplot.ylim([0, 100])
+                        if int(reading[1]) == 0:
+                            try:
+                                pyplot.close('all')
+                                l1 = None
+                            except:
+                                continue
+            port.flushInput()
+            top.update()
+        else:
+            flag.set(True)
+            break
 
-<h1>if reading[0] == "Light(lx)":</h1>
-<p>#                      LighLabel.config(text=cleanText(reading[1]))
-                    if reading[0] == "Flag":</p>
-<h1>print (reading[1])</h1>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26</pre></div></td><td class="code"><div class="codehilite"><pre>                    if int(reading[1]) == 1:
-                        try:
-                            print (&quot;In flag&quot;)
-                            print (&quot;In flag -&gt; if &quot;)
-                            l1.set_xdata(np.arange(len(pData)))
-                            l1.set_ydata(pData)  # update the data
-                            pyplot.ylim([0, 100])
-                            pyplot.draw()  # update the plot
-                        except:
-                            print (&quot;In flag except&quot;)
-                            pyplot.figure()
-                            pyplot.title(&#39;Humidity&#39;)
-                            ax1 = pyplot.axes()
-                            l1, = pyplot.plot(pData)
-                            pyplot.ylim([0, 100])
-                    if int(reading[1]) == 0:
-                        try:
-                            pyplot.close(&#39;all&#39;)
-                            l1 = None
-                        except:
-                            continue
-        port.flushInput()
-        top.update()
-    else:
-        flag.set(True)
-        break
-</pre></div>
-</td></tr></table>
 
-<p>def onExitButtonPress():
+def onExitButtonPress():
     print ("Exiting....")
     flag.set(False)
     port.close()
     top.quit()
     top.destroy()
     print ("Done.")
-    sys.exit()</p>
-<p>pyplot.ion()
+    sys.exit()
+
+pyplot.ion()
 rcParams['toolbar'] = 'None'
-pData = [0] * 25</p>
-<p>tkinter.Label(top, text="Temperature").grid(column=1, row=1)
+pData = [0] * 25
+
+tkinter.Label(top, text="Temperature").grid(column=1, row=1)
 tkinter.Label(top, text="Humidity").grid(column=1, row=2)
-tkinter.Label(top, text="Light").grid(column=1, row=3)</p>
-<p>TempLabel = tkinter.Label(top, text=" ")
+tkinter.Label(top, text="Light").grid(column=1, row=3)
+
+TempLabel = tkinter.Label(top, text=" ")
 TempLabel.grid(column=2, row=1)
 HumdLabel = tkinter.Label(top, text=" ")
 HumdLabel.grid(column=2, row=2)
 LighLabel = tkinter.Label(top, text=" ")
-LighLabel.grid(column=2, row=3)</p>
-<p>TempUnitLabel = tkinter.Label(top, text=" ")
+LighLabel.grid(column=2, row=3)
+
+TempUnitLabel = tkinter.Label(top, text=" ")
 TempUnitLabel.grid(column=3, row=1)
 HumdUnitLabel = tkinter.Label(top, text="%")
 HumdUnitLabel.grid(column=3, row=2)
 LighUnitLabel = tkinter.Label(top, text="lx")
-LighUnitLabel.grid(column=3, row=3)</p>
-<h1>Create Start button and associate with onStartButtonPress method</h1>
-<p>StartButton = tkinter.Button(top,
+LighUnitLabel.grid(column=3, row=3)
+
+# Create Start button and associate with onStartButtonPress method
+StartButton = tkinter.Button(top,
                              text="Start",
                              command=onStartButtonPress)
-StartButton.grid(column=1, row=4)</p>
-<h1>Create Exit button and destroy the window</h1>
-<p>ExitButton = tkinter.Button(top,
+StartButton.grid(column=1, row=4)
+
+# Create Exit button and destroy the window
+ExitButton = tkinter.Button(top,
                             text="Exit",
                             command=onExitButtonPress)
-ExitButton.grid(column=2, row=4)</p>
-<p>top.mainloop()
-</pre></p>
+ExitButton.grid(column=2, row=4)
+
+top.mainloop()
+
+</pre>
+
 <p>可以得到這兩個畫面
 <img src="http://i.imgur.com/UscP5Jg.jpg">
 <img src="http://i.imgur.com/g6WOmDP.jpg">

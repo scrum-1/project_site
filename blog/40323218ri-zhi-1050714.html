@@ -366,11 +366,21 @@ init_mathjax();
 <br>
 <h3>我們需要使 joint 在圓心中間，所以我們點選圓形的三角形，點選 Extract cylinder 或 Extract shape ，他會在選擇的三角形上投影一個圓形出來。</h3>
 <br>
-<h3><a href="創建一個Revolute joint">右鍵→Add→Joint→Revolute</a>，
+<h3> 右鍵→Add→Joint→Revolute(創建一個Revolute joint)，
 再來我們點Revolute joint、Ctrl點投影的圓型，點 Position/Translation 按鈕，然後在 Object/item position section裡，我們點 Apply to selection (使兩物體位置相同)。再來我們點Orientation/Rotation 按鈕，然後在Object/item orientation section裡，我們點 Apply to selection(使兩物體坐標軸相同)。</h3>
 <br>
 <img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/vrep3.png" weight=600 >
-<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/vrep4.png" weight=600 ></p>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/vrep4.png" weight=600 >
+<br>
+<h2>Building the dynamic shapes</h2>
+<br>
+<h3>如果我們想要使 Robot 作動，那麼我們就需要適當地創建/配置形狀。形狀可以是：<br><br>
+1. dynamic or static：<br>
+dynamic 是動態，如果這個形狀是動態的，它將會有重量會往下掉，也會對力/力矩造成影響。<br>
+static是靜態，他跟 dynamic 相反，他會固定在位置上或隨著
+運動移動。<br><br>
+2. respondable or non-respondable：<br>
+respondable shape 是會跟其他的 respondable shape 造成碰撞效應，他們或其對撞機，將會影響其運動(如果它們是動態的) 。<br>non-respondable shapes 是相反，他們不會造成碰撞運動。</h3><br></p>
 <h3>(還未打完)</h3>
             </div>
             <!-- /.entry-content -->

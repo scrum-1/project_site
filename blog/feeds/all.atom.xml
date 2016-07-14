@@ -505,11 +505,21 @@ static PyObject* mod_score(PyObject *self, PyObject *args)
 &lt;br&gt;
 &lt;h3&gt;我們需要使 joint 在圓心中間，所以我們點選圓形的三角形，點選 Extract cylinder 或 Extract shape ，他會在選擇的三角形上投影一個圓形出來。&lt;/h3&gt;
 &lt;br&gt;
-&lt;h3&gt;&lt;a href="創建一個Revolute joint"&gt;右鍵→Add→Joint→Revolute&lt;/a&gt;，
+&lt;h3&gt; 右鍵→Add→Joint→Revolute(創建一個Revolute joint)，
 再來我們點Revolute joint、Ctrl點投影的圓型，點 Position/Translation 按鈕，然後在 Object/item position section裡，我們點 Apply to selection (使兩物體位置相同)。再來我們點Orientation/Rotation 按鈕，然後在Object/item orientation section裡，我們點 Apply to selection(使兩物體坐標軸相同)。&lt;/h3&gt;
 &lt;br&gt;
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/vrep3.png" weight=600 &gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/vrep4.png" weight=600 &gt;&lt;/p&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/vrep4.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h2&gt;Building the dynamic shapes&lt;/h2&gt;
+&lt;br&gt;
+&lt;h3&gt;如果我們想要使 Robot 作動，那麼我們就需要適當地創建/配置形狀。形狀可以是：&lt;br&gt;&lt;br&gt;
+1. dynamic or static：&lt;br&gt;
+dynamic 是動態，如果這個形狀是動態的，它將會有重量會往下掉，也會對力/力矩造成影響。&lt;br&gt;
+static是靜態，他跟 dynamic 相反，他會固定在位置上或隨著
+運動移動。&lt;br&gt;&lt;br&gt;
+2. respondable or non-respondable：&lt;br&gt;
+respondable shape 是會跟其他的 respondable shape 造成碰撞效應，他們或其對撞機，將會影響其運動(如果它們是動態的) 。&lt;br&gt;non-respondable shapes 是相反，他們不會造成碰撞運動。&lt;/h3&gt;&lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;(還未打完)&lt;/h3&gt;</summary><category term="Kmol"></category></entry><entry><title>40323143 - 日誌 105年7月13日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-13ri.html" rel="alternate"></link><updated>2016-07-14T10:40:26+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323143-ri-zhi-105nian-7yue-13ri.html</id><summary type="html">&lt;p&gt;寫Arduino控制程式 2
 &lt;/p&gt;
 &lt;p&gt;日記:&lt;/p&gt;

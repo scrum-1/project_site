@@ -2095,7 +2095,12 @@ double solve_minangle(int lim, int a, int b, int r)
 &lt;/br&gt;
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/little_car.png" &gt;
 &lt;/br&gt;
-&lt;/br&gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323143 - 日誌 105年7月5日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-5ri.html" rel="alternate"></link><updated>2016-07-06T15:40:27+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-06:blog/40323143-ri-zhi-105nian-7yue-5ri.html</id><summary type="html">&lt;p&gt;第一種極限開關的繪圖及安裝設計以及夾頭極限開關安裝問題
+&lt;/br&gt;
+&lt;h3&gt;105 - 07/14更新&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;今天參照了irb360範例, 試著組了printer, 前面還算順利, 在中間的 close chain部分 還要加上重疊的Revolute 來限制移動, 最後再搭上dummy 應該就可以控制了&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/Printer_new.png" &gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323143 - 日誌 105年7月5日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-5ri.html" rel="alternate"></link><updated>2016-07-06T15:40:27+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-06:blog/40323143-ri-zhi-105nian-7yue-5ri.html</id><summary type="html">&lt;p&gt;第一種極限開關的繪圖及安裝設計以及夾頭極限開關安裝問題
 &lt;/p&gt;
 &lt;p&gt;日記:&lt;/p&gt;
 &lt;p&gt;今天將買了三種不同接觸點種類的極限開關，並將其中一種新增進入零件庫，且由其尺寸在承臂上新增其安裝位置，在Onshape上目測沒有和其他零件有接觸，承臂上的極限開關配置應該已經確定了，但夾頭座的極限開關配置找不到適合的位置，可能需要變更夾頭座的外型，或是在畫外接的零件，底座的極限開關配置還沒有畫出來，但應該會是在底座配置極限開關，在旋盤上設置接觸點觸發極限開關。&lt;/p&gt;

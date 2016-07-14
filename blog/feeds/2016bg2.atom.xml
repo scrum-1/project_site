@@ -1205,7 +1205,12 @@ double solve_minangle(int lim, int a, int b, int r)
 &lt;/br&gt;
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/little_car.png" &gt;
 &lt;/br&gt;
-&lt;/br&gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323230紀錄 - Solvespace</title><link href="http://project.mde.tw/blog/40323230ji-lu-solvespace.html" rel="alternate"></link><updated>2016-07-06T15:13:15+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-06:blog/40323230ji-lu-solvespace.html</id><summary type="html">&lt;p&gt;找到的Solvespace原始碼版本&lt;/p&gt;
+&lt;/br&gt;
+&lt;h3&gt;105 - 07/14更新&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;今天參照了irb360範例, 試著組了printer, 前面還算順利, 在中間的 close chain部分 還要加上重疊的Revolute 來限制移動, 最後再搭上dummy 應該就可以控制了&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/Printer_new.png" &gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323230紀錄 - Solvespace</title><link href="http://project.mde.tw/blog/40323230ji-lu-solvespace.html" rel="alternate"></link><updated>2016-07-06T15:13:15+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-06:blog/40323230ji-lu-solvespace.html</id><summary type="html">&lt;p&gt;找到的Solvespace原始碼版本&lt;/p&gt;
 
 
 &lt;h2&gt;目前可攜式環境內存放的Solvespace原始碼 :&lt;/h2&gt;

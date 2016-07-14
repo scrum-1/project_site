@@ -367,7 +367,35 @@ dynamic 是動態，如果這個形狀是動態的，它將會有重量會往下
 static是靜態，他跟 dynamic 相反，他會固定在位置上或隨著
 運動移動。&lt;br&gt;&lt;br&gt;
 2. respondable or non-respondable：&lt;br&gt;
-respondable shape 是會跟其他的 respondable shape 造成碰撞效應，他們或其對撞機，將會影響其運動(如果它們是動態的) 。&lt;br&gt;non-respondable shapes 是相反，他們不會造成碰撞運動。&lt;/h3&gt;&lt;br&gt;&lt;/p&gt;
+respondable shape 是會跟其他的 respondable shape 造成碰撞效應，他們或其對撞機，將會影響其運動(如果它們是動態的) 。&lt;br&gt;non-respondable shapes 是相反，他們不會造成碰撞運動。&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;respondable shape應盡可能簡單，以允許快速和穩定的模擬。一個物理引擎將能夠模擬以下5種不同程度的速度和穩定的形狀：&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;1. Pure shapes：&lt;br&gt;
+ [Menu bar --&amp;gt; Add --&amp;gt; Primitive shape]&lt;br&gt;
+一個Pure shapes是穩定的，並由物理引擎非常有效地處理。Pure shapes在幾何限制：大部分長方體，圓柱體或球體。&lt;br&gt;
+&lt;br&gt;
+2. Pure compound shapes：&lt;br&gt;
+ [Menu bar --&amp;gt; Edit --&amp;gt; Grouping/Merging --&amp;gt; Group selected shapes]&lt;br&gt;
+它是由多個Pure shape組合而成的，功能跟Pure shape雷同。
+&lt;br&gt;
+&lt;br&gt;
+3. Convex shapes：&lt;br&gt;
+[Menu bar --&amp;gt; Add --&amp;gt; Convex hull of selection] &lt;br&gt;
+[Menu bar --&amp;gt; Edit --&amp;gt; Morph selection into convex shapes]&lt;br&gt;
+Convex shapes會有點不太穩定，當物理引擎處理時需要多一點點計算時間。它允許一個比純形狀更一般的幾何形狀（唯一的要求：它必須是 convex）。
+&lt;br&gt;
+&lt;br&gt;
+4. Compound convex shapes, or convex decomposed shapes&lt;br&gt;
+ [Menu bar --&amp;gt; Edit --&amp;gt; Grouping/Merging --&amp;gt; Group selected shapes]&lt;br&gt;
+[Menu bar --&amp;gt; Add --&amp;gt; Convex decomposition of selection...]&lt;br&gt;
+[Menu bar --&amp;gt; Edit --&amp;gt; Morph selection into its convex decomposition...]&lt;br&gt;
+它是由多個convex shapes組合而成的，功能跟convex shapes雷同。
+&lt;br&gt;
+&lt;br&gt;
+5. Random shapes：&lt;br&gt;
+一個Random shapes是一個形狀不是convex也不是pure。它一般具有性能差（計算速度和穩定性）。盡可能地避免使用隨機的形狀。&lt;br&gt;&lt;/h3&gt;
+&lt;br&gt;&lt;/p&gt;
 &lt;h3&gt;(還未打完)&lt;/h3&gt;</summary><category term="Kmol"></category></entry><entry><title>40323218日誌 - 105/07/11</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050711.html" rel="alternate"></link><updated>2016-07-11T11:25:05+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323218ri-zhi-1050711.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
 
 

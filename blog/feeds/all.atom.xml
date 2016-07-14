@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-14T22:35:57+08:00</updated><entry><title>40323230日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-14T22:35:57+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323230ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;試圖解決SWIG問題&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-14T23:47:18+08:00</updated><entry><title>40323231日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323231ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-14T23:47:18+08:00</updated><author><name>40323231</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323231ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;3DP碰到的問題及解決&lt;/p&gt;
+
+
+&lt;h3&gt;第一次組裝3D列印機，所以各個零件和電子元件的功用都不知道，所以只能從型號去著手，知道並了解運用。&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;h3&gt;在研究電子板的時候發現，熱床是時麼?而且我手邊怎麼沒有熱床?&lt;/h3&gt;
+&lt;h3&gt;解決:我們有熱床，只是我們的跟網路上和現有的3DP不一樣。它的功用是防止成品翹邊，由於料出來是熱的，經過板子和空氣冷卻導致成品收縮，所以熱床需給予溫度，減輕翹邊，可是不能完全避免，而且會因材料不同，需要的溫度也不同(我們的材料PLA大約60度，)。電壓不能輕易更改或太高，因為電壓高一倍，功率大四倍，所以一開始要確定給定的電壓。&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;在接限位開關線路的時候發現，在夢工廠老師接的線路和網路上的不一樣，三條線路分別為"+""-""S"顏色分別為"紅""藍""黑"，夢工老師接的是"+"接紅，"-"接藍，"S"接黑。網路是"+"接紅，"-"接黑，"S"接藍。而且3個限位開關的線路有的接3條，有的接2條，很混亂，沒有頭緒。&lt;/h3&gt;
+&lt;h3&gt;問題:1. "+""-""S"如何接?  2.為何線路有的接兩條有的接三條?&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;限位開關分兩種:&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;1. 機械微動開關接法&lt;/h3&gt;
+&lt;h4&gt;機械微動開關只需接2個腳位的：單純使用微動開關當作限位器，那一定要接RAMPS上的 "S" 跟 "-" 腳位。絕對不要把3個腳位都接了，如果不小心接了3個腳位，那在觸發時會發生火花，會把5V穩壓 IC燒毀。&lt;/h4&gt;
+&lt;/br&gt;
+&lt;h3&gt;2. 光學限位開關接法(我們的)&lt;/h3&gt;
+&lt;h4&gt;光學限位開關則是需要用到3條線，接到RAMPS上的"S"、"-"及"+" 3個腳位。&lt;/h4&gt;
+&lt;/br&gt;
+&lt;h3&gt;1.S為藍，+為紅，-為黑&lt;/h3&gt;
+&lt;h3&gt;2.常開型和常關型只有微動開關才有，所以光學開關一定要3調都接&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;今天進度&lt;/h3&gt;
+&lt;h4&gt;組裝 3DP，將缺少的材料抄寫下來，將跟工廠管理員詢問，使用VREP，看組員的所寫的網誌並實際操作&lt;/h4&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-14T22:35:57+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323230ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;試圖解決SWIG問題&lt;/p&gt;
 
 
 &lt;h2&gt;撰寫批次檔 :&lt;/h2&gt;

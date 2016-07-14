@@ -2100,7 +2100,10 @@ double solve_minangle(int lim, int a, int b, int r)
 &lt;/br&gt;
 &lt;h3&gt;今天參照了irb360範例, 試著組了printer, 前面還算順利, 在中間的 close chain部分 還要加上重疊的Revolute 來限制移動, 最後再搭上dummy 應該就可以控制了&lt;/h3&gt;
 &lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/Printer_new.png" &gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323143 - 日誌 105年7月5日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-5ri.html" rel="alternate"></link><updated>2016-07-06T15:40:27+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-06:blog/40323143-ri-zhi-105nian-7yue-5ri.html</id><summary type="html">&lt;p&gt;第一種極限開關的繪圖及安裝設計以及夾頭極限開關安裝問題
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/Printer_new.png" &gt;
+&lt;/br&gt;
+&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/printer_new.ttt?raw=true"&gt;printer_new.ttt&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/printer_new_2.ttt?raw=true"&gt;printer_new_2.ttt&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323143 - 日誌 105年7月5日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-5ri.html" rel="alternate"></link><updated>2016-07-06T15:40:27+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-06:blog/40323143-ri-zhi-105nian-7yue-5ri.html</id><summary type="html">&lt;p&gt;第一種極限開關的繪圖及安裝設計以及夾頭極限開關安裝問題
 &lt;/p&gt;
 &lt;p&gt;日記:&lt;/p&gt;
 &lt;p&gt;今天將買了三種不同接觸點種類的極限開關，並將其中一種新增進入零件庫，且由其尺寸在承臂上新增其安裝位置，在Onshape上目測沒有和其他零件有接觸，承臂上的極限開關配置應該已經確定了，但夾頭座的極限開關配置找不到適合的位置，可能需要變更夾頭座的外型，或是在畫外接的零件，底座的極限開關配置還沒有畫出來，但應該會是在底座配置極限開關，在旋盤上設置接觸點觸發極限開關。&lt;/p&gt;
@@ -3625,7 +3628,6 @@ class GA: # popsize must be multiple of 4
             delta = 1.0 - pow(dummy, (1.0/(self.etam+1.0)))
         return delta
 
-<<<<<<< HEAD
     def mutate(self, member):
         mut_member = np.zeros_like(member)
         for i in range(member.size):
@@ -3649,113 +3651,6 @@ class GA: # popsize must be multiple of 4
             else:
                 mut_member[i] = member[i]
         return mut_member
-=======
-&lt;p&gt;&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/vrep_solvespace.png" &gt;
-&lt;h3&gt;(檔案位於solvespace官網的 tutorial : linkages)
-&lt;/h3&gt;&lt;p&gt;&lt;a href="http://solvespace.com/dl/mechanisms.zip "&gt;壓縮檔載點&lt;/a&gt;&lt;/p&gt;
-&lt;/br&gt;
-&lt;h3&gt;由於各零件之軸孔沒有軸連接 ,導致旋轉軸無法放置 ,所以我把軸都畫上去了 ,檔案為g2目錄下的solvespcae_vrep&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/solvespace_vrep.png"&gt;
-&lt;/br&gt;
-&lt;h3&gt;Solvespace的長料與除料功能真的不太習慣 ,很容易造成運算錯誤&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;軸都放好了 ,只是從屬關係還是不太清楚要如何放置&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/solvespace_vrep_allaxis.png"&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;結果我又弄了一個圖 ,試圖從這邊學習從屬設定&lt;/h3&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_test.png"&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;目前只會讓它亂轉&lt;/h3&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_test.gif"&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;感覺和各個旋轉軸速度也有關係&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_test2.gif"&gt;
-&lt;hr&gt;
-&lt;h3&gt;105 - 07/10更新&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;現在能夠讓連桿旋轉了&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/4_links.png" &gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/4_links.gif" &gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;想要測試能否以固定角度來回旋轉 &lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/links_move.gif" &gt;
-&lt;/br&gt;
-&lt;h3&gt;但是要達到這樣的動作需要編寫程式 ,且還在研究script的類別以及revolute的type到底要用哪一種 ,這些花了很多時間...&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/scripts_types.png" &gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;目前先以控單軸為主 ,但是遇到以下狀況&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/scripts_control2.png" &gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/example_code1.png" &gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/code_error1.png" &gt;
-&lt;h3&gt;如果是用左邊的script就不會有simWait的錯誤 ,但是它只會走90度 ,然後simWait就不會動了&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;參考 :&lt;/h3&gt;
-&lt;p&gt;&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/jointDescription.htm "&gt;Joint types and operation&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/childScripts.htm#threaded "&gt;Child Scripts&lt;/a&gt;&lt;/p&gt;
-&lt;/br&gt;
-&lt;hr&gt;
-&lt;/br&gt;
-&lt;h3&gt;105 - 07/11更新&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;Joint 種類分成以下4種 :&lt;/h3&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/joint-types.png" &gt;
-&lt;/br&gt;
-&lt;h4&gt;1. 為旋轉軸, 只有一個自由度 (旋轉), 用於一般旋轉軸。&lt;/h4&gt;
-&lt;h4&gt;2. 為平移軸, 只有一個自由度 (平移), 物體能沿著軸線做平移。 &lt;/h4&gt;
-&lt;h4&gt;3. 為旋轉與平移軸的結合, 只有一個自由度, 能夠使物體沿著軸做旋轉移動, 如同螺絲。&lt;/h4&gt;
-&lt;h4&gt;4. 為球窩接頭, 有三個自由度, 用於類似關節的地方。&lt;/h4&gt;
-&lt;/br&gt;
-&lt;h3&gt;Control the joint :&lt;/h3&gt;
-&lt;h4&gt;1.simSetJointPosition : when your joint is not in force/torque mode&lt;/h4&gt;
-&lt;h4&gt;2.simSetJointTargetPosition : when your joint is in force/torque mode, its motor enabled and its control loop also enabled&lt;/h4&gt;
-&lt;h4&gt;3.simSetJointTargetVelocity : when your joint is in force/torque mode, its motor enabled, and its control loop NOT enabled&lt;/h4&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;今天回去翻老師的信, 才發現裡面有四連桿的範例, 以下為測試:&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/4_links_move.png" &gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/4_links_move.gif" &gt;
-&lt;/br&gt;
-&lt;h3&gt;只要設定一個轉軸, 其他設定好就可以跟著一起做動, 但是在程式部分, if 條件還是不太懂, 很容易出現lua錯誤, 還有很多語法要理解。&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;105 - 07/12更新&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;今天拿老師的程式去跑小車子 ,但是joint的角度只要定在360就跟0度一樣 ,要如何才能超過這個範圍還在思考... &lt;/h3&gt;
-&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/little_car.ttt?raw=true"&gt;little_car.ttt&lt;/a&gt;&lt;/p&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/little_car.png" &gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;105 - 07/14更新&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;今天參照了irb360範例, 試著組了printer, 前面還算順利, 在中間的 close chain部分 還要加上重疊的Revolute 來限制移動, 最後再搭上dummy 應該就可以控制了&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/Printer_new.png" &gt;
-&lt;/br&gt;
-&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/printer_new.ttt?raw=true"&gt;printer_new.ttt&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/printer_new_2.ttt?raw=true"&gt;printer_new_2.ttt&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323250日誌 - 105/07/01</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050701.html" rel="alternate"></link><updated>2016-07-14T19:26:04+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323250ri-zhi-1050701.html</id><summary type="html">&lt;p&gt;V-rep 的使用與學習&lt;/p&gt;
->>>>>>> 4ca70e455eac75b30ea154da1ef0c0384cfe18dd
 
     def eval_pop(self):
         self.fits = [self.obj(member) for member in self.pop]

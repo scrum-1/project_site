@@ -400,35 +400,42 @@ static PyObject* mod_score(PyObject *self, PyObject *args)
 &lt;p&gt;不然只靠Leo編輯，它的函式分類也不是很清楚，常常不知道Python.h中的函式原型用法是甚麼，不像NetBeans可以連進去查看stdio.h或是windows.h所引用的函式。&lt;/p&gt;</summary><category term="Kmol"></category><category term="CDemo"></category></entry><entry><title>40323218日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-14T10:40:26+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323218ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
 
 
-&lt;h3&gt;翻譯文章重點&lt;/h3&gt;
+&lt;h2&gt;翻譯文章重點&lt;/h2&gt;
 
 &lt;p&gt;&lt;br&gt;
-&lt;h3&gt;原文章網址：
-http://www.coppeliarobotics.com/helpFiles/en/buildingAModelTutorial.htm &lt;/h3&gt;
+&lt;h2&gt;原文章網址：&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/buildingAModelTutorial.htm "&gt;http://www.coppeliarobotics.com/helpFiles/en/buildingAModelTutorial.htm &lt;/a&gt;&lt;/p&gt; 
 &lt;br&gt;
-&lt;h3&gt;精簡網孔(mesh)：&lt;/h3&gt;
+&lt;h2&gt;Building the visible shapes：&lt;/h2&gt;
 &lt;br&gt;
-&lt;h3&gt;1.自動分割：&lt;br&gt;
-[Menu bar --&amp;gt; Edit --&amp;gt; Grouping/Merging --&amp;gt; Divide selected shapes]&lt;/h3&gt;
+&lt;h3&gt;1. Automatic mesh division：&lt;br&gt;
+[Menu bar --&amp;gt; Edit --&amp;gt; Grouping/Merging --&amp;gt; Divide selected shapes]&lt;br&gt;
+(自動分割物件，有時候會無作用)&lt;br&gt;
+[Menu bar --&amp;gt; Edit -&amp;gt; Grouping/Merging --&amp;gt; Merge selected shapes]&lt;br&gt;(使選擇的物件組合在一起)&lt;/h3&gt;
 &lt;br&gt;
-&lt;h3&gt;2.組合分割：&lt;br&gt;
-[Menu bar --&amp;gt; Edit -&amp;gt; Grouping/Merging --&amp;gt; Merge selected shapes]&lt;/h3&gt;
+&lt;h3&gt;2. Extract the convex hull：&lt;br&gt;
+[Menu bar --&amp;gt; Edit --&amp;gt; Morph selection into convex shapes]&lt;br&gt;
+(使物件轉換成convex hull)&lt;/h3&gt;
 &lt;br&gt;
-&lt;h3&gt;3.轉換物件成凸包(convex hull)：&lt;br&gt;
-[Menu bar --&amp;gt; Edit --&amp;gt; Morph selection into convex shapes]&lt;/h3&gt;
+&lt;h3&gt;3. Decimate the mesh：&lt;br&gt;
+[Menu bar --&amp;gt; Edit --&amp;gt; Decimate selected shape...]&lt;br&gt;
+(減少mesh三角形量)&lt;/h3&gt;
 &lt;br&gt;
-&lt;h3&gt;4.減少三角形量：&lt;br&gt;
-[Menu bar --&amp;gt; Edit --&amp;gt; Decimate selected shape...]&lt;/h3&gt;
+&lt;h3&gt;4. Remove the inside of the mesh：&lt;br&gt;
+[Menu bar --&amp;gt; Edit --&amp;gt; Extract inside of selected shape]&lt;br&gt;
+(此功能是基於視覺傳感器，可以依靠設定得到更多或更少滿意的結果。)&lt;/h3&gt;
 &lt;br&gt;
-&lt;h3&gt;5.移除網孔內部：&lt;br&gt;
-(此功能是基於視覺傳感器，可以依靠設定得到更多或更少滿意的結果。)&lt;br&gt;
-[Menu bar --&amp;gt; Edit --&amp;gt; Extract inside of selected shape]&lt;/h3&gt;
+&lt;h3&gt;上述功能沒有先後順序(除了第一項應該先嘗試)，主要取決於我們如何嘗試精簡mesh。&lt;/h3&gt;
 &lt;br&gt;
-&lt;h3&gt;上述功能沒有先後順序(除了第一項應該先嘗試)，主要取決於我們如何嘗試精簡網孔。&lt;/h3&gt;
+&lt;h3&gt;下圖說明上述功能應用到imported mesh（沒有第一項）：&lt;/h3&gt;
 &lt;br&gt;
-&lt;h3&gt;下圖說明上述功能應用到被導入的網格（沒有第一項）：&lt;/h3&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/vrep1.png" weight=600 &gt;
 &lt;br&gt;
-&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD
+&lt;h3&gt;再來我們要分割imported mesh，有兩種方式可使用。&lt;br&gt;&lt;br&gt;
+1. Automatic mesh division：跟上面一樣
+&lt;br&gt;
+2. Manual mesh division：這使用 triangle edit mode (左邊功能列第六個)，選擇你要的物體的三角形，再點 Extract shape，他會投影物件出來，再把原先選擇的三角形刪除。&lt;/h3&gt;
+&lt;br&gt;
 &lt;h2&gt;Building the joints&lt;/h2&gt;&lt;br&gt;
 &lt;h3&gt;再來我們要創建 joint，先 import mesh，使用 triangle edit mode 使物件三角形化。&lt;/h3&gt;
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/vrep2.png" weight=600 &gt;
@@ -477,26 +484,9 @@ Convex shapes會有點不太穩定，當物理引擎處理時需要多一點點�
 &lt;br&gt;
 5. Random shapes：&lt;br&gt;
 一個Random shapes是一個形狀不是convex也不是pure。它一般具有性能差（計算速度和穩定性）。盡可能地避免使用隨機的形狀。&lt;br&gt;&lt;/h3&gt;
+&lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
-&lt;p&gt;=======
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/vrep1.png" weight=600 &gt;
-&lt;br&gt;&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;blockquote&gt;
-&lt;p&gt;e280cc2fe3b4e1426b9736e34d6ff964456559fd
-&lt;h3&gt;(還未打完)&lt;/h3&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;
-&lt;/blockquote&gt;</summary><category term="Kmol"></category></entry><entry><title>40323143 - 日誌 105年7月13日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-13ri.html" rel="alternate"></link><updated>2016-07-14T10:40:26+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323143-ri-zhi-105nian-7yue-13ri.html</id><summary type="html">&lt;p&gt;寫Arduino控制程式 2
+&lt;h3&gt;(還未打完)&lt;/h3&gt;</summary><category term="Kmol"></category></entry><entry><title>40323143 - 日誌 105年7月13日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-13ri.html" rel="alternate"></link><updated>2016-07-14T10:40:26+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323143-ri-zhi-105nian-7yue-13ri.html</id><summary type="html">&lt;p&gt;寫Arduino控制程式 2
 &lt;/p&gt;
 &lt;p&gt;日記:&lt;/p&gt;
 &lt;p&gt;今天對控制程式做了一些修改，程式新增了抵抗地心引力的補正，以及抵抗慣性的補正。&lt;/p&gt;

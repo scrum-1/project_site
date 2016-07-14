@@ -1,157 +1,94 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-14T17:47:20+08:00</updated><entry><title>40323143 - 日誌 105年7月14日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-14ri.html" rel="alternate"></link><updated>2016-07-14T17:47:20+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323143-ri-zhi-105nian-7yue-14ri.html</id><summary type="html">&lt;p&gt;寫Arduino控制程式 3
-&lt;/p&gt;
-&lt;p&gt;日記:&lt;/p&gt;
-&lt;p&gt;今天知道Arduino不能夠同時使兩個馬達作動，於是今天將馬達的控制程式改成有順序的動作，達成利用Arduino控制兩個馬達，但在測試的過程發現懸盤上的馬達在手臂伸出去後沒辦法收回來，原因可能是馬達的力量不夠，目前有兩個方案:(1).減速機 (2)馬達變更為可控制角度的馬達。&lt;/p&gt;
-&lt;p&gt;減速機優點:&lt;/p&gt;
-&lt;p&gt;1.提高馬達的輸出力。
-2.加長手臂移動的時間，控制馬達運轉時間的方法會更精確。
-3.馬達到定位後受慣性和重力的影響會變小，因為馬達本身的阻尼透過減速機會變大。&lt;/p&gt;
-&lt;p&gt;缺點:&lt;/p&gt;
-&lt;p&gt;複雜&lt;/p&gt;
-&lt;p&gt;更換馬達優點:&lt;/p&gt;
-&lt;p&gt;用了可以解決大部分問題&lt;/p&gt;
-&lt;p&gt;缺點:&lt;/p&gt;
-&lt;p&gt;目前沒想到&lt;/p&gt;
-&lt;p&gt;應該是利用第二種方案的可能性比較大，還沒有決定好。&lt;/p&gt;
-&lt;p&gt;備註:&lt;/p&gt;
-&lt;p&gt;1.今天將控制兩個馬達的程式完成 ( 程式1 )，若採用減速機來解決馬達輸出力不足的問題，這套就接上旋盤旋轉的程式完成。&lt;/p&gt;
-&lt;p&gt;2.若採用更換馬達來解決馬達輸出力不足的問題，會在新增角度控制的程式到程式中，還沒有寫出來。&lt;/p&gt;
-&lt;p&gt;程式1:&lt;/p&gt;
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="cp"&gt;#include &amp;lt;Servo.h&amp;gt;&lt;/span&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-14T20:05:09+08:00</updated><entry><title>40323230日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-14T20:05:09+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323230ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;試圖解決SWIG問題&lt;/p&gt;
 
-&lt;span class="n"&gt;Servo&lt;/span&gt; &lt;span class="n"&gt;myservo1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; 
-&lt;span class="n"&gt;Servo&lt;/span&gt; &lt;span class="n"&gt;myservo2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
-&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;setup&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; 
-&lt;span class="p"&gt;{&lt;/span&gt; 
-  &lt;span class="n"&gt;Serial&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;begin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;9600&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-  &lt;span class="n"&gt;myservo1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;attach&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-  &lt;span class="n"&gt;myservo2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;attach&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;h2&gt;撰寫批次檔 :&lt;/h2&gt;
 
-&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;p&gt;依照&lt;a href="http://www.ittc.ku.edu/kusp/kusp_docs/kusp_swig_guide/index.html" title="ittc.ku.edu"&gt;http://www.ittc.ku.edu/kusp/kusp_docs/kusp_swig_guide/index.html&lt;/a&gt;提供的gcc指令，撰寫了3個批次檔來執行。&lt;/p&gt;
+&lt;p&gt;第一個命名為interface.bat，用來讓swig生成"_wrap.c"檔，並建立"build"和"dist"兩個資料夾。&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+@echo off
+set interface_name=example
 
-&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;loop&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; 
-&lt;span class="p"&gt;{&lt;/span&gt; 
-  &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
-  &lt;span class="c1"&gt;//att.write(90);&lt;/span&gt;
-  &lt;span class="n"&gt;myservo1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;90&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;   &lt;span class="c1"&gt;//啟動時固定&lt;/span&gt;
-  &lt;span class="n"&gt;myservo2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;90&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;   &lt;span class="c1"&gt;//啟動時固定&lt;/span&gt;
-  &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Serial&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;available&lt;/span&gt;&lt;span class="p"&gt;()){&lt;/span&gt;
-    &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Serial&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parseInt&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
-    &lt;span class="n"&gt;Serial&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;   
-    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;130&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
-      &lt;span class="c1"&gt;//e=1000*asin(d/130)*180/PI/144;  //將輸入的距離轉換成需要旋轉的時間&lt;/span&gt;
-      &lt;span class="n"&gt;myservo1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;175&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;   &lt;span class="c1"&gt;//1固定正轉&lt;/span&gt;
-      &lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;250&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;//旋轉此時間會讓馬達與安裝面垂直&lt;/span&gt;
-      &lt;span class="n"&gt;myservo1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;   &lt;span class="c1"&gt;//慣性補正&lt;/span&gt;
-      &lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-      &lt;span class="n"&gt;myservo1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;91&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;  &lt;span class="c1"&gt;//引力補正&lt;/span&gt;
-      &lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+echo 編譯接口
+swig -python -py3 %interface_name%.i
+echo 編譯完成
+pause
 
-      &lt;span class="n"&gt;myservo2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;175&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;   &lt;span class="c1"&gt;//2固定正轉&lt;/span&gt;
-      &lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;250&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;//旋轉此時間會讓馬達與安裝面垂直&lt;/span&gt;
-      &lt;span class="n"&gt;myservo2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;   &lt;span class="c1"&gt;//慣性補正&lt;/span&gt;
-      &lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-      &lt;span class="n"&gt;myservo2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;91&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;  &lt;span class="c1"&gt;//引力補正&lt;/span&gt;
-      &lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+REM MKDIR
+echo 正在建立目錄
+MKDIR "build"
+MKDIR "dist"
+echo 目錄已建立
+pause
+&lt;/pre&gt;
 
-      &lt;span class="n"&gt;myservo2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;175&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;//2固定正轉&lt;/span&gt;
-      &lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;375&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;           &lt;span class="c1"&gt;//正轉移動到目的地所需的時間&lt;/span&gt;
-      &lt;span class="n"&gt;myservo2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;   &lt;span class="c1"&gt;//慣性補正&lt;/span&gt;
-      &lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-      &lt;span class="n"&gt;myservo2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;91&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;  &lt;span class="c1"&gt;//引力補正&lt;/span&gt;
-      &lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;p&gt;第二個是pyd.bat，主要是下gcc的編譯指令並執行runme.py，不過不知道修改後正不正確。&lt;/p&gt;
+&lt;p&gt;原理是將example.c和它的_wrap.c參照W:/Python35/include的內容變成".o"檔，再將它們參照W:/Python35/libs/libpython35.a編譯成".pyd"檔。&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+@echo off
+set target_name=example
+set module_name=example
 
-      &lt;span class="n"&gt;myservo1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;175&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;//1固定正轉&lt;/span&gt;
-      &lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;375&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;            &lt;span class="c1"&gt;//正轉移動到目的地所需的時間&lt;/span&gt;
-      &lt;span class="n"&gt;myservo1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;   &lt;span class="c1"&gt;//慣性補正&lt;/span&gt;
-      &lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-      &lt;span class="n"&gt;myservo1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;89&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;  &lt;span class="c1"&gt;//引力補正&lt;/span&gt;
-      &lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+echo 正在建立暫存檔
+gcc -c -g %target_name%.c %target_name%_wrap.c -IW:/Python35/include
+move %target_name%.o build\%target_name%.o
+move %target_name%_wrap.o build\%target_name%_wrap.o
+echo 暫存檔建立
+pause
 
-      &lt;span class="n"&gt;myservo1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;   &lt;span class="c1"&gt;//固定反轉&lt;/span&gt;
-      &lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;375&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;           &lt;span class="c1"&gt;//反轉相同時間復歸&lt;/span&gt;
-      &lt;span class="n"&gt;myservo1&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;   &lt;span class="c1"&gt;//固定反轉&lt;/span&gt;
-      &lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;270&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+echo 正在建立PYD
+gcc -shared build/%target_name%.o build/%target_name%_wrap.o W:/Python35/libs/libpython35.a -o dist/%module_name%.pyd
+echo PYD建立
 
-      &lt;span class="n"&gt;myservo2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;   &lt;span class="c1"&gt;//固定反轉&lt;/span&gt;
-      &lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;           &lt;span class="c1"&gt;//反轉相同時間復歸&lt;/span&gt;
-      &lt;span class="n"&gt;myservo2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;5&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;   &lt;span class="c1"&gt;//固定反轉&lt;/span&gt;
-      &lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;270&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
-    &lt;span class="p"&gt;}&lt;/span&gt;
-  &lt;span class="p"&gt;}&lt;/span&gt;
-&lt;span class="p"&gt;}&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+copy /Y runme.py dist\runme.py
 
-&lt;p&gt;結語:&lt;/p&gt;
-&lt;p&gt;手臂總算有一個能夠控制的程式出來了，等到輸出力不足的問題解決後測試的手臂就算完成了，之後想把重心放在V-REP上。&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323230日誌 - 105/07/13</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050713.html" rel="alternate"></link><updated>2016-07-14T10:40:26+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323230ri-zhi-1050713.html</id><summary type="html">&lt;p&gt;Python 3.5.2軟體更新&lt;/p&gt;
+python dist\runme.py
+
+pause
+&lt;/pre&gt;
+
+&lt;p&gt;第三個式失敗後重來的清除工具，刪掉前面建立的檔案和成果檔。&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+@echo off
+set target_name=example
+
+echo RMDIR...
+RMDIR /S /Q .\build
+RMDIR /S /Q .\dist
+
+echo DEL...
+del /F /S /Q %target_name%_wrap.c
+del /F /S /Q %target_name%.py
+
+pause
+&lt;/pre&gt;
+
+&lt;p&gt;檔案如下圖：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/iPB2jDu.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;將interface.bat和pyd.bat分開的原因是為了檢察途中example.i和example_wrap.c是否出了問題。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2&gt;執行測試 :&lt;/h2&gt;
+
+&lt;p&gt;之前的example.c和example.i內容並沒有更動。&lt;/p&gt;
+&lt;p&gt;第一次執行後，發現會出現以下錯誤：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/d0FfYoF.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;然後就發現example_wrap.c中的這句錯誤了，多了一個底線符號，刪除後就能導入了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/oeY2vw4.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;這個錯誤經過搜索後是SWIG本身的問題，要解決的話必須重新編譯原始碼。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/2HjltE6.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;但是這個舉動實在是太耗費時間了，所以後來放棄了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/pXH2OW2.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;不過更改那行後，runme.py就可以導入example.pyd，不過卻會出現TypeError，如下圖：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/4vVIw2v.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;估計是這裡有錯誤：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/4Dhvqym.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;不過不知道怎麼調整。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;SWIG在自身的編譯上有點小錯誤，但是有些地方因為不了解Python的模組，所以不知道要怎麼修改。&lt;/p&gt;
+&lt;p&gt;另外有些不知道C語言的格式轉換是怎麼套用到Python的，所以在Python.h的函式不知該怎麼用。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category></entry><entry><title>40323230日誌 - 105/07/13</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050713.html" rel="alternate"></link><updated>2016-07-14T10:40:26+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323230ri-zhi-1050713.html</id><summary type="html">&lt;p&gt;Python 3.5.2軟體更新&lt;/p&gt;
 
 
 &lt;h2&gt;軟體更新目標 :&lt;/h2&gt;
@@ -463,42 +400,35 @@ static PyObject* mod_score(PyObject *self, PyObject *args)
 &lt;p&gt;不然只靠Leo編輯，它的函式分類也不是很清楚，常常不知道Python.h中的函式原型用法是甚麼，不像NetBeans可以連進去查看stdio.h或是windows.h所引用的函式。&lt;/p&gt;</summary><category term="Kmol"></category><category term="CDemo"></category></entry><entry><title>40323218日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-14T10:40:26+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323218ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
 
 
-&lt;h2&gt;翻譯文章重點&lt;/h2&gt;
+&lt;h3&gt;翻譯文章重點&lt;/h3&gt;
 
 &lt;p&gt;&lt;br&gt;
-&lt;h2&gt;原文章網址：&lt;/h2&gt;
-&lt;p&gt;&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/buildingAModelTutorial.htm "&gt;http://www.coppeliarobotics.com/helpFiles/en/buildingAModelTutorial.htm &lt;/a&gt;&lt;/p&gt; 
+&lt;h3&gt;原文章網址：
+http://www.coppeliarobotics.com/helpFiles/en/buildingAModelTutorial.htm &lt;/h3&gt;
 &lt;br&gt;
-&lt;h2&gt;Building the visible shapes：&lt;/h2&gt;
+&lt;h3&gt;精簡網孔(mesh)：&lt;/h3&gt;
 &lt;br&gt;
-&lt;h3&gt;1. Automatic mesh division：&lt;br&gt;
-[Menu bar --&amp;gt; Edit --&amp;gt; Grouping/Merging --&amp;gt; Divide selected shapes]&lt;br&gt;
-(自動分割物件，有時候會無作用)&lt;br&gt;
-[Menu bar --&amp;gt; Edit -&amp;gt; Grouping/Merging --&amp;gt; Merge selected shapes]&lt;br&gt;(使選擇的物件組合在一起)&lt;/h3&gt;
+&lt;h3&gt;1.自動分割：&lt;br&gt;
+[Menu bar --&amp;gt; Edit --&amp;gt; Grouping/Merging --&amp;gt; Divide selected shapes]&lt;/h3&gt;
 &lt;br&gt;
-&lt;h3&gt;2. Extract the convex hull：&lt;br&gt;
-[Menu bar --&amp;gt; Edit --&amp;gt; Morph selection into convex shapes]&lt;br&gt;
-(使物件轉換成convex hull)&lt;/h3&gt;
+&lt;h3&gt;2.組合分割：&lt;br&gt;
+[Menu bar --&amp;gt; Edit -&amp;gt; Grouping/Merging --&amp;gt; Merge selected shapes]&lt;/h3&gt;
 &lt;br&gt;
-&lt;h3&gt;3. Decimate the mesh：&lt;br&gt;
-[Menu bar --&amp;gt; Edit --&amp;gt; Decimate selected shape...]&lt;br&gt;
-(減少mesh三角形量)&lt;/h3&gt;
+&lt;h3&gt;3.轉換物件成凸包(convex hull)：&lt;br&gt;
+[Menu bar --&amp;gt; Edit --&amp;gt; Morph selection into convex shapes]&lt;/h3&gt;
 &lt;br&gt;
-&lt;h3&gt;4. Remove the inside of the mesh：&lt;br&gt;
-[Menu bar --&amp;gt; Edit --&amp;gt; Extract inside of selected shape]&lt;br&gt;
-(此功能是基於視覺傳感器，可以依靠設定得到更多或更少滿意的結果。)&lt;/h3&gt;
+&lt;h3&gt;4.減少三角形量：&lt;br&gt;
+[Menu bar --&amp;gt; Edit --&amp;gt; Decimate selected shape...]&lt;/h3&gt;
 &lt;br&gt;
-&lt;h3&gt;上述功能沒有先後順序(除了第一項應該先嘗試)，主要取決於我們如何嘗試精簡mesh。&lt;/h3&gt;
+&lt;h3&gt;5.移除網孔內部：&lt;br&gt;
+(此功能是基於視覺傳感器，可以依靠設定得到更多或更少滿意的結果。)&lt;br&gt;
+[Menu bar --&amp;gt; Edit --&amp;gt; Extract inside of selected shape]&lt;/h3&gt;
 &lt;br&gt;
-&lt;h3&gt;下圖說明上述功能應用到imported mesh（沒有第一項）：&lt;/h3&gt;
+&lt;h3&gt;上述功能沒有先後順序(除了第一項應該先嘗試)，主要取決於我們如何嘗試精簡網孔。&lt;/h3&gt;
 &lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/vrep1.png" weight=600 &gt;
+&lt;h3&gt;下圖說明上述功能應用到被導入的網格（沒有第一項）：&lt;/h3&gt;
 &lt;br&gt;
-&lt;h3&gt;再來我們要分割imported mesh，有兩種方式可使用。&lt;br&gt;&lt;br&gt;
-1. Automatic mesh division：跟上面一樣
-&lt;br&gt;
-2. Manual mesh division：這使用 triangle edit mode (左邊功能列第六個)，選擇你要的物體的三角形，再點 Extract shape，他會投影物件出來，再把原先選擇的三角形刪除。&lt;/h3&gt;
-&lt;br&gt;
+&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt;&amp;lt; HEAD
 &lt;h2&gt;Building the joints&lt;/h2&gt;&lt;br&gt;
 &lt;h3&gt;再來我們要創建 joint，先 import mesh，使用 triangle edit mode 使物件三角形化。&lt;/h3&gt;
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/vrep2.png" weight=600 &gt;
@@ -548,7 +478,25 @@ Convex shapes會有點不太穩定，當物理引擎處理時需要多一點點�
 5. Random shapes：&lt;br&gt;
 一個Random shapes是一個形狀不是convex也不是pure。它一般具有性能差（計算速度和穩定性）。盡可能地避免使用隨機的形狀。&lt;br&gt;&lt;/h3&gt;
 &lt;br&gt;&lt;/p&gt;
-&lt;h3&gt;(還未打完)&lt;/h3&gt;</summary><category term="Kmol"></category></entry><entry><title>40323143 - 日誌 105年7月13日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-13ri.html" rel="alternate"></link><updated>2016-07-14T10:40:26+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323143-ri-zhi-105nian-7yue-13ri.html</id><summary type="html">&lt;p&gt;寫Arduino控制程式 2
+&lt;p&gt;=======
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/vrep1.png" weight=600 &gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;blockquote&gt;
+&lt;p&gt;e280cc2fe3b4e1426b9736e34d6ff964456559fd
+&lt;h3&gt;(還未打完)&lt;/h3&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;</summary><category term="Kmol"></category></entry><entry><title>40323143 - 日誌 105年7月13日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-13ri.html" rel="alternate"></link><updated>2016-07-14T10:40:26+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323143-ri-zhi-105nian-7yue-13ri.html</id><summary type="html">&lt;p&gt;寫Arduino控制程式 2
 &lt;/p&gt;
 &lt;p&gt;日記:&lt;/p&gt;
 &lt;p&gt;今天對控制程式做了一些修改，程式新增了抵抗地心引力的補正，以及抵抗慣性的補正。&lt;/p&gt;
@@ -1348,7 +1296,15 @@ pyplot.show()
 &lt;/br&gt;
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/little_car.png" &gt;
 &lt;/br&gt;
-&lt;/br&gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323230練習 - 105/07/10</title><link href="http://project.mde.tw/blog/40323230lian-xi-1050710.html" rel="alternate"></link><updated>2016-07-11T10:22:21+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323230lian-xi-1050710.html</id><summary type="html">&lt;p&gt;由於不熟悉動態連結庫的運作方式，先練習C語言呼叫動態連結庫，之後再研究python的方式。&lt;/p&gt;
+&lt;/br&gt;
+&lt;h3&gt;105 - 07/14更新&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;今天參照了irb360範例, 試著組了printer, 前面還算順利, 在中間的 close chain部分 還要加上重疊的Revolute 來限制移動, 最後再搭上dummy 應該就可以控制了&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/Printer_new.png" &gt;
+&lt;/br&gt;
+&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/printer_new.ttt?raw=true"&gt;printer_new.ttt&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/printer_new_2.ttt?raw=true"&gt;printer_new_2.ttt&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323230練習 - 105/07/10</title><link href="http://project.mde.tw/blog/40323230lian-xi-1050710.html" rel="alternate"></link><updated>2016-07-11T10:22:21+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323230lian-xi-1050710.html</id><summary type="html">&lt;p&gt;由於不熟悉動態連結庫的運作方式，先練習C語言呼叫動態連結庫，之後再研究python的方式。&lt;/p&gt;
 
 
 &lt;h2&gt;編譯出C的動態連結庫 :&lt;/h2&gt;

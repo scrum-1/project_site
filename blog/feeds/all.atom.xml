@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-15T17:36:56+08:00</updated><entry><title>40323143 - 日誌 105年7月15日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-15ri.html" rel="alternate"></link><updated>2016-07-15T17:36:56+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323143-ri-zhi-105nian-7yue-15ri.html</id><summary type="html">&lt;p&gt;解決手臂動力問題
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-15T17:52:58+08:00</updated><entry><title>40323250日誌 - V-rep &amp; 3D-Printer</title><link href="http://project.mde.tw/blog/40323250ri-zhi-v-rep-3d-printer.html" rel="alternate"></link><updated>2016-07-15T17:52:58+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323250ri-zhi-v-rep-3d-printer.html</id><summary type="html">&lt;p&gt;之後的 V-rep模擬Pronter都整理於本文章中&lt;/p&gt;
+</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323143 - 日誌 105年7月15日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-15ri.html" rel="alternate"></link><updated>2016-07-15T17:36:56+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323143-ri-zhi-105nian-7yue-15ri.html</id><summary type="html">&lt;p&gt;解決手臂動力問題
 &lt;/p&gt;
 &lt;p&gt;日記:&lt;/p&gt;
 &lt;p&gt;今天決定了動力不足的解決方案，選擇的方案是更換馬達，原因是因為可以迅速的解決問題。於是便將除了驅動旋盤的馬達外全部換成一般型的伺服馬達。控制程式找了別人寫的馬達控制程式修改，還沒有改完。&lt;/p&gt;
@@ -2519,7 +2520,12 @@ void Example2d()
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/Printer_new.png" &gt;
 &lt;/br&gt;
 &lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/printer_new.ttt?raw=true"&gt;printer_new.ttt&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/printer_new_2.ttt?raw=true"&gt;printer_new_2.ttt&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323143 - 日誌 105年7月6日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-6ri.html" rel="alternate"></link><updated>2016-07-06T17:04:59+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-06:blog/40323143-ri-zhi-105nian-7yue-6ri.html</id><summary type="html">&lt;p&gt;第二種極限開關的繪圖及安裝設計 第一種極限開關的安裝測試 承臂和馬達的安裝問題
+&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/printer_new_2.ttt?raw=true"&gt;printer_new_2.ttt&lt;/a&gt;&lt;/p&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;105 - 07/15更新&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;今天開始研究Inverse Kinematic 逆向運動學(IK) ,透過矩正及向量運算 ,就可以得到參數 ,且恰巧有學長論文和此相關 ,從中學到了不少 ,但還沒能弄懂 ,最後要結合進V-rep模擬中 ,腳步要加快了&lt;/h3&gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323143 - 日誌 105年7月6日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-6ri.html" rel="alternate"></link><updated>2016-07-06T17:04:59+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-06:blog/40323143-ri-zhi-105nian-7yue-6ri.html</id><summary type="html">&lt;p&gt;第二種極限開關的繪圖及安裝設計 第一種極限開關的安裝測試 承臂和馬達的安裝問題
 &lt;/p&gt;
 &lt;p&gt;日記:&lt;/p&gt;
 &lt;p&gt;今天將第二種極限開關新增到零件庫中，並在底座上依其尺寸新增了一個安裝位置，以及在懸盤上新增了一個用來安裝觸發極限開關突出物的安裝孔，和觸發極限開關的圓桿。&lt;/p&gt;
@@ -6527,7 +6533,7 @@ if __name__ == "__main__":
 &lt;p&gt;當操作者決定各組內與組外的排序選項後, 按下"排電腦教室座位" (也可加入排座位的選項, 列先排, 行先排或者全部按亂數排.&lt;/p&gt;
 &lt;p&gt;完成座位安排後, 必須將各組組員名單與分組名單分別存入資料庫, 以便後續讓使用者查詢各組座位與分組資訊, 並且在隨後
 加入各組員回報電腦使用情形與各組員自評登錄成績之應用.&lt;/p&gt;
-&lt;p&gt;原始倉儲資料: &lt;a href="https://github.com/2015fallhw/2016springcd/tree/gh-pages"&gt;https://github.com/2015fallhw/2016springcd/tree/gh-pages&lt;/a&gt;&lt;/p&gt;</summary><category term="Flask"></category><category term="Brython"></category><category term="Python"></category><category term="練習"></category><category term="流程自動化"></category></entry><entry><title>40323250日誌 - 105/07/01</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050701.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323250ri-zhi-1050701.html</id><summary type="html">&lt;p&gt;V-rep 的使用與學習&lt;/p&gt;
+&lt;p&gt;原始倉儲資料: &lt;a href="https://github.com/2015fallhw/2016springcd/tree/gh-pages"&gt;https://github.com/2015fallhw/2016springcd/tree/gh-pages&lt;/a&gt;&lt;/p&gt;</summary><category term="Flask"></category><category term="Brython"></category><category term="Python"></category><category term="練習"></category><category term="流程自動化"></category></entry><entry><title>40323250日誌 - V-rep 功能 (持續更新中)</title><link href="http://project.mde.tw/blog/40323250ri-zhi-v-rep-gong-neng-chi-xu-geng-xin-zhong.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323250ri-zhi-v-rep-gong-neng-chi-xu-geng-xin-zhong.html</id><summary type="html">&lt;p&gt;V-rep 的使用與學習&lt;/p&gt;
 
 
 &lt;h2&gt;★暑期第一個禮拜的 星期四 - 06/30★&lt;/h2&gt;
@@ -6717,6 +6723,26 @@ a.為orthographic type  及  b.為perspective type&lt;/h3&gt;
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/vision.gif"&gt;
 &lt;/br&gt;
 &lt;hr&gt;
+&lt;/br&gt;
+&lt;h2&gt;★暑期第三個禮拜的 星期五 - 07/15★&lt;/h2&gt;
+&lt;/br&gt;
+&lt;h3&gt;dummy ( 虛擬座標 ) :&lt;/h3&gt;
+&lt;h3&gt;dummy 能夠讓不是從屬性質的物件做相對移動, 常用於close chain, 以irb360範例來說 :&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;a. b.桿為示範物件&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/dummy_1.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;將a.及b.桿實體隱藏之後 ,能夠看到從屬於a、b桿下的dummy為重疊狀態 ,並且為互相對應(target)  &lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/dummy_2.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/dummy_3.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;目的是因為 ,若a桿做出任何動作(移動) ,在它從屬下的dummy會隨著target的dummy做相對運動 ,因此兩桿距離始終會保持固定 &lt;/h3&gt;
 &lt;/br&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>user - 使用者的範例網誌文章標題</title><link href="http://project.mde.tw/blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>user</name></author><id>tag:project.mde.tw,2016-07-04:blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 user 所寫的文章摘要&lt;/p&gt;
 
 

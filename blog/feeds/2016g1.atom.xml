@@ -30,7 +30,7 @@
 &lt;/br&gt;
 &lt;img src="http://i.imgur.com/uEfRgiA.png"&gt;
 &lt;/br&gt;
-&lt;h3&gt;關於要修改裡的設定檔，跟我原本預期的不太一樣，要進到蠻底層的，才能修改到，不過也多虧了grepwin這個工具，幫了我蠻多忙，因為有進行大約一個多禮拜的python課程惡補一下，對於裡頭的程式碼大概都看得懂七八成了，所以覺得還ok，對於我的組員們，我感謝他們通融我這一個多禮拜沒什麼做事情&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323143 - 日誌 105年7月15日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-15ri.html" rel="alternate"></link><updated>2016-07-15T21:01:15+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323143-ri-zhi-105nian-7yue-15ri.html</id><summary type="html">&lt;p&gt;解決手臂動力問題
+&lt;h3&gt;關於要修改裡的設定檔，跟我原本預期的不太一樣，要進到蠻底層的，才能修改到，不過也多虧了grepwin這個工具，幫了我蠻多忙，因為有進行大約一個多禮拜的python課程惡補一下，對於裡頭的程式碼大概都看得懂七八成了，所以覺得還ok，對於我的組員們，我感謝他們通融我這一個多禮拜沒什麼做事情，另外老師說的同時控制10個馬達的東西，我找過櫃子了，沒有找到，另外在櫃子裡也發現到有蠻多學長留下來的論文可以參考，所以拿給模擬作動的組別參考用了，裡頭有關平面四連桿、史都華平台機構、逆向運動學等等......&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323143 - 日誌 105年7月15日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-15ri.html" rel="alternate"></link><updated>2016-07-15T21:01:15+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323143-ri-zhi-105nian-7yue-15ri.html</id><summary type="html">&lt;p&gt;解決手臂動力問題
 &lt;/p&gt;
 &lt;p&gt;日記:&lt;/p&gt;
 &lt;p&gt;今天決定了動力不足的解決方案，選擇的方案是更換馬達，原因是因為可以迅速的解決問題。於是便將除了驅動旋盤的馬達外全部換成一般型的伺服馬達。控制程式找了別人寫的馬達控制程式修改，還沒有改完。&lt;/p&gt;

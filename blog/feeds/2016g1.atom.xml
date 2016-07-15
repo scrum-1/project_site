@@ -1,5 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-15T18:51:58+08:00</updated><entry><title>40323143 - 日誌 105年7月15日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-15ri.html" rel="alternate"></link><updated>2016-07-15T18:51:58+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323143-ri-zhi-105nian-7yue-15ri.html</id><summary type="html">&lt;p&gt;解決手臂動力問題
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-15T18:55:58+08:00</updated><entry><title>KmolPrint 0715</title><link href="http://project.mde.tw/blog/kmolprint-0715.html" rel="alternate"></link><updated>2016-07-15T18:55:58+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-15:blog/kmolprint-0715.html</id><summary type="html">&lt;p&gt;關於目前設計3dprinter clouds&lt;/p&gt;
+
+
+&lt;h3&gt;目前我們的網站&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/tdwh26A.png"&gt;&lt;/p&gt;
+&lt;p&gt;將原本的網站做一次更新，並且讓設定檔做好，接下來會把setting中再加入指令檔，就可以啟動攝影機和server的從新啟動以及開關server。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/zcIeIBl.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;網址位置在:140.130.17.107&lt;/p&gt;
+&lt;p&gt;未來是想要加damain name 讓140.130改成自己的網址，好讓自己的網站發展，以及學習如何加入自己的網址。&lt;/p&gt;</summary><category term="3dprint server"></category></entry><entry><title>40323143 - 日誌 105年7月15日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-15ri.html" rel="alternate"></link><updated>2016-07-15T18:51:58+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323143-ri-zhi-105nian-7yue-15ri.html</id><summary type="html">&lt;p&gt;解決手臂動力問題
 &lt;/p&gt;
 &lt;p&gt;日記:&lt;/p&gt;
 &lt;p&gt;今天決定了動力不足的解決方案，選擇的方案是更換馬達，原因是因為可以迅速的解決問題。於是便將除了驅動旋盤的馬達外全部換成一般型的伺服馬達。控制程式找了別人寫的馬達控制程式修改，還沒有改完。&lt;/p&gt;

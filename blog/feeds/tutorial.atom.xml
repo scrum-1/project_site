@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="./" rel="alternate"></link><link href="./feeds/tutorial.atom.xml" rel="self"></link><id>./</id><updated>2016-07-01T12:10:06+08:00</updated><entry><title>yen - RGA 基因演算法</title><link href="./yen-rga-ji-yin-yan-suan-fa.html" rel="alternate"></link><updated>2016-07-01T12:10:06+08:00</updated><author><name>yen</name></author><id>tag:,2016-07-01:./yen-rga-ji-yin-yan-suan-fa.html</id><summary type="html">&lt;p&gt;RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.&lt;/p&gt;
+=======
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/tutorial.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-15T21:01:16+08:00</updated><entry><title>yen - RGA 基因演算法</title><link href="http://project.mde.tw/blog/yen-rga-ji-yin-yan-suan-fa.html" rel="alternate"></link><updated>2016-07-15T21:01:16+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-15:blog/yen-rga-ji-yin-yan-suan-fa.html</id><summary type="html">&lt;p&gt;RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.&lt;/p&gt;
+>>>>>>> 5ad30e18011211255d0ee5853ccca9993b73c18e
 
 
 &lt;pre class="brush: python"&gt;
@@ -2652,7 +2656,11 @@ print(ga.run())
 
       return tip3_coord;
     }
+<<<<<<< HEAD
 &lt;/pre&gt;</summary><category term="RGA"></category></entry><entry><title>yen - 如何建立一好的 Wordpress 網站</title><link href="./yen-ru-he-jian-li-yi-hao-de-wordpress-wang-zhan.html" rel="alternate"></link><updated>2016-07-01T12:10:06+08:00</updated><author><name>yen</name></author><id>tag:,2016-07-01:./yen-ru-he-jian-li-yi-hao-de-wordpress-wang-zhan.html</id><summary type="html">&lt;p&gt;機械設計專題專用的 Wordpress 必須俱備幾項特點: 能夠輸入數學公式, 能夠放入高亮顯示的程式碼, 能夠內嵌影片, 能夠利用 Gmail 帳號寄信, 能夠納入 Disqus 討論區, 能夠杜絕垃圾註冊.&lt;/p&gt;
+=======
+&lt;/pre&gt;</summary><category term="RGA"></category></entry><entry><title>yen - 如何建立一好的 Wordpress 網站</title><link href="http://project.mde.tw/blog/yen-ru-he-jian-li-yi-hao-de-wordpress-wang-zhan.html" rel="alternate"></link><updated>2016-07-15T21:01:16+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-15:blog/yen-ru-he-jian-li-yi-hao-de-wordpress-wang-zhan.html</id><summary type="html">&lt;p&gt;機械設計專題專用的 Wordpress 必須俱備幾項特點: 能夠輸入數學公式, 能夠放入高亮顯示的程式碼, 能夠內嵌影片, 能夠利用 Gmail 帳號寄信, 能夠納入 Disqus 討論區, 能夠杜絕垃圾註冊.&lt;/p&gt;
+>>>>>>> 5ad30e18011211255d0ee5853ccca9993b73c18e
 
 
 &lt;p&gt;當然假如能夠如 &lt;a href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html"&gt;http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html&lt;/a&gt; 中所言, 可以利用 Leo Editor 的指令按鈕, 讓 Wordpress 網誌內容能與 Pelican 靜態網誌內容保持同步, 或許就能同時擁有改版歷程資料與即時動態維護內容的優點.&lt;/p&gt;
@@ -2669,12 +2677,20 @@ print(ga.run())
 &lt;p&gt;選擇 Use SSL encryption&lt;/p&gt;
 &lt;p&gt;選擇 Use SMTP authentication&lt;/p&gt;
 &lt;p&gt;然後給定對應的 Gmail 帳號 與 Gmail 密碼 之後存檔.&lt;/p&gt;
+<<<<<<< HEAD
 &lt;p&gt;第2項設定則是必須配合所使用的 Gmail 帳號, 利用 &lt;a href="https://www.google.com/settings/security/lesssecureapps"&gt;https://www.google.com/settings/security/lesssecureapps&lt;/a&gt; 將原定的 Turn off 改為 Turn on, 也就是降低安全設定等級, 接著就可以寄出測試信件, 若成功, 則 WordPress 中的其他模組就可以利用設定寄信.&lt;/p&gt;</summary><category term="Wordpress"></category></entry><entry><title>yen - Solvespace 與 V-rep 結合應用</title><link href="./yen-solvespace-yu-v-rep-jie-he-ying-yong.html" rel="alternate"></link><updated>2016-07-01T12:10:06+08:00</updated><author><name>yen</name></author><id>tag:,2016-07-01:./yen-solvespace-yu-v-rep-jie-he-ying-yong.html</id><summary type="html">&lt;p&gt;Solvespace 是一套小型的參數式 3D 繪圖開源套件, 而 V-rep 則是一套允許教育界免費使用的開源動態模擬套件, 結合這兩個套件在機械設計專題應用, 一方面使用者可以在可攜的架構下來進行產品開發與模擬, 更重要的是, 使用者可以透過原始程式碼, 一窺專業人士編寫電腦輔助機械設計與分析工具時, 所應用的理論分析與基本架構.&lt;/p&gt;
+=======
+&lt;p&gt;第2項設定則是必須配合所使用的 Gmail 帳號, 利用 &lt;a href="https://www.google.com/settings/security/lesssecureapps"&gt;https://www.google.com/settings/security/lesssecureapps&lt;/a&gt; 將原定的 Turn off 改為 Turn on, 也就是降低安全設定等級, 接著就可以寄出測試信件, 若成功, 則 WordPress 中的其他模組就可以利用設定寄信.&lt;/p&gt;</summary><category term="Wordpress"></category></entry><entry><title>yen - Solvespace 與 V-rep 結合應用</title><link href="http://project.mde.tw/blog/yen-solvespace-yu-v-rep-jie-he-ying-yong.html" rel="alternate"></link><updated>2016-07-15T21:01:16+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-15:blog/yen-solvespace-yu-v-rep-jie-he-ying-yong.html</id><summary type="html">&lt;p&gt;Solvespace 是一套小型的參數式 3D 繪圖開源套件, 而 V-rep 則是一套允許教育界免費使用的開源動態模擬套件, 結合這兩個套件在機械設計專題應用, 一方面使用者可以在可攜的架構下來進行產品開發與模擬, 更重要的是, 使用者可以透過原始程式碼, 一窺專業人士編寫電腦輔助機械設計與分析工具時, 所應用的理論分析與基本架構.&lt;/p&gt;
+>>>>>>> 5ad30e18011211255d0ee5853ccca9993b73c18e
 
 
 &lt;p&gt;Solvespace: &lt;a href="http://solvespace.com/"&gt;http://solvespace.com/&lt;/a&gt; 與 &lt;a href="https://github.com/whitequark/solvespace"&gt;https://github.com/whitequark/solvespace&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;V-rep: &lt;a href="http://www.coppeliarobotics.com/"&gt;http://www.coppeliarobotics.com/&lt;/a&gt;&lt;/p&gt;
+<<<<<<< HEAD
 &lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/solvespace_v-rep.png" width="800" /&gt;&lt;/p&gt;</summary><category term="Solvespace"></category><category term="V-rep"></category></entry><entry><title>yen - 編譯 Solvespace</title><link href="./yen-bian-yi-solvespace.html" rel="alternate"></link><updated>2016-07-01T12:10:06+08:00</updated><author><name>yen</name></author><id>tag:,2016-07-01:./yen-bian-yi-solvespace.html</id><summary type="html">&lt;p&gt;我們有沒有能力在機械設計專題中, 自行編譯 Solvespace, 並且了解其中的原理後, 新增自己需要的零件設計功能?&lt;/p&gt;
+=======
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/solvespace_v-rep.png" width="800" /&gt;&lt;/p&gt;</summary><category term="Solvespace"></category><category term="V-rep"></category></entry><entry><title>yen - 編譯 Solvespace</title><link href="http://project.mde.tw/blog/yen-bian-yi-solvespace.html" rel="alternate"></link><updated>2016-07-15T21:01:15+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-15:blog/yen-bian-yi-solvespace.html</id><summary type="html">&lt;p&gt;我們有沒有能力在機械設計專題中, 自行編譯 Solvespace, 並且了解其中的原理後, 新增自己需要的零件設計功能?&lt;/p&gt;
+>>>>>>> 5ad30e18011211255d0ee5853ccca9993b73c18e
 
 
 &lt;p&gt;&lt;a href="https://github.com/whitequark/solvespace"&gt;https://github.com/whitequark/solvespace&lt;/a&gt;&lt;/p&gt;
@@ -2694,7 +2710,11 @@ print(ga.run())
 &lt;p&gt;進入 Solvespace Makefile 所在目錄, 執行 nmake.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
+<<<<<<< HEAD
 &lt;p&gt;就可以完成 Solvespace.exe 的編譯.&lt;/p&gt;</summary><category term="Solvespace"></category><category term="MCAD"></category></entry><entry><title>yen - 如何參與 project.mde.tw 的協同編輯</title><link href="./yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html" rel="alternate"></link><updated>2016-07-01T12:10:06+08:00</updated><author><name>yen</name></author><id>tag:,2016-07-01:./yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html</id><summary type="html">&lt;p&gt;只要是 KMOL 機械設計專題的成員, 就可以依照特定程序, 管理 project.mde.tw 網站上的資料&lt;/p&gt;
+=======
+&lt;p&gt;就可以完成 Solvespace.exe 的編譯.&lt;/p&gt;</summary><category term="Solvespace"></category><category term="MCAD"></category></entry><entry><title>yen - 如何參與 project.mde.tw 的協同編輯</title><link href="http://project.mde.tw/blog/yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html" rel="alternate"></link><updated>2016-07-15T21:01:15+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-15:blog/yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html</id><summary type="html">&lt;p&gt;只要是 KMOL 機械設計專題的成員, 就可以依照特定程序, 管理 project.mde.tw 網站上的資料&lt;/p&gt;
+>>>>>>> 5ad30e18011211255d0ee5853ccca9993b73c18e
 
 
 &lt;p&gt;首先, 你必須是 &lt;a href="https://github.com/coursemdetw/project_site/watchers"&gt;https://github.com/coursemdetw/project_site/watchers&lt;/a&gt; 名單上的成員, 否則就必須透過 Pull Request 的方式來參與 &lt;a href="http://project.mde.tw"&gt;http://project.mde.tw&lt;/a&gt; 網誌內容的協同管理.&lt;/p&gt;
@@ -2719,7 +2739,11 @@ for i in range(5):
 &lt;p&gt;git add -A&lt;/p&gt;
 &lt;p&gt;git commit -m "提交說明訊息"&lt;/p&gt;
 &lt;p&gt;git push origin gh-pages&lt;/p&gt;
+<<<<<<< HEAD
 &lt;p&gt;最後, 與 &lt;a href="http://project.mde.tw"&gt;http://project.mde.tw&lt;/a&gt; 網站維護有關的訊息溝通或註記, 請透過 &lt;a href="https://github.com/coursemdetw/project_site/wiki/%E6%A9%9F%E6%A2%B0%E8%A8%AD%E8%A8%88%E5%B0%88%E9%A1%8C%E5%8D%94%E5%90%8C%E7%B6%B2%E7%AB%99%E8%A8%98%E4%BA%8B"&gt;倉儲 Wiki&lt;/a&gt; 進行.&lt;/p&gt;</summary><category term="Pelican"></category><category term="Leo Editor"></category></entry><entry><title>yen - 網際 Flask 程式架構</title><link href="./yen-wang-ji-flask-cheng-shi-jia-gou.html" rel="alternate"></link><updated>2016-07-01T12:10:06+08:00</updated><author><name>yen</name></author><id>tag:,2016-07-01:./yen-wang-ji-flask-cheng-shi-jia-gou.html</id><summary type="html">&lt;p&gt;Flask 是一套支援 Python3 的全球資訊網程式框架, 這裡希望用它來開發網際輔助機械設計程式.&lt;/p&gt;
+=======
+&lt;p&gt;最後, 與 &lt;a href="http://project.mde.tw"&gt;http://project.mde.tw&lt;/a&gt; 網站維護有關的訊息溝通或註記, 請透過 &lt;a href="https://github.com/coursemdetw/project_site/wiki/%E6%A9%9F%E6%A2%B0%E8%A8%AD%E8%A8%88%E5%B0%88%E9%A1%8C%E5%8D%94%E5%90%8C%E7%B6%B2%E7%AB%99%E8%A8%98%E4%BA%8B"&gt;倉儲 Wiki&lt;/a&gt; 進行.&lt;/p&gt;</summary><category term="Pelican"></category><category term="Leo Editor"></category></entry><entry><title>yen - 網際 Flask 程式架構</title><link href="http://project.mde.tw/blog/yen-wang-ji-flask-cheng-shi-jia-gou.html" rel="alternate"></link><updated>2016-07-15T21:01:15+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-15:blog/yen-wang-ji-flask-cheng-shi-jia-gou.html</id><summary type="html">&lt;p&gt;Flask 是一套支援 Python3 的全球資訊網程式框架, 這裡希望用它來開發網際輔助機械設計程式.&lt;/p&gt;
+>>>>>>> 5ad30e18011211255d0ee5853ccca9993b73c18e
 
 
 &lt;p&gt;&lt;a href="http://flask.pocoo.org/"&gt;http://flask.pocoo.org/&lt;/a&gt; 是一套簡潔的 Python3 網際程式框架, 在這一系列的導引資料中, 將利用 &lt;a href="https://github.com/2015fallhw/simpleflask"&gt;https://github.com/2015fallhw/simpleflask&lt;/a&gt; 倉儲來存放資料, 並將資料同步推送到 &lt;a href="http://simpleflask-2014openshift.rhcloud.com/"&gt;http://simpleflask-2014openshift.rhcloud.com/&lt;/a&gt; 執行.&lt;/p&gt;
@@ -2854,7 +2878,11 @@ if __name__ == "__main__":
 &lt;/pre&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+<<<<<<< HEAD
 &lt;p&gt;此外, 因為 Flask 內定靜態目錄名稱為 static, 且 template 名稱為 templates, 因此在最基本的 Flask 程式架構中, 也需要自行建立這兩個目錄, 然後將靜態文件放入 static 目錄中, 而對應的  template 文件檔案, 則放入 templates 目錄中.&lt;/p&gt;</summary><category term="OpenShift"></category><category term="Flask"></category></entry><entry><title>yen - 2016 年專題啟動</title><link href="./yen-2016-nian-zhuan-ti-qi-dong.html" rel="alternate"></link><updated>2016-07-01T12:10:06+08:00</updated><author><name>yen</name></author><id>tag:,2016-07-01:./yen-2016-nian-zhuan-ti-qi-dong.html</id><summary type="html">&lt;p&gt;利用 Github Pages 與 Pelican 建立協同專題製作網誌&lt;/p&gt;
+=======
+&lt;p&gt;此外, 因為 Flask 內定靜態目錄名稱為 static, 且 template 名稱為 templates, 因此在最基本的 Flask 程式架構中, 也需要自行建立這兩個目錄, 然後將靜態文件放入 static 目錄中, 而對應的  template 文件檔案, 則放入 templates 目錄中.&lt;/p&gt;</summary><category term="OpenShift"></category><category term="Flask"></category></entry><entry><title>yen - 2016 年專題啟動</title><link href="http://project.mde.tw/blog/yen-2016-nian-zhuan-ti-qi-dong.html" rel="alternate"></link><updated>2016-07-15T21:01:15+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-15:blog/yen-2016-nian-zhuan-ti-qi-dong.html</id><summary type="html">&lt;p&gt;利用 Github Pages 與 Pelican 建立協同專題製作網誌&lt;/p&gt;
+>>>>>>> 5ad30e18011211255d0ee5853ccca9993b73c18e
 
 
 &lt;h2&gt;機械設計工程網誌啟動&lt;/h2&gt;
@@ -2907,7 +2935,11 @@ if __name__ == "__main__":
 &lt;ol&gt;
 &lt;li&gt;本網誌為了同時支援近端與遠端的資料內容使用, 資料轉檔分為近端按鈕與遠端按鈕, 協同成員在推送資料到遠端之前, 必須確定資料為遠端 Github Pages 格式.&lt;/li&gt;
 &lt;li&gt;鼓勵各成員深入研究本網誌的細節架構, 勇於提出問題, 解決問題, 打造出最適合機械設計工程團隊使用的網際協同架構、模式與系統工具.&lt;/li&gt;
+<<<<<<< HEAD
 &lt;/ol&gt;</summary><category term="教學導引"></category><category term="網誌設定"></category></entry><entry><title>user - 使用者的範例網誌文章標題</title><link href="./user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html" rel="alternate"></link><updated>2016-07-01T12:10:06+08:00</updated><author><name>user</name></author><id>tag:,2016-07-01:./user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 user 所寫的文章摘要&lt;/p&gt;
+=======
+&lt;/ol&gt;</summary><category term="教學導引"></category><category term="網誌設定"></category></entry><entry><title>user - 使用者的範例網誌文章標題</title><link href="http://project.mde.tw/blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html" rel="alternate"></link><updated>2016-07-15T21:01:15+08:00</updated><author><name>user</name></author><id>tag:project.mde.tw,2016-07-15:blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 user 所寫的文章摘要&lt;/p&gt;
+>>>>>>> 5ad30e18011211255d0ee5853ccca9993b73c18e
 
 
 &lt;p&gt;這裡為 user 所寫的文章主要內容&lt;/p&gt;</summary><category term="範例"></category></entry></feed>

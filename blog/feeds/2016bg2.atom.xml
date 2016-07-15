@@ -90,6 +90,8 @@ direction: the desired rotation direction for cyclic revolute joints: 0 for the 
 &lt;p&gt;確定無誤後放入可攜式環境中，並把原本的Python 3.5移除，將start.bat的環境位置改成Anaconda的資料夾。&lt;/p&gt;
 &lt;p&gt;接著再檢查Anaconda程式的運作狀態。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/2CfbnMR.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;安裝了其他工具，也包含Leo 5.3。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/BkhZNCL.jpg" &gt;&lt;/p&gt;
 &lt;hr&gt;
 
 &lt;h2&gt;說明 :&lt;/h2&gt;

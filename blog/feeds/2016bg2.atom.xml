@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-14T23:47:18+08:00</updated><entry><title>40323231日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323231ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-14T23:47:18+08:00</updated><author><name>40323231</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323231ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;3DP碰到的問題及解決&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-15T09:47:45+08:00</updated><entry><title>40323231日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323231ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-15T09:47:45+08:00</updated><author><name>40323231</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323231ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;3DP碰到的問題及解決&lt;/p&gt;
 
 
 &lt;h3&gt;第一次組裝3D列印機，所以各個零件和電子元件的功用都不知道，所以只能從型號去著手，知道並了解運用。&lt;/h3&gt;
@@ -23,7 +23,7 @@
 &lt;h3&gt;2.常開型和常關型只有微動開關才有，所以光學開關一定要3調都接&lt;/h3&gt;
 &lt;/br&gt;
 &lt;h3&gt;今天進度&lt;/h3&gt;
-&lt;h4&gt;組裝 3DP，將缺少的材料抄寫下來，將跟工廠管理員詢問，使用VREP，看組員的所寫的網誌並實際操作&lt;/h4&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-14T22:35:57+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323230ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;試圖解決SWIG問題&lt;/p&gt;
+&lt;h4&gt;組裝 3DP，將缺少的材料抄寫下來，將跟工廠管理員詢問，使用VREP，看組員的所寫的網誌並實際操作&lt;/h4&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-15T09:47:45+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323230ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;試圖解決SWIG問題&lt;/p&gt;
 
 
 &lt;h2&gt;撰寫批次檔 :&lt;/h2&gt;
@@ -112,7 +112,7 @@ pause
 &lt;hr&gt;
 
 &lt;p&gt;SWIG在自身的編譯上有點小錯誤，但是有些地方因為不了解Python的模組，所以不知道要怎麼修改。&lt;/p&gt;
-&lt;p&gt;另外有些不知道C語言的格式轉換是怎麼套用到Python的，所以在Python.h的函式不知該怎麼用。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category></entry><entry><title>40323218日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-14T04:38:20+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323218ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
+&lt;p&gt;另外有些不知道C語言的格式轉換是怎麼套用到Python的，所以在Python.h的函式不知該怎麼用。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category></entry><entry><title>40323218日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-14T17:26:45+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323218ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
 
 
 &lt;h2&gt;翻譯文章重點&lt;/h2&gt;
@@ -200,116 +200,74 @@ Convex shapes會有點不太穩定，當物理引擎處理時需要多一點點�
 5. Random shapes：&lt;br&gt;
 一個Random shapes是一個形狀不是convex也不是pure。它一般具有性能差（計算速度和穩定性）。盡可能地避免使用隨機的形狀。&lt;/h3&gt;
 &lt;br&gt;
-&lt;h3&gt;因此，優先順序是：pure shapes → pure compound shapes → convex shapes → compound convex shapes → random shapes。&lt;/h3&gt;&lt;br&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - 105/07/05</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050705.html" rel="alternate"></link><updated>2016-07-14T02:12:22+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323250ri-zhi-1050705.html</id><summary type="html">&lt;p&gt;V-rep 與 Solvespace的結合應用&lt;/p&gt;
+&lt;h3&gt;因此，優先順序是：pure shapes → pure compound shapes → convex shapes → compound convex shapes → random shapes。&lt;/h3&gt;&lt;br&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/13</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050713.html" rel="alternate"></link><updated>2016-07-14T17:26:45+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323230ri-zhi-1050713.html</id><summary type="html">&lt;p&gt;Python 3.5.2軟體更新&lt;/p&gt;
 
 
-&lt;h3&gt;最近開了很多V-rep的範例檔來看 ,但都不太有收穫 ,為了避免浪費時間 ,回去找了之前老師提到的solvespace和vrep的共同運用 ,也因為要完成3D - Printer就要先了解基本觀念和用法 ,所以就抓了檔案來測試 &lt;/h3&gt;
+&lt;h2&gt;軟體更新目標 :&lt;/h2&gt;
 
-&lt;p&gt;&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/vrep_solvespace.png" &gt;
-&lt;h3&gt;(檔案位於solvespace官網的 tutorial : linkages)
-&lt;/h3&gt;&lt;p&gt;&lt;a href="http://solvespace.com/dl/mechanisms.zip "&gt;壓縮檔載點&lt;/a&gt;&lt;/p&gt;
-&lt;/br&gt;
-&lt;h3&gt;由於各零件之軸孔沒有軸連接 ,導致旋轉軸無法放置 ,所以我把軸都畫上去了 ,檔案為g2目錄下的solvespcae_vrep&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/solvespace_vrep.png"&gt;
-&lt;/br&gt;
-&lt;h3&gt;Solvespace的長料與除料功能真的不太習慣 ,很容易造成運算錯誤&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;軸都放好了 ,只是從屬關係還是不太清楚要如何放置&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/solvespace_vrep_allaxis.png"&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;結果我又弄了一個圖 ,試圖從這邊學習從屬設定&lt;/h3&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_test.png"&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;目前只會讓它亂轉&lt;/h3&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_test.gif"&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;感覺和各個旋轉軸速度也有關係&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_test2.gif"&gt;
+&lt;p&gt;之前W:沒安裝Python和Leo，所以暫時把Y:的複製過來用。&lt;/p&gt;
+&lt;p&gt;以W:為主，Y:用來撰寫網誌暫不需要更新。&lt;/p&gt;
+&lt;p&gt;1.Python 3.5及之前安裝的套件。&lt;/p&gt;
+&lt;p&gt;2.Leo 5.3正式版。&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3&gt;105 - 07/10更新&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;現在能夠讓連桿旋轉了&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/4_links.png" &gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/4_links.gif" &gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;想要測試能否以固定角度來回旋轉 &lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/links_move.gif" &gt;
-&lt;/br&gt;
-&lt;h3&gt;但是要達到這樣的動作需要編寫程式 ,且還在研究script的類別以及revolute的type到底要用哪一種 ,這些花了很多時間...&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/scripts_types.png" &gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;目前先以控單軸為主 ,但是遇到以下狀況&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/scripts_control2.png" &gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/example_code1.png" &gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/code_error1.png" &gt;
-&lt;h3&gt;如果是用左邊的script就不會有simWait的錯誤 ,但是它只會走90度 ,然後simWait就不會動了&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;參考 :&lt;/h3&gt;
-&lt;p&gt;&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/jointDescription.htm "&gt;Joint types and operation&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/childScripts.htm#threaded "&gt;Child Scripts&lt;/a&gt;&lt;/p&gt;
-&lt;/br&gt;
+
+&lt;h2&gt;Python及套件更新步驟 :&lt;/h2&gt;
+
+&lt;p&gt;將W:槽的Python 3.4.4 RC1更新至最新的3.5.2。&lt;/p&gt;
+&lt;p&gt;Python 3.5.2下載處：&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.python.org/downloads/" title="python.org"&gt;https://www.python.org/downloads/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;刪除Python34資料的所有內容後，將安裝完的Python35放進W:內，並將start.bat內的Python34位置全數改成Python35。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/xgAInox.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;在Y:槽中執行以下指令以取得舊有的軟體資訊，存成名為rq.txt的清單。&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+pip freeze &gt; rq.txt
+&lt;/pre&gt;
+
+&lt;p&gt;清單中列的就是Python 3.4安裝的套件版本。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/pUMf021.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;進入Python 3.5後使用pip指令時出現類似"Fatal error in launcher"的訊息，原因是官方的pip版本較舊。&lt;/p&gt;
+&lt;p&gt;如果不更新，只能用"python -m pip"的方式驅動它，所以先命令它為自己升級。&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+python -m pip install pip --upgrade
+&lt;/pre&gt;
+
+&lt;p&gt;然後再利用Y:槽傳來的清單安裝，不過之前的Leo 5.1沒有在pip的下載網站裡，5.3版也要從Leo的官方下載，所以暫時先把leo剔除。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/PN2P60t.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;接著利用下列指令更新：&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+pip install -r rq.txt
+&lt;/pre&gt;
+
+&lt;p&gt;就會裝回所有的套件了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/RuXhQhT.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;使用下列指令可以查看已安裝的套件。&lt;/p&gt;
+&lt;p&gt;而只要在安裝時加入--upgrade參數就能更新，不過目前沒有全部更新的指令。&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+//已安裝套件
+pip freeze
+//過期套件
+pip list --outdated
+&lt;/pre&gt;
+
 &lt;hr&gt;
-&lt;/br&gt;
-&lt;h3&gt;105 - 07/11更新&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;Joint 種類分成以下4種 :&lt;/h3&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/joint-types.png" &gt;
-&lt;/br&gt;
-&lt;h4&gt;1. 為旋轉軸, 只有一個自由度 (旋轉), 用於一般旋轉軸。&lt;/h4&gt;
-&lt;h4&gt;2. 為平移軸, 只有一個自由度 (平移), 物體能沿著軸線做平移。 &lt;/h4&gt;
-&lt;h4&gt;3. 為旋轉與平移軸的結合, 只有一個自由度, 能夠使物體沿著軸做旋轉移動, 如同螺絲。&lt;/h4&gt;
-&lt;h4&gt;4. 為球窩接頭, 有三個自由度, 用於類似關節的地方。&lt;/h4&gt;
-&lt;/br&gt;
-&lt;h3&gt;Control the joint :&lt;/h3&gt;
-&lt;h4&gt;1.simSetJointPosition : when your joint is not in force/torque mode&lt;/h4&gt;
-&lt;h4&gt;2.simSetJointTargetPosition : when your joint is in force/torque mode, its motor enabled and its control loop also enabled&lt;/h4&gt;
-&lt;h4&gt;3.simSetJointTargetVelocity : when your joint is in force/torque mode, its motor enabled, and its control loop NOT enabled&lt;/h4&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;今天回去翻老師的信, 才發現裡面有四連桿的範例, 以下為測試:&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/4_links_move.png" &gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/4_links_move.gif" &gt;
-&lt;/br&gt;
-&lt;h3&gt;只要設定一個轉軸, 其他設定好就可以跟著一起做動, 但是在程式部分, if 條件還是不太懂, 很容易出現lua錯誤, 還有很多語法要理解。&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;105 - 07/12更新&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;今天拿老師的程式去跑小車子 ,但是joint的角度只要定在360就跟0度一樣 ,要如何才能超過這個範圍還在思考... &lt;/h3&gt;
-&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/little_car.ttt?raw=true"&gt;little_car.ttt&lt;/a&gt;&lt;/p&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/little_car.png" &gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;105 - 07/14更新&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;今天參照了irb360範例, 試著組了printer, 前面還算順利, 在中間的 close chain部分 還要加上重疊的Revolute 來限制移動, 最後再搭上dummy 應該就可以控制了&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/Printer_new.png" &gt;
-&lt;/br&gt;
-&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/printer_new.ttt?raw=true"&gt;printer_new.ttt&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/printer_new_2.ttt?raw=true"&gt;printer_new_2.ttt&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323230日誌 - 105/07/12</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050712.html" rel="alternate"></link><updated>2016-07-14T02:12:22+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323230ri-zhi-1050712.html</id><summary type="html">&lt;p&gt;瞭解SWIG的用法。&lt;/p&gt;
+
+&lt;h2&gt;Leo更新步驟 :&lt;/h2&gt;
+
+&lt;p&gt;至於安裝Leo，到&lt;a href="http://sourceforge.net/projects/leo/files/Leo/" title="sourceforge.net"&gt;http://sourceforge.net/projects/leo/files/Leo/&lt;/a&gt;下載5.3的安裝檔，並暫時解壓縮到根目錄。&lt;/p&gt;
+&lt;p&gt;接著進入\Leo-5.3-final\leo\dist資料夾，執行下面指令：&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+python setup.py install
+&lt;/pre&gt;
+
+&lt;p&gt;安裝完後，接著就能把解壓縮的檔案刪除了。&lt;/p&gt;
+&lt;p&gt;不過在pip的紀錄中還是5.0 Bata2的樣子。&lt;/p&gt;
+&lt;p&gt;新版的Leo介面（設定檔複製之前的）。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/DZGSNFn.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;上次的swig還是沒成功，"_wrap.c"中似乎還要加一些python3的判斷式。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://python3porting.com/cextensions.html#module-initialization" title="python3porting.com"&gt;http://python3porting.com/cextensions.html#module-initialization&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;這裡的作者描述還是有點看不懂，雖然下了-py3的指令，但是設定還是沒調。&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/12</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050712.html" rel="alternate"></link><updated>2016-07-12T17:25:05+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-12:blog/40323230ri-zhi-1050712.html</id><summary type="html">&lt;p&gt;瞭解SWIG的用法。&lt;/p&gt;
 
 
 &lt;h2&gt;軟體修正 :&lt;/h2&gt;
@@ -388,74 +346,7 @@ swig -python example.i
 &lt;p&gt;另外，按照SWIG的邏輯，萬一使用者的Python版本比它還低，它會修改編譯語法嗎？覺得在編譯時的錯誤可能是3.4到3.5之間的衝突。&lt;/p&gt;
 &lt;hr&gt;
 
-&lt;p&gt;今天上網找資料的時候，發現了ctype，可以讓python直接讀取DLL的文件，好像是SWIG之後的產物，只是Python本身必須加裝模組。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category></entry><entry><title>40323230日誌 - 105/07/13</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050713.html" rel="alternate"></link><updated>2016-07-14T02:12:22+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323230ri-zhi-1050713.html</id><summary type="html">&lt;p&gt;Python 3.5.2軟體更新&lt;/p&gt;
-
-
-&lt;h2&gt;軟體更新目標 :&lt;/h2&gt;
-
-&lt;p&gt;之前W:沒安裝Python和Leo，所以暫時把Y:的複製過來用。&lt;/p&gt;
-&lt;p&gt;以W:為主，Y:用來撰寫網誌暫不需要更新。&lt;/p&gt;
-&lt;p&gt;1.Python 3.5及之前安裝的套件。&lt;/p&gt;
-&lt;p&gt;2.Leo 5.3正式版。&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h2&gt;Python及套件更新步驟 :&lt;/h2&gt;
-
-&lt;p&gt;將W:槽的Python 3.4.4 RC1更新至最新的3.5.2。&lt;/p&gt;
-&lt;p&gt;Python 3.5.2下載處：&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.python.org/downloads/" title="python.org"&gt;https://www.python.org/downloads/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;刪除Python34資料的所有內容後，將安裝完的Python35放進W:內，並將start.bat內的Python34位置全數改成Python35。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/xgAInox.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;在Y:槽中執行以下指令以取得舊有的軟體資訊，存成名為rq.txt的清單。&lt;/p&gt;
-&lt;pre class="brush: c"&gt;
-pip freeze &gt; rq.txt
-&lt;/pre&gt;
-
-&lt;p&gt;清單中列的就是Python 3.4安裝的套件版本。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/pUMf021.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;進入Python 3.5後使用pip指令時出現類似"Fatal error in launcher"的訊息，原因是官方的pip版本較舊。&lt;/p&gt;
-&lt;p&gt;如果不更新，只能用"python -m pip"的方式驅動它，所以先命令它為自己升級。&lt;/p&gt;
-&lt;pre class="brush: c"&gt;
-python -m pip install pip --upgrade
-&lt;/pre&gt;
-
-&lt;p&gt;然後再利用Y:槽傳來的清單安裝，不過之前的Leo 5.1沒有在pip的下載網站裡，5.3版也要從Leo的官方下載，所以暫時先把leo剔除。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/PN2P60t.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;接著利用下列指令更新：&lt;/p&gt;
-&lt;pre class="brush: c"&gt;
-pip install -r rq.txt
-&lt;/pre&gt;
-
-&lt;p&gt;就會裝回所有的套件了。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/RuXhQhT.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;使用下列指令可以查看已安裝的套件。&lt;/p&gt;
-&lt;p&gt;而只要在安裝時加入--upgrade參數就能更新，不過目前沒有全部更新的指令。&lt;/p&gt;
-&lt;pre class="brush: c"&gt;
-//已安裝套件
-pip freeze
-//過期套件
-pip list --outdated
-&lt;/pre&gt;
-
-&lt;hr&gt;
-
-&lt;h2&gt;Leo更新步驟 :&lt;/h2&gt;
-
-&lt;p&gt;至於安裝Leo，到&lt;a href="http://sourceforge.net/projects/leo/files/Leo/" title="sourceforge.net"&gt;http://sourceforge.net/projects/leo/files/Leo/&lt;/a&gt;下載5.3的安裝檔，並暫時解壓縮到根目錄。&lt;/p&gt;
-&lt;p&gt;接著進入\Leo-5.3-final\leo\dist資料夾，執行下面指令：&lt;/p&gt;
-&lt;pre class="brush: c"&gt;
-python setup.py install
-&lt;/pre&gt;
-
-&lt;p&gt;安裝完後，接著就能把解壓縮的檔案刪除了。&lt;/p&gt;
-&lt;p&gt;不過在pip的紀錄中還是5.0 Bata2的樣子。&lt;/p&gt;
-&lt;p&gt;新版的Leo介面（設定檔複製之前的）。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/DZGSNFn.jpg" &gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;上次的swig還是沒成功，"_wrap.c"中似乎還要加一些python3的判斷式。&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://python3porting.com/cextensions.html#module-initialization" title="python3porting.com"&gt;http://python3porting.com/cextensions.html#module-initialization&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;這裡的作者描述還是有點看不懂，雖然下了-py3的指令，但是設定還是沒調。&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230練習 - 105/07/11</title><link href="http://project.mde.tw/blog/40323230lian-xi-1050711.html" rel="alternate"></link><updated>2016-07-14T02:12:22+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323230lian-xi-1050711.html</id><summary type="html">&lt;p&gt;使用2015cp範本練習".py"呼叫".pyd"。&lt;/p&gt;
+&lt;p&gt;今天上網找資料的時候，發現了ctype，可以讓python直接讀取DLL的文件，好像是SWIG之後的產物，只是Python本身必須加裝模組。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category></entry><entry><title>40323230練習 - 105/07/11</title><link href="http://project.mde.tw/blog/40323230lian-xi-1050711.html" rel="alternate"></link><updated>2016-07-12T16:57:56+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-12:blog/40323230lian-xi-1050711.html</id><summary type="html">&lt;p&gt;使用2015cp範本練習".py"呼叫".pyd"。&lt;/p&gt;
 
 
 &lt;h2&gt;編譯出Python的動態連結庫 :&lt;/h2&gt;
@@ -618,7 +509,7 @@ static PyObject* mod_score(PyObject *self, PyObject *args)
 
 &lt;p&gt;Leo的搜尋功能和復原功能真的不太實在。常常搜尋時就跳到其他Node去，搜尋目標也要每次都重新調整；復原直接還原到存檔前的樣子，所以用它來編譯程式真的滿吃力的。&lt;/p&gt;
 &lt;p&gt;這次使用的是Python，所以SciTE和只能寫C語言的NetBeans幫不上忙，因為無法呼叫Python.h。說不定設定環境係數可以奏效？&lt;/p&gt;
-&lt;p&gt;不然只靠Leo編輯，它的函式分類也不是很清楚，常常不知道Python.h中的函式原型用法是甚麼，不像NetBeans可以連進去查看stdio.h或是windows.h所引用的函式。&lt;/p&gt;</summary><category term="Kmol"></category><category term="CDemo"></category></entry><entry><title>40323230練習 - 105/07/09</title><link href="http://project.mde.tw/blog/40323230lian-xi-1050709.html" rel="alternate"></link><updated>2016-07-14T02:12:22+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323230lian-xi-1050709.html</id><summary type="html">&lt;p&gt;嘗試用C語言解題&lt;/p&gt;
+&lt;p&gt;不然只靠Leo編輯，它的函式分類也不是很清楚，常常不知道Python.h中的函式原型用法是甚麼，不像NetBeans可以連進去查看stdio.h或是windows.h所引用的函式。&lt;/p&gt;</summary><category term="Kmol"></category><category term="CDemo"></category></entry><entry><title>40323230練習 - 105/07/09</title><link href="http://project.mde.tw/blog/40323230lian-xi-1050709.html" rel="alternate"></link><updated>2016-07-11T17:33:46+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323230lian-xi-1050709.html</id><summary type="html">&lt;p&gt;嘗試用C語言解題&lt;/p&gt;
 
 
 &lt;h2&gt;BUG fix :&lt;/h2&gt;
@@ -822,7 +713,7 @@ double solve_minangle(int lim, int a, int b, int r)
 &lt;hr&gt;
 
 &lt;p&gt;剛開始還以為是用公式推導座標點的結果，後來回去看網誌才知道用演算法計算。電腦演算時如果一邊列出結果，會拖慢速度，所以在最後的程式碼中只留檢查用的結果。&lt;/p&gt;
-&lt;p&gt;後來也有上網看其他人使用基因演算法的案例，未能完全了解，還有很多要學習的地方。這次解題複習了一些C語言的概念，希望在往後利用上能夠駕輕就熟。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230練習 - 105/07/10</title><link href="http://project.mde.tw/blog/40323230lian-xi-1050710.html" rel="alternate"></link><updated>2016-07-14T02:12:22+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323230lian-xi-1050710.html</id><summary type="html">&lt;p&gt;由於不熟悉動態連結庫的運作方式，先練習C語言呼叫動態連結庫，之後再研究python的方式。&lt;/p&gt;
+&lt;p&gt;後來也有上網看其他人使用基因演算法的案例，未能完全了解，還有很多要學習的地方。這次解題複習了一些C語言的概念，希望在往後利用上能夠駕輕就熟。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230練習 - 105/07/10</title><link href="http://project.mde.tw/blog/40323230lian-xi-1050710.html" rel="alternate"></link><updated>2016-07-11T17:33:46+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323230lian-xi-1050710.html</id><summary type="html">&lt;p&gt;由於不熟悉動態連結庫的運作方式，先練習C語言呼叫動態連結庫，之後再研究python的方式。&lt;/p&gt;
 
 
 &lt;h2&gt;編譯出C的動態連結庫 :&lt;/h2&gt;
@@ -920,7 +811,7 @@ DLL void Slvs_Solve(Slvs_System *sys, Slvs_hGroup hg);
 &lt;hr&gt;
 
 &lt;p&gt;雖然這次編譯基礎程式時失敗了，但是瞭解這些引用功能的方式，仍然是有所收穫。&lt;/p&gt;
-&lt;p&gt;下次應該是模仿CDemo寫題目給libslvs.dll求解，不過若之後是要使用python的話還需要再研究一下SWIG的功能。&lt;/p&gt;</summary><category term="Kmol"></category><category term="CDemo"></category></entry><entry><title>40323230紀錄 - 瞭解SWIG &amp; CDemo的資源</title><link href="http://project.mde.tw/blog/40323230ji-lu-liao-jie-swig-cdemode-zi-yuan.html" rel="alternate"></link><updated>2016-07-14T02:12:22+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323230ji-lu-liao-jie-swig-cdemode-zi-yuan.html</id><summary type="html">&lt;p&gt;安裝SWIG&lt;/p&gt;
+&lt;p&gt;下次應該是模仿CDemo寫題目給libslvs.dll求解，不過若之後是要使用python的話還需要再研究一下SWIG的功能。&lt;/p&gt;</summary><category term="Kmol"></category><category term="CDemo"></category></entry><entry><title>40323230紀錄 - 瞭解SWIG &amp; CDemo的資源</title><link href="http://project.mde.tw/blog/40323230ji-lu-liao-jie-swig-cdemode-zi-yuan.html" rel="alternate"></link><updated>2016-07-11T17:33:46+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323230ji-lu-liao-jie-swig-cdemode-zi-yuan.html</id><summary type="html">&lt;p&gt;安裝SWIG&lt;/p&gt;
 &lt;p&gt;並檢視下列檔案：&lt;/p&gt;
 &lt;p&gt;CDemo.exe&lt;/p&gt;
 &lt;p&gt;CDemo.c&lt;/p&gt;
@@ -1216,7 +1107,38 @@ void Example2d()
 
 &lt;p&gt;閱讀完pyd檔案的作用後，大約知道它和dll的關聯性了。&lt;/p&gt;
 &lt;p&gt;不過libslvs.dll究竟是從哪裡編譯出來的呢？是從主要的cpp檔還是標頭檔建立的？Build完之後多出了libslvs.dll.a和config.h。&lt;/p&gt;
-&lt;p&gt;雖然一些簡單的dll可以直接打開編輯，不過libslvs.dll應該是不能這樣做。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="SWIG"></category></entry><entry><title>40323230紀錄 - 編譯Solvespace流程</title><link href="http://project.mde.tw/blog/40323230ji-lu-bian-yi-solvespaceliu-cheng.html" rel="alternate"></link><updated>2016-07-14T02:12:22+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323230ji-lu-bian-yi-solvespaceliu-cheng.html</id><summary type="html">&lt;p&gt;由原始碼編譯出Solvespace和CDemo的執行檔&lt;/p&gt;
+&lt;p&gt;雖然一些簡單的dll可以直接打開編輯，不過libslvs.dll應該是不能這樣做。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="SWIG"></category></entry><entry><title>40323218日誌 - 105/07/11</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050711.html" rel="alternate"></link><updated>2016-07-11T17:33:46+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323218ri-zhi-1050711.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
+
+
+&lt;h4&gt;嘗試四連桿機構&lt;/h4&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h1&gt;&lt;h3&gt;理想狀態：&lt;/h3&gt;&lt;/h1&gt;
+&lt;h1&gt;&lt;br&gt;&lt;/h1&gt;
+&lt;h3&gt;前期嘗試：&lt;/h3&gt;
+
+&lt;p&gt;&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/before.gif" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;前期階級排列：&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step10.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;查詢資料：&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step11.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;(在兩個dynamic item之間不能有static item)&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;修改後：&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step12.png" weight=600 &gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/after.gif" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;未來嘗試：製作搖擺機構&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;參考網站：http://www.coppeliarobotics.com/helpFiles/en/jointDescription.htm &lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230紀錄 - 編譯Solvespace流程</title><link href="http://project.mde.tw/blog/40323230ji-lu-bian-yi-solvespaceliu-cheng.html" rel="alternate"></link><updated>2016-07-07T17:07:56+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-07:blog/40323230ji-lu-bian-yi-solvespaceliu-cheng.html</id><summary type="html">&lt;p&gt;由原始碼編譯出Solvespace和CDemo的執行檔&lt;/p&gt;
 
 
 &lt;h2&gt;安裝工具 :&lt;/h2&gt;
@@ -1261,7 +1183,7 @@ void Example2d()
 &lt;p&gt;&lt;img src="http://i.imgur.com/0CEdXhu.jpg" &gt;&lt;/p&gt;
 &lt;hr&gt;
 
-&lt;p&gt;接下來就是研究如何應用CDemo的解題程式協助解開範例，最後再修改供Python3呼叫和取用其動態連結庫。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category><category term="CDemo"></category></entry><entry><title>40323230紀錄 - Solvespace</title><link href="http://project.mde.tw/blog/40323230ji-lu-solvespace.html" rel="alternate"></link><updated>2016-07-14T02:12:22+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323230ji-lu-solvespace.html</id><summary type="html">&lt;p&gt;找到的Solvespace原始碼版本&lt;/p&gt;
+&lt;p&gt;接下來就是研究如何應用CDemo的解題程式協助解開範例，最後再修改供Python3呼叫和取用其動態連結庫。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category><category term="CDemo"></category></entry><entry><title>40323230紀錄 - Solvespace</title><link href="http://project.mde.tw/blog/40323230ji-lu-solvespace.html" rel="alternate"></link><updated>2016-07-06T17:06:43+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-06:blog/40323230ji-lu-solvespace.html</id><summary type="html">&lt;p&gt;找到的Solvespace原始碼版本&lt;/p&gt;
 
 
 &lt;h2&gt;目前可攜式環境內存放的Solvespace原始碼 :&lt;/h2&gt;
@@ -1283,38 +1205,116 @@ void Example2d()
 &lt;p&gt;&lt;img src="http://i.imgur.com/ZGLaQ0j.jpg" &gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/WkmsWPq.jpg" &gt;&lt;/p&gt;
 &lt;p&gt;點開記錄錯誤的視窗：&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/52VlrUJ.jpg" &gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323218日誌 - 105/07/11</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050711.html" rel="alternate"></link><updated>2016-07-14T02:12:22+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323218ri-zhi-1050711.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/52VlrUJ.jpg" &gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323250日誌 - 105/07/05</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050705.html" rel="alternate"></link><updated>2016-07-06T17:06:43+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-06:blog/40323250ri-zhi-1050705.html</id><summary type="html">&lt;p&gt;V-rep 與 Solvespace的結合應用&lt;/p&gt;
 
 
-&lt;h4&gt;嘗試四連桿機構&lt;/h4&gt;
+&lt;h3&gt;最近開了很多V-rep的範例檔來看 ,但都不太有收穫 ,為了避免浪費時間 ,回去找了之前老師提到的solvespace和vrep的共同運用 ,也因為要完成3D - Printer就要先了解基本觀念和用法 ,所以就抓了檔案來測試 &lt;/h3&gt;
 
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;h1&gt;&lt;h3&gt;理想狀態：&lt;/h3&gt;&lt;/h1&gt;
-&lt;h1&gt;&lt;br&gt;&lt;/h1&gt;
-&lt;h3&gt;前期嘗試：&lt;/h3&gt;
-
-&lt;p&gt;&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/before.gif" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;前期階級排列：&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step10.png" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;查詢資料：&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step11.png" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;(在兩個dynamic item之間不能有static item)&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;修改後：&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step12.png" weight=600 &gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/after.gif" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;未來嘗試：製作搖擺機構&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;參考網站：http://www.coppeliarobotics.com/helpFiles/en/jointDescription.htm &lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/05</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050705.html" rel="alternate"></link><updated>2016-07-14T02:12:22+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323230ri-zhi-1050705.html</id><summary type="html">&lt;p&gt;NetBeans的相關探索-2&lt;/p&gt;
+&lt;p&gt;&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/vrep_solvespace.png" &gt;
+&lt;h3&gt;(檔案位於solvespace官網的 tutorial : linkages)
+&lt;/h3&gt;&lt;p&gt;&lt;a href="http://solvespace.com/dl/mechanisms.zip "&gt;壓縮檔載點&lt;/a&gt;&lt;/p&gt;
+&lt;/br&gt;
+&lt;h3&gt;由於各零件之軸孔沒有軸連接 ,導致旋轉軸無法放置 ,所以我把軸都畫上去了 ,檔案為g2目錄下的solvespcae_vrep&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/solvespace_vrep.png"&gt;
+&lt;/br&gt;
+&lt;h3&gt;Solvespace的長料與除料功能真的不太習慣 ,很容易造成運算錯誤&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;軸都放好了 ,只是從屬關係還是不太清楚要如何放置&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/solvespace_vrep_allaxis.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;結果我又弄了一個圖 ,試圖從這邊學習從屬設定&lt;/h3&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_test.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;目前只會讓它亂轉&lt;/h3&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_test.gif"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;感覺和各個旋轉軸速度也有關係&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_test2.gif"&gt;
+&lt;hr&gt;
+&lt;h3&gt;105 - 07/10更新&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;現在能夠讓連桿旋轉了&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/4_links.png" &gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/4_links.gif" &gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;想要測試能否以固定角度來回旋轉 &lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/links_move.gif" &gt;
+&lt;/br&gt;
+&lt;h3&gt;但是要達到這樣的動作需要編寫程式 ,且還在研究script的類別以及revolute的type到底要用哪一種 ,這些花了很多時間...&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/scripts_types.png" &gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;目前先以控單軸為主 ,但是遇到以下狀況&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/scripts_control2.png" &gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/example_code1.png" &gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/code_error1.png" &gt;
+&lt;h3&gt;如果是用左邊的script就不會有simWait的錯誤 ,但是它只會走90度 ,然後simWait就不會動了&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;參考 :&lt;/h3&gt;
+&lt;p&gt;&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/jointDescription.htm "&gt;Joint types and operation&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/childScripts.htm#threaded "&gt;Child Scripts&lt;/a&gt;&lt;/p&gt;
+&lt;/br&gt;
+&lt;hr&gt;
+&lt;/br&gt;
+&lt;h3&gt;105 - 07/11更新&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;Joint 種類分成以下4種 :&lt;/h3&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/joint-types.png" &gt;
+&lt;/br&gt;
+&lt;h4&gt;1. 為旋轉軸, 只有一個自由度 (旋轉), 用於一般旋轉軸。&lt;/h4&gt;
+&lt;h4&gt;2. 為平移軸, 只有一個自由度 (平移), 物體能沿著軸線做平移。 &lt;/h4&gt;
+&lt;h4&gt;3. 為旋轉與平移軸的結合, 只有一個自由度, 能夠使物體沿著軸做旋轉移動, 如同螺絲。&lt;/h4&gt;
+&lt;h4&gt;4. 為球窩接頭, 有三個自由度, 用於類似關節的地方。&lt;/h4&gt;
+&lt;/br&gt;
+&lt;h3&gt;Control the joint :&lt;/h3&gt;
+&lt;h4&gt;1.simSetJointPosition : when your joint is not in force/torque mode&lt;/h4&gt;
+&lt;h4&gt;2.simSetJointTargetPosition : when your joint is in force/torque mode, its motor enabled and its control loop also enabled&lt;/h4&gt;
+&lt;h4&gt;3.simSetJointTargetVelocity : when your joint is in force/torque mode, its motor enabled, and its control loop NOT enabled&lt;/h4&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;今天回去翻老師的信, 才發現裡面有四連桿的範例, 以下為測試:&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/4_links_move.png" &gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/4_links_move.gif" &gt;
+&lt;/br&gt;
+&lt;h3&gt;只要設定一個轉軸, 其他設定好就可以跟著一起做動, 但是在程式部分, if 條件還是不太懂, 很容易出現lua錯誤, 還有很多語法要理解。&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;105 - 07/12更新&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;今天拿老師的程式去跑小車子 ,但是joint的角度只要定在360就跟0度一樣 ,要如何才能超過這個範圍還在思考... &lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/little_car.ttt?raw=true"&gt;little_car.ttt&lt;/a&gt;&lt;/p&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/little_car.png" &gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;105 - 07/14更新&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;今天參照了irb360範例, 試著組了printer, 前面還算順利, 在中間的 close chain部分 還要加上重疊的Revolute 來限制移動, 最後再搭上dummy 應該就可以控制了&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/Printer_new.png" &gt;
+&lt;/br&gt;
+&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/printer_new.ttt?raw=true"&gt;printer_new.ttt&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/printer_new_2.ttt?raw=true"&gt;printer_new_2.ttt&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323230日誌 - 105/07/05</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050705.html" rel="alternate"></link><updated>2016-07-05T17:24:02+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-05:blog/40323230ri-zhi-1050705.html</id><summary type="html">&lt;p&gt;NetBeans的相關探索-2&lt;/p&gt;
 &lt;p&gt;註：發現目前最新的原始碼內好像很多錯誤，不知道該怎麼辦。&lt;/p&gt;
 
 
@@ -1378,7 +1378,107 @@ void Example2d()
 &lt;hr&gt;
 
 &lt;p&gt;使用一款未接觸過的軟體，都會先研究它的介面和基本操作方式還有額外的設定，不過有些專業用詞不知道影響的關聯性。&lt;/p&gt;
-&lt;p&gt;以前只用過Visual Studio撰寫和測試一些簡單的程式，對這種大型的架構瞭解較少，應該會再找些相關資訊學習。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323250日誌 - 105/07/01</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050701.html" rel="alternate"></link><updated>2016-07-04T23:56:38+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323250ri-zhi-1050701.html</id><summary type="html">&lt;p&gt;V-rep 的使用與學習&lt;/p&gt;
+&lt;p&gt;以前只用過Visual Studio撰寫和測試一些簡單的程式，對這種大型的架構瞭解較少，應該會再找些相關資訊學習。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323218日誌 - 105/07/04</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050704.html" rel="alternate"></link><updated>2016-07-05T17:24:02+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-05:blog/40323218ri-zhi-1050704.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
+
+
+&lt;h3&gt;熟悉 V-Rep 基本操作&lt;/h3&gt;
+
+&lt;p&gt;&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/introduce1.PNG"&gt;
+&lt;br&gt;
+&lt;h3&gt;1. 2D移動&lt;br&gt;
+2. 3D旋轉&lt;br&gt;
+3. 遠近&lt;br&gt;
+4. 移動畫面至物體&lt;br&gt;
+5. 物體定位(x,y,z)&lt;br&gt;
+6. 物體旋轉(x,y,z)&lt;br&gt;
+7. 開始模擬&lt;br&gt;
+8. 暫停模擬&lt;br&gt;
+9. 結束模擬&lt;br&gt;
+10. 慢速&lt;br&gt;
+11. 加速&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;嘗試製作 one_link_robot&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step1.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;File→import→Mesh...(從資料夾中輸入 stl檔)&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;選擇單位和方向&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step3.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;點選物體使用"object shift"調整Z軸距離&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;點選物體 右鍵→Edit→Grouping/Merging→Divide selected shapes(使物體解體)&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;右鍵→Add→Joint→Revolute(增加旋轉軸)&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;連點兩下Revolute icon 打開 Scene Object Properties , 下面 Visual properties修改旋轉軸的長和直徑&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;接著點下面 Show dynamic properties dialog , 打勾Motor enabled 和 Lock motor ...
+&lt;br&gt;
+&lt;h3&gt;再來點旋轉軸 , Ctrl+左鍵點圓柱 , 使用"object shift"在XYZ都點Apply to selection , 在"Orientation/Rotations"也點 Apply , 使兩軸重疊&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step6.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;點選圓柱 icon , 點最下面Show dynamic properties dialog , 打勾Body is dynamic(使物體可作動)
+&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step7.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;
+使圓柱降階成為旋轉軸的Child&lt;br&gt;
+使旋轉物降階成為圓柱的Child&lt;br&gt;
+使旋轉軸降階成為底座的Child&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step8.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;按左側"Script" →Insert new script→Script type 選擇 Child script (threaded) , 下方 Associated object 選擇底座.&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step9.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;double - click the child script,  在最下面加上SimExtRemoteApiStart(19999)(參考老師範例研究中) &lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/Round.gif" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;點選"Start simulation" 啟動模擬 , 用SciTE 開啟老師的檔案 one_link_robot_remoteAPI.py , F5執行就會轉囉~~&lt;/h3&gt;&lt;/p&gt;
+&lt;h3&gt;製作影片：&lt;/h3&gt;
+
+&lt;iframe src="https://player.vimeo.com/video/173321561" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;p&gt;&lt;a href="https://vimeo.com/173321561"&gt;V-Rep one_link_robot&lt;/a&gt; from &lt;a href="https://vimeo.com/user44943624"&gt;Li Steven&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/04-2</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050704-2.html" rel="alternate"></link><updated>2016-07-05T17:24:02+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-05:blog/40323230ri-zhi-1050704-2.html</id><summary type="html">&lt;p&gt;NetBeans的相關探索&lt;/p&gt;
+
+
+&lt;h2&gt;NetBeans設定 :&lt;/h2&gt;
+
+&lt;p&gt;從&lt;a href="https://nuwen.net/mingw.html" title="nuwen.net"&gt;MinGW Distro - nuwen.net&lt;/a&gt;下載了新版配有gcc 6.1.0和Boost 1.61.0的MinGW，原本可攜式環境的MinGW是用gcc 4.9.3，暫且在名稱加上.old不使用。&lt;/p&gt;
+&lt;p&gt;下圖是新版和舊版的比對。新版的資料夾有附一個README_STL.txt文件說明內含的附加元件版本。&lt;/p&gt;
+&lt;p&gt;這個MinGW裡還配有一個比較簡單的git工具。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/QusRHMc.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;NetBeans的版本是8.1，存放於根目錄W:，已經是最新版。&lt;/p&gt;
+&lt;p&gt;先在Option裡設定C語言用的Build Tool，在新增工具的下拉選單設定使用MinGW，並指定到MinGW的目錄。成功新增Tool後，NetBeans會自己抓到gcc.exe、g++.exe、as.exe、gdb.exe，最下方則是有QMake和CMake的選項，將CMake指定到存放的位置。&lt;/p&gt;
+&lt;p&gt;設定裡所有的位置都是指定於可攜式環境內，沒用到任何外部資料夾。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/aY6AzV5.jpg" &gt;&lt;/p&gt;
+&lt;h2&gt;NetBeans專案 :&lt;/h2&gt;
+
+&lt;p&gt;之後新建專案，選擇C語言已有源代碼的專案。&lt;/p&gt;
+&lt;p&gt;選擇模式部分選擇Solvespace的目錄。工具只有剛才設定的MinGW，並選擇自訂查看一下。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/MOdwa0P.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;基本上是使用Predefined Command，使用的是CMake的gui設定，也就是Solvespace目錄存放的CMakeLists.txt檔。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/f4sSsvQ.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;接下來是清理和建置指令，就和打在CMD視窗裡的一樣。&lt;/p&gt;
+&lt;p&gt;幾乎每個環節都會詢問工作環境，但是Solvespace沒特別區分的話就是原本目錄內，所以直接按下一步。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/HrGJNnU.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;按下完成鈕後會花個幾秒載入。然後就會在左側讀入原始碼資料夾和檔案的結構。&lt;/p&gt;
+&lt;p&gt;下面則會執行並顯示CMake和Clean指令輸出的訊息，最後完成後就完成編譯環境了。&lt;/p&gt;
+&lt;p&gt;左側的欄位分成Project、Files和Services。只要在Project或Files的檔案樹點兩下就能在中央開啟文件編輯。Services則可以呼叫MinGW的附加元件來用（包含gcc）。&lt;/p&gt;
+&lt;p&gt;左下的導航欄似乎能執行CMake的指令。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/mFKn2Pc.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;這次也是使用之前備份並更新過的Solvespace原始碼操作，免得被之前的檔案影響。&lt;/p&gt;
+&lt;p&gt;雖然和SciTE一樣是文字編譯軟體，但是NetBeans能夠隨時呼叫需要使用的工具來支援。與Visual Studio相比還能夠在可攜環境中保存設定檔，更為方便。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323250日誌 - 105/07/01</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050701.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323250ri-zhi-1050701.html</id><summary type="html">&lt;p&gt;V-rep 的使用與學習&lt;/p&gt;
 
 
 &lt;h2&gt;★暑期第一個禮拜的 星期四 - 06/30★&lt;/h2&gt;
@@ -1568,7 +1668,20 @@ a.為orthographic type  及  b.為perspective type&lt;/h3&gt;
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/vision.gif"&gt;
 &lt;/br&gt;
 &lt;hr&gt;
-&lt;/br&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - 105/06/29</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050629.html" rel="alternate"></link><updated>2016-07-04T23:56:38+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323250ri-zhi-1050629.html</id><summary type="html">&lt;p&gt;暑期第一個禮拜的 星期三&lt;/p&gt;
+&lt;/br&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - 105/06/28</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050628.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323250ri-zhi-1050628.html</id><summary type="html">&lt;p&gt;暑期第一個禮拜的 星期二&lt;/p&gt;
+
+
+&lt;h3&gt;目前組合進度&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;img src="http://i.imgur.com/D2k3uqk.gif"&gt;
+&lt;/br&gt;
+&lt;h3&gt;目前遇到的狀況&lt;/h3&gt;
+&lt;h4&gt;我把滑塊設定為slider，能在滑軌上做相對移動，但是在拉到一半的時候，Onshape整個圖形就消失了，然後點選左方的zoom to section還是能顯示，但呈現以下狀態&lt;/h4&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/W3N5pkC.png"&gt;
+&lt;/br&gt;
+&lt;h4&gt;滑鼠選轉及縮放也跟著出問題，點選右方試圖方塊圖又會不見，只能重新再組一次。&lt;/h4&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - 105/06/29</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050629.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323250ri-zhi-1050629.html</id><summary type="html">&lt;p&gt;暑期第一個禮拜的 星期三&lt;/p&gt;
 
 
 &lt;h3&gt;進度&lt;/h3&gt;
@@ -1597,45 +1710,7 @@ a.為orthographic type  及  b.為perspective type&lt;/h3&gt;
 &lt;/br&gt;
 &lt;h3&gt;明天應該就可以開始測試模擬了。&lt;/h3&gt;
 &lt;/br&gt;
-&lt;h3&gt;Onshape零件及兩個stl檔案都放在users/g2_files目錄下，歡迎取用。&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - 105/06/28</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050628.html" rel="alternate"></link><updated>2016-07-04T23:56:38+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323250ri-zhi-1050628.html</id><summary type="html">&lt;p&gt;暑期第一個禮拜的 星期二&lt;/p&gt;
-
-
-&lt;h3&gt;目前組合進度&lt;/h3&gt;
-
-&lt;p&gt;&lt;/br&gt;
-&lt;img src="http://i.imgur.com/D2k3uqk.gif"&gt;
-&lt;/br&gt;
-&lt;h3&gt;目前遇到的狀況&lt;/h3&gt;
-&lt;h4&gt;我把滑塊設定為slider，能在滑軌上做相對移動，但是在拉到一半的時候，Onshape整個圖形就消失了，然後點選左方的zoom to section還是能顯示，但呈現以下狀態&lt;/h4&gt;
-&lt;/br&gt;
-&lt;img src="http://i.imgur.com/W3N5pkC.png"&gt;
-&lt;/br&gt;
-&lt;h4&gt;滑鼠選轉及縮放也跟著出問題，點選右方試圖方塊圖又會不見，只能重新再組一次。&lt;/h4&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>Summer Plan</title><link href="http://project.mde.tw/blog/summer-plan.html" rel="alternate"></link><updated>2016-07-04T23:56:38+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-04:blog/summer-plan.html</id><summary type="html">&lt;p&gt;Summer project&lt;/p&gt;
-
-
-&lt;p&gt;1.畫3D Printer (V-rep ,Onshape)&lt;/p&gt;
-
-&lt;p&gt;2.實驗室網站介面&lt;/p&gt;
-
-&lt;p&gt;3.Octopi ,機械手臂&lt;/p&gt;
-
-&lt;p&gt;4.OpenCV &lt;/p&gt;
-
-&lt;p&gt;5.RGA演算&lt;/p&gt;
-
-&lt;p&gt;6.認證主機(Virtual Box)&lt;/p&gt;
-
-&lt;p&gt;7.Proxy&lt;/p&gt;
-
-&lt;p&gt;8.報告(拍照 ,內容整理)&lt;/p&gt;
-
-&lt;p&gt;9.找碩班教授&lt;/p&gt;
-
-&lt;p&gt;&lt;/br&gt;
-&lt;p&gt;暑期人數 : &lt;/p&gt;
-&lt;p&gt;七月:第一組3人 ,第二組4人&lt;/p&gt;
-&lt;p&gt;八月:第一組3人 ,第二組4人 ,第三組1人&lt;/p&gt;
-&lt;p&gt;&lt;font size="5" face="Arial"&gt;&lt;marquee border="0" scrollamount="50" behavior="alternate"&gt;You can't see me&lt;/marquee&gt;&lt;/font&gt;&lt;/p&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>OpenCv範例執行</title><link href="http://project.mde.tw/blog/opencvfan-li-zhi-xing.html" rel="alternate"></link><updated>2016-07-04T23:56:38+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-04:blog/opencvfan-li-zhi-xing.html</id><summary type="html">&lt;p&gt;OpenCv example with python test&lt;/p&gt;
+&lt;h3&gt;Onshape零件及兩個stl檔案都放在users/g2_files目錄下，歡迎取用。&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>OpenCv範例執行</title><link href="http://project.mde.tw/blog/opencvfan-li-zhi-xing.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-04:blog/opencvfan-li-zhi-xing.html</id><summary type="html">&lt;p&gt;OpenCv example with python test&lt;/p&gt;
 
 
 &lt;h3&gt;實作系統Ubuntu 14.04 以及 老師整合的檔案&lt;/h3&gt;
@@ -1709,115 +1784,32 @@ out.release()
 cv2.destroyAllWindows()
 &lt;/pre&gt;
 &lt;h3&gt;執行結果&lt;/h3&gt;
-&lt;h4&gt;得到檔案名稱為output的avi影片檔&lt;/h4&gt;&lt;/p&gt;</summary><category term="OpenCv"></category></entry><entry><title>40323230日誌 - 105/07/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050704.html" rel="alternate"></link><updated>2016-07-04T23:56:38+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050704.html</id><summary type="html">&lt;p&gt;改用CMD設定CMake&lt;/p&gt;
+&lt;h4&gt;得到檔案名稱為output的avi影片檔&lt;/h4&gt;&lt;/p&gt;</summary><category term="OpenCv"></category></entry><entry><title>Summer Plan</title><link href="http://project.mde.tw/blog/summer-plan.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-04:blog/summer-plan.html</id><summary type="html">&lt;p&gt;Summer project&lt;/p&gt;
 
 
-&lt;h2&gt;CMD命令cmake連接Solvespace原始碼 :&lt;/h2&gt;
+&lt;p&gt;1.畫3D Printer (V-rep ,Onshape)&lt;/p&gt;
 
-&lt;h3&gt;Readme的Command-line build&lt;/h3&gt;
+&lt;p&gt;2.實驗室網站介面&lt;/p&gt;
 
-&lt;p&gt;使用可攜式環境的Command Prompt到外部呼叫Visual Studio的vcvarsall.bat。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/F6tBRr1.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;然後為cmake的bin資料夾設定啟動位置(Path4)，可以正常呼叫。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/2h18M7K.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;到CMD中下Readme中提供的指令。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/zpzsMMZ.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;接著下nmake的指令。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/SMlMAQc.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;但是在最後出現一些錯誤，不知道原因為何。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/CZ2wMoU.jpg" &gt;&lt;/p&gt;
-&lt;hr&gt;
+&lt;p&gt;3.Octopi ,機械手臂&lt;/p&gt;
 
-&lt;p&gt;與此同時可以用Visual Studio的相關功能。CMake也算是設定完成了。&lt;/p&gt;
-&lt;p&gt;如果要改用NetBeans，就不用下nmake的指令。&lt;/p&gt;
-&lt;hr&gt;
+&lt;p&gt;4.OpenCV &lt;/p&gt;
 
-&lt;h3&gt;Readme的MSVC build&lt;/h3&gt;
+&lt;p&gt;5.RGA演算&lt;/p&gt;
 
-&lt;p&gt;這次也把MinGW的bin設定進啟動位置(Path5)，可以正常呼叫。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/8D6cRvV.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;接著同樣按照Readme的說明用CMD下指令。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/iXmV4cR.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;不過後面的make指令會說無法讀取makefile檔。&lt;/p&gt;
-&lt;hr&gt;
+&lt;p&gt;6.認證主機(Virtual Box)&lt;/p&gt;
 
-&lt;p&gt;Readme中說可以使用MinGW，只要確保git和MinGW的gcc在作業環境內就行了。至於gcc的功能繁多，還需要研究一下。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/04-2</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050704-2.html" rel="alternate"></link><updated>2016-07-04T23:56:38+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050704-2.html</id><summary type="html">&lt;p&gt;NetBeans的相關探索&lt;/p&gt;
+&lt;p&gt;7.Proxy&lt;/p&gt;
 
+&lt;p&gt;8.報告(拍照 ,內容整理)&lt;/p&gt;
 
-&lt;h2&gt;NetBeans設定 :&lt;/h2&gt;
+&lt;p&gt;9.找碩班教授&lt;/p&gt;
 
-&lt;p&gt;從&lt;a href="https://nuwen.net/mingw.html" title="nuwen.net"&gt;MinGW Distro - nuwen.net&lt;/a&gt;下載了新版配有gcc 6.1.0和Boost 1.61.0的MinGW，原本可攜式環境的MinGW是用gcc 4.9.3，暫且在名稱加上.old不使用。&lt;/p&gt;
-&lt;p&gt;下圖是新版和舊版的比對。新版的資料夾有附一個README_STL.txt文件說明內含的附加元件版本。&lt;/p&gt;
-&lt;p&gt;這個MinGW裡還配有一個比較簡單的git工具。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/QusRHMc.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;NetBeans的版本是8.1，存放於根目錄W:，已經是最新版。&lt;/p&gt;
-&lt;p&gt;先在Option裡設定C語言用的Build Tool，在新增工具的下拉選單設定使用MinGW，並指定到MinGW的目錄。成功新增Tool後，NetBeans會自己抓到gcc.exe、g++.exe、as.exe、gdb.exe，最下方則是有QMake和CMake的選項，將CMake指定到存放的位置。&lt;/p&gt;
-&lt;p&gt;設定裡所有的位置都是指定於可攜式環境內，沒用到任何外部資料夾。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/aY6AzV5.jpg" &gt;&lt;/p&gt;
-&lt;h2&gt;NetBeans專案 :&lt;/h2&gt;
-
-&lt;p&gt;之後新建專案，選擇C語言已有源代碼的專案。&lt;/p&gt;
-&lt;p&gt;選擇模式部分選擇Solvespace的目錄。工具只有剛才設定的MinGW，並選擇自訂查看一下。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/MOdwa0P.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;基本上是使用Predefined Command，使用的是CMake的gui設定，也就是Solvespace目錄存放的CMakeLists.txt檔。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/f4sSsvQ.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;接下來是清理和建置指令，就和打在CMD視窗裡的一樣。&lt;/p&gt;
-&lt;p&gt;幾乎每個環節都會詢問工作環境，但是Solvespace沒特別區分的話就是原本目錄內，所以直接按下一步。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/HrGJNnU.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;按下完成鈕後會花個幾秒載入。然後就會在左側讀入原始碼資料夾和檔案的結構。&lt;/p&gt;
-&lt;p&gt;下面則會執行並顯示CMake和Clean指令輸出的訊息，最後完成後就完成編譯環境了。&lt;/p&gt;
-&lt;p&gt;左側的欄位分成Project、Files和Services。只要在Project或Files的檔案樹點兩下就能在中央開啟文件編輯。Services則可以呼叫MinGW的附加元件來用（包含gcc）。&lt;/p&gt;
-&lt;p&gt;左下的導航欄似乎能執行CMake的指令。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/mFKn2Pc.jpg" &gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;這次也是使用之前備份並更新過的Solvespace原始碼操作，免得被之前的檔案影響。&lt;/p&gt;
-&lt;p&gt;雖然和SciTE一樣是文字編譯軟體，但是NetBeans能夠隨時呼叫需要使用的工具來支援。與Visual Studio相比還能夠在可攜環境中保存設定檔，更為方便。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/03</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703.html" rel="alternate"></link><updated>2016-07-04T23:56:38+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050703.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace&lt;/p&gt;
-
-
-&lt;h2&gt;編譯 Solvespace 前的準備 :&lt;/h2&gt;
-
-&lt;p&gt;從&lt;a href="http://www.activestate.com/activeperl/downloads" title="activestate.com"&gt;Active State&lt;/a&gt;下載了 ActivePerl，使用的是5.24.0／x64版。&lt;/p&gt;
-&lt;p&gt;從&lt;a href="https://www.visualstudio.com/downloads/download-visual-studio-vs" title="visualstudio.com"&gt;Microsoft&lt;/a&gt;下載並安裝了Visual Studio Professional 2015，安裝好像無法選擇C:以外的磁碟。&lt;/p&gt;
-&lt;p&gt;從&lt;a href="https://github.com/whitequark/solvespace" title="github.com"&gt;GitHub&lt;/a&gt;下載Solvespace的原始碼，另外在&lt;a href="http://solvespace.com/download.pl" title="solvespace.com"&gt;Solvespace&lt;/a&gt;提供下載的頁面中也有一個較舊版的原始碼。&lt;/p&gt;
-&lt;p&gt;裝完之後用Developer Command Prompt切換至專案目錄執行nmake，就能下相關指令了。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/we7AKIF.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;用CMD從安裝目錄的\VC\bin啟動vcvars32.bat，執行nmake好像也可以，不知道其差異性。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/iCFeYAe.jpg" &gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;關於NMAKE的使用方法，找了幾個中國的網站介紹：&lt;/p&gt;
-&lt;p&gt;1.&lt;a href="http://www.cnblogs.com/kekec/archive/2013/04/21/3007277.html" title="cnblogs.com"&gt;NMAKE的指令&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;2.&lt;a href="http://blog.csdn.net/cneaglelee/article/details/11714803" title="csdn.net"&gt;NMAKE的開發環境設置&lt;/a&gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/03-2</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703-2.html" rel="alternate"></link><updated>2016-07-04T23:56:38+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050703-2.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace(更新)&lt;/p&gt;
-
-
-&lt;h2&gt;使用CMake連接Solvespace原始碼 :&lt;/h2&gt;
-
-&lt;h3&gt;Readme的GUI build&lt;/h3&gt;
-
-&lt;p&gt;下載了放在140.130.17.17/public/Netbeans/的可攜式環境git2016，該環境使用的是W:磁碟機，不會和撰寫網誌的Y:環境衝突，可以同時開啟；但是其一關閉時會把所有cmd關掉。之後放入了Netbeans套件，不過還尚未使用。&lt;/p&gt;
-&lt;p&gt;在新的可攜式環境中存入了從GitHub下載的Solvespace的原始碼，並依照其Readme的方式，用git submodule update --init指令更新模組，並存了一個備份檔。&lt;/p&gt;
-&lt;p&gt;CMake的方面使用可攜版的Zip檔，而非Msi安裝。將CMake放在W:的根目錄下。相較於使用指令，因為可攜式環境沒辦法呼叫外部程式支援，所以用cmake-gui.exe圖形介面來設定相關環境。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/nk3qTV4.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;一開始對cmake-gui.exe的兩個位置指向不太清楚，所以嘗試了很多次。&lt;/p&gt;
-&lt;p&gt;要在Solvespace的目錄中建立一個/build資料夾，以存放binaries。&lt;/p&gt;
-&lt;p&gt;Source code的部分是填程式專案的目錄，binaries的地方填/build資料夾，再按Configure鈕設定編譯器，完成後會設置CMake的檔案。&lt;/p&gt;
-&lt;p&gt;雖然之前的目錄已經有檔案了，但是如果binaries直接設目錄內，貌似會衝突產生問題，也無法復原設定檔，幸好有先備份資料能復原。&lt;/p&gt;
-&lt;p&gt;Configure的部分嘗試選擇MinGW的選項。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/5br2VyW.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;下面則選Specify native compilers來自訂編譯器位置，這時執行出現一個錯誤，無法執行MinGW。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/OljnPa7.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;上網尋找似乎要修改系統環境參數到MinGW的bin資料夾才找的到原本就存在的libgmp-10.dll，不知道可攜式環境有沒有其他解法。&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;暫時用Visual Studio的設定，但是結果似乎不理想。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/TSfLb5n.jpg" &gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;參考資料：&lt;/p&gt;
-&lt;p&gt;1.&lt;a href="https://www.youtube.com/watch?v=gYmgbqGfv-8" title="youtube.com"&gt;教學影片-Visual Studio&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;2.&lt;a href="https://www.youtube.com/watch?v=2A-iRgOhL8A" title="youtube.com"&gt;教學影片-Mingw&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;目前還不會使用MinGW或Netbeans套件，所以暫時先放在可攜環境git2016中，之後會找資料學習如何編譯Solvespace的功能。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230紀錄</title><link href="http://project.mde.tw/blog/40323230ji-lu.html" rel="alternate"></link><updated>2016-07-04T23:56:38+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ji-lu.html</id><summary type="html">&lt;p&gt;V-REP從範本學得的一些紀錄&lt;/p&gt;
+&lt;p&gt;&lt;/br&gt;
+&lt;p&gt;暑期人數 : &lt;/p&gt;
+&lt;p&gt;七月:第一組3人 ,第二組4人&lt;/p&gt;
+&lt;p&gt;八月:第一組3人 ,第二組4人 ,第三組1人&lt;/p&gt;
+&lt;p&gt;&lt;font size="5" face="Arial"&gt;&lt;marquee border="0" scrollamount="50" behavior="alternate"&gt;You can't see me&lt;/marquee&gt;&lt;/font&gt;&lt;/p&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230紀錄</title><link href="http://project.mde.tw/blog/40323230ji-lu.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ji-lu.html</id><summary type="html">&lt;p&gt;V-REP從範本學得的一些紀錄&lt;/p&gt;
 
 
 &lt;h2&gt;V-REP Example Learning Reviews&lt;/h2&gt;
@@ -1851,73 +1843,81 @@ cv2.destroyAllWindows()
 &lt;/br&gt;&lt;hr&gt;&lt;/br&gt;
 &lt;h3&gt;目前整理完幾何部件的檔案。存於\users\g2_files\VREP_Simulation.ttt中。&lt;/h3&gt;
 &lt;/br&gt;
-&lt;img src="http://i.imgur.com/jNvEHRc.jpg" &gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="V-rep"></category></entry><entry><title>40323218日誌 - 105/07/04</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050704.html" rel="alternate"></link><updated>2016-07-04T23:56:38+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323218ri-zhi-1050704.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
+&lt;img src="http://i.imgur.com/jNvEHRc.jpg" &gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="V-rep"></category></entry><entry><title>40323230日誌 - 105/07/03</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050703.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace&lt;/p&gt;
 
 
-&lt;h3&gt;熟悉 V-Rep 基本操作&lt;/h3&gt;
+&lt;h2&gt;編譯 Solvespace 前的準備 :&lt;/h2&gt;
 
-&lt;p&gt;&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/introduce1.PNG"&gt;
-&lt;br&gt;
-&lt;h3&gt;1. 2D移動&lt;br&gt;
-2. 3D旋轉&lt;br&gt;
-3. 遠近&lt;br&gt;
-4. 移動畫面至物體&lt;br&gt;
-5. 物體定位(x,y,z)&lt;br&gt;
-6. 物體旋轉(x,y,z)&lt;br&gt;
-7. 開始模擬&lt;br&gt;
-8. 暫停模擬&lt;br&gt;
-9. 結束模擬&lt;br&gt;
-10. 慢速&lt;br&gt;
-11. 加速&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;嘗試製作 one_link_robot&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step1.png" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;File→import→Mesh...(從資料夾中輸入 stl檔)&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;選擇單位和方向&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step3.png" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;點選物體使用"object shift"調整Z軸距離&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;點選物體 右鍵→Edit→Grouping/Merging→Divide selected shapes(使物體解體)&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;右鍵→Add→Joint→Revolute(增加旋轉軸)&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;連點兩下Revolute icon 打開 Scene Object Properties , 下面 Visual properties修改旋轉軸的長和直徑&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;接著點下面 Show dynamic properties dialog , 打勾Motor enabled 和 Lock motor ...
-&lt;br&gt;
-&lt;h3&gt;再來點旋轉軸 , Ctrl+左鍵點圓柱 , 使用"object shift"在XYZ都點Apply to selection , 在"Orientation/Rotations"也點 Apply , 使兩軸重疊&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step6.png" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;點選圓柱 icon , 點最下面Show dynamic properties dialog , 打勾Body is dynamic(使物體可作動)
-&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step7.png" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;
-使圓柱降階成為旋轉軸的Child&lt;br&gt;
-使旋轉物降階成為圓柱的Child&lt;br&gt;
-使旋轉軸降階成為底座的Child&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step8.png" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;按左側"Script" →Insert new script→Script type 選擇 Child script (threaded) , 下方 Associated object 選擇底座.&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step9.png" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;double - click the child script,  在最下面加上SimExtRemoteApiStart(19999)(參考老師範例研究中) &lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/Round.gif" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;點選"Start simulation" 啟動模擬 , 用SciTE 開啟老師的檔案 one_link_robot_remoteAPI.py , F5執行就會轉囉~~&lt;/h3&gt;&lt;/p&gt;
-&lt;h3&gt;製作影片：&lt;/h3&gt;
+&lt;p&gt;從&lt;a href="http://www.activestate.com/activeperl/downloads" title="activestate.com"&gt;Active State&lt;/a&gt;下載了 ActivePerl，使用的是5.24.0／x64版。&lt;/p&gt;
+&lt;p&gt;從&lt;a href="https://www.visualstudio.com/downloads/download-visual-studio-vs" title="visualstudio.com"&gt;Microsoft&lt;/a&gt;下載並安裝了Visual Studio Professional 2015，安裝好像無法選擇C:以外的磁碟。&lt;/p&gt;
+&lt;p&gt;從&lt;a href="https://github.com/whitequark/solvespace" title="github.com"&gt;GitHub&lt;/a&gt;下載Solvespace的原始碼，另外在&lt;a href="http://solvespace.com/download.pl" title="solvespace.com"&gt;Solvespace&lt;/a&gt;提供下載的頁面中也有一個較舊版的原始碼。&lt;/p&gt;
+&lt;p&gt;裝完之後用Developer Command Prompt切換至專案目錄執行nmake，就能下相關指令了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/we7AKIF.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;用CMD從安裝目錄的\VC\bin啟動vcvars32.bat，執行nmake好像也可以，不知道其差異性。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/iCFeYAe.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
 
-&lt;iframe src="https://player.vimeo.com/video/173321561" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+&lt;p&gt;關於NMAKE的使用方法，找了幾個中國的網站介紹：&lt;/p&gt;
+&lt;p&gt;1.&lt;a href="http://www.cnblogs.com/kekec/archive/2013/04/21/3007277.html" title="cnblogs.com"&gt;NMAKE的指令&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2.&lt;a href="http://blog.csdn.net/cneaglelee/article/details/11714803" title="csdn.net"&gt;NMAKE的開發環境設置&lt;/a&gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/03-2</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703-2.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050703-2.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace(更新)&lt;/p&gt;
 
-&lt;p&gt;&lt;p&gt;&lt;a href="https://vimeo.com/173321561"&gt;V-Rep one_link_robot&lt;/a&gt; from &lt;a href="https://vimeo.com/user44943624"&gt;Li Steven&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry></feed>
+
+&lt;h2&gt;使用CMake連接Solvespace原始碼 :&lt;/h2&gt;
+
+&lt;h3&gt;Readme的GUI build&lt;/h3&gt;
+
+&lt;p&gt;下載了放在140.130.17.17/public/Netbeans/的可攜式環境git2016，該環境使用的是W:磁碟機，不會和撰寫網誌的Y:環境衝突，可以同時開啟；但是其一關閉時會把所有cmd關掉。之後放入了Netbeans套件，不過還尚未使用。&lt;/p&gt;
+&lt;p&gt;在新的可攜式環境中存入了從GitHub下載的Solvespace的原始碼，並依照其Readme的方式，用git submodule update --init指令更新模組，並存了一個備份檔。&lt;/p&gt;
+&lt;p&gt;CMake的方面使用可攜版的Zip檔，而非Msi安裝。將CMake放在W:的根目錄下。相較於使用指令，因為可攜式環境沒辦法呼叫外部程式支援，所以用cmake-gui.exe圖形介面來設定相關環境。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/nk3qTV4.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;一開始對cmake-gui.exe的兩個位置指向不太清楚，所以嘗試了很多次。&lt;/p&gt;
+&lt;p&gt;要在Solvespace的目錄中建立一個/build資料夾，以存放binaries。&lt;/p&gt;
+&lt;p&gt;Source code的部分是填程式專案的目錄，binaries的地方填/build資料夾，再按Configure鈕設定編譯器，完成後會設置CMake的檔案。&lt;/p&gt;
+&lt;p&gt;雖然之前的目錄已經有檔案了，但是如果binaries直接設目錄內，貌似會衝突產生問題，也無法復原設定檔，幸好有先備份資料能復原。&lt;/p&gt;
+&lt;p&gt;Configure的部分嘗試選擇MinGW的選項。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/5br2VyW.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;下面則選Specify native compilers來自訂編譯器位置，這時執行出現一個錯誤，無法執行MinGW。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/OljnPa7.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;上網尋找似乎要修改系統環境參數到MinGW的bin資料夾才找的到原本就存在的libgmp-10.dll，不知道可攜式環境有沒有其他解法。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;暫時用Visual Studio的設定，但是結果似乎不理想。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/TSfLb5n.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;參考資料：&lt;/p&gt;
+&lt;p&gt;1.&lt;a href="https://www.youtube.com/watch?v=gYmgbqGfv-8" title="youtube.com"&gt;教學影片-Visual Studio&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2.&lt;a href="https://www.youtube.com/watch?v=2A-iRgOhL8A" title="youtube.com"&gt;教學影片-Mingw&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;目前還不會使用MinGW或Netbeans套件，所以暫時先放在可攜環境git2016中，之後會找資料學習如何編譯Solvespace的功能。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050704.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050704.html</id><summary type="html">&lt;p&gt;改用CMD設定CMake&lt;/p&gt;
+
+
+&lt;h2&gt;CMD命令cmake連接Solvespace原始碼 :&lt;/h2&gt;
+
+&lt;h3&gt;Readme的Command-line build&lt;/h3&gt;
+
+&lt;p&gt;使用可攜式環境的Command Prompt到外部呼叫Visual Studio的vcvarsall.bat。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/F6tBRr1.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;然後為cmake的bin資料夾設定啟動位置(Path4)，可以正常呼叫。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/2h18M7K.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;到CMD中下Readme中提供的指令。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/zpzsMMZ.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;接著下nmake的指令。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/SMlMAQc.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;但是在最後出現一些錯誤，不知道原因為何。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/CZ2wMoU.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;與此同時可以用Visual Studio的相關功能。CMake也算是設定完成了。&lt;/p&gt;
+&lt;p&gt;如果要改用NetBeans，就不用下nmake的指令。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3&gt;Readme的MSVC build&lt;/h3&gt;
+
+&lt;p&gt;這次也把MinGW的bin設定進啟動位置(Path5)，可以正常呼叫。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/8D6cRvV.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;接著同樣按照Readme的說明用CMD下指令。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/iXmV4cR.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;不過後面的make指令會說無法讀取makefile檔。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;Readme中說可以使用MinGW，只要確保git和MinGW的gcc在作業環境內就行了。至於gcc的功能繁多，還需要研究一下。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry></feed>

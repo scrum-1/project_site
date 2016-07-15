@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-15T18:48:56+08:00</updated><entry><title>40323218日誌 - 105/07/15</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050715.html" rel="alternate"></link><updated>2016-07-15T18:48:56+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323218ri-zhi-1050715.html</id><summary type="html">&lt;p&gt;V-rep 程式應用&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-15T18:51:58+08:00</updated><entry><title>40323250日誌 - V-rep &amp; 3D-Printer</title><link href="http://project.mde.tw/blog/40323250ri-zhi-v-rep-3d-printer.html" rel="alternate"></link><updated>2016-07-15T18:51:58+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323250ri-zhi-v-rep-3d-printer.html</id><summary type="html">&lt;p&gt;之後的 V-rep模擬Pronter都整理於本文章中&lt;/p&gt;
+</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323218日誌 - 105/07/15</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050715.html" rel="alternate"></link><updated>2016-07-15T18:48:56+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323218ri-zhi-1050715.html</id><summary type="html">&lt;p&gt;V-rep 程式應用&lt;/p&gt;
 
 
 &lt;h2&gt;從 irb360 程式中找尋可能用到的並嘗試解釋和整理。 &lt;/h2&gt;
@@ -187,7 +188,12 @@ direction: the desired rotation direction for cyclic revolute joints: 0 for the 
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/Printer_new.png" &gt;
 &lt;/br&gt;
 &lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/printer_new.ttt?raw=true"&gt;printer_new.ttt&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/printer_new_2.ttt?raw=true"&gt;printer_new_2.ttt&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323250日誌 - 105/07/01</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050701.html" rel="alternate"></link><updated>2016-07-15T17:24:16+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323250ri-zhi-1050701.html</id><summary type="html">&lt;p&gt;V-rep 的使用與學習&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/printer_new_2.ttt?raw=true"&gt;printer_new_2.ttt&lt;/a&gt;&lt;/p&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;105 - 07/15更新&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;今天開始研究Inverse Kinematic 逆向運動學(IK) ,透過矩正及向量運算 ,就可以得到參數 ,且恰巧有學長論文和此相關 ,從中學到了不少 ,但還沒能弄懂 ,最後要結合進V-rep模擬中 ,腳步要加快了&lt;/h3&gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323250日誌 - V-rep 功能 (持續更新中)</title><link href="http://project.mde.tw/blog/40323250ri-zhi-v-rep-gong-neng-chi-xu-geng-xin-zhong.html" rel="alternate"></link><updated>2016-07-15T17:24:16+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323250ri-zhi-v-rep-gong-neng-chi-xu-geng-xin-zhong.html</id><summary type="html">&lt;p&gt;V-rep 的使用與學習&lt;/p&gt;
 
 
 &lt;h2&gt;★暑期第一個禮拜的 星期四 - 06/30★&lt;/h2&gt;
@@ -377,6 +383,26 @@ a.為orthographic type  及  b.為perspective type&lt;/h3&gt;
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/vision.gif"&gt;
 &lt;/br&gt;
 &lt;hr&gt;
+&lt;/br&gt;
+&lt;h2&gt;★暑期第三個禮拜的 星期五 - 07/15★&lt;/h2&gt;
+&lt;/br&gt;
+&lt;h3&gt;dummy ( 虛擬座標 ) :&lt;/h3&gt;
+&lt;h3&gt;dummy 能夠讓不是從屬性質的物件做相對移動, 常用於close chain, 以irb360範例來說 :&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;a. b.桿為示範物件&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/dummy_1.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;將a.及b.桿實體隱藏之後 ,能夠看到從屬於a、b桿下的dummy為重疊狀態 ,並且為互相對應(target)  &lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/dummy_2.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/dummy_3.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;目的是因為 ,若a桿做出任何動作(移動) ,在它從屬下的dummy會隨著target的dummy做相對運動 ,因此兩桿距離始終會保持固定 &lt;/h3&gt;
 &lt;/br&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - 105/06/29</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050629.html" rel="alternate"></link><updated>2016-07-15T17:24:16+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323250ri-zhi-1050629.html</id><summary type="html">&lt;p&gt;暑期第一個禮拜的 星期三&lt;/p&gt;
 
 

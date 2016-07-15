@@ -14,11 +14,11 @@
 <v t="leo.20151212173315.2"><vh>@data qt-gui-plugin-style-sheet</vh></v>
 <v t="leo.20151212173315.3"><vh>@string initial_split_orientation = horizontal</vh></v>
 </v>
-<v t="amd.20160106095324.1"><vh>@path ./../</vh>
-<v t="leo.20151213173811.1"><vh>假如要送到 gh-pages 分支, 使用下列按鈕</vh>
+<v t="amd.20160106095324.1" a="E"><vh>@path ./../</vh>
+<v t="leo.20151213173811.1" a="E"><vh>假如要送到 gh-pages 分支, 使用下列按鈕</vh>
 <v t="leo.20151212173658.1"><vh>@button gh-pages pelican</vh></v>
 </v>
-<v t="leo.20151213173830.1"><vh>假如要在近端檢視, 使用下列按鈕</vh>
+<v t="leo.20151213173830.1" a="E"><vh>假如要在近端檢視, 使用下列按鈕</vh>
 <v t="leo.20151213085727.1"><vh>@button local pelican</vh></v>
 </v>
 </v>
@@ -43,6 +43,7 @@
 <v t="leo.20160711153011.1"><vh>@edit 40323143_20160711.md</vh></v>
 <v t="leo.20160712161115.1"><vh>@edit 40323143_20160712.md</vh></v>
 <v t="leo.20160713155935.1"><vh>@edit 40323143_20160713.md</vh></v>
+<v t="leo.20160714163345.1"><vh>@edit 40323143_20160714.md</vh></v>
 </v>
 </v>
 </v>

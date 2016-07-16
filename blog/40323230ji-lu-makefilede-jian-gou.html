@@ -395,7 +395,7 @@ init_mathjax();
 <p>不過後來在Netbeams編譯外層"Solvespace"時出現了一些問題：</p>
 <p><img src="http://i.imgur.com/jkkUFzC.jpg" ></p>
 <p>檢查了一下，似乎中間的檔案"＄(SRFOBJS)"找不到？而"＄(SRFOBJS)"的檔案是從"srf\＄(@B).cpp"和"＄(HEADERS)"產生的。</p>
-<p>其中"srf\＄(@B).cpp"應該就是取下所有\srf資料夾的cpp檔案，配上標頭檔後生成obj檔。途中不知道什麼原因obj檔沒有產生，所以</p>
+<p>其中"srf\＄(@B).cpp"應該就是取下所有\srf資料夾的cpp檔案，配上標頭檔後生成obj檔。途中不知道什麼原因obj檔沒有產生，所以才會無法找到？</p>
 <p>但是只編譯exposed資料夾的Makefile時又有這個問題：</p>
 <p><img src="http://i.imgur.com/0Mv3ISG.jpg" ></p>
 <p>上網檢查了一下這段的用途是編碼對應，可是語法照常來講應該沒錯才是。</p>

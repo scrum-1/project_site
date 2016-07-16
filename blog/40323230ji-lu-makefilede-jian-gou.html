@@ -381,7 +381,7 @@ init_mathjax();
 <p>而如果命令不能執行時就會中斷操作。</p>
 <p><img src="http://i.imgur.com/R9ZtTgK.jpg" ></p>
 <p>Makefile中的參數定義和大部分的語言雷同。不過為了明顯標示，大部分使用者習慣大寫字母。</p>
-<p>定義項目後，使用"$( )"符號括住來使用變數。變數可以是目錄位置、命令名稱、參數名稱，亦有如"$$(basename $$(notdir $$@))"內定的用法。</p>
+<p>定義項目後，使用"＄( )"符號括住來使用變數。變數可以是目錄位置、命令名稱、參數名稱，亦有如"＄＄(basename ＄＄(notdir ＄＄@))"內定的用法。</p>
 <p><img src="http://i.imgur.com/weJOnmA.jpg" ></p>
 <hr>
 
@@ -394,8 +394,8 @@ init_mathjax();
 <p><img src="http://i.imgur.com/KG4JYdS.jpg" ></p>
 <p>不過後來在Netbeams編譯外層"Solvespace"時出現了一些問題：</p>
 <p><img src="http://i.imgur.com/jkkUFzC.jpg" ></p>
-<p>檢查了一下，似乎中間的檔案"$(SRFOBJS)"找不到？而"$(SRFOBJS)"的檔案是從"srf\$(@B).cpp"和"$(HEADERS)"產生的。</p>
-<p>其中"srf\$(@B).cpp"應該就是取下所有\srf資料夾的cpp檔案，配上標頭檔後生成obj檔。途中不知道什麼原因obj檔沒有產生，所以</p>
+<p>檢查了一下，似乎中間的檔案"＄(SRFOBJS)"找不到？而"＄(SRFOBJS)"的檔案是從"srf\＄(@B).cpp"和"＄(HEADERS)"產生的。</p>
+<p>其中"srf\＄(@B).cpp"應該就是取下所有\srf資料夾的cpp檔案，配上標頭檔後生成obj檔。途中不知道什麼原因obj檔沒有產生，所以</p>
 <p>但是只編譯exposed資料夾的Makefile時又有這個問題：</p>
 <p><img src="http://i.imgur.com/0Mv3ISG.jpg" ></p>
 <p>上網檢查了一下這段的用途是編碼對應，可是語法照常來講應該沒錯才是。</p>

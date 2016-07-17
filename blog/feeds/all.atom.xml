@@ -453,7 +453,7 @@ direction: the desired rotation direction for cyclic revolute joints: 0 for the 
 &lt;p&gt;將原本的網站做一次更新，並且讓設定檔做好，接下來會把setting中再加入指令檔，就可以啟動攝影機和server的從新啟動以及開關server。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/zcIeIBl.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;網址位置在:140.130.17.107&lt;/p&gt;
-&lt;p&gt;未來是想要加damain name 讓140.130改成自己的網址，好讓自己的網站發展，以及學習如何加入自己的網址。&lt;/p&gt;</summary><category term="3dprint server"></category></entry><entry><title>40323250日誌 - V-rep &amp; 3D-Printer</title><link href="http://project.mde.tw/blog/40323250ri-zhi-v-rep-3d-printer.html" rel="alternate"></link><updated>2016-07-15T17:13:27+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323250ri-zhi-v-rep-3d-printer.html</id><summary type="html">&lt;p&gt;之後的 V-rep模擬Pronter都整理於本文章中&lt;/p&gt;
+&lt;p&gt;未來是想要加damain name 讓140.130改成自己的網址，好讓自己的網站發展，以及學習如何加入自己的網址。&lt;/p&gt;</summary><category term="3dprint server"></category></entry><entry><title>40323250日誌 - V-rep &amp; 3D-Printer</title><link href="http://project.mde.tw/blog/40323250ri-zhi-v-rep-3d-printer.html" rel="alternate"></link><updated>2016-07-15T17:13:27+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323250ri-zhi-v-rep-3d-printer.html</id><summary type="html">&lt;p&gt;之後的 V-rep模擬Printer都整理於本文章中&lt;/p&gt;
 </summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>yen - RGA 基因演算法</title><link href="http://project.mde.tw/blog/yen-rga-ji-yin-yan-suan-fa.html" rel="alternate"></link><updated>2016-07-15T17:05:03+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-15:blog/yen-rga-ji-yin-yan-suan-fa.html</id><summary type="html">&lt;p&gt;RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.&lt;/p&gt;
 
 
@@ -4374,7 +4374,6 @@ if __name__ == "__main__":
 &lt;/br&gt;
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/solvespace_tutorial.gif" &gt;
 &lt;/br&gt;
-&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/links_simulation.slvs?raw=true"&gt;links_simulation.slvs&lt;/a&gt;&lt;/p&gt;
 &lt;/br&gt;
 &lt;h3&gt;旋轉軸定義&lt;/h3&gt;
 &lt;/br&gt;
@@ -4385,8 +4384,15 @@ if __name__ == "__main__":
 &lt;/br&gt;
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/relation_test.png" &gt;
 &lt;/br&gt;
+&lt;hr&gt;
 &lt;/br&gt;
-&lt;h3&gt;但是各個轉軸的速度不知道該如何計算&lt;/h3&gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323250日誌 - V-rep 功能 (持續更新中)</title><link href="http://project.mde.tw/blog/40323250ri-zhi-v-rep-gong-neng-chi-xu-geng-xin-zhong.html" rel="alternate"></link><updated>2016-07-15T17:05:03+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323250ri-zhi-v-rep-gong-neng-chi-xu-geng-xin-zhong.html</id><summary type="html">&lt;p&gt;V-rep 的使用與學習&lt;/p&gt;
+&lt;h3&gt;經過一番波折 ,終於和同學弄出來了 ,只要無法封閉的部分利用dummy固定就可以了 ,至於實體轉軸部分要搭接在桿子上才可以&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/solvespace_successful.ttt?raw=true"&gt;solvespace_successful&lt;/a&gt;&lt;/p&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/solvespace_successful.png" &gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/solvespace_successful.gif" &gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323250日誌 - V-rep 功能 (持續更新中)</title><link href="http://project.mde.tw/blog/40323250ri-zhi-v-rep-gong-neng-chi-xu-geng-xin-zhong.html" rel="alternate"></link><updated>2016-07-15T17:05:03+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323250ri-zhi-v-rep-gong-neng-chi-xu-geng-xin-zhong.html</id><summary type="html">&lt;p&gt;V-rep 的使用與學習&lt;/p&gt;
 
 
 &lt;h2&gt;★暑期第一個禮拜的 星期四 - 06/30★&lt;/h2&gt;

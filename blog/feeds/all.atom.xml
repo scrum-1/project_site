@@ -1,24 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-17T23:24:00+08:00</updated><entry><title>40323218日誌 - 105/07/11</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050711.html" rel="alternate"></link><updated>2016-07-17T23:24:00+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-17:blog/40323218ri-zhi-1050711.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
-
-
-&lt;h2&gt;嘗試 vrep_solvespace_linkages&lt;/h2&gt;
-
-&lt;p&gt;&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/linkages.png" weight=600 &gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;h2&gt;影片教學：&lt;/h2&gt;
-&lt;br&gt;
-&lt;iframe src="https://player.vimeo.com/video/175117655" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt; &lt;p&gt;&lt;a href="https://vimeo.com/175117655"&gt;vrep_solvespace_linkages&lt;/a&gt; from &lt;a href="https://vimeo.com/user44943624"&gt;Li Steven&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;h2&gt;檔案：&lt;/h2&gt;
-&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/40323218/solvespace_successful.ttt?raw=true"&gt;solvespace_successful.ttt&lt;/a&gt;&lt;/p&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;h2&gt;心得：&lt;/h2&gt;
-&lt;h3&gt;組裝這個物件的重點我認為是在零件的順序和Dummy放置的位置，嘗試了兩天終於作了出來，對零件的從屬關係有比較OK了，有學會dummy的應用，再來就是把這些統整可以試著弄我們的 printer。&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323218日誌 - 105/07/11</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050711.html" rel="alternate"></link><updated>2016-07-17T23:24:00+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-17:blog/40323218ri-zhi-1050711.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-17T23:24:00+08:00</updated><entry><title>40323218日誌 - 105/07/17</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050717.html" rel="alternate"></link><updated>2016-07-17T23:24:00+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-17:blog/40323218ri-zhi-1050717.html</id><summary type="html">&lt;p&gt;V-rep_solvespace_linkages&lt;/p&gt;
 
 
 &lt;h2&gt;嘗試 vrep_solvespace_linkages&lt;/h2&gt;
@@ -2281,38 +2262,7 @@ void Example2d()
 &lt;hr&gt;
 
 &lt;p&gt;使用一款未接觸過的軟體，都會先研究它的介面和基本操作方式還有額外的設定，不過有些專業用詞不知道影響的關聯性。&lt;/p&gt;
-&lt;p&gt;以前只用過Visual Studio撰寫和測試一些簡單的程式，對這種大型的架構瞭解較少，應該會再找些相關資訊學習。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323218日誌 - 105/07/11</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050711.html" rel="alternate"></link><updated>2016-07-14T02:12:22+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323218ri-zhi-1050711.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
-
-
-&lt;h4&gt;嘗試四連桿機構&lt;/h4&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;h1&gt;&lt;h3&gt;理想狀態：&lt;/h3&gt;&lt;/h1&gt;
-&lt;h1&gt;&lt;br&gt;&lt;/h1&gt;
-&lt;h3&gt;前期嘗試：&lt;/h3&gt;
-
-&lt;p&gt;&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/before.gif" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;前期階級排列：&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step10.png" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;查詢資料：&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step11.png" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;(在兩個dynamic item之間不能有static item)&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;修改後：&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step12.png" weight=600 &gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/after.gif" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;未來嘗試：製作搖擺機構&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;參考網站：http://www.coppeliarobotics.com/helpFiles/en/jointDescription.htm &lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323143 - 日誌 105年7月13日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-13ri.html" rel="alternate"></link><updated>2016-07-14T02:12:22+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323143-ri-zhi-105nian-7yue-13ri.html</id><summary type="html">&lt;p&gt;寫Arduino控制程式 2
+&lt;p&gt;以前只用過Visual Studio撰寫和測試一些簡單的程式，對這種大型的架構瞭解較少，應該會再找些相關資訊學習。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323143 - 日誌 105年7月13日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-13ri.html" rel="alternate"></link><updated>2016-07-14T02:12:22+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323143-ri-zhi-105nian-7yue-13ri.html</id><summary type="html">&lt;p&gt;寫Arduino控制程式 2
 &lt;/p&gt;
 &lt;p&gt;日記:&lt;/p&gt;
 &lt;p&gt;今天對控制程式做了一些修改，程式新增了抵抗地心引力的補正，以及抵抗慣性的補正。&lt;/p&gt;

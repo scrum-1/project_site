@@ -1,5 +1,281 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-18T17:46:35+08:00</updated><entry><title>40323143 - 馬達控制 105年7月18日</title><link href="http://project.mde.tw/blog/40323143-ma-da-kong-zhi-105nian-7yue-18ri.html" rel="alternate"></link><updated>2016-07-18T17:46:35+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-18:blog/40323143-ma-da-kong-zhi-105nian-7yue-18ri.html</id><summary type="html">&lt;p&gt;馬達控制
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-18T18:08:44+08:00</updated><entry><title>40323131日誌 105/07/15</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050715.html" rel="alternate"></link><updated>2016-07-18T18:08:44+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-18:blog/40323131ri-zhi-1050715.html</id><summary type="html">&lt;p&gt;將OctoPrint標題替換成KMOL
+&lt;/p&gt;
+&lt;h3&gt;先來看關於下圖的框框處，是如何更動的&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;img src="http://i.imgur.com/uEfRgiA.png"&gt;
+&lt;/br&gt;
+&lt;h3&gt;一開始用grepwin 尋找OctoPrint然後找了蠻久的，終於在下圖的地方找到了&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/wdK9HrK.png"&gt;
+&lt;/br&gt;
+&lt;h3&gt;不過後來重啟ocopi之後，發現在還沒有完全載入前，是有變換成KMOL的，不過後來又變回去OctoPrint，後來在網頁按下F12查看原始碼，發現到在下圖中框框處， load 到框框前都是KMOL，不過框框後發現到又變回去OctoPrint了&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/85DweJi.png"&gt;
+&lt;/br&gt;
+&lt;h3&gt;所以去查看那些檔案裡頭的程式碼，裡頭也是很多關於物件導向的東西，不過還好有惡補了一下，所以不是太難，又想到裡頭它可能有重新指向一個物件，導致它又重置了，所以又在下圖的地方發現了他有定義一個屬性項，去執行底下的程式&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/fgPwQs3.png"&gt;
+&lt;/br&gt;
+&lt;h3&gt;於是為了找webassets 這個物件，又費了一番功夫，網頁的話，想到會不會跟 .js檔有關呢? 於是到了網頁原始碼裡找，終於在下圖的地方找到了&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/KNFeIOa.png"&gt;
+&lt;/br&gt;
+&lt;h3&gt;不過由於無法直接在網頁原始碼上頭進行修改，要在設定檔裡頭修改，於是朝天花板發呆了大約5分鐘，思考了一下大概的檔案位置，於是在下圖找到了檔案位置了，將裡頭的OctoPrint修改成KMOL之後再重啟OctoPi&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/PSsLb3u.png"&gt;
+&lt;/br&gt;
+&lt;h3&gt;就會變成這樣，成功的更動，之後的小圖檔也修改成KMOL的圖示了&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/uEfRgiA.png"&gt;
+&lt;/br&gt;
+&lt;h3&gt;關於要修改裡的設定檔，跟我原本預期的不太一樣，要進到蠻底層的，才能修改到，不過也多虧了grepwin這個工具，幫了我蠻多忙，因為有進行大約一個多禮拜的python課程惡補一下，對於裡頭的程式碼大概都看得懂七八成了，所以覺得還ok，對於我的組員們，我感謝他們通融我這一個多禮拜沒什麼做事情，另外老師說的同時控制10個馬達的東西，我找過櫃子了，沒有找到，另外在櫃子裡也發現到有蠻多學長留下來的論文可以參考，所以拿給模擬作動的組別參考用了，裡頭有關平面四連桿、史都華平台機構、逆向運動學等等......&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>報告的內容2</title><link href="http://project.mde.tw/blog/bao-gao-de-nei-rong-2.html" rel="alternate"></link><updated>2016-07-18T18:08:44+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-18:blog/bao-gao-de-nei-rong-2.html</id><summary type="html">&lt;p&gt;實作部分&lt;/p&gt;
+
+
+&lt;h3&gt;pyserial&lt;/h3&gt;
+
+&lt;p&gt;因為要從樹梅派的USB到3D列印機的Arduino控制系統，必須做出一套橋梁，來做兩端的溝通，採用的方式是使用pyserial，由python第三方模組支援的串列通訊溝通，由官方提供的方法可以import pyserial後，就可以進行serial.open(Value)，開啟兩端的連接後，接者進行資料的傳送和溝通，利用3Dprinter裡面的指令，就可以下指令到3D列印機中控制他(例如:G01、M105…)，利用這樣的方式，就可以傳送基本指令控制3D列印機。
+以下為串列傳輸程式碼:
+(包含解字、切字、utf-8、執行緒)&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+#!/usr/bin/python3
+
+import serial
+import sys
+import numpy as np
+import tkinter
+from matplotlib import pyplot, rcParams
+
+port = serial.Serial('COM6', 9600, timeout=1)
+
+# Tkinter canvas
+top = tkinter.Tk()
+top.title("Tkinter + matplotlib")
+
+# Create flag to work with indefinite while loop
+flag = tkinter.BooleanVar(top)
+flag.set(True)
+
+
+def cleanText(data):
+    data = data.replace("\r\n", "")
+    return data
+
+
+def onStartButtonPress():
+    while True:
+        if flag.get():
+            line = port.readline().decode('UTF-8')
+            reading = line.split(':')
+        #    print (reading)
+            if len(reading) == 2:
+                for i in range(2):
+                    if reading[0] == "temperature":
+                        TempLabel.config(text=cleanText(reading[1]))
+                        TempUnitLabel.config(text="C")
+                        TempUnitLabel.update_idletasks()
+  #                  if reading[0] == "Temperature(F)":
+ #                       TempLabel.config(text=cleanText(reading[1]))
+ #                       TempUnitLabel.config(text="F")
+#                        TempUnitLabel.update_idletasks()
+                    if reading[0] == "Humidity":
+                        HumdLabel.config(text=cleanText(reading[1]))
+                        pData.append(float(reading[1]))
+                        del pData[0]
+#                    if reading[0] == "Light(lx)":
+  #                      LighLabel.config(text=cleanText(reading[1]))
+                    if reading[0] == "Flag":
+#                        print (reading[1])
+                        if int(reading[1]) == 1:
+                            try:
+                                print ("In flag")
+                                print ("In flag -&gt; if ")
+                                l1.set_xdata(np.arange(len(pData)))
+                                l1.set_ydata(pData)  # update the data
+                                pyplot.ylim([0, 100])
+                                pyplot.draw()  # update the plot
+                            except:
+                                print ("In flag except")
+                                pyplot.figure()
+                                pyplot.title('Humidity')
+                                ax1 = pyplot.axes()
+                                l1, = pyplot.plot(pData)
+                                pyplot.ylim([0, 100])
+                        if int(reading[1]) == 0:
+                            try:
+                                pyplot.close('all')
+                                l1 = None
+                            except:
+                                continue
+            port.flushInput()
+            top.update()
+        else:
+            flag.set(True)
+            break
+
+
+def onExitButtonPress():
+    print ("Exiting....")
+    flag.set(False)
+    port.close()
+    top.quit()
+    top.destroy()
+    print ("Done.")
+    sys.exit()
+
+pyplot.ion()
+rcParams['toolbar'] = 'None'
+pData = [0] * 25
+
+tkinter.Label(top, text="Temperature").grid(column=1, row=1)
+tkinter.Label(top, text="Humidity").grid(column=1, row=2)
+tkinter.Label(top, text="Light").grid(column=1, row=3)
+
+TempLabel = tkinter.Label(top, text=" ")
+TempLabel.grid(column=2, row=1)
+HumdLabel = tkinter.Label(top, text=" ")
+HumdLabel.grid(column=2, row=2)
+LighLabel = tkinter.Label(top, text=" ")
+LighLabel.grid(column=2, row=3)
+
+TempUnitLabel = tkinter.Label(top, text=" ")
+TempUnitLabel.grid(column=3, row=1)
+HumdUnitLabel = tkinter.Label(top, text="%")
+HumdUnitLabel.grid(column=3, row=2)
+LighUnitLabel = tkinter.Label(top, text="lx")
+LighUnitLabel.grid(column=3, row=3)
+
+# Create Start button and associate with onStartButtonPress method
+StartButton = tkinter.Button(top,
+                             text="Start",
+                             command=onStartButtonPress)
+StartButton.grid(column=1, row=4)
+
+# Create Exit button and destroy the window
+ExitButton = tkinter.Button(top,
+                            text="Exit",
+                            command=onExitButtonPress)
+ExitButton.grid(column=2, row=4)
+
+top.mainloop()
+
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/UscP5Jg.jpg"&gt;&lt;/p&gt;
+&lt;h3&gt;Flask&lt;/h3&gt;
+
+&lt;p&gt;這邊我們選用的框架是flask，因為它輕巧、且具有大量的可擴充性，因此選用，相較於python其他兩個，他擁有比較小的空間和核心，較符合Raspberrypi的系統。
+底下為利用flask看通訊端得到的資料&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+
+import flask
+import serial
+from time import sleep
+
+app = flask.Flask(__name__)
+app.debug = True
+
+def event_barcode():
+    messageid = 0
+    ser = serial.Serial()
+    ser.port = COM^
+    ser.baudrate = 9600
+    ser.bytesize = 8
+    ser.parity = serial.PARITY_NONE
+    ser.stopbits = serial.STOPBITS_ONE
+    ser.timeout = 0
+    try:
+        ser.open()
+    except serial.SerialException as e:
+         yield 'event:error\n' + 'data:' + 'Serial port error({0}): {1}\n\n'.format(e.errno, e.strerror)
+         messageid = messageid + 1
+    str_list = []
+    while True:
+        sleep(0.01)
+        nextchar = ser.read()
+        if nextchar:
+            str_list.append(nextchar)
+        else:
+            if len(str_list) &gt; 0:
+                yield 'id:' + str(messageid) + '\n' + 'data:' + ''.join(str_list) + '\n\n'
+                messageid = messageid + 1
+                str_list = []
+
+@app.route('/barcode')
+def barcode():
+    newresponse = flask.Response(event_barcode(), mimetype="text/event-stream")
+    newresponse.headers.add('Access-Control-Allow-Origin', '*')
+    newresponse.headers.add('Cache-Control', 'no-cache')
+    return newresponse
+
+if __name__ == '__main__':
+    app.run(port=5000, threaded=True)
+
+&lt;/pre&gt;
+
+&lt;h3&gt;OctoPrint&lt;/h3&gt;
+
+&lt;p&gt;我們在找相關資料的時候，發現到其實已經有人將我們實作的部分寫成一份套件包，只需要從新編譯過，就可以符合我們使用，而且他是屬於OpenSource，不會有版權上的問題，他將程式碼公開，讓我們這些後輩人學習，真的非常感動，我們照著他的code一路走，看到每個人針對他所想要走所設計的不同，看到不一樣的寫法，因此感謝他的幫助好讓我們可以有參考資料。主要他用的方法是使用我們看到的flask+js+nginx+pyserial+oprint+yaml，非常的複雜，但是在flask底下，可以很清楚的知道，每個py檔的作用和功能，可以讓我們比較好了解如何使用。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/tdwh26A.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/zcIeIBl.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/P7r3lQb.jpg"&gt;&lt;/p&gt;
+&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/4sK0pn37HAQ" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="g1project"></category></entry><entry><title>報告的內容</title><link href="http://project.mde.tw/blog/bao-gao-de-nei-rong.html" rel="alternate"></link><updated>2016-07-18T18:08:44+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-18:blog/bao-gao-de-nei-rong.html</id><summary type="html">&lt;p&gt;動機與目的&lt;/p&gt;
+
+
+&lt;h3&gt;研究動機與目的&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/WKGRL3z.png"&gt;
+&lt;img src="http://i.imgur.com/4yruSRL.png"&gt;  &lt;/p&gt;
+&lt;p&gt;在使用3D列印機時，常常會需要長久的等待，例如:製作一個大型的物件，或者有很多複雜的小零件參雜，往往需要大量的時間去製作，途中列印完成的時間點，幾乎都落在凌晨，沒辦法讓機台持續列印下去，因為工件會附著在平台上，並沒有辦法直接操控電腦讓他進行列印動作，目前需仰賴人力，將其剷除，才可繼續進行列印動作。
+   隨著3D列印機日漸普及，人們開始設計、構思，裝載更多新功能的3D列印機，像是wifi版本、server版本、自動校正、判斷材料種類、自動參數…..等，但是相對於價格上，有越來越貴的趨勢，也沒有版本的觀念，一台機台可以設定的參數，會根據你所使用的切片軟體，有些廠商會開發屬於他們自家的切片軟體，以至於在我們的電腦上可能會有多套的軟體安裝。
+  近年來，物聯網(IOT)的觀念蓬勃發展，Raspberry pi 以及Arduino的發展漸漸邁向世界主流，人們得以結合平板、手機利用網路串連起這些嵌入式系統，直接在網路端，下達控制指令或者偵測，讓網際世界變得無遠弗屆。&lt;br /&gt;
+  若能在嵌入式系統中開發一套網際平台，讓所有可以連上網際平台的裝置，只需要登入系統，就能夠控制3D列印機，上傳、下載、列印、目前的列印狀態…等，針對目前需要人力在旁監控列印的狀態，利用嵌入式系統達到節省人力的目標，例如說:可以使用手機上傳客戶交代給你列印的檔案，利用網路上傳到嵌入式系統中，可以讓你在任何時間、地點，不受時間、空間的侷限，來控制你的3Dprinter，再配合自動下料系統，可以連續列印，節省人在機器旁邊等待的時刻，再利用自動校正加上下料系統，能夠讓機器24小時運作，並且可以在網頁上看到目前的列印狀態以及縮時攝影。因此本專題使用樹梅派(Raspberry pi)加上python製作一套可針對大部分開源的機台所使用的網際控制介面。&lt;/p&gt;
+&lt;h3&gt;使用語言Python&lt;/h3&gt;
+
+&lt;p&gt;Python是一種以通用性為目的、物件導向、直譯式的高階程式語言，由Guido van Rossum在1991年發佈，python能夠安裝在許多不同的操作系統上，擁有跨平台的好處，且擁有大量第三方的函式庫(Third-party library)，在眾多領域皆有應用(科學與數學運算、大數據、經濟、電腦繪圖、網路開法等)並提供豐富的API和工具，使開發者能夠使用C、C++來擴充模組，python因為擁有許多可被應用在科學開發上的函式庫(如:Numpy、Matplotlib…等)，且其快速開發為導向的特性，因此許多領域的開發都選擇Python作為主要開發的語言。&lt;/p&gt;
+&lt;h3&gt;網際網路架構(Nginx)&lt;/h3&gt;
+
+&lt;p&gt;Nginx，是一個網頁代理伺服器，在2004年發表，但是在當時因為apache server還是屬於強勢期，並沒有被大家重視，但是他的特點在近期被大家重視，主要是在效能設計的HTTP伺服器，相較於其他兩個，佔有記憶體較少，穩定性高等優勢與舊版Apache不同，Nginx不採用每個client端一執行緒的設計模型，而是充分運用異步邏輯，削減上下文排成的開銷，因此再並行服務能力更強。整體採用模組化設計，有豐富的模組庫以及第三方開發的模組，配置非常靈活。在linux系統中，Nginx使用epoll事件模型，得益於此，nginx在linux作業系統(例:ubuntu 14.04 raspbane)下效率相當高，以及可以大量平行運算等特點，在我們的嵌入式系統，採用Nginx當作代理伺服器。&lt;/p&gt;
+&lt;h3&gt;web framework(flask)&lt;/h3&gt;
+
+&lt;p&gt;Flask為一種微型網際網路架構，和Django不一樣，微型不代表整的web都需要用同一個python文件(當然也是可以使用同一個)，也不代表他是缺乏功能，只擁有基本的網路架構，在微型framework指的是核心簡單易於擴充，Flask不會決定你要用什麼樣的database，或者必須安裝怎樣的模組，一切都可以看使用者，需要怎樣的功能，就安裝不一樣的模組，可針對我們需要使用的模組做延伸，因此我們選用Flask當框架使用。&lt;/p&gt;
+&lt;p&gt;Django能夠用於快速開發複雜的網站且擁有大量的第三方套件可做延伸，並具有相當完善的說明文檔、穩定的發布流程，與其他框架相比較完整，但相對於用在嵌入式電腦中，他所需要的運算量較大及對記憶體的考量，也有可能對Raspberry pi造成當機，或者運算緩慢，因此不考慮使用。&lt;/p&gt;
+&lt;h3&gt;server硬體規格&lt;/h3&gt;
+
+&lt;table width=300 border=0 &gt;
+&lt;caption&gt;Raspberry pi 3硬體規格&lt;/caption&gt;
+&lt;td&gt;記憶體&lt;/td&gt;
+&lt;td&gt;1 GB&lt;/td&gt;
+&lt;tr&gt;
+&lt;td&gt;CPU&lt;/td&gt;
+&lt;td&gt;1.2 GHZ&lt;/td&gt;
+&lt;tr&gt;
+&lt;td&gt;位元數&lt;/td&gt;
+&lt;td&gt;64位元&lt;/td&gt;
+&lt;tr&gt;
+&lt;td&gt;記憶卡&lt;/td&gt;
+&lt;td&gt;32 GB&lt;/td&gt;
+&lt;/table&gt;</summary><category term="g1project"></category></entry><entry><title>KmolPrint 0715</title><link href="http://project.mde.tw/blog/kmolprint-0715.html" rel="alternate"></link><updated>2016-07-18T18:08:44+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-18:blog/kmolprint-0715.html</id><summary type="html">&lt;p&gt;關於目前設計3dprinter clouds&lt;/p&gt;
+
+
+&lt;h3&gt;目前我們的網站&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/tdwh26A.png"&gt;&lt;/p&gt;
+&lt;p&gt;將原本的網站做一次更新，並且讓設定檔做好，接下來會把setting中再加入指令檔，就可以啟動攝影機和server的從新啟動以及開關server。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/zcIeIBl.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;網址位置在:140.130.17.107&lt;/p&gt;
+&lt;p&gt;未來是想要加damain name 讓140.130改成自己的網址，好讓自己的網站發展，以及學習如何加入自己的網址。&lt;/p&gt;</summary><category term="3dprint server"></category></entry><entry><title>KmolPrint 0716</title><link href="http://project.mde.tw/blog/kmolprint-0716.html" rel="alternate"></link><updated>2016-07-18T18:08:44+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-18:blog/kmolprint-0716.html</id><summary type="html">&lt;p&gt;關於目前設計3dprinter clouds&lt;/p&gt;
+
+
+&lt;p&gt;domain name可能想要的名子(IPV6還沒弄)
+&lt;h3&gt;kmolprint.mde.tw&lt;/h3&gt;&lt;/p&gt;
+&lt;p&gt;目前我們這組規劃圖設計以及目前擁有的功能
+&lt;img src="http://i.imgur.com/wjejr6J.jpg?1"&gt;&lt;/p&gt;
+&lt;p&gt;今天將攝影機的模組mjpg串流做好了&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/G9KfFT4.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/P7r3lQb.jpg"&gt;&lt;/p&gt;
+&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/4sK0pn37HAQ" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="3dprint server"></category></entry><entry><title>40323143 - 馬達控制 105年7月18日</title><link href="http://project.mde.tw/blog/40323143-ma-da-kong-zhi-105nian-7yue-18ri.html" rel="alternate"></link><updated>2016-07-18T17:46:35+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-18:blog/40323143-ma-da-kong-zhi-105nian-7yue-18ri.html</id><summary type="html">&lt;p&gt;馬達控制
 &lt;/p&gt;
 &lt;p&gt;本篇為伺服馬達控制的學習筆記，共分為兩部分，第一部分為直接控制角度，第二部分以脈衝寬度控制。&lt;/p&gt;
 &lt;p&gt;控制角度:&lt;/p&gt;

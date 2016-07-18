@@ -1,5 +1,168 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-16T22:00:10+08:00</updated><entry><title>KmolPrint 0716</title><link href="http://project.mde.tw/blog/kmolprint-0716.html" rel="alternate"></link><updated>2016-07-16T22:00:10+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-16:blog/kmolprint-0716.html</id><summary type="html">&lt;p&gt;關於目前設計3dprinter clouds&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-18T22:06:23+08:00</updated><entry><title>40323230日誌 - 105/07/18</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050718.html" rel="alternate"></link><updated>2016-07-18T22:06:23+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-18:blog/40323230ri-zhi-1050718.html</id><summary type="html">&lt;p&gt;改寫Python-Solvespace的Makefile運作方式。&lt;/p&gt;
+
+
+&lt;h2&gt;前言 :&lt;/h2&gt;
+
+&lt;p&gt;閱讀GNU-Make的手冊之後，已經了解Makefile基本的運作方式，所以試圖解決Python-Solvespace編譯程序中出現的問題。&lt;/p&gt;
+&lt;p&gt;手冊連結：&lt;a href="https://www.gnu.org/software/make/manual/make.pdf" title="gnu.org"&gt;https://www.gnu.org/software/make/manual/make.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;利用Interface來轉換Whitequark的新版Solvespace應該是不太可行的方式了，何況Python-Solvespace也未使用全部的功能，我們需要的是解題的函式就好。&lt;/p&gt;
+&lt;p&gt;而另一方面Solid-python現在已經完全支援Python 3，若之後要調用其功能，應該也不會有太大的障礙。&lt;/p&gt;
+&lt;p&gt;所以決定把Python-Solvespace的Makefile重新寫好，將Python-Solvespace的資料庫建構完成。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2&gt;Netbeans的支援 :&lt;/h2&gt;
+
+&lt;p&gt;其實Netbeans與$GNU開發者工具包$周邊的軟體都有良好的相依性，因此在撰寫Makefile時方便不少。&lt;/p&gt;
+&lt;p&gt;在編寫完Makefile時，可以在個別的Makefile上點擊右鍵，選擇需要的命令讓make執行，諸如all、clean等等的功能可以選擇。&lt;/p&gt;
+&lt;p&gt;Makefile中可以撰寫功能讓工程師執行，連基本的clean功能也可以自訂要刪除哪些檔案。&lt;/p&gt;
+&lt;p&gt;當然利用這點，Makefile中也可以利用Echo做help的功能，Whitequark的Solvespace就有支援。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/9DDeyVj.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2&gt;編寫Makefile :&lt;/h2&gt;
+
+&lt;p&gt;原本Python-Solvespace的Makefile是將檔案分類，再一類類用一樣的式子做轉換，而且語法冗長還有許多錯誤。若有新增檔案，就必須填入參數的名單中登記。&lt;/p&gt;
+&lt;p&gt;一個小型程式專案的Makefile事實上只需要下列的式子就能轉換：&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+$(ADIR)/%.obj: $(BDIR)/%.cpp $(HEADERS)
+    $(CXX) $(FLAGS) -c -o $@ $＜
+&lt;/pre&gt;
+
+&lt;p&gt;意思是ADIR中的obj檔都與BDIR的cpp檔、標頭檔有關聯，而每個obj檔是由每個cpp檔透過＄(CXX)命令式產生的。&lt;/p&gt;
+&lt;p&gt;$後面的＄＠表示每個目標項（包括其位置）$；同理，$＄＜亦代表每個參照項$，不過＄＜是只包含第一個條件的參照項，所以後面的多個標頭檔就不會帶入＄(CXX)命令中。&lt;/p&gt;
+&lt;p&gt;若要在命令式中使用所有條件的參照項，要使用＄+，但是更好的選擇是使用＄^，會自動排除重複名稱的參照項。&lt;/p&gt;
+&lt;p&gt;這樣寫固然簡單，但是每個檔案都在不同的資料夾中，要如何讓make搜尋？&lt;/p&gt;
+&lt;p&gt;所以必須加上VPath這個參數，讓尋找參照檔案時可以搜尋到所有符合的項目。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/wpUqKDX.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;make在找檔案時最大的特性就是$按邏輯去找$。&lt;/p&gt;
+&lt;p&gt;也因為這點，不用顧慮產生檔案的順序問題。只要"填寫"檔案是如何產生的，make就會根據需要的檔案來做順序調整。&lt;/p&gt;
+&lt;p&gt;make會先忽略還沒產生的參照檔案，尋找已經備齊參照檔案的項目先做，指令亦可使用外部程式來執行。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2&gt;編譯瓶頸 :&lt;/h2&gt;
+
+&lt;p&gt;經過重新整理的Makefile，應該是沒有問題了，都將指令分配完整沒有衝突。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/IkKQSqe.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;但是仍然遇到Makefile以外的一些問題。&lt;/p&gt;
+&lt;h4&gt;已解決&lt;/h4&gt;
+
+&lt;p&gt;&lt;em&gt;Stdint.h&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;這個原先是C語言的額外函式庫，幫助統一化使用的格式，但是如果沒裝，就會選擇作者寫的指令。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/Rz3xBwO.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;不過這個地方應該是寫錯了，會一直認為這些是未定義的格式。&lt;/p&gt;
+&lt;p&gt;其實導入"stdint.h"的地方也只有上圖的前半段，所以最快的解決方法就是讓solvespace.h擁有stdint.h一部份的能力。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/BireSqB.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;在上面這張Netbeans的比較圖中，直接把前半段的功能插進來用了，並成功解決問題。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Min &amp;amp; Max Funtions&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;下列solvespace.h的函式出了問題。&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+#ifndef min
+#define min(x, y) ((x) &lt; (y) ? (x) : (y))
+#endif
+#ifndef max
+#define max(x, y) ((x) &gt; (y) ? (x) : (y))
+#endif
+&lt;/pre&gt;
+
+&lt;p&gt;上網搜尋了一下，找到基本款的用法：&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+#define min(x, y) (((x)＜(y)) ? (x):(y))
+#define max(x, y) (((x)&gt;(y)) ? (x):(y))
+&lt;/pre&gt;
+
+&lt;p&gt;加上括弧其實非必要，因為三元運算子的優先度本身就比大於小於還低。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/l5u0t2N.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;不過這個判斷式使用上怪怪的，移除後直接define就沒這個問題了。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Object-oriented problem&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;在surface.h中有一段是這樣描述的：&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+class STrimBy {
+...
+    static STrimBy STrimBy::EntireCurve(SShell *shell, hSCurve hsc, bool bkwds);
+...
+};
+&lt;/pre&gt;
+
+&lt;p&gt;到stackoverflow.com的論壇尋找後，有相似的問題。&lt;/p&gt;
+&lt;p&gt;是物件導向的從屬錯誤，不應該重複稱呼，但是編譯器通常不會抓這種錯誤，解決方法是刪掉前面的父項名稱。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/PC43snc.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;最後變成：&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+class STrimBy {
+...
+    static EntireCurve(SShell *shell, hSCurve hsc, bool bkwds);
+...
+};
+&lt;/pre&gt;
+
+&lt;p&gt;也是成功解決。&lt;/p&gt;
+&lt;h4&gt;未解決&lt;/h4&gt;
+
+&lt;p&gt;&lt;em&gt;Icons&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;首先是圖示(icon)的問題。&lt;/p&gt;
+&lt;p&gt;Python-Solvespace的作者使用另一個語言$Perl$的程式來做出"icons.h"這個檔案。&lt;/p&gt;
+&lt;p&gt;Perl是一個高階語言，特點就是除了自己的寫法，還可以安裝大量模組來改變撰寫方式，甚至還繼承許多C語言的標準式。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/eXwWp0J.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;安裝方式跟Python相同，複製檔案跟設定環境變數就能使用了。&lt;/p&gt;
+&lt;p&gt;作者用了"GD"這個模組來導出"icons.h"。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/Y1p6Mck.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;Netbeans雖然也有Perl的附加元件，但是功能比SciTE還陽春，就沒使用它了。&lt;/p&gt;
+&lt;p&gt;Perl的副檔名是pl，專案中有"png2c.pl"和"pngchar2c.pl"，應該就是將PNG檔導入C語言中的意思，Makefile中是要執行"png2c.pl"並產生出"icons.h"和"icons-proto.h"的樣子，不過"icons-proto.h"不會用到。&lt;/p&gt;
+&lt;p&gt;以下是"png2c.pl"的內容：&lt;/p&gt;
+&lt;pre class="brush: perl"&gt;
+#!/usr/bin/perl
+use GD;
+
+my ($out, $proto) = @ARGV;
+open(OUT, "&gt;$out") or die "$out: $!";
+open(PROTO, "&gt;$proto") or die "$proto: $!";
+
+for $file (&lt;icons/*.png&gt;) {
+    next if $file =~ /char-/;
+
+    $file =~ m#.*/(.*)\.png#;
+    $base = "Icon_$1";
+    $base =~ y/-/_/;
+
+    open(PNG, $file) or die "$file: $!\n";
+    $img = newFromPng GD::Image(\*PNG) or die;
+    $img-&gt;trueColor(1);
+
+    close PNG;
+
+    ($width, $height) = $img-&gt;getBounds();
+    die "$file: $width, $height"  if ($width != 24) or ($height != 24);
+
+    print PROTO "extern unsigned char $base\[24*24*3\];";
+    print OUT "unsigned char $base\[24*24*3] = {\n";
+
+    for($y = 0; $y &lt; 24; $y++) {
+        for($x = 0; $x &lt; 24; $x++) {
+            $index = $img-&gt;getPixel($x, 23-$y);
+            ($r, $g, $b) = $img-&gt;rgb($index);
+            if($r + $g + $b &lt; 11) {
+                ($r, $g, $b) = (30, 30, 30);
+            }
+            printf OUT "    0x%02x, 0x%02x, 0x%02x,\n", $r, $g, $b;
+        }
+    }
+    print OUT "};\n\n";
+}
+&lt;/pre&gt;
+
+&lt;p&gt;在Netbeans中似乎無法呼叫外部程式，會顯示無法找到Perl指令的訊息。&lt;/p&gt;
+&lt;p&gt;可是到CMD中執行時又會發生無法回應的情況，接著make就會因為找不到"icons.h"而無法編譯。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;ld.exe does not find libraries&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;在exposed資料的Makefile中，g++的參數中需要導入資料庫"-lslvs"。&lt;/p&gt;
+&lt;p&gt;而在上一個步驟中，"libslvs.so"確定已經產生，但是找不到的狀況。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/67n3jzL.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;網路上普遍都是需要資料連結和打錯名稱，但是好像沒這種狀況，莫非是"libslvs.so"產生失敗，或是並非"slvs"這個名稱？&lt;/p&gt;
+&lt;p&gt;Python-Solvespace的作者有特別指名不要使用DLL做副檔名。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;這次學到了編譯程式重要的一環，雖然make的過程中很煩人，也要一直注意是否出錯，但是成功後滿有成就感的。&lt;/p&gt;
+&lt;p&gt;有些錯誤當下想不出來，不過換一種想法後就能克服許多障礙，訓練眼光放遠也是一件重要的事情。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category></entry><entry><title>KmolPrint 0716</title><link href="http://project.mde.tw/blog/kmolprint-0716.html" rel="alternate"></link><updated>2016-07-16T22:00:10+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-16:blog/kmolprint-0716.html</id><summary type="html">&lt;p&gt;關於目前設計3dprinter clouds&lt;/p&gt;
 
 
 &lt;p&gt;domain name可能想要的名子(IPV6還沒弄)

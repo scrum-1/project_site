@@ -437,48 +437,6 @@ class STrimBy {
 <p><img src="http://i.imgur.com/Y1p6Mck.jpg" ></p>
 <p>Netbeans雖然也有Perl的附加元件，但是功能比SciTE還陽春，就沒使用它了。</p>
 <p>Perl的副檔名是pl，專案中有"png2c.pl"和"pngchar2c.pl"，應該就是將PNG檔導入C語言中的意思，Makefile中是要執行"png2c.pl"並產生出"icons.h"和"icons-proto.h"的樣子，不過"icons-proto.h"不會用到。</p>
-<p>以下是"png2c.pl"的內容：</p>
-<pre class="brush: pl">
-#!/usr/bin/perl
-use GD;
-
-my ($out, $proto) = @ARGV;
-open(OUT, ">$out") or die "$out: $!";
-open(PROTO, ">$proto") or die "$proto: $!";
-
-for $file (<icons/*.png>) {
-    next if $file =~ /char-/;
-
-    $file =~ m#.*/(.*)\.png#;
-    $base = "Icon_$1";
-    $base =~ y/-/_/;
-
-    open(PNG, $file) or die "$file: $!\n";
-    $img = newFromPng GD::Image(\*PNG) or die;
-    $img->trueColor(1);
-
-    close PNG;
-
-    ($width, $height) = $img->getBounds();
-    die "$file: $width, $height"  if ($width != 24) or ($height != 24);
-
-    print PROTO "extern unsigned char $base\[24*24*3\];";
-    print OUT "unsigned char $base\[24*24*3] = {\n";
-
-    for($y = 0; $y < 24; $y++) {
-        for($x = 0; $x < 24; $x++) {
-            $index = $img->getPixel($x, 23-$y);
-            ($r, $g, $b) = $img->rgb($index);
-            if($r + $g + $b < 11) {
-                ($r, $g, $b) = (30, 30, 30);
-            }
-            printf OUT "    0x%02x, 0x%02x, 0x%02x,\n", $r, $g, $b;
-        }
-    }
-    print OUT "};\n\n";
-}
-</pre>
-
 <p>在Netbeans中似乎無法呼叫外部程式，會顯示無法找到Perl指令的訊息。</p>
 <p>可是到CMD中執行時又會發生無法回應的情況，接著make就會因為找不到"icons.h"而無法編譯。</p>
 <p><em>ld.exe does not find libraries</em></p>

@@ -177,7 +177,7 @@ init_mathjax();
         <meta property="og:title" content="40323250日誌 - V-rep 功能 (持續更新中)"/>
         <meta property="og:url" content="http://project.mde.tw/blog/40323250ri-zhi-v-rep-gong-neng-chi-xu-geng-xin-zhong.html"/>
         <meta property="og:description" content="V-rep 的使用與學習"/>
-        <meta property="article:published_time" content="2016-07-02" />
+        <meta property="article:published_time" content="2016-07-15" />
             <meta property="article:section" content="2016bg2" />
             <meta property="article:tag" content="Kmol" />
             <meta property="article:author" content="40323250" />
@@ -309,7 +309,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-07-02T12:49:15.538327+08:00"> 週六 02 七月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-07-15T17:05:03.678560+08:00"> 週五 15 七月 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323250.html"><i class="fa fa-user"></i> 40323250</a>
@@ -325,14 +325,17 @@ init_mathjax();
 
 
 <p></br>
-<h3>基本功能 : </h3>
+<h2>引入stl檔案及在V-rep內部拆解 : </h2>
+<h3>因為每個引入的檔案都會是一個整體 ,所以需要拆解之後依照原本實體位置組裝 ,並加入內部的旋轉軸。</h3>
 </br>
-<h3>導入stl檔案</h3>
+<h3>導入stl檔案 :</h3>
 </br>
 <img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/import.png" >
 </br>
 </br>
-<h3>先點選導入的檔案 ,然後點選Edit選單下的Grouping / Merging ,點選 Divide selected shapes 分離零件</h3>
+</h3>分離零件 :</h3>
+</br>
+<h3>先點選導入的檔案 ,然後點選Edit選單下的Grouping / Merging ,點選 Divide selected shapes </h3>
 </br>
 <img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/divide_objects.png">
 </br>
@@ -347,7 +350,16 @@ init_mathjax();
 <img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/vrep_problems.png">
 </br>
 </br>
-<h3>加入旋轉軸 : 在右側視窗點選右鍵 , 新增 → 節點 → 旋轉軸
+<h3>若是以Onshape繪製的零件檔 ,組合好後導入 ,比較不會有定位問題 ,而底座部分最好設定fix(固定) ,轉軸部分利用cylindrical_mate和孔配合後 ,再利用planar_mate讓軸與其他零件有階級差 ,就很容易分解了 ,如圖 :</h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/compare.png">
+</br>
+</br>
+</hr>
+</br>
+<h2>加入旋轉軸 : </h2>
+</br>
+<h3>在右側視窗點選右鍵 , 新增 → 節點 → 旋轉軸
 </h3>
 </br>
 <img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/Revolute.png">
@@ -382,17 +394,6 @@ init_mathjax();
 </br>
 <img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/object_parent.png">
 </br>
-</br>
-<hr>
-</br>
-<h2>心得 :</h2>
-<h3>V-rep很好玩 ,但是它組裝的層次又比creo2.0又更上一檔次了 ,
-俗話說的好 「良藥苦口」,好用的東西種剛開始總是特別棘手。 </h3>
-</br>
-<hr>
-</br>
-<h3>工廠認證 及 探查狀況</h3>
-<h3>傳統機臺幾乎沒有精度可言 ,一年級時故障的機臺也都沒有維修 ,只怕使用傳統機臺會成為受害者 ,不敢使用!!</h3>
 </br>
 <hr>
 </br>
@@ -612,13 +613,18 @@ a.為orthographic type  及  b.為perspective type</h3>
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323131ri-zhi-1050718.html">
-                            40323131日誌 105/07/18
+                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1050718.html">
+                            40323230日誌 - 105/07/18
                         </a>
                     </li>
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323143-ma-da-kong-zhi-105nian-7yue-18ri.html">
                             40323143 -  馬達控制  105年7月18日
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/40323131ri-zhi-1050718.html">
+                            40323131日誌 105/07/18
                         </a>
                     </li>
                     <li class="list-group-item">
@@ -629,11 +635,6 @@ a.為orthographic type  及  b.為perspective type</h3>
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/bao-gao-de-nei-rong-2.html">
                             報告的內容2
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/bao-gao-de-nei-rong.html">
-                            報告的內容
                         </a>
                     </li>
                 </ul>

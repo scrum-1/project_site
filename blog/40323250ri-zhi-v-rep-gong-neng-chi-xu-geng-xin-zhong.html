@@ -325,7 +325,43 @@ init_mathjax();
 
 
 <p></br>
-<h2>引入stl檔案及在V-rep內部拆解 : </h2>
+<h2>Onshape繪製V-rep零件 : </h2>
+</br>
+<h3>在Onshape新增一個零件檔 ,選擇隱私或者公開 ,目前每個人擁有的容量為10mb。</h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/onshape_1.png">
+</br>
+</br>
+<h3>在part studio部分選擇平面當作草圖繪圖 ,功能和大多繪圖軟體相同。</h3>
+</br>
+<h3>單位設置 :</h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/onshape_units.png">
+</br>
+</br>
+<h3>功能表有一個(x)函數圖示 ,能夠設定變數值 ,方便用於零件設計 ,若新增一個x ,命名為a且值為10的值 ,之後在填入尺寸部分輸入#a ,則該尺寸為10。 </h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/onshape_a.png">
+</br>
+</br>
+<h3>零件繪製好之後 ,在Assembly中引入零件。</h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/onshape_insert.png">
+</br>
+</br>
+<h3>先按右鍵將底座設定為fix(固定) ,組裝零件須注意 ,因為使用V-rep模擬 ,組裝時零件和零件設定小段距離(offset) ,不要完全貼合(在V-rep較易拆解零件) ,旋轉軸先透過cylindrical_mate和孔配合 ,再利用planar_mate讓軸偏移小段距離。</h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/onshape_offset.png">
+</br>
+</br>
+<h3>組合完畢後 ,在Assembly點選右鍵 ,輸出成stl格式檔案。</h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/onshape_export.png">
+</br>
+</br>
+<hr>
+</br>
+<h2>引入stl檔案 </h2>
 <h3>因為每個引入的檔案都會是一個整體 ,所以需要拆解之後依照原本實體位置組裝 ,並加入內部的旋轉軸。</h3>
 </br>
 <h3>導入stl檔案 :</h3>
@@ -333,7 +369,7 @@ init_mathjax();
 <img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/import.png" >
 </br>
 </br>
-</h3>分離零件 :</h3>
+<h3>分離零件 :</h3>
 </br>
 <h3>先點選導入的檔案 ,然後點選Edit選單下的Grouping / Merging ,點選 Divide selected shapes </h3>
 </br>
@@ -355,11 +391,11 @@ init_mathjax();
 <img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/compare.png">
 </br>
 </br>
-</hr>
+<hr>
 </br>
 <h2>加入旋轉軸 : </h2>
 </br>
-<h3>在右側視窗點選右鍵 , 新增 → 節點 → 旋轉軸
+<h3>在右側視窗點選右鍵 , Add → Joint → Revolute
 </h3>
 </br>
 <img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/Revolute.png">
@@ -370,7 +406,7 @@ init_mathjax();
 <img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/Revolute_icon.png">
 </br>
 </br>
-<h3>橘色框框為旋轉軸長度及直徑 ,旋轉軸最後可以設定隱藏</h3>
+<h3>橘色框框為旋轉軸長度及直徑 </h3>
 </br>
 <img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/Revolute_properties.png">
 </br>
@@ -385,7 +421,7 @@ init_mathjax();
 <img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/move_properties.png">
 </br>
 </br>
-<h3>如果相關參數都設定好了 ,點選右鍵→編輯→使旋轉軸與零件結合成一物件</h3>
+<h3>如果相關參數都設定好了 ,點選右鍵→Edit→使旋轉軸與零件結合成一物件(也可以直接用滑鼠拖曳)</h3>
 </br>
 <img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/object_combine.png">
 </br>
@@ -397,7 +433,7 @@ init_mathjax();
 </br>
 <hr>
 </br>
-<h2>旋轉軸(馬達)設定</h2>
+<h2>旋轉軸(馬達)設定 :</h2>
 </br>
 <h3>先將各部位組立完成</h3>
 </br>

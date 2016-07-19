@@ -4923,7 +4923,43 @@ if __name__ == "__main__":
 
 
 &lt;p&gt;&lt;/br&gt;
-&lt;h2&gt;引入stl檔案及在V-rep內部拆解 : &lt;/h2&gt;
+&lt;h2&gt;Onshape繪製V-rep零件 : &lt;/h2&gt;
+&lt;/br&gt;
+&lt;h3&gt;在Onshape新增一個零件檔 ,選擇隱私或者公開 ,目前每個人擁有的容量為10mb。&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/onshape_1.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;在part studio部分選擇平面當作草圖繪圖 ,功能和大多繪圖軟體相同。&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;單位設置 :&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/onshape_units.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;功能表有一個(x)函數圖示 ,能夠設定變數值 ,方便用於零件設計 ,若新增一個x ,命名為a且值為10的值 ,之後在填入尺寸部分輸入#a ,則該尺寸為10。 &lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/onshape_a.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;零件繪製好之後 ,在Assembly中引入零件。&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/onshape_insert.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;先按右鍵將底座設定為fix(固定) ,組裝零件須注意 ,因為使用V-rep模擬 ,組裝時零件和零件設定小段距離(offset) ,不要完全貼合(在V-rep較易拆解零件) ,旋轉軸先透過cylindrical_mate和孔配合 ,再利用planar_mate讓軸偏移小段距離。&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/onshape_offset.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;組合完畢後 ,在Assembly點選右鍵 ,輸出成stl格式檔案。&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/onshape_export.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;hr&gt;
+&lt;/br&gt;
+&lt;h2&gt;引入stl檔案 &lt;/h2&gt;
 &lt;h3&gt;因為每個引入的檔案都會是一個整體 ,所以需要拆解之後依照原本實體位置組裝 ,並加入內部的旋轉軸。&lt;/h3&gt;
 &lt;/br&gt;
 &lt;h3&gt;導入stl檔案 :&lt;/h3&gt;
@@ -4931,7 +4967,7 @@ if __name__ == "__main__":
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/import.png" &gt;
 &lt;/br&gt;
 &lt;/br&gt;
-&lt;/h3&gt;分離零件 :&lt;/h3&gt;
+&lt;h3&gt;分離零件 :&lt;/h3&gt;
 &lt;/br&gt;
 &lt;h3&gt;先點選導入的檔案 ,然後點選Edit選單下的Grouping / Merging ,點選 Divide selected shapes &lt;/h3&gt;
 &lt;/br&gt;
@@ -4953,11 +4989,11 @@ if __name__ == "__main__":
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/compare.png"&gt;
 &lt;/br&gt;
 &lt;/br&gt;
-&lt;/hr&gt;
+&lt;hr&gt;
 &lt;/br&gt;
 &lt;h2&gt;加入旋轉軸 : &lt;/h2&gt;
 &lt;/br&gt;
-&lt;h3&gt;在右側視窗點選右鍵 , 新增 → 節點 → 旋轉軸
+&lt;h3&gt;在右側視窗點選右鍵 , Add → Joint → Revolute
 &lt;/h3&gt;
 &lt;/br&gt;
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/Revolute.png"&gt;
@@ -4968,7 +5004,7 @@ if __name__ == "__main__":
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/Revolute_icon.png"&gt;
 &lt;/br&gt;
 &lt;/br&gt;
-&lt;h3&gt;橘色框框為旋轉軸長度及直徑 ,旋轉軸最後可以設定隱藏&lt;/h3&gt;
+&lt;h3&gt;橘色框框為旋轉軸長度及直徑 &lt;/h3&gt;
 &lt;/br&gt;
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/Revolute_properties.png"&gt;
 &lt;/br&gt;
@@ -4983,7 +5019,7 @@ if __name__ == "__main__":
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/move_properties.png"&gt;
 &lt;/br&gt;
 &lt;/br&gt;
-&lt;h3&gt;如果相關參數都設定好了 ,點選右鍵→編輯→使旋轉軸與零件結合成一物件&lt;/h3&gt;
+&lt;h3&gt;如果相關參數都設定好了 ,點選右鍵→Edit→使旋轉軸與零件結合成一物件(也可以直接用滑鼠拖曳)&lt;/h3&gt;
 &lt;/br&gt;
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/object_combine.png"&gt;
 &lt;/br&gt;
@@ -4995,7 +5031,7 @@ if __name__ == "__main__":
 &lt;/br&gt;
 &lt;hr&gt;
 &lt;/br&gt;
-&lt;h2&gt;旋轉軸(馬達)設定&lt;/h2&gt;
+&lt;h2&gt;旋轉軸(馬達)設定 :&lt;/h2&gt;
 &lt;/br&gt;
 &lt;h3&gt;先將各部位組立完成&lt;/h3&gt;
 &lt;/br&gt;

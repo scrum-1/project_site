@@ -480,7 +480,7 @@ CFLAGS  = -I../extlib -I../../common/win32 -I. -I.. -D_DEBUG -D_CRT_SECURE_NO_WA
 CFLAGS_SHARED = -fPIC -shared $(CFLAGS)
 </pre>
 
-<p>兩個Makefile編譯階段都進入整合階段，主要是對obj檔不熟悉的緣故。</p>
+<p>兩個Makefile編譯階段都進入整合階段，剩下的一些編譯問題主要是對MinGW的編譯程式不熟悉的緣故。</p>
 <p>像是一般的<code>.so</code>、<code>.o</code>都較為廣用，可是將obj檔直接轉換成可執行檔，卻找不到範例。</p>
 <p>之後要再找找看gcc和g++的編譯範例。</p>
             </div>

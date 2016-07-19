@@ -361,34 +361,49 @@ init_mathjax();
 </br>
 <hr>
 </br>
-<h2>引入stl檔案 </h2>
-<h3>因為每個引入的檔案都會是一個整體 ,所以需要拆解之後依照原本實體位置組裝 ,並加入內部的旋轉軸。</h3>
+<h2>V-rep 教學 :</h2>
 </br>
 <h3>導入stl檔案 :</h3>
 </br>
-<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/import.png" >
+<h3>點選左上方工具列File ,import ,mesh ,選取繪製的stl檔案後 ,就可以看到零件了。</h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/vrep_import.png">
 </br>
 </br>
-<h3>分離零件 :</h3>
-</br>
-<h3>先點選導入的檔案 ,然後點選Edit選單下的Grouping / Merging ,點選 Divide selected shapes </h3>
-</br>
-<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/divide_objects.png">
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/vrep_import2.png">
 </br>
 </br>
-<h3>分離完成</h3>
+<hr>
+<h3>調整座標 :</h3>
 </br>
-<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/divide_done.png">
+<h3>若只看到零件的一部分 ,就是零件倒過來了 ,這時候點選左方零件圖示 ,再選上方工具列 ,將零件座標系設定成V-rep內(World)座標 ,最後點選上方旋轉功能 ,旋轉零件至理想角度。</h3>
 </br>
-</br>
-<h3>拆解可能遇到的問題</h3>
-</br>
-<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/vrep_problems.png">
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/vrep_setaxis.png">
 </br>
 </br>
-<h3>若是以Onshape繪製的零件檔 ,組合好後導入 ,比較不會有定位問題 ,而底座部分最好設定fix(固定) ,轉軸部分利用cylindrical_mate和孔配合後 ,再利用planar_mate讓軸與其他零件有階級差 ,就很容易分解了 ,如圖 :</h3>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/vrep_setaxis2.png">
 </br>
-<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/compare.png">
+</br>
+<h3>轉好角度之後 ,點選上方平移功能 ,並調整Z軸高度。</h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/vrep_setaxis3.png">
+</br>
+</br>
+<h3>若零件被地板遮住 ,看不到零件 ,可先使用選平移功能 。</h3>
+</br>
+<hr>
+<h3>拆解零件 :</h3>
+</br>
+<h3>在V-rep導入的stl檔都會變成一個整體零件 ,而在Onshape先組好是因為零件拆解後較容易定位 ,且座標較容易設定等等。</h3>
+</br>
+<h3>點選欲拆解之零件後 ,點選工具列 ,編輯 ,Grouping/Merging ,Divide select shapes。 </h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/vrep_divide.png">
+</br>
+</br>
+<h3>若有照上方Onshape繪製零件方式 ,零件就可以順利拆開。</h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/vrep_divide2.png">
 </br>
 </br>
 <hr>

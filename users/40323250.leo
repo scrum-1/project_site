@@ -180,57 +180,7 @@ g.es("admin pelican 近端執行完畢")
 2.Passive 被動的
 
 3.Interation 相互作用</t>
-<t tx="leo.20160719113304.1">@language md
-Title: 40323250日誌 - V-rep 總整理
-Category: 2016bg2
-Tags: v-rep tutorial
-Author: 40323250
-
-
-Onshape &amp; V-rep 
-
-&lt;!-- PELICAN_END_SUMMARY --&gt;
-&lt;/br&gt;
-&lt;h2&gt;Onshape繪製V-rep零件 : &lt;/h2&gt;
-&lt;/br&gt;
-&lt;h3&gt;在Onshape新增一個零件檔 ,選擇隱私或者公開 ,目前每個人擁有的容量為10mb。&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/onshape_1.png"&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;在part studio部分選擇平面當作草圖繪圖 ,功能和大多繪圖軟體相同。&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;單位設置 :&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/onshape_units.png"&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;功能表有一個(x)函數圖示 ,能夠設定變數值 ,方便用於零件設計 ,若新增一個x ,命名為a且值為10的值 ,之後在填入尺寸部分輸入#a ,則該尺寸為10。 &lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/onshape_a.png"&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;零件繪製好之後 ,在Assembly中引入零件。&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/onshape_insert.png"&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;先按右鍵將底座設定為fix(固定) ,組裝零件須注意 ,因為使用V-rep模擬 ,組裝時零件和零件設定小段距離(offset) ,不要完全貼合(在V-rep較易拆解零件) ,旋轉軸先透過cylindrical_mate和孔配合 ,再利用planar_mate讓軸偏移小段距離。&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/onshape_offset.png"&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;組合完畢後 ,在Assembly點選右鍵 ,輸出成stl格式檔案。&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/onshape_export.png"&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;hr&gt;
-&lt;/br&gt;
-&lt;h2&gt;V-rep 教學 :&lt;/h2&gt;
-&lt;/br&gt;
-&lt;h3&gt;引入stl檔案 :&lt;/h3&gt;
-&lt;/br&gt;
+<t tx="leo.20160719113304.1">
 &lt;h3&gt;點選左上方工具列File ,import ,mesh ,選取繪製的stl檔案後 ,就可以看到零件了。&lt;/h3&gt;
 &lt;/br&gt;
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/vrep_import.png"&gt;

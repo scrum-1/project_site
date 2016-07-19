@@ -338,7 +338,19 @@ init_mathjax();
 <p>•  Joint limits (calculation weights): <br><br>the calculation weight 應該被使用在 joint limitation constraints <br><br>(joint limitation constraints 是被指定在  joint properties <br><br>(position minimum andposition range).<br><br><br></p>
 <p>•  Obstacle avoidance (calculation weights): <br><br>the calculation weight 應該被使用對於 obstacle avoidance(避開障礙物) constraints.<br><br><br></p>
 <p>•  Joint limit thresholds:   線性和角度的臨界值應該和joint limitation constraints 一起被使用.<br><br><br></p>
-<p>•  Edit conditional parameters:   調整選擇的IK group裡附加的參數 .</h3></p>
+<p>•  Edit conditional parameters:   調整選擇的IK group裡附加的參數 .</h3>
+<br><br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/IK2.png" weight=600 ><br><br></p>
+<h3>•  Perform if... : <br><br>這是有條件的分析部分. <br><br>使用者可以選擇下拉一個在列表中的IK group，<br><br>這個IK分析結果將會決定當前IK group是否會被解決。<br><br>被認為是成功的IK group計算的IK elements都位於指定的線性/角度精度內。<br><br><br>
+•  Restore if... : <br><br>允許恢復初始IK group配置（goint values）如果分析沒有成功 (位置和/或定向精度沒有達到).<br><br> 與上述條件的解結合時，用戶可以例如結合兩個不同的計算方法。<br><br>這是有用的如果在操作者的目標可能超出範圍或靠近一個單一組態: <br><br>第一次分析嘗試將試著求解IK group與non-damped resolution method (pseudo inverse, fast), <br><br>而且如果不成功, 第二次嘗試將會試著解決它與damped resolution method (DLS, slower). <br><br>使用者也當然可以自由手動地處理IK resolution 從script, plugin, 等.<br><br><br>
+•  Edit obstacle avoidance parameters: <br><br>允許調整避障參數。<br><br>請注意，這只是對熟練的操作者有意義, <br><br>而且模擬速度會大幅度地放緩。</h3>
+
+<p><br><br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/IK3.png" weight=600 ><br><br>
+<h3>•  Select avoidance entities / Remove avoidance constraint: <br><br>允許選擇/移除avoidance entities. <br><br>一個整體通常是機器人，其他實體是障礙物。<br><br> 使用簡單地measurable objects 來快速分析.<br><br><br></p>
+<p>•  Distance threshold: <br><br>在兩個avoidance entities 之間應該保持最小的距離.<br><br><br></p>
+<p>•  Edit IK elements: <br><br>允許編輯各種被選擇的IK group有關聯的IK elements.
+</h3></p>
             </div>
             <!-- /.entry-content -->
     <hr/>

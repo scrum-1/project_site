@@ -16,7 +16,19 @@
 &lt;p&gt;•  Joint limits (calculation weights): &lt;br&gt;&lt;br&gt;the calculation weight 應該被使用在 joint limitation constraints &lt;br&gt;&lt;br&gt;(joint limitation constraints 是被指定在  joint properties &lt;br&gt;&lt;br&gt;(position minimum andposition range).&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;•  Obstacle avoidance (calculation weights): &lt;br&gt;&lt;br&gt;the calculation weight 應該被使用對於 obstacle avoidance(避開障礙物) constraints.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
 &lt;p&gt;•  Joint limit thresholds:   線性和角度的臨界值應該和joint limitation constraints 一起被使用.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;•  Edit conditional parameters:   調整選擇的IK group裡附加的參數 .&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/18</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050718.html" rel="alternate"></link><updated>2016-07-19T14:04:47+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-19:blog/40323230ri-zhi-1050718.html</id><summary type="html">&lt;p&gt;改寫Python-Solvespace的Makefile運作方式。&lt;/p&gt;
+&lt;p&gt;•  Edit conditional parameters:   調整選擇的IK group裡附加的參數 .&lt;/h3&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/IK2.png" weight=600 &gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;•  Perform if... : &lt;br&gt;&lt;br&gt;這是有條件的分析部分. &lt;br&gt;&lt;br&gt;使用者可以選擇下拉一個在列表中的IK group，&lt;br&gt;&lt;br&gt;這個IK分析結果將會決定當前IK group是否會被解決。&lt;br&gt;&lt;br&gt;被認為是成功的IK group計算的IK elements都位於指定的線性/角度精度內。&lt;br&gt;&lt;br&gt;&lt;br&gt;
+•  Restore if... : &lt;br&gt;&lt;br&gt;允許恢復初始IK group配置（goint values）如果分析沒有成功 (位置和/或定向精度沒有達到).&lt;br&gt;&lt;br&gt; 與上述條件的解結合時，用戶可以例如結合兩個不同的計算方法。&lt;br&gt;&lt;br&gt;這是有用的如果在操作者的目標可能超出範圍或靠近一個單一組態: &lt;br&gt;&lt;br&gt;第一次分析嘗試將試著求解IK group與non-damped resolution method (pseudo inverse, fast), &lt;br&gt;&lt;br&gt;而且如果不成功, 第二次嘗試將會試著解決它與damped resolution method (DLS, slower). &lt;br&gt;&lt;br&gt;使用者也當然可以自由手動地處理IK resolution 從script, plugin, 等.&lt;br&gt;&lt;br&gt;&lt;br&gt;
+•  Edit obstacle avoidance parameters: &lt;br&gt;&lt;br&gt;允許調整避障參數。&lt;br&gt;&lt;br&gt;請注意，這只是對熟練的操作者有意義, &lt;br&gt;&lt;br&gt;而且模擬速度會大幅度地放緩。&lt;/h3&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/IK3.png" weight=600 &gt;&lt;br&gt;&lt;br&gt;
+&lt;h3&gt;•  Select avoidance entities / Remove avoidance constraint: &lt;br&gt;&lt;br&gt;允許選擇/移除avoidance entities. &lt;br&gt;&lt;br&gt;一個整體通常是機器人，其他實體是障礙物。&lt;br&gt;&lt;br&gt; 使用簡單地measurable objects 來快速分析.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  Distance threshold: &lt;br&gt;&lt;br&gt;在兩個avoidance entities 之間應該保持最小的距離.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  Edit IK elements: &lt;br&gt;&lt;br&gt;允許編輯各種被選擇的IK group有關聯的IK elements.
+&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/18</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050718.html" rel="alternate"></link><updated>2016-07-19T14:04:47+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-19:blog/40323230ri-zhi-1050718.html</id><summary type="html">&lt;p&gt;改寫Python-Solvespace的Makefile運作方式。&lt;/p&gt;
 
 
 &lt;h2&gt;前言 :&lt;/h2&gt;

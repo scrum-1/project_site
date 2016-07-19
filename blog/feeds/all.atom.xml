@@ -5070,8 +5070,8 @@ if __name__ == "__main__":
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/Revolute_pin.png"&gt;
 &lt;/br&gt;
 &lt;/br&gt;
-&lt;h3&gt;設定底座Dynamic性質 , ( X = 不打勾 )
-&lt;/h3&gt;
+&lt;h3&gt;設定底座Dynamic性質 , ( X = 不打勾 )&lt;/h3&gt;
+&lt;h3&gt;Body is respondable 指 是否實體化 ,若兩個實體化物件互相碰撞 ,會依照物理設定做相對反應。&lt;/h3&gt;
 &lt;/br&gt;
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/dynamic_properties_1.png"&gt;
 &lt;/br&gt;

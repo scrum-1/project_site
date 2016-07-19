@@ -181,48 +181,6 @@ g.es("admin pelican 近端執行完畢")
 
 3.Interation 相互作用</t>
 <t tx="leo.20160719113304.1">
-&lt;h3&gt;點選左上方工具列File ,import ,mesh ,選取繪製的stl檔案後 ,就可以看到零件了。&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/vrep_import.png"&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/vrep_import2.png"&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;hr&gt;
-&lt;h3&gt;調整座標 :&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;若只看到零件的一部分 ,就是零件倒過來了 ,這時候點選左方零件圖示 ,再選上方工具列 ,將零件座標系設定成V-rep內(World)座標 ,最後點選上方旋轉功能 ,旋轉零件至理想角度。&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/vrep_setaxis.png"&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/vrep_setaxis2.png"&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;轉好角度之後 ,點選上方平移功能 ,並調整Z軸高度。&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/vrep_setaxis3.png"&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;若零件被地板遮住 ,看不到零件 ,可先使用選平移功能 。&lt;/h3&gt;
-&lt;/br&gt;
-&lt;hr&gt;
-&lt;h3&gt;拆解零件 :&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;在V-rep導入的stl檔都會變成一個整體零件 ,而在Onshape先組好是因為零件拆解後較容易定位 ,且座標較容易設定等等。&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;點選欲拆解之零件後 ,點選工具列 ,編輯 ,Grouping/Merging ,Divide select shapes。 &lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/vrep_divide.png"&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;若有照上方Onshape繪製零件方式 ,零件就可以順利拆開。&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_rep/vrep_divide2.png"&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;hr&gt;
 &lt;h2&gt;零件性質設定 :&lt;/h2&gt;
 &lt;/br&gt;
 &lt;h3&gt;零件大小 :&lt;/h3&gt;

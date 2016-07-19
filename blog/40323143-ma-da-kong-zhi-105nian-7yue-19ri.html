@@ -400,14 +400,23 @@ init_mathjax();
 </td></tr></table>
 
 <p>結語:</p>
-<p>以下方的程式可以將序列埠輸入的數值輸入程式中使用。
-    int d;
-    if(Serial.available()){         <br />
-    d = Serial.parseInt();    //定義輸入訊號值為d
-    Serial.println(d);          <br />
-    if(0 &lt;= d &amp;&amp; d &lt;= 2500){   //限制訊號範圍
-        }
-    }</p>
+<p>以下方的程式可以將序列埠輸入的數值輸入程式中使用。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="codehilite"><pre>int d;
+if(Serial.available()){           
+d = Serial.parseInt();    //定義輸入訊號值為d
+Serial.println(d);            
+if(0 &lt;= d &amp;&amp; d &lt;= 2500){   //限制訊號範圍
+   }
+}
+</pre></div>
+</td></tr></table>
+
 <p>且包在其中的for迴圈可以同使對兩個馬達輸入訊號，達成控制兩個馬達的目的。   </p>
             </div>
             <!-- /.entry-content -->

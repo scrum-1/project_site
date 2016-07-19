@@ -254,14 +254,23 @@ class STrimBy {
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;結語:&lt;/p&gt;
-&lt;p&gt;以下方的程式可以將序列埠輸入的數值輸入程式中使用。
-    int d;
-    if(Serial.available()){         &lt;br /&gt;
-    d = Serial.parseInt();    //定義輸入訊號值為d
-    Serial.println(d);          &lt;br /&gt;
-    if(0 &amp;lt;= d &amp;amp;&amp;amp; d &amp;lt;= 2500){   //限制訊號範圍
-        }
-    }&lt;/p&gt;
+&lt;p&gt;以下方的程式可以將序列埠輸入的數值輸入程式中使用。&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6
+7&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;int d;
+if(Serial.available()){           
+d = Serial.parseInt();    //定義輸入訊號值為d
+Serial.println(d);            
+if(0 &amp;lt;= d &amp;amp;&amp;amp; d &amp;lt;= 2500){   //限制訊號範圍
+   }
+}
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 &lt;p&gt;且包在其中的for迴圈可以同使對兩個馬達輸入訊號，達成控制兩個馬達的目的。   &lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323218日誌 - 105/07/17</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050717.html" rel="alternate"></link><updated>2016-07-18T18:08:44+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-18:blog/40323218ri-zhi-1050717.html</id><summary type="html">&lt;p&gt;V-rep_solvespace_linkages&lt;/p&gt;
 
 

@@ -231,7 +231,7 @@ all: cdemo _slvs.so slvs.py
 &lt;/pre&gt;
 
 &lt;p&gt;CDemo的部分已經成功轉出可執行檔；&lt;code&gt;_slvs.so&lt;/code&gt;還在最後階段的編譯中；&lt;code&gt;slvs.py&lt;/code&gt;則是原作者撰寫好的（不過是Python 2）。&lt;/p&gt;
-&lt;p&gt;預計不久後就能夠測試&lt;code&gt;_slvs.so&lt;/code&gt;的功能。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category></entry><entry><title>40323143 - 馬達控制 105年7月19日</title><link href="http://project.mde.tw/blog/40323143-ma-da-kong-zhi-105nian-7yue-19ri.html" rel="alternate"></link><updated>2016-07-20T00:15:36+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-20:blog/40323143-ma-da-kong-zhi-105nian-7yue-19ri.html</id><summary type="html">&lt;p&gt;讀取訊號控制兩顆馬達
+&lt;p&gt;預計不久後就能夠測試&lt;code&gt;_slvs.so&lt;/code&gt;的功能。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category></entry><entry><title>40323143 - 馬達控制 105年7月19日</title><link href="http://project.mde.tw/blog/40323143-ma-da-kong-zhi-105nian-7yue-19ri.html" rel="alternate"></link><updated>2016-07-20T00:15:36+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-20:blog/40323143-ma-da-kong-zhi-105nian-7yue-19ri.html</id><summary type="html">&lt;p&gt;讀取訊號控制兩顆馬達
 &lt;/p&gt;
 &lt;p&gt;本篇接續7/18的文章，使用輸入脈衝寬度控制的方法控制，並將序列埠輸入的程式寫進來，完成由序列埠輸入最終角度的脈衝寬度來控制馬達的程式。&lt;/p&gt;
 &lt;p&gt;MG996R馬達角度由0度到180度相對的脈衝寬度為500到2500，1個脈衝寬度相對的角度值為0.09度。&lt;/p&gt;

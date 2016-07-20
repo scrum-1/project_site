@@ -1,5 +1,138 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-20T23:32:18+08:00</updated><entry><title>40323131日誌 105/07/20</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050720.html" rel="alternate"></link><updated>2016-07-20T23:32:18+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-20:blog/40323131ri-zhi-1050720.html</id><summary type="html">&lt;p&gt;將Kmolprint改成在純IPV6底下 也可連線
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-20T23:38:32+08:00</updated><entry><title>40323230日誌 - 105/07/20</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050720.html" rel="alternate"></link><updated>2016-07-20T23:38:32+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-20:blog/40323230ri-zhi-1050720.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;gcc的&lt;code&gt;-M&lt;/code&gt;類型參數問題。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;math.h與pyconfig.h衝突修正。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用libpython35.a解決_wrap.cxx找不到函式的問題。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h2&gt;Solvespace Makefile :&lt;/h2&gt;
+
+&lt;p&gt;目前發現obj檔案無法辨識的原因是原始Makefile中加上了&lt;code&gt;-MT&lt;/code&gt;這個參數，然而沒有這個參數，只能改用&lt;code&gt;-MD&lt;/code&gt;來取代。&lt;/p&gt;
+&lt;p&gt;直到Link這些obj檔時才發現，這些obj檔竟然是文字文件，而另一個Makefile導出的obj檔都相當正常。&lt;/p&gt;
+&lt;p&gt;最後決定把Makefile中gcc的參數統一化，剩下才發現&lt;code&gt;-M&lt;/code&gt;系的參數會輸出信息檔，而不是物件。&lt;/p&gt;
+&lt;p&gt;但是將obj檔重新連結成&lt;code&gt;solvespace.exe&lt;/code&gt;時就開始顯示大大小小的錯誤了，而且並非&lt;code&gt;-W&lt;/code&gt;的普通警告。相反的另一邊exposed資料夾就沒出現過警告。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/fnQrcS8.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;所以要成功編譯就必須將錯誤修正，看一些關於C++的資料。這些錯誤貌似都是物件繼承、指標項的用法問題。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/2dtnGX0.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;不過今天專注在如何克服exposed資料夾的錯誤。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2&gt;MinGW的math.h和Python的pyconfig.h :&lt;/h2&gt;
+
+&lt;p&gt;上網搜尋了許多文章，大部分的人使用MinGW編譯C轉Python的文件時，同時導入&lt;code&gt;cmath&lt;/code&gt;和&lt;code&gt;Python.h&lt;/code&gt;都會遇到這個衝突。&lt;/p&gt;
+&lt;p&gt;主要原因是＜math.h＞中有一段&lt;code&gt;_hypot(double _X, double _Y)&lt;/code&gt;的函式，而它的名稱剛好與&lt;code&gt;pyconfig.h&lt;/code&gt;中的&lt;code&gt;define hypot _hypot&lt;/code&gt;衝突。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/xdCKbBE.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;上網搜尋時找到一系列2013年的信件：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.vtk.org/pipermail/vtk-developers/2013-March/013475.html" title="vtk.org"&gt;http://www.vtk.org/pipermail/vtk-developers/2013-March/013475.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;主要是討論如何處理這個問題，信中曾建議在自己的程式碼的&lt;code&gt;include ＜Python.h＞&lt;/code&gt;下加上這段：&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+#include ＜cmath＞
+#include ＜Python.h＞
+#ifdef hypot
+#undef hypot
+#endif
+&lt;/pre&gt;
+
+&lt;p&gt;但是這樣根本不可行，因為導入&lt;code&gt;Python.h&lt;/code&gt;時就會同時導入&lt;code&gt;pyconfig.h&lt;/code&gt;，一旦導入&lt;code&gt;pyconfig.h&lt;/code&gt;就會產生衝突，後面再undefine也不會有用。&lt;/p&gt;
+&lt;p&gt;所以根本的問題就是修改&lt;code&gt;pyconfig.h&lt;/code&gt;，變成這一段：&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+#ifndef _MATH_H_
+#define hypot _hypot
+#endif
+&lt;/pre&gt;
+
+&lt;p&gt;讓它只能在沒有&lt;code&gt;math.h&lt;/code&gt;的時候才能使用。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/4OWuZG1.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;更改後編譯就沒有問題了。&lt;/p&gt;
+&lt;p&gt;不過不知道這樣更改會不會讓Anaconda的Python衍生其他狀況。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2&gt;libpython35.a :&lt;/h2&gt;
+
+&lt;p&gt;出現了&lt;code&gt;slvs_wrap.cxx&lt;/code&gt;匯入函式的問題。&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+slvs_wrap.o: In function `_SWIG_Py_None':
+slvs_wrap.cxx:1446: undefined reference to `__imp__Py_RefTotal'
+...
+&lt;/pre&gt;
+
+&lt;p&gt;這些是SWIG自動產生的，interface無法修改。&lt;/p&gt;
+&lt;p&gt;上網搜尋了一下，應該是軟體位元問題，找到了類似的問題。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.gdomc.com/0423/how-can-i-build-my-c-extensions-with-mingw-w64-in-python/" title="gdomc.com"&gt;http://www.gdomc.com/0423/how-can-i-build-my-c-extensions-with-mingw-w64-in-python/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;接著參考另一篇文章生成&lt;code&gt;libpython35.a&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/kivy/kivy/wiki/Creating-a-64-bit-development-environment-with-MinGW-on-Windows" title="github.com"&gt;https://github.com/kivy/kivy/wiki/Creating-a-64-bit-development-environment-with-MinGW-on-Windows&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;首先，將Python的DLL檔複製一份進Python的libs資料夾中。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/6CGP2VW.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;接著下載&lt;code&gt;gendef.exe&lt;/code&gt;，它也是MinGW的工具之一，從下列網址下載&lt;code&gt;gendef-1.0.1346-1-mingw32-bin.tar.lzma&lt;/code&gt;：&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://sourceforge.net/projects/mingw/files/MinGW/Extension/gendef/gendef-1.0.1346/" title="sourceforge.net"&gt;https://sourceforge.net/projects/mingw/files/MinGW/Extension/gendef/gendef-1.0.1346/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;解壓縮進MinGW的bin資料夾中。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/CsH45V5.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;接著用CMD進入Python的libs資料夾中使用以下命令。&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+gendef python35.dll
+dlltool --dllname python35.dll --def python35.def --output libpython35.a
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/nMybQmX.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;dlltool&lt;/code&gt;是GNU內建的工具，有安裝過安裝版的GNU工具包就能在本機端環境使用。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/wAdo8A1.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;做完後就會產生&lt;code&gt;libpython35.a&lt;/code&gt;這個檔案。&lt;/p&gt;
+&lt;p&gt;然後到Python的include資料夾開啟&lt;code&gt;pyconfig.h&lt;/code&gt;這個檔案編輯。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/oSfNLI9.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;搜尋並將以下內容剪下：&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+#ifdef _WIN64
+#define MS_WIN64
+#endif
+&lt;/pre&gt;
+
+&lt;p&gt;貼到以下內容的「上方」：&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+#ifdef _MSC_VER
+...
+&lt;/pre&gt;
+
+&lt;p&gt;再到Python的&lt;code&gt;Lib\distutils&lt;/code&gt;資料夾中，開啟&lt;code&gt;cygwinccompiler.py&lt;/code&gt;這個檔案。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/XwvABHb.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;搜尋以下內容並註解掉：&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+self.dll_libraries = get_msvcr()
+&lt;/pre&gt;
+
+&lt;p&gt;注意四周會有相似的內容，不要弄錯註解。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/xfY1FU0.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;範例在編譯&lt;code&gt;slvs_wrap.o&lt;/code&gt;時加上&lt;code&gt;-DMS_WIN64&lt;/code&gt;參數。&lt;/p&gt;
+&lt;p&gt;不過這時因為已經修改過&lt;code&gt;pyconfig.h&lt;/code&gt;的內容，會自動宣告&lt;code&gt;MS_WIN64&lt;/code&gt;，所以加上會提示說重複宣告。&lt;/p&gt;
+&lt;p&gt;最後編譯用的指令如下。&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+g++ -IW:/Anaconda3/include -Wno-unused-but-set-variable -c -o ../obj/slvs_wrap.o slvs_wrap.cxx
+g++ -shared -fPIC -o _slvs.so ... ../extlib/si/siapp.lib  -LW:/Anaconda3/libs -lPython35
+&lt;/pre&gt;
+
+&lt;p&gt;但是最後還是出現一點錯誤：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/Ie05RYb.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;應該是內部的導入問題。&lt;/p&gt;
+&lt;p&gt;由於時間不多，所以這個部分之後再解決。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;今天有稍微比較下Whitequark的原始碼，不過用法已經完全不一樣，相同的變數也改變了型態，更有系統性，但是也更難判讀，所以&lt;code&gt;.cpp&lt;/code&gt;的部分還得熟悉相關的知識。&lt;/p&gt;
+&lt;p&gt;Solvespace Makefile的部分是編譯&lt;code&gt;solvespace.exe&lt;/code&gt;的部分，不過Python呼叫的部分應該是不用那麼多，畢竟那些大部分都是介面檔，真正的本體只需要判斷是否衝突。&lt;/p&gt;
+&lt;p&gt;所以Solvespace Makefile的部分才做得漫不經心吧。&lt;/p&gt;
+&lt;p&gt;exposed Makefile部分的&lt;code&gt;all&lt;/code&gt;為三個目標：&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+all: cdemo _slvs.so slvs.py
+    LD_LIBRARY_PATH=. ./cdemo
+&lt;/pre&gt;
+
+&lt;p&gt;CDemo的部分已經成功轉出可執行檔；&lt;code&gt;_slvs.so&lt;/code&gt;還在最後階段的編譯中；&lt;code&gt;slvs.py&lt;/code&gt;則是原作者撰寫好的（不過是Python 2）。&lt;/p&gt;
+&lt;p&gt;預計不久後就能夠測試&lt;code&gt;_slvs.so&lt;/code&gt;的功能。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category></entry><entry><title>40323131日誌 105/07/20</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050720.html" rel="alternate"></link><updated>2016-07-20T23:32:18+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-20:blog/40323131ri-zhi-1050720.html</id><summary type="html">&lt;p&gt;將Kmolprint改成在純IPV6底下 也可連線
 &lt;/p&gt;
 &lt;h3&gt;先來放張圖片&lt;/h3&gt;
 

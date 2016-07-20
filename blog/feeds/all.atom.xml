@@ -1,5 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-20T18:27:53+08:00</updated><entry><title>40323143 - 夾頭變更 105年7月20日</title><link href="http://project.mde.tw/blog/40323143-jia-tou-bian-geng-105nian-7yue-20ri.html" rel="alternate"></link><updated>2016-07-20T18:27:53+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-20:blog/40323143-jia-tou-bian-geng-105nian-7yue-20ri.html</id><summary type="html">&lt;p&gt;變更夾頭座及夾爪
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-20T18:30:53+08:00</updated><entry><title>40323230日誌 - 105/07/19</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050719.html" rel="alternate"></link><updated>2016-07-20T18:30:53+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-20:blog/40323230ri-zhi-1050719.html</id><summary type="html">&lt;p&gt;Python-Solvespace編譯除錯中。&lt;/p&gt;
+
+
+&lt;h2&gt;Netbeans的版次管理與自訂工具列 :&lt;/h2&gt;
+
+&lt;p&gt;Netbeans有內建檔案版本紀錄的功能，只要在檔案左上角的按鈕切換到&lt;code&gt;History&lt;/code&gt;，就會出現修改紀錄表。&lt;/p&gt;
+&lt;p&gt;點擊其中的項目就會顯示並和目前版本的檔案做比較。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/dwmVZD4.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;其中紅色是刪除；綠色是新增；藍色是取代。&lt;/p&gt;
+&lt;p&gt;如果想復原其中的項目，可以移到顏色區塊上，左側的版本會出現箭頭，能夠將舊版的內容復原至當前的區段中，十分方便。&lt;/p&gt;
+&lt;p&gt;若是想直接復原整個檔案，可以在紀錄上案右鍵，選擇&lt;code&gt;Revert from History&lt;/code&gt;就會復原檔案。特別的是，一但復原檔案，Netbeans就會直接儲存檔案，成為新的歷史紀錄，這方面需要多注意。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/2Ih9AVd.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;而專案中的檔案名稱也會配上顏色，不論是在左側的檔案樹或是分頁上。&lt;/p&gt;
+&lt;p&gt;黑色是一般clone下來的專案；藍色是使用者修改過的檔案（縱使已經復原到原始版本）；灰色是透過MinGW以外程式編寫的檔案；綠色是自己撰寫或是由MinGW編譯出的檔案。&lt;/p&gt;
+&lt;p&gt;Netbeans是以Git功能為基礎架設的（雖然不一定要使用），因此十分注重版次管理，也支援圖形化顯示&lt;code&gt;git pull&lt;/code&gt;的修改處。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/H2v8Lve.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;另一個個人化的功能就是自訂工具列，能夠將內建或模組的功能鈕設置在工具列上。&lt;/p&gt;
+&lt;p&gt;排列方法跟Firefox一樣是抓取的。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/W7kSbRH.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2&gt;上次的問題 :&lt;/h2&gt;
+
+&lt;p&gt;上一篇網誌中的問題：&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Icons&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;Netbeans找不到外部程式的問題已解決，只要指定程式的確切位置就能執行。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/jVeAaE3.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;所以指定Perl在W:槽的位置，上次發現的Perl其實是MinGW的附加工具，版本是5.8。&lt;/p&gt;
+&lt;p&gt;但是新下載的是5.24，並且有安裝需要的模組"GD"。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/zSV5yLU.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/NjpIYjZ.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;修改成下面這段：&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+PERL = W:\Perl524\bin\perl.exe
+
+...
+
+$(OBJDIR)/icons.h: png2c.pl icons/*
+    @echo icons
+    $(PERL) $＜ $@ $(OBJDIR)/icons-proto.h
+&lt;/pre&gt;
+
+&lt;p&gt;指定後就可以執行。&lt;/p&gt;
+&lt;p&gt;而後來又有一個"rc"的指令：&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+$(RES): win32/$(@B).rc icon.ico
+    rc win32/$(@B).rc
+    mv win32/$(@B).res $(OBJDIR)/$(@B).res
+&lt;/pre&gt;
+
+&lt;p&gt;（原始版本的錯誤用法＄(＠B)應該為＄(＠F)，都改為＄＜或＄^較明瞭）&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/jVeAaE3.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;經查詢資料，"rc.exe"原是Windows Kits的一個工具。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/QWfaVfq.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;所以就改寫用變數指定。&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+RC = "C:\Program Files (x86)\Windows Kits\$(RCVER)\bin\$(RCBIT)\rc.exe"
+RCVER = 10
+RCBIT = x64
+
+...
+
+$(RES): resource.rc icon.ico
+    @echo RES
+    $(RC) $＜
+    mv win32/resource.res  $@
+&lt;/pre&gt;
+
+&lt;p&gt;同理，其他如SWIG都可以呼叫所在位置來執行了。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;ld.exe does not find libraries&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;要改一下語法，之前使用的&lt;code&gt;-lslvs&lt;/code&gt;應該指定名稱&lt;code&gt;-l:libslvs.so&lt;/code&gt;並指定同目錄：&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+cdemo: CDemo.c libslvs.so
+    @echo cdemo
+    @$(CXX) $(CFLAGS) -o $@ $＜ -L. -l:libslvs.so $(LIBS)
+&lt;/pre&gt;
+
+&lt;p&gt;接著就能夠找到libslvs.so。&lt;/p&gt;
+&lt;p&gt;不知道是因為沒有&lt;code&gt;-L&lt;/code&gt;指定目錄還是&lt;code&gt;-l&lt;/code&gt;不會看附檔名的關係，一定要標定到檔案才會容許。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2&gt;錯誤紀錄 :&lt;/h2&gt;
+
+&lt;h4&gt;已解決&lt;/h4&gt;
+
+&lt;p&gt;&lt;em&gt;Funtion "vasprintf"&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;在"slvs_python.hpp"中，導入了一個stdio.h的函式&lt;code&gt;vasprintf&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;不過其實正確名稱應該要增加父項式，因此修改成&lt;code&gt;__mingw_vasprintf(&amp;amp;buf, fmt, args)&lt;/code&gt;就沒問題了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/czsgUbf.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;Netbeams應該是支援h++的標頭檔，但是"slvs_python.hpp"的前半段錯誤累累，應該是從屬關係和宣告的部分沒弄清楚。&lt;/p&gt;
+&lt;p&gt;目前並沒有干擾MinGW的編譯，但是這些東西應該重新整理一下，尤其是下面的導入：&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+#include ＜string＞
+#include ＜exception＞
+&lt;/pre&gt;
+
+&lt;p&gt;在編寫時好像連結不到，但是編譯時MinGW抓得到，不知道Netbeams的錯誤有沒有算入這種情形。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;CMath&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;用SWIG剛轉出"slvs_wrap.cxx"時產生的問題。&lt;/p&gt;
+&lt;p&gt;出現一段錯誤：&lt;code&gt;error: '::hypot' has not been declared&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;在其他人的commit中有解答：&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/casadi/casadi/issues/622" title="github.com"&gt;https://github.com/casadi/casadi/issues/622&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;是說要新增&lt;code&gt;include ＜cmath＞&lt;/code&gt;進"slvs_wrap.cxx"中，而且必須在"Python.h"之前。&lt;/p&gt;
+&lt;p&gt;所以我就在interface檔中新增了，讓轉換時會自動加入這段。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/cqgzD3B.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;不過這個問題是暫時解決，後來又有相關的麻煩。&lt;/p&gt;
+&lt;h4&gt;未解決&lt;/h4&gt;
+
+&lt;p&gt;分成兩部分的Makefile，主要是exposed資料夾的python函式比較重要。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Solvespace Makefile&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;在最後一個要生成"solvespace.exe"時無法辨識&lt;code&gt;.obj&lt;/code&gt;檔案？&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+g++ -D_WIN32_WINNT=0x500 -DISOLATION_AWARE_ENABLED -D_WIN32_IE=0x500 -DWIN32_LEAN_AND_MEAN -DWIN32 -g -m32 -MT -Iextlib -I..\common\win32 -I. -D_DEBUG -D_CRT_SECURE_NO_WARNINGS   obj/ratpoly.obj ... obj/resource.res -o obj/solvespace.exe
+w:/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe:obj/ratpoly.obj: file format not recognized; treating as linker script
+w:/mingw/bin/../lib/gcc/x86_64-w64-mingw32/6.1.0/../../../../x86_64-w64-mingw32/bin/ld.exe:obj/ratpoly.obj:1: syntax error
+collect2.exe: error: ld returned 1 exit status
+make.exe": *** [obj/solvespace.exe] Error 1
+&lt;/pre&gt;
+
+&lt;p&gt;目前還不知道怎麼辦，因為不太了解&lt;code&gt;.o&lt;/code&gt;和&lt;code&gt;.obj&lt;/code&gt;的關係。&lt;/p&gt;
+&lt;p&gt;前者是暫時等待編譯的物件，後者是給記憶體參照的。&lt;/p&gt;
+&lt;p&gt;gcc對於副檔名是很重視的，可能要調整參數之類的？&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Exposed Makefile&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;剩下幾步可以編成"slvs_wrap.o"。&lt;/p&gt;
+&lt;p&gt;最後跳出的錯誤，竟然是內建資料庫的問題。&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+In file included from W:/Anaconda3/include/Python.h:8:0,
+                 from slvs_wrap.cxx:14:
+W:/Anaconda3/include/pyconfig.h:262:15: error: 'std::_hypot' has not been declared
+ #define hypot _hypot
+               ^
+make.exe": *** [../obj/slvs_wrap.o] Error 1
+&lt;/pre&gt;
+
+&lt;p&gt;導入"Python.h"和相關的"pyconfig.h"時出現了錯誤。是從上面cmath衍生的問題。&lt;/p&gt;
+&lt;p&gt;上網搜尋了一下，好像找不到解決方法，&lt;code&gt;'std::_hypot' has not been declared&lt;/code&gt;好像有出現在MinGW的Bug紀錄中。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;這兩個Makefile的使用參數大相逕庭，以下是比較：&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Solvespace&lt;/em&gt;&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+DEFINES = -D_WIN32_WINNT=0x500 -DISOLATION_AWARE_ENABLED -D_WIN32_IE=0x500 -DWIN32_LEAN_AND_MEAN -DWIN32
+CFLAGS = -g -m32 -MT -Iextlib -I..\common\win32 -I. -D_DEBUG -D_CRT_SECURE_NO_WARNINGS
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;Exposed&lt;/em&gt;&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+WIN_DEFINES = -D_WIN32_WINNT=0x500 -D_WIN32_IE=0x500 -DWIN32_LEAN_AND_MEAN
+DEFINES = -DISOLATION_AWARE_ENABLED -DLIBRARY
+CFLAGS  = -I../extlib -I../../common/win32 -I. -I.. -D_DEBUG -D_CRT_SECURE_NO_WARNINGS -O2 -g -Wno-write-strings -fpermissive
+CFLAGS_SHARED = -fPIC -shared $(CFLAGS)
+&lt;/pre&gt;
+
+&lt;p&gt;兩個Makefile編譯階段都進入整合階段，剩下的一些編譯問題主要是對MinGW的編譯程式不熟悉的緣故。&lt;/p&gt;
+&lt;p&gt;像是一般的&lt;code&gt;.so&lt;/code&gt;、&lt;code&gt;.o&lt;/code&gt;都較為廣用，可是將obj檔直接轉換成可執行檔，卻找不到範例。&lt;/p&gt;
+&lt;p&gt;之後要再找找看gcc和g++的編譯範例。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category></entry><entry><title>40323143 - 夾頭變更 105年7月20日</title><link href="http://project.mde.tw/blog/40323143-jia-tou-bian-geng-105nian-7yue-20ri.html" rel="alternate"></link><updated>2016-07-20T18:27:53+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-20:blog/40323143-jia-tou-bian-geng-105nian-7yue-20ri.html</id><summary type="html">&lt;p&gt;變更夾頭座及夾爪
 &lt;/p&gt;
 &lt;p&gt;因為程式設定使原先得設計變得多餘，於是將原本的上承臂與夾頭座結合成夾頭臂。&lt;/p&gt;
 &lt;p&gt;變更夾爪連桿形狀及厚度，厚度由2mm變更為4mm。&lt;/p&gt;
@@ -219,7 +374,7 @@ class STrimBy {
 &lt;hr&gt;
 
 &lt;p&gt;這次學到了編譯程式重要的一環，雖然make的過程中很煩人，也要一直注意是否出錯，但是最後成功時滿有成就感的。&lt;/p&gt;
-&lt;p&gt;有些錯誤當下想不出來，不過換一種想法後就能克服許多障礙，訓練眼光放遠也是一件重要的事情。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category></entry><entry><title>40323131日誌 105/07/18</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050718.html" rel="alternate"></link><updated>2016-07-19T17:49:11+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-19:blog/40323131ri-zhi-1050718.html</id><summary type="html">&lt;p&gt;增加一些專題書面的資料及安裝Octoprint跟Webcam的練習
+&lt;p&gt;有些錯誤當下想不出來，不過換一種想法後就能克服許多障礙，訓練眼光放遠也是一件重要的事情。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323131日誌 105/07/18</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050718.html" rel="alternate"></link><updated>2016-07-19T17:49:11+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-19:blog/40323131ri-zhi-1050718.html</id><summary type="html">&lt;p&gt;增加一些專題書面的資料及安裝Octoprint跟Webcam的練習
 &lt;/p&gt;
 &lt;h3&gt;介面系統介紹及架構&lt;/h3&gt;
 

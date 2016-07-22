@@ -83,9 +83,9 @@
 &lt;p&gt;作者提供了2個範例使用，將它們和&lt;code&gt;_slvs.so&lt;/code&gt;放在相同目錄中。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;Usage.py&lt;/code&gt;是參照Readme的說明，將範例code抓下來存在&lt;code&gt;exposed&lt;/code&gt;資料夾的程式檔。&lt;/p&gt;
 &lt;p&gt;然而若直接執行會出下列錯誤：&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;test.py&lt;/em&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;em&gt;test.py&lt;/em&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/Dp86EeP.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;Usage.py&lt;/em&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;em&gt;Usage.py&lt;/em&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/goKX3du.jpg" &gt;&lt;/p&gt;
 &lt;p&gt;意思是Python無法調用&lt;code&gt;_slvs&lt;/code&gt;這個模組，大部分的原因是名稱錯誤或是沒有導入。&lt;/p&gt;
 &lt;p&gt;SWIG手冊的"Using distutils"之後的幾章是講導出模組後的應用。&lt;/p&gt;

@@ -50,7 +50,7 @@
 &lt;h2&gt;Object File :&lt;/h2&gt;
 
 &lt;p&gt;通常副檔名為&lt;code&gt;.o&lt;/code&gt;或是&lt;code&gt;.obj&lt;/code&gt;，後者為Windows使用的格式。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://imgur.com/zpxnXLj" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/zpxnXLj.jpg" &gt;&lt;/p&gt;
 &lt;p&gt;將&lt;code&gt;.c&lt;/code&gt;或&lt;code&gt;.cpp&lt;/code&gt;、&lt;code&gt;.cxx&lt;/code&gt;的C語言程式碼包裝成的物件檔，無法直接使用。&lt;/p&gt;
 &lt;p&gt;使用編譯工具的"Link"功能可以將這些單獨的物件檔合併成連結庫或是可執行檔。&lt;/p&gt;
 &lt;h2&gt;Static libraries - 靜態資料庫 :&lt;/h2&gt;

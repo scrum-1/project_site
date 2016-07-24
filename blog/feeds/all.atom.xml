@@ -1,5 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-24T00:23:07+08:00</updated><entry><title>40323218日誌 - 105/07/23</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050723.html" rel="alternate"></link><updated>2016-07-24T00:23:07+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-24:blog/40323218ri-zhi-1050723.html</id><summary type="html">&lt;p&gt;V-rep   printer_control&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-24T16:18:51+08:00</updated><entry><title>40323230紀錄 - Python-Solvespace編譯完畢</title><link href="http://project.mde.tw/blog/40323230ji-lu-python-solvespacebian-yi-wan-bi.html" rel="alternate"></link><updated>2016-07-24T16:18:51+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-24:blog/40323230ji-lu-python-solvespacebian-yi-wan-bi.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Windows執行成功！&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ubuntu執行失敗（需重生&lt;code&gt;_slvs.so&lt;/code&gt;）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;公開倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;已更新。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h2&gt;編譯結果 :&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/E4PEUbR.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;最後編譯時把&lt;code&gt;_slvs.so&lt;/code&gt;改成了&lt;code&gt;_slvs.pyd&lt;/code&gt;就能使用了。&lt;/p&gt;
+&lt;p&gt;有測試過改成&lt;code&gt;.dll&lt;/code&gt;的方式，但是反而不能使用。&lt;/p&gt;
+&lt;p&gt;不過由於&lt;code&gt;_slvs.pyd&lt;/code&gt;是參照&lt;code&gt;libslvs.so&lt;/code&gt;的內容生成的，所以這四個檔案必須放在同一個資料夾：&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;solvespace/exposed/_slvs.pyd
+solvespace/exposed/libslvs.so
+solvespace/exposed/slvs.py
+solvespace/exposed/Usage.py
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;倉儲的Readme也做了一下說明。&lt;/p&gt;
+&lt;p&gt;而&lt;code&gt;test.py&lt;/code&gt;執行結果中，偵測到&lt;code&gt;long&lt;/code&gt;還沒定義，所以資料庫還需要修理一下。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/Ejc5KDo.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;搬到新電腦虛擬機的Ubuntu上測試時，使用的是&lt;code&gt;_slvs.so&lt;/code&gt;的樣式。&lt;/p&gt;
+&lt;p&gt;會顯示ELF標頭檔錯誤，而無法執行，應該是因為在Windows上生成的關係，重新在Ubuntu上編譯應該就行了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/jolKcHW.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;另外在新電腦虛擬機的Ubuntu上裝了一下Git、Netbeans和GNU工具包，可以正常運作，不過可能是跨系統模擬的關係，反應還滿慢的。&lt;/p&gt;
+&lt;p&gt;然後Python3不知道怎麼更新，一直在3.4.2沒辦法升上去。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323218日誌 - 105/07/23</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050723.html" rel="alternate"></link><updated>2016-07-24T00:23:07+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-24:blog/40323218ri-zhi-1050723.html</id><summary type="html">&lt;p&gt;V-rep   printer_control&lt;/p&gt;
 
 
 &lt;h2&gt;嘗試組裝3Dprinter&lt;/h2&gt;

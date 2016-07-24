@@ -16,7 +16,7 @@
 
 &lt;p&gt;&lt;img src="http://i.imgur.com/E4PEUbR.jpg" &gt;&lt;/p&gt;
 &lt;p&gt;最後編譯時把&lt;code&gt;_slvs.so&lt;/code&gt;改成了&lt;code&gt;_slvs.pyd&lt;/code&gt;就能使用了。&lt;/p&gt;
-&lt;p&gt;有測試過改成&lt;code&gt;.dll&lt;/code&gt;的方式，但是反而不能使用。&lt;/p&gt;
+&lt;p&gt;有測試過改成&lt;code&gt;.dll&lt;/code&gt;的方式，但是反而不能使用，可能是Windows平台Python辨認的問題。&lt;/p&gt;
 &lt;p&gt;不過由於&lt;code&gt;_slvs.pyd&lt;/code&gt;是參照&lt;code&gt;libslvs.so&lt;/code&gt;的內容生成的，所以這四個檔案必須放在同一個資料夾：&lt;/p&gt;
 &lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2

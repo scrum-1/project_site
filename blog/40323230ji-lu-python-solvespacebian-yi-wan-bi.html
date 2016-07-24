@@ -350,7 +350,7 @@ init_mathjax();
 
 <p><img src="http://i.imgur.com/E4PEUbR.jpg" ></p>
 <p>最後編譯時把<code>_slvs.so</code>改成了<code>_slvs.pyd</code>就能使用了。</p>
-<p>有測試過改成<code>.dll</code>的方式，但是反而不能使用。</p>
+<p>有測試過改成<code>.dll</code>的方式，但是反而不能使用，可能是Windows平台Python辨認的問題。</p>
 <p>不過由於<code>_slvs.pyd</code>是參照<code>libslvs.so</code>的內容生成的，所以這四個檔案必須放在同一個資料夾：</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2

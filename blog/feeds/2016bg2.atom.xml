@@ -124,7 +124,8 @@ p = Normal3d(w, a, b, c, sys)
 
 &lt;p&gt;&lt;code&gt;p&lt;/code&gt;代表空間中的一條法線。&lt;/p&gt;
 &lt;p&gt;在SolveSpace中，法線是由一個3x3的旋轉矩陣從基本的坐標系到一個新的架構，是由單位四元數定義的。&lt;/p&gt;
-&lt;p&gt;可以想像這個四元數代表一個通過原點的平面。這個平面跟三個向量相關：基礎向量&lt;code&gt;U&lt;/code&gt;和&lt;code&gt;V&lt;/code&gt;在平面上、而法線&lt;code&gt;N&lt;/code&gt;則垂直它，相當於&lt;code&gt;[ U V N ]'&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;可以想像這個四元數代表一個通過原點的平面。&lt;/p&gt;
+&lt;p&gt;這個平面跟三個向量相關：基礎向量&lt;code&gt;U&lt;/code&gt;和&lt;code&gt;V&lt;/code&gt;在平面上、而法線&lt;code&gt;N&lt;/code&gt;則垂直它，相當於&lt;code&gt;[ U V N ]'&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;因此U、N、N都有單位長度，而他們都正交，所以：&lt;/p&gt;
 &lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
 2

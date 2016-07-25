@@ -458,7 +458,8 @@ p = Normal3d(w, a, b, c, sys)
 
 <p><code>p</code>代表空間中的一條法線。</p>
 <p>在SolveSpace中，法線是由一個3x3的旋轉矩陣從基本的坐標系到一個新的架構，是由單位四元數定義的。</p>
-<p>可以想像這個四元數代表一個通過原點的平面。這個平面跟三個向量相關：基礎向量<code>U</code>和<code>V</code>在平面上、而法線<code>N</code>則垂直它，相當於<code>[ U V N ]'</code>。</p>
+<p>可以想像這個四元數代表一個通過原點的平面。</p>
+<p>這個平面跟三個向量相關：基礎向量<code>U</code>和<code>V</code>在平面上、而法線<code>N</code>則垂直它，相當於<code>[ U V N ]'</code>。</p>
 <p>因此U、N、N都有單位長度，而他們都正交，所以：</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2

@@ -1,5 +1,126 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-22T18:00:17+08:00</updated><entry><title>40323131日誌 105/07/20</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050720.html" rel="alternate"></link><updated>2016-07-22T18:00:17+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-22:blog/40323131ri-zhi-1050720.html</id><summary type="html">&lt;p&gt;將Kmolprint改成在純IPV6底下 也可連線
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-25T15:46:03+08:00</updated><entry><title>40323143 - 日誌 105年7月25日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-25ri.html" rel="alternate"></link><updated>2016-07-25T15:46:03+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-25:blog/40323143-ri-zhi-105nian-7yue-25ri.html</id><summary type="html">&lt;p&gt;手臂資料
+&lt;/p&gt;
+&lt;p&gt;總重量約為0.6kg&lt;/p&gt;
+&lt;p&gt;夾取重量約為0.15kg&lt;/p&gt;
+&lt;p&gt;控制手臂可從序列埠輸入數值控制，序列埠輸入數值
+為(asin(列印件距離/100)+50)/0.09//10*10)。&lt;/p&gt;
+&lt;p&gt;最長夾取距離的序列埠輸入值為2060。&lt;/p&gt;
+&lt;p&gt;最終程式
+    #include &lt;Servo.h&gt; &lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;Servo myservo;
+Servo myservo2;
+Servo myservo3;
+Servo myservo4;
+int Pin = 3;
+int limt;   
+void setup() 
+{ 
+  Serial.begin(9600);
+  myservo.attach(9, 500, 2500); // 修正脈衝寬度範圍
+  myservo2.attach(10, 500, 2500);// 修正脈衝寬度範圍
+  myservo3.attach(10, 500, 2500);
+  myservo4.attach(10, 500, 2500);
+  pinMode(Pin,INPUT);
+}
+
+void loop() 
+{ 
+    limt = digitalRead(Pin);  
+    myservo.write(0);
+    myservo2.write(0); 
+    myservo3.write(0);
+    myservo4.write(0); 
+    int d;
+    int e;
+    if(Serial.available()){
+      d = Serial.parseInt();
+      Serial.println(d);  
+      if(0 &amp;lt;= d &amp;amp;&amp;amp; d &amp;lt;= 2500){
+      delay(3000);
+      for(int i = 500; i &amp;lt;= d; i+=10){
+        myservo.writeMicroseconds(i); // 直接以脈衝寬度控制
+        myservo2.writeMicroseconds(i);
+        myservo3.writeMicroseconds(1500);
+        delay(10);
+      }
+      delay(3000);
+      for(int i = 500; i &amp;lt;= 1350 ; i+=10){
+      myservo4.writeMicroseconds(i);
+      delay(10);
+      delay(1000);
+      for(int i = d; i &amp;gt;= 500; i-=10){
+        myservo.writeMicroseconds(i);
+        myservo2.writeMicroseconds(i);
+        myservo3.writeMicroseconds(1500);
+        delay(10);
+      }
+      delay(1000);
+       for(int i = 1350 ; i &amp;gt;= 500; i-=10){
+        myservo4.writeMicroseconds(i);
+        delay(10);
+      }
+      }
+    }
+  }
+}
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><category term="範例"></category></entry><entry><title>40323131日誌 105/07/20</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050720.html" rel="alternate"></link><updated>2016-07-22T18:00:17+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-22:blog/40323131ri-zhi-1050720.html</id><summary type="html">&lt;p&gt;將Kmolprint改成在純IPV6底下 也可連線
 &lt;/p&gt;
 &lt;h3&gt;先來放張圖片&lt;/h3&gt;
 

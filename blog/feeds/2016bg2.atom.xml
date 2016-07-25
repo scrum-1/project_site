@@ -5,7 +5,7 @@
 
 &lt;h2&gt;前言 :&lt;/h2&gt;
 
-&lt;p&gt;&lt;code&gt;DOC.txt&lt;/code&gt;是CDemo.exe的使用解說。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;DOC.txt&lt;/code&gt;是原本&lt;code&gt;CDemo.c&lt;/code&gt;編譯成&lt;code&gt;CDemo.exe&lt;/code&gt;前的使用解說。&lt;/p&gt;
 &lt;p&gt;裡面的名稱結構是使用C語言的方式，雖然&lt;code&gt;slvs.py&lt;/code&gt;已經幫忙轉換了裡面的名稱，但是仍有些許函式名稱變化。&lt;/p&gt;
 &lt;p&gt;所以紀錄一下在Python中如何使用這些功能，並稍微翻譯其內容；而手冊中不清楚的地方也會補充。&lt;/p&gt;
 &lt;p&gt;預計讓這篇文章達到易使用和易理解的功能。&lt;/p&gt;

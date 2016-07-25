@@ -1,5 +1,162 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-25T15:46:03+08:00</updated><entry><title>40323143 - 日誌 105年7月25日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-25ri.html" rel="alternate"></link><updated>2016-07-25T15:46:03+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-25:blog/40323143-ri-zhi-105nian-7yue-25ri.html</id><summary type="html">&lt;p&gt;手臂資料
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-25T16:16:36+08:00</updated><entry><title>40323230紀錄 - C語言資料庫格式</title><link href="http://project.mde.tw/blog/40323230ji-lu-cyu-yan-zi-liao-ku-ge-shi.html" rel="alternate"></link><updated>2016-07-25T16:16:36+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-25:blog/40323230ji-lu-cyu-yan-zi-liao-ku-ge-shi.html</id><summary type="html">&lt;p&gt;關於各平台程式使用之連結庫類型。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Static libraries&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Shared libraries&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Dynamically loaded libraries&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;參考資料來源：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="http://terrycslife.blogspot.tw/2010/07/so.html" title="terrycslife.blogspot.tw"&gt;http://terrycslife.blogspot.tw/2010/07/so.html&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://kaineshu.wordpress.com/2007/05/02/%E8%BD%89%E8%B2%BC%E7%94%A8gcc-%E8%87%AA%E8%A3%BD-library/" title="kaineshu.wordpress.com"&gt;https://kaineshu.wordpress.com/2007/05/02/%E8%BD%89%E8%B2%BC%E7%94%A8gcc-%E8%87%AA%E8%A3%BD-library/&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="http://www.jianshu.com/p/09994c9d8489" title="jianshu.com"&gt;http://www.jianshu.com/p/09994c9d8489&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Object File :&lt;/h2&gt;
+
+&lt;p&gt;通常副檔名為&lt;code&gt;.o&lt;/code&gt;或是&lt;code&gt;.obj&lt;/code&gt;，後者為Windows使用的格式。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/zpxnXLj.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;將&lt;code&gt;.c&lt;/code&gt;或&lt;code&gt;.cpp&lt;/code&gt;、&lt;code&gt;.cxx&lt;/code&gt;的C語言程式碼包裝成的物件檔，無法直接使用。&lt;/p&gt;
+&lt;p&gt;使用編譯工具的"Link"功能可以將這些單獨的物件檔合併成連結庫或是可執行檔。&lt;/p&gt;
+&lt;h2&gt;Static libraries - 靜態資料庫 :&lt;/h2&gt;
+
+&lt;p&gt;通常副檔名為&lt;code&gt;.a&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;作用方式：將連結庫包入程式中執行，處理效率高，缺點是檔案大且不易更新。&lt;/p&gt;
+&lt;p&gt;若要建立一個靜態資料庫，可以使用DllTool從&lt;code&gt;.dll&lt;/code&gt;檔解出或是用GNU的&lt;code&gt;ar&lt;/code&gt;工具連結物件檔編譯。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ar&lt;/code&gt;的指令中，&lt;code&gt;rcs&lt;/code&gt;或是&lt;code&gt;-r&lt;/code&gt;後接上輸出的檔案名稱，如下：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ar rcs libmylib.a first.o second.o&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;產生靜態資料庫後，可以使用gcc的&lt;code&gt;-L&lt;/code&gt;和&lt;code&gt;-l&lt;/code&gt;指令連結，對象包含程式碼、物件檔和其他靜態資料庫。&lt;/p&gt;
+&lt;h2&gt;Shared libraries - 共用資料庫 :&lt;/h2&gt;
+
+&lt;p&gt;通常副檔名為&lt;code&gt;.so&lt;/code&gt;，後面可加掛版本編號。&lt;/p&gt;
+&lt;p&gt;作用方式：資料庫和執行檔是分離的，剛開始就要載入，並且資料庫必須一直和執行檔待在一起，優點是修改方便。&lt;/p&gt;
+&lt;p&gt;gcc在產生物件檔時必須加上&lt;code&gt;-fPIC&lt;/code&gt;參數，紀錄"position-independent code"，就是獨立位置碼，以紀錄存取位置的資訊。沒有使用的話只會用相對位置，不利於共享內容。&lt;/p&gt;
+&lt;p&gt;再來將物件檔合併成資料庫時，加上&lt;code&gt;-shared&lt;/code&gt;參數，接著要自訂義"soname"、"real name"、"linker name"。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;soname是資料庫的名稱，通常以&lt;code&gt;lib&lt;/code&gt;開頭，包含附檔名和大版號，如&lt;code&gt;libexample.so.1&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;real name是真正使用程式的資料庫名稱，包含小版號，如&lt;code&gt;libexample.so.1.0.0&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;linker name是連結時的資料庫名稱，不包含版號，如&lt;code&gt;libexample.so&lt;/code&gt;。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;gcc使用&lt;code&gt;-Wl&lt;/code&gt;參數向內建的Link工具"ln"傳入資訊，如下：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;gcc -shared -Wl,-soname,libexample.so.1 -o libexample.so.1.0.0 first.o second.o&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用&lt;code&gt;-Wl,-soname&lt;/code&gt;定義soname；輸出的檔案名稱為real name；使用&lt;code&gt;-l&lt;/code&gt;或&lt;code&gt;-l:&lt;/code&gt;連結的名稱為linker name。&lt;/p&gt;
+&lt;p&gt;尋找了下&lt;a href="https://en.wikipedia.org/wiki/Soname" title="https://en.wikipedia.org/wiki/Soname"&gt;維基百科&lt;/a&gt;，似乎也能使用&lt;code&gt;-h&lt;/code&gt;和&lt;code&gt;-soname=&lt;/code&gt;來定義soname的名稱。&lt;/p&gt;
+&lt;p&gt;資料庫連結時使用&lt;code&gt;ln&lt;/code&gt;指令連結兩個&lt;code&gt;.so&lt;/code&gt;檔。使用&lt;code&gt;-s&lt;/code&gt;參數為軟連結，類似捷徑式的參照；使用&lt;code&gt;-d&lt;/code&gt;參數為硬連結，類似副本的備份。&lt;/p&gt;
+&lt;p&gt;最後必須用以下指令為real name創造linker name和soname的檔案（使用&lt;code&gt;-s&lt;/code&gt;或&lt;code&gt;-d&lt;/code&gt;就隨喜好了）。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;linker name&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ln -s libexample.so.1.0.0 libexample.so&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;soname&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ln -s libexample.so.1.0.0 libexample.so.1&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;之後可以用GNU的另一個工具"objdump"檢查連結。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;objdump -p libexample.so.1.3 | grep SONAME&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;產生共用資料庫後，可以像靜態資料庫一樣包裝，也可以用程式呼叫。&lt;/p&gt;
+&lt;p&gt;連結時有同名資料庫時會以共用資料庫優先，加上&lt;code&gt;-static&lt;/code&gt;參數可以指定靜態資料庫。&lt;/p&gt;
+&lt;p&gt;而調用資料庫時是先找soname的檔案，否則會尋找linker name的檔案，可執行檔亦同。&lt;/p&gt;
+&lt;h2&gt;Dynamically loaded libraries - 動態載入庫 :&lt;/h2&gt;
+
+&lt;p&gt;為Windows中&lt;code&gt;.dll&lt;/code&gt;檔標準的模式，不過並非所有&lt;code&gt;.dll&lt;/code&gt;都是如此。&lt;/p&gt;
+&lt;p&gt;作用方式：使用時才會載入，編譯時不須要相關資料庫檔案，因此常用於附加元件。&lt;/p&gt;
+&lt;p&gt;使用一套DLL funtion來處理，標頭檔和編譯的程式碼中都會使用來傳遞訊息。&lt;/p&gt;
+&lt;p&gt;gcc編譯時要加上&lt;code&gt;-ldl&lt;/code&gt;參數連結。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;後來發現gcc有時編譯「成功」的樣子可能包含著錯誤。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/Pk6DJDw.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;今天測試了一些方法，但是明明CDemo和Python的&lt;code&gt;.so&lt;/code&gt;都是差不多的參數，編譯出的結果卻不如預期。&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;libslvs.so&lt;/em&gt;&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+g++ -shared -o libslvs.so ../obj/util.obj ... ../obj/w32util.obj
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;em&gt;_slvs.so&lt;/em&gt;&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+g++ -shared -o _slvs.so ../obj/util.obj ... ../obj/slvs_wrap.o -LW:/Anaconda3/libs -lPython35 -L. -l:libslvs.so
+&lt;/pre&gt;
+
+&lt;p&gt;如果編譯&lt;code&gt;_slvs.so&lt;/code&gt;時不加上後面的&lt;code&gt;-LW:/Anaconda3/libs&lt;/code&gt;、&lt;code&gt;-lPython35&lt;/code&gt;等等就會因為&lt;code&gt;slvs_wrap.o&lt;/code&gt;的&lt;code&gt;slvs_wrap.cxx&lt;/code&gt;出問題，但是沒加上就和&lt;code&gt;libslvs.so&lt;/code&gt;一樣了。&lt;/p&gt;
+&lt;p&gt;但是這樣另一個問題就產生了，因為編出來的&lt;code&gt;_slvs.so&lt;/code&gt;是「可執行檔」，不指定&lt;code&gt;-o _slvs.so&lt;/code&gt;的話就會編譯成&lt;code&gt;a.exe&lt;/code&gt;，所以其他Python程式碼都找不到（有搬到虛擬機的Ubuntu測試，也找不到）。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/A9ITgDd.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;想過學範例用&lt;code&gt;.c&lt;/code&gt;跳過Object File的階段直接轉成&lt;code&gt;.so&lt;/code&gt;檔，但是只有&lt;code&gt;libslvs.so&lt;/code&gt;成功，&lt;code&gt;_slvs.so&lt;/code&gt;反而在系統暫存檔Temp資料夾中找不到Python連結。&lt;/p&gt;
+&lt;p&gt;之後稍微看了一下SWIG轉出的&lt;code&gt;slvs.py&lt;/code&gt;結構，呼叫的&lt;code&gt;.py&lt;/code&gt;檔必須先導入&lt;code&gt;slvs.py&lt;/code&gt;後，&lt;code&gt;slvs.py&lt;/code&gt;會視Python版本取用&lt;code&gt;_slvs.so&lt;/code&gt;的內容，再傳給需要的&lt;code&gt;.py&lt;/code&gt;檔，所以&lt;code&gt;slvs.py&lt;/code&gt;和&lt;code&gt;_slvs.so&lt;/code&gt;都必須和撰寫的&lt;code&gt;.py&lt;/code&gt;檔放在一起。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230紀錄 - Python-Solvespace編譯完畢</title><link href="http://project.mde.tw/blog/40323230ji-lu-python-solvespacebian-yi-wan-bi.html" rel="alternate"></link><updated>2016-07-25T16:16:36+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-25:blog/40323230ji-lu-python-solvespacebian-yi-wan-bi.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Windows執行成功！&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ubuntu執行失敗（需重生&lt;code&gt;_slvs.so&lt;/code&gt;）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;公開倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;已更新。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h2&gt;編譯結果 :&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/E4PEUbR.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;最後編譯時把&lt;code&gt;_slvs.so&lt;/code&gt;改成了&lt;code&gt;_slvs.pyd&lt;/code&gt;就能使用了。&lt;/p&gt;
+&lt;p&gt;有測試過改成&lt;code&gt;.dll&lt;/code&gt;的方式，但是反而不能使用，可能是Windows平台Python辨認的問題。&lt;/p&gt;
+&lt;p&gt;不過由於&lt;code&gt;_slvs.pyd&lt;/code&gt;是參照&lt;code&gt;libslvs.so&lt;/code&gt;的內容生成的，所以這四個檔案必須放在同一個資料夾：&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;solvespace/exposed/_slvs.pyd
+solvespace/exposed/libslvs.so
+solvespace/exposed/slvs.py
+solvespace/exposed/Usage.py
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;倉儲的Readme也做了一下說明。&lt;/p&gt;
+&lt;p&gt;而&lt;code&gt;test.py&lt;/code&gt;執行結果中，偵測到&lt;code&gt;long&lt;/code&gt;還沒定義，所以資料庫還需要修理一下。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/Ejc5KDo.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;搬到新電腦虛擬機的Ubuntu上測試時，使用的是&lt;code&gt;_slvs.so&lt;/code&gt;的樣式。&lt;/p&gt;
+&lt;p&gt;會顯示ELF標頭檔錯誤，而無法執行，應該是因為在Windows上生成的關係，重新在Ubuntu上編譯應該就行了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/jolKcHW.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;另外在新電腦虛擬機的Ubuntu上裝了一下Git、Netbeans和GNU工具包，可以正常運作，不過可能是跨系統模擬的關係，反應還滿慢的。&lt;/p&gt;
+&lt;p&gt;然後Python3不知道怎麼更新，一直在3.4.2沒辦法升上去。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323218日誌 - 105/07/23</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050723.html" rel="alternate"></link><updated>2016-07-25T16:16:36+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-25:blog/40323218ri-zhi-1050723.html</id><summary type="html">&lt;p&gt;V-rep   printer_control&lt;/p&gt;
+
+
+&lt;h2&gt;嘗試組裝3Dprinter&lt;/h2&gt;
+
+&lt;p&gt;&lt;br&gt;
+&lt;h3&gt;現在已嘗試兩種方式操控&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;分別是：&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/40323218/Printer_position_control.ttt?raw=true"&gt;Printer_position_control.ttt&lt;/a&gt;&lt;/p&gt;&lt;br&gt;
+&lt;h3&gt;可以操控position(需用滑鼠移動)&lt;/h3&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/position.gif" weight=600 &gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/40323218/Printer_motor_control.ttt?raw=true"&gt;Printer_motor_control.ttt&lt;/a&gt;&lt;/p&gt;&lt;br&gt;
+&lt;h3&gt;可以操控motor(需用參數移動)&lt;/h3&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/motor.gif" weight=600 &gt;
+&lt;br&gt;&lt;br&gt;
+&lt;h3&gt;串列通訊：&lt;/h3&gt;
+&lt;br&gt;
+&lt;iframe width="854" height="480" src="https://www.youtube.com/embed/1-CW00QXwwk" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;br&gt;
+&lt;iframe width="854" height="480" src="https://www.youtube.com/embed/y1vbxmeJ4M0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323143 - 日誌 105年7月25日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-25ri.html" rel="alternate"></link><updated>2016-07-25T15:46:03+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-25:blog/40323143-ri-zhi-105nian-7yue-25ri.html</id><summary type="html">&lt;p&gt;手臂資料
 &lt;/p&gt;
 &lt;p&gt;總重量約為0.6kg&lt;/p&gt;
 &lt;p&gt;夾取重量約為0.15kg&lt;/p&gt;
@@ -4206,7 +4363,20 @@ void Example2d()
 &lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/arm_test.png" &gt;
 &lt;/br&gt;
 &lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/arm_test.gif" &gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323143 - 日誌 105年7月6日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-6ri.html" rel="alternate"></link><updated>2016-07-06T17:04:59+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-06:blog/40323143-ri-zhi-105nian-7yue-6ri.html</id><summary type="html">&lt;p&gt;第二種極限開關的繪圖及安裝設計 第一種極限開關的安裝測試 承臂和馬達的安裝問題
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/arm_test.gif" &gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;hr&gt;
+&lt;/br&gt;
+&lt;h3&gt;105 - 07/24更新&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;今天預計要測試馬達控制 ,但是沒有多的12V power supply ,所以先把Onshape ,printer的細部畫一畫 ,現在大概有300個特徵 ,本來可以輕鬆的拉動滑塊 ,現在要用箭頭才能拉動了 ,估計不會畫電路板部分 ,戲偶衣服穿太多了&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/printer_top.gif" &gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/printer_bottom.gif" &gt;
+&lt;/br&gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323143 - 日誌 105年7月6日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-6ri.html" rel="alternate"></link><updated>2016-07-06T17:04:59+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-06:blog/40323143-ri-zhi-105nian-7yue-6ri.html</id><summary type="html">&lt;p&gt;第二種極限開關的繪圖及安裝設計 第一種極限開關的安裝測試 承臂和馬達的安裝問題
 &lt;/p&gt;
 &lt;p&gt;日記:&lt;/p&gt;
 &lt;p&gt;今天將第二種極限開關新增到零件庫中，並在底座上依其尺寸新增了一個安裝位置，以及在懸盤上新增了一個用來安裝觸發極限開關突出物的安裝孔，和觸發極限開關的圓桿。&lt;/p&gt;

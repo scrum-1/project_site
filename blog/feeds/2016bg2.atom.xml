@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-25T14:05:50+08:00</updated><entry><title>40323230紀錄 - SLVS資料庫函式</title><link href="http://project.mde.tw/blog/40323230ji-lu-slvszi-liao-ku-han-shi.html" rel="alternate"></link><updated>2016-07-25T14:05:50+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-25:blog/40323230ji-lu-slvszi-liao-ku-han-shi.html</id><summary type="html">&lt;p&gt;&lt;code&gt;slvs&lt;/code&gt;資料庫（&lt;code&gt;_slvs.pyd&lt;/code&gt;或&lt;code&gt;_slvs.so&lt;/code&gt;）轉成Python後的內容。&lt;/p&gt;
-&lt;p&gt;更新時間：7/25&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;更新時間：7/25&lt;/em&gt;&lt;/p&gt;
 
 
 &lt;h2&gt;前言 :&lt;/h2&gt;

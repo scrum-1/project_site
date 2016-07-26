@@ -121,7 +121,7 @@ void loop()
 }
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><category term="範例"></category></entry><entry><title>40323230紀錄 - SLVS資料庫函式</title><link href="http://project.mde.tw/blog/40323230ji-lu-slvszi-liao-ku-han-shi.html" rel="alternate"></link><updated>2016-07-25T14:05:50+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-25:blog/40323230ji-lu-slvszi-liao-ku-han-shi.html</id><summary type="html">&lt;p&gt;&lt;code&gt;slvs&lt;/code&gt;資料庫（&lt;code&gt;_slvs.pyd&lt;/code&gt;或&lt;code&gt;_slvs.so&lt;/code&gt;）轉成Python後的內容。&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;更新時間：7/25&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;更新時間：7/26&lt;/em&gt;&lt;/p&gt;
 
 
 &lt;h2&gt;前言 :&lt;/h2&gt;
@@ -145,7 +145,26 @@ h = 寫入項目名稱
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;由於內容較多，尋找時，可以使用&lt;kbd&gt;Ctrl&lt;/kbd&gt;+&lt;kbd&gt;F&lt;/kbd&gt;搜尋關鍵字。&lt;/p&gt;
+&lt;p&gt;稱號下方是原始的命令代號，用於Solve Space圖形化介面的按鈕對應。&lt;/p&gt;
 &lt;h2&gt;預期運行結果 :&lt;/h2&gt;
+
+&lt;p&gt;若要使用SLVS資料庫，必須透過&lt;code&gt;slvs.py&lt;/code&gt;介面來轉換。&lt;/p&gt;
+&lt;p&gt;在你的Python程式中使用以下指令：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+#導入slvs.py
+from slvs import *
+
+#導入Solid Python
+#沒有使用就不需要導入
+import solid
+
+#創造你的系統，以及支援單位數量
+#支援單位數量上限端看Python的記憶體數量
+#預設單位數為50
+sys = System(20)
+
+...
+&lt;/pre&gt;
 
 &lt;p&gt;欲執行解題，Python必須使用下列命令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
@@ -192,10 +211,34 @@ sys.failed[i]
 &lt;h1&gt;TYPES OF ENTITIES&lt;/h1&gt;
 &lt;p&gt;&lt;code&gt;SLVS_E&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;實體的類型，屬於物件的部分。&lt;/p&gt;
-&lt;p&gt;可以馬上建立物件並用傳統結構的方式導入。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;kbd&gt;3D&lt;/kbd&gt; 此物件屬於3D類型。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;kbd&gt;2D&lt;/kbd&gt; 此物件屬於2D類型。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;kbd&gt;Point&lt;/kbd&gt; 此物件屬於點。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;kbd&gt;Vector&lt;/kbd&gt; 此物件屬於向量。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;kbd&gt;Line&lt;/kbd&gt; 此物件屬於線段。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;kbd&gt;Curve&lt;/kbd&gt; 此物件屬於曲線。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;kbd&gt;Arc&lt;/kbd&gt; 此物件屬於圓弧。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;實體可以馬上建立物件並用傳統結構的方式導入。&lt;/p&gt;
 &lt;p&gt;建立物件後也能用轉換好的&lt;code&gt;slvs.py&lt;/code&gt;函式呼叫。&lt;/p&gt;
 &lt;p&gt;或是使用直接指令建立物件。&lt;/p&gt;
-&lt;h2&gt;3D Point&lt;/h2&gt;
+&lt;p&gt;輸入值後方加入&lt;code&gt;, sys&lt;/code&gt;可以傳入系統&lt;code&gt;sys&lt;/code&gt;中。&lt;/p&gt;
+&lt;h2&gt;Point in 3D &lt;kbd&gt;3D&lt;/kbd&gt; &lt;kbd&gt;Point&lt;kbd&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;SLVS_E_POINT_IN_3D&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
@@ -207,11 +250,11 @@ p = sys.add_point3d(a, b, c)
 #直接命令
 Slvs_MakePoint3d(h, group, x, y, z)
 #簡化
-p = Point3d(Param(10.0), Param(20.0), Param(30.0))
+p = Point3d(a, b, c)
 &lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;p&lt;/code&gt;代表空間中的輸入點。&lt;/p&gt;
-&lt;h2&gt;2D Point&lt;/h2&gt;
+&lt;h2&gt;Point in 2D  &lt;kbd&gt;2D&lt;/kbd&gt; &lt;kbd&gt;Point&lt;kbd&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;SLVS_E_POINT_IN_2D&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
@@ -227,7 +270,7 @@ p = Point2d(wplane, a, b)
 &lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;p&lt;/code&gt;代表工作平面上的輸入點。&lt;/p&gt;
-&lt;h2&gt;3D Normal&lt;/h2&gt;
+&lt;h2&gt;Normal in 3D &lt;kbd&gt;3D&lt;/kbd&gt; &lt;kbd&gt;Vector&lt;kbd&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;SLVS_E_NORMAL_IN_3D&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
@@ -236,11 +279,11 @@ w = sys.add_param(10.0) #實數座標
 a = sys.add_param(20.0) #X軸座標
 b = sys.add_param(30.0) #Y軸座標
 c = sys.add_param(40.0) #Z軸座標
-p = sys.get_Normal3d(w, a, b, c, sys)
+p = sys.get_Normal3d(w, a, b, c)
 #直接命令
 Slvs_MakeNormal3d(h, g, qw, qx, qy, qz)
 #簡化
-p = Normal3d(w, a, b, c, sys)
+p = Normal3d(w, a, b, c)
 &lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;p&lt;/code&gt;代表空間中的一條法線。&lt;/p&gt;
@@ -259,18 +302,18 @@ N cross U = V
 &lt;p&gt;轉換函式&lt;code&gt;Slvs_Quaternion&lt;/code&gt;提供了在&lt;code&gt;U&lt;/code&gt;、&lt;code&gt;V&lt;/code&gt;、&lt;code&gt;N&lt;/code&gt;和單位四元數之間轉換。&lt;/p&gt;
 &lt;p&gt;單位四元數只有三個自由度，但是要在四個參數中指定。因此一個額外的約束產生了，就是：&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;w^2 + x^2 + y^2 + z^2 = 1&lt;/code&gt;&lt;/p&gt;
-&lt;h2&gt;2D Normal&lt;/h2&gt;
+&lt;h2&gt;Normal in 2D &lt;kbd&gt;2D&lt;/kbd&gt; &lt;kbd&gt;Vector&lt;kbd&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;SLVS_E_NORMAL_IN_2D&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
 #直接命令
 wrkpl = Workplane(p1, wnormal) #某個工作平面
-Slvs_MakeNormal2d(h, g, wrkpl, sys)
+Slvs_MakeNormal2d(h, g, wrkpl)
 #這個函式沒有簡化
 &lt;/pre&gt;
 
 &lt;p&gt;代表垂直工作平面的一條法線。&lt;/p&gt;
-&lt;h2&gt;Distance&lt;/h2&gt;
+&lt;h2&gt;Distance &lt;kbd&gt;2D&lt;/kbd&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;SLVS_E_DISTANCE&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
@@ -285,13 +328,13 @@ p = Distance(wplane, r)
 &lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;p&lt;/code&gt;代表與工作平面平行的距離。&lt;/p&gt;
-&lt;h2&gt;Work Plane&lt;/h2&gt;
+&lt;h2&gt;Work Plane &lt;kbd&gt;3D&lt;/kbd&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;SLVS_E_WORKPLANE&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
 #標準
-normal = Normal3d(1, 0, 0, 0, sys) #某個法線
-o = Point3d(10, 10, 10, sys) #某個點
+normal = Normal3d(1, 0, 0, 0) #某個法線
+o = Point3d(10, 10, 10) #某個點
 p = sys.get_Workplane(o, normal)
 #直接命令
 Slvs_MakeWorkplane(h, g, o, normal)
@@ -299,15 +342,15 @@ Slvs_MakeWorkplane(h, g, o, normal)
 p = Workplane(o, normal)
 &lt;/pre&gt;
 
-&lt;p&gt;&lt;code&gt;p&lt;/code&gt;代表通過原點，語法線垂直的工作平面。&lt;/p&gt;
-&lt;h2&gt;Line Segment&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;p&lt;/code&gt;代表通過原點，與法線垂直的工作平面。&lt;/p&gt;
+&lt;h2&gt;Line Segment &lt;kbd&gt;Line&lt;kbd&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;SLVS_E_LINE_SEGMENT&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
 #標準
 wrkpl = Workplane(p1, wnormal) #某個工作平面
-a = Point3d(0, 0, 0, sys) #某個3D點
-b = Point3d(10, 10, 10, sys) #某個3D點
+a = Point3d(0, 0, 0) #某個3D點
+b = Point3d(10, 10, 10) #某個3D點
 c = Point2d(wplane, 0, 0) #某個2D點
 d = Point2d(wplane, 10, 10) #某個2D點
 p = sys.get_LineSegment2d(wrkpl, c, d)
@@ -321,33 +364,37 @@ p = LineSegment3d(a, b)
 
 &lt;p&gt;這個函式在直接命令上是2D的方式繪出線條。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;p&lt;/code&gt;代表兩個點之間的連線。&lt;/p&gt;
-&lt;h2&gt;Cubic&lt;/h2&gt;
+&lt;h2&gt;Cubic &lt;kbd&gt;3D&lt;/kbd&gt; &lt;kbd&gt;Curve&lt;/kbd&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;SLVS_E_CUBIC&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
 #標準
 wrkpl = Workplane(p1, wnormal) #某個工作平面
-a = Point3d(0, 0, 0, sys) #某個3D點
-b = Point3d(10, 0, 0, sys) #某個3D點
-c = Point3d(0, 10, 0, sys) #某個3D點
-d = Point3d(0, 0, 10, sys) #某個3D點
-p = sys.get_Cubic(a, b, c, d)
+a = Point3d(0, 0, 0) #第零個點
+b = Point3d(10, 0, 0) #第一個點
+c = Point3d(0, 10, 0) #第二個點
+d = Point3d(0, 0, 10) #第三個點
+p = sys.get_Cubic(wrkpl, a, b, c, d)
 #直接命令
 Slvs_MakeCubic(h, group, wrkpl, pt0, pt1, pt2, pt3)
-#公式（t從0積分到1）
-p(t) = P0*(1 - t)^3 + 3*P1*(1 - t)^2*t + 3*P2*(1 - t)*t^2 + P3*t^3
 #簡化
-p = Cubic(a, b, c, d)
+p = Cubic(wrkpl, a, b, c, d)
 &lt;/pre&gt;
 
-&lt;p&gt;&lt;code&gt;p&lt;/code&gt;代表四個點構成的實體。&lt;/p&gt;
-&lt;h2&gt;Circle&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;p&lt;/code&gt;代表四個點構成，可能帶有貝茲曲線的立方體。&lt;/p&gt;
+&lt;p&gt;四個點的公式如下：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+#公式（t從0積分到1）
+p(t) = P0*(1 - t)^3 + 3*P1*(1 - t)^2*t + 3*P2*(1 - t)*t^2 + P3*t^3
+&lt;/pre&gt;
+
+&lt;h2&gt;Circle &lt;kbd&gt;2D&lt;/kbd&gt; &lt;kbd&gt;Arc&lt;kbd&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;SLVS_E_CIRCLE&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
 #標準
 wrkpl = Workplane(p1, wnormal) #某個工作平面
-normal = Normal3d(1, 0, 0, 0, sys) #某條3D法線
+normal = Normal3d(1, 0, 0, 0) #某條3D法線
 o = Point2d(wplane, 0, 0) #圓心
 r = Distance(wplane, 20) #半徑
 p = sys.get_Circle( wrkpl, o, r)
@@ -358,7 +405,7 @@ p = Circle(wrkpl, normal, o, r)
 &lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;p&lt;/code&gt;代表與一條法線垂直（可選：或與一個平面平行），由圓心和半徑構成的完整圓。&lt;/p&gt;
-&lt;h2&gt;Arc of Circle&lt;/h2&gt;
+&lt;h2&gt;Arc of Circle &lt;kbd&gt;2D&lt;/kbd&gt; &lt;kbd&gt;Arc&lt;kbd&gt;&lt;/h2&gt;
 &lt;p&gt;SLVS_E_ARC_OF_CIRCLE&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
@@ -367,7 +414,7 @@ wrkpl = Workplane(p1, wnormal) #某個工作平面
 o = Point2d(wplane, 0, 0) #圓心
 s = Point2d(wplane, 50, 0) #起點
 e = Point2d(wplane, 0, 50) #終點
-normal = Normal3d(1, 0, 0, 0, sys) #某條3D法線
+normal = Normal3d(1, 0, 0, 0) #某條3D法線
 p = sys.get_ArcOfCircle(wrkpl, normal, o, s, e)
 #直接命令
 Slvs_MakeArcOfCircle(h, group, wrkpl, normal, center, start, end)
@@ -378,32 +425,44 @@ p = ArcOfCircle(wrkpl, normal, o, s, e)
 &lt;p&gt;&lt;code&gt;p&lt;/code&gt;代表三個點與一條法線垂直（可選：或與一個平面平行）的不完全圓。&lt;/p&gt;
 &lt;h1&gt;TYPES OF CONSTRAINTS&lt;/h1&gt;
 &lt;p&gt;&lt;code&gt;SLVS_C&lt;/code&gt;&lt;/p&gt;
-&lt;p&gt;約束的類型，某些指令會自動判斷狀況。&lt;/p&gt;
+&lt;p&gt;約束的類型，大部分的指令都會自動判斷狀況。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;kbd&gt;3D&lt;/kbd&gt; 此種約束應該用在3D或投影到平面上。&lt;/p&gt;
+&lt;p&gt;&lt;kbd&gt;3D&lt;/kbd&gt; 此種約束只能用在3D或投影到平面上。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;kbd&gt;2D&lt;/kbd&gt; 此種約束應該只能用在平面上。&lt;/p&gt;
+&lt;p&gt;&lt;kbd&gt;2D&lt;/kbd&gt; 此種約束只能用在平面上。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;未標示 &lt;kbd&gt;3D&lt;/kbd&gt; 或 &lt;kbd&gt;2D&lt;/kbd&gt; 則兩者皆可。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;kbd&gt;Val&lt;/kbd&gt; 此種約束必須設定額外的參考值。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2&gt;Point to Point Distance &lt;kbd&gt;3D&lt;/kbd&gt;&lt;/h2&gt;
+&lt;p&gt;輸入值最前端加入平面名稱可以規定為投影到平面的運算。&lt;/p&gt;
+&lt;p&gt;約束的直接命令：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+Slvs_MakeConstraint((h, group, type, wrkpl, valA, ptA, ptB, entityA, entityB)
+&lt;/pre&gt;
+
+&lt;h2&gt;Point to Point Distance &lt;kbd&gt;3D&lt;/kbd&gt; &lt;kbd&gt;Val&lt;/kbd&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;SLVS_C_PT_PT_DISTANCE&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
-a = Point3d(0, 0, 0, sys) #第一個點
-b = Point3d(10, 10, 10, sys) #第二個點
+a = Point3d(0, 0, 0) #第一個點
+b = Point3d(10, 10, 10) #第二個點
 Constraint.distance(20, a, b)
 &lt;/pre&gt;
 
 &lt;p&gt;約束兩個空間點的距離，非硬性，必要時會自動調整距離。&lt;/p&gt;
-&lt;h2&gt;Projected Point Distance&lt;/h2&gt;
+&lt;h2&gt;Projected Point Distance &lt;kbd&gt;Val&lt;/kbd&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;SLVS_C_PROJ_PT_DISTANCE&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
-a = Point3d(0, 0, 0, sys) #第一個點
-b = Point3d(10, 10, 10, sys) #第二個點
-normal = Normal3d(1, 0, 0, 0, sys) #某條3D法線
+a = Point3d(0, 0, 0) #第一個點
+b = Point3d(10, 10, 10) #第二個點
+normal = Normal3d(1, 0, 0, 0) #某條3D法線
 Constraint.distance(50, a, b, normal)
 &lt;/pre&gt;
 
@@ -412,29 +471,29 @@ Constraint.distance(50, a, b, normal)
 &lt;p&gt;&lt;code&gt;SLVS_C_POINTS_COINCIDENT&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
-a = Point3d(0, 0, 0, sys) #第一個點
-b = Point3d(10, 10, 10, sys) #第二個點
+a = Point3d(0, 0, 0) #第一個點
+b = Point3d(10, 10, 10) #第二個點
 Constraint.coincident(a, b)
 &lt;/pre&gt;
 
 &lt;p&gt;兩個點的座標相等。（即：在彼此之上）&lt;/p&gt;
-&lt;h2&gt;Point to Plane Distance&lt;/h2&gt;
+&lt;h2&gt;Point to Plane Distance &lt;kbd&gt;Val&lt;/kbd&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;SLVS_C_PT_PLANE_DISTANCE&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
-a = Point3d(0, 0, 0, sys) #第一個點
+a = Point3d(0, 0, 0) #第一個點
 wrkpl = Workplane(p1, wnormal) #某個工作平面
 Constraint.distance(50, a, wrkpl)
 &lt;/pre&gt;
 
 &lt;p&gt;從一個點到一個平面的距離，是硬性的約束。&lt;/p&gt;
 &lt;p&gt;距離值的正負會規定點在平面之上或之下。&lt;/p&gt;
-&lt;h2&gt;Point to Line Distance &lt;kbd&gt;3D&lt;/kbd&gt;&lt;/h2&gt;
+&lt;h2&gt;Point to Line Distance &lt;kbd&gt;3D&lt;/kbd&gt; &lt;kbd&gt;Val&lt;/kbd&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;SLVS_C_PT_LINE_DISTANCE&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
-a = Point3d(0, 0, 0, sys) #第一個點
-normal = Normal3d(1, 0, 0, 0, sys) #某條3D法線
+a = Point3d(0, 0, 0) #第一個點
+normal = Normal3d(1, 0, 0, 0) #某條3D法線
 Constraint.distance(50, a, normal)
 &lt;/pre&gt;
 
@@ -445,8 +504,8 @@ Constraint.distance(50, a, normal)
 &lt;p&gt;&lt;code&gt;SLVS_C_PT_IN_PLANE&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
-a = Point3d(0, 0, 0, sys) #第一個點
 wrkpl = Workplane(p1, wnormal) #某個工作平面
+a = Point3d(0, 0, 0) #第一個點
 Constraint.on(wrkpl, a)
 &lt;/pre&gt;
 
@@ -455,24 +514,214 @@ Constraint.on(wrkpl, a)
 &lt;p&gt;&lt;code&gt;SLVS_C_PT_ON_LINE&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
-a = Point3d(0, 0, 0, sys) #第一個點
-normal = Normal3d(1, 0, 0, 0, sys) #某條3D法線
+a = Point3d(0, 0, 0) #第一個點
+normal = Normal3d(1, 0, 0, 0) #某條3D法線
 Constraint.on(normal, a)
 &lt;/pre&gt;
 
-&lt;p&gt;一個點會被固定在一條直線上。&lt;/p&gt;
+&lt;p&gt;一個點會被固定在一條法線或直線上。&lt;/p&gt;
 &lt;p&gt;注意此約束會在投影到一個平面上時移除一個自由度；而在3D空間時變成兩個。&lt;/p&gt;
 &lt;h2&gt;Equal Length of Lines &lt;kbd&gt;3D&lt;/kbd&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;SLVS_C_EQUAL_LENGTH_LINES&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
-a = LineSegment3d(x, y) #某條3D線段
-b = LineSegment3d(i, j) #某條3D線段
+a = LineSegment3d(x, y) #第一條3D線段
+b = LineSegment3d(i, j) #第二條3D線段
 Constraint.coincident(a, b)
 &lt;/pre&gt;
 
 &lt;p&gt;兩條線段的長度等長。&lt;/p&gt;
-&lt;h1&gt;（待更新）&lt;/h1&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230紀錄 - Python-Solvespace編譯完畢</title><link href="http://project.mde.tw/blog/40323230ji-lu-python-solvespacebian-yi-wan-bi.html" rel="alternate"></link><updated>2016-07-24T16:18:51+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-24:blog/40323230ji-lu-python-solvespacebian-yi-wan-bi.html</id><summary type="html">&lt;ol&gt;
+&lt;h2&gt;Ratio of Length &lt;kbd&gt;3D&lt;/kbd&gt; &lt;kbd&gt;Val&lt;/kbd&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;SLVS_C_LENGTH_RATIO&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用指令：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+a = LineSegment3d(x, y) #第一條3D線段
+b = LineSegment3d(i, j) #第二條3D線段
+Constraint.coincident(3/2, a, b)
+&lt;/pre&gt;
+
+&lt;p&gt;第一條線段長度除以第二條線段長度的比值。&lt;/p&gt;
+&lt;h2&gt;Equal Length of Point to Lines &lt;kbd&gt;3D&lt;/kbd&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;SLVS_C_EQ_LEN_PT_LINE_D&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用指令：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+a = LineSegment3d(x, y) #第一條3D線段
+b = Point3d(0, 0, 0) #某一個點
+c = LineSegment3d(i, j) #第二條3D線段
+Constraint.coincident(a, b, c)
+&lt;/pre&gt;
+
+&lt;p&gt;第一條線段長度等於一個點到第二條線的距離。&lt;/p&gt;
+&lt;h2&gt;Equal Distance of Point to Lines &lt;kbd&gt;3D&lt;/kbd&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;SLVS_C_EQ_PT_LN_DISTANCES&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用指令：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+a = LineSegment3d(x, y) #第一條3D線段
+b = Point3d(0, 0, 0) #第一個點
+c = LineSegment3d(i, j) #第二條3D線段
+b = Point3d(20, 20, 20) #第二個點
+Constraint.coincident(a, b, c, d)
+&lt;/pre&gt;
+
+&lt;p&gt;第一條線段長度等於一個點到第二條線段的距離。&lt;/p&gt;
+&lt;h2&gt;Equal Angle &lt;kbd&gt;3D&lt;/kbd&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;SLVS_C_EQUAL_ANGLE&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用指令：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+a = LineSegment3d(x, y) #第一條3D線段
+b = LineSegment3d(i, j) #第二條3D線段
+c = LineSegment3d(m, n) #第三條3D線段
+d = LineSegment3d(v, u) #第四條3D線段
+Constraint.coincident(a, b, c, d)
+&lt;/pre&gt;
+
+&lt;p&gt;第一條線段和第二條線段的夾角等於第三條線段和第四條線段的夾角。&lt;/p&gt;
+&lt;h2&gt;Equal Length of Line to Arc &lt;kbd&gt;3D&lt;/kbd&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;SLVS_C_EQUAL_LINE_ARC_LEN&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用指令：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+a = LineSegment3d(x, y) #某條3D線段
+b = ArcOfCircle(wrkpl, normal, o, s, e) #某段圓弧
+Constraint.coincident(a, b)
+&lt;/pre&gt;
+
+&lt;p&gt;一條線段長度和另一段圓弧長度相等。&lt;/p&gt;
+&lt;h2&gt;Symmetric &lt;kbd&gt;3D&lt;/kbd&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;SLVS_C_SYMMETRIC&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用指令：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+wrkpl = Workplane(p1, wnormal) #某個工作平面
+a = Point3d(0, 0, 0) #第一個點
+b = Point3d(20, 20, 20) #第二個點
+Constraint.coincident(wrkpl, a, b)
+&lt;/pre&gt;
+
+&lt;p&gt;第一個點會和第二點對稱於一個工作平面。&lt;/p&gt;
+&lt;p&gt;意味著兩個點到平面的距離都相等，而兩點的連線可以做為平面的法線。&lt;/p&gt;
+&lt;h2&gt;Horizontal and Vertical &lt;kbd&gt;2D&lt;/kbd&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;SLVS_C_SYMMETRIC_HORIZ&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;SLVS_C_SYMMETRIC_VERT&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用指令：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+a = Point2d(wplane, 0, 0) #第一個點
+b = Point2d(wplane, 20, 20) #第二個點
+c = LineSegment2d(wplane, a, b) #兩個點所連成的線段
+Constraint.horizontal(wplane, a, b)
+Constraint.vertical(wplane, a, b)
+Constraint.horizontal(wplane, c)
+Constraint.vertical(wplane, c)
+&lt;/pre&gt;
+
+&lt;p&gt;兩個輸入的點會互相對稱水平軸或垂直軸。&lt;/p&gt;
+&lt;p&gt;亦或規定一條線段的水平或垂直。&lt;/p&gt;
+&lt;h2&gt;Diameter &lt;kbd&gt;Val&lt;/kbd&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;SLVS_C_DIAMETER&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用指令：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+pi = math.pi
+a = ArcOfCircle(wrkpl, normal, o, s, e) #某段圓弧
+Constraint.diameter(40*pi, a)
+&lt;/pre&gt;
+
+&lt;p&gt;一段圓或圓弧的周長或弧長。&lt;/p&gt;
+&lt;h2&gt;Point on Circle&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;SLVS_C_PT_ON_CIRCLE&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用指令：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+a = Point3d(0, 0, 0) #某個點
+b = ArcOfCircle(wrkpl, normal, o, s, e) #某段圓弧
+Constraint.on(a, b)
+&lt;/pre&gt;
+
+&lt;p&gt;一個點會被固定在一個圓或一段圓弧上。&lt;/p&gt;
+&lt;h2&gt;Same Orientation&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;SLVS_C_SAME_ORIENTATION&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用指令：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+a = Normal3d(1, 0, 0, 0) #第一條法線
+b = Normal3d(0, 1, 0, 0) #第二條法線
+Constraint.coincident(a, b)
+&lt;/pre&gt;
+
+&lt;p&gt;兩條法線的方向相等。&lt;/p&gt;
+&lt;h2&gt;Angle &lt;kbd&gt;3D&lt;/kbd&gt; &lt;kbd&gt;Val&lt;/kbd&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;SLVS_C_ANGLE&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用指令：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+a = LineSegment3d(x, y) #第一條線段
+b = LineSegment3d(i, j) #第二條線段
+Constraint.coincident(45, a, b)
+&lt;/pre&gt;
+
+&lt;p&gt;兩條線段的夾角，定義值單位為度。&lt;/p&gt;
+&lt;p&gt;公式如下（&lt;code&gt;A&lt;/code&gt;和&lt;code&gt;B&lt;/code&gt;為兩條線的向量）：&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;(A dot B)/(|A||B|) = cos(valA)&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;注意這裡的值定義比較不明確，無論正負90度都會是相同的結果。&lt;/p&gt;
+&lt;h2&gt;Perpendicular &lt;kbd&gt;3D&lt;/kbd&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;SLVS_C_PERPENDICULAR&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;沒有指令。&lt;/p&gt;
+&lt;p&gt;源自約束&lt;code&gt;SLVS_C_ANGLE&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;這個約束是定義角度約束為90度的情況。&lt;/p&gt;
+&lt;h2&gt;Parallel &lt;kbd&gt;3D&lt;/kbd&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;SLVS_C_PARALLEL&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;沒有指令。&lt;/p&gt;
+&lt;p&gt;源自約束&lt;code&gt;SLVS_C_ANGLE&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;這個約束是定義角度約束為平行的情況。&lt;/p&gt;
+&lt;p&gt;注意此約束會在投影到一個平面上時移除一個自由度；而在3D空間時變成兩個。&lt;/p&gt;
+&lt;h2&gt;Arc and Line Tangent &lt;kbd&gt;2D&lt;/kbd&gt; &lt;kbd&gt;Val&lt;/kbd&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;SLVS_C_ARC_LINE_TANGENT&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用指令：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+a = ArcOfCircle(wrkpl, normal, o, s, e) #某段圓弧
+b = LineSegment2d(wrkpl, c, d) #某條直線
+Constraint.coincident(True, a, b)
+&lt;/pre&gt;
+
+&lt;p&gt;一段圓或圓弧和一條線段相切。&lt;/p&gt;
+&lt;p&gt;若真假值是&lt;code&gt;False&lt;/code&gt;，則圓弧的切點會位於它的起點&lt;code&gt;s&lt;/code&gt;；反之若為&lt;code&gt;True&lt;/code&gt;，則會位於它的終點&lt;code&gt;e&lt;/code&gt;。&lt;/p&gt;
+&lt;h2&gt;Cubic and Line Tangent &lt;kbd&gt;3D&lt;/kbd&gt; &lt;kbd&gt;Val&lt;/kbd&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;SLVS_C_CUBIC_LINE_TANGENT&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用指令：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+a = Cubic(w, i, j, k) #某個立方體
+b = LineSegment3d(x, y) #某條直線
+Constraint.coincident(True, a, b)
+&lt;/pre&gt;
+
+&lt;p&gt;一個可能帶有貝茲曲線的立方體和一條線段相切。&lt;/p&gt;
+&lt;p&gt;若真假值是&lt;code&gt;False&lt;/code&gt;，則貝茲曲線的切點會位於它的起點&lt;code&gt;w&lt;/code&gt;；反之若為&lt;code&gt;True&lt;/code&gt;，則會位於它的終點&lt;code&gt;k&lt;/code&gt;。&lt;/p&gt;
+&lt;h2&gt;Curve and Curve Tangent &lt;kbd&gt;2D&lt;/kbd&gt; &lt;kbd&gt;Val&lt;/kbd&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;SLVS_C_CURVE_CURVE_TANGENT&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用指令：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+a = ArcOfCircle(wrkpl, normal, o, s, e) #某段圓弧
+b = Cubic(w, i, j, k) #某個立方體
+Constraint.coincident(True, a, b)
+&lt;/pre&gt;
+
+&lt;p&gt;源自約束&lt;code&gt;SLVS_C_ARC_LINE_TANGENT&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;兩個曲線相切，雙方可以任意為圓弧或是立方體。&lt;/p&gt;
+&lt;p&gt;若真假值是&lt;code&gt;False&lt;/code&gt;，則圓弧的切點會位於它的起點&lt;code&gt;s&lt;/code&gt;，貝茲曲線的切點會位於它的起點&lt;code&gt;w&lt;/code&gt;；反之若為&lt;code&gt;True&lt;/code&gt;，則會位於它的終點&lt;code&gt;e&lt;/code&gt;或&lt;code&gt;k&lt;/code&gt;。&lt;/p&gt;
+&lt;h2&gt;Equal Radius&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;SLVS_C_EQUAL_RADIUS&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用指令：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+a = ArcOfCircle(wrkpl, normal, o, s, e) #第一段圓弧
+b = ArcOfCircle(wrkpl, normal, p, q, r) #第二段圓弧
+Constraint.equal_radius(a, b)
+&lt;/pre&gt;
+
+&lt;p&gt;兩個圓或圓弧的半徑相等。&lt;/p&gt;
+&lt;h2&gt;Where Dragged &lt;kbd&gt;3D&lt;/kbd&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;code&gt;SLVS_C_WHERE_DRAGGED&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;使用指令：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+a = a = Point3d(0, 0, 0) #某個點
+sys.set_dragged(a)
+&lt;/pre&gt;
+
+&lt;p&gt;命令約束盡量固定這個點，取而代之的是移動周遭的項目。&lt;/p&gt;
+&lt;p&gt;這個點被固定後移動量會較小。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230紀錄 - Python-Solvespace編譯完畢</title><link href="http://project.mde.tw/blog/40323230ji-lu-python-solvespacebian-yi-wan-bi.html" rel="alternate"></link><updated>2016-07-24T16:18:51+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-24:blog/40323230ji-lu-python-solvespacebian-yi-wan-bi.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Windows執行成功！&lt;/p&gt;
 &lt;/li&gt;

@@ -27,7 +27,7 @@ Author: yen
 &lt;h2&gt;規劃解題 :&lt;/h2&gt;
 
 &lt;p&gt;計算題目，並一邊利用SciTE的偵錯窗來檢查之前寫的函式資料。&lt;/p&gt;
-&lt;p&gt;&lt;img src="" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/tfgUIVX.jpg" &gt;&lt;/p&gt;
 &lt;p&gt;之前的題目：&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://chiamingyen.github.io/kmolab/blog/zi-xing-che-chuan-dong-2d-lian-tiao-hui-tu-er.html" title="chiamingyen.github.io"&gt;http://chiamingyen.github.io/kmolab/blog/zi-xing-che-chuan-dong-2d-lian-tiao-hui-tu-er.html&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;規劃了一支程式來計算鍊輪的點座標（半成品）：&lt;/p&gt;
@@ -142,7 +142,7 @@ public:
 &lt;/pre&gt;
 
 &lt;p&gt;而那些沒做出的功能都用註解的方式放在這些做好的函式之間，所以看來好像是要自己做了。&lt;/p&gt;
-&lt;p&gt;&lt;img src="" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/3x4fBiB.jpg" &gt;&lt;/p&gt;
 &lt;p&gt;畢竟是用別人寫好的架構，自己修改應該沒甚麼太大的障礙，以一個Python模組而言，拓展所需才是協同作業重要之處。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323231日誌 - 105/07/25</title><link href="http://project.mde.tw/blog/40323231ri-zhi-1050725.html" rel="alternate"></link><updated>2016-07-26T14:54:04+08:00</updated><author><name>40323231</name></author><id>tag:project.mde.tw,2016-07-26:blog/40323231ri-zhi-1050725.html</id><summary type="html">&lt;p&gt;3DP問題、測試、解決方法&lt;/p&gt;
 
 

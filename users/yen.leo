@@ -22,7 +22,7 @@
 <v t="leo.20151213085727.1"><vh>@button local pelican</vh></v>
 </v>
 <v t="amd.20160117010542.1"><vh>@button git rm -rf blog</vh></v>
-<v t="amd.20151215180106.1" a="E"><vh>設定與開發</vh>
+<v t="amd.20151215180106.1"><vh>設定與開發</vh>
 <v t="amd.20151216151325.1"><vh>@edit index.html</vh></v>
 <v t="amd.20151216152209.1"><vh>@edit README.md</vh></v>
 <v t="leo.20151213230723.1"><vh>Pelican 設定</vh>
@@ -156,7 +156,7 @@
 <v t="amd.20151216001126.1"><vh>md 檔案範例</vh></v>
 <v t="amd.20151215170031.1" a="E"><vh>@path ./../content</vh>
 <v t="amd.20160106093454.1" a="E"><vh>yen 所寫的網誌文章</vh>
-<v t="amd.20160213095053.1" a="E"><vh>201603</vh>
+<v t="amd.20160213095053.1"><vh>201603</vh>
 <v t="amd.20160224170554.1"><vh>@edit yen_20160301.md</vh></v>
 <v t="amd.20160301114516.1"><vh>@edit yen_20160301-1.md</vh></v>
 <v t="leo.20160301161358.1"><vh>@edit yen_20160301-2.md</vh></v>
@@ -176,11 +176,16 @@
 <v t="amd.20160326184051.1"><vh>@@edit yen_20160326-1.md</vh></v>
 <v t="amd.20160327224113.1"><vh>@@edit yen_20160327.md</vh></v>
 <v t="amd.20160327224200.1"><vh>@@edit yen_20160327-1.md</vh></v>
+</v>
+<v t="amd.20160727114410.1"><vh>2016_before_07</vh>
 <v t="amd.20160401184837.1"><vh>@edit yen_20160401.md</vh></v>
+<v t="amd.20160521230100.1"><vh>@edit yen_20160521.md</vh></v>
 <v t="amd.20160405235750.1"><vh>@edit yen_20160405.md</vh></v>
 <v t="amd.20160408221721.1"><vh>@edit yen_20160408.md</vh></v>
-<v t="amd.20160521230100.1"><vh>@edit yen_20160521.md</vh></v>
-<v t="amd.20160708145548.1"><vh>@edit yen_20160708.md</vh></v>
+</v>
+<v t="amd.20160727114506.1" a="E"><vh>201607</vh>
+<v t="amd.20160708145548.1"><vh>@@edit yen_20160708.md</vh></v>
+<v t="amd.20160727111427.1"><vh>@edit yen_20160727.md</vh></v>
 </v>
 </v>
 <v t="amd.20160323000221.1"><vh>40323143 所寫的文章</vh>
@@ -1230,6 +1235,7 @@ http://p208328.webspaceconfig.de/en/products/standard-gears/spur-gear-mechanisms
 <t tx="amd.20160323000221.1"></t>
 <t tx="amd.20160326184051.1">@language md
 Title: yen - 利用機械手臂模擬學習 Python
+Date: 2016-03-26 01:20
 Category: Misc
 Tags: Robot, Python
 Author: yen
@@ -1247,6 +1253,7 @@ V-rep: http://www.coppeliarobotics.com/
 http://140.130.17.17/public/2016spring/V-REP_PRO_EDU.7z</t>
 <t tx="amd.20160327224113.1">@language md
 Title: yen - 印一隻機械臂
+Date: 2016-03-27 01:20
 Category: Misc
 Tags: Robot, Python
 Author: yen
@@ -1260,6 +1267,7 @@ http://www.thingiverse.com/thing:30163
 http://robotica.webs.upv.es/en/introduction-vrep-arm/</t>
 <t tx="amd.20160327224200.1">@language md
 Title: yen - opentoonz
+Date: 2016-03-27 01:20
 Category: Misc
 Tags: Robot, Python
 Author: yen
@@ -1271,6 +1279,20 @@ Author: yen
 opentoonz
 
 https://opentoonz.github.io/e/index.html</t>
+<t tx="amd.20160708145548.1">@language md
+Title: yen - 上課專用網際程式規劃
+Date: 2016-07-08 01:20
+Category: Misc
+Tags: 上課專用, 網際程式
+Author: yen
+
+RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.
+
+&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+</t>
+<t tx="amd.20160727114410.1"></t>
+<t tx="amd.20160727114506.1"></t>
 <t tx="leo.20151212173315.1"></t>
 <t tx="leo.20151212173315.2">QTreeWidget {
     /* These apply to the selected item, but not to editing items.*/

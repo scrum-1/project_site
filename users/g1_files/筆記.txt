@@ -1,0 +1,47 @@
+1.Getter methods do not change the values of attributes, they just return the values
+
+2.The methods used for changing the values of attributes are called setter methods.
+
+3.If either the function str is applied to it or if it is used in a print function. __str__ will not be used,
+
+4.If a class has only the __repr__ method and no __str__ method, __repr__ will be applied in the situations, where __str__would be applied, if it were available
+
+5.A frequently asked question is when to use __repr__ annd when __str__. __str__ is always the right choice,
+
+6.內建函數 (function) eval() ，參數 (parameter) expression 為具有可執行運算式的字串，此函數執行 expression 中的運算式
+
+7.內建函數 (function) type() ，回傳參數 (parameter) object 的型態名稱
+8.__repr__ goal is to be unambiguous
+
+9.__str__ goal is to be readable
+
+10.Container’s __str__ uses contained objects’ __repr__
+
+11.
+name	Public
+These attributes can be freely used inside or outside of a class definition.
+
+_name	Protected
+Protected attributes should not be used outside of the class definition, unless inside of a subclass definition. 
+
+__name	Private
+This kind of attribute is inaccessible and invisible. It's neither possible to read nor write to those attributes, except inside of the class definition itself.
+
+12.
+
+Private attributes should only be used by the owner, i.e. inside of the class definition itself.
+Private attributes 只能被自己使用，也就是說只能在 class definition 內部使用而已
+Protected (restricted) Attributes may be used, but at your own risk. Essentially, this means that they should only be used under certain conditions.
+Protected (restricted) Attributes 可以被使用，但風險自負，這意味著應該只能在某些條件下使用
+Public Attributes can and should be freely used.
+Public Attributes 可以被自由使用
+
+13.內建函數 (function) globals() ，回傳儲存在字典的全域符號表
+
+14.Inheritance(繼承)
+
+Python has two built-in functions that work with inheritance:
+
+Use isinstance() to check an instance’s type: isinstance(obj, int) will be True only if obj.__class__ is int or some class derived from int.
+
+Use issubclass() to check class inheritance: issubclass(bool, int) is True since bool is a subclass of int. However, issubclass(float, int) is False since float is not a subclass of int.

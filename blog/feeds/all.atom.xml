@@ -143,7 +143,7 @@ public:
 
 &lt;p&gt;而那些沒做出的功能都用註解的方式放在這些做好的函式之間，所以看來好像是要自己做了。&lt;/p&gt;
 &lt;p&gt;&lt;img src="" &gt;&lt;/p&gt;
-&lt;p&gt;畢竟是用別人寫好的架構，自己修改應該沒甚麼太大的障礙，以一個Python模組而言，拓展需要的功能才是重要之處。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323231日誌 - 105/07/25</title><link href="http://project.mde.tw/blog/40323231ri-zhi-1050725.html" rel="alternate"></link><updated>2016-07-26T14:54:04+08:00</updated><author><name>40323231</name></author><id>tag:project.mde.tw,2016-07-26:blog/40323231ri-zhi-1050725.html</id><summary type="html">&lt;p&gt;3DP問題、測試、解決方法&lt;/p&gt;
+&lt;p&gt;畢竟是用別人寫好的架構，自己修改應該沒甚麼太大的障礙，以一個Python模組而言，拓展所需才是協同作業重要之處。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323231日誌 - 105/07/25</title><link href="http://project.mde.tw/blog/40323231ri-zhi-1050725.html" rel="alternate"></link><updated>2016-07-26T14:54:04+08:00</updated><author><name>40323231</name></author><id>tag:project.mde.tw,2016-07-26:blog/40323231ri-zhi-1050725.html</id><summary type="html">&lt;p&gt;3DP問題、測試、解決方法&lt;/p&gt;
 
 
 &lt;h3&gt;固件組裝時的問題 : &lt;/h3&gt;

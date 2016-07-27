@@ -170,13 +170,13 @@ init_mathjax();
 
         <meta name="author" content="40323230" />
         <meta name="keywords" content="Kmol,SWIG,Solvespace,CDemo,Python-Solvespace" />
-        <meta name="description" content="slvs資料庫（_slvs.pyd或_slvs.so）轉成Python後的內容。 協助Python程式使用指令。" />
+        <meta name="description" content="slvs資料庫（_slvs.pyd或_slvs.so）轉成Python後的內容。 協助Python程式使用指令。 ＊ Tips 的標籤是比較實用的註解。 內容待勘誤 07/27更新" />
 
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="40323230紀錄 - SLVS資料庫函式"/>
         <meta property="og:url" content="http://project.mde.tw/blog/40323230ji-lu-slvszi-liao-ku-han-shi.html"/>
-        <meta property="og:description" content="slvs資料庫（_slvs.pyd或_slvs.so）轉成Python後的內容。 協助Python程式使用指令。"/>
+        <meta property="og:description" content="slvs資料庫（_slvs.pyd或_slvs.so）轉成Python後的內容。 協助Python程式使用指令。 ＊ Tips 的標籤是比較實用的註解。 內容待勘誤 07/27更新"/>
         <meta property="article:published_time" content="2016-07-25" />
             <meta property="article:section" content="2016bg2" />
             <meta property="article:tag" content="Kmol" />
@@ -335,6 +335,9 @@ init_mathjax();
                 </div>
                 <p><code>slvs</code>資料庫（<code>_slvs.pyd</code>或<code>_slvs.so</code>）轉成Python後的內容。</p>
 <p>協助Python程式使用指令。</p>
+<p>＊ <kbd>Tips</kbd> 的標籤是比較實用的註解。</p>
+<p><em>內容待勘誤</em></p>
+<p><em>07/27更新</em></p>
 
 
 <h2>前言 :</h2>
@@ -450,8 +453,47 @@ sys.failed[i]
 <p>實體可以馬上建立物件並用傳統結構的方式導入。</p>
 <p>建立物件後也能用轉換好的<code>slvs.py</code>函式呼叫。</p>
 <p>或是使用直接指令建立物件。</p>
-<p>輸入值後方加入<code>, sys</code>可以傳入系統<code>sys</code>中。</p>
-<h2>Point in 3D <kbd>3D</kbd> <kbd>Point<kbd></h2>
+<p>輸入值後方加入<code>, sys</code>，以傳入系統清單<code>sys</code>中；亦可用<code>sys.add_</code>加入以下支援的實體，而取出的編號取決於註冊的順序。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre>add_param( )
+add_point2d( )
+add_point3d( )
+add_entity( )
+</pre></div>
+</td></tr></table>
+
+<p>取出時亦同（函數中加上編號就能指定）：</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre>get_Point2d( )
+get_Point3d( )
+get_LineSegment2d( )
+get_LineSegment3d( )
+get_Normal3d( )
+get_Distance( )
+get_Workplane( )
+get_Cubic( )
+get_Circle( )
+get_ArcOfCircle( )
+</pre></div>
+</td></tr></table>
+
+<p>而查詢實體類型可以用：</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>entity_type( )
+</pre></div>
+</td></tr></table>
+
+<p>＊若沒有使用<code>sys</code>的註冊，將會被警告註冊值不可為<code>Null</code>。</p>
+<h2>Point in 3D <kbd>3D</kbd> <kbd>Point</kbd></h2>
 <p><code>SLVS_E_POINT_IN_3D</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
@@ -467,7 +509,7 @@ p = Point3d(a, b, c)
 </pre>
 
 <p><code>p</code>代表空間中的輸入點。</p>
-<h2>Point in 2D  <kbd>2D</kbd> <kbd>Point<kbd></h2>
+<h2>Point in 2D  <kbd>2D</kbd> <kbd>Point</kbd></h2>
 <p><code>SLVS_E_POINT_IN_2D</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
@@ -483,7 +525,7 @@ p = Point2d(wplane, a, b)
 </pre>
 
 <p><code>p</code>代表工作平面上的輸入點。</p>
-<h2>Normal in 3D <kbd>3D</kbd> <kbd>Vector<kbd></h2>
+<h2>Normal in 3D <kbd>3D</kbd> <kbd>Vector</kbd></h2>
 <p><code>SLVS_E_NORMAL_IN_3D</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
@@ -492,11 +534,9 @@ w = sys.add_param(10.0) #實數座標
 a = sys.add_param(20.0) #X軸座標
 b = sys.add_param(30.0) #Y軸座標
 c = sys.add_param(40.0) #Z軸座標
-p = sys.get_Normal3d(w, a, b, c)
+p = Normal3d(w, a, b, c)
 #直接命令
 Slvs_MakeNormal3d(h, g, qw, qx, qy, qz)
-#簡化
-p = Normal3d(w, a, b, c)
 </pre>
 
 <p><code>p</code>代表空間中的一條法線。</p>
@@ -515,7 +555,42 @@ N cross U = V
 <p>轉換函式<code>Slvs_Quaternion</code>提供了在<code>U</code>、<code>V</code>、<code>N</code>和單位四元數之間轉換。</p>
 <p>單位四元數只有三個自由度，但是要在四個參數中指定。因此一個額外的約束產生了，就是：</p>
 <p><code>w^2 + x^2 + y^2 + z^2 = 1</code></p>
-<h2>Normal in 2D <kbd>2D</kbd> <kbd>Vector<kbd></h2>
+<h2>Make a Quaternion for a Work Plane <kbd>Tips</kbd></h2>
+<p>要定義一個由<code>U[1 0 0]</code>向量（等同X軸）和<code>V[0 1 0]</code>向量（等同Y軸）組成的平面，是需要一條3D法線的。</p>
+<p>若是不會計算四元數，可以利用下列函式達成：</p>
+<pre class="brush: python">
+#函式轉換四元數
+qw, qx, qy, qz = MakeQuaternion(1, 0, 0, 0, 1, 0)
+
+#帶入3D法線的函式中
+normal = Normal3d(Param(qw), Param(qx), Param(qy), Param(qz), sys)
+
+#做成工作平面
+o = Point3d(Param(0.0), Param(0.0), Param(0.0))
+plane = Workplane(o, normal)
+</pre>
+
+<p>這個公式在製作2D平面時非常方便。</p>
+<p>以下是不同平面參考：</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre>XY平面：[1 0 0], [0 1 0]
+MakeQuaternion(1, 0, 0, 0, 1, 0)
+
+YZ平面：[0 1 0], [0 0 1]
+MakeQuaternion(0, 1, 0, 0, 0, 1)
+
+XZ平面：[1 0 0], [0 0 1]
+MakeQuaternion(1, 0, 0, 0, 0, 1)
+</pre></div>
+</td></tr></table>
+
+<h2>Normal in 2D <kbd>2D</kbd> <kbd>Vector</kbd></h2>
 <p><code>SLVS_E_NORMAL_IN_2D</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
@@ -533,11 +608,10 @@ Slvs_MakeNormal2d(h, g, wrkpl)
 #標準
 wrkpl = Workplane(p1, wnormal) #某個工作平面
 r = sys.add_param(10.0) #距離d
-p = sys.get_Distance(wplane, r)
+p = Distance(wplane, r)
 #直接命令
 Slvs_MakeDistance(h, g, wrkpl, d)
-#簡化
-p = Distance(wplane, r)
+
 </pre>
 
 <p><code>p</code>代表與工作平面平行的距離。</p>
@@ -548,15 +622,13 @@ p = Distance(wplane, r)
 #標準
 normal = Normal3d(1, 0, 0, 0) #某個法線
 o = Point3d(10, 10, 10) #某個點
-p = sys.get_Workplane(o, normal)
+p = Workplane(o, normal)
 #直接命令
 Slvs_MakeWorkplane(h, g, o, normal)
-#簡化
-p = Workplane(o, normal)
 </pre>
 
 <p><code>p</code>代表通過原點，與法線垂直的工作平面。</p>
-<h2>Line Segment <kbd>Line<kbd></h2>
+<h2>Line Segment <kbd>Line</kbd></h2>
 <p><code>SLVS_E_LINE_SEGMENT</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
@@ -566,13 +638,10 @@ a = Point3d(0, 0, 0) #某個3D點
 b = Point3d(10, 10, 10) #某個3D點
 c = Point2d(wplane, 0, 0) #某個2D點
 d = Point2d(wplane, 10, 10) #某個2D點
-p = sys.get_LineSegment2d(wrkpl, c, d)
-p = sys.get_LineSegment3d(a, b)
-#直接命令
-Slvs_MakeLineSegment(h, group, wrkpl, ptA, ptB)
-#簡化
 p = LineSegment2d(wrkpl, c, d)
 p = LineSegment3d(a, b)
+#直接命令
+Slvs_MakeLineSegment(h, group, wrkpl, ptA, ptB)
 </pre>
 
 <p>這個函式在直接命令上是2D的方式繪出線條。</p>
@@ -587,21 +656,20 @@ a = Point3d(0, 0, 0) #第零個點
 b = Point3d(10, 0, 0) #第一個點
 c = Point3d(0, 10, 0) #第二個點
 d = Point3d(0, 0, 10) #第三個點
-p = sys.get_Cubic(wrkpl, a, b, c, d)
+p = Cubic(wrkpl, a, b, c, d)
 #直接命令
 Slvs_MakeCubic(h, group, wrkpl, pt0, pt1, pt2, pt3)
-#簡化
-p = Cubic(wrkpl, a, b, c, d)
 </pre>
 
 <p><code>p</code>代表四個點構成，可能帶有貝茲曲線的立方體。</p>
+<p>四個點可以是四個3D點，也可以是四個2D和工作平面構成。</p>
 <p>四個點的公式如下：</p>
 <pre class="brush: python">
 #公式（t從0積分到1）
 p(t) = P0*(1 - t)^3 + 3*P1*(1 - t)^2*t + 3*P2*(1 - t)*t^2 + P3*t^3
 </pre>
 
-<h2>Circle <kbd>2D</kbd> <kbd>Arc<kbd></h2>
+<h2>Circle <kbd>2D</kbd> <kbd>Arc</kbd></h2>
 <p><code>SLVS_E_CIRCLE</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
@@ -610,15 +678,13 @@ wrkpl = Workplane(p1, wnormal) #某個工作平面
 normal = Normal3d(1, 0, 0, 0) #某條3D法線
 o = Point2d(wplane, 0, 0) #圓心
 r = Distance(wplane, 20) #半徑
-p = sys.get_Circle( wrkpl, o, r)
+p = Circle(wrkpl, normal, o, r)
 #直接命令
 Slvs_MakeCircle(h, group, wrkpl, center, normal, radius)
-#簡化
-p = Circle(wrkpl, normal, o, r)
 </pre>
 
 <p><code>p</code>代表與一條法線垂直（可選：或與一個平面平行），由圓心和半徑構成的完整圓。</p>
-<h2>Arc of Circle <kbd>2D</kbd> <kbd>Arc<kbd></h2>
+<h2>Arc of Circle <kbd>2D</kbd> <kbd>Arc</kbd></h2>
 <p>SLVS_E_ARC_OF_CIRCLE</p>
 <p>使用指令：</p>
 <pre class="brush: python">
@@ -628,11 +694,9 @@ o = Point2d(wplane, 0, 0) #圓心
 s = Point2d(wplane, 50, 0) #起點
 e = Point2d(wplane, 0, 50) #終點
 normal = Normal3d(1, 0, 0, 0) #某條3D法線
-p = sys.get_ArcOfCircle(wrkpl, normal, o, s, e)
+p = ArcOfCircle(wrkpl, normal, o, s, e)
 #直接命令
 Slvs_MakeArcOfCircle(h, group, wrkpl, normal, center, start, end)
-#簡化
-p = ArcOfCircle(wrkpl, normal, o, s, e)
 </pre>
 
 <p><code>p</code>代表三個點與一條法線垂直（可選：或與一個平面平行）的不完全圓。</p>
@@ -659,6 +723,12 @@ p = ArcOfCircle(wrkpl, normal, o, s, e)
 Slvs_MakeConstraint((h, group, type, wrkpl, valA, ptA, ptB, entityA, entityB)
 </pre>
 
+<p>輸入值後方加入<code>, sys</code>，以傳入系統清單<code>sys</code>中；或是使用以下<code>sys.add_</code>命令加入，而取出的編號取決於註冊的順序。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>add_constraint( )
+</pre></div>
+</td></tr></table>
+
+<p>＊若沒有使用<code>sys</code>的註冊，將會被警告註冊值不可為<code>Null</code>。</p>
 <h2>Point to Point Distance <kbd>3D</kbd> <kbd>Val</kbd></h2>
 <p><code>SLVS_C_PT_PT_DISTANCE</code></p>
 <p>使用指令：</p>
@@ -738,9 +808,7 @@ Constraint.on(normal, a)
 <p><code>SLVS_C_EQUAL_LENGTH_LINES</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
-a = LineSegment3d(x, y) #第一條3D線段
-b = LineSegment3d(i, j) #第二條3D線段
-Constraint.coincident(a, b)
+#功能建構中
 </pre>
 
 <p>兩條線段的長度等長。</p>
@@ -748,9 +816,7 @@ Constraint.coincident(a, b)
 <p><code>SLVS_C_LENGTH_RATIO</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
-a = LineSegment3d(x, y) #第一條3D線段
-b = LineSegment3d(i, j) #第二條3D線段
-Constraint.coincident(3/2, a, b)
+#功能建構中
 </pre>
 
 <p>第一條線段長度除以第二條線段長度的比值。</p>
@@ -758,10 +824,7 @@ Constraint.coincident(3/2, a, b)
 <p><code>SLVS_C_EQ_LEN_PT_LINE_D</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
-a = LineSegment3d(x, y) #第一條3D線段
-b = Point3d(0, 0, 0) #某一個點
-c = LineSegment3d(i, j) #第二條3D線段
-Constraint.coincident(a, b, c)
+#功能建構中
 </pre>
 
 <p>第一條線段長度等於一個點到第二條線的距離。</p>
@@ -769,11 +832,7 @@ Constraint.coincident(a, b, c)
 <p><code>SLVS_C_EQ_PT_LN_DISTANCES</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
-a = LineSegment3d(x, y) #第一條3D線段
-b = Point3d(0, 0, 0) #第一個點
-c = LineSegment3d(i, j) #第二條3D線段
-b = Point3d(20, 20, 20) #第二個點
-Constraint.coincident(a, b, c, d)
+#功能建構中
 </pre>
 
 <p>第一條線段長度等於一個點到第二條線段的距離。</p>
@@ -781,11 +840,7 @@ Constraint.coincident(a, b, c, d)
 <p><code>SLVS_C_EQUAL_ANGLE</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
-a = LineSegment3d(x, y) #第一條3D線段
-b = LineSegment3d(i, j) #第二條3D線段
-c = LineSegment3d(m, n) #第三條3D線段
-d = LineSegment3d(v, u) #第四條3D線段
-Constraint.coincident(a, b, c, d)
+#功能建構中
 </pre>
 
 <p>第一條線段和第二條線段的夾角等於第三條線段和第四條線段的夾角。</p>
@@ -803,10 +858,7 @@ Constraint.coincident(a, b)
 <p><code>SLVS_C_SYMMETRIC</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
-wrkpl = Workplane(p1, wnormal) #某個工作平面
-a = Point3d(0, 0, 0) #第一個點
-b = Point3d(20, 20, 20) #第二個點
-Constraint.coincident(wrkpl, a, b)
+#功能建構中
 </pre>
 
 <p>第一個點會和第二點對稱於一個工作平面。</p>
@@ -851,9 +903,7 @@ Constraint.on(a, b)
 <p><code>SLVS_C_SAME_ORIENTATION</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
-a = Normal3d(1, 0, 0, 0) #第一條法線
-b = Normal3d(0, 1, 0, 0) #第二條法線
-Constraint.coincident(a, b)
+#功能建構中
 </pre>
 
 <p>兩條法線的方向相等。</p>
@@ -861,9 +911,7 @@ Constraint.coincident(a, b)
 <p><code>SLVS_C_ANGLE</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
-a = LineSegment3d(x, y) #第一條線段
-b = LineSegment3d(i, j) #第二條線段
-Constraint.coincident(45, a, b)
+#功能建構中
 </pre>
 
 <p>兩條線段的夾角，定義值單位為度。</p>
@@ -872,12 +920,20 @@ Constraint.coincident(45, a, b)
 <p>注意這裡的值定義比較不明確，無論正負90度都會是相同的結果。</p>
 <h2>Perpendicular <kbd>3D</kbd></h2>
 <p><code>SLVS_C_PERPENDICULAR</code></p>
-<p>沒有指令。</p>
+<p>使用指令：</p>
+<pre class="brush: python">
+#功能建構中
+</pre>
+
 <p>源自約束<code>SLVS_C_ANGLE</code>。</p>
 <p>這個約束是定義角度約束為90度的情況。</p>
 <h2>Parallel <kbd>3D</kbd></h2>
 <p><code>SLVS_C_PARALLEL</code></p>
-<p>沒有指令。</p>
+<p>使用指令：</p>
+<pre class="brush: python">
+#功能建構中
+</pre>
+
 <p>源自約束<code>SLVS_C_ANGLE</code>。</p>
 <p>這個約束是定義角度約束為平行的情況。</p>
 <p>注意此約束會在投影到一個平面上時移除一個自由度；而在3D空間時變成兩個。</p>
@@ -885,9 +941,7 @@ Constraint.coincident(45, a, b)
 <p><code>SLVS_C_ARC_LINE_TANGENT</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
-a = ArcOfCircle(wrkpl, normal, o, s, e) #某段圓弧
-b = LineSegment2d(wrkpl, c, d) #某條直線
-Constraint.coincident(True, a, b)
+#功能建構中
 </pre>
 
 <p>一段圓或圓弧和一條線段相切。</p>
@@ -896,9 +950,7 @@ Constraint.coincident(True, a, b)
 <p><code>SLVS_C_CUBIC_LINE_TANGENT</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
-a = Cubic(w, i, j, k) #某個立方體
-b = LineSegment3d(x, y) #某條直線
-Constraint.coincident(True, a, b)
+#功能建構中
 </pre>
 
 <p>一個可能帶有貝茲曲線的立方體和一條線段相切。</p>
@@ -907,9 +959,7 @@ Constraint.coincident(True, a, b)
 <p><code>SLVS_C_CURVE_CURVE_TANGENT</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
-a = ArcOfCircle(wrkpl, normal, o, s, e) #某段圓弧
-b = Cubic(w, i, j, k) #某個立方體
-Constraint.coincident(True, a, b)
+#功能建構中
 </pre>
 
 <p>源自約束<code>SLVS_C_ARC_LINE_TANGENT</code>。</p>
@@ -980,6 +1030,11 @@ sys.set_dragged(a)
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1050727.html">
+                            40323230日誌 - 105/07/27
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323231ri-zhi-1050725.html">
                             40323231日誌 - 105/07/25
                         </a>
@@ -997,11 +1052,6 @@ sys.set_dragged(a)
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ji-lu-python-solvespacebian-yi-wan-bi.html">
                             40323230紀錄 - Python-Solvespace編譯完畢
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323218ri-zhi-1050723.html">
-                            40323218日誌 - 105/07/23
                         </a>
                     </li>
                 </ul>

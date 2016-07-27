@@ -15,7 +15,12 @@ Author: yen
 &lt;p&gt;但是就實務應用的觀點, 各用戶一旦 git clone 本倉儲內容, 或者在操作系統中搬動或複製倉儲檔案, 而沒能利用像 cp -p 這種可以保留原始檔案建立時間的指令, 整個倉儲的 .md 檔案就會隨著不同操作流程, 而讓網誌的文章順序變來變去, 從讀者的角度來看, 我們應該要加以解決這個問題.&lt;/p&gt;
 &lt;p&gt;解決的方法很簡單, 我們仍然保留原先近端與遠端 DEFAULT_DATE = 'fs' 的設定, 也就是若使用者的文章沒有 Date: 註記, 就仍舊採用該 .md 檔案的建立時間作為文章登錄的時間 ,但是若使用者的 .md 檔案提供了 Date: 註記, 那麼就以註記的時間作為文章建立時間.&lt;/p&gt;
 &lt;p&gt;好了, 接下來就是要求所有參與協同的作者, 在各自的文章標題後面, 加上 Date:, 而格式則是 Date: 2016-07-27 11:29, 一旦所有的文章都各自標註建立的確切時間, 之後所產生的機械設計專題網誌文章順序, 應該就不會再變來變去了.&lt;/p&gt;
-&lt;p&gt;當然, 我們為了要讓現在這篇文章能夠放在網誌的最上頭幾天, 我們把它註記為三天後的時間.&lt;/p&gt;</summary><category term="Pelican"></category><category term="文章日期"></category></entry><entry><title>40323250日誌 - 105/06/28</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050628.html" rel="alternate"></link><updated>2016-07-27T11:06:48+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-27:blog/40323250ri-zhi-1050628.html</id><summary type="html">&lt;p&gt;暑期第一個禮拜的 星期二&lt;/p&gt;
+&lt;p&gt;當然, 我們為了要讓現在這篇文章能夠放在網誌的最上頭幾天, 我們把它註記為三天後的時間.&lt;/p&gt;</summary><category term="Pelican"></category><category term="文章日期"></category></entry><entry><title>yen - 我們為何要全盤托出研究成果?</title><link href="http://project.mde.tw/blog/yen-wo-men-wei-he-yao-quan-pan-tuo-chu-yan-jiu-cheng-guo.html" rel="alternate"></link><updated>2016-07-28T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-28:blog/yen-wo-men-wei-he-yao-quan-pan-tuo-chu-yan-jiu-cheng-guo.html</id><summary type="html">&lt;p&gt;不知道您有沒有發現, 您可以在 &lt;a href="https://github.com/coursemdetw/project_site"&gt;https://github.com/coursemdetw/project_site&lt;/a&gt;下載本機械設計專題網誌相關的所有資料, 其中包括許多我們竭盡全力悟出的知識與技巧. 我們為何要這樣做?&lt;/p&gt;
+
+
+&lt;p&gt;這種自由開放的研究理念, 源自我們在機械設計工程系開設的課程 (包括計算機程式、網際內容管理、電腦輔助設計實習與協同產品設計實習等) 中所使用的工具, 這些工具包括 Python3, Anaconda, Leo Editor, Pelican, OnShape, Solvespace, V-rep, Jupyter, Ubuntu, Virtualbox, Github, Bitbucket 與 OpenShift 等.&lt;/p&gt;
+&lt;p&gt;其中 Python3, Leo Editor, Pelican, Solvespace, V-rep, Jupyter 與 Virtualbox 都是自由開放源套件, 其餘則可以在教育界免費使用.&lt;/p&gt;
+&lt;p&gt;尤其當 OnShape 將 FeatureScript 整體程式碼開放出來之後, 我們終於發現, 假如連全球的機械設計菁英們, 都願意將價值性如此高的系統給開放出來, 那麼我們這種小團隊, 在受益於這些巨人所推出的系統應用中, 所領悟理解出的一點點小小心得, 就更沒有隱藏與故步自封的必要了.&lt;/p&gt;</summary><category term="研究理念"></category></entry><entry><title>40323250日誌 - 105/06/28</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050628.html" rel="alternate"></link><updated>2016-07-27T11:06:48+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-27:blog/40323250ri-zhi-1050628.html</id><summary type="html">&lt;p&gt;暑期第一個禮拜的 星期二&lt;/p&gt;
 
 
 &lt;h3&gt;目前組合進度&lt;/h3&gt;

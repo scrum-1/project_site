@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>40323131日誌 105/07/18 - 機械設計專題 (虎尾科大MDE)</title>
+    <title>CDemo - 機械設計專題 (虎尾科大MDE)</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -166,21 +166,16 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 
-<link rel="canonical" href="http://project.mde.tw/blog/40323131ri-zhi-1050718.html">
 
-        <meta name="author" content="40323131" />
-        <meta name="keywords" content="g1project" />
-        <meta name="description" content="增加一些專題書面的資料及安裝Octoprint跟Webcam的練習" />
+    <meta name="author" content="KMOL" />
+    <meta name="keywords" content="CDemo" />
 
+    <!-- Open Graph tags -->
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
-        <meta property="og:type" content="article"/>
-        <meta property="og:title" content="40323131日誌 105/07/18"/>
-        <meta property="og:url" content="http://project.mde.tw/blog/40323131ri-zhi-1050718.html"/>
-        <meta property="og:description" content="增加一些專題書面的資料及安裝Octoprint跟Webcam的練習"/>
-        <meta property="article:published_time" content="2016-07-18" />
-            <meta property="article:section" content="2016g1" />
-            <meta property="article:tag" content="g1project" />
-            <meta property="article:author" content="40323131" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="機械設計專題 (虎尾科大MDE)"/>
+        <meta property="og:url" content="http://project.mde.tw/blog"/>
+        <meta property="og:description" content="機械設計專題 (虎尾科大MDE)"/>
 
 
     <!-- Bootstrap -->
@@ -264,7 +259,7 @@ init_mathjax();
                         <li >
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
-                        <li class="active">
+                        <li >
                             <a href="http://project.mde.tw/blog/category/2016g1.html">2016g1</a>
                         </li>
                         <li >
@@ -292,97 +287,24 @@ init_mathjax();
     <div class="row">
         <div class="col-sm-9">
 
-    <section id="content">
-        <article>
-            <header class="page-header">
-                <h1>
-                    <a href="http://project.mde.tw/blog/40323131ri-zhi-1050718.html"
-                       rel="bookmark"
-                       title="Permalink to 40323131日誌 105/07/18">
-                        40323131日誌 105/07/18
-                    </a>
-                </h1>
-            </header>
-            <div class="entry-content">
-                <div class="panel">
-                    <div class="panel-body">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-07-18T23:49:58.902716+08:00"> 週一 18 七月 2016</time>
-    </span>
-            <span class="label label-default">By</span>
-            <a href="http://project.mde.tw/blog/author/40323131.html"><i class="fa fa-user"></i> 40323131</a>
+            <article>
+                <h2><a href="http://project.mde.tw/blog/40323230ji-lu-bian-yi-solvespaceliu-cheng.html">40323230紀錄 - 編譯Solvespace流程</a></h2>
+                <div class="summary"><p>由原始碼編譯出Solvespace和CDemo的執行檔</p>
 
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://project.mde.tw/blog/tag/g1project.html">g1project</a>
-    
-</footer><!-- /.post-info -->                    </div>
+                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ji-lu-bian-yi-solvespaceliu-cheng.html">more ...</a>
                 </div>
-                <p>增加一些專題書面的資料及安裝Octoprint跟Webcam的練習
-</p>
-<h3>介面系統介紹及架構</h3>
+            </article>
+            <hr/>
 
-<h4>Kmolprint </h4>
-
-<p></br>
-<img src="http://i.imgur.com/OBM6wDz.png">
-</br>
-<h4>介面系統有著Access Control (訪問控制權限)，當使用者進入到介面系統時，會顯示上圖的畫面，若是尚未登入或是註冊的用戶(匿名用戶)，只會有讀(read - only)的權限而已，無法使用其他功能；介面系統裡包含的功能有下列幾項:</h4>
-</br>
-<h4>Printer state   (printer 當前狀態)</h4>
-<h4>Available gcode file and stats    (可用的gcode檔案及總數)</h4>
-<h4>Temperature    (溫度)</h4>
-<h4>Webcam       (攝影機)</h4>
-<h4>Gcode viewer</h4>
-<h4>Terminal output          (端子輸出)</h4>
-<h4>Available time movies     (可使用縮時攝影)</h4>
-<h4>Any component provided through plugins which are enable for anonymous user         (給匿名用戶提供外掛程式的使用)</h4>
-</br>
-<h4>系統架構圖</h4>
-<img src="http://i.imgur.com/DiAHikU.png">
-</br>
-<h4>在第一次登入系統時，會有配置指南，允許創建 root 管理員，如果其他用戶想要註冊使用的話，須經由root 管理員審核確認之後，才算註冊成功，採用這種審核機制，是為了避免嵌入式電腦，因接收過多的連線而當機</h4>
-</br>
-<h3>練習安裝Octoprint及架設Webcam</h3>
-<h4>今天主要在熟悉對於Octoprint及Webcam的安裝及設定，不過情況是時好時壞，在一開始安裝Octoprint的時候，就先卡了，結果問題是出在所在的目錄不對，所以找不到檔案，再來安裝Webcam的時候，因為延遲的時間太長了，好像延遲將近20秒，這邊是去設定檔裡頭調整解析度及 fps ，然後調整成大約延遲1~2秒左右，再來是將Octoprint及Webcam設定成開機之後會自動開啟，不過這邊也卡了一下，因為都卡在要調整成自動開機的指令時出現錯誤，不過這邊花了些時間，最後Octoprint的自動開機成功了，不過Webcam的失敗了，這邊可能還要再找原因，然後Octoprint的代理伺服器也改成用 nginx 了，不過為了找問題點在哪，忘記拍照了，可能要等熟練安裝步驟之後，在一步步說明加拍照，是說網路上的步驟都講的蠻簡單的，不過實際遇到的問題好像跟網路上不太一樣，這點讓我很納悶</h4></p>
-            </div>
-            <!-- /.entry-content -->
-    <hr/>
-    <section class="comments" id="comments">
-        <h2>Comments</h2>
-
-        <div id="disqus_thread"></div>
-        <script type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-            var disqus_shortname = 'projectmdetw'; // required: replace example with your forum shortname
-
-                    var disqus_identifier = '40323131ri-zhi-1050718';
-                var disqus_url = 'http://project.mde.tw/blog/40323131ri-zhi-1050718.html';
-
-            var disqus_config = function () {
-                this.language = "en";
-            };
-
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function () {
-                var dsq = document.createElement('script');
-                dsq.type = 'text/javascript';
-                dsq.async = true;
-                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
-            Disqus.</a></noscript>
-        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-    </section>
-        </article>
-    </section>
-
+        <ul class="pagination">
+                <li class="prev"><a href="http://project.mde.tw/blog/tag/cdemo.html">&laquo;</a>
+                </li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/tag/cdemo.html">1</a></li>
+                    <li class="active"><a
+                            href="http://project.mde.tw/blog/tag/cdemo2.html">2</a></li>
+                <li class="next disabled"><a href="#">&raquo;</a></li>
+        </ul>
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
@@ -393,18 +315,8 @@ init_mathjax();
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/yen-you-guan-ji-jie-she-ji-zhuan-ti-wang-zhan-nei-rong.html">
-                            yen - 有關機械設計專題網站內容
-                        </a>
-                    </li>
-                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1050728.html">
                             40323230日誌 - 105/07/28
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/yen-wo-men-wei-he-yao-quan-pan-tuo-chu-yan-jiu-cheng-guo.html">
-                            yen - 我們為何要全盤托出研究成果?
                         </a>
                     </li>
                     <li class="list-group-item">
@@ -413,8 +325,18 @@ init_mathjax();
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323231ri-zhi-1050725.html">
-                            40323231日誌 - 105/07/25
+                        <a href="http://project.mde.tw/blog/40323230ji-lu-slvszi-liao-ku-han-shi.html">
+                            40323230紀錄 - SLVS資料庫函式
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/40323230ji-lu-python-solvespacebian-yi-wan-bi.html">
+                            40323230紀錄 - Python-Solvespace編譯完畢
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/40323230ji-lu-cyu-yan-zi-liao-ku-ge-shi.html">
+                            40323230紀錄 - C語言資料庫格式
                         </a>
                     </li>
                 </ul>

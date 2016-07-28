@@ -15,7 +15,118 @@ Author: yen
 &lt;p&gt;但是就實務應用的觀點, 各用戶一旦 git clone 本倉儲內容, 或者在操作系統中搬動或複製倉儲檔案, 而沒能利用像 cp -p 這種可以保留原始檔案建立時間的指令, 整個倉儲的 .md 檔案就會隨著不同操作流程, 而讓網誌的文章順序變來變去, 從讀者的角度來看, 我們應該要加以解決這個問題.&lt;/p&gt;
 &lt;p&gt;解決的方法很簡單, 我們仍然保留原先近端與遠端 DEFAULT_DATE = 'fs' 的設定, 也就是若使用者的文章沒有 Date: 註記, 就仍舊採用該 .md 檔案的建立時間作為文章登錄的時間 ,但是若使用者的 .md 檔案提供了 Date: 註記, 那麼就以註記的時間作為文章建立時間.&lt;/p&gt;
 &lt;p&gt;好了, 接下來就是要求所有參與協同的作者, 在各自的文章標題後面, 加上 Date:, 而格式則是 Date: 2016-07-27 11:29, 一旦所有的文章都各自標註建立的確切時間, 之後所產生的機械設計專題網誌文章順序, 應該就不會再變來變去了.&lt;/p&gt;
-&lt;p&gt;當然, 我們為了要讓現在這篇文章能夠放在網誌的最上頭幾天, 我們把它註記為三天後的時間.&lt;/p&gt;</summary><category term="Pelican"></category><category term="文章日期"></category></entry><entry><title>yen - 我們為何要全盤托出研究成果?</title><link href="http://project.mde.tw/blog/yen-wo-men-wei-he-yao-quan-pan-tuo-chu-yan-jiu-cheng-guo.html" rel="alternate"></link><updated>2016-07-28T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-28:blog/yen-wo-men-wei-he-yao-quan-pan-tuo-chu-yan-jiu-cheng-guo.html</id><summary type="html">&lt;p&gt;不知道您有沒有發現, 您可以在 &lt;a href="https://github.com/coursemdetw/project_site"&gt;https://github.com/coursemdetw/project_site&lt;/a&gt;下載本機械設計專題網誌相關的所有資料, 其中包括許多我們竭盡全力悟出的知識與技巧. 我們為何要這樣做?&lt;/p&gt;
+&lt;p&gt;當然, 我們為了要讓現在這篇文章能夠放在網誌的最上頭幾天, 我們把它註記為三天後的時間.&lt;/p&gt;</summary><category term="Pelican"></category><category term="文章日期"></category></entry><entry><title>40323230日誌 - 105/07/28</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050728.html" rel="alternate"></link><updated>2016-07-28T18:13:47+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-28:blog/40323230ri-zhi-1050728.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;CDemo資料庫內容補正&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;已更新&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;未支援項目&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;＊某些項目未紀錄於DOC.exe中&lt;/em&gt;&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;SLVS_C_PT_FACE_DISTANCE
+SLVS_C_PT_ON_FACE
+SLVS_C_LENGTH_RATIO
+SLVS_C_EQ_LEN_PT_LINE_D
+SLVS_C_EQ_PT_LN_DISTANCES
+SLVS_C_EQUAL_ANGLE
+SLVS_C_EQUAL_LINE_ARC_LEN
+SLVS_C_SYMMETRIC
+SLVS_C_SYMMETRIC_HORIZ
+SLVS_C_SYMMETRIC_VERT
+SLVS_C_SYMMETRIC_LINE
+SLVS_C_AT_MIDPOINT
+SLVS_C_SAME_ORIENTATION
+SLVS_C_ANGLE
+SLVS_C_PARALLEL
+SLVS_C_PERPENDICULAR
+SLVS_C_ARC_LINE_TANGENT
+SLVS_C_CUBIC_LINE_TANGENT
+SLVS_C_PROJ_PT_DISTANCE
+SLVS_C_WHERE_DRAGGED
+SLVS_C_CURVE_CURVE_TANGENT
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;今天編譯完&lt;code&gt;slvs_python.hpp&lt;/code&gt;，並推送至倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;因為大部分都是強硬約束的關係，只測試過部分功能。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;編譯流程&lt;/h1&gt;
+&lt;p&gt;使用Netbeans編譯&lt;code&gt;slvs_python.hpp&lt;/code&gt;和&lt;code&gt;slvs.i&lt;/code&gt;，旁邊的&lt;code&gt;constrainteq.cpp&lt;/code&gt;供參考函式。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/zjppe0U.jpg" &gt;&lt;/p&gt;
+&lt;h2&gt;&lt;em&gt;slvs.i&lt;/em&gt;&lt;/h2&gt;
+&lt;pre class="brush: c"&gt;
+class Constraint {
+    Constraint();
+public:
+...
+    static Constraint some_other_constraint(
+            System* system,
+            int type, Workplane workplane, double value,
+            Point ptA, Point ptB, Entity entityA, Entity entityB,
+            Slvs_hGroup group = USE_DEFAULT_GROUP);
+&lt;/pre&gt;
+
+&lt;p&gt;標準的約束條件格式如上，其實所有的約束函式都是透過&lt;code&gt;slvs_python.hpp&lt;/code&gt;輸入&lt;code&gt;constrainteq.cpp&lt;/code&gt;的約束做計算。&lt;/p&gt;
+&lt;h2&gt;&lt;em&gt;slvs_python.hpp&lt;/em&gt;&lt;/h2&gt;
+&lt;pre class="brush: c"&gt;
+class Constraint {
+...
+public:
+static Constraint some_other_constraint(
+            System* system,
+            int type, Workplane workplane, double value,
+            Point ptA, Point ptB, Entity entityA, Entity entityB,
+            Slvs_hGroup group = USE_DEFAULT_GROUP) {
+        return init(system, Slvs_MakeConstraint(
+            0, group,
+            type,
+            workplane.handle(),
+            value,
+            ptA.handle(), ptB.handle(),
+            entityA.handle(), entityB.handle()));
+    }
+...
+&lt;/pre&gt;
+
+&lt;p&gt;但是由於約束&lt;code&gt;SLVS_C_EQUAL_ANGLE&lt;/code&gt;會用到四個Entity，預設只有開啟2個，另外的&lt;code&gt;EntityC&lt;/code&gt;、&lt;code&gt;EntityD&lt;/code&gt;沒有開啟，而相切約束需要的布林值&lt;code&gt;other&lt;/code&gt;和&lt;code&gt;other2&lt;/code&gt;亦沒有加入。&lt;/p&gt;
+&lt;p&gt;所以只能從&lt;code&gt;slvs.h&lt;/code&gt;添加這4個值。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/cV0HyKc.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;其他項目也要加上4個空位，以免出錯。&lt;/p&gt;
+&lt;p&gt;對照&lt;code&gt;constrainteq.cpp&lt;/code&gt;中需要的項目，在&lt;code&gt;slvs_python.hpp&lt;/code&gt;中填上需要的值的類型，應該就可以運作了。&lt;/p&gt;
+&lt;p&gt;測試了一些新加入的約束，如果&lt;code&gt;slvs_python.hpp&lt;/code&gt;中填上的類型正確，就會解題，不過「重複約束」的結果似乎是歸類在「過度約束」裡。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/Ej4JQHF.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;而如果本身類型填錯，就會回傳錯誤碼&lt;code&gt;-1&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/n3iIuhW.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;但是函式庫中只有&lt;code&gt;SLVS_C_WHERE_DRAGGED&lt;/code&gt;會抓住點（而且還是有移動量），還要研究一下如何鎖住這些點的位置。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;今天幫忙編寫CDemo，使其擁有Solvespace全部約束的功能。&lt;/p&gt;
+&lt;p&gt;會找時間翻修一下之前的紀錄。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>yen - 我們為何要全盤托出研究成果?</title><link href="http://project.mde.tw/blog/yen-wo-men-wei-he-yao-quan-pan-tuo-chu-yan-jiu-cheng-guo.html" rel="alternate"></link><updated>2016-07-28T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-28:blog/yen-wo-men-wei-he-yao-quan-pan-tuo-chu-yan-jiu-cheng-guo.html</id><summary type="html">&lt;p&gt;不知道您有沒有發現, 您可以在 &lt;a href="https://github.com/coursemdetw/project_site"&gt;https://github.com/coursemdetw/project_site&lt;/a&gt;下載本機械設計專題網誌相關的所有資料, 其中包括許多我們竭盡全力悟出的知識與技巧. 我們為何要這樣做?&lt;/p&gt;
 
 
 &lt;p&gt;這種自由開放的研究理念, 源自我們在機械設計工程系開設的課程 (包括計算機程式、網際內容管理、電腦輔助設計實習與協同產品設計實習等) 中所使用的工具, 這些工具包括 Python3, Anaconda, Leo Editor, Pelican, OnShape, Solvespace, V-rep, Jupyter, Ubuntu, Virtualbox, Github, Bitbucket 與 OpenShift 等.&lt;/p&gt;

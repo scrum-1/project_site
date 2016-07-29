@@ -519,7 +519,7 @@ Constraint.vertical(Workplane wrkpl, LineSegment line)
 Constraint.diameter(double diameter, Workplane wrkpl, Circular c)
 &lt;/pre&gt;
 
-&lt;p&gt;一段&lt;code&gt;Circular&lt;/code&gt;圓或圓弧的周長或弧長。&lt;/p&gt;
+&lt;p&gt;一段&lt;code&gt;Circular&lt;/code&gt;圓或圓弧的直徑。&lt;/p&gt;
 &lt;h2&gt;Point on Circle&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;SLVS_C_PT_ON_CIRCLE&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;kbd&gt;2D&lt;/kbd&gt; 使用指令：&lt;/p&gt;

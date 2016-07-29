@@ -572,7 +572,7 @@ sys.failed[i]
 &lt;p&gt;&lt;kbd&gt;Line2D&lt;/kbd&gt; 此物件屬於2D線段。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;kbd&gt;Curve&lt;/kbd&gt; 此物件屬於曲線。&lt;/p&gt;
+&lt;p&gt;&lt;kbd&gt;Cubic&lt;/kbd&gt; 此物件屬於曲線。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;kbd&gt;Circular&lt;/kbd&gt; 此物件屬於圓弧。&lt;/p&gt;

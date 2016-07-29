@@ -667,7 +667,12 @@ Slvs_MakeConstraint((h, group, type, wrkpl, valA, ptA, ptB, entityA, entityB,  e
 Constraint.distance(double value, Point3d p1, Point3d p2)
 </pre>
 
-<p>約束兩個<code>Point3d</code>的距離，非硬性，必要時會自動調整距離。</p>
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint distance(double value, Workplane wrkpl, Point p1, Point p2)
+</pre>
+
+<p>約束兩個<code>Point2d/3d</code>的距離，非硬性，必要時會自動調整距離。</p>
 <h2>Projected Point Distance <kbd>Val</kbd></h2>
 <p><code>SLVS_C_PROJ_PT_DISTANCE</code></p>
 <p><kbd>3D</kbd> 使用指令：</p>

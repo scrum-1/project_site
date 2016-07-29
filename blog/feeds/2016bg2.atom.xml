@@ -418,10 +418,10 @@ sys.failed[i]
 &lt;p&gt;&lt;kbd&gt;Point2D&lt;/kbd&gt; 此物件屬於2D點。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;kbd&gt;Vector3D&lt;/kbd&gt; 此物件屬於3D向量。&lt;/p&gt;
+&lt;p&gt;&lt;kbd&gt;Normal3D&lt;/kbd&gt; 此物件屬於3D向量。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;kbd&gt;Vector2D&lt;/kbd&gt; 此物件屬於2D向量。&lt;/p&gt;
+&lt;p&gt;&lt;kbd&gt;Normal2D&lt;/kbd&gt; 此物件屬於2D向量。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;kbd&gt;Line3D&lt;/kbd&gt; 此物件屬於3D線段。&lt;/p&gt;
@@ -514,7 +514,7 @@ p = Point2d(wplane, a, b)
 &lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;p&lt;/code&gt;代表工作平面上的輸入點。&lt;/p&gt;
-&lt;h2&gt;Normal in 3D &lt;kbd&gt;Vector3D&lt;/kbd&gt;&lt;/h2&gt;
+&lt;h2&gt;Normal in 3D &lt;kbd&gt;Normal3D&lt;/kbd&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;SLVS_E_NORMAL_IN_3D&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
@@ -579,7 +579,7 @@ MakeQuaternion(1, 0, 0, 0, 0, 1)
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-&lt;h2&gt;Normal in 2D &lt;kbd&gt;Vector2D&lt;/kbd&gt;&lt;/h2&gt;
+&lt;h2&gt;Normal in 2D &lt;kbd&gt;Normal2D&lt;/kbd&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;SLVS_E_NORMAL_IN_2D&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;

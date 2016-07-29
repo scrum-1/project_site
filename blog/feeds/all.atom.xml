@@ -607,7 +607,8 @@ get_ArcOfCircle( )
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;＊若沒有使用&lt;code&gt;sys&lt;/code&gt;的註冊，將會被警告註冊值不可為&lt;code&gt;Null&lt;/code&gt;。&lt;/p&gt;
-&lt;h2&gt;Point in 3D &lt;kbd&gt;Entity&lt;/kbd&gt; / &lt;kbd&gt;Point&lt;/kbd&gt;&lt;/h2&gt;
+&lt;h2&gt;Point in 3D&lt;/h2&gt;
+&lt;p&gt;&lt;kbd&gt;Entity&lt;/kbd&gt; / &lt;kbd&gt;Point&lt;/kbd&gt; / &lt;kbd&gt;Point3d&lt;/kbd&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;SLVS_E_POINT_IN_3D&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
@@ -615,7 +616,8 @@ Point3d(Param x, Param y, Param z)
 &lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;p&lt;/code&gt;代表空間中的輸入點。&lt;/p&gt;
-&lt;h2&gt;Point in 2D &lt;kbd&gt;Entity&lt;/kbd&gt; / &lt;kbd&gt;Point&lt;/kbd&gt; / &lt;kbd&gt;Point2d&lt;/kbd&gt;&lt;/h2&gt;
+&lt;h2&gt;Point in 2D&lt;/h2&gt;
+&lt;p&gt;&lt;kbd&gt;Entity&lt;/kbd&gt; / &lt;kbd&gt;Point&lt;/kbd&gt; / &lt;kbd&gt;Point2d&lt;/kbd&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;SLVS_E_POINT_IN_2D&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
@@ -623,7 +625,8 @@ Point2d(Workplane workplane, Param u, Param v)
 &lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;p&lt;/code&gt;代表工作平面上的輸入點。&lt;/p&gt;
-&lt;h2&gt;Normal in 3D &lt;kbd&gt;Entity&lt;/kbd&gt; / &lt;kbd&gt;Normal3d&lt;/kbd&gt;&lt;/h2&gt;
+&lt;h2&gt;Normal in 3D&lt;/h2&gt;
+&lt;p&gt;&lt;kbd&gt;Entity&lt;/kbd&gt; / &lt;kbd&gt;Normal3d&lt;/kbd&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;SLVS_E_NORMAL_IN_3D&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
@@ -681,7 +684,8 @@ MakeQuaternion(1, 0, 0, 0, 0, 1)
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-&lt;h2&gt;Normal in 2D &lt;kbd&gt;Entity&lt;/kbd&gt; / &lt;kbd&gt;Normal3d&lt;/kbd&gt; / &lt;kbd&gt;Normal2d&lt;/kbd&gt;&lt;/h2&gt;
+&lt;h2&gt;Normal in 2D&lt;/h2&gt;
+&lt;p&gt;&lt;kbd&gt;Entity&lt;/kbd&gt; / &lt;kbd&gt;Normal3d&lt;/kbd&gt; / &lt;kbd&gt;Normal2d&lt;/kbd&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;SLVS_E_NORMAL_IN_2D&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
@@ -689,7 +693,8 @@ Normal3d(Workplane wrkpl)
 &lt;/pre&gt;
 
 &lt;p&gt;代表垂直工作平面的一條法線。&lt;/p&gt;
-&lt;h2&gt;Distance &lt;kbd&gt;Entity&lt;/kbd&gt; / &lt;kbd&gt;Distance&lt;/kbd&gt;&lt;/h2&gt;
+&lt;h2&gt;Distance&lt;/h2&gt;
+&lt;p&gt;&lt;kbd&gt;Entity&lt;/kbd&gt; / &lt;kbd&gt;Distance&lt;/kbd&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;SLVS_E_DISTANCE&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
@@ -705,7 +710,8 @@ Workplane(Point3d origin, Normal3d normal)
 &lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;p&lt;/code&gt;代表通過原點，與法線垂直的工作平面。&lt;/p&gt;
-&lt;h2&gt;Line Segment &lt;kbd&gt;Entity&lt;/kbd&gt; / &lt;kbd&gt;LineSegment&lt;/kbd&gt; / &lt;kbd&gt;LineSegment3d&lt;/kbd&gt;&lt;/h2&gt;
+&lt;h2&gt;Line Segment&lt;/h2&gt;
+&lt;p&gt;&lt;kbd&gt;Entity&lt;/kbd&gt; / &lt;kbd&gt;LineSegment&lt;/kbd&gt; / &lt;kbd&gt;LineSegment3d&lt;/kbd&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;SLVS_E_LINE_SEGMENT&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;kbd&gt;3D&lt;/kbd&gt; 使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
@@ -724,7 +730,8 @@ LineSegment2d(Workplane wrkpl, Point2d a, Point2d b)
 
 &lt;p&gt;在兩個&lt;code&gt;Point2d/3d&lt;/code&gt;點之間繪出直線條。&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;p&lt;/code&gt;代表兩個點之間的連線。&lt;/p&gt;
-&lt;h2&gt;Cubic &lt;kbd&gt;Entity&lt;/kbd&gt; / &lt;kbd&gt;Cubic&lt;/kbd&gt;&lt;/h2&gt;
+&lt;h2&gt;Cubic&lt;/h2&gt;
+&lt;p&gt;&lt;kbd&gt;Entity&lt;/kbd&gt; / &lt;kbd&gt;Cubic&lt;/kbd&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;SLVS_E_CUBIC&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;kbd&gt;3D&lt;/kbd&gt; 使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
@@ -743,7 +750,8 @@ Cubic(Workplane wrkpl, Point2d pt0, Point2d pt1, Point2d pt2, Point2d pt3)
 p(t) = P0*(1 - t)^3 + 3*P1*(1 - t)^2*t + 3*P2*(1 - t)*t^2 + P3*t^3
 &lt;/pre&gt;
 
-&lt;h2&gt;Circle &lt;kbd&gt;Entity&lt;/kbd&gt; / &lt;kbd&gt;Circular&lt;/kbd&gt; / &lt;kbd&gt;Circle&lt;/kbd&gt;&lt;/h2&gt;
+&lt;h2&gt;Circle&lt;/h2&gt;
+&lt;p&gt;&lt;kbd&gt;Entity&lt;/kbd&gt; / &lt;kbd&gt;Circular&lt;/kbd&gt; / &lt;kbd&gt;Circle&lt;/kbd&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;SLVS_E_CIRCLE&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
@@ -751,7 +759,8 @@ Circle(Workplane wrkpl, Normal3d normal, Point2d center, Distance radius)
 &lt;/pre&gt;
 
 &lt;p&gt;與一條&lt;code&gt;Normal3d&lt;/code&gt;法線垂直，與一個&lt;code&gt;Workplane&lt;/code&gt;平面平行，由&lt;code&gt;Point2d&lt;/code&gt;圓心和&lt;code&gt;Distance&lt;/code&gt;半徑構成的完整圓。&lt;/p&gt;
-&lt;h2&gt;Arc of Circle &lt;kbd&gt;Circular&lt;/kbd&gt; / &lt;kbd&gt;ArcOfCircle&lt;/kbd&gt;&lt;/h2&gt;
+&lt;h2&gt;Arc of Circle&lt;/h2&gt;
+&lt;p&gt;&lt;kbd&gt;Circular&lt;/kbd&gt; / &lt;kbd&gt;ArcOfCircle&lt;/kbd&gt;&lt;/p&gt;
 &lt;p&gt;SLVS_E_ARC_OF_CIRCLE&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;

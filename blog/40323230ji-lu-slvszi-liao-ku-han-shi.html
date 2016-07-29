@@ -482,7 +482,8 @@ get_ArcOfCircle( )
 </td></tr></table>
 
 <p>＊若沒有使用<code>sys</code>的註冊，將會被警告註冊值不可為<code>Null</code>。</p>
-<h2>Point in 3D <kbd>Entity</kbd> / <kbd>Point</kbd></h2>
+<h2>Point in 3D</h2>
+<p><kbd>Entity</kbd> / <kbd>Point</kbd> / <kbd>Point3d</kbd></p>
 <p><code>SLVS_E_POINT_IN_3D</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
@@ -490,7 +491,8 @@ Point3d(Param x, Param y, Param z)
 </pre>
 
 <p><code>p</code>代表空間中的輸入點。</p>
-<h2>Point in 2D <kbd>Entity</kbd> / <kbd>Point</kbd> / <kbd>Point2d</kbd></h2>
+<h2>Point in 2D</h2>
+<p><kbd>Entity</kbd> / <kbd>Point</kbd> / <kbd>Point2d</kbd></p>
 <p><code>SLVS_E_POINT_IN_2D</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
@@ -498,7 +500,8 @@ Point2d(Workplane workplane, Param u, Param v)
 </pre>
 
 <p><code>p</code>代表工作平面上的輸入點。</p>
-<h2>Normal in 3D <kbd>Entity</kbd> / <kbd>Normal3d</kbd></h2>
+<h2>Normal in 3D</h2>
+<p><kbd>Entity</kbd> / <kbd>Normal3d</kbd></p>
 <p><code>SLVS_E_NORMAL_IN_3D</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
@@ -556,7 +559,8 @@ MakeQuaternion(1, 0, 0, 0, 0, 1)
 </pre></div>
 </td></tr></table>
 
-<h2>Normal in 2D <kbd>Entity</kbd> / <kbd>Normal3d</kbd> / <kbd>Normal2d</kbd></h2>
+<h2>Normal in 2D</h2>
+<p><kbd>Entity</kbd> / <kbd>Normal3d</kbd> / <kbd>Normal2d</kbd></p>
 <p><code>SLVS_E_NORMAL_IN_2D</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
@@ -564,7 +568,8 @@ Normal3d(Workplane wrkpl)
 </pre>
 
 <p>代表垂直工作平面的一條法線。</p>
-<h2>Distance <kbd>Entity</kbd> / <kbd>Distance</kbd></h2>
+<h2>Distance</h2>
+<p><kbd>Entity</kbd> / <kbd>Distance</kbd></p>
 <p><code>SLVS_E_DISTANCE</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
@@ -580,7 +585,8 @@ Workplane(Point3d origin, Normal3d normal)
 </pre>
 
 <p><code>p</code>代表通過原點，與法線垂直的工作平面。</p>
-<h2>Line Segment <kbd>Entity</kbd> / <kbd>LineSegment</kbd> / <kbd>LineSegment3d</kbd></h2>
+<h2>Line Segment</h2>
+<p><kbd>Entity</kbd> / <kbd>LineSegment</kbd> / <kbd>LineSegment3d</kbd></p>
 <p><code>SLVS_E_LINE_SEGMENT</code></p>
 <p><kbd>3D</kbd> 使用指令：</p>
 <pre class="brush: python">
@@ -599,7 +605,8 @@ LineSegment2d(Workplane wrkpl, Point2d a, Point2d b)
 
 <p>在兩個<code>Point2d/3d</code>點之間繪出直線條。</p>
 <p><code>p</code>代表兩個點之間的連線。</p>
-<h2>Cubic <kbd>Entity</kbd> / <kbd>Cubic</kbd></h2>
+<h2>Cubic</h2>
+<p><kbd>Entity</kbd> / <kbd>Cubic</kbd></p>
 <p><code>SLVS_E_CUBIC</code></p>
 <p><kbd>3D</kbd> 使用指令：</p>
 <pre class="brush: python">
@@ -618,7 +625,8 @@ Cubic(Workplane wrkpl, Point2d pt0, Point2d pt1, Point2d pt2, Point2d pt3)
 p(t) = P0*(1 - t)^3 + 3*P1*(1 - t)^2*t + 3*P2*(1 - t)*t^2 + P3*t^3
 </pre>
 
-<h2>Circle <kbd>Entity</kbd> / <kbd>Circular</kbd> / <kbd>Circle</kbd></h2>
+<h2>Circle</h2>
+<p><kbd>Entity</kbd> / <kbd>Circular</kbd> / <kbd>Circle</kbd></p>
 <p><code>SLVS_E_CIRCLE</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
@@ -626,7 +634,8 @@ Circle(Workplane wrkpl, Normal3d normal, Point2d center, Distance radius)
 </pre>
 
 <p>與一條<code>Normal3d</code>法線垂直，與一個<code>Workplane</code>平面平行，由<code>Point2d</code>圓心和<code>Distance</code>半徑構成的完整圓。</p>
-<h2>Arc of Circle <kbd>Circular</kbd> / <kbd>ArcOfCircle</kbd></h2>
+<h2>Arc of Circle</h2>
+<p><kbd>Circular</kbd> / <kbd>ArcOfCircle</kbd></p>
 <p>SLVS_E_ARC_OF_CIRCLE</p>
 <p>使用指令：</p>
 <pre class="brush: python">

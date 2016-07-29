@@ -702,7 +702,8 @@ Distance(Workplane wrkpl, Param distance)
 &lt;/pre&gt;
 
 &lt;p&gt;&lt;code&gt;p&lt;/code&gt;代表與工作平面平行的距離。&lt;/p&gt;
-&lt;h2&gt;Work Plane &lt;kbd&gt;Entity&lt;/kbd&gt; / &lt;kbd&gt;Workplane&lt;/kbd&gt;&lt;/h2&gt;
+&lt;h2&gt;Work Plane&lt;/h2&gt;
+&lt;p&gt;&lt;kbd&gt;Entity&lt;/kbd&gt; / &lt;kbd&gt;Workplane&lt;/kbd&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;SLVS_E_WORKPLANE&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;

@@ -170,14 +170,14 @@ init_mathjax();
 
         <meta name="author" content="40323230" />
         <meta name="keywords" content="Kmol,SWIG,Solvespace,CDemo,Python-Solvespace" />
-        <meta name="description" content="slvs資料庫（_slvs.pyd或_slvs.so）轉成Python後的內容。 協助Python程式使用指令。 ＊ Tips 的標籤是比較實用的註解。 內容待勘誤 07/27更新" />
+        <meta name="description" content="slvs資料庫（_slvs.pyd或_slvs.so）轉成Python後的內容。 協助Python程式使用指令。 ＊ Tips 的標籤是比較實用的註解。 內容待勘誤 07/29更新" />
 
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="40323230紀錄 - SLVS資料庫函式"/>
         <meta property="og:url" content="http://project.mde.tw/blog/40323230ji-lu-slvszi-liao-ku-han-shi.html"/>
-        <meta property="og:description" content="slvs資料庫（_slvs.pyd或_slvs.so）轉成Python後的內容。 協助Python程式使用指令。 ＊ Tips 的標籤是比較實用的註解。 內容待勘誤 07/27更新"/>
-        <meta property="article:published_time" content="2016-07-26" />
+        <meta property="og:description" content="slvs資料庫（_slvs.pyd或_slvs.so）轉成Python後的內容。 協助Python程式使用指令。 ＊ Tips 的標籤是比較實用的註解。 內容待勘誤 07/29更新"/>
+        <meta property="article:published_time" content="2016-07-25" />
             <meta property="article:section" content="2016bg2" />
             <meta property="article:tag" content="Kmol" />
             <meta property="article:tag" content="SWIG" />
@@ -313,7 +313,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-07-26T11:42:15.206470+08:00"> 週二 26 七月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-07-25T14:05:50.092222+08:00"> 週一 25 七月 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -337,7 +337,7 @@ init_mathjax();
 <p>協助Python程式使用指令。</p>
 <p>＊ <kbd>Tips</kbd> 的標籤是比較實用的註解。</p>
 <p><em>內容待勘誤</em></p>
-<p><em>07/27更新</em></p>
+<p><em>07/29更新</em></p>
 
 
 <h2>前言 :</h2>
@@ -429,25 +429,31 @@ sys.failed[i]
 <p>實體的類型，屬於物件的部分。</p>
 <ol>
 <li>
-<p><kbd>3D</kbd> 此物件屬於3D類型。</p>
+<p><kbd>Point3D</kbd> 此物件屬於3D點。</p>
 </li>
 <li>
-<p><kbd>2D</kbd> 此物件屬於2D類型。</p>
+<p><kbd>Point2D</kbd> 此物件屬於2D點。</p>
 </li>
 <li>
-<p><kbd>Point</kbd> 此物件屬於點。</p>
+<p><kbd>Vector3D</kbd> 此物件屬於3D向量。</p>
 </li>
 <li>
-<p><kbd>Vector</kbd> 此物件屬於向量。</p>
+<p><kbd>Vector2D</kbd> 此物件屬於2D向量。</p>
 </li>
 <li>
-<p><kbd>Line</kbd> 此物件屬於線段。</p>
+<p><kbd>Line3D</kbd> 此物件屬於3D線段。</p>
+</li>
+<li>
+<p><kbd>Line2D</kbd> 此物件屬於2D線段。</p>
 </li>
 <li>
 <p><kbd>Curve</kbd> 此物件屬於曲線。</p>
 </li>
 <li>
-<p><kbd>Arc</kbd> 此物件屬於圓弧。</p>
+<p><kbd>Circular</kbd> 此物件屬於圓弧。</p>
+</li>
+<li>
+<p><kbd>WorkPlane</kbd> 此物件屬於工作平面。</p>
 </li>
 </ol>
 <p>實體可以馬上建立物件並用傳統結構的方式導入。</p>
@@ -493,7 +499,7 @@ get_ArcOfCircle( )
 </td></tr></table>
 
 <p>＊若沒有使用<code>sys</code>的註冊，將會被警告註冊值不可為<code>Null</code>。</p>
-<h2>Point in 3D <kbd>3D</kbd> <kbd>Point</kbd></h2>
+<h2>Point in 3D <kbd>Point3D</kbd></h2>
 <p><code>SLVS_E_POINT_IN_3D</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
@@ -509,7 +515,7 @@ p = Point3d(a, b, c)
 </pre>
 
 <p><code>p</code>代表空間中的輸入點。</p>
-<h2>Point in 2D  <kbd>2D</kbd> <kbd>Point</kbd></h2>
+<h2>Point in 2D  <kbd>Point2D</kbd></h2>
 <p><code>SLVS_E_POINT_IN_2D</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
@@ -525,7 +531,7 @@ p = Point2d(wplane, a, b)
 </pre>
 
 <p><code>p</code>代表工作平面上的輸入點。</p>
-<h2>Normal in 3D <kbd>3D</kbd> <kbd>Vector</kbd></h2>
+<h2>Normal in 3D <kbd>Vector3D</kbd></h2>
 <p><code>SLVS_E_NORMAL_IN_3D</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
@@ -590,7 +596,7 @@ MakeQuaternion(1, 0, 0, 0, 0, 1)
 </pre></div>
 </td></tr></table>
 
-<h2>Normal in 2D <kbd>2D</kbd> <kbd>Vector</kbd></h2>
+<h2>Normal in 2D <kbd>Vector2D</kbd></h2>
 <p><code>SLVS_E_NORMAL_IN_2D</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
@@ -601,7 +607,7 @@ Slvs_MakeNormal2d(h, g, wrkpl)
 </pre>
 
 <p>代表垂直工作平面的一條法線。</p>
-<h2>Distance <kbd>2D</kbd></h2>
+<h2>Distance</h2>
 <p><code>SLVS_E_DISTANCE</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
@@ -615,7 +621,7 @@ Slvs_MakeDistance(h, g, wrkpl, d)
 </pre>
 
 <p><code>p</code>代表與工作平面平行的距離。</p>
-<h2>Work Plane <kbd>3D</kbd></h2>
+<h2>Work Plane <kbd>WorkPlane</kbd></h2>
 <p><code>SLVS_E_WORKPLANE</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
@@ -628,7 +634,7 @@ Slvs_MakeWorkplane(h, g, o, normal)
 </pre>
 
 <p><code>p</code>代表通過原點，與法線垂直的工作平面。</p>
-<h2>Line Segment <kbd>Line</kbd></h2>
+<h2>Line Segment <kbd>Line2D/3D</kbd></h2>
 <p><code>SLVS_E_LINE_SEGMENT</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
@@ -646,7 +652,7 @@ Slvs_MakeLineSegment(h, group, wrkpl, ptA, ptB)
 
 <p>這個函式在直接命令上是2D的方式繪出線條。</p>
 <p><code>p</code>代表兩個點之間的連線。</p>
-<h2>Cubic <kbd>3D</kbd> <kbd>Curve</kbd></h2>
+<h2>Cubic <kbd>Cubic</kbd></h2>
 <p><code>SLVS_E_CUBIC</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
@@ -661,7 +667,7 @@ p = Cubic(wrkpl, a, b, c, d)
 Slvs_MakeCubic(h, group, wrkpl, pt0, pt1, pt2, pt3)
 </pre>
 
-<p><code>p</code>代表四個點構成，可能帶有貝茲曲線的立方體。</p>
+<p><code>p</code>代表四個點構成的貝茲曲線。</p>
 <p>四個點可以是四個3D點，也可以是四個2D和工作平面構成。</p>
 <p>四個點的公式如下：</p>
 <pre class="brush: python">
@@ -669,7 +675,7 @@ Slvs_MakeCubic(h, group, wrkpl, pt0, pt1, pt2, pt3)
 p(t) = P0*(1 - t)^3 + 3*P1*(1 - t)^2*t + 3*P2*(1 - t)*t^2 + P3*t^3
 </pre>
 
-<h2>Circle <kbd>2D</kbd> <kbd>Arc</kbd></h2>
+<h2>Circle <kbd>Circular</kbd></h2>
 <p><code>SLVS_E_CIRCLE</code></p>
 <p>使用指令：</p>
 <pre class="brush: python">
@@ -684,7 +690,7 @@ Slvs_MakeCircle(h, group, wrkpl, center, normal, radius)
 </pre>
 
 <p><code>p</code>代表與一條法線垂直（可選：或與一個平面平行），由圓心和半徑構成的完整圓。</p>
-<h2>Arc of Circle <kbd>2D</kbd> <kbd>Arc</kbd></h2>
+<h2>Arc of Circle <kbd>Circular</kbd></h2>
 <p>SLVS_E_ARC_OF_CIRCLE</p>
 <p>使用指令：</p>
 <pre class="brush: python">
@@ -711,279 +717,274 @@ Slvs_MakeArcOfCircle(h, group, wrkpl, normal, center, start, end)
 <p><kbd>2D</kbd> 此種約束只能用在平面上。</p>
 </li>
 <li>
-<p>未標示 <kbd>3D</kbd> 或 <kbd>2D</kbd> 則兩者皆可。</p>
-</li>
-<li>
 <p><kbd>Val</kbd> 此種約束必須設定額外的參考值。</p>
 </li>
 </ol>
-<p>輸入值最前端加入平面名稱可以規定為投影到平面的運算。</p>
+<p>輸入值最後端加入群組編號可以規定群組（預設值<code>Slvs_hGroup group = USE_DEFAULT_GROUP</code>）。</p>
 <p>約束的直接命令：</p>
 <pre class="brush: python">
-Slvs_MakeConstraint((h, group, type, wrkpl, valA, ptA, ptB, entityA, entityB)
+Slvs_MakeConstraint((h, group, type, wrkpl, valA, ptA, ptB, entityA, entityB,  entityC,  entityD, other, other2)
 </pre>
 
-<p>輸入值後方加入<code>, sys</code>，以傳入系統清單<code>sys</code>中；或是使用以下<code>sys.add_</code>命令加入，而取出的編號取決於註冊的順序。</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre>add_constraint( )
-</pre></div>
-</td></tr></table>
-
-<p>＊若沒有使用<code>sys</code>的註冊，將會被警告註冊值不可為<code>Null</code>。</p>
-<h2>Point to Point Distance <kbd>3D</kbd> <kbd>Val</kbd></h2>
+<h2>Point to Point Distance <kbd>Val</kbd></h2>
 <p><code>SLVS_C_PT_PT_DISTANCE</code></p>
-<p>使用指令：</p>
+<p><kbd>3D</kbd> 使用指令：</p>
 <pre class="brush: python">
-a = Point3d(0, 0, 0) #第一個點
-b = Point3d(10, 10, 10) #第二個點
-Constraint.distance(20, a, b)
+Constraint.distance(double value, Point3d p1, Point3d p2)
 </pre>
 
-<p>約束兩個空間點的距離，非硬性，必要時會自動調整距離。</p>
+<p>約束兩個<code>Point3d</code>的距離，非硬性，必要時會自動調整距離。</p>
 <h2>Projected Point Distance <kbd>Val</kbd></h2>
 <p><code>SLVS_C_PROJ_PT_DISTANCE</code></p>
-<p>使用指令：</p>
+<p><kbd>3D</kbd> 使用指令：</p>
 <pre class="brush: python">
-a = Point3d(0, 0, 0) #第一個點
-b = Point3d(10, 10, 10) #第二個點
-normal = Normal3d(1, 0, 0, 0) #某條3D法線
-Constraint.distance(50, a, b, normal)
+Constraint distance_proj(double value, Point3d p1, Point3d p2, Workplane wrkpl,
 </pre>
 
-<p>第一點到線段上的投影，與第二點的距離，是硬性的約束。</p>
-<h2>Points Coincident <kbd>3D</kbd></h2>
+<p>約束兩個<code>Point3d</code>的投影到<code>Workplane</code>距離，是硬性的約束。</p>
+<h2>Points Coincident</h2>
 <p><code>SLVS_C_POINTS_COINCIDENT</code></p>
-<p>使用指令：</p>
+<p><kbd>3D</kbd> 使用指令：</p>
 <pre class="brush: python">
-a = Point3d(0, 0, 0) #第一個點
-b = Point3d(10, 10, 10) #第二個點
-Constraint.coincident(a, b)
+Constraint.coincident(Point3d p1, Point3d p2)
 </pre>
 
-<p>兩個點的座標相等。（即：在彼此之上）</p>
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.coincident(Workplane wrkpl, Point p1, Point p2)
+</pre>
+
+<p>兩個點（<code>Point3d</code>或<code>Point2d</code>）的座標相等。（即：在彼此之上）</p>
 <h2>Point to Plane Distance <kbd>Val</kbd></h2>
 <p><code>SLVS_C_PT_PLANE_DISTANCE</code></p>
-<p>使用指令：</p>
+<p><kbd>3D</kbd> 使用指令：</p>
 <pre class="brush: python">
-a = Point3d(0, 0, 0) #第一個點
-wrkpl = Workplane(p1, wnormal) #某個工作平面
-Constraint.distance(50, a, wrkpl)
+Constraint.distance(double value, Workplane wrkpl, Point3d p)
 </pre>
 
-<p>從一個點到一個平面的距離，是硬性的約束。</p>
+<p>從一個<code>Point3d</code>點到一個平面<code>Workplane</code>的距離，是硬性的約束。</p>
 <p>距離值的正負會規定點在平面之上或之下。</p>
-<h2>Point to Line Distance <kbd>3D</kbd> <kbd>Val</kbd></h2>
+<h2>Point to Line Distance  <kbd>Val</kbd></h2>
 <p><code>SLVS_C_PT_LINE_DISTANCE</code></p>
-<p>使用指令：</p>
+<p><kbd>3D</kbd> 使用指令：</p>
 <pre class="brush: python">
-a = Point3d(0, 0, 0) #第一個點
-normal = Normal3d(1, 0, 0, 0) #某條3D法線
-Constraint.distance(50, a, normal)
+Constraint.distance(double value, Point3d p, LineSegment3d line)
 </pre>
 
-<p>從一個點到一條直線的距離，假如約束是投影的，會變成硬性約束。</p>
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.distance(double value, Workplane wrkpl, Point p, LineSegment line)
+</pre>
+
+<p>從一個<code>Point2d/3d</code>點到一條<code>LineSegment2d/3d</code>直線的距離，假如約束是投影的，會變成硬性約束。</p>
 <p>距離值的正負會規定點在線段之上或之下。</p>
 <p>若約束是套用在3D空間，距離則會變成非硬性約束。</p>
 <h2>Point in Plane</h2>
 <p><code>SLVS_C_PT_IN_PLANE</code></p>
-<p>使用指令：</p>
+<p><kbd>3D</kbd> 使用指令：</p>
 <pre class="brush: python">
-wrkpl = Workplane(p1, wnormal) #某個工作平面
-a = Point3d(0, 0, 0) #第一個點
-Constraint.on(wrkpl, a)
+Constraint.on(Workplane wrkpl, Point3d p)
 </pre>
 
-<p>一個點會被固定在一個平面上。</p>
-<h2>Point on Plane <kbd>3D</kbd></h2>
+<p>一個<code>Point3d</code>點會被固定在一個<code>Workplane</code>平面上。</p>
+<h2>Point on Plane</h2>
 <p><code>SLVS_C_PT_ON_LINE</code></p>
-<p>使用指令：</p>
+<p><kbd>3D</kbd> 使用指令：</p>
 <pre class="brush: python">
-a = Point3d(0, 0, 0) #第一個點
-normal = Normal3d(1, 0, 0, 0) #某條3D法線
-Constraint.on(normal, a)
+Constraint.on(Point3d p, LineSegment3d line)
 </pre>
 
-<p>一個點會被固定在一條法線或直線上。</p>
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.on(Workplane wrkpl, Point p, LineSegment line)
+</pre>
+
+<p>一個點<code>Point2d/3d</code>會被固定在一條<code>LineSegment2d/3d</code>直線上。</p>
 <p>注意此約束會在投影到一個平面上時移除一個自由度；而在3D空間時變成兩個。</p>
-<h2>Equal Length of Lines <kbd>3D</kbd></h2>
+<h2>Equal Length of Lines</h2>
 <p><code>SLVS_C_EQUAL_LENGTH_LINES</code></p>
-<p>使用指令：</p>
+<p><kbd>2D</kbd> 使用指令：</p>
 <pre class="brush: python">
-#功能建構中
+Constraint.equal(Workplane wrkpl, LineSegment line1, LineSegment line2)
 </pre>
 
-<p>兩條線段的長度等長。</p>
-<h2>Ratio of Length <kbd>3D</kbd> <kbd>Val</kbd></h2>
+<p>兩條<code>LineSegment2d</code>線段的長度等長。</p>
+<h2>Ratio of Length <kbd>Val</kbd></h2>
 <p><code>SLVS_C_LENGTH_RATIO</code></p>
-<p>使用指令：</p>
+<p><kbd>2D</kbd> 使用指令：</p>
 <pre class="brush: python">
-#功能建構中
+Constraint.ratio(double value, Workplane wrkpl, LineSegment line1, LineSegment line2)
 </pre>
 
-<p>第一條線段長度除以第二條線段長度的比值。</p>
-<h2>Equal Length of Point to Lines <kbd>3D</kbd></h2>
+<p>第一條<code>LineSegment2d</code>線段長度除以第二條<code>LineSegment2d</code>線段長度的比值。</p>
+<h2>Equal Length of Point to Lines</h2>
 <p><code>SLVS_C_EQ_LEN_PT_LINE_D</code></p>
-<p>使用指令：</p>
+<p><kbd>2D</kbd> 使用指令：</p>
 <pre class="brush: python">
-#功能建構中
+Constraint.equal(Workplane wrkpl, Point2d p, LineSegment line1, LineSegment line2)
 </pre>
 
-<p>第一條線段長度等於一個點到第二條線的距離。</p>
-<h2>Equal Distance of Point to Lines <kbd>3D</kbd></h2>
+<p>第一條<code>LineSegment2d</code>線段長度等於一個<code>Point2d</code>點到第二條<code>LineSegment2d</code>線的距離。</p>
+<h2>Equal Distance of Point to Lines</h2>
 <p><code>SLVS_C_EQ_PT_LN_DISTANCES</code></p>
-<p>使用指令：</p>
+<p><kbd>2D</kbd> 使用指令：</p>
 <pre class="brush: python">
-#功能建構中
+Constraint.equal_point_line(Workplane wrkpl, Point2d p1, Point2d p2, LineSegment line1, LineSegment line2)
 </pre>
 
-<p>第一條線段長度等於一個點到第二條線段的距離。</p>
-<h2>Equal Angle <kbd>3D</kbd></h2>
+<p>第一個<code>Point2d</code>點到第一條<code>LineSegment2d</code>線段長度等於第二個<code>Point2d</code>點到第二條<code>LineSegment2d</code>線段的距離。</p>
+<h2>Equal Angle</h2>
 <p><code>SLVS_C_EQUAL_ANGLE</code></p>
-<p>使用指令：</p>
+<p><kbd>2D</kbd> 使用指令：</p>
 <pre class="brush: python">
-#功能建構中
+Constraint.equal_angle(Workplane wrkpl, LineSegment line1, LineSegment line2, LineSegment line3, LineSegment line4)
 </pre>
 
-<p>第一條線段和第二條線段的夾角等於第三條線段和第四條線段的夾角。</p>
-<h2>Equal Length of Line to Arc <kbd>3D</kbd></h2>
+<p>第一條<code>LineSegment2d</code>線段和第二條<code>LineSegment2d</code>線段的夾角等於第三條<code>LineSegment2d</code>線段和第四條<code>LineSegment2d</code>線段的夾角。</p>
+<h2>Equal Length of Line to Arc</h2>
 <p><code>SLVS_C_EQUAL_LINE_ARC_LEN</code></p>
-<p>使用指令：</p>
+<p><kbd>2D</kbd> 使用指令：</p>
 <pre class="brush: python">
-a = LineSegment3d(x, y) #某條3D線段
-b = ArcOfCircle(wrkpl, normal, o, s, e) #某段圓弧
-Constraint.coincident(a, b)
+Constraint.equal(Workplane wrkpl, LineSegment line, Circular c)
 </pre>
 
-<p>一條線段長度和另一段圓弧長度相等。</p>
-<h2>Symmetric <kbd>3D</kbd></h2>
+<p>一條<code>LineSegment2d</code>線段長度和另一段<code>Circular</code>圓弧長度相等。</p>
+<h2>Symmetric</h2>
 <p><code>SLVS_C_SYMMETRIC</code></p>
-<p>使用指令：</p>
+<p><kbd>3D</kbd> 使用指令：</p>
 <pre class="brush: python">
-#功能建構中
+Constraint.symmetric(Workplane wrkpl, Point3d p1, Point3d p2)
 </pre>
 
-<p>第一個點會和第二點對稱於一個工作平面。</p>
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.symmetric(Workplane wrkpl, Point2d p1, Point2d p2)
+</pre>
+
+<p>第一個<code>Point2d/3d</code>點會和第二個<code>Point2d/3d</code>點對稱於一個工作平面。</p>
 <p>意味著兩個點到平面的距離都相等，而兩點的連線可以做為平面的法線。</p>
-<h2>Horizontal and Vertical <kbd>2D</kbd></h2>
+<h2>Horizontal and Vertical</h2>
 <p><code>SLVS_C_SYMMETRIC_HORIZ</code></p>
-<p><code>SLVS_C_SYMMETRIC_VERT</code></p>
-<p>使用指令：</p>
+<p><kbd>2D</kbd> 使用指令：</p>
 <pre class="brush: python">
-a = Point2d(wplane, 0, 0) #第一個點
-b = Point2d(wplane, 20, 20) #第二個點
-c = LineSegment2d(wplane, a, b) #兩個點所連成的線段
-Constraint.horizontal(wplane, a, b)
-Constraint.vertical(wplane, a, b)
-Constraint.horizontal(wplane, c)
-Constraint.vertical(wplane, c)
+Constraint.symmetric_H(Workplane wrkpl, Point2d p1, Point2d p2)
 </pre>
 
-<p>兩個輸入的點會互相對稱水平軸或垂直軸。</p>
+<p><code>SLVS_C_SYMMETRIC_VERT</code></p>
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.symmetric_V(Workplane wrkpl, Point2d p1, Point2d p2)
+</pre>
+
+<p>兩個輸入的<code>Point2d</code>點會互相對稱水平軸或垂直軸。</p>
 <p>亦或規定一條線段的水平或垂直。</p>
 <h2>Diameter <kbd>Val</kbd></h2>
 <p><code>SLVS_C_DIAMETER</code></p>
-<p>使用指令：</p>
+<p><kbd>2D</kbd> 使用指令：</p>
 <pre class="brush: python">
-pi = math.pi
-a = ArcOfCircle(wrkpl, normal, o, s, e) #某段圓弧
-Constraint.diameter(40*pi, a)
+Constraint.diameter(double diameter, Workplane wrkpl, Circular c)
 </pre>
 
-<p>一段圓或圓弧的周長或弧長。</p>
+<p>一段<code>Circular</code>圓或圓弧的周長或弧長。</p>
 <h2>Point on Circle</h2>
 <p><code>SLVS_C_PT_ON_CIRCLE</code></p>
-<p>使用指令：</p>
+<p><kbd>2D</kbd> 使用指令：</p>
 <pre class="brush: python">
-a = Point3d(0, 0, 0) #某個點
-b = ArcOfCircle(wrkpl, normal, o, s, e) #某段圓弧
-Constraint.on(a, b)
+Constraint.on(Workplane wrkpl, Point p, Circle circle)
 </pre>
 
-<p>一個點會被固定在一個圓或一段圓弧上。</p>
+<p>一個<code>Point2d</code>點會被固定在一個<code>Circle</code>圓或一段圓弧上。</p>
 <h2>Same Orientation</h2>
 <p><code>SLVS_C_SAME_ORIENTATION</code></p>
-<p>使用指令：</p>
+<p><kbd>3D</kbd> 使用指令：</p>
 <pre class="brush: python">
-#功能建構中
+Constraint.orientation(Normal3d nrml1, Normal3d nrml2)
 </pre>
 
-<p>兩條法線的方向相等。</p>
-<h2>Angle <kbd>3D</kbd> <kbd>Val</kbd></h2>
+<p>兩條<code>Normal3d</code>法線的方向相等。</p>
+<h2>Angle <kbd>Val</kbd></h2>
 <p><code>SLVS_C_ANGLE</code></p>
-<p>使用指令：</p>
+<p><kbd>2D</kbd> 使用指令：</p>
 <pre class="brush: python">
-#功能建構中
+Constraint.angle(Workplane wrkpl, double value, LineSegment line1, LineSegment line2, bool other)
 </pre>
 
-<p>兩條線段的夾角，定義值單位為度。</p>
+<p>兩條<code>LineSegment2d</code>線段的夾角，定義值單位為度。</p>
 <p>公式如下（<code>A</code>和<code>B</code>為兩條線的向量）：</p>
 <p><code>(A dot B)/(|A||B|) = cos(valA)</code></p>
 <p>注意這裡的值定義比較不明確，無論正負90度都會是相同的結果。</p>
-<h2>Perpendicular <kbd>3D</kbd></h2>
+<p>所以必須使用<code>other</code>布林值來判斷正負。</p>
+<h2>Perpendicular</h2>
 <p><code>SLVS_C_PERPENDICULAR</code></p>
-<p>使用指令：</p>
+<p><kbd>2D</kbd> 使用指令：</p>
 <pre class="brush: python">
-#功能建構中
+Constraint.perpendicular(Workplane wrkpl, LineSegment line1, LineSegment line2, bool other
 </pre>
 
 <p>源自約束<code>SLVS_C_ANGLE</code>。</p>
 <p>這個約束是定義角度約束為90度的情況。</p>
-<h2>Parallel <kbd>3D</kbd></h2>
+<h2>Parallel</h2>
 <p><code>SLVS_C_PARALLEL</code></p>
-<p>使用指令：</p>
+<p><kbd>3D</kbd> 使用指令：</p>
 <pre class="brush: python">
-#功能建構中
+Constraint.parallel(LineSegment3d line1, LineSegment3d line2)
 </pre>
 
-<p>源自約束<code>SLVS_C_ANGLE</code>。</p>
-<p>這個約束是定義角度約束為平行的情況。</p>
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.parallel(Workplane wrkpl, LineSegment line1, LineSegment line2)
+</pre>
+
+<p>兩條<code>LineSegment2d/3d</code>線段互相平行。</p>
 <p>注意此約束會在投影到一個平面上時移除一個自由度；而在3D空間時變成兩個。</p>
-<h2>Arc and Line Tangent <kbd>2D</kbd> <kbd>Val</kbd></h2>
+<h2>Arc and Line Tangent <kbd>Val</kbd></h2>
 <p><code>SLVS_C_ARC_LINE_TANGENT</code></p>
-<p>使用指令：</p>
+<p><kbd>2D</kbd> 使用指令：</p>
 <pre class="brush: python">
-#功能建構中
+Constraint.tangent(Circular arc, LineSegment line, bool other)
 </pre>
 
-<p>一段圓或圓弧和一條線段相切。</p>
-<p>若真假值是<code>False</code>，則圓弧的切點會位於它的起點<code>s</code>；反之若為<code>True</code>，則會位於它的終點<code>e</code>。</p>
-<h2>Cubic and Line Tangent <kbd>3D</kbd> <kbd>Val</kbd></h2>
+<p>一段<code>Circular</code>圓或圓弧和一條<code>LineSegment2d</code>線段相切。</p>
+<p>若布林值是<code>False</code>，則圓弧的切點會位於它的起點<code>s</code>；反之若為<code>True</code>，則會位於它的終點<code>e</code>。</p>
+<h2>Cubic and Line Tangent <kbd>Val</kbd></h2>
 <p><code>SLVS_C_CUBIC_LINE_TANGENT</code></p>
-<p>使用指令：</p>
+<p><kbd>3D</kbd> 使用指令：</p>
 <pre class="brush: python">
-#功能建構中
+Constraint.tangent(Cubic c, LineSegment3d l, bool other)
 </pre>
 
-<p>一個可能帶有貝茲曲線的立方體和一條線段相切。</p>
-<p>若真假值是<code>False</code>，則貝茲曲線的切點會位於它的起點<code>w</code>；反之若為<code>True</code>，則會位於它的終點<code>k</code>。</p>
-<h2>Curve and Curve Tangent <kbd>2D</kbd> <kbd>Val</kbd></h2>
+<p>一條<code>Cubic</code>貝茲曲線和一條<code>LineSegment3d</code>線段相切。</p>
+<p>若布林值是<code>False</code>，則貝茲曲線的切點會位於它的起點<code>w</code>；反之若為<code>True</code>，則會位於它的終點<code>k</code>。</p>
+<h2>Curve and Curve Tangent <kbd>Val</kbd></h2>
 <p><code>SLVS_C_CURVE_CURVE_TANGENT</code></p>
-<p>使用指令：</p>
+<p><kbd>3D</kbd> 使用指令：</p>
 <pre class="brush: python">
-#功能建構中
+Constraint.tangent(Cubic c1, Cubic c2, bool other, bool other2)
 </pre>
 
-<p>源自約束<code>SLVS_C_ARC_LINE_TANGENT</code>。</p>
-<p>兩個曲線相切，雙方可以任意為圓弧或是立方體。</p>
-<p>若真假值是<code>False</code>，則圓弧的切點會位於它的起點<code>s</code>，貝茲曲線的切點會位於它的起點<code>w</code>；反之若為<code>True</code>，則會位於它的終點<code>e</code>或<code>k</code>。</p>
+<p>兩條<code>Cubic</code>曲線相切。</p>
+<p>若布林值是<code>False</code>，則圓弧的切點會位於它的起點<code>s</code>，貝茲曲線的切點會位於它的起點<code>w</code>；反之若為<code>True</code>，則會位於它的終點<code>e</code>或<code>k</code>。</p>
 <h2>Equal Radius</h2>
 <p><code>SLVS_C_EQUAL_RADIUS</code></p>
-<p>使用指令：</p>
+<p><kbd>3D</kbd> 使用指令：</p>
 <pre class="brush: python">
-a = ArcOfCircle(wrkpl, normal, o, s, e) #第一段圓弧
-b = ArcOfCircle(wrkpl, normal, p, q, r) #第二段圓弧
-Constraint.equal_radius(a, b)
+Constraint.equal_radius(Workplane wrkpl, Circular c1, Circular c2)
 </pre>
 
-<p>兩個圓或圓弧的半徑相等。</p>
-<h2>Where Dragged <kbd>3D</kbd></h2>
+<p>兩條<code>Circular</code>圓或圓弧的半徑相等。</p>
+<h2>Where Dragged</h2>
 <p><code>SLVS_C_WHERE_DRAGGED</code></p>
-<p>使用指令：</p>
+<p><kbd>3D</kbd> 使用指令：</p>
 <pre class="brush: python">
-a = a = Point3d(0, 0, 0) #某個點
-sys.set_dragged(a)
+Constraint.dragged(Point3d p)
 </pre>
 
-<p>命令約束盡量固定這個點，取而代之的是移動周遭的項目。</p>
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.dragged(Workplane wrkpl, Point2d p)
+</pre>
+
+<p>命令約束盡量固定這個<code>Point2d/3d</code>點，取而代之的是移動周遭的項目。</p>
 <p>這個點被固定後移動量會較小。</p>
             </div>
             <!-- /.entry-content -->
@@ -1040,13 +1041,13 @@ sys.set_dragged(a)
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1050727.html">
-                            40323230日誌 - 105/07/27
+                        <a href="http://project.mde.tw/blog/yen-wo-men-wei-he-yao-quan-pan-tuo-chu-yan-jiu-cheng-guo.html">
+                            yen - 我們為何要全盤托出研究成果?
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/yen-wo-men-wei-he-yao-quan-pan-tuo-chu-yan-jiu-cheng-guo.html">
-                            yen - 我們為何要全盤托出研究成果?
+                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1050727.html">
+                            40323230日誌 - 105/07/27
                         </a>
                     </li>
                     <li class="list-group-item">

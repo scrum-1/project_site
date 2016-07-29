@@ -984,7 +984,15 @@ Constraint.dragged(Point3d p)
 Constraint.dragged(Workplane wrkpl, Point2d p)
 </pre>
 
-<p>命令約束盡量固定這個<code>Point2d/3d</code>點，取而代之的是移動周遭的項目。</p>
+<p>永久鎖定這個<code>Point2d/3d</code>點的座標在目前計算的座標上，再也不會改變。</p>
+<p>在2D平面上，會移除兩個自由度；在3D空間中，是三個自由度。</p>
+<h2>Set Dragged <kbd>Tips</kbd></h2>
+<p>關於鎖定位置，另一個系統約束如下：</p>
+<pre class="brush: python">
+sys.set_dragged(Point p)
+</pre>
+
+<p>是命令約束盡量固定這個<code>Point2d/3d</code>點，取而代之的是移動周遭的項目。</p>
 <p>這個點被固定後移動量會較小。</p>
             </div>
             <!-- /.entry-content -->

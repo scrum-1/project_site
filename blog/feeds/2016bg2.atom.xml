@@ -463,7 +463,7 @@ Constraint.symmetric(Workplane wrkpl, Point2d p1, Point2d p2)
 
 &lt;p&gt;第一個&lt;code&gt;Point2d/3d&lt;/code&gt;點會和第二個&lt;code&gt;Point2d/3d&lt;/code&gt;點對稱於一個工作平面。&lt;/p&gt;
 &lt;p&gt;意味著兩個點到平面的距離都相等，而兩點的連線可以做為平面的法線。&lt;/p&gt;
-&lt;h2&gt;Horizontal and Vertical&lt;/h2&gt;
+&lt;h2&gt;Symmetric for Horizontal &amp;amp; Vertical&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;SLVS_C_SYMMETRIC_HORIZ&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;kbd&gt;2D&lt;/kbd&gt; 使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;

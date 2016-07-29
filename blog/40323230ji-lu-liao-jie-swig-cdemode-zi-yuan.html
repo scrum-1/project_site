@@ -375,13 +375,13 @@ init_mathjax();
 <p><img src="http://i.imgur.com/6IlMv1k.jpg" ></p>
 <p>而為了方便，將它部分的原始碼貼在下面：</p>
 <pre class="brush: c">
-/*-----------------------------------------------------------------------------
+/*---------------------------
  * Some sample code for slvs.dll. We draw some geometric entities, provide
  * initial guesses for their positions, and then constrain them. The solver
  * calculates their new positions, in order to satisfy the constraints.
  *
  * Copyright 2008-2013 Jonathan Westhues.
- *---------------------------------------------------------------------------*/
+ *-------------------------*/
 #ifdef HAVE_CONFIG_H
 ...
 #endif
@@ -409,20 +409,20 @@ static void *CheckMalloc(size_t n)
     return r;
 }
 
-/*-----------------------------------------------------------------------------
+/*---------------------------
  * An example of a constraint in 3d. We create a single group, with some
  * entities and constraints.
- *---------------------------------------------------------------------------*/
+ *-------------------------*/
 void Example3d()
 {
 ...
 }
 
-/*-----------------------------------------------------------------------------
+/*---------------------------
  * An example of a constraint in 2d. In our first group, we create a workplane
  * along the reference frame's xy plane. In a second group, we create some
  * entities in that group and dimension them.
- *---------------------------------------------------------------------------*/
+ *-------------------------*/
 void Example2d()
 {
 ...
@@ -677,6 +677,11 @@ void Example2d()
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/40323230ji-lu-slvszi-liao-ku-han-shi.html">
+                            40323230紀錄 - SLVS資料庫函式
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1050728.html">
                             40323230日誌 - 105/07/28
                         </a>
@@ -689,11 +694,6 @@ void Example2d()
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1050727.html">
                             40323230日誌 - 105/07/27
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323231ri-zhi-1050725.html">
-                            40323231日誌 - 105/07/25
                         </a>
                     </li>
                 </ul>

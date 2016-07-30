@@ -1526,7 +1526,7 @@ class printer(Frame):
                 z = float(c.get())
 
 
-                if float(x) &gt;= 100:
+                if float(x) &gt;= 100:   # set x&amp;y&amp;z limit 
                     x = 100
                 if float(y) &gt;= 100:
                     y = 100
@@ -1543,8 +1543,7 @@ class printer(Frame):
                 t=z/889
                 if t &lt;= 0.11656:
                     t = t+0.11656
-               # if t &lt;= 0.11656:
-                  #  t = 0.11656
+
 
                 vrep.simxFinish(-1)
                 clientID = vrep.simxStart('127.0.0.1', 19999, True, True, 5000, 5)

@@ -1,5 +1,296 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-31T01:00:48+08:00</updated><entry><title>40323143 - 夾頭變更 105年7月20日</title><link href="http://project.mde.tw/blog/40323143-jia-tou-bian-geng-105nian-7yue-20ri.html" rel="alternate"></link><updated>2016-07-31T01:00:48+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-31:blog/40323143-jia-tou-bian-geng-105nian-7yue-20ri.html</id><summary type="html">&lt;p&gt;變更夾頭座及夾爪
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-31T01:40:15+08:00</updated><entry><title>40323143 - 日誌 105年7月25日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-25ri.html" rel="alternate"></link><updated>2016-07-31T01:40:15+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-31:blog/40323143-ri-zhi-105nian-7yue-25ri.html</id><summary type="html">&lt;p&gt;手臂資料
+&lt;/p&gt;
+&lt;p&gt;總重量約為0.6kg&lt;/p&gt;
+&lt;p&gt;夾取重量約為0.15kg&lt;/p&gt;
+&lt;p&gt;控制手臂可從序列埠輸入數值控制，序列埠輸入數值
+為(asin(列印件距離/100)+50)/0.09//10*10)。&lt;/p&gt;
+&lt;p&gt;最長夾取距離的序列埠輸入值為2060。&lt;/p&gt;
+&lt;p&gt;最終程式
+    #include &lt;Servo.h&gt; &lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;Servo myservo;
+Servo myservo2;
+Servo myservo3;
+Servo myservo4;
+int Pin = 3;
+int limt;   
+void setup() 
+{ 
+  Serial.begin(9600);
+  myservo.attach(9, 500, 2500); // 修正脈衝寬度範圍
+  myservo2.attach(10, 500, 2500);// 修正脈衝寬度範圍
+  myservo3.attach(10, 500, 2500);
+  myservo4.attach(10, 500, 2500);
+  pinMode(Pin,INPUT);
+}
+
+void loop() 
+{ 
+    limt = digitalRead(Pin);  
+    myservo.write(0);
+    myservo2.write(0); 
+    myservo3.write(0);
+    myservo4.write(0); 
+    int d;
+    int e;
+    if(Serial.available()){
+      d = Serial.parseInt();
+      Serial.println(d);  
+      if(0 &amp;lt;= d &amp;amp;&amp;amp; d &amp;lt;= 2500){
+      delay(3000);
+      for(int i = 500; i &amp;lt;= d; i+=10){
+        myservo.writeMicroseconds(i); // 直接以脈衝寬度控制
+        myservo2.writeMicroseconds(i);
+        myservo3.writeMicroseconds(1500);
+        delay(10);
+      }
+      delay(3000);
+      for(int i = 500; i &amp;lt;= 1350 ; i+=10){
+      myservo4.writeMicroseconds(i);
+      delay(10);
+      delay(1000);
+      for(int i = d; i &amp;gt;= 500; i-=10){
+        myservo.writeMicroseconds(i);
+        myservo2.writeMicroseconds(i);
+        myservo3.writeMicroseconds(1500);
+        delay(10);
+      }
+      delay(1000);
+       for(int i = 1350 ; i &amp;gt;= 500; i-=10){
+        myservo4.writeMicroseconds(i);
+        delay(10);
+      }
+      }
+    }
+  }
+}
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 日誌 105年7月22日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-22ri.html" rel="alternate"></link><updated>2016-07-31T01:40:15+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-31:blog/40323143-ri-zhi-105nian-7yue-22ri.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;變更夾爪形狀，並在夾頭下方新增連桿，加大夾持穩定度，開了槽可安裝極限開關，安裝點還沒畫，夾持面向內凹了1mm，夾持件不至於在夾持過程中由夾口脫落。&lt;/p&gt;
+&lt;p&gt;新增夾頭馬達的控制程式，暫時固定正轉90度，或許會改。&lt;/p&gt;
+&lt;p&gt;夾爪&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/1WgrXCm.png"&gt;&lt;/p&gt;
+&lt;p&gt;整體圖&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/E5e6i5z.png"&gt;&lt;/p&gt;
+&lt;p&gt;加上底座馬達控制程式&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33
+34
+35
+36
+37
+38
+39
+40
+41
+42
+43
+44
+45
+46
+47
+48
+49
+50
+51
+52
+53
+54
+55
+56&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span class="cp"&gt;#include &amp;lt;Servo.h&amp;gt;&lt;/span&gt;
+
+&lt;span class="n"&gt;Servo&lt;/span&gt; &lt;span class="n"&gt;myservo&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;Servo&lt;/span&gt; &lt;span class="n"&gt;myservo2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;Servo&lt;/span&gt; &lt;span class="n"&gt;myservo3&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+&lt;span class="n"&gt;Servo&lt;/span&gt; &lt;span class="n"&gt;myservo4&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+
+&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;setup&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; 
+&lt;span class="p"&gt;{&lt;/span&gt; 
+  &lt;span class="n"&gt;Serial&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;begin&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;9600&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+
+  &lt;span class="n"&gt;myservo&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;attach&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;9&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2500&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;// 修正脈衝寬度範圍&lt;/span&gt;
+  &lt;span class="n"&gt;myservo2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;attach&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2500&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;&lt;span class="c1"&gt;// 修正脈衝寬度範圍&lt;/span&gt;
+  &lt;span class="n"&gt;myservo3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;attach&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2400&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+  &lt;span class="n"&gt;myservo4&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;attach&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="mi"&gt;2500&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+
+&lt;span class="kt"&gt;void&lt;/span&gt; &lt;span class="nf"&gt;loop&lt;/span&gt;&lt;span class="p"&gt;()&lt;/span&gt; 
+&lt;span class="p"&gt;{&lt;/span&gt; 
+    &lt;span class="n"&gt;myservo&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;myservo2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; 
+    &lt;span class="n"&gt;myservo3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+    &lt;span class="n"&gt;myservo4&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; 
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;e&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
+    &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;Serial&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;available&lt;/span&gt;&lt;span class="p"&gt;()){&lt;/span&gt;
+      &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;Serial&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;parseInt&lt;/span&gt;&lt;span class="p"&gt;();&lt;/span&gt;
+      &lt;span class="n"&gt;Serial&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;println&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;  
+      &lt;span class="k"&gt;if&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;&amp;amp;&amp;amp;&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;2500&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+      &lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3000&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+      &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+        &lt;span class="n"&gt;myservo&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writeMicroseconds&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;// 直接以脈衝寬度控制&lt;/span&gt;
+        &lt;span class="n"&gt;myservo2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writeMicroseconds&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;myservo3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writeMicroseconds&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1500&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+      &lt;span class="p"&gt;}&lt;/span&gt;
+      &lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;3000&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+      &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;lt;=&lt;/span&gt; &lt;span class="mi"&gt;1500&lt;/span&gt; &lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;+=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;  &lt;span class="c1"&gt;//夾爪動作&lt;/span&gt;
+      &lt;span class="n"&gt;myservo4&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writeMicroseconds&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+      &lt;span class="p"&gt;}&lt;/span&gt;
+      &lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+      &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;d&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;-=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;
+        &lt;span class="n"&gt;myservo&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writeMicroseconds&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;myservo2&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writeMicroseconds&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;myservo3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writeMicroseconds&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1500&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+      &lt;span class="p"&gt;}&lt;/span&gt;
+       &lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;1000&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+       &lt;span class="k"&gt;for&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;1500&lt;/span&gt; &lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt; &lt;span class="o"&gt;&amp;gt;=&lt;/span&gt; &lt;span class="mi"&gt;500&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="o"&gt;-=&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;){&lt;/span&gt;   &lt;span class="c1"&gt;//夾爪動作&lt;/span&gt;
+        &lt;span class="n"&gt;myservo4&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;writeMicroseconds&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;i&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+        &lt;span class="n"&gt;delay&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;10&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
+      &lt;span class="p"&gt;}&lt;/span&gt;
+      &lt;span class="p"&gt;}&lt;/span&gt;
+    &lt;span class="p"&gt;}&lt;/span&gt;
+&lt;span class="p"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;結語:&lt;/p&gt;
+&lt;p&gt;手臂剩下列印組裝就可以完成，但以目前馬達的力量沒有熱床八成沒辦法下料。&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>machine Arm</title><link href="http://project.mde.tw/blog/machine-arm.html" rel="alternate"></link><updated>2016-07-31T01:40:15+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-31:blog/machine-arm.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;今天製作的手臂用到樹莓派加上一塊台灣沒有賣的擴充板，走兩個I2C控制16個PWM訊號，走額外的電源供應器，利用這樣的系統可以使用Raspberry pi 的GPIO控制，控制機械手臂，目前用I2C的方式控制&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/FujdPML.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/j44R9HO.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn-learn.adafruit.com/assets/assets/000/022/063/original/raspberry_pi_topdown.jpg?1420235676"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/5yIBBCd.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;https://www.adafruit.com/product/2327&lt;/p&gt;
+&lt;p&gt;目前還在摸索控制方法，希望接下來可以配合影像辨識，將自動下料的部份做好，原本規劃利用Octopi，進行控制，可是就目前進度，我們還沒拆開他的那包，還沒辦法寫自己的功能，現在想要用影像的方式辨認目標，然後夾取。&lt;/p&gt;
+&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/dc3XOIvRjto" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;底下為control的程式&lt;/h3&gt;
+
+&lt;pre class="brush: python"&gt;
+
+#!/usr/bin/python
+
+from Adafruit_PWM_Servo_Driver import PWM
+import time
+
+
+# Initialise the PWM device using the default address
+pwm = PWM(0x40)
+# Note if you'd like more debug output you can instead run:
+#pwm = PWM(0x40, debug=True)
+
+servoMin = 150  # Min pulse length out of 4096
+servoMax = 600  # Max pulse length out of 4096
+
+def setServoPulse(channel, pulse):
+  pulseLength = 1000000                   # 1,000,000 us per second
+  pulseLength /= 60                       # 60 Hz
+  print "%d us per period" % pulseLength
+  pulseLength /= 4096                     # 12 bits of resolution
+  print "%d us per bit" % pulseLength
+  pulse *= 1000
+  pulse /= pulseLength
+  pwm.setPWM(channel, 0, pulse)
+
+pwm.setPWMFreq(60)                        # Set frequency to 60 Hz
+while (True):
+  # Change speed of continuous servo on channel O
+  pwm.setPWM(0, 0, servoMin)
+  time.sleep(1)
+  pwm.setPWM(0, 0, servoMax)
+  time.sleep(1)
+&lt;/pre&gt;</summary><category term="raspberrypi"></category></entry><entry><title>40323143 - 夾頭變更 105年7月20日</title><link href="http://project.mde.tw/blog/40323143-jia-tou-bian-geng-105nian-7yue-20ri.html" rel="alternate"></link><updated>2016-07-31T01:00:48+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-31:blog/40323143-jia-tou-bian-geng-105nian-7yue-20ri.html</id><summary type="html">&lt;p&gt;變更夾頭座及夾爪
 &lt;/p&gt;
 &lt;p&gt;因為程式設定使原先得設計變得多餘，於是將原本的上承臂與夾頭座結合成夾頭臂。&lt;/p&gt;
 &lt;p&gt;變更夾爪連桿形狀及厚度，厚度由2mm變更為4mm。&lt;/p&gt;

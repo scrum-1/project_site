@@ -169,7 +169,7 @@ init_mathjax();
 <link rel="canonical" href="http://project.mde.tw/blog/40323250ri-zhi-v-rep-3d-printer.html">
 
         <meta name="author" content="40323250" />
-        <meta name="keywords" content="solvespace&v-rep" />
+        <meta name="keywords" content="v-rep&tkinter - 2016/07/30" />
         <meta name="description" content="之後的 V-rep模擬Printer都整理於本文章中" />
 
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
@@ -179,7 +179,7 @@ init_mathjax();
         <meta property="og:description" content="之後的 V-rep模擬Printer都整理於本文章中"/>
         <meta property="article:published_time" content="2016-07-31" />
             <meta property="article:section" content="2016bg2" />
-            <meta property="article:tag" content="solvespace&v-rep" />
+            <meta property="article:tag" content="v-rep&tkinter - 2016/07/30" />
             <meta property="article:author" content="40323250" />
 
 
@@ -317,12 +317,139 @@ init_mathjax();
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://project.mde.tw/blog/tag/solvespacev-rep.html">solvespace&v-rep</a>
+	<a href="http://project.mde.tw/blog/tag/v-reptkinter-20160730.html">v-rep&tkinter - 2016/07/30</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
                 <p>之後的 V-rep模擬Printer都整理於本文章中</p>
 
+
+<h3>透過Tkinter介面及remote api 控制printer參數</h3>
+
+<p></br>
+<h3>程式碼</h3></p>
+<pre class="brush: python">
+
+from tkinter import *
+import serial
+import sys
+import numpy as np
+from matplotlib import pyplot, rcParams
+import vrep
+
+
+
+class printer(Frame):
+    def __init__(self, master=None):
+        Frame.__init__(self, master)
+        self.grid()
+        self.createWidgets()
+
+    def createWidgets(self):
+
+
+
+        Label(pri, text="Axis").grid(column=0, row=0)
+        Label(pri, text="").grid(column=0, row=1)
+        Label(pri, text="X").grid(column=0, row=2)
+        Label(pri, text="").grid(column=0, row=3)
+        Label(pri, text="Y").grid(column=0, row=4)
+        Label(pri, text="").grid(column=0, row=5)
+        Label(pri, text="Z").grid(column=0, row=6)
+
+        Label(pri, text="Position").grid(column=1, row=0)
+
+        a = Entry(pri, width=12, justify=RIGHT)
+        b = Entry(pri, width=12, justify=RIGHT)
+        c = Entry(pri, width=12, justify=RIGHT)
+                #x.delete(0,END)
+                #y.delete(0,END)
+        a.grid(row=2, column=1)
+        b.grid(row=4, column=1)
+        c.grid(row=6, column=1)
+
+
+        def show_entry_fields():
+
+
+
+            x = a.get()
+            y = b.get()
+            z = c.get()
+
+            if x =='' or y==''or z =='':
+                x = 0
+                y = 0
+                z = 0
+                print("Error")
+
+            else:
+                x = float(a.get())
+                y = float(b.get())
+                z = float(c.get())
+
+
+                if float(x) >= 100:   # set x&y&z limit 
+                    x = 100
+                if float(y) >= 100:
+                    y = 100
+                if float(z) >= 400:
+                    z = 400
+                if float(x) <= -100:
+                    x = -100
+                if float(y) <= -100:
+                    y = -100
+                if float(z) <= 0:
+                    z = 0
+                e=x/1222
+                r=y/1222
+                t=z/889
+                if t <= 0.11656:
+                    t = t+0.11656
+
+
+                vrep.simxFinish(-1)
+                clientID = vrep.simxStart('127.0.0.1', 19999, True, True, 5000, 5)
+                if clientID!= -1:
+                    print("Connected to remote server")
+                else:
+                    print('Connection not successful')
+                    sys.exit('Could not connect')
+                errorCode,plate=vrep.simxGetObjectHandle(clientID,'plate',vrep.simx_opmode_oneshot_wait)
+                if errorCode == -1:
+                    print('Can not find left or right motor')
+                    sys.exit()                
+                errorCode=vrep.simxSetObjectPosition(clientID,plate,-1,[e,r,t], vrep.simx_opmode_oneshot)
+                print(x,y,z)
+
+
+                #print("%s,%s,%s" % (x, y, z))
+
+
+        Button(pri, text='Quit', width=5, command=pri.quit).grid(row=8, column=2, sticky=W, pady=4)
+        Button(pri, text='Go', width=5, command=show_entry_fields).grid(row=8, column=0, sticky=W, pady=4)
+
+
+
+if __name__ == '__main__':
+    pri = Tk()
+    pri.title("Printer")
+    pri.geometry('180x220');  #設定視窗大小
+    pri.resizable(0, 0) #鎖定視窗大小
+    app = printer(master=pri)
+
+    app.mainloop()
+
+
+#print(x,y,z)
+
+</pre>
+
+<p></br>
+<p><a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/printer_final.ttt?raw=true">printer_final.ttt</a></p>
+</br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/UhC2eP_vbrA" frameborder="0" allowfullscreen></iframe>
+</br></p>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -368,28 +495,28 @@ init_mathjax();
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/yen-rga-ji-yin-yan-suan-fa.html">
-                            yen - RGA 基因演算法
+                        <a href="http://project.mde.tw/blog/40323231ri-zhi-1050730.html">
+                            40323231日誌 - 105/07/30
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/yen-ru-he-jian-li-yi-hao-de-wordpress-wang-zhan.html">
-                            yen - 如何建立一好的 Wordpress 網站
+                        <a href="http://project.mde.tw/blog/40323231ri-zhi-1050725.html">
+                            40323231日誌 - 105/07/25
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/yen-solvespace-yu-v-rep-jie-he-ying-yong.html">
-                            yen - Solvespace 與 V-rep 結合應用
+                        <a href="http://project.mde.tw/blog/40323218ri-zhi-1050723.html">
+                            40323218日誌 - 105/07/23
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-de-biao-da-ji-shu-ling-yu-yu-kao-liang-ceng-mian.html">
-                            yen - 機械設計專題的表達、技術領域與考量層面
+                        <a href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-25ri.html">
+                            40323143 -  日誌  105年7月25日
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-xue-yuan-de-sui-shen-jupyter-hub.html">
-                            yen - 機械設計專題學員的隨身 Jupyter hub
+                        <a href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-22ri.html">
+                            40323143 -  日誌  105年7月22日
                         </a>
                     </li>
                 </ul>

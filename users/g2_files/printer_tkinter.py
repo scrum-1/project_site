@@ -74,8 +74,7 @@ class printer(Frame):
                 t=z/889
                 if t <= 0.11656:
                     t = t+0.11656
-               # if t <= 0.11656:
-                  #  t = 0.11656
+
 
                 vrep.simxFinish(-1)
                 clientID = vrep.simxStart('127.0.0.1', 19999, True, True, 5000, 5)

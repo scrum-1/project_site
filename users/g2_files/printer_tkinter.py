@@ -57,7 +57,7 @@ class printer(Frame):
                 z = float(c.get())
 
 
-                if float(x) >= 100:
+                if float(x) >= 100:   # set x&y&z limit 
                     x = 100
                 if float(y) >= 100:
                     y = 100
@@ -92,7 +92,6 @@ class printer(Frame):
 
 
                 #print("%s,%s,%s" % (x, y, z))
-
 
         Button(pri, text='Quit', width=5, command=pri.quit).grid(row=8, column=2, sticky=W, pady=4)
         Button(pri, text='Go', width=5, command=show_entry_fields).grid(row=8, column=0, sticky=W, pady=4)

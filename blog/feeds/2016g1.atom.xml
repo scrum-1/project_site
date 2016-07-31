@@ -244,53 +244,7 @@ void loop()
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;結語:&lt;/p&gt;
-&lt;p&gt;手臂剩下列印組裝就可以完成，但以目前馬達的力量沒有熱床八成沒辦法下料。&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>machine Arm</title><link href="http://project.mde.tw/blog/machine-arm.html" rel="alternate"></link><updated>2016-07-31T01:40:15+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-31:blog/machine-arm.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;今天製作的手臂用到樹莓派加上一塊台灣沒有賣的擴充板，走兩個I2C控制16個PWM訊號，走額外的電源供應器，利用這樣的系統可以使用Raspberry pi 的GPIO控制，控制機械手臂，目前用I2C的方式控制&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/FujdPML.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/j44R9HO.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://cdn-learn.adafruit.com/assets/assets/000/022/063/original/raspberry_pi_topdown.jpg?1420235676"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/5yIBBCd.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;https://www.adafruit.com/product/2327&lt;/p&gt;
-&lt;p&gt;目前還在摸索控制方法，希望接下來可以配合影像辨識，將自動下料的部份做好，原本規劃利用Octopi，進行控制，可是就目前進度，我們還沒拆開他的那包，還沒辦法寫自己的功能，現在想要用影像的方式辨認目標，然後夾取。&lt;/p&gt;
-&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/dc3XOIvRjto" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
-
-&lt;h3&gt;底下為control的程式&lt;/h3&gt;
-
-&lt;pre class="brush: python"&gt;
-
-#!/usr/bin/python
-
-from Adafruit_PWM_Servo_Driver import PWM
-import time
-
-
-# Initialise the PWM device using the default address
-pwm = PWM(0x40)
-# Note if you'd like more debug output you can instead run:
-#pwm = PWM(0x40, debug=True)
-
-servoMin = 150  # Min pulse length out of 4096
-servoMax = 600  # Max pulse length out of 4096
-
-def setServoPulse(channel, pulse):
-  pulseLength = 1000000                   # 1,000,000 us per second
-  pulseLength /= 60                       # 60 Hz
-  print "%d us per period" % pulseLength
-  pulseLength /= 4096                     # 12 bits of resolution
-  print "%d us per bit" % pulseLength
-  pulse *= 1000
-  pulse /= pulseLength
-  pwm.setPWM(channel, 0, pulse)
-
-pwm.setPWMFreq(60)                        # Set frequency to 60 Hz
-while (True):
-  # Change speed of continuous servo on channel O
-  pwm.setPWM(0, 0, servoMin)
-  time.sleep(1)
-  pwm.setPWM(0, 0, servoMax)
-  time.sleep(1)
-&lt;/pre&gt;</summary><category term="raspberrypi"></category></entry><entry><title>40323143 - 夾頭變更 105年7月20日</title><link href="http://project.mde.tw/blog/40323143-jia-tou-bian-geng-105nian-7yue-20ri.html" rel="alternate"></link><updated>2016-07-31T01:00:48+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-31:blog/40323143-jia-tou-bian-geng-105nian-7yue-20ri.html</id><summary type="html">&lt;p&gt;變更夾頭座及夾爪
+&lt;p&gt;手臂剩下列印組裝就可以完成，但以目前馬達的力量沒有熱床八成沒辦法下料。&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 夾頭變更 105年7月20日</title><link href="http://project.mde.tw/blog/40323143-jia-tou-bian-geng-105nian-7yue-20ri.html" rel="alternate"></link><updated>2016-07-31T01:00:48+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-31:blog/40323143-jia-tou-bian-geng-105nian-7yue-20ri.html</id><summary type="html">&lt;p&gt;變更夾頭座及夾爪
 &lt;/p&gt;
 &lt;p&gt;因為程式設定使原先得設計變得多餘，於是將原本的上承臂與夾頭座結合成夾頭臂。&lt;/p&gt;
 &lt;p&gt;變更夾爪連桿形狀及厚度，厚度由2mm變更為4mm。&lt;/p&gt;
@@ -1939,7 +1893,53 @@ sys.setdefaultencoding('utf-8') ，在這裡我是將後面的sys.setdefaultenco
 &lt;p&gt;6.另一台控制器影像辨識&lt;/p&gt;
 &lt;p&gt;7.當判斷成功後，計算出位置，輸入相對應的值控制手臂&lt;/p&gt;
 &lt;p&gt;8.夾取後，退出機台平台，將料放置指定的盒子&lt;/p&gt;
-&lt;p&gt;9.發送訊息到客戶端顯示列印完成&lt;/p&gt;</summary><category term="machine Arm"></category></entry><entry><title>報告的內容3</title><link href="http://project.mde.tw/blog/bao-gao-de-nei-rong-3.html" rel="alternate"></link><updated>2016-07-21T11:29:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-21:blog/bao-gao-de-nei-rong-3.html</id><summary type="html">&lt;p&gt;介紹硬體相關訊息(純文字還沒補照片)&lt;/p&gt;
+&lt;p&gt;9.發送訊息到客戶端顯示列印完成&lt;/p&gt;</summary><category term="machine Arm"></category></entry><entry><title>machine Arm</title><link href="http://project.mde.tw/blog/machine-arm.html" rel="alternate"></link><updated>2016-07-29T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-29:blog/machine-arm.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;今天製作的手臂用到樹莓派加上一塊台灣沒有賣的擴充板，走兩個I2C控制16個PWM訊號，走額外的電源供應器，利用這樣的系統可以使用Raspberry pi 的GPIO控制，控制機械手臂，目前用I2C的方式控制&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/FujdPML.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/j44R9HO.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://cdn-learn.adafruit.com/assets/assets/000/022/063/original/raspberry_pi_topdown.jpg?1420235676"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/5yIBBCd.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;https://www.adafruit.com/product/2327&lt;/p&gt;
+&lt;p&gt;目前還在摸索控制方法，希望接下來可以配合影像辨識，將自動下料的部份做好，原本規劃利用Octopi，進行控制，可是就目前進度，我們還沒拆開他的那包，還沒辦法寫自己的功能，現在想要用影像的方式辨認目標，然後夾取。&lt;/p&gt;
+&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/dc3XOIvRjto" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;底下為control的程式&lt;/h3&gt;
+
+&lt;pre class="brush: python"&gt;
+
+#!/usr/bin/python
+
+from Adafruit_PWM_Servo_Driver import PWM
+import time
+
+
+# Initialise the PWM device using the default address
+pwm = PWM(0x40)
+# Note if you'd like more debug output you can instead run:
+#pwm = PWM(0x40, debug=True)
+
+servoMin = 150  # Min pulse length out of 4096
+servoMax = 600  # Max pulse length out of 4096
+
+def setServoPulse(channel, pulse):
+  pulseLength = 1000000                   # 1,000,000 us per second
+  pulseLength /= 60                       # 60 Hz
+  print "%d us per period" % pulseLength
+  pulseLength /= 4096                     # 12 bits of resolution
+  print "%d us per bit" % pulseLength
+  pulse *= 1000
+  pulse /= pulseLength
+  pwm.setPWM(channel, 0, pulse)
+
+pwm.setPWMFreq(60)                        # Set frequency to 60 Hz
+while (True):
+  # Change speed of continuous servo on channel O
+  pwm.setPWM(0, 0, servoMin)
+  time.sleep(1)
+  pwm.setPWM(0, 0, servoMax)
+  time.sleep(1)
+&lt;/pre&gt;</summary><category term="raspberrypi"></category></entry><entry><title>報告的內容3</title><link href="http://project.mde.tw/blog/bao-gao-de-nei-rong-3.html" rel="alternate"></link><updated>2016-07-21T11:29:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-21:blog/bao-gao-de-nei-rong-3.html</id><summary type="html">&lt;p&gt;介紹硬體相關訊息(純文字還沒補照片)&lt;/p&gt;
 
 
 &lt;h3&gt;3d printing&lt;/h3&gt;

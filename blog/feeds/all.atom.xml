@@ -13,7 +13,7 @@
 
 
 &lt;h1&gt;Crank Rocker範例&lt;/h1&gt;
-&lt;p&gt;&lt;img src="" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/EeRYe4H.jpg" &gt;&lt;/p&gt;
 &lt;p&gt;模仿三角形呆鍊的圖形解題。&lt;/p&gt;
 &lt;p&gt;用迴圈方式旋轉短連桿，讓三角形頂點畫出點座標。&lt;/p&gt;
 &lt;p&gt;以下程式將輸出每一度畫出的點座標。&lt;/p&gt;
@@ -128,24 +128,24 @@ print ("Solve Completed")
 &lt;/pre&gt;
 
 &lt;p&gt;輸出結果圖：&lt;/p&gt;
-&lt;p&gt;&lt;img src="" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/r6qocmD.jpg" &gt;&lt;/p&gt;
 &lt;p&gt;圖解法：&lt;/p&gt;
-&lt;p&gt;&lt;img src="" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/LfDHVAi.jpg" &gt;&lt;/p&gt;
 &lt;p&gt;這次旋轉的時候，角度約束似乎無法支援超過180度的角度，而會使用正值，讓原本在第一二象限的點&lt;code&gt;Point4&lt;/code&gt;座標無法移動至第三四象限。&lt;/p&gt;
 &lt;p&gt;因此在起始定點時的象限位置非常重要，加入了&lt;code&gt;if&lt;/code&gt;判斷式讓&lt;code&gt;Point4&lt;/code&gt;更改初始位置，就解決了這個問題。&lt;/p&gt;
 &lt;p&gt;只有用來畫線，且線段有約束角度的點座標有限制。&lt;/p&gt;
 &lt;p&gt;另一個要注意的是，要約束成三角形的三個點不可以共線。&lt;/p&gt;
 &lt;p&gt;以下是正確值比對：&lt;/p&gt;
 &lt;h2&gt;0&amp;deg;&lt;/h2&gt;
-&lt;p&gt;&lt;img src="" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/L9IQWoY.jpg" &gt;&lt;/p&gt;
 &lt;h2&gt;45&amp;deg;&lt;/h2&gt;
-&lt;p&gt;&lt;img src="" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/FQRIlkm.jpg" &gt;&lt;/p&gt;
 &lt;h2&gt;135&amp;deg;&lt;/h2&gt;
-&lt;p&gt;&lt;img src="" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/TTFfRil.jpg" &gt;&lt;/p&gt;
 &lt;h2&gt;180&amp;deg;&lt;/h2&gt;
-&lt;p&gt;&lt;img src="" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/iA1lXcy.jpg" &gt;&lt;/p&gt;
 &lt;h2&gt;225&amp;deg;&lt;/h2&gt;
-&lt;p&gt;&lt;img src="" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/jZNqz0W.jpg" &gt;&lt;/p&gt;
 &lt;hr&gt;
 
 &lt;p&gt;解了多個圖形題目後，發現之前寫的那篇還滿不容易查詢資料，而且前作者的內容有些錯誤。&lt;/p&gt;

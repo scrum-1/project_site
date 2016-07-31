@@ -127,7 +127,7 @@ if __name__ == '__main__':
 &lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/printer_final.ttt?raw=true"&gt;printer_final.ttt&lt;/a&gt;&lt;/p&gt;
 &lt;/br&gt;
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/UhC2eP_vbrA" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/br&gt;&lt;/p&gt;</summary><category term="v-rep&amp;tkinter"></category></entry><entry><title>40323231日誌 - 105/07/30</title><link href="http://project.mde.tw/blog/40323231ri-zhi-1050730.html" rel="alternate"></link><updated>2016-07-30T21:37:27+08:00</updated><author><name>40323231</name></author><id>tag:project.mde.tw,2016-07-30:blog/40323231ri-zhi-1050730.html</id><summary type="html">&lt;p&gt;3DP維修&lt;/p&gt;
+&lt;/br&gt;&lt;/p&gt;</summary><category term="v-rep&amp;tkinter"></category></entry><entry><title>40323231日誌 - 105/07/30</title><link href="http://project.mde.tw/blog/40323231ri-zhi-1050730.html" rel="alternate"></link><updated>2016-07-30T21:00:00+08:00</updated><author><name>40323231</name></author><id>tag:project.mde.tw,2016-07-30:blog/40323231ri-zhi-1050730.html</id><summary type="html">&lt;p&gt;3DP維修&lt;/p&gt;
 
 
 &lt;h4&gt;今天維修3DP，因為3DP擠出的料變得非常的少，導致成品稀疏和脆弱，而且還發現進料馬達有在旋轉，可是料卻擠不進去。&lt;/h4&gt;
@@ -137,7 +137,7 @@ if __name__ == '__main__':
 &lt;/br&gt;
 &lt;h4&gt;再來將噴頭座整組拔出，測量鐵氟龍管插入喉管的深度和全新的做比較，發現深度差很多因此用燈照進去，發現有整塊白色的硬塊堵住，所以又加熱再拿尖銳物將裡面清空，並重新測量鐵氟龍管插入深度，確定可以後校機再重新印製，情況還是一樣，之後加熱更換噴頭，弄完校機後再印製，情況有所改善，可是進料有時候料會擠不進去，所以更改進料速度(最新值:65%)，現在情況已經穩定，印出的公差也調整過，公差在+4條。&lt;/h4&gt;
 &lt;h4&gt;列印兩次後發現噴頭座有部分地方會有液料情況，重新鎖固鎖緊後就OK。(重組後須檢查是否鎖緊。)&lt;/h4&gt;&lt;/p&gt;
-&lt;h4&gt;拆卸下來的噴頭需要用0.3大小的鑽頭去清理，還需要討論要怎麼處理噴頭。&lt;/h4&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/30</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050730.html" rel="alternate"></link><updated>2016-07-30T19:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-30:blog/40323230ri-zhi-1050730.html</id><summary type="html">&lt;ol&gt;
+&lt;h4&gt;拆卸下來的噴頭需要用0.3大小的鑽頭去清理，還需要討論要怎麼處理噴頭。&lt;/h4&gt;</summary><category term="3DP"></category></entry><entry><title>40323230日誌 - 105/07/30</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050730.html" rel="alternate"></link><updated>2016-07-30T19:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-30:blog/40323230ri-zhi-1050730.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;新增範例Nutcraker&lt;/p&gt;
 &lt;/li&gt;
@@ -1594,7 +1594,7 @@ public:
 &lt;p&gt;而那些沒做出的功能都用註解的方式放在這些做好的函式之間，所以看來好像是要自己做了。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/3x4fBiB.jpg" &gt;&lt;/p&gt;
 &lt;p&gt;目前瞭解需要編寫的檔案為&lt;code&gt;slvs.i&lt;/code&gt;的Interface檔、&lt;code&gt;slvs_python.hpp&lt;/code&gt;標頭檔、&lt;code&gt;constrainteq.cpp&lt;/code&gt;約束方程式的函式。&lt;/p&gt;
-&lt;p&gt;畢竟是用別人寫好的架構，自己修改應該沒甚麼太大的障礙，以一個Python模組而言，拓展所需才是協同作業重要之處。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323231日誌 - 105/07/25</title><link href="http://project.mde.tw/blog/40323231ri-zhi-1050725.html" rel="alternate"></link><updated>2016-07-26T11:42:15+08:00</updated><author><name>40323231</name></author><id>tag:project.mde.tw,2016-07-26:blog/40323231ri-zhi-1050725.html</id><summary type="html">&lt;p&gt;3DP問題、測試、解決方法&lt;/p&gt;
+&lt;p&gt;畢竟是用別人寫好的架構，自己修改應該沒甚麼太大的障礙，以一個Python模組而言，拓展所需才是協同作業重要之處。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323231日誌 - 105/07/25</title><link href="http://project.mde.tw/blog/40323231ri-zhi-1050725.html" rel="alternate"></link><updated>2016-07-25T21:00:00+08:00</updated><author><name>40323231</name></author><id>tag:project.mde.tw,2016-07-25:blog/40323231ri-zhi-1050725.html</id><summary type="html">&lt;p&gt;3DP問題、測試、解決方法&lt;/p&gt;
 
 
 &lt;h3&gt;固件組裝時的問題 : &lt;/h3&gt;
@@ -1676,7 +1676,7 @@ public:
 &lt;h4&gt;增加軸承的厚度讓她不會跳脫，或者增加擋板(還未測試)&lt;/h4&gt;
 &lt;/br&gt;
 &lt;/br&gt;
-&lt;h4&gt;因為家裡有事情需要回家幫忙，所以先把昨天和今天的部分推上，內容會做修改和增加，本篇還未結束。&lt;/h4&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323143 - 日誌 105年7月25日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-25ri.html" rel="alternate"></link><updated>2016-07-25T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-25:blog/40323143-ri-zhi-105nian-7yue-25ri.html</id><summary type="html">&lt;p&gt;手臂資料
+&lt;h4&gt;因為家裡有事情需要回家幫忙，所以先把昨天和今天的部分推上，內容會做修改和增加，本篇還未結束。&lt;/h4&gt;&lt;/p&gt;</summary><category term="3DP"></category></entry><entry><title>40323143 - 日誌 105年7月25日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-25ri.html" rel="alternate"></link><updated>2016-07-25T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-25:blog/40323143-ri-zhi-105nian-7yue-25ri.html</id><summary type="html">&lt;p&gt;手臂資料
 &lt;/p&gt;
 &lt;p&gt;總重量約為0.6kg&lt;/p&gt;
 &lt;p&gt;夾取重量約為0.15kg&lt;/p&gt;
@@ -1800,31 +1800,7 @@ void loop()
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><category term="範例"></category></entry><entry><title>user - 使用者的範例網誌文章標題</title><link href="http://project.mde.tw/blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html" rel="alternate"></link><updated>2016-07-24T21:07:48+08:00</updated><author><name>user</name></author><id>tag:project.mde.tw,2016-07-24:blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 user 所寫的文章摘要&lt;/p&gt;
 
 
-&lt;p&gt;這裡為 user 所寫的文章主要內容&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323231日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323231ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-24T21:07:48+08:00</updated><author><name>40323231</name></author><id>tag:project.mde.tw,2016-07-24:blog/40323231ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;3DP碰到的問題及解決&lt;/p&gt;
-
-
-&lt;h3&gt;第一次組裝3D列印機，所以各個零件和電子元件的功用都不知道，所以只能從型號去著手，知道並了解運用。&lt;/h3&gt;
-
-&lt;p&gt;&lt;/br&gt;
-&lt;h3&gt;在研究電子板的時候發現，熱床是時麼?而且我手邊怎麼沒有熱床?&lt;/h3&gt;
-&lt;h3&gt;解決:我們有熱床，只是我們的跟網路上和現有的3DP不一樣。它的功用是防止成品翹邊，由於料出來是熱的，經過板子和空氣冷卻導致成品收縮，所以熱床需給予溫度，減輕翹邊，可是不能完全避免，而且會因材料不同，需要的溫度也不同(我們的材料PLA大約60度，)。電壓不能輕易更改或太高，因為電壓高一倍，功率大四倍，所以一開始要確定給定的電壓。&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;在接限位開關線路的時候發現，在夢工廠老師接的線路和網路上的不一樣，三條線路分別為"+""-""S"顏色分別為"紅""藍""黑"，夢工老師接的是"+"接紅，"-"接藍，"S"接黑。網路是"+"接紅，"-"接黑，"S"接藍。而且3個限位開關的線路有的接3條，有的接2條，很混亂，沒有頭緒。&lt;/h3&gt;
-&lt;h3&gt;問題:1. "+""-""S"如何接?  2.為何線路有的接兩條有的接三條?&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;限位開關分兩種:&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;1. 機械微動開關接法&lt;/h3&gt;
-&lt;h4&gt;機械微動開關只需接2個腳位的：單純使用微動開關當作限位器，那一定要接RAMPS上的 "S" 跟 "-" 腳位。絕對不要把3個腳位都接了，如果不小心接了3個腳位，那在觸發時會發生火花，會把5V穩壓 IC燒毀。&lt;/h4&gt;
-&lt;/br&gt;
-&lt;h3&gt;2. 光學限位開關接法(我們的)&lt;/h3&gt;
-&lt;h4&gt;光學限位開關則是需要用到3條線，接到RAMPS上的"S"、"-"及"+" 3個腳位。&lt;/h4&gt;
-&lt;/br&gt;
-&lt;h3&gt;1.S為藍，+為紅，-為黑&lt;/h3&gt;
-&lt;h3&gt;2.常開型和常關型只有微動開關才有，所以光學開關一定要3調都接&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;今天進度&lt;/h3&gt;
-&lt;h4&gt;組裝 3DP，將缺少的材料抄寫下來，將跟工廠管理員詢問，使用VREP，看組員的所寫的網誌並實際操作&lt;/h4&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323218日誌 - 105/07/23</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050723.html" rel="alternate"></link><updated>2016-07-24T21:07:48+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-24:blog/40323218ri-zhi-1050723.html</id><summary type="html">&lt;p&gt;V-rep   printer_control&lt;/p&gt;
+&lt;p&gt;這裡為 user 所寫的文章主要內容&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323218日誌 - 105/07/23</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050723.html" rel="alternate"></link><updated>2016-07-24T21:07:48+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-24:blog/40323218ri-zhi-1050723.html</id><summary type="html">&lt;p&gt;V-rep   printer_control&lt;/p&gt;
 
 
 &lt;h2&gt;嘗試組裝3Dprinter&lt;/h2&gt;
@@ -4169,7 +4145,31 @@ swig -c++ -python -py3 slvs.i
 &lt;p&gt;將原本的網站做一次更新，並且讓設定檔做好，接下來會把setting中再加入指令檔，就可以啟動攝影機和server的從新啟動以及開關server。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/zcIeIBl.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;網址位置在:140.130.17.107&lt;/p&gt;
-&lt;p&gt;未來是想要加damain name 讓140.130改成自己的網址，好讓自己的網站發展，以及學習如何加入自己的網址。&lt;/p&gt;</summary><category term="3dprint server"></category></entry><entry><title>40323230日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-14T19:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323230ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;試圖解決SWIG問題&lt;/p&gt;
+&lt;p&gt;未來是想要加damain name 讓140.130改成自己的網址，好讓自己的網站發展，以及學習如何加入自己的網址。&lt;/p&gt;</summary><category term="3dprint server"></category></entry><entry><title>40323231日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323231ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-14T21:00:00+08:00</updated><author><name>40323231</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323231ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;3DP碰到的問題及解決&lt;/p&gt;
+
+
+&lt;h3&gt;第一次組裝3D列印機，所以各個零件和電子元件的功用都不知道，所以只能從型號去著手，知道並了解運用。&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;h3&gt;在研究電子板的時候發現，熱床是時麼?而且我手邊怎麼沒有熱床?&lt;/h3&gt;
+&lt;h3&gt;解決:我們有熱床，只是我們的跟網路上和現有的3DP不一樣。它的功用是防止成品翹邊，由於料出來是熱的，經過板子和空氣冷卻導致成品收縮，所以熱床需給予溫度，減輕翹邊，可是不能完全避免，而且會因材料不同，需要的溫度也不同(我們的材料PLA大約60度，)。電壓不能輕易更改或太高，因為電壓高一倍，功率大四倍，所以一開始要確定給定的電壓。&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;在接限位開關線路的時候發現，在夢工廠老師接的線路和網路上的不一樣，三條線路分別為"+""-""S"顏色分別為"紅""藍""黑"，夢工老師接的是"+"接紅，"-"接藍，"S"接黑。網路是"+"接紅，"-"接黑，"S"接藍。而且3個限位開關的線路有的接3條，有的接2條，很混亂，沒有頭緒。&lt;/h3&gt;
+&lt;h3&gt;問題:1. "+""-""S"如何接?  2.為何線路有的接兩條有的接三條?&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;限位開關分兩種:&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;1. 機械微動開關接法&lt;/h3&gt;
+&lt;h4&gt;機械微動開關只需接2個腳位的：單純使用微動開關當作限位器，那一定要接RAMPS上的 "S" 跟 "-" 腳位。絕對不要把3個腳位都接了，如果不小心接了3個腳位，那在觸發時會發生火花，會把5V穩壓 IC燒毀。&lt;/h4&gt;
+&lt;/br&gt;
+&lt;h3&gt;2. 光學限位開關接法(我們的)&lt;/h3&gt;
+&lt;h4&gt;光學限位開關則是需要用到3條線，接到RAMPS上的"S"、"-"及"+" 3個腳位。&lt;/h4&gt;
+&lt;/br&gt;
+&lt;h3&gt;1.S為藍，+為紅，-為黑&lt;/h3&gt;
+&lt;h3&gt;2.常開型和常關型只有微動開關才有，所以光學開關一定要3調都接&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;今天進度&lt;/h3&gt;
+&lt;h4&gt;組裝 3DP，將缺少的材料抄寫下來，將跟工廠管理員詢問，使用VREP，看組員的所寫的網誌並實際操作&lt;/h4&gt;&lt;/p&gt;</summary><category term="3DP"></category></entry><entry><title>40323230日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-14T19:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323230ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;試圖解決SWIG問題&lt;/p&gt;
 
 
 &lt;h2&gt;撰寫批次檔 :&lt;/h2&gt;

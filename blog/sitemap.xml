@@ -5,51 +5,35 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://project.mde.tw/blog/</loc>
-<<<<<<< HEAD
-<lastmod>2016-07-31T18:27:13-00:00</lastmod>
-=======
-<lastmod>2016-07-31T16:43:21-00:00</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
+<lastmod>2016-07-31T19:24:30-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://project.mde.tw/blog/archives.html</loc>
-<<<<<<< HEAD
-<lastmod>2016-07-31T18:27:13-00:00</lastmod>
-=======
-<lastmod>2016-07-31T16:43:21-00:00</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
+<lastmod>2016-07-31T19:24:30-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://project.mde.tw/blog/tags.html</loc>
-<<<<<<< HEAD
-<lastmod>2016-07-31T18:27:13-00:00</lastmod>
-=======
-<lastmod>2016-07-31T16:43:21-00:00</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
+<lastmod>2016-07-31T19:24:30-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://project.mde.tw/blog/categories.html</loc>
-<<<<<<< HEAD
-<lastmod>2016-07-31T18:27:13-00:00</lastmod>
-=======
-<lastmod>2016-07-31T16:43:21-00:00</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
+<lastmod>2016-07-31T19:24:30-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://project.mde.tw/blog/pages/about/</loc>
-<lastmod>2016-07-01T12:10:06+08:00</lastmod>
+<lastmod>2016-07-31T10:27:09+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -64,6 +48,62 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://project.mde.tw/blog/40323231-3dpzhu-yi-shi-xiang.html</loc>
 <lastmod>2016-07-31T16:00:00+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/40323218ri-zhi-1050711.html</loc>
+<lastmod>2016-07-31T10:27:09+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/40323218ri-zhi-1050714.html</loc>
+<lastmod>2016-07-31T10:27:09+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/40323218ri-zhi-1050715.html</loc>
+<lastmod>2016-07-31T10:27:09+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/40323218ri-zhi-1050717.html</loc>
+<lastmod>2016-07-31T10:27:09+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/40323218ri-zhi-1050719.html</loc>
+<lastmod>2016-07-31T10:27:09+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/40323218ri-zhi-1050723.html</loc>
+<lastmod>2016-07-31T10:27:09+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html</loc>
+<lastmod>2016-07-31T10:27:09+08:00</lastmod>
+<changefreq>monthly</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/40323218ri-zhi-1050704.html</loc>
+<lastmod>2016-07-31T10:27:09+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -174,13 +214,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://project.mde.tw/blog/40323218ri-zhi-1050723.html</loc>
-<lastmod>2016-07-24T00:23:07+08:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://project.mde.tw/blog/40323230ji-lu-cyu-yan-zi-liao-ku-ge-shi.html</loc>
 <lastmod>2016-07-23T19:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -237,13 +270,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://project.mde.tw/blog/40323218ri-zhi-1050719.html</loc>
-<lastmod>2016-07-20T00:15:36+08:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://project.mde.tw/blog/40323230ri-zhi-1050719.html</loc>
 <lastmod>2016-07-19T19:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -253,13 +279,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://project.mde.tw/blog/40323143-ma-da-kong-zhi-105nian-7yue-19ri.html</loc>
 <lastmod>2016-07-19T12:00:00+08:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://project.mde.tw/blog/40323218ri-zhi-1050717.html</loc>
-<lastmod>2016-07-18T23:49:58+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -314,13 +333,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://project.mde.tw/blog/40323218ri-zhi-1050715.html</loc>
-<lastmod>2016-07-15T23:31:12+08:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://project.mde.tw/blog/40323131ri-zhi-1050715.html</loc>
 <lastmod>2016-07-15T19:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -351,13 +363,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://project.mde.tw/blog/40323231ri-zhi-1050714.html</loc>
 <lastmod>2016-07-14T21:00:00+08:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://project.mde.tw/blog/40323218ri-zhi-1050714.html</loc>
-<lastmod>2016-07-14T19:13:49+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -421,13 +426,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://project.mde.tw/blog/40323230lian-xi-1050711.html</loc>
 <lastmod>2016-07-11T19:00:00+08:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://project.mde.tw/blog/40323218ri-zhi-1050711.html</loc>
-<lastmod>2016-07-11T17:45:41+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -531,13 +529,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://project.mde.tw/blog/40323218ri-zhi-1050704.html</loc>
-<lastmod>2016-07-04T22:26:52+08:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://project.mde.tw/blog/40323230ri-zhi-1050704-2.html</loc>
 <lastmod>2016-07-04T19:00:00+08:00</lastmod>
 <changefreq>monthly</changefreq>
@@ -603,13 +594,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 <url>
 <loc>http://project.mde.tw/blog/40323131ri-zhi-1050701.html</loc>
 <lastmod>2016-07-01T19:00:00+08:00</lastmod>
-<changefreq>monthly</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://project.mde.tw/blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html</loc>
-<lastmod>2016-07-01T12:10:06+08:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
@@ -924,376 +908,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://project.mde.tw/blog/category/tutorial.html</loc>
-<lastmod>2016-07-30T11:29:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/3dprint-server.html</loc>
-<lastmod>2016-07-16T11:29:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/wang-ji-cheng-shi.html</loc>
-<lastmod>2016-07-08T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/leo-editor.html</loc>
-<lastmod>2016-03-09T01:20:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/solvespacev-rep.html</loc>
-<lastmod>2016-07-28T11:37:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/zhuan-ti-fen-lei.html</loc>
-<lastmod>2016-04-01T01:20:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/github-pages.html</loc>
-<lastmod>2016-03-01T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/opencv.html</loc>
-<lastmod>2016-06-10T17:50:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/wen-zhang-ri-qi.html</loc>
-<lastmod>2016-07-30T11:29:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/jiao-xue-dao-yin.html</loc>
-<lastmod>2016-03-01T01:20:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/python3.html</loc>
-<lastmod>2016-03-24T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/v-rep.html</loc>
-<lastmod>2016-07-02T19:00:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/3d-printer.html</loc>
-<lastmod>2016-05-13T11:29:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/2016g3.html</loc>
-<lastmod>2016-03-11T01:20:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/fan-li.html</loc>
-<lastmod>2016-07-25T12:00:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/yan-jiu-li-nian.html</loc>
-<lastmod>2016-07-28T11:29:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/wordpress.html</loc>
-<lastmod>2016-04-08T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/ke-xi-dian-nao.html</loc>
-<lastmod>2016-03-12T01:20:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/raspberry-pi.html</loc>
-<lastmod>2016-03-22T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/shang-ke-zhuan-yong.html</loc>
-<lastmod>2016-07-08T01:20:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/flask.html</loc>
-<lastmod>2016-03-08T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/lian-xi.html</loc>
-<lastmod>2016-03-01T01:20:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/2016g2.html</loc>
-<lastmod>2016-03-11T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/3d-printer.html</loc>
-<lastmod>2016-05-13T11:29:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/solvespace.html</loc>
-<lastmod>2016-07-31T19:00:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/ubuntu-wang-lu-she-ding.html</loc>
-<lastmod>2016-06-28T11:29:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/zhuan-ti-fen-lei.html</loc>
-<lastmod>2016-04-01T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/wang-zhi-she-ding.html</loc>
-<lastmod>2016-03-01T01:20:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/swig.html</loc>
-<lastmod>2016-07-31T19:00:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/g1project.html</loc>
-<lastmod>2016-07-21T11:29:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/openshift.html</loc>
-<lastmod>2016-03-08T01:20:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://project.mde.tw/blog/tag/shang-ke-zhuan-yong.html</loc>
-<lastmod>2016-07-08T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/flask.html</loc>
-<lastmod>2016-03-08T01:20:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/machine-arm.html</loc>
-<lastmod>2016-07-30T12:00:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/3dp.html</loc>
-<lastmod>2016-07-31T16:00:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/zhuan-ti.html</loc>
-<lastmod>2016-03-02T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/jupyterhub.html</loc>
-<lastmod>2016-03-24T01:20:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/brython.html</loc>
-<lastmod>2016-03-01T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://project.mde.tw/blog/tag/wxpython.html</loc>
-<lastmod>2016-07-02T11:29:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/client-control.html</loc>
-<lastmod>2016-05-15T11:29:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/jiao-xue-dao-yin.html</loc>
-<lastmod>2016-03-01T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://project.mde.tw/blog/tag/pelican.html</loc>
-<lastmod>2016-07-30T11:29:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/zhuan-ti.html</loc>
-<lastmod>2016-03-02T01:20:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/client-control.html</loc>
-<lastmod>2016-05-15T11:29:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/wordpress.html</loc>
-<lastmod>2016-04-08T01:20:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/python-solvespace.html</loc>
-<lastmod>2016-07-31T19:00:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/github-pages.html</loc>
-<lastmod>2016-03-01T01:20:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/stl-viewer.html</loc>
-<lastmod>2016-03-22T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/wen-zhang-ri-qi.html</loc>
-<lastmod>2016-07-30T11:29:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/g1project.html</loc>
-<lastmod>2016-07-21T11:29:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/cdemo.html</loc>
-<lastmod>2016-07-30T19:00:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/3dprint-server.html</loc>
-<lastmod>2016-07-16T11:29:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/brython.html</loc>
-<lastmod>2016-03-01T01:20:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/2016g3.html</loc>
-<lastmod>2016-03-11T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/raspberry-pi.html</loc>
-<lastmod>2016-03-22T01:20:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/pythonchuan-lie-chuan-shu-shi-zuo.html</loc>
-<lastmod>2016-07-03T11:29:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/octopi.html</loc>
-<lastmod>2016-06-28T11:30:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/v-reptkinter.html</loc>
-<lastmod>2016-07-30T22:10:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/2016g1.html</loc>
-<lastmod>2016-03-11T01:20:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/chuan-lie-tong-xun.html</loc>
-<lastmod>2016-07-13T11:29:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/chuan-lie-tong-xun.html</loc>
-<lastmod>2016-07-13T11:29:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/kmol.html</loc>
-<lastmod>2016-07-31T19:00:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
+<lastmod>2016-07-31T10:27:09+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -1306,73 +921,6 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/wxpython.html</loc>
-<lastmod>2016-07-02T11:29:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/opencv.html</loc>
-<lastmod>2016-06-10T17:50:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/pelican.html</loc>
-<lastmod>2016-07-30T11:29:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/2016g1.html</loc>
-<lastmod>2016-03-11T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/jupyter.html</loc>
-<lastmod>2016-03-24T01:20:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/raspberrypi.html</loc>
-<lastmod>2016-07-29T12:00:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://project.mde.tw/blog/tag/rga.html</loc>
-<lastmod>2016-05-21T01:20:00+08:06</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/wang-ji-cheng-shi.html</loc>
-<lastmod>2016-07-08T01:20:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/lian-xi.html</loc>
-<lastmod>2016-03-01T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/python-solvespace.html</loc>
-<lastmod>2016-07-30T19:00:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/github.html</loc>
-<lastmod>2016-03-22T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
 <loc>http://project.mde.tw/blog/tag/cdemo.html</loc>
 <lastmod>2016-07-31T19:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
@@ -1380,49 +928,148 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/v-reptkinter.html</loc>
-<lastmod>2016-07-30T22:10:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/ji-jie-she-ji.html</loc>
-<lastmod>2016-03-02T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
+<loc>http://project.mde.tw/blog/tag/stl-viewer.html</loc>
+<lastmod>2016-03-22T01:20:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/swig.html</loc>
-<lastmod>2016-07-30T19:00:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/octopi.html</loc>
-<lastmod>2016-06-28T11:30:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
+<loc>http://project.mde.tw/blog/tag/wang-ji-cheng-shi.html</loc>
+<lastmod>2016-07-08T01:20:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/python3.html</loc>
-<lastmod>2016-03-24T01:20:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/3dp.html</loc>
-<lastmod>2016-07-31T16:00:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
+<loc>http://project.mde.tw/blog/tag/flask.html</loc>
+<lastmod>2016-03-08T01:20:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/ji-jie-she-ji.html</loc>
-<lastmod>2016-03-02T01:20:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/liu-cheng-zi-dong-hua.html</loc>
+<loc>http://project.mde.tw/blog/tag/raspberrypi.html</loc>
+<lastmod>2016-07-29T12:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/python.html</loc>
 <lastmod>2016-03-01T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/wordpress.html</loc>
+<lastmod>2016-04-08T01:20:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/chuan-lie-tong-xun.html</loc>
+<lastmod>2016-07-13T11:29:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/github-pages.html</loc>
+<lastmod>2016-03-01T01:20:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/opencv.html</loc>
+<lastmod>2016-06-10T17:50:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/kmol.html</loc>
+<lastmod>2016-07-31T19:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/openshift.html</loc>
+<lastmod>2016-03-08T01:20:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/2016g1.html</loc>
+<lastmod>2016-03-11T01:20:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/machine-arm.html</loc>
+<lastmod>2016-07-30T12:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/jupyterhub.html</loc>
+<lastmod>2016-03-24T01:20:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/2016g3.html</loc>
+<lastmod>2016-03-11T01:20:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/jiao-xue-dao-yin.html</loc>
+<lastmod>2016-03-01T01:20:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/shang-ke-zhuan-yong.html</loc>
+<lastmod>2016-07-08T01:20:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/wxpython.html</loc>
+<lastmod>2016-07-02T11:29:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/3d-printer.html</loc>
+<lastmod>2016-05-13T11:29:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/leo-editor.html</loc>
+<lastmod>2016-03-09T01:20:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/3dprint-server.html</loc>
+<lastmod>2016-07-16T11:29:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -1435,104 +1082,204 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/machine-arm.html</loc>
-<lastmod>2016-07-30T12:00:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/python.html</loc>
-<lastmod>2016-03-01T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
 <loc>http://project.mde.tw/blog/tag/github.html</loc>
 <lastmod>2016-03-22T01:20:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/jupyter.html</loc>
-<lastmod>2016-03-24T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<<<<<<< HEAD
+<loc>http://project.mde.tw/blog/tag/v-reptkinter.html</loc>
+<lastmod>2016-07-30T22:10:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/ji-jie-she-ji.html</loc>
+<lastmod>2016-03-02T01:20:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/pelican.html</loc>
+<lastmod>2016-07-30T11:29:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/mcad.html</loc>
+<lastmod>2016-03-10T01:20:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/wen-zhang-ri-qi.html</loc>
+<lastmod>2016-07-30T11:29:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/python-solvespace.html</loc>
+<lastmod>2016-07-31T19:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/ubuntu-wang-lu-she-ding.html</loc>
+<lastmod>2016-06-28T11:29:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/octopi.html</loc>
+<lastmod>2016-06-28T11:30:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/client-control.html</loc>
+<lastmod>2016-05-15T11:29:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/brython.html</loc>
+<lastmod>2016-03-01T01:20:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/raspberry-pi.html</loc>
+<lastmod>2016-03-22T01:20:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
 <loc>http://project.mde.tw/blog/tag/liu-cheng-zi-dong-hua.html</loc>
 <lastmod>2016-03-01T01:20:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/ke-xi-dian-nao.html</loc>
-<lastmod>2016-03-12T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/pythonchuan-lie-chuan-shu-shi-zuo.html</loc>
-<lastmod>2016-07-03T11:29:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/leo-editor.html</loc>
-<lastmod>2016-03-09T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
+<loc>http://project.mde.tw/blog/tag/zhuan-ti.html</loc>
+<lastmod>2016-03-02T01:20:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/python.html</loc>
+<loc>http://project.mde.tw/blog/tag/yan-jiu-li-nian.html</loc>
+<lastmod>2016-07-28T11:29:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/lian-xi.html</loc>
 <lastmod>2016-03-01T01:20:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/jupyterhub.html</loc>
-<lastmod>2016-03-24T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/stl-viewer.html</loc>
-<lastmod>2016-03-22T01:20:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/mcad.html</loc>
-<lastmod>2016-03-10T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/mcad.html</loc>
-<lastmod>2016-03-10T01:20:00+08:06</lastmod>
-=======
-<loc>http://project.mde.tw/blog/tag/rga.html</loc>
-<lastmod>2016-05-21T01:20:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<<<<<<< HEAD
-<loc>http://project.mde.tw/blog/tag/solvespace.html</loc>
-<lastmod>2016-07-30T19:00:00+08:06</lastmod>
-=======
 <loc>http://project.mde.tw/blog/tag/v-rep.html</loc>
 <lastmod>2016-07-02T19:00:00+08:06</lastmod>
->>>>>>> a178f700164dca66458fbb623f32865cbe38d9c8
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://project.mde.tw/blog/tag/raspberrypi.html</loc>
-<lastmod>2016-07-29T12:00:00+08:06</lastmod>
+<loc>http://project.mde.tw/blog/tag/ke-xi-dian-nao.html</loc>
+<lastmod>2016-03-12T01:20:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/jupyter.html</loc>
+<lastmod>2016-03-24T01:20:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/wang-zhi-she-ding.html</loc>
+<lastmod>2016-03-01T01:20:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/pythonchuan-lie-chuan-shu-shi-zuo.html</loc>
+<lastmod>2016-07-03T11:29:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/zhuan-ti-fen-lei.html</loc>
+<lastmod>2016-04-01T01:20:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/3dp.html</loc>
+<lastmod>2016-07-31T16:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/solvespacev-rep.html</loc>
+<lastmod>2016-07-28T11:37:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/rga.html</loc>
+<lastmod>2016-05-21T01:20:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/swig.html</loc>
+<lastmod>2016-07-31T19:00:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/python3.html</loc>
+<lastmod>2016-03-24T01:20:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/g1project.html</loc>
+<lastmod>2016-07-21T11:29:00+08:06</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>http://project.mde.tw/blog/tag/solvespace.html</loc>
+<lastmod>2016-07-31T19:00:00+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -1560,7 +1307,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://project.mde.tw/blog/author/40323218.html</loc>
-<lastmod>2016-07-24T00:23:07+08:06</lastmod>
+<lastmod>2016-07-31T10:27:09+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -1588,7 +1335,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://project.mde.tw/blog/author/user.html</loc>
-<lastmod>2016-07-01T12:10:06+08:06</lastmod>
+<lastmod>2016-07-31T10:27:09+08:06</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>

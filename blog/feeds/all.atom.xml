@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-31T19:00:00+08:00</updated><entry><title>40323230日誌 - 105/07/31</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050731.html" rel="alternate"></link><updated>2016-07-31T19:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-31:blog/40323230ri-zhi-1050731.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-31T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/07/31</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050731.html" rel="alternate"></link><updated>2016-07-31T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-31:blog/40323230ri-zhi-1050731.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;新增範例Crank Rocker&lt;/p&gt;
 &lt;/li&gt;
@@ -149,7 +149,7 @@ print ("Solve Completed")
 &lt;hr&gt;
 
 &lt;p&gt;解了多個圖形題目後，發現之前寫的那篇還滿不容易查詢資料，而且前作者的內容有些錯誤。&lt;/p&gt;
-&lt;p&gt;由於當初紀錄是靠&lt;code&gt;DOC.txt&lt;/code&gt;的順序寫的，所以要自己重新閱讀多次，將使用比例分配一下。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323231 - 3DP注意事項</title><link href="http://project.mde.tw/blog/40323231-3dpzhu-yi-shi-xiang.html" rel="alternate"></link><updated>2016-07-31T16:00:00+08:00</updated><author><name>40323231</name></author><id>tag:project.mde.tw,2016-07-31:blog/40323231-3dpzhu-yi-shi-xiang.html</id><summary type="html">&lt;p&gt;注意事項&lt;/p&gt;
+&lt;p&gt;由於當初紀錄是靠&lt;code&gt;DOC.txt&lt;/code&gt;的順序寫的，所以要自己重新閱讀多次，將使用比例分配一下。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323231 -3DP注意事項</title><link href="http://project.mde.tw/blog/40323231-3dpzhu-yi-shi-xiang.html" rel="alternate"></link><updated>2016-07-31T16:00:00+08:00</updated><author><name>40323231</name></author><id>tag:project.mde.tw,2016-07-31:blog/40323231-3dpzhu-yi-shi-xiang.html</id><summary type="html">&lt;p&gt;注意事項&lt;/p&gt;
 
 
 &lt;h3&gt;一.固件安裝 :&lt;/h3&gt;
@@ -175,19 +175,19 @@ print ("Solve Completed")
 &lt;h4&gt;10.安裝皮帶上面的固定鎖時勿一開始就鎖到緊，避免皮帶太鬆時無法做調整(圖.E)&lt;/h4&gt;
 
 &lt;p&gt;&lt;br&gt;
-&lt;img src="http://i.imgur.com/zGKlktf.jpg" weight=600 &gt;
+&lt;img src="http://i.imgur.com/zGKlktf.jpg" &gt;
 &lt;h4&gt;(圖.A)&lt;/h4&gt;
 &lt;br&gt;
-&lt;img src="http://i.imgur.com/hNHGnCJ.jpg" weight=600 &gt;
+&lt;img src="http://i.imgur.com/hNHGnCJ.jpg" &gt;
 &lt;h4&gt;(圖.B)&lt;/h4&gt;
 &lt;br&gt;
-&lt;img src="http://i.imgur.com/iPPgmVk.jpg" weight=600 &gt;
+&lt;img src="http://i.imgur.com/iPPgmVk.jpg" &gt;
 &lt;h4&gt;(圖.C)&lt;/h4&gt;
 &lt;br&gt;
-&lt;img src="http://i.imgur.com/hidvXCI.jpg" weight=600 &gt;
+&lt;img src="http://i.imgur.com/hidvXCI.jpg" &gt;
 &lt;h4&gt;(圖.D)&lt;/h4&gt;
 &lt;br&gt;
-&lt;img src="http://i.imgur.com/xDtP6BW.jpg" weight=600 &gt;
+&lt;img src="http://i.imgur.com/xDtP6BW.jpg" &gt;
 &lt;h4&gt;(圖.E)&lt;/h4&gt;
 &lt;br&gt;
 &lt;h3&gt;二.配電 :&lt;/h3&gt;

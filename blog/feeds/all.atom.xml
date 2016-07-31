@@ -1205,77 +1205,7 @@ Convex shapes會有點不太穩定，當物理引擎處理時需要多一點點�
 
 &lt;iframe src="https://player.vimeo.com/video/173321561" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
 
-&lt;p&gt;&lt;p&gt;&lt;a href="https://vimeo.com/173321561"&gt;V-Rep one_link_robot&lt;/a&gt; from &lt;a href="https://vimeo.com/user44943624"&gt;Li Steven&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323143 - 日誌 105年7月8日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-8ri.html" rel="alternate"></link><updated>2016-07-31T01:00:48+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-31:blog/40323143-ri-zhi-105nian-7yue-8ri.html</id><summary type="html">&lt;p&gt;發現極限開關繪製的重大錯誤 測試的手臂組裝完成 控制程式未完成
-&lt;/p&gt;
-&lt;p&gt;今天發現了第二種極限開關及底座裝配的問題，原因是因為在繪製第二種極限開關的固定孔時出錯，圖上的孔與實際的孔位置是相反的，導致底座列印出來時裝配出問題，己決方法是變更極限開關方向及電路配置，補救醒的讓極限開關及底座配合。&lt;/p&gt;
-&lt;p&gt;今天列印底座後發現底座中安裝馬達的槽的長度尺寸小0.3mm，使馬達安裝有問題，原因可能是因為列印的些微誤差，解決方法是用銼刀將槽挫大，以及修改繪圖尺寸。&lt;/p&gt;
-&lt;p&gt;機構的部分大概是如此，剩下的控制程式今天試著寫了一些，但是離實際上可用還有很多問題。&lt;/p&gt;
-&lt;p&gt;控制程式的構想:&lt;/p&gt;
-&lt;p&gt;1.承臂控制想利用控制通電時間來控制各個法達旋轉的角度，通電時間利用  [ cos^-1(欲移動距離/承臂長度) ]/馬達角速度 求。&lt;/p&gt;
-&lt;p&gt;2.極限位置用極限開關訊號加上if來控制。&lt;/p&gt;
-&lt;p&gt;3.底座馬達的控制可能會是固定的旋轉時間&lt;/p&gt;
-&lt;p&gt;4.我還在學習怎麼寫&lt;/p&gt;
-&lt;p&gt;備註:&lt;/p&gt;
-&lt;p&gt;1.因為原先設計時極限開關的長邊中心線是通過底座中心點的，所以可以直接將極限開關反過來用，只改變電路配置。&lt;/p&gt;
-&lt;p&gt;2.與底座極限開關相撞的桿子也是用免洗筷剪短裝上去的，免洗筷是由先前的免洗筷殘留部分加工而來的，同樣十分堅固。&lt;/p&gt;
-&lt;p&gt;3.原先底座極限開關的電路配置是直接由接頭接去安裝在底座的arduino上，因安裝位置修改變更為繞過旋盤下方接上arduino。&lt;/p&gt;
-&lt;p&gt;4.這次的極限開關繪製錯誤時分嚴重，若不是因為剛好有辦法可以補救，製造成本就完全浪費了。&lt;/p&gt;
-&lt;p&gt;5.程式若沒辦法寫出來可能只會先讓手臂座固定的運動。&lt;/p&gt;
-&lt;p&gt;6.等測試用的手臂完成後就會進入夾頭的部分。&lt;/p&gt;
-&lt;p&gt;安裝完後的底座極限開關線路配置&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/eWCNvOM.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/TTmw1nR.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;由上往下看&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/M28o1N4.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;底座馬達安裝孔因應誤差所做的變更&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/PiZJDKq.png"&gt;&lt;/p&gt;
-&lt;p&gt;手臂組合完成圖&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/M28o1N4.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;提問:&lt;/p&gt;
-&lt;p&gt;請問實際上在設計時常使用什麼方法來檢查特徵錯誤，或是特定的機制?&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 3D printer 列印完下料後的倉儲機構設計理念及繪圖</title><link href="http://project.mde.tw/blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html" rel="alternate"></link><updated>2016-07-31T01:00:48+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-31:blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
-
-
-&lt;p&gt;這裡為 40323130 所寫的文章主要內容&lt;/p&gt;
-&lt;p&gt;這是設計構想的全圖&lt;/p&gt;
-&lt;p&gt;&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/asm0001.stl"&gt;&lt;/script&gt;&lt;/p&gt;
-&lt;p&gt;我的想法是讓3D printer 在一個輸送帶上的平面列印，在輸送帶後方因為曲率不同使成品自然脫落，然後用一個盛盤接住成品一動到固定位置，使成盤傾斜讓成品掉落我們想要放置的位置。&lt;/p&gt;
-&lt;p&gt;我使用一個由上而往看下呈一個工字型的機構，因為我認為這種機構機構簡單、組裝容易、運動路徑明確，控制上應該比較方便，可以節省很多製造、控制上的麻煩。&lt;/p&gt;
-&lt;p&gt;動力方面想使用馬達接上摩擦輪驅動另外兩個摩擦輪，原本想用齒輪作為動力傳輸，但考慮到組原想要自己製造出來的想法，齒輪對我們來說製造難度太高，所以改用摩擦輪。&lt;/p&gt;
-&lt;p&gt;組裝上也是盡量用簡單方便的方法組裝，例如摩擦輪就只是挖一個槽用重力固定，馬達安裝是用夾板鎖螺栓固定，其餘都是鎖螺栓夾緊，在組裝上應該不會有困難。&lt;/p&gt;
-&lt;p&gt;零件圖:&lt;/p&gt;
-&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/1long.stl"&gt;&lt;/script&gt;
-
-&lt;p&gt;&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/2long.stl"&gt;&lt;/script&gt;
-&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/3.stl"&gt;&lt;/script&gt;
-&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/3long.stl"&gt;&lt;/script&gt;
-&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/4-02.stl"&gt;&lt;/script&gt;
-&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/4-46.stl"&gt;&lt;/script&gt;
-&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/5.stl"&gt;&lt;/script&gt;
-&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/6.stl"&gt;&lt;/script&gt;
-&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/6-3.stl"&gt;&lt;/script&gt;
-&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/46-2.stl"&gt;&lt;/script&gt;
-&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/a.stl"&gt;&lt;/script&gt;
-&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/b.stl"&gt;&lt;/script&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 說明如何參與協同機械設計專題網誌編寫</title><link href="http://project.mde.tw/blog/40323143-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html" rel="alternate"></link><updated>2016-07-31T01:00:48+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-31:blog/40323143-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
-
-
-&lt;p&gt;這裡為 40323130 所寫的文章主要內容&lt;/p&gt;
-&lt;p&gt;本機械設計專題網誌的架構包含近端與遠端的資料檢視設計, 專案資料以 Leo Editor 進行管理.&lt;/p&gt;
-&lt;p&gt;以下教學影片示範從 &lt;a href="http://project.mde.tw"&gt;http://project.mde.tw&lt;/a&gt; 機械設計專題網誌中取得倉儲的網址後, 可以利用 git clone 複製倉儲資料, 之後:&lt;/p&gt;
-&lt;ol&gt;
-&lt;li&gt;利用 git checkout gh-pages 將工作目錄指到 Github pages 的對應分支內容&lt;/li&gt;
-&lt;li&gt;以 Leo Editor 開啟 users 目錄下的 user_template.leo 檔案&lt;/li&gt;
-&lt;li&gt;根據自己的帳號, 修改 .md 檔案存檔的名稱, 目的在透過加入帳號與時間註記, 避免 content 目錄中的檔案彼此複寫&lt;/li&gt;
-&lt;li&gt;在 .md 的 Title 標題中, 冠上自己的帳號, 主要也是避免 Pelican 將 .md 根據標題轉成 html 時, 產生檔案複寫&lt;/li&gt;
-&lt;li&gt;本系統的 Pelican 分為近端與遠端轉檔按鈕, 因此若要在近端檢查時, 與要推送到 Github 時採用不同轉檔按鈕&lt;/li&gt;
-&lt;li&gt;為了簡化 git 指令的 add, commit 與 push, 加入 ungit, 只要啟動隨身系統候, 再利用 start_ungit.bat 開啟, 就可以在瀏覽器中簡化改版過程&lt;/li&gt;
-&lt;/ol&gt;
-&lt;p&gt;Vimeo:&lt;/p&gt;
-&lt;iframe src="https://player.vimeo.com/video/157247703" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
-
-&lt;p&gt;&lt;a href="https://vimeo.com/157247703"&gt;2016project_1&lt;/a&gt; from &lt;a href="https://vimeo.com/user24079973"&gt;虎尾科大機械設計工程&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
-
-&lt;p&gt;Youtube:&lt;/p&gt;
-&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/hQR1wxALifU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="範例"></category></entry><entry><title>40323131日誌 105/07/20</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050720.html" rel="alternate"></link><updated>2016-07-31T01:00:48+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-31:blog/40323131ri-zhi-1050720.html</id><summary type="html">&lt;p&gt;將Kmolprint改成在純IPV6底下 也可連線
+&lt;p&gt;&lt;p&gt;&lt;a href="https://vimeo.com/173321561"&gt;V-Rep one_link_robot&lt;/a&gt; from &lt;a href="https://vimeo.com/user44943624"&gt;Li Steven&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323131日誌 105/07/20</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050720.html" rel="alternate"></link><updated>2016-07-31T01:00:48+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-31:blog/40323131ri-zhi-1050720.html</id><summary type="html">&lt;p&gt;將Kmolprint改成在純IPV6底下 也可連線
 &lt;/p&gt;
 &lt;h3&gt;先來放張圖片&lt;/h3&gt;
 
@@ -6455,7 +6385,34 @@ double solve_minangle(int lim, int a, int b, int r)
 &lt;hr&gt;
 
 &lt;p&gt;剛開始還以為是用公式推導座標點的結果，後來回去看網誌才知道用演算法計算。電腦演算時如果一邊列出結果，會拖慢速度，所以在最後的程式碼中只留檢查用的結果。&lt;/p&gt;
-&lt;p&gt;後來也有上網看其他人使用基因演算法的案例，未能完全了解，還有很多要學習的地方。這次解題複習了一些C語言的概念，希望在往後利用上能夠駕輕就熟。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>yen - 上課專用網際程式規劃</title><link href="http://project.mde.tw/blog/yen-shang-ke-zhuan-yong-wang-ji-cheng-shi-gui-hua.html" rel="alternate"></link><updated>2016-07-08T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-08:blog/yen-shang-ke-zhuan-yong-wang-ji-cheng-shi-gui-hua.html</id><summary type="html">&lt;p&gt;RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.&lt;/p&gt;
+&lt;p&gt;後來也有上網看其他人使用基因演算法的案例，未能完全了解，還有很多要學習的地方。這次解題複習了一些C語言的概念，希望在往後利用上能夠駕輕就熟。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323143 - 日誌 105年7月8日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-8ri.html" rel="alternate"></link><updated>2016-07-08T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-08:blog/40323143-ri-zhi-105nian-7yue-8ri.html</id><summary type="html">&lt;p&gt;發現極限開關繪製的重大錯誤 測試的手臂組裝完成 控制程式未完成
+&lt;/p&gt;
+&lt;p&gt;今天發現了第二種極限開關及底座裝配的問題，原因是因為在繪製第二種極限開關的固定孔時出錯，圖上的孔與實際的孔位置是相反的，導致底座列印出來時裝配出問題，己決方法是變更極限開關方向及電路配置，補救醒的讓極限開關及底座配合。&lt;/p&gt;
+&lt;p&gt;今天列印底座後發現底座中安裝馬達的槽的長度尺寸小0.3mm，使馬達安裝有問題，原因可能是因為列印的些微誤差，解決方法是用銼刀將槽挫大，以及修改繪圖尺寸。&lt;/p&gt;
+&lt;p&gt;機構的部分大概是如此，剩下的控制程式今天試著寫了一些，但是離實際上可用還有很多問題。&lt;/p&gt;
+&lt;p&gt;控制程式的構想:&lt;/p&gt;
+&lt;p&gt;1.承臂控制想利用控制通電時間來控制各個法達旋轉的角度，通電時間利用  [ cos^-1(欲移動距離/承臂長度) ]/馬達角速度 求。&lt;/p&gt;
+&lt;p&gt;2.極限位置用極限開關訊號加上if來控制。&lt;/p&gt;
+&lt;p&gt;3.底座馬達的控制可能會是固定的旋轉時間&lt;/p&gt;
+&lt;p&gt;4.我還在學習怎麼寫&lt;/p&gt;
+&lt;p&gt;備註:&lt;/p&gt;
+&lt;p&gt;1.因為原先設計時極限開關的長邊中心線是通過底座中心點的，所以可以直接將極限開關反過來用，只改變電路配置。&lt;/p&gt;
+&lt;p&gt;2.與底座極限開關相撞的桿子也是用免洗筷剪短裝上去的，免洗筷是由先前的免洗筷殘留部分加工而來的，同樣十分堅固。&lt;/p&gt;
+&lt;p&gt;3.原先底座極限開關的電路配置是直接由接頭接去安裝在底座的arduino上，因安裝位置修改變更為繞過旋盤下方接上arduino。&lt;/p&gt;
+&lt;p&gt;4.這次的極限開關繪製錯誤時分嚴重，若不是因為剛好有辦法可以補救，製造成本就完全浪費了。&lt;/p&gt;
+&lt;p&gt;5.程式若沒辦法寫出來可能只會先讓手臂座固定的運動。&lt;/p&gt;
+&lt;p&gt;6.等測試用的手臂完成後就會進入夾頭的部分。&lt;/p&gt;
+&lt;p&gt;安裝完後的底座極限開關線路配置&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/eWCNvOM.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/TTmw1nR.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;由上往下看&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/M28o1N4.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;底座馬達安裝孔因應誤差所做的變更&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/PiZJDKq.png"&gt;&lt;/p&gt;
+&lt;p&gt;手臂組合完成圖&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/M28o1N4.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;提問:&lt;/p&gt;
+&lt;p&gt;請問實際上在設計時常使用什麼方法來檢查特徵錯誤，或是特定的機制?&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>yen - 上課專用網際程式規劃</title><link href="http://project.mde.tw/blog/yen-shang-ke-zhuan-yong-wang-ji-cheng-shi-gui-hua.html" rel="alternate"></link><updated>2016-07-08T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-08:blog/yen-shang-ke-zhuan-yong-wang-ji-cheng-shi-gui-hua.html</id><summary type="html">&lt;p&gt;RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.&lt;/p&gt;
 </summary><category term="上課專用"></category><category term="網際程式"></category></entry><entry><title>40323230紀錄 - 編譯Solvespace流程</title><link href="http://project.mde.tw/blog/40323230ji-lu-bian-yi-solvespaceliu-cheng.html" rel="alternate"></link><updated>2016-07-07T19:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-07:blog/40323230ji-lu-bian-yi-solvespaceliu-cheng.html</id><summary type="html">&lt;p&gt;由原始碼編譯出Solvespace和CDemo的執行檔&lt;/p&gt;
 
 
@@ -11368,7 +11325,30 @@ network={
 &lt;p&gt;但是若這些檔案真要放到機械設計專題所屬的倉儲中, 也是可以, 但是就必須在近端的 theme/pelican-bootstrap3_local/static 目錄, 以及&lt;/p&gt;
 &lt;p&gt;theme/pelican-bootstrap3/static 目錄中, 各放一份, 例如, 現在已經在這兩個目錄中各放入 files 目錄, 而且其中還有 40323143 目錄, 並將所有的 STL 零組件檔全部放入. 這時若利用 local-pelican 或 gh-pages-pelican 按鈕建立 blog 中的資料, Pelican 就會將前面提到的 files 目錄, 複製到 blog/theme 目錄中, 因此隨後在 gh-pages 的網頁中, 就是到 blog/theme/files/40323143 目錄來擷取這些零組件檔案.&lt;/p&gt;
 &lt;p&gt;例如: blog/theme/files/40323143/1long.stl 檔案, 就可以疊上 https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/, 並用 script 標註圈住, 讓使用者可以在瀏覽器中檢視.&lt;/p&gt;
-&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/1long.stl"&gt;&lt;/script&gt;</summary><category term="Github"></category><category term="stl viewer"></category></entry><entry><title>yen - Python 數位運算與較有未來的技術</title><link href="http://project.mde.tw/blog/yen-python-shu-wei-yun-suan-yu-jiao-you-wei-lai-de-ji-shu.html" rel="alternate"></link><updated>2016-03-15T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-15:blog/yen-python-shu-wei-yun-suan-yu-jiao-you-wei-lai-de-ji-shu.html</id><summary type="html">&lt;p&gt;身為一位機械設計工程專長學員, 該如何看待數位運算, 那些技術較有未來?&lt;/p&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/1long.stl"&gt;&lt;/script&gt;</summary><category term="Github"></category><category term="stl viewer"></category></entry><entry><title>40323143 - 3D printer 列印完下料後的倉儲機構設計理念及繪圖</title><link href="http://project.mde.tw/blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html" rel="alternate"></link><updated>2016-03-19T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-03-19:blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
+
+
+&lt;p&gt;這裡為 40323130 所寫的文章主要內容&lt;/p&gt;
+&lt;p&gt;這是設計構想的全圖&lt;/p&gt;
+&lt;p&gt;&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/asm0001.stl"&gt;&lt;/script&gt;&lt;/p&gt;
+&lt;p&gt;我的想法是讓3D printer 在一個輸送帶上的平面列印，在輸送帶後方因為曲率不同使成品自然脫落，然後用一個盛盤接住成品一動到固定位置，使成盤傾斜讓成品掉落我們想要放置的位置。&lt;/p&gt;
+&lt;p&gt;我使用一個由上而往看下呈一個工字型的機構，因為我認為這種機構機構簡單、組裝容易、運動路徑明確，控制上應該比較方便，可以節省很多製造、控制上的麻煩。&lt;/p&gt;
+&lt;p&gt;動力方面想使用馬達接上摩擦輪驅動另外兩個摩擦輪，原本想用齒輪作為動力傳輸，但考慮到組原想要自己製造出來的想法，齒輪對我們來說製造難度太高，所以改用摩擦輪。&lt;/p&gt;
+&lt;p&gt;組裝上也是盡量用簡單方便的方法組裝，例如摩擦輪就只是挖一個槽用重力固定，馬達安裝是用夾板鎖螺栓固定，其餘都是鎖螺栓夾緊，在組裝上應該不會有困難。&lt;/p&gt;
+&lt;p&gt;零件圖:&lt;/p&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/1long.stl"&gt;&lt;/script&gt;
+
+&lt;p&gt;&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/2long.stl"&gt;&lt;/script&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/3.stl"&gt;&lt;/script&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/3long.stl"&gt;&lt;/script&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/4-02.stl"&gt;&lt;/script&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/4-46.stl"&gt;&lt;/script&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/5.stl"&gt;&lt;/script&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/6.stl"&gt;&lt;/script&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/6-3.stl"&gt;&lt;/script&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/46-2.stl"&gt;&lt;/script&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/a.stl"&gt;&lt;/script&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/b.stl"&gt;&lt;/script&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>yen - Python 數位運算與較有未來的技術</title><link href="http://project.mde.tw/blog/yen-python-shu-wei-yun-suan-yu-jiao-you-wei-lai-de-ji-shu.html" rel="alternate"></link><updated>2016-03-15T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-15:blog/yen-python-shu-wei-yun-suan-yu-jiao-you-wei-lai-de-ji-shu.html</id><summary type="html">&lt;p&gt;身為一位機械設計工程專長學員, 該如何看待數位運算, 那些技術較有未來?&lt;/p&gt;
 
 
 &lt;p&gt;機械設計專題是一項資訊密集的動態流程, 資訊之所以密集, 肇因於後續的許多控制、製造與管理, 都以設計的發動起始, 因此機械設計者憑藉著口語, 文字, 2D/3D, 理論與實體, 來紀錄並驗證概念與規格的可行性, 即便產品交付客戶手中, 各種後續服務、回收與處理再利用的相關細節規劃, 所涉及的許多資訊與數據處理, 就產品生命週期的概念而言, 都是設計者該盡力思量的範疇.&lt;/p&gt;
@@ -11561,7 +11541,27 @@ cv2.destroyAllWindows()
 &lt;p&gt;進入 Solvespace Makefile 所在目錄, 執行 nmake.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;就可以完成 Solvespace.exe 的編譯.&lt;/p&gt;</summary><category term="Solvespace"></category><category term="MCAD"></category></entry><entry><title>yen - Pelican 靜態網頁與 Wordpress 的整合</title><link href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he.html" rel="alternate"></link><updated>2016-03-09T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-09:blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he.html</id><summary type="html">&lt;p&gt;許多網路上的文章都只說明如何從動態的網誌系統轉到靜態網誌架構, 但當我們認定動靜之間各有優劣時, 能否兩者整合並存?&lt;/p&gt;
+&lt;p&gt;就可以完成 Solvespace.exe 的編譯.&lt;/p&gt;</summary><category term="Solvespace"></category><category term="MCAD"></category></entry><entry><title>40323143 - 說明如何參與協同機械設計專題網誌編寫</title><link href="http://project.mde.tw/blog/40323143-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html" rel="alternate"></link><updated>2016-03-09T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-03-09:blog/40323143-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
+
+
+&lt;p&gt;這裡為 40323130 所寫的文章主要內容&lt;/p&gt;
+&lt;p&gt;本機械設計專題網誌的架構包含近端與遠端的資料檢視設計, 專案資料以 Leo Editor 進行管理.&lt;/p&gt;
+&lt;p&gt;以下教學影片示範從 &lt;a href="http://project.mde.tw"&gt;http://project.mde.tw&lt;/a&gt; 機械設計專題網誌中取得倉儲的網址後, 可以利用 git clone 複製倉儲資料, 之後:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;利用 git checkout gh-pages 將工作目錄指到 Github pages 的對應分支內容&lt;/li&gt;
+&lt;li&gt;以 Leo Editor 開啟 users 目錄下的 user_template.leo 檔案&lt;/li&gt;
+&lt;li&gt;根據自己的帳號, 修改 .md 檔案存檔的名稱, 目的在透過加入帳號與時間註記, 避免 content 目錄中的檔案彼此複寫&lt;/li&gt;
+&lt;li&gt;在 .md 的 Title 標題中, 冠上自己的帳號, 主要也是避免 Pelican 將 .md 根據標題轉成 html 時, 產生檔案複寫&lt;/li&gt;
+&lt;li&gt;本系統的 Pelican 分為近端與遠端轉檔按鈕, 因此若要在近端檢查時, 與要推送到 Github 時採用不同轉檔按鈕&lt;/li&gt;
+&lt;li&gt;為了簡化 git 指令的 add, commit 與 push, 加入 ungit, 只要啟動隨身系統候, 再利用 start_ungit.bat 開啟, 就可以在瀏覽器中簡化改版過程&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Vimeo:&lt;/p&gt;
+&lt;iframe src="https://player.vimeo.com/video/157247703" width="500" height="281" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;a href="https://vimeo.com/157247703"&gt;2016project_1&lt;/a&gt; from &lt;a href="https://vimeo.com/user24079973"&gt;虎尾科大機械設計工程&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Youtube:&lt;/p&gt;
+&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/hQR1wxALifU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="範例"></category></entry><entry><title>yen - Pelican 靜態網頁與 Wordpress 的整合</title><link href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he.html" rel="alternate"></link><updated>2016-03-09T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-09:blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he.html</id><summary type="html">&lt;p&gt;許多網路上的文章都只說明如何從動態的網誌系統轉到靜態網誌架構, 但當我們認定動靜之間各有優劣時, 能否兩者整合並存?&lt;/p&gt;
 
 
 &lt;p&gt;Worpress 是一套全世界最廣為使用的動態網誌系統, 採用 PHP 編寫, 一般使用 MySQL 資料庫存放資料, 由於 Wordpress 的安裝與使用都非常直覺, 從許多角度來看, 是一套接近完美的動態網誌系統.&lt;/p&gt;

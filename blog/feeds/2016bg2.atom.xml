@@ -1245,7 +1245,7 @@ sys.set_dragged(Point p)
 &lt;p&gt;是命令約束盡量固定這個&lt;code&gt;Point2d/3d&lt;/code&gt;點，取而代之的是移動周遭的項目。&lt;/p&gt;
 &lt;p&gt;這個點被固定後移動量會較小。&lt;/p&gt;
 &lt;h1&gt;ADDITIONAL TYPES OF CONSTRAINTS&lt;/h1&gt;
-&lt;p&gt;一些額外的約束條件。&lt;/p&gt;
+&lt;p&gt;一些額外的約束條件，目前沒有對應實體項目可用。&lt;/p&gt;
 &lt;h2&gt;Point and Face&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;SLVS_C_PT_FACE_DISTANCE&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;&lt;kbd&gt;3D&lt;/kbd&gt; 使用指令：&lt;/p&gt;

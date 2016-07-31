@@ -214,484 +214,7 @@ print ("Solve Completed")
 &lt;h3&gt;四.列印 :&lt;/h3&gt;
 &lt;h4&gt;1.務必檢查列印成品是否超過列印大小&lt;/h4&gt;
 &lt;h4&gt;2.列印前請用口紅膠或特定膠帶弄在熱床上，可避免列印時材料不能貼緊熱床&lt;/h4&gt;
-&lt;h4&gt;3.前幾次列印請注意列印狀況以及擠料狀況(跳線、擠不進去等等)&lt;/h4&gt;&lt;/p&gt;</summary><category term="3DP"></category></entry><entry><title>40323250日誌 - V-rep &amp; 3D-Printer</title><link href="http://project.mde.tw/blog/40323250ri-zhi-v-rep-3d-printer.html" rel="alternate"></link><updated>2016-07-30T22:10:00+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-30:blog/40323250ri-zhi-v-rep-3d-printer.html</id><summary type="html">&lt;p&gt;之後的 V-rep模擬Printer都整理於本文章中&lt;/p&gt;
-
-
-&lt;h3&gt;透過Tkinter介面及remote api 控制printer參數&lt;/h3&gt;
-
-&lt;p&gt;&lt;/br&gt;
-&lt;h3&gt;程式碼&lt;/h3&gt;&lt;/p&gt;
-&lt;pre class="brush: python"&gt;
-
-from tkinter import *
-import serial
-import sys
-import numpy as np
-from matplotlib import pyplot, rcParams
-import vrep
-
-
-
-class printer(Frame):
-    def __init__(self, master=None):
-        Frame.__init__(self, master)
-        self.grid()
-        self.createWidgets()
-
-    def createWidgets(self):
-
-
-
-        Label(pri, text="Axis").grid(column=0, row=0)
-        Label(pri, text="").grid(column=0, row=1)
-        Label(pri, text="X").grid(column=0, row=2)
-        Label(pri, text="").grid(column=0, row=3)
-        Label(pri, text="Y").grid(column=0, row=4)
-        Label(pri, text="").grid(column=0, row=5)
-        Label(pri, text="Z").grid(column=0, row=6)
-
-        Label(pri, text="Position").grid(column=1, row=0)
-
-        a = Entry(pri, width=12, justify=RIGHT)
-        b = Entry(pri, width=12, justify=RIGHT)
-        c = Entry(pri, width=12, justify=RIGHT)
-                #x.delete(0,END)
-                #y.delete(0,END)
-        a.grid(row=2, column=1)
-        b.grid(row=4, column=1)
-        c.grid(row=6, column=1)
-
-
-        def show_entry_fields():
-
-
-
-            x = a.get()
-            y = b.get()
-            z = c.get()
-
-            if x =='' or y==''or z =='':
-                x = 0
-                y = 0
-                z = 0
-                print("Error")
-
-            else:
-                x = float(a.get())
-                y = float(b.get())
-                z = float(c.get())
-
-
-                if float(x) &gt;= 100:   # set x&amp;y&amp;z limit 
-                    x = 100
-                if float(y) &gt;= 100:
-                    y = 100
-                if float(z) &gt;= 400:
-                    z = 400
-                if float(x) &lt;= -100:
-                    x = -100
-                if float(y) &lt;= -100:
-                    y = -100
-                if float(z) &lt;= 0:
-                    z = 0
-                e=x/1222
-                r=y/1222
-                t=z/889
-                if t &lt;= 0.11656:
-                    t = t+0.11656
-
-
-                vrep.simxFinish(-1)
-                clientID = vrep.simxStart('127.0.0.1', 19999, True, True, 5000, 5)
-                if clientID!= -1:
-                    print("Connected to remote server")
-                else:
-                    print('Connection not successful')
-                    sys.exit('Could not connect')
-                errorCode,plate=vrep.simxGetObjectHandle(clientID,'plate',vrep.simx_opmode_oneshot_wait)
-                if errorCode == -1:
-                    print('Can not find left or right motor')
-                    sys.exit()                
-                errorCode=vrep.simxSetObjectPosition(clientID,plate,-1,[e,r,t], vrep.simx_opmode_oneshot)
-                print(x,y,z)
-
-
-                #print("%s,%s,%s" % (x, y, z))
-
-
-        Button(pri, text='Quit', width=5, command=pri.quit).grid(row=8, column=2, sticky=W, pady=4)
-        Button(pri, text='Go', width=5, command=show_entry_fields).grid(row=8, column=0, sticky=W, pady=4)
-
-
-
-if __name__ == '__main__':
-    pri = Tk()
-    pri.title("Printer")
-    pri.geometry('180x220');  #設定視窗大小
-    pri.resizable(0, 0) #鎖定視窗大小
-    app = printer(master=pri)
-
-    app.mainloop()
-
-
-#print(x,y,z)
-
-&lt;/pre&gt;
-
-&lt;p&gt;&lt;/br&gt;
-&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/printer_final.ttt?raw=true"&gt;printer_final.ttt&lt;/a&gt;&lt;/p&gt;
-&lt;/br&gt;
-&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/UhC2eP_vbrA" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
-&lt;/br&gt;&lt;/p&gt;</summary><category term="v-rep&amp;tkinter"></category></entry><entry><title>40323231日誌 - 105/07/30</title><link href="http://project.mde.tw/blog/40323231ri-zhi-1050730.html" rel="alternate"></link><updated>2016-07-30T21:00:00+08:00</updated><author><name>40323231</name></author><id>tag:project.mde.tw,2016-07-30:blog/40323231ri-zhi-1050730.html</id><summary type="html">&lt;p&gt;3DP維修&lt;/p&gt;
-
-
-&lt;h4&gt;今天維修3DP，因為3DP擠出的料變得非常的少，導致成品稀疏和脆弱，而且還發現進料馬達有在旋轉，可是料卻擠不進去。&lt;/h4&gt;
-
-&lt;p&gt;&lt;/br&gt;
-&lt;h4&gt;一開始先加熱之後開始清理喉管，清完後校機重新印製，可是情況還是一樣，再來我改變進料速度(80%.60%)，可是依舊如此。&lt;/h4&gt;
-&lt;/br&gt;
-&lt;h4&gt;再來將噴頭座整組拔出，測量鐵氟龍管插入喉管的深度和全新的做比較，發現深度差很多因此用燈照進去，發現有整塊白色的硬塊堵住，所以又加熱再拿尖銳物將裡面清空，並重新測量鐵氟龍管插入深度，確定可以後校機再重新印製，情況還是一樣，之後加熱更換噴頭，弄完校機後再印製，情況有所改善，可是進料有時候料會擠不進去，所以更改進料速度(最新值:65%)，現在情況已經穩定，印出的公差也調整過，公差在+4條。&lt;/h4&gt;
-&lt;h4&gt;列印兩次後發現噴頭座有部分地方會有液料情況，重新鎖固鎖緊後就OK。(重組後須檢查是否鎖緊。)&lt;/h4&gt;&lt;/p&gt;
-&lt;h4&gt;拆卸下來的噴頭需要用0.3大小的鑽頭去清理，還需要討論要怎麼處理噴頭。&lt;/h4&gt;</summary><category term="3DP"></category></entry><entry><title>40323230日誌 - 105/07/30</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050730.html" rel="alternate"></link><updated>2016-07-30T19:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-30:blog/40323230ri-zhi-1050730.html</id><summary type="html">&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;新增範例Nutcraker&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;已更新&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;h1&gt;Nutcraker範例&lt;/h1&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/OlGMGj4.jpg" &gt;&lt;/p&gt;
-&lt;pre class="brush: python"&gt;
-#行程解題解題：兩個長1.5mm、2.3mm的連桿，在一直線上作動。
-#原點的基座塊比工作路徑高0.5mm，寬0.75mm（占用0.38mm）。
-#底線距離基座面3.25mm。
-#2.3mm的連桿寬0.25mm，半圓頭。
-#求最小行程（2.3mm的連桿與基座接觸）。
-#求最大行程（半圓頭與底線接觸）。
-from slvs import *
-from math import *
-sys = System(500)
-g = 1
-
-#相關參數
-h0 = 0.5 #基塊高度(mm)
-b0 = 0.75 #基塊寬度(mm)
-n1 = 1.5 #後連桿長度(mm)
-n2 = 2.3 #前連桿長度(mm)
-R0 = 0.25 #半圓頭半徑(mm)
-L0 = 3.25 #底線距離(mm)
-
-#開始繪圖
-
-#原點Point0
-p0 = sys.add_param(0.0)
-p1 = sys.add_param(0.0)
-p2 = sys.add_param(0.0)
-Point0 = Point3d(p0, p1, p2)
-
-#XY法線
-qw, qx, qy, qz = Slvs_MakeQuaternion(1, 0, 0, 0, 1, 0)
-p3 = sys.add_param(qw)
-p4 = sys.add_param(qx)
-p5 = sys.add_param(qy)
-p6 = sys.add_param(qz)
-Normal1 = Normal3d(p3, p4, p5, p6)
-
-#工作平面
-Workplane1 = Workplane(Point0, Normal1)
-
-#3D版的Point0=&gt;Point1
-p7 = sys.add_param(0.0)
-p8 = sys.add_param(0.0)
-Point1 = Point2d(Workplane1, p7, p8)
-Constraint.dragged(Workplane1, Point1)
-
-#連桿中繼點Point2和行程點Point3
-p9 = sys.add_param(2.0)
-p10 = sys.add_param(2.0)
-Point2 = Point2d(Workplane1, p9, p10)
-p11 = sys.add_param(2.0)
-p12 = sys.add_param(0.0)
-Point3 = Point2d(Workplane1, p11, p12)
-Line0 = LineSegment2d(Workplane1, Point1, Point3)
-Constraint.horizontal(Workplane1, Line0)
-
-#前連桿碰到基座
-Line1 = LineSegment2d(Workplane1, Point2, Point3)
-p13 = sys.add_param(b0/2)
-p14 = sys.add_param(h0)
-Point4 = Point2d(Workplane1, p13, p14)
-Constraint.dragged(Workplane1, Point4) #必須鎖住已知點
-Constraint.distance(R0, Workplane1, Point4, Line1)
-Constraint.distance(n1, Workplane1, Point1, Point2)
-Constraint.distance(n2, Workplane1, Point2, Point3)
-
-#以下解題
-
-sys.solve()
-
-Ansmin = sys.get_param(11).val - b0/2
-Ansmax = L0 - R0 - b0/2
-
-if (sys.result == SLVS_RESULT_OKAY):
-    print ("點座標：")
-    print(("P1(%.3f %.3f %.3f)")%(sys.get_param(7).val, sys.get_param(8).val, sys.get_param(2).val))
-    print("P1(0.000 0.000 0.000)")
-    print(("P2(%.3f %.3f %.3f)")%(sys.get_param(9).val, sys.get_param(10).val, sys.get_param(2).val))
-    print("P2(-0.400 1.450 0.000)")
-    print(("P3(%.3f %.3f %.3f)")%(sys.get_param(11).val, sys.get_param(12).val, sys.get_param(2).val))
-    print("P4(1.390 0.000 0.000)\n")
-    print("Min:")
-    print(("(%.3f)")%(Ansmin))
-    print("Max:")
-    print(("(%.3f)")%(Ansmax))
-    print ("%d DOF" % sys.dof)
-elif (sys.result == SLVS_RESULT_INCONSISTENT):
-    print ("solve failed")
-    print ("SLVS_RESULT_INCONSISTENT")
-    print ("%d DOF" % sys.dof)
-    for i in range(sys.faileds):
-        print(" %lu", sys.failed[i]);
-elif (sys.result == SLVS_RESULT_DIDNT_CONVERGE):
-    print ("solve failed")
-    print ("SLVS_RESULT_DIDNT_CONVERGE")
-    print ("%d DOF" % sys.dof)
-elif (sys.result == SLVS_RESULT_TOO_MANY_UNKNOWNS):
-    print ("solve failed")
-    print ("SLVS_RESULT_TOO_MANY_UNKNOWNS")
-    print ("%d DOF" % sys.dof)
-&lt;/pre&gt;
-
-&lt;p&gt;解題結果：&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/TQjsd3C.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;Nutcracker只有單純的連桿，非常簡單。&lt;/p&gt;
-&lt;p&gt;而之前的題目有相切約束，Solvespace解這種會有極限的約束都十分不便，常常會出現約束衝突或是正負不分的狀況。&lt;/p&gt;
-&lt;p&gt;目前還不知道如何解決，只能多注意圓弧曲線的地方，可以用距離約束取代的地方就盡量不用額外輔助線。&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h1&gt;倉儲中嵌入副模組&lt;/h1&gt;
-&lt;p&gt;在倉儲中加入了BBBSnowball的模組SolidPython，不過不知道怎麼用。&lt;/p&gt;
-&lt;pre class="brush: c"&gt;
-git submodule add https://github.com/BBBSnowball/SolidPython.git solid-python
-&lt;/pre&gt;
-
-&lt;p&gt;應該只是單純放著支援功能。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/QBhyKgH.jpg" &gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;之前"SLVS資料庫函式"那篇還需要檢查一下，或是做一個英文版副本連結到倉儲Readme。&lt;/p&gt;
-&lt;p&gt;雖然轉到Python介面中不只那些指令，但是只靠這些指令就能解題目了。&lt;/p&gt;
-&lt;p&gt;進階應用如切換群組等，稍微看一下原本的範例code或CDemo的原始碼應該就能瞭解。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>手臂的順向推導</title><link href="http://project.mde.tw/blog/shou-bi-de-shun-xiang-tui-dao.html" rel="alternate"></link><updated>2016-07-30T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-30:blog/shou-bi-de-shun-xiang-tui-dao.html</id><summary type="html">&lt;p&gt;推導機械手臂的座標方程式&lt;/p&gt;
-
-
-&lt;h3&gt;手臂順向方程式&lt;/h3&gt;
-
-&lt;p&gt;順(正)向運動學
-由各軸狀態推導出末端位置。&lt;/p&gt;
-&lt;p&gt;根據我們使用的手臂，是使用二連桿的X Y，利用Solvespace畫出連桿機構，目前只考慮抓取這個動作的，不考慮左右旋轉。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/C3cXcKX.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/NBBVwcq.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/XuuN4mX.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;連桿L1、L2長度為constant&lt;/p&gt;
-&lt;p&gt;L1 = 135 mm &lt;/p&gt;
-&lt;p&gt;L2 = 145 mm&lt;/p&gt;
-&lt;p&gt;θ  =  90 - servo1 所輸入的角度&lt;/p&gt;
-&lt;p&gt;θ3 = servo2 所旋轉的角度&lt;/p&gt;
-&lt;p&gt;X = L1 * cos(θ) + L2 * cos(θ3)&lt;/p&gt;
-&lt;p&gt;Y = L1 * sin(θ) - L2 * sin(θ3)&lt;/p&gt;
-&lt;p&gt;可以由我們計算出角度，輸入後得到對應的XY位置，進行夾取的動作&lt;/p&gt;
-&lt;h3&gt;目前自動化這部分的進度&lt;/h3&gt;
-
-&lt;p&gt;流程入下:&lt;/p&gt;
-&lt;p&gt;1.上傳檔案&lt;/p&gt;
-&lt;p&gt;2.進行列印&lt;/p&gt;
-&lt;p&gt;3.縮時攝影&lt;/p&gt;
-&lt;p&gt;4.列印完成&lt;/p&gt;
-&lt;p&gt;5.printer復歸位置&lt;/p&gt;
-&lt;p&gt;6.另一台控制器影像辨識&lt;/p&gt;
-&lt;p&gt;7.當判斷成功後，計算出位置，輸入相對應的值控制手臂&lt;/p&gt;
-&lt;p&gt;8.夾取後，退出機台平台，將料放置指定的盒子&lt;/p&gt;
-&lt;p&gt;9.發送訊息到客戶端顯示列印完成&lt;/p&gt;</summary><category term="machine Arm"></category></entry><entry><title>yen - 有關機械設計專題網站內容</title><link href="http://project.mde.tw/blog/yen-you-guan-ji-jie-she-ji-zhuan-ti-wang-zhan-nei-rong.html" rel="alternate"></link><updated>2016-07-30T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-30:blog/yen-you-guan-ji-jie-she-ji-zhuan-ti-wang-zhan-nei-rong.html</id><summary type="html">&lt;p&gt;本機械設計專題網誌採用 Leo Editor 管理文章內容與設定, 並且透過 Pelican 靜態網誌系統程式, 將各參與協同人員所分別建立的 .md 檔案, 轉為一系列的 html 檔案, 其中包括全文內容的搜尋, 以及網誌分類的架構.&lt;/p&gt;
-
-
-&lt;p&gt;假如您檢視現在這篇文章的 .md 檔案, 在文章最前頭的內容為:&lt;/p&gt;
-&lt;pre class="brush: jscript"&gt;
-Title: yen - 有關機械設計專題網站內容
-Date: 2016-07-27 11:29
-Category: Tutorial
-Tags: Pelican, 文章日期
-Author: yen
-&lt;/pre&gt;
-
-&lt;p&gt;表示這篇文章的標題, 建立日期, 類別, 標籤與作者名稱, 因為我們先前採用的 Pelican 近端與遠端的 DEFAULT_DATE 設定, 將原先的 None, 改為 'fs', 表示若使用者所提供的 Markdown 文章中, 沒有 Date: 時間註記, 那麼系統就會直接採用 file system 的檔案存檔時間作為文章的 Date.&lt;/p&gt;
-&lt;p&gt;但是就實務應用的觀點, 各用戶一旦 git clone 本倉儲內容, 或者在操作系統中搬動或複製倉儲檔案, 而沒能利用像 cp -p 這種可以保留原始檔案建立時間的指令, 整個倉儲的 .md 檔案就會隨著不同操作流程, 而讓網誌的文章順序變來變去, 從讀者的角度來看, 我們應該要加以解決這個問題.&lt;/p&gt;
-&lt;p&gt;解決的方法很簡單, 我們仍然保留原先近端與遠端 DEFAULT_DATE = 'fs' 的設定, 也就是若使用者的文章沒有 Date: 註記, 就仍舊採用該 .md 檔案的建立時間作為文章登錄的時間 ,但是若使用者的 .md 檔案提供了 Date: 註記, 那麼就以註記的時間作為文章建立時間.&lt;/p&gt;
-&lt;p&gt;好了, 接下來就是要求所有參與協同的作者, 在各自的文章標題後面, 加上 Date:, 而格式則是 Date: 2016-07-27 11:29, 一旦所有的文章都各自標註建立的確切時間, 之後所產生的機械設計專題網誌文章順序, 應該就不會再變來變去了.&lt;/p&gt;
-&lt;p&gt;當然, 我們為了要讓現在這篇文章能夠放在網誌的最上頭幾天, 我們把它註記為三天後的時間.&lt;/p&gt;</summary><category term="Pelican"></category><category term="文章日期"></category></entry><entry><title>40323230日誌 - 105/07/29</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050729.html" rel="alternate"></link><updated>2016-07-29T19:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-29:blog/40323230ri-zhi-1050729.html</id><summary type="html">&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;CDemo資料庫內容補正&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;已更新&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;資料庫解題成功&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;h1&gt;修復內容&lt;/h1&gt;
-&lt;p&gt;使用修復過的資料庫內容解題，新增將近三分之一的對應函式。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/7iQxUpJ.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;這些函式中也包括需要的相切約束。&lt;/p&gt;
-&lt;p&gt;由於這些函式都未有對應名稱，所以都是自己編名的，例如&lt;code&gt;equal_angle( )&lt;/code&gt;。&lt;/p&gt;
-&lt;h1&gt;解題成功&lt;/h1&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/XddGS1n.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;使用的是下列程式碼，在SciTE中解題成功：&lt;/p&gt;
-&lt;pre class="brush: python"&gt;
-#鍊條解題：18齒與30齒的鏈條，上下外切線長為200。
-#小圓圓心為原點，大圓圓心在X軸上，求四個切點的座標
-from slvs import *
-from math import *
-sys = System(500)
-g = 1
-
-#相關參數
-n0 = 20 #鍊條長度(mm)
-n1 = 18 #小輪齒數(t)
-n2 = 30 #大輪齒數(t)
-#邊長為a的的正n邊形外接圓半徑為：
-#R=a/(2*sin(pi/n)) or R=(a/2)*csc(pi/n)
-R1 = n0/(2*sin(pi/n1))
-R2 = n0/(2*sin(pi/n2))
-
-#開始繪圖
-
-#原點Point0
-p0 = sys.add_param(0.0)
-p1 = sys.add_param(0.0)
-p2 = sys.add_param(0.0)
-Point0 = Point3d(p0, p1, p2)
-
-
-#XY法線
-qw, qx, qy, qz = Slvs_MakeQuaternion(1, 0, 0, 0, 1, 0)
-p3 = sys.add_param(qw)
-p4 = sys.add_param(qx)
-p5 = sys.add_param(qy)
-p6 = sys.add_param(qz)
-Normal1 = Normal3d(p3, p4, p5, p6)
-
-#工作平面
-Workplane1 = Workplane(Point0, Normal1)
-
-#3D版的Point0=&gt;Point1
-p7 = sys.add_param(0.0)
-p8 = sys.add_param(0.0)
-Point1 = Point2d(Workplane1, p7, p8)
-Constraint.dragged(Workplane1, Point1)
-
-#Point2
-p9 = sys.add_param(0.0)
-p10 = sys.add_param(200.0)
-Point2 = Point2d(Workplane1, p9, p10)
-
-#上端外切線的兩個點Point3和Point4
-p11 = sys.add_param(0.0)
-p12 = sys.add_param(500.0)
-Point3 = Point2d(Workplane1, p11, p12)
-p13 = sys.add_param(500.0)
-p14 = sys.add_param(500.0)
-Point4 = Point2d(Workplane1, p13, p14)
-
-#下端外切線的兩個點Point5和Point6
-p15 = sys.add_param(0.0)
-p16 = sys.add_param(-500.0)
-Point5 = Point2d(Workplane1, p15, p16)
-p17 = sys.add_param(500.0)
-p18 = sys.add_param(-500.0)
-Point6 = Point2d(Workplane1, p17, p18)
-
-#外切線
-Line1 = LineSegment2d(Workplane1, Point3, Point4)
-Line2 = LineSegment2d(Workplane1, Point5, Point6)
-
-#圓弧
-Arc1 = ArcOfCircle(Workplane1, Normal1, Point1, Point3, Point5)
-Constraint.diameter(R1*2, Workplane1, Arc1)
-Arc2 = ArcOfCircle(Workplane1, Normal1, Point2, Point6, Point4)
-Constraint.diameter(R2*2, Workplane1, Arc2)
-
-#X軸Line0
-Line0 = LineSegment2d(Workplane1, Point1, Point2)
-Constraint.horizontal(Workplane1, Line0)
-
-#約束
-Constraint.tangent(Arc1, Line1, False)
-Constraint.tangent(Arc2, Line1, False)
-Constraint.tangent(Arc2, Line2, True)
-Constraint.distance(200.0, Workplane1, Point3, Point4)
-
-#以下解題
-
-sys.solve()
-
-if (sys.result == SLVS_RESULT_OKAY):
-    print ("兩點座標：")
-    print(("(%.3f %.3f %.3f)")%(sys.get_param(7).val, sys.get_param(8).val, sys.get_param(2).val))
-    print(("(%.3f %.3f %.3f)\n")%(sys.get_param(9).val, sys.get_param(10).val, sys.get_param(2).val))
-    print ("上切點座標：")
-    print(("(%.3f %.3f %.3f)")%(sys.get_param(11).val, sys.get_param(12).val, sys.get_param(2).val))
-    print("(-10.770 56.570 0.000)")
-    print(("(%.3f %.3f %.3f)")%(sys.get_param(13).val, sys.get_param(14).val, sys.get_param(2).val))
-    print("(185.700 93.980 0.000)\n")
-    print ("下切點座標：")
-    print(("(%.3f %.3f %.3f)")%(sys.get_param(15).val, sys.get_param(16).val, sys.get_param(2).val))
-    print("(-10.770 -56.570 0.000)")
-    print(("(%.3f %.3f %.3f)")%(sys.get_param(17).val, sys.get_param(18).val, sys.get_param(2).val))
-    print("(185.700 -93.98 0.000)\n")
-    print ("導入函數測試：")
-    print ("R1：")
-    print(R1)
-    print ("R2：")
-    print(R2)
-    print ("pi：")
-    print(pi)
-    print ("%d DOF" % sys.dof)
-elif (sys.result == SLVS_RESULT_INCONSISTENT):
-    print ("solve failed")
-    print ("SLVS_RESULT_INCONSISTENT")
-    print ("%d DOF" % sys.dof)
-    for i in range(sys.faileds):
-        print(" %lu", sys.failed[i]);
-elif (sys.result == SLVS_RESULT_DIDNT_CONVERGE):
-    print ("solve failed")
-    print ("SLVS_RESULT_DIDNT_CONVERGE")
-    print ("%d DOF" % sys.dof)
-    for i in range(sys.faileds):
-        print(" %lu", sys.failed[i]);
-elif (sys.result == SLVS_RESULT_TOO_MANY_UNKNOWNS):
-    print ("solve failed")
-    print ("SLVS_RESULT_TOO_MANY_UNKNOWNS")
-    print ("%d DOF" % sys.dof)
-&lt;/pre&gt;
-
-&lt;p&gt;弧與直線相切的函式只能鎖住一頭（布林值調整鎖住頭或尾），所以要下兩次。&lt;/p&gt;
-&lt;p&gt;不過由於Solvespace對約束的要求十分嚴謹，所以只要下了衝突約束或是重複約束，前者會顯示&lt;code&gt;SLVS_RESULT_INCONSISTENT&lt;/code&gt;，後者會顯示&lt;code&gt;SLVS_RESULT_DIDNT_CONVERGE&lt;/code&gt;，就得重新檢查寫的程式。&lt;/p&gt;
-&lt;p&gt;以下是圖解法比對（其實已經記錄在上面的程式中供比對），兩者使用的資料庫函式應該是一樣的。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/FWVqdhW.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;結果是零誤差。&lt;/p&gt;
-&lt;p&gt;以下是SciTE的顯示結果，較上方的是Python運算的結果。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/iqkIH4L.jpg" &gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;使用這個函式庫非常簡單，跟在Solvespace上畫圖一樣。&lt;/p&gt;
-&lt;p&gt;先設定起始值後，利用約束調整這些值（而且可以將固定值鎖住），確定之後就能算出答案。&lt;/p&gt;
-&lt;p&gt;第一次使用自己寫的介面，由於以熟悉它們的從屬關係和解題公式，所以用起來十分上手。&lt;/p&gt;
-&lt;p&gt;這個函式庫最大的缺點應該是取值不太方便吧，雖然仍可以使用自己命名或是直接內嵌進函式中，可是取值時是按照註冊順序取的，所以養成輸入值時給編號比較不容易亂掉。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230紀錄 - SLVS資料庫函式</title><link href="http://project.mde.tw/blog/40323230ji-lu-slvszi-liao-ku-han-shi.html" rel="alternate"></link><updated>2016-07-29T12:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-29:blog/40323230ji-lu-slvszi-liao-ku-han-shi.html</id><summary type="html">&lt;p&gt;&lt;code&gt;slvs&lt;/code&gt;資料庫（&lt;code&gt;_slvs.pyd&lt;/code&gt;或&lt;code&gt;_slvs.so&lt;/code&gt;）轉成Python後的內容。&lt;/p&gt;
+&lt;h4&gt;3.前幾次列印請注意列印狀況以及擠料狀況(跳線、擠不進去等等)&lt;/h4&gt;&lt;/p&gt;</summary><category term="3DP"></category></entry><entry><title>40323230紀錄 - SLVS資料庫函式</title><link href="http://project.mde.tw/blog/40323230ji-lu-slvszi-liao-ku-han-shi.html" rel="alternate"></link><updated>2016-07-31T12:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-31:blog/40323230ji-lu-slvszi-liao-ku-han-shi.html</id><summary type="html">&lt;p&gt;&lt;code&gt;slvs&lt;/code&gt;資料庫（&lt;code&gt;_slvs.pyd&lt;/code&gt;或&lt;code&gt;_slvs.so&lt;/code&gt;）轉成Python後的內容。&lt;/p&gt;
 &lt;p&gt;協助Python程式使用指令。&lt;/p&gt;
 &lt;p&gt;＊ &lt;kbd&gt;Tips&lt;/kbd&gt; 的標籤是比較實用的註解。&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;內容待勘誤&lt;/em&gt;&lt;/p&gt;
@@ -1304,7 +827,484 @@ sys.set_dragged(Point p)
 &lt;p&gt;&lt;kbd&gt;3D&lt;/kbd&gt; 使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
 #這個功能尚未建構
-&lt;/pre&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>machine Arm</title><link href="http://project.mde.tw/blog/machine-arm.html" rel="alternate"></link><updated>2016-07-29T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-29:blog/machine-arm.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;/pre&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323250日誌 - V-rep &amp; 3D-Printer</title><link href="http://project.mde.tw/blog/40323250ri-zhi-v-rep-3d-printer.html" rel="alternate"></link><updated>2016-07-30T22:10:00+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-30:blog/40323250ri-zhi-v-rep-3d-printer.html</id><summary type="html">&lt;p&gt;之後的 V-rep模擬Printer都整理於本文章中&lt;/p&gt;
+
+
+&lt;h3&gt;透過Tkinter介面及remote api 控制printer參數&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;h3&gt;程式碼&lt;/h3&gt;&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+
+from tkinter import *
+import serial
+import sys
+import numpy as np
+from matplotlib import pyplot, rcParams
+import vrep
+
+
+
+class printer(Frame):
+    def __init__(self, master=None):
+        Frame.__init__(self, master)
+        self.grid()
+        self.createWidgets()
+
+    def createWidgets(self):
+
+
+
+        Label(pri, text="Axis").grid(column=0, row=0)
+        Label(pri, text="").grid(column=0, row=1)
+        Label(pri, text="X").grid(column=0, row=2)
+        Label(pri, text="").grid(column=0, row=3)
+        Label(pri, text="Y").grid(column=0, row=4)
+        Label(pri, text="").grid(column=0, row=5)
+        Label(pri, text="Z").grid(column=0, row=6)
+
+        Label(pri, text="Position").grid(column=1, row=0)
+
+        a = Entry(pri, width=12, justify=RIGHT)
+        b = Entry(pri, width=12, justify=RIGHT)
+        c = Entry(pri, width=12, justify=RIGHT)
+                #x.delete(0,END)
+                #y.delete(0,END)
+        a.grid(row=2, column=1)
+        b.grid(row=4, column=1)
+        c.grid(row=6, column=1)
+
+
+        def show_entry_fields():
+
+
+
+            x = a.get()
+            y = b.get()
+            z = c.get()
+
+            if x =='' or y==''or z =='':
+                x = 0
+                y = 0
+                z = 0
+                print("Error")
+
+            else:
+                x = float(a.get())
+                y = float(b.get())
+                z = float(c.get())
+
+
+                if float(x) &gt;= 100:   # set x&amp;y&amp;z limit 
+                    x = 100
+                if float(y) &gt;= 100:
+                    y = 100
+                if float(z) &gt;= 400:
+                    z = 400
+                if float(x) &lt;= -100:
+                    x = -100
+                if float(y) &lt;= -100:
+                    y = -100
+                if float(z) &lt;= 0:
+                    z = 0
+                e=x/1222
+                r=y/1222
+                t=z/889
+                if t &lt;= 0.11656:
+                    t = t+0.11656
+
+
+                vrep.simxFinish(-1)
+                clientID = vrep.simxStart('127.0.0.1', 19999, True, True, 5000, 5)
+                if clientID!= -1:
+                    print("Connected to remote server")
+                else:
+                    print('Connection not successful')
+                    sys.exit('Could not connect')
+                errorCode,plate=vrep.simxGetObjectHandle(clientID,'plate',vrep.simx_opmode_oneshot_wait)
+                if errorCode == -1:
+                    print('Can not find left or right motor')
+                    sys.exit()                
+                errorCode=vrep.simxSetObjectPosition(clientID,plate,-1,[e,r,t], vrep.simx_opmode_oneshot)
+                print(x,y,z)
+
+
+                #print("%s,%s,%s" % (x, y, z))
+
+
+        Button(pri, text='Quit', width=5, command=pri.quit).grid(row=8, column=2, sticky=W, pady=4)
+        Button(pri, text='Go', width=5, command=show_entry_fields).grid(row=8, column=0, sticky=W, pady=4)
+
+
+
+if __name__ == '__main__':
+    pri = Tk()
+    pri.title("Printer")
+    pri.geometry('180x220');  #設定視窗大小
+    pri.resizable(0, 0) #鎖定視窗大小
+    app = printer(master=pri)
+
+    app.mainloop()
+
+
+#print(x,y,z)
+
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/printer_final.ttt?raw=true"&gt;printer_final.ttt&lt;/a&gt;&lt;/p&gt;
+&lt;/br&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/UhC2eP_vbrA" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;/br&gt;&lt;/p&gt;</summary><category term="v-rep&amp;tkinter"></category></entry><entry><title>40323231日誌 - 105/07/30</title><link href="http://project.mde.tw/blog/40323231ri-zhi-1050730.html" rel="alternate"></link><updated>2016-07-30T21:00:00+08:00</updated><author><name>40323231</name></author><id>tag:project.mde.tw,2016-07-30:blog/40323231ri-zhi-1050730.html</id><summary type="html">&lt;p&gt;3DP維修&lt;/p&gt;
+
+
+&lt;h4&gt;今天維修3DP，因為3DP擠出的料變得非常的少，導致成品稀疏和脆弱，而且還發現進料馬達有在旋轉，可是料卻擠不進去。&lt;/h4&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;h4&gt;一開始先加熱之後開始清理喉管，清完後校機重新印製，可是情況還是一樣，再來我改變進料速度(80%.60%)，可是依舊如此。&lt;/h4&gt;
+&lt;/br&gt;
+&lt;h4&gt;再來將噴頭座整組拔出，測量鐵氟龍管插入喉管的深度和全新的做比較，發現深度差很多因此用燈照進去，發現有整塊白色的硬塊堵住，所以又加熱再拿尖銳物將裡面清空，並重新測量鐵氟龍管插入深度，確定可以後校機再重新印製，情況還是一樣，之後加熱更換噴頭，弄完校機後再印製，情況有所改善，可是進料有時候料會擠不進去，所以更改進料速度(最新值:65%)，現在情況已經穩定，印出的公差也調整過，公差在+4條。&lt;/h4&gt;
+&lt;h4&gt;列印兩次後發現噴頭座有部分地方會有液料情況，重新鎖固鎖緊後就OK。(重組後須檢查是否鎖緊。)&lt;/h4&gt;&lt;/p&gt;
+&lt;h4&gt;拆卸下來的噴頭需要用0.3大小的鑽頭去清理，還需要討論要怎麼處理噴頭。&lt;/h4&gt;</summary><category term="3DP"></category></entry><entry><title>40323230日誌 - 105/07/30</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050730.html" rel="alternate"></link><updated>2016-07-30T19:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-30:blog/40323230ri-zhi-1050730.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;新增範例Nutcraker&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;已更新&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Nutcraker範例&lt;/h1&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/OlGMGj4.jpg" &gt;&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+#行程解題解題：兩個長1.5mm、2.3mm的連桿，在一直線上作動。
+#原點的基座塊比工作路徑高0.5mm，寬0.75mm（占用0.38mm）。
+#底線距離基座面3.25mm。
+#2.3mm的連桿寬0.25mm，半圓頭。
+#求最小行程（2.3mm的連桿與基座接觸）。
+#求最大行程（半圓頭與底線接觸）。
+from slvs import *
+from math import *
+sys = System(500)
+g = 1
+
+#相關參數
+h0 = 0.5 #基塊高度(mm)
+b0 = 0.75 #基塊寬度(mm)
+n1 = 1.5 #後連桿長度(mm)
+n2 = 2.3 #前連桿長度(mm)
+R0 = 0.25 #半圓頭半徑(mm)
+L0 = 3.25 #底線距離(mm)
+
+#開始繪圖
+
+#原點Point0
+p0 = sys.add_param(0.0)
+p1 = sys.add_param(0.0)
+p2 = sys.add_param(0.0)
+Point0 = Point3d(p0, p1, p2)
+
+#XY法線
+qw, qx, qy, qz = Slvs_MakeQuaternion(1, 0, 0, 0, 1, 0)
+p3 = sys.add_param(qw)
+p4 = sys.add_param(qx)
+p5 = sys.add_param(qy)
+p6 = sys.add_param(qz)
+Normal1 = Normal3d(p3, p4, p5, p6)
+
+#工作平面
+Workplane1 = Workplane(Point0, Normal1)
+
+#3D版的Point0=&gt;Point1
+p7 = sys.add_param(0.0)
+p8 = sys.add_param(0.0)
+Point1 = Point2d(Workplane1, p7, p8)
+Constraint.dragged(Workplane1, Point1)
+
+#連桿中繼點Point2和行程點Point3
+p9 = sys.add_param(2.0)
+p10 = sys.add_param(2.0)
+Point2 = Point2d(Workplane1, p9, p10)
+p11 = sys.add_param(2.0)
+p12 = sys.add_param(0.0)
+Point3 = Point2d(Workplane1, p11, p12)
+Line0 = LineSegment2d(Workplane1, Point1, Point3)
+Constraint.horizontal(Workplane1, Line0)
+
+#前連桿碰到基座
+Line1 = LineSegment2d(Workplane1, Point2, Point3)
+p13 = sys.add_param(b0/2)
+p14 = sys.add_param(h0)
+Point4 = Point2d(Workplane1, p13, p14)
+Constraint.dragged(Workplane1, Point4) #必須鎖住已知點
+Constraint.distance(R0, Workplane1, Point4, Line1)
+Constraint.distance(n1, Workplane1, Point1, Point2)
+Constraint.distance(n2, Workplane1, Point2, Point3)
+
+#以下解題
+
+sys.solve()
+
+Ansmin = sys.get_param(11).val - b0/2
+Ansmax = L0 - R0 - b0/2
+
+if (sys.result == SLVS_RESULT_OKAY):
+    print ("點座標：")
+    print(("P1(%.3f %.3f %.3f)")%(sys.get_param(7).val, sys.get_param(8).val, sys.get_param(2).val))
+    print("P1(0.000 0.000 0.000)")
+    print(("P2(%.3f %.3f %.3f)")%(sys.get_param(9).val, sys.get_param(10).val, sys.get_param(2).val))
+    print("P2(-0.400 1.450 0.000)")
+    print(("P3(%.3f %.3f %.3f)")%(sys.get_param(11).val, sys.get_param(12).val, sys.get_param(2).val))
+    print("P4(1.390 0.000 0.000)\n")
+    print("Min:")
+    print(("(%.3f)")%(Ansmin))
+    print("Max:")
+    print(("(%.3f)")%(Ansmax))
+    print ("%d DOF" % sys.dof)
+elif (sys.result == SLVS_RESULT_INCONSISTENT):
+    print ("solve failed")
+    print ("SLVS_RESULT_INCONSISTENT")
+    print ("%d DOF" % sys.dof)
+    for i in range(sys.faileds):
+        print(" %lu", sys.failed[i]);
+elif (sys.result == SLVS_RESULT_DIDNT_CONVERGE):
+    print ("solve failed")
+    print ("SLVS_RESULT_DIDNT_CONVERGE")
+    print ("%d DOF" % sys.dof)
+elif (sys.result == SLVS_RESULT_TOO_MANY_UNKNOWNS):
+    print ("solve failed")
+    print ("SLVS_RESULT_TOO_MANY_UNKNOWNS")
+    print ("%d DOF" % sys.dof)
+&lt;/pre&gt;
+
+&lt;p&gt;解題結果：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/TQjsd3C.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;Nutcracker只有單純的連桿，非常簡單。&lt;/p&gt;
+&lt;p&gt;而之前的題目有相切約束，Solvespace解這種會有極限的約束都十分不便，常常會出現約束衝突或是正負不分的狀況。&lt;/p&gt;
+&lt;p&gt;目前還不知道如何解決，只能多注意圓弧曲線的地方，可以用距離約束取代的地方就盡量不用額外輔助線。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;倉儲中嵌入副模組&lt;/h1&gt;
+&lt;p&gt;在倉儲中加入了BBBSnowball的模組SolidPython，不過不知道怎麼用。&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+git submodule add https://github.com/BBBSnowball/SolidPython.git solid-python
+&lt;/pre&gt;
+
+&lt;p&gt;應該只是單純放著支援功能。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/QBhyKgH.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;之前"SLVS資料庫函式"那篇還需要檢查一下，或是做一個英文版副本連結到倉儲Readme。&lt;/p&gt;
+&lt;p&gt;雖然轉到Python介面中不只那些指令，但是只靠這些指令就能解題目了。&lt;/p&gt;
+&lt;p&gt;進階應用如切換群組等，稍微看一下原本的範例code或CDemo的原始碼應該就能瞭解。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>手臂的順向推導</title><link href="http://project.mde.tw/blog/shou-bi-de-shun-xiang-tui-dao.html" rel="alternate"></link><updated>2016-07-30T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-30:blog/shou-bi-de-shun-xiang-tui-dao.html</id><summary type="html">&lt;p&gt;推導機械手臂的座標方程式&lt;/p&gt;
+
+
+&lt;h3&gt;手臂順向方程式&lt;/h3&gt;
+
+&lt;p&gt;順(正)向運動學
+由各軸狀態推導出末端位置。&lt;/p&gt;
+&lt;p&gt;根據我們使用的手臂，是使用二連桿的X Y，利用Solvespace畫出連桿機構，目前只考慮抓取這個動作的，不考慮左右旋轉。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/C3cXcKX.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/NBBVwcq.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/XuuN4mX.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;連桿L1、L2長度為constant&lt;/p&gt;
+&lt;p&gt;L1 = 135 mm &lt;/p&gt;
+&lt;p&gt;L2 = 145 mm&lt;/p&gt;
+&lt;p&gt;θ  =  90 - servo1 所輸入的角度&lt;/p&gt;
+&lt;p&gt;θ3 = servo2 所旋轉的角度&lt;/p&gt;
+&lt;p&gt;X = L1 * cos(θ) + L2 * cos(θ3)&lt;/p&gt;
+&lt;p&gt;Y = L1 * sin(θ) - L2 * sin(θ3)&lt;/p&gt;
+&lt;p&gt;可以由我們計算出角度，輸入後得到對應的XY位置，進行夾取的動作&lt;/p&gt;
+&lt;h3&gt;目前自動化這部分的進度&lt;/h3&gt;
+
+&lt;p&gt;流程入下:&lt;/p&gt;
+&lt;p&gt;1.上傳檔案&lt;/p&gt;
+&lt;p&gt;2.進行列印&lt;/p&gt;
+&lt;p&gt;3.縮時攝影&lt;/p&gt;
+&lt;p&gt;4.列印完成&lt;/p&gt;
+&lt;p&gt;5.printer復歸位置&lt;/p&gt;
+&lt;p&gt;6.另一台控制器影像辨識&lt;/p&gt;
+&lt;p&gt;7.當判斷成功後，計算出位置，輸入相對應的值控制手臂&lt;/p&gt;
+&lt;p&gt;8.夾取後，退出機台平台，將料放置指定的盒子&lt;/p&gt;
+&lt;p&gt;9.發送訊息到客戶端顯示列印完成&lt;/p&gt;</summary><category term="machine Arm"></category></entry><entry><title>yen - 有關機械設計專題網站內容</title><link href="http://project.mde.tw/blog/yen-you-guan-ji-jie-she-ji-zhuan-ti-wang-zhan-nei-rong.html" rel="alternate"></link><updated>2016-07-30T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-30:blog/yen-you-guan-ji-jie-she-ji-zhuan-ti-wang-zhan-nei-rong.html</id><summary type="html">&lt;p&gt;本機械設計專題網誌採用 Leo Editor 管理文章內容與設定, 並且透過 Pelican 靜態網誌系統程式, 將各參與協同人員所分別建立的 .md 檔案, 轉為一系列的 html 檔案, 其中包括全文內容的搜尋, 以及網誌分類的架構.&lt;/p&gt;
+
+
+&lt;p&gt;假如您檢視現在這篇文章的 .md 檔案, 在文章最前頭的內容為:&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+Title: yen - 有關機械設計專題網站內容
+Date: 2016-07-27 11:29
+Category: Tutorial
+Tags: Pelican, 文章日期
+Author: yen
+&lt;/pre&gt;
+
+&lt;p&gt;表示這篇文章的標題, 建立日期, 類別, 標籤與作者名稱, 因為我們先前採用的 Pelican 近端與遠端的 DEFAULT_DATE 設定, 將原先的 None, 改為 'fs', 表示若使用者所提供的 Markdown 文章中, 沒有 Date: 時間註記, 那麼系統就會直接採用 file system 的檔案存檔時間作為文章的 Date.&lt;/p&gt;
+&lt;p&gt;但是就實務應用的觀點, 各用戶一旦 git clone 本倉儲內容, 或者在操作系統中搬動或複製倉儲檔案, 而沒能利用像 cp -p 這種可以保留原始檔案建立時間的指令, 整個倉儲的 .md 檔案就會隨著不同操作流程, 而讓網誌的文章順序變來變去, 從讀者的角度來看, 我們應該要加以解決這個問題.&lt;/p&gt;
+&lt;p&gt;解決的方法很簡單, 我們仍然保留原先近端與遠端 DEFAULT_DATE = 'fs' 的設定, 也就是若使用者的文章沒有 Date: 註記, 就仍舊採用該 .md 檔案的建立時間作為文章登錄的時間 ,但是若使用者的 .md 檔案提供了 Date: 註記, 那麼就以註記的時間作為文章建立時間.&lt;/p&gt;
+&lt;p&gt;好了, 接下來就是要求所有參與協同的作者, 在各自的文章標題後面, 加上 Date:, 而格式則是 Date: 2016-07-27 11:29, 一旦所有的文章都各自標註建立的確切時間, 之後所產生的機械設計專題網誌文章順序, 應該就不會再變來變去了.&lt;/p&gt;
+&lt;p&gt;當然, 我們為了要讓現在這篇文章能夠放在網誌的最上頭幾天, 我們把它註記為三天後的時間.&lt;/p&gt;</summary><category term="Pelican"></category><category term="文章日期"></category></entry><entry><title>40323230日誌 - 105/07/29</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050729.html" rel="alternate"></link><updated>2016-07-29T19:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-29:blog/40323230ri-zhi-1050729.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;CDemo資料庫內容補正&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;已更新&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;資料庫解題成功&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;修復內容&lt;/h1&gt;
+&lt;p&gt;使用修復過的資料庫內容解題，新增將近三分之一的對應函式。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/7iQxUpJ.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;這些函式中也包括需要的相切約束。&lt;/p&gt;
+&lt;p&gt;由於這些函式都未有對應名稱，所以都是自己編名的，例如&lt;code&gt;equal_angle( )&lt;/code&gt;。&lt;/p&gt;
+&lt;h1&gt;解題成功&lt;/h1&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/XddGS1n.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;使用的是下列程式碼，在SciTE中解題成功：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+#鍊條解題：18齒與30齒的鏈條，上下外切線長為200。
+#小圓圓心為原點，大圓圓心在X軸上，求四個切點的座標
+from slvs import *
+from math import *
+sys = System(500)
+g = 1
+
+#相關參數
+n0 = 20 #鍊條長度(mm)
+n1 = 18 #小輪齒數(t)
+n2 = 30 #大輪齒數(t)
+#邊長為a的的正n邊形外接圓半徑為：
+#R=a/(2*sin(pi/n)) or R=(a/2)*csc(pi/n)
+R1 = n0/(2*sin(pi/n1))
+R2 = n0/(2*sin(pi/n2))
+
+#開始繪圖
+
+#原點Point0
+p0 = sys.add_param(0.0)
+p1 = sys.add_param(0.0)
+p2 = sys.add_param(0.0)
+Point0 = Point3d(p0, p1, p2)
+
+
+#XY法線
+qw, qx, qy, qz = Slvs_MakeQuaternion(1, 0, 0, 0, 1, 0)
+p3 = sys.add_param(qw)
+p4 = sys.add_param(qx)
+p5 = sys.add_param(qy)
+p6 = sys.add_param(qz)
+Normal1 = Normal3d(p3, p4, p5, p6)
+
+#工作平面
+Workplane1 = Workplane(Point0, Normal1)
+
+#3D版的Point0=&gt;Point1
+p7 = sys.add_param(0.0)
+p8 = sys.add_param(0.0)
+Point1 = Point2d(Workplane1, p7, p8)
+Constraint.dragged(Workplane1, Point1)
+
+#Point2
+p9 = sys.add_param(0.0)
+p10 = sys.add_param(200.0)
+Point2 = Point2d(Workplane1, p9, p10)
+
+#上端外切線的兩個點Point3和Point4
+p11 = sys.add_param(0.0)
+p12 = sys.add_param(500.0)
+Point3 = Point2d(Workplane1, p11, p12)
+p13 = sys.add_param(500.0)
+p14 = sys.add_param(500.0)
+Point4 = Point2d(Workplane1, p13, p14)
+
+#下端外切線的兩個點Point5和Point6
+p15 = sys.add_param(0.0)
+p16 = sys.add_param(-500.0)
+Point5 = Point2d(Workplane1, p15, p16)
+p17 = sys.add_param(500.0)
+p18 = sys.add_param(-500.0)
+Point6 = Point2d(Workplane1, p17, p18)
+
+#外切線
+Line1 = LineSegment2d(Workplane1, Point3, Point4)
+Line2 = LineSegment2d(Workplane1, Point5, Point6)
+
+#圓弧
+Arc1 = ArcOfCircle(Workplane1, Normal1, Point1, Point3, Point5)
+Constraint.diameter(R1*2, Workplane1, Arc1)
+Arc2 = ArcOfCircle(Workplane1, Normal1, Point2, Point6, Point4)
+Constraint.diameter(R2*2, Workplane1, Arc2)
+
+#X軸Line0
+Line0 = LineSegment2d(Workplane1, Point1, Point2)
+Constraint.horizontal(Workplane1, Line0)
+
+#約束
+Constraint.tangent(Arc1, Line1, False)
+Constraint.tangent(Arc2, Line1, False)
+Constraint.tangent(Arc2, Line2, True)
+Constraint.distance(200.0, Workplane1, Point3, Point4)
+
+#以下解題
+
+sys.solve()
+
+if (sys.result == SLVS_RESULT_OKAY):
+    print ("兩點座標：")
+    print(("(%.3f %.3f %.3f)")%(sys.get_param(7).val, sys.get_param(8).val, sys.get_param(2).val))
+    print(("(%.3f %.3f %.3f)\n")%(sys.get_param(9).val, sys.get_param(10).val, sys.get_param(2).val))
+    print ("上切點座標：")
+    print(("(%.3f %.3f %.3f)")%(sys.get_param(11).val, sys.get_param(12).val, sys.get_param(2).val))
+    print("(-10.770 56.570 0.000)")
+    print(("(%.3f %.3f %.3f)")%(sys.get_param(13).val, sys.get_param(14).val, sys.get_param(2).val))
+    print("(185.700 93.980 0.000)\n")
+    print ("下切點座標：")
+    print(("(%.3f %.3f %.3f)")%(sys.get_param(15).val, sys.get_param(16).val, sys.get_param(2).val))
+    print("(-10.770 -56.570 0.000)")
+    print(("(%.3f %.3f %.3f)")%(sys.get_param(17).val, sys.get_param(18).val, sys.get_param(2).val))
+    print("(185.700 -93.98 0.000)\n")
+    print ("導入函數測試：")
+    print ("R1：")
+    print(R1)
+    print ("R2：")
+    print(R2)
+    print ("pi：")
+    print(pi)
+    print ("%d DOF" % sys.dof)
+elif (sys.result == SLVS_RESULT_INCONSISTENT):
+    print ("solve failed")
+    print ("SLVS_RESULT_INCONSISTENT")
+    print ("%d DOF" % sys.dof)
+    for i in range(sys.faileds):
+        print(" %lu", sys.failed[i]);
+elif (sys.result == SLVS_RESULT_DIDNT_CONVERGE):
+    print ("solve failed")
+    print ("SLVS_RESULT_DIDNT_CONVERGE")
+    print ("%d DOF" % sys.dof)
+    for i in range(sys.faileds):
+        print(" %lu", sys.failed[i]);
+elif (sys.result == SLVS_RESULT_TOO_MANY_UNKNOWNS):
+    print ("solve failed")
+    print ("SLVS_RESULT_TOO_MANY_UNKNOWNS")
+    print ("%d DOF" % sys.dof)
+&lt;/pre&gt;
+
+&lt;p&gt;弧與直線相切的函式只能鎖住一頭（布林值調整鎖住頭或尾），所以要下兩次。&lt;/p&gt;
+&lt;p&gt;不過由於Solvespace對約束的要求十分嚴謹，所以只要下了衝突約束或是重複約束，前者會顯示&lt;code&gt;SLVS_RESULT_INCONSISTENT&lt;/code&gt;，後者會顯示&lt;code&gt;SLVS_RESULT_DIDNT_CONVERGE&lt;/code&gt;，就得重新檢查寫的程式。&lt;/p&gt;
+&lt;p&gt;以下是圖解法比對（其實已經記錄在上面的程式中供比對），兩者使用的資料庫函式應該是一樣的。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/FWVqdhW.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;結果是零誤差。&lt;/p&gt;
+&lt;p&gt;以下是SciTE的顯示結果，較上方的是Python運算的結果。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/iqkIH4L.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;使用這個函式庫非常簡單，跟在Solvespace上畫圖一樣。&lt;/p&gt;
+&lt;p&gt;先設定起始值後，利用約束調整這些值（而且可以將固定值鎖住），確定之後就能算出答案。&lt;/p&gt;
+&lt;p&gt;第一次使用自己寫的介面，由於以熟悉它們的從屬關係和解題公式，所以用起來十分上手。&lt;/p&gt;
+&lt;p&gt;這個函式庫最大的缺點應該是取值不太方便吧，雖然仍可以使用自己命名或是直接內嵌進函式中，可是取值時是按照註冊順序取的，所以養成輸入值時給編號比較不容易亂掉。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>machine Arm</title><link href="http://project.mde.tw/blog/machine-arm.html" rel="alternate"></link><updated>2016-07-29T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-29:blog/machine-arm.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;p&gt;今天製作的手臂用到樹莓派加上一塊台灣沒有賣的擴充板，走兩個I2C控制16個PWM訊號，走額外的電源供應器，利用這樣的系統可以使用Raspberry pi 的GPIO控制，控制機械手臂，目前用I2C的方式控制&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/FujdPML.jpg"&gt;&lt;/p&gt;

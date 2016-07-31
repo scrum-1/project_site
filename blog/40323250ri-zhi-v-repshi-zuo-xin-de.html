@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>40323230日誌 - 105/07/13 - 機械設計專題 (虎尾科大MDE)</title>
+    <title>40323250日誌 - v-rep實做心得 - 機械設計專題 (虎尾科大MDE)</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -166,21 +166,21 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 
-<link rel="canonical" href="http://project.mde.tw/blog/40323230ri-zhi-1050713.html">
+<link rel="canonical" href="http://project.mde.tw/blog/40323250ri-zhi-v-repshi-zuo-xin-de.html">
 
-        <meta name="author" content="40323230" />
-        <meta name="keywords" content="Kmol" />
-        <meta name="description" content="Python 3.5.2軟體更新" />
+        <meta name="author" content="40323250" />
+        <meta name="keywords" content="solvespace&v-rep" />
+        <meta name="description" content="V-rep 與 Solvespace的結合應用" />
 
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="40323230日誌 - 105/07/13"/>
-        <meta property="og:url" content="http://project.mde.tw/blog/40323230ri-zhi-1050713.html"/>
-        <meta property="og:description" content="Python 3.5.2軟體更新"/>
-        <meta property="article:published_time" content="2016-07-13" />
+        <meta property="og:title" content="40323250日誌 - v-rep實做心得"/>
+        <meta property="og:url" content="http://project.mde.tw/blog/40323250ri-zhi-v-repshi-zuo-xin-de.html"/>
+        <meta property="og:description" content="V-rep 與 Solvespace的結合應用"/>
+        <meta property="article:published_time" content="2016-07-28" />
             <meta property="article:section" content="2016bg2" />
-            <meta property="article:tag" content="Kmol" />
-            <meta property="article:author" content="40323230" />
+            <meta property="article:tag" content="solvespace&v-rep" />
+            <meta property="article:author" content="40323250" />
 
 
     <!-- Bootstrap -->
@@ -296,10 +296,10 @@ init_mathjax();
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="http://project.mde.tw/blog/40323230ri-zhi-1050713.html"
+                    <a href="http://project.mde.tw/blog/40323250ri-zhi-v-repshi-zuo-xin-de.html"
                        rel="bookmark"
-                       title="Permalink to 40323230日誌 - 105/07/13">
-                        40323230日誌 - 105/07/13
+                       title="Permalink to 40323250日誌 - v-rep實做心得">
+                        40323250日誌 - v-rep實做心得
                     </a>
                 </h1>
             </header>
@@ -309,86 +309,203 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-07-13T19:00:00+08:00"> 週三 13 七月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-07-28T11:37:00+08:00"> 週四 28 七月 2016</time>
     </span>
             <span class="label label-default">By</span>
-            <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
+            <a href="http://project.mde.tw/blog/author/40323250.html"><i class="fa fa-user"></i> 40323250</a>
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://project.mde.tw/blog/tag/kmol.html">Kmol</a>
+	<a href="http://project.mde.tw/blog/tag/solvespacev-rep.html">solvespace&v-rep</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>Python 3.5.2軟體更新</p>
+                <p>V-rep 與 Solvespace的結合應用</p>
 
 
-<h2>軟體更新目標 :</h2>
+<h3>最近開了很多V-rep的範例檔來看 ,但都不太有收穫 ,為了避免浪費時間 ,回去找了之前老師提到的solvespace和vrep的共同運用 ,也因為要完成3D - Printer就要先了解基本觀念和用法 ,所以就抓了檔案來測試 </h3>
 
-<p>之前W:沒安裝Python和Leo，所以暫時把Y:的複製過來用。</p>
-<p>以W:為主，Y:用來撰寫網誌暫不需要更新。</p>
-<p>1.Python 3.5及之前安裝的套件。</p>
-<p>2.Leo 5.3正式版。</p>
+<p></br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/vrep_solvespace.png" >
+<h3>(檔案位於solvespace官網的 tutorial : linkages)
+</h3><p><a href="http://solvespace.com/dl/mechanisms.zip ">壓縮檔載點</a></p>
+</br>
+<h3>由於各零件之軸孔沒有軸連接 ,導致旋轉軸無法放置 ,所以我把軸都畫上去了 ,檔案為g2目錄下的solvespcae_vrep</h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/solvespace_vrep.png">
+</br>
+<h3>Solvespace的長料與除料功能真的不太習慣 ,很容易造成運算錯誤</h3>
+</br>
+<h3>軸都放好了 ,只是從屬關係還是不太清楚要如何放置</h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/solvespace_vrep_allaxis.png">
+</br>
+</br>
+<h3>結果我又弄了一個圖 ,試圖從這邊學習從屬設定</h3>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_test.png">
+</br>
+</br>
+<h3>目前只會讓它亂轉</h3>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_test.gif">
+</br>
+</br>
+<h3>感覺和各個旋轉軸速度也有關係</h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/v_test2.gif">
 <hr>
-
-<h2>Python及套件更新步驟 :</h2>
-
-<p>將W:槽的Python 3.4.4 RC1更新至最新的3.5.2。</p>
-<p>Python 3.5.2下載處：</p>
-<p><a href="https://www.python.org/downloads/" title="python.org">https://www.python.org/downloads/</a></p>
-<p>刪除Python34資料的所有內容後，將安裝完的Python35放進W:內，並將start.bat內的Python34位置全數改成Python35。</p>
-<p><img src="http://i.imgur.com/xgAInox.jpg" ></p>
-<p>在Y:槽中執行以下指令以取得舊有的軟體資訊，存成名為rq.txt的清單。</p>
-<pre class="brush: c">
-pip freeze > rq.txt
-</pre>
-
-<p>清單中列的就是Python 3.4安裝的套件版本。</p>
-<p><img src="http://i.imgur.com/pUMf021.jpg" ></p>
-<p>進入Python 3.5後使用pip指令時出現類似"Fatal error in launcher"的訊息，原因是官方的pip版本較舊。</p>
-<p>如果不更新，只能用"python -m pip"的方式驅動它，所以先命令它為自己升級。</p>
-<pre class="brush: c">
-python -m pip install pip --upgrade
-</pre>
-
-<p>然後再利用Y:槽傳來的清單安裝，不過之前的Leo 5.1沒有在pip的下載網站裡，5.3版也要從Leo的官方下載，所以暫時先把leo剔除。</p>
-<p><img src="http://i.imgur.com/PN2P60t.jpg" ></p>
-<p>接著利用下列指令更新：</p>
-<pre class="brush: c">
-pip install -r rq.txt
-</pre>
-
-<p>就會裝回所有的套件了。</p>
-<p><img src="http://i.imgur.com/RuXhQhT.jpg" ></p>
-<p>使用下列指令可以查看已安裝的套件。</p>
-<p>而只要在安裝時加入--upgrade參數就能更新，不過目前沒有全部更新的指令。</p>
-<pre class="brush: c">
-//已安裝套件
-pip freeze
-//過期套件
-pip list --outdated
-</pre>
-
+<h3>105 - 07/10更新</h3>
+</br>
+<h3>現在能夠讓連桿旋轉了</h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/4_links.png" >
+</br>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/4_links.gif" >
+</br>
+</br>
+<h3>想要測試能否以固定角度來回旋轉 </h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/links_move.gif" >
+</br>
+<h3>但是要達到這樣的動作需要編寫程式 ,且還在研究script的類別以及revolute的type到底要用哪一種 ,這些花了很多時間...</h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/scripts_types.png" >
+</br>
+</br>
+<h3>目前先以控單軸為主 ,但是遇到以下狀況</h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/scripts_control2.png" >
+</br>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/example_code1.png" >
+</br>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/code_error1.png" >
+<h3>如果是用左邊的script就不會有simWait的錯誤 ,但是它只會走90度 ,然後simWait就不會動了</h3>
+</br>
+<h3>參考 :</h3>
+<p><a href="http://www.coppeliarobotics.com/helpFiles/en/jointDescription.htm ">Joint types and operation</a></p>
+<p><a href="http://www.coppeliarobotics.com/helpFiles/en/childScripts.htm#threaded ">Child Scripts</a></p>
+</br>
 <hr>
-
-<h2>Leo更新步驟 :</h2>
-
-<p>至於安裝Leo，到<a href="http://sourceforge.net/projects/leo/files/Leo/" title="sourceforge.net">http://sourceforge.net/projects/leo/files/Leo/</a>下載5.3的安裝檔，並暫時解壓縮到根目錄。</p>
-<p>接著進入\Leo-5.3-final\leo\dist資料夾，執行下面指令：</p>
-<pre class="brush: c">
-python setup.py install
-</pre>
-
-<p>安裝完後，接著就能把解壓縮的檔案刪除了。</p>
-<p>不過在pip的紀錄中還是5.0 Bata2的樣子。</p>
-<p>新版的Leo介面（設定檔複製之前的）。</p>
-<p><img src="http://i.imgur.com/DZGSNFn.jpg" ></p>
+</br>
+<h3>105 - 07/11更新</h3>
+</br>
+<h3>Joint 種類分成以下4種 :</h3>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/joint-types.png" >
+</br>
+<h4>1. 為旋轉軸, 只有一個自由度 (旋轉), 用於一般旋轉軸。</h4>
+<h4>2. 為平移軸, 只有一個自由度 (平移), 物體能沿著軸線做平移。 </h4>
+<h4>3. 為旋轉與平移軸的結合, 只有一個自由度, 能夠使物體沿著軸做旋轉移動, 如同螺絲。</h4>
+<h4>4. 為球窩接頭, 有三個自由度, 用於類似關節的地方。</h4>
+</br>
+<h3>Control the joint :</h3>
+<h4>1.simSetJointPosition : when your joint is not in force/torque mode</h4>
+<h4>2.simSetJointTargetPosition : when your joint is in force/torque mode, its motor enabled and its control loop also enabled</h4>
+<h4>3.simSetJointTargetVelocity : when your joint is in force/torque mode, its motor enabled, and its control loop NOT enabled</h4>
+</br>
+</br>
+<h3>今天回去翻老師的信, 才發現裡面有四連桿的範例, 以下為測試:</h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/4_links_move.png" >
+</br>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/4_links_move.gif" >
+</br>
+<h3>只要設定一個轉軸, 其他設定好就可以跟著一起做動, 但是在程式部分, if 條件還是不太懂, 很容易出現lua錯誤, 還有很多語法要理解。</h3>
+</br>
+<h3>105 - 07/12更新</h3>
+</br>
+<h3>今天拿老師的程式去跑小車子 ,但是joint的角度只要定在360就跟0度一樣 ,要如何才能超過這個範圍還在思考... </h3>
+<p><a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/little_car.ttt?raw=true">little_car.ttt</a></p>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/little_car.png" >
+</br>
+</br>
+<h3>105 - 07/14更新</h3>
+</br>
+<h3>今天參照了irb360範例, 試著組了printer, 前面還算順利, 在中間的 close chain部分 還要加上重疊的Revolute 來限制移動, 最後再搭上dummy 應該就可以控制了</h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/Printer_new.png" >
+</br>
+<p><a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/printer_new.ttt?raw=true">printer_new.ttt</a></p>
+<p><a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/printer_new_2.ttt?raw=true">printer_new_2.ttt</a></p>
+</br>
+</br>
+<h3>105 - 07/15更新</h3>
+</br>
+<h3>今天開始研究Inverse Kinematic 逆向運動學(IK) ,透過矩正及向量運算 ,就可以得到參數 ,且恰巧有學長論文和此相關 ,從中學到了不少 ,但還沒能弄懂 ,最後要結合進V-rep模擬中 ,腳步要加快了</h3>
+</br>
+</br>
+<h3>105 - 07/17更新</h3>
+</br>
+<h3>Solvespace測試連桿運動方式</h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/solvespace_tutorial.gif" >
+</br>
+</br>
+<h3>旋轉軸定義</h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/solvespace_pic.png" >
+</br>
+</br>
+<h3>子屬關係設定 (測試) ,加上dummy固定</h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/relation_test.png" >
+</br>
 <hr>
+</br>
+<h3>經過一番波折 ,終於和同學弄出來了 ,只要無法封閉的部分利用dummy固定就可以了 ,至於實體轉軸部分要搭接在桿子上才可以</h3>
+<p><a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/solvespace_successful.ttt?raw=true">solvespace_successful</a></p>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/solvespace_successful.png" >
+</br>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/solvespace_successful.gif" >
+</br>
+</br>
+<hr>
+</br>
+<h3>105 - 07/18更新</h3>
+</br>
+<h3>嘗試幫第一組 組裝手臂, 除了夾爪部分外 ,其餘都組裝好了 ,過程發現部分零件拆解後會有座標不對的問題 ,只要將做標調整和world相同就比較容易了</h3>
+<h3>(參照範例: 7 DoF manipulator 設定ik值)</h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/arm_test.png" >
+</br>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/arm_test.gif" >
+</br>
+</br>
+<hr>
+</br>
+<h3>105 - 07/24更新</h3>
+</br>
+<h3>今天預計要測試馬達控制 ,但是沒有多的12V power supply ,所以先把Onshape ,printer的細部畫一畫 ,現在大概有300個特徵 ,本來可以輕鬆的拉動滑塊 ,現在要用箭頭才能拉動了 ,估計不會畫電路板部分 ,戲偶衣服穿太多了</h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/printer_top.gif" >
+</br>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/printer_bottom.gif" >
+</br>
+</br>
+<script src="https://embed.github.com/view/3d/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/printer.stl"width="300"height="300"></script>
+</br>
+</br>
+<hr>
+</br></p>
+<h3>105 - 07/28更新</h3>
 
-<p>上次的swig還是沒成功，"_wrap.c"中似乎還要加一些python3的判斷式。</p>
-<p><a href="http://python3porting.com/cextensions.html#module-initialization" title="python3porting.com">http://python3porting.com/cextensions.html#module-initialization</a></p>
-<p>這裡的作者描述還是有點看不懂，雖然下了-py3的指令，但是設定還是沒調。</p>
+<p></br>
+<h3>暫時利用可變電阻取代步進馬達 ,並加入馬達轉軸 ,控制加熱頭移動</h3>
+</br>
+<img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/printer_control.png" >
+</br>
+</br>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/Nsgt8YPSDpU" frameborder="0" allowfullscreen></iframe>
+</br>
+</br></p>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -400,8 +517,8 @@ python setup.py install
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'projectmdetw'; // required: replace example with your forum shortname
 
-                    var disqus_identifier = '40323230ri-zhi-1050713';
-                var disqus_url = 'http://project.mde.tw/blog/40323230ri-zhi-1050713.html';
+                    var disqus_identifier = '40323250ri-zhi-v-repshi-zuo-xin-de';
+                var disqus_url = 'http://project.mde.tw/blog/40323250ri-zhi-v-repshi-zuo-xin-de.html';
 
             var disqus_config = function () {
                 this.language = "en";

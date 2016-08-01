@@ -337,7 +337,10 @@ init_mathjax();
 機械微動開關只需接2個腳位的：單純使用微動開關當作限位器，那一定要接RAMPS上的 "S" 跟 "-" 腳位。絕對不要把3個腳位都接了，如果不小心接了3個腳位，那在觸發時會發生火花，會把5V穩壓 IC燒毀。</h4>
 <h4>  b. 光學限位開關接法(我們的)
 光學限位開關則是需要用到3條線，接到RAMPS上的"S"、"-"及"+" 3個腳位。</h4>
-<h4>  c.程式碼也需要改</h4>
+<h4>  c.程式碼也需要改(由於我們的是光學限位所以都改成false)</h4>
+<h4>const bool X_MIN_ENDSTOP_INVERTING = false;</h4>
+<h4>const bool Y_MIN_ENDSTOP_INVERTING = false;</h4>
+<h4>const bool Z_MIN_ENDSTOP_INVERTING = false;</h4>
 </br>
 </br>
 <h3>測機問題 : </h3>
@@ -359,7 +362,17 @@ init_mathjax();
 <h4>解決方法:因為程式碼中有保護措施，保護措施為噴頭溫度要先加熱到指定的溫度後才能啟動，怕擠料不正常。可修改此程式碼define MIN_EXTRUDER_TEMP 170</h4>
 </br>
 <h4>3.馬達旋轉方向不符</h4>
-<h4>解決方法:調整程式碼(後續說明)</h4>
+<h4>解決方法:調整程式碼</h4>
+<h4>Repetier(0、1為正反轉)</h4>
+<h4>#define INVERT_X_DIR 0</h4>
+<h4>#define INVERT_Y_DIR 0</h4>
+<h4>#define INVERT_Z_DIR 0</h4>
+<h4>#define EXT0_INVERSE 0</h4>
+<h4>Marlin(true、false為正反轉)</h4>
+<h4>#define INVERT_X_DIR true</h4>
+<h4>#define INVERT_Y_DIR true</h4>
+<h4>#define INVERT_Z_DIR true</h4>
+<h4>#define INVERT_E0_DIR true</h4>
 </br>
 <h4>4.G28回歸的時候，Z軸不動其他兩軸馬達回歸，導致噴頭座往外跑出</h4>
 <h4>測試方法 : </h4>
@@ -369,7 +382,7 @@ init_mathjax();
 <h4>解決方法:更換新的杜邦端子，因為測量多次後發現時好時壞，所以猜測是訊號接收不正常，更換後能夠順利回歸</h4>
 </br>
 <h4>5.軟體關掉訊號後滑軌依然鎖住</h4>
-<h4>解決方法:關掉訊號後再連接，之後再斷掉，就可以解鎖了</h4>
+<h4>解決方法:關掉訊號後再連接(connect)，之後再斷掉，就可以解鎖了</h4>
 </br>
 </br>
 <h3>使用韌體Repetier所碰到的問題 : </h3>
@@ -388,22 +401,40 @@ init_mathjax();
 <h3>使用韌體Marlin所碰到的問題 : </h3>
 <h4>1.G28回歸後，只能單軸單軸進行復歸補正，導致速度較慢，而且有時候複歸的途中會停下來，之後單軸複歸導致噴頭座跑出機台外。(備註:機台斷電後，軟體也要切斷訊號，不然機台重新開電後還是會繼續執行)</h4>
 </br>
+<h4>2.執行G28時個軸的速度，寫法與Repetier不太一樣，所以一開始沒注意到，導致速度過快差點撞機。</h4>
+<h4>#define HOMING_FEEDRATE {50<em>60, 50</em>60, 50*60, 0}</h4>
+</br>
 </br>
 <h3>列印時碰到的問題 : <h3>
 <h4>1.翹邊</h4>
 <h4>解決方法:塗口紅膠在平台上，以及再加熱期間把溢出來的料弄掉，因為溢出來的料會把底層弄掀，導致沒有地基、材料高低不平</h4>
 </br>
-<h4>2.馬達很燙</h4>
+<h4>2.列印出來的東西很稀疏，而且一捏就碎</h4>
+<h4>解決方法:</h4>
+<h4>a.先加熱，之後用細的鐵絲或夾子將堵塞住的料全部清除(清理時要注意不要直接觸摸噴頭組，請用工具夾持，夾持時勿將熱敏電阻和加熱棒弄壞)，清完後用鐵氟龍管測試深度(避免之後再裝鐵氟龍管時無法到達最深部，導致又回流堵料)</h4>
+<h4>b.如果上述不行，再清理噴頭，或直接更換，我是清理完喉管後還是不行，直接更換噴頭，之後就改善了</h4>
+</br>
+<h4>3.擠出馬達持續轉動，料則是斷斷續續的進料，有時甚至完全停止</h4>
+<h4>解決方法:</h4>
+<h4>a.進入軟體(cura)的基本 -&gt; 列印材料(Filament) -&gt; 流量(Flow)(%) -&gt;更改此數值(擠料速度會降低)</h4>
+<h4>b.還是未改善請依循:列印時碰到的問題2進行改善</h4>
+</br>
+<h4>4.列印時噴頭和熱床無法同時加熱</h4>
+<h4>還未解決</h4>
+</br>
+<h4>5.噴頭液料(部位有噴頭、喉管的鎖固部分)</h4>
+<h4>解決方法:重新鎖固，或者鎖緊即可</h4>
+</br>
+<h4>6.口紅膠的殘留，以及要拿下產品時要用刮刀拆下，導致平板會有刮傷</h4>
+<h4>還未解決，有看到網路上有人是購買專用的膠帶，不知道實不實用</h4>
+</br>
+<h4>7.馬達很燙</h4>
 <h4>還未解決，有想要在熱床下加裝風扇</h4>
 </br>
-<h4>3.如何放置料桶</h4>
+<h4>8.如何放置料桶</h4>
 <h4>還未解決，想要製作料座，然後用軸承放置兩邊讓他能順利進料</h4>
 </br>
-<h4>4.擠料無法很順暢的進料，有時甚至滑脫</h4>
-<h4>增加軸承的厚度讓她不會跳脫，或者增加擋板(還未測試)</h4>
-</br>
-</br>
-<h4>因為家裡有事情需要回家幫忙，所以先把昨天和今天的部分推上，內容會做修改和增加，本篇還未結束。</h4></p>
+<h4>持續更新</h4></p>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -449,6 +480,11 @@ init_mathjax();
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/40323231ri-zhi-1050801.html">
+                            40323231日誌 - 105/08/01
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html">
                             user - 使用者的範例網誌文章標題
                         </a>
@@ -466,11 +502,6 @@ init_mathjax();
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323218ri-zhi-1050715.html">
                             40323218日誌 - 105/07/15
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323218ri-zhi-1050717.html">
-                            40323218日誌 - 105/07/17
                         </a>
                     </li>
                 </ul>

@@ -620,13 +620,10 @@ Cubic(Point3d pt0, Point3d pt1, Point3d pt2, Point3d pt3)
 Cubic(Workplane wrkpl, Point2d pt0, Point2d pt1, Point2d pt2, Point2d pt3)
 </pre>
 
-<p>四個點構成的貝茲曲線。</p>
+<p>四個點構成的貝茲曲線，無論是用2D還是3D建構，都會視為3D物件。</p>
 <p>四個點的公式如下：</p>
-<pre class="brush: python">
-#公式（t從0積分到1）
-p(t) = P0*(1 - t)^3 + 3*P1*(1 - t)^2*t + 3*P2*(1 - t)*t^2 + P3*t^3
-</pre>
-
+<p><code>公式（t從0積分到1）
+p(t) = P0*(1 - t)^3 + 3*P1*(1 - t)^2*t + 3*P2*(1 - t)*t^2 + P3*t^3</code></p>
 <h2><a name="Circle"></a>Circle</h2>
 <p><kbd>Entity</kbd> / <kbd>Circular</kbd> / <kbd>Circle</kbd></p>
 <p><code>SLVS_E_CIRCLE</code></p>
@@ -707,7 +704,7 @@ Constraint.distance(double value, Workplane wrkpl, Point p, LineSegment2d line)
 <p>從一個<code>Point2d/3d</code>點到一條<code>LineSegment2d/3d</code>直線的距離，假如約束是投影的，會變成硬性約束。</p>
 <p>距離值的正負會規定點在線段之上或之下。</p>
 <p>若約束是套用在3D空間，距離則會變成非硬性約束。</p>
-<h2><a name="C-On">On</h2>
+<h2><a name="C-On"></a>On</h2>
 <h2><code>SLVS_C_POINTS_COINCIDENT</code></h2>
 <p><kbd>3D</kbd> 使用指令：</p>
 <pre class="brush: python">
@@ -894,7 +891,7 @@ Constraint.perpendicular(Workplane wrkpl, LineSegment2d line1, LineSegment2d lin
 
 <p>源自約束<code>SLVS_C_ANGLE</code>。</p>
 <p>這個約束是定義角度約束為90度的情況。</p>
-<h2><a name="C-Parallel">Parallel</h2>
+<h2><a name="C-Parallel"></a>Parallel</h2>
 <h2><code>SLVS_C_PARALLEL</code></h2>
 <p><kbd>3D</kbd> 使用指令：</p>
 <pre class="brush: python">
@@ -908,7 +905,7 @@ Constraint.parallel(Workplane wrkpl, LineSegment2d line1, LineSegment2d line2)
 
 <p>兩條<code>LineSegment2d/3d</code>線段互相平行。</p>
 <p>注意此約束會在投影到一個平面上時移除一個自由度；而在3D空間時變成兩個。</p>
-<h2><a name="C-Tangent">Tangent <kbd>Val</kbd></h2>
+<h2><a name="C-Tangent"></a>Tangent <kbd>Val</kbd></h2>
 <h2><code>SLVS_C_ARC_LINE_TANGENT</code></h2>
 <p><kbd>2D</kbd> 使用指令：</p>
 <pre class="brush: python">
@@ -936,7 +933,7 @@ Constraint.tangent(Cubic c1, ArcOfCircle c2, bool other, bool other2)
 
 <p>兩條<code>Cubic</code>曲線或<code>Circular</code>圓弧的相切組合。</p>
 <p>若布林值是<code>False</code>，則圓弧的切點會位於它的起點<code>s</code>，貝茲曲線的切點會位於它的起點<code>p0</code>；反之若為<code>True</code>，則會位於它的終點<code>e</code>或<code>p3</code>。</p>
-<h2><a name="C-Dragged">Dragged</h2>
+<h2><a name="C-Dragged"></a>Dragged</h2>
 <h2><code>SLVS_C_WHERE_DRAGGED</code></h2>
 <p><kbd>3D</kbd> 使用指令：</p>
 <pre class="brush: python">

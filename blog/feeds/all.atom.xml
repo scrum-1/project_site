@@ -293,13 +293,10 @@ Cubic(Point3d pt0, Point3d pt1, Point3d pt2, Point3d pt3)
 Cubic(Workplane wrkpl, Point2d pt0, Point2d pt1, Point2d pt2, Point2d pt3)
 &lt;/pre&gt;
 
-&lt;p&gt;四個點構成的貝茲曲線。&lt;/p&gt;
+&lt;p&gt;四個點構成的貝茲曲線，無論是用2D還是3D建構，都會視為3D物件。&lt;/p&gt;
 &lt;p&gt;四個點的公式如下：&lt;/p&gt;
-&lt;pre class="brush: python"&gt;
-#公式（t從0積分到1）
-p(t) = P0*(1 - t)^3 + 3*P1*(1 - t)^2*t + 3*P2*(1 - t)*t^2 + P3*t^3
-&lt;/pre&gt;
-
+&lt;p&gt;&lt;code&gt;公式（t從0積分到1）
+p(t) = P0*(1 - t)^3 + 3*P1*(1 - t)^2*t + 3*P2*(1 - t)*t^2 + P3*t^3&lt;/code&gt;&lt;/p&gt;
 &lt;h2&gt;&lt;a name="Circle"&gt;&lt;/a&gt;Circle&lt;/h2&gt;
 &lt;p&gt;&lt;kbd&gt;Entity&lt;/kbd&gt; / &lt;kbd&gt;Circular&lt;/kbd&gt; / &lt;kbd&gt;Circle&lt;/kbd&gt;&lt;/p&gt;
 &lt;p&gt;&lt;code&gt;SLVS_E_CIRCLE&lt;/code&gt;&lt;/p&gt;
@@ -380,7 +377,7 @@ Constraint.distance(double value, Workplane wrkpl, Point p, LineSegment2d line)
 &lt;p&gt;從一個&lt;code&gt;Point2d/3d&lt;/code&gt;點到一條&lt;code&gt;LineSegment2d/3d&lt;/code&gt;直線的距離，假如約束是投影的，會變成硬性約束。&lt;/p&gt;
 &lt;p&gt;距離值的正負會規定點在線段之上或之下。&lt;/p&gt;
 &lt;p&gt;若約束是套用在3D空間，距離則會變成非硬性約束。&lt;/p&gt;
-&lt;h2&gt;&lt;a name="C-On"&gt;On&lt;/h2&gt;
+&lt;h2&gt;&lt;a name="C-On"&gt;&lt;/a&gt;On&lt;/h2&gt;
 &lt;h2&gt;&lt;code&gt;SLVS_C_POINTS_COINCIDENT&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;kbd&gt;3D&lt;/kbd&gt; 使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
@@ -567,7 +564,7 @@ Constraint.perpendicular(Workplane wrkpl, LineSegment2d line1, LineSegment2d lin
 
 &lt;p&gt;源自約束&lt;code&gt;SLVS_C_ANGLE&lt;/code&gt;。&lt;/p&gt;
 &lt;p&gt;這個約束是定義角度約束為90度的情況。&lt;/p&gt;
-&lt;h2&gt;&lt;a name="C-Parallel"&gt;Parallel&lt;/h2&gt;
+&lt;h2&gt;&lt;a name="C-Parallel"&gt;&lt;/a&gt;Parallel&lt;/h2&gt;
 &lt;h2&gt;&lt;code&gt;SLVS_C_PARALLEL&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;kbd&gt;3D&lt;/kbd&gt; 使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
@@ -581,7 +578,7 @@ Constraint.parallel(Workplane wrkpl, LineSegment2d line1, LineSegment2d line2)
 
 &lt;p&gt;兩條&lt;code&gt;LineSegment2d/3d&lt;/code&gt;線段互相平行。&lt;/p&gt;
 &lt;p&gt;注意此約束會在投影到一個平面上時移除一個自由度；而在3D空間時變成兩個。&lt;/p&gt;
-&lt;h2&gt;&lt;a name="C-Tangent"&gt;Tangent &lt;kbd&gt;Val&lt;/kbd&gt;&lt;/h2&gt;
+&lt;h2&gt;&lt;a name="C-Tangent"&gt;&lt;/a&gt;Tangent &lt;kbd&gt;Val&lt;/kbd&gt;&lt;/h2&gt;
 &lt;h2&gt;&lt;code&gt;SLVS_C_ARC_LINE_TANGENT&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;kbd&gt;2D&lt;/kbd&gt; 使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
@@ -609,7 +606,7 @@ Constraint.tangent(Cubic c1, ArcOfCircle c2, bool other, bool other2)
 
 &lt;p&gt;兩條&lt;code&gt;Cubic&lt;/code&gt;曲線或&lt;code&gt;Circular&lt;/code&gt;圓弧的相切組合。&lt;/p&gt;
 &lt;p&gt;若布林值是&lt;code&gt;False&lt;/code&gt;，則圓弧的切點會位於它的起點&lt;code&gt;s&lt;/code&gt;，貝茲曲線的切點會位於它的起點&lt;code&gt;p0&lt;/code&gt;；反之若為&lt;code&gt;True&lt;/code&gt;，則會位於它的終點&lt;code&gt;e&lt;/code&gt;或&lt;code&gt;p3&lt;/code&gt;。&lt;/p&gt;
-&lt;h2&gt;&lt;a name="C-Dragged"&gt;Dragged&lt;/h2&gt;
+&lt;h2&gt;&lt;a name="C-Dragged"&gt;&lt;/a&gt;Dragged&lt;/h2&gt;
 &lt;h2&gt;&lt;code&gt;SLVS_C_WHERE_DRAGGED&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;kbd&gt;3D&lt;/kbd&gt; 使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;

@@ -363,10 +363,10 @@ init_mathjax();
 <h2><a name="CDemo"></a>CDemo</h2>
 <p>SolveSpace 是一款開源的 2D / 3D 電腦輔助設計繪圖軟體，從 2008 年釋出第一個版本，相容於 Windows / Mac / Linux 三個平台。</p>
 <p>有著體積小、執行快速、免費，且不用安裝的特性，支援 STEP 或 STL 開啟，或輸出成 DXF 、 PDF 、 SVG 等開放格式，也有自己的文字式格式 <code>*.slvs</code> 。</p>
-<p>更新方面，可以在 GitHub 官方倉儲中下載最新的原始碼後，直接利用開發者工具（如 GNU）編譯出主程式。</p>
+<p>更新方面，可以在 GitHub 的<a href="https://github.com/solvespace/solvespace" title="github.com">官方倉儲</a>或是<a href="https://github.com/whitequark/solvespace" title="github.com">非官方倉儲</a>中下載最新的原始碼後，直接利用開發者工具（如 GNU）編譯出主程式。</p>
 <p>Solvespace 在繪圖程式本身外還附帶一個名為 CDemo 的小執行檔，是利用 Solvespace 的原始碼編譯出來的。</p>
 <p>可以利用此外部程式呼叫 Solvespace 的資料庫 <code>libslvs.dll</code> 進行 2D 或是 3D 的解題運算，而無須啟動 Solvespace 。</p>
-<p>CDemo 的概念是能夠讓外部程式使用 Solvespace 的功能，無論是利用其解開最大行程、干涉位置，都能讓應用程式免去您需要親自使用繪圖軟體解題的困擾。</p>
+<p>CDemo 的概念是能夠讓外部程式使用 Solvespace 的功能，無論是利用其解開最大行程、干涉位置，都能讓應用程式免去您需要親自使用 CAD 軟體解題的困擾。</p>
 <h2><a name="SLVS"></a>SLVS Library</h2>
 <p>CDemo 為 C 語言編譯而成，使用的 Solvespace 資料庫則是C++編譯的，在運算和使用上固然快速，但活用性較局限。</p>
 <p>Python 語言擁有大量自定義模組、易讀的函式，並且在網際執行方面比C語言多一片天，若將 Solvespace 資料庫轉換使用，將會使這些 Python 程式擁有線上解題的能力，在機械設計方面更是方便許多。</p>
@@ -426,7 +426,7 @@ elif (sys.result == SLVS_RESULT_TOO_MANY_UNKNOWNS):
 <p>解題程式證明約束條件互相牴觸，會傳回<code>SLVS_RESULT_INCONSISTENT</code>。</p>
 </li>
 <li>
-<p>解題程式證明約束條件沒有互相牴觸，但也沒有完全約束，會傳回<code>SLVS_RESULT_DIDNT_CONVERGE</code>。</p>
+<p>解題程式證明約束條件沒有互相牴觸，但定義了一些重複的約束，會傳回<code>SLVS_RESULT_DIDNT_CONVERGE</code>。</p>
 </li>
 </ol>
 <p>最後能調用以下值來檢查結果。</p>
@@ -436,7 +436,7 @@ elif (sys.result == SLVS_RESULT_TOO_MANY_UNKNOWNS):
 sys.get_param(0).val
 </pre>
 
-<p>而過於嚴重的錯誤會回傳<code>SLVS_RESULT_TOO_MANY_UNKNOWNS</code>，必須檢查程式庫是否損壞。</p>
+<p>而過於嚴重的錯誤會回傳<code>SLVS_RESULT_TOO_MANY_UNKNOWNS</code>，必須檢查您的 Python 程式庫或是 SLVS 函式庫是否損壞。</p>
 <h1><a name="ENTITIES"></a>Types of Entities</h1>
 <p><code>SLVS_E</code></p>
 <p>實體的類型，屬於物件的部分，Entity中還有一些子分類。</p>
@@ -711,15 +711,15 @@ Constraint.distance(double value, Workplane wrkpl, Point p, LineSegment2d line)
 <h2><code>SLVS_C_POINTS_COINCIDENT</code></h2>
 <p><kbd>3D</kbd> 使用指令：</p>
 <pre class="brush: python">
-Constraint.coincident(Point3d p1, Point3d p2)
+Constraint.on(Point3d p1, Point3d p2)
 </pre>
 
 <p><kbd>2D</kbd> 使用指令：</p>
 <pre class="brush: python">
-Constraint.coincident(Workplane wrkpl, Point p1, Point p2)
+Constraint.on(Workplane wrkpl, Point p1, Point p2)
 </pre>
 
-<p>兩個點（<code>Point3d</code>或<code>Point2d</code>）的座標相等。（即：在彼此之上）</p>
+<p>兩個點（<code>Point3d</code>或<code>Point2d</code>）的座標相等。</p>
 <h2><code>SLVS_C_PT_IN_PLANE</code></h2>
 <p><kbd>3D</kbd> 使用指令：</p>
 <pre class="brush: python">
@@ -804,7 +804,7 @@ Constraint.orientation(Normal3d nrml1, Normal3d nrml2)
 Constraint.ratio(double value, Workplane wrkpl, LineSegment2d line1, LineSegment2d line2)
 </pre>
 
-<p>第一條<code>LineSegment2d</code>線段長度除以第二條<code>LineSegment2d</code>線段長度的比值。</p>
+<p>第一條<code>LineSegment2d</code>線段長度對上第二條<code>LineSegment2d</code>線段長度的比值。</p>
 <h2><a name="C-Symmetric"></a>Symmetric</h2>
 <h2><code>SLVS_C_SYMMETRIC</code></h2>
 <p><kbd>3D</kbd> 使用指令：</p>

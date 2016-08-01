@@ -29,10 +29,10 @@
 &lt;h2&gt;&lt;a name="CDemo"&gt;&lt;/a&gt;CDemo&lt;/h2&gt;
 &lt;p&gt;SolveSpace 是一款開源的 2D / 3D 電腦輔助設計繪圖軟體，從 2008 年釋出第一個版本，相容於 Windows / Mac / Linux 三個平台。&lt;/p&gt;
 &lt;p&gt;有著體積小、執行快速、免費，且不用安裝的特性，支援 STEP 或 STL 開啟，或輸出成 DXF 、 PDF 、 SVG 等開放格式，也有自己的文字式格式 &lt;code&gt;*.slvs&lt;/code&gt; 。&lt;/p&gt;
-&lt;p&gt;更新方面，可以在 GitHub 官方倉儲中下載最新的原始碼後，直接利用開發者工具（如 GNU）編譯出主程式。&lt;/p&gt;
+&lt;p&gt;更新方面，可以在 GitHub 的&lt;a href="https://github.com/solvespace/solvespace" title="github.com"&gt;官方倉儲&lt;/a&gt;或是&lt;a href="https://github.com/whitequark/solvespace" title="github.com"&gt;非官方倉儲&lt;/a&gt;中下載最新的原始碼後，直接利用開發者工具（如 GNU）編譯出主程式。&lt;/p&gt;
 &lt;p&gt;Solvespace 在繪圖程式本身外還附帶一個名為 CDemo 的小執行檔，是利用 Solvespace 的原始碼編譯出來的。&lt;/p&gt;
 &lt;p&gt;可以利用此外部程式呼叫 Solvespace 的資料庫 &lt;code&gt;libslvs.dll&lt;/code&gt; 進行 2D 或是 3D 的解題運算，而無須啟動 Solvespace 。&lt;/p&gt;
-&lt;p&gt;CDemo 的概念是能夠讓外部程式使用 Solvespace 的功能，無論是利用其解開最大行程、干涉位置，都能讓應用程式免去您需要親自使用繪圖軟體解題的困擾。&lt;/p&gt;
+&lt;p&gt;CDemo 的概念是能夠讓外部程式使用 Solvespace 的功能，無論是利用其解開最大行程、干涉位置，都能讓應用程式免去您需要親自使用 CAD 軟體解題的困擾。&lt;/p&gt;
 &lt;h2&gt;&lt;a name="SLVS"&gt;&lt;/a&gt;SLVS Library&lt;/h2&gt;
 &lt;p&gt;CDemo 為 C 語言編譯而成，使用的 Solvespace 資料庫則是C++編譯的，在運算和使用上固然快速，但活用性較局限。&lt;/p&gt;
 &lt;p&gt;Python 語言擁有大量自定義模組、易讀的函式，並且在網際執行方面比C語言多一片天，若將 Solvespace 資料庫轉換使用，將會使這些 Python 程式擁有線上解題的能力，在機械設計方面更是方便許多。&lt;/p&gt;
@@ -92,7 +92,7 @@ elif (sys.result == SLVS_RESULT_TOO_MANY_UNKNOWNS):
 &lt;p&gt;解題程式證明約束條件互相牴觸，會傳回&lt;code&gt;SLVS_RESULT_INCONSISTENT&lt;/code&gt;。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;解題程式證明約束條件沒有互相牴觸，但也沒有完全約束，會傳回&lt;code&gt;SLVS_RESULT_DIDNT_CONVERGE&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;解題程式證明約束條件沒有互相牴觸，但定義了一些重複的約束，會傳回&lt;code&gt;SLVS_RESULT_DIDNT_CONVERGE&lt;/code&gt;。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;最後能調用以下值來檢查結果。&lt;/p&gt;
@@ -102,7 +102,7 @@ elif (sys.result == SLVS_RESULT_TOO_MANY_UNKNOWNS):
 sys.get_param(0).val
 &lt;/pre&gt;
 
-&lt;p&gt;而過於嚴重的錯誤會回傳&lt;code&gt;SLVS_RESULT_TOO_MANY_UNKNOWNS&lt;/code&gt;，必須檢查程式庫是否損壞。&lt;/p&gt;
+&lt;p&gt;而過於嚴重的錯誤會回傳&lt;code&gt;SLVS_RESULT_TOO_MANY_UNKNOWNS&lt;/code&gt;，必須檢查您的 Python 程式庫或是 SLVS 函式庫是否損壞。&lt;/p&gt;
 &lt;h1&gt;&lt;a name="ENTITIES"&gt;&lt;/a&gt;Types of Entities&lt;/h1&gt;
 &lt;p&gt;&lt;code&gt;SLVS_E&lt;/code&gt;&lt;/p&gt;
 &lt;p&gt;實體的類型，屬於物件的部分，Entity中還有一些子分類。&lt;/p&gt;
@@ -377,15 +377,15 @@ Constraint.distance(double value, Workplane wrkpl, Point p, LineSegment2d line)
 &lt;h2&gt;&lt;code&gt;SLVS_C_POINTS_COINCIDENT&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;kbd&gt;3D&lt;/kbd&gt; 使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
-Constraint.coincident(Point3d p1, Point3d p2)
+Constraint.on(Point3d p1, Point3d p2)
 &lt;/pre&gt;
 
 &lt;p&gt;&lt;kbd&gt;2D&lt;/kbd&gt; 使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
-Constraint.coincident(Workplane wrkpl, Point p1, Point p2)
+Constraint.on(Workplane wrkpl, Point p1, Point p2)
 &lt;/pre&gt;
 
-&lt;p&gt;兩個點（&lt;code&gt;Point3d&lt;/code&gt;或&lt;code&gt;Point2d&lt;/code&gt;）的座標相等。（即：在彼此之上）&lt;/p&gt;
+&lt;p&gt;兩個點（&lt;code&gt;Point3d&lt;/code&gt;或&lt;code&gt;Point2d&lt;/code&gt;）的座標相等。&lt;/p&gt;
 &lt;h2&gt;&lt;code&gt;SLVS_C_PT_IN_PLANE&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;kbd&gt;3D&lt;/kbd&gt; 使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
@@ -470,7 +470,7 @@ Constraint.orientation(Normal3d nrml1, Normal3d nrml2)
 Constraint.ratio(double value, Workplane wrkpl, LineSegment2d line1, LineSegment2d line2)
 &lt;/pre&gt;
 
-&lt;p&gt;第一條&lt;code&gt;LineSegment2d&lt;/code&gt;線段長度除以第二條&lt;code&gt;LineSegment2d&lt;/code&gt;線段長度的比值。&lt;/p&gt;
+&lt;p&gt;第一條&lt;code&gt;LineSegment2d&lt;/code&gt;線段長度對上第二條&lt;code&gt;LineSegment2d&lt;/code&gt;線段長度的比值。&lt;/p&gt;
 &lt;h2&gt;&lt;a name="C-Symmetric"&gt;&lt;/a&gt;Symmetric&lt;/h2&gt;
 &lt;h2&gt;&lt;code&gt;SLVS_C_SYMMETRIC&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;kbd&gt;3D&lt;/kbd&gt; 使用指令：&lt;/p&gt;

@@ -825,14 +825,14 @@ Constraint.symmetric(Workplane wrkpl, Point2d p1, Point2d p2)
 Constraint.symmetric_H(Workplane wrkpl, Point2d p1, Point2d p2)
 </pre>
 
+<p>兩個<code>Point2d</code>點會鎖定在相同的水平座標。</p>
 <h2><code>SLVS_C_SYMMETRIC_VERT</code></h2>
 <p><kbd>2D</kbd> 使用指令：</p>
 <pre class="brush: python">
 Constraint.symmetric_V(Workplane wrkpl, Point2d p1, Point2d p2)
 </pre>
 
-<p>兩個輸入的<code>Point2d</code>點會互相對稱水平軸或垂直軸。</p>
-<p>亦或規定一條線段的水平或垂直。</p>
+<p>兩個<code>Point2d</code>點會鎖定在相同的垂直座標。</p>
 <h2><code>SLVS_C_SYMMETRIC_LINE</code></h2>
 <pre class="brush: python">
 Constraint.symmetric(Workplane wrkpl, Point2d p1, Point2d p2, LineSegment2d line)
@@ -924,15 +924,18 @@ Constraint.tangent(Cubic c, LineSegment3d l, bool other)
 </pre>
 
 <p>一條<code>Cubic</code>貝茲曲線和一條<code>LineSegment3d</code>線段相切。</p>
-<p>若布林值是<code>False</code>，則貝茲曲線的切點會位於它的起點<code>w</code>；反之若為<code>True</code>，則會位於它的終點<code>k</code>。</p>
+<p>若布林值是<code>False</code>，則貝茲曲線的切點會位於它的起點<code>p0</code>；反之若為<code>True</code>，則會位於它的終點<code>p3</code>。</p>
 <h2><code>SLVS_C_CURVE_CURVE_TANGENT</code></h2>
 <p><kbd>3D</kbd> 使用指令：</p>
 <pre class="brush: python">
+Constraint.tangent(ArcOfCircle c1, ArcOfCircle c2, bool other, bool other2)
 Constraint.tangent(Cubic c1, Cubic c2, bool other, bool other2)
+Constraint.tangent(ArcOfCircle c1, Cubic c2, bool other, bool other2)
+Constraint.tangent(Cubic c1, ArcOfCircle c2, bool other, bool other2)
 </pre>
 
-<p>兩條<code>Cubic</code>曲線相切。</p>
-<p>若布林值是<code>False</code>，則圓弧的切點會位於它的起點<code>s</code>，貝茲曲線的切點會位於它的起點<code>w</code>；反之若為<code>True</code>，則會位於它的終點<code>e</code>或<code>k</code>。</p>
+<p>兩條<code>Cubic</code>曲線或<code>Circular</code>圓弧的相切組合。</p>
+<p>若布林值是<code>False</code>，則圓弧的切點會位於它的起點<code>s</code>，貝茲曲線的切點會位於它的起點<code>p0</code>；反之若為<code>True</code>，則會位於它的終點<code>e</code>或<code>p3</code>。</p>
 <h2><a name="C-Dragged">Dragged</h2>
 <h2><code>SLVS_C_WHERE_DRAGGED</code></h2>
 <p><kbd>3D</kbd> 使用指令：</p>
@@ -1035,8 +1038,8 @@ sys.set_dragged(Point p)
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html">
-                            user - 使用者的範例網誌文章標題
+                        <a href="http://project.mde.tw/blog/40323231-3dpzhu-yi-shi-xiang.html">
+                            40323231 -3DP注意事項
                         </a>
                     </li>
                 </ul>

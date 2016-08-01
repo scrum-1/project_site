@@ -1,5 +1,377 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-30T12:00:00+08:00</updated><entry><title>手臂的順向推導</title><link href="http://project.mde.tw/blog/shou-bi-de-shun-xiang-tui-dao.html" rel="alternate"></link><updated>2016-07-30T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-30:blog/shou-bi-de-shun-xiang-tui-dao.html</id><summary type="html">&lt;p&gt;推導機械手臂的座標方程式&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-31T22:51:00+08:00</updated><entry><title>40323131日誌 105/07/31</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050731.html" rel="alternate"></link><updated>2016-07-31T22:51:00+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-31:blog/40323131ri-zhi-1050731.html</id><summary type="html">&lt;p&gt;手臂的推導角度公式
+&lt;/p&gt;
+&lt;h3&gt;角度推導公式&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;img src="http://i.imgur.com/hBZPkTS.jpg"&gt;
+&lt;/br&gt;
+&lt;h3&gt;先用圖解法解，再來用python-solvespace 來驗證點坐標是否相符&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h4&gt;底下是程式碼，可以跑出所有結果&lt;/h4&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+from slvs import *
+from math import *
+
+def arm(degree1, degree2):
+    sys = System(500)
+    g = 1
+
+    #原點Point0
+    p0 = sys.add_param(0.0)
+    p1 = sys.add_param(0.0)
+    p2 = sys.add_param(0.0)
+    Point0 = Point3d(p0, p1, p2)
+
+    #XY法線
+    qw, qx, qy, qz = Slvs_MakeQuaternion(1, 0, 0, 0, 1, 0)
+    p3 = sys.add_param(qw)
+    p4 = sys.add_param(qx)
+    p5 = sys.add_param(qy)
+    p6 = sys.add_param(qz)
+    Normal1 = Normal3d(p3, p4, p5, p6)
+
+    #工作平面
+    Workplane1 = Workplane(Point0, Normal1)
+
+    #3D版的Point0=&gt;Point1
+    p7 = sys.add_param(0.0)
+    p8 = sys.add_param(0.0)
+    Point1 = Point2d(Workplane1, p7, p8)
+    Constraint.dragged(Workplane1, Point1)
+
+    #Point2
+    p9 = sys.add_param(10.0)
+    p10 = sys.add_param(10.0)
+    Point2 = Point2d(Workplane1, p9, p10)
+    p11 = sys.add_param(-20.0)
+    p12 = sys.add_param(20.0)
+    Point3 = Point2d(Workplane1, p11, p12)
+    p13 = sys.add_param(-30.0)
+    p14 = sys.add_param(15.0)
+    Point4 = Point2d(Workplane1, p13, p14)
+    p15 = sys.add_param(-40.0)
+    p16 = sys.add_param(10.0)
+    Point5 = Point2d(Workplane1, p15, p16)
+    #基線點
+    p17 = sys.add_param(10.0)
+    p18 = sys.add_param(0.0)
+    Point6 = Point2d(Workplane1, p17, p18)
+    Constraint.dragged(Workplane1, Point6)
+    Line0 = LineSegment2d(Workplane1, Point1, Point6)
+    Constraint.distance(55, Workplane1, Point1, Point2)
+    Constraint.distance(135, Workplane1, Point2, Point3)
+    Constraint.distance(55, Workplane1, Point3, Point4)
+    Constraint.distance(145, Workplane1, Point4, Point5)
+    Constraint.distance(135, Workplane1, Point4, Point1)
+    Line1 = LineSegment2d(Workplane1, Point1, Point2)
+    Line2 = LineSegment2d(Workplane1, Point3, Point4)
+    Line3 = LineSegment2d(Workplane1, Point1, Point4)
+    Constraint.on(Workplane1, Point5, Line2)
+    Constraint.angle(Workplane1, degree1, Line0,  Line3, False)
+    Constraint.angle(Workplane1, degree2, Line0,  Line1, False)
+
+
+    sys.solve()
+    if (sys.result == SLVS_RESULT_OKAY):
+        print ("點座標：")
+        print(("P5(%.3f %.3f %.3f)")%(sys.get_param(15).val, sys.get_param(16).val, sys.get_param(2).val))
+        print(("P4(%.3f %.3f %.3f)")%(sys.get_param(13).val, sys.get_param(14).val, sys.get_param(2).val))
+        #print(("P3(%.3f %.3f %.3f)")%(sys.get_param(11).val, sys.get_param(12).val, sys.get_param(2).val))
+        #print(("P2(%.3f %.3f %.3f)")%(sys.get_param(9).val, sys.get_param(10).val, sys.get_param(2).val))
+        print ("%d DOF" % sys.dof)
+    elif (sys.result == SLVS_RESULT_INCONSISTENT):
+        print ("solve failed")
+        print ("SLVS_RESULT_INCONSISTENT")
+        print ("%d DOF" % sys.dof)
+        for i in range(sys.faileds):
+            print(" %lu", sys.failed[i]);
+    elif (sys.result == SLVS_RESULT_DIDNT_CONVERGE):
+        print ("solve failed")
+        print ("SLVS_RESULT_DIDNT_CONVERGE")
+        print ("%d DOF" % sys.dof)
+    elif (sys.result == SLVS_RESULT_TOO_MANY_UNKNOWNS):
+        print ("solve failed")
+        print ("SLVS_RESULT_TOO_MANY_UNKNOWNS")
+        print ("%d DOF" % sys.dof)
+
+#主程式
+#限制範圍內的角度的所有組合
+for i in range(90, 151):
+    for j in range(0, 61):
+        print (i,j)
+        arm(i, j)
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;/br&gt;
+&lt;h4&gt;下圖的連桿是可以跑的最大角度範圍&lt;/h4&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/mv0wkc6.png"&gt;
+&lt;/br&gt;
+&lt;h4&gt;底下是隨機抓取在限制範圍內的角度&lt;/h4&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/gthsCoM.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/HOGOxEq.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/eGc8LQL.png"&gt;
+&lt;/br&gt;
+&lt;h3&gt;可以從限制範圍的角度裡，去求出點坐標，然後再跑迴圈將所有的點結果列出，然後用matplotlip將路徑畫出來，所以可以求得路徑方程式，然後我是用已知點的坐標，然後去算出 θ2的角度，然後就可以用三角形的關係去求出θ1、θ3。&lt;/h3&gt;&lt;/p&gt;</summary><category term="g1project"></category></entry><entry><title>python3 Vrep control</title><link href="http://project.mde.tw/blog/python3-vrep-control.html" rel="alternate"></link><updated>2016-07-31T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-31:blog/python3-vrep-control.html</id><summary type="html">&lt;p&gt;製作控制介面，控制虛擬端的Vrep&lt;/p&gt;
+
+
+&lt;h3&gt;使用Tkinter&lt;/h3&gt;
+
+&lt;p&gt;由4023250做出的控制方法，將他改寫成class呼叫的方法，以便未來的開發方便，接下來會針對，手臂的控制下去寫，opencv部分可能要等第三組，稍微有點進度再開始，目前主要就是使用python3去控制我們的機械手臂，將外部和內部同動，利用自己寫的控制介面，讓未來學弟妹也可以使用。&lt;/p&gt;
+&lt;p&gt;會將控制手臂的程式和方法放在這個倉儲
+&lt;a href="https://github.com/smpss91341/Vrep_python3_control" title="Vrep_python3"&gt;https://github.com/smpss91341/Vrep_python3_control&lt;/a&gt;&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+import matplotlib
+matplotlib.use("TkAgg")
+
+from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg,NavigationToolbar2TkAgg
+from matplotlib.figure import Figure
+
+import matplotlib.animation as animation
+from matplotlib import style
+
+import numpy as np
+
+import tkinter as tk
+from tkinter import ttk
+
+from matplotlib import pyplot, rcParams
+import serial
+import sys
+import vrep
+
+
+LARGE_FONT = ("Verdana",12)
+style.use("ggplot")
+
+f = Figure(figsize = (5,5),dpi = 100)
+a = f.add_subplot(111)
+
+
+
+#def animate(i):
+
+   # pullData = open("sampleData.txt","r").read()
+   # dataList = pullData.split('\n')
+   # xList = []
+   # yList = []
+   # for eachLine in dataList:
+    #    if len(eachLine)&gt;1:
+     #       x, y = eachLine.split(',')
+      #      xList.append(int(x))
+       #     yList.append(int(y))
+
+   # a.clear()
+   # a.plot(xList,yList)
+
+class Seaofbt(tk.Tk):
+
+    def __init__(self, *args, **kwargs):  #程式執行時先預載入的參數或者動作
+        tk.Tk.__init__(self, *args, **kwargs)
+
+  #      tk.Tk.iconbitmap(self,default = "client.ico")  改變左上角的圖示
+        tk.Tk.wm_title(self,"My works")
+
+        container = tk.Frame(self)        
+        container.pack(side="top",fill="both",expand = True)
+        container.grid_rowconfigure(0,weigh=1)
+        container.grid_columnconfigure(0,weigh=1)
+
+        self.frames = {}
+
+        for F in (StartPage, PageOne,PageTwo,PageThree):
+
+            frame = F(container,self)
+
+            self.frames[F] = frame
+
+            frame.grid(row=0, column = 0, sticky="nsew")
+
+        self.show_frame(StartPage)
+
+
+    def show_frame(self,cont):
+        frame = self.frames[cont]
+        frame.tkraise()
+
+def qf(param):
+    print(param)
+
+
+class StartPage(tk.Frame):
+
+    def __init__(self,parent,controller):
+
+        tk.Frame.__init__(self,parent)
+        label = tk.Label(self,text="PageOne",font = LARGE_FONT)
+        label.pack(pady = 10,padx = 10)
+
+        button1 = ttk.Button(self,text = "Visit Page 1",
+                                    command = lambda: controller.show_frame(PageOne))
+        button1.pack()
+
+        button2 = ttk.Button(self,text = "Visit Page 2",
+                                    command = lambda: controller.show_frame(PageTwo))
+        button2.pack()
+
+        button3 = ttk.Button(self,text = "Graph Page",
+                                    command = lambda: controller.show_frame(PageThree))
+        button3.pack()
+
+
+class PageOne(tk.Frame):
+
+    def __init__(self,parent,controller):
+        tk.Frame.__init__(self,parent)
+        label = tk.Label(self,text="Start Page",font = LARGE_FONT)
+        label.pack(pady = 10,padx = 10)
+
+
+        button1 = ttk.Button(self,text = "Back to Home",
+                                    command = lambda: controller.show_frame(StartPage))
+        button1.pack()
+
+        button2 = ttk.Button(self,text = "Visit Page2",
+                                    command = lambda: controller.show_frame(PageTwo))
+        button2.pack()
+
+class PageTwo(tk.Frame):
+
+    def __init__(self, parent,controller):
+        tk.Frame.__init__(self, parent)
+
+        self.createWidgets()
+        self.getNumber1 = 0
+        self.getNumber2 = 0
+        self.getNumber3 = 0
+
+        label1 = tk.Label(self,text="").grid(column=0, row=1)
+        label2 = tk.Label(self,text="X").grid(column=0, row=2)
+        label3 = tk.Label(self,text="").grid(column=0, row=3)
+        label4 = tk.Label(self,text="Y").grid(column=0, row=4)
+        label5 = tk.Label(self,text="").grid(column=0, row=5)
+        label6 = tk.Label(self,text="Z").grid(column=0, row=6)
+
+
+        button1 = ttk.Button(self,text = "Back",
+                                    command = lambda: controller.show_frame(StartPage))
+        button1.grid(row = 20,column = 3)
+
+        button2 = ttk.Button(self, text='Quit', width=5, command=self.quit)
+        button2.grid(row = 20,column = 2)
+
+        button3 = ttk.Button(self, text='Go', width=5, command =lambda:self.show_entry_fields())
+        button3.grid(row = 20,column = 1)
+
+
+    def createWidgets(self):
+        self.entry1 = tk.Entry(self)
+        self.entry1["width"] = 12
+        self.entry1.grid(row=2, column=1)
+        self.entry2 = tk.Entry(self)
+        self.entry2["width"] = 12
+        self.entry2.grid(row=4, column=1)
+        self.entry3 = tk.Entry(self)
+        self.entry3["width"] = 12
+        self.entry3.grid(row=6, column=1)
+
+
+    def show_entry_fields(self):
+
+        self.getNumber1 = self.entry1.get()
+        self.getNumber2 = self.entry2.get()
+        self.getNumber3 = self.entry3.get()
+
+        x = self.getNumber1
+        y = self.getNumber2
+        z = self.getNumber3
+
+        if x =='' or y==''or z =='':
+            x = 0
+            y = 0
+            z = 0
+            print("Error")
+
+        else:
+            x = float(self.getNumber1)
+            y = float(self.getNumber2)
+            z = float(self.getNumber3)
+
+            if float(x) &gt;= 100:   # set x&amp;y&amp;z limit 
+                x = 100
+            if float(y) &gt;= 100:
+                y = 100
+            if float(z) &gt;= 400:
+                z = 400
+            if float(x) &lt;= -100:
+                x = -100
+            if float(y) &lt;= -100:
+                y = -100
+            if float(z) &lt;= 0:
+                z = 0
+            e=x/1222
+            r=y/1222
+            t=z/889
+            if t &lt;= 0.11656:
+                t = t+0.11656
+
+            vrep.simxFinish(-1)
+            clientID = vrep.simxStart('127.0.0.1', 19999, True, True, 5000, 5)
+            if clientID!= -1:
+                print("Connected to remote server")
+            else:
+                print('Connection not successful')
+                sys.exit('Could not connect')
+            errorCode,plate=vrep.simxGetObjectHandle(clientID,'plate',vrep.simx_opmode_oneshot_wait)
+            if errorCode == -1:
+                print('Can not find left or right motor')
+                sys.exit()                
+            errorCode=vrep.simxSetObjectPosition(clientID,plate,-1,[e,r,t], vrep.simx_opmode_oneshot)
+            print(x,y,z)
+
+
+class PageThree(tk.Frame):
+
+    def __init__(self,parent,controller):
+        tk.Frame.__init__(self,parent)
+        label = tk.Label(self,text="Graph Pages",font = LARGE_FONT)
+        label.pack(pady = 10,padx = 10)
+        button1 = ttk.Button(self,text = "Back to Home",
+                                    command = lambda: controller.show_frame(StartPage))
+        button1.pack()
+
+
+        #f = Figure(figsize = (5,5),dpi = 100)
+        #a = f.add_subplot(111)
+        #a.plot([1,2,3,4,5,6,7,8],[5,6,1,3,8,9,3,5])
+
+        canvas = FigureCanvasTkAgg(f,self)
+        canvas.show()
+        canvas.get_tk_widget().pack(side=tk.TOP , fill=tk.BOTH,expand=True)
+
+        toolbar = NavigationToolbar2TkAgg(canvas,self)
+        toolbar.update()
+        canvas._tkcanvas.pack(side = tk.TOP,fill = tk.BOTH,expand =True)
+
+
+
+app  = Seaofbt()
+#ani = animation.FuncAnimation(f,animate,interval = 1000)
+app.mainloop()
+
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/fk51PNt.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/JWU4kA7.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/ZYbb7EL.png"&gt;&lt;/p&gt;</summary><category term="machine Vrep"></category></entry><entry><title>手臂的順向推導</title><link href="http://project.mde.tw/blog/shou-bi-de-shun-xiang-tui-dao.html" rel="alternate"></link><updated>2016-07-30T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-30:blog/shou-bi-de-shun-xiang-tui-dao.html</id><summary type="html">&lt;p&gt;推導機械手臂的座標方程式&lt;/p&gt;
 
 
 &lt;h3&gt;手臂順向方程式&lt;/h3&gt;

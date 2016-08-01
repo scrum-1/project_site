@@ -4,6 +4,7 @@ import sys
 import numpy as np
 from matplotlib import pyplot, rcParams
 import vrep
+import math
 
 
 
@@ -26,6 +27,9 @@ class printer(Frame):
         Label(pri, text="Z").grid(column=0, row=6)
 
         Label(pri, text="Position").grid(column=1, row=0)
+        Label(pri, text="-125<=X<=125").grid(column=1, row=1)
+        Label(pri, text="-125<=Y<=125").grid(column=1, row=3)
+        Label(pri, text="0<=Z<=400").grid(column=1, row=5)
 
         a = Entry(pri, width=12, justify=RIGHT)
         b = Entry(pri, width=12, justify=RIGHT)
@@ -39,7 +43,7 @@ class printer(Frame):
 
         def show_entry_fields():
 
-
+            deg = math.pi/180
 
             x = a.get()
             y = b.get()
@@ -57,20 +61,44 @@ class printer(Frame):
                 z = float(c.get())
 
 
-                if float(x) >= 100:   # set x&y&z limit 
-                    x = 100
-                if float(y) >= 100:
-                    y = 100
+                if float(x) >= 125:
+                    x = 125
+                    print("X_axis is out of range")
+                if float(y) >= 125:
+                    y = 125
+                    print("Y_axis is out of range")
                 if float(z) >= 400:
-                    z = 400
-                if float(x) <= -100:
-                    x = -100
-                if float(y) <= -100:
-                    y = -100
-                if float(z) <= 0:
+                    z = 400     
+                    print("Z_axis is out of range")
+                if float(x) <= -125:
+                    x = -125
+                    print("X_axis is out of range")
+                if float(y) <= -125:
+                    y = -125
+                    print("Y_axis is out of range")
+                if float(z) < 0:
                     z = 0
-                e=x/1222
-                r=y/1222
+                    print("Z_axis is out of range")
+
+                if (float(x) <= -125*math.sin(30*deg)) & (float(y) >= 125*math.cos(30*deg)):
+                    x = -125*math.sin(30*deg)
+                    y = 125*math.cos(30*deg)
+
+                if (float(x) <= -125*math.sin(30*deg)) & (float(y) <= -125*math.cos(30*deg)):
+                    x = -125*math.sin(30*deg)
+                    y = -125*math.cos(30*deg)
+
+                if (float(x) >= 125*math.sin(30*deg)) & (float(y) >= 125*math.cos(30*deg)):
+                    x = 125*math.sin(30*deg)
+                    y = 125*math.cos(30*deg)
+
+                if (float(x) >= -125*math.sin(30*deg)) & (float(y) <= -125*math.cos(30*deg)):
+                    x = 125*math.sin(30*deg)
+                    y = -125*math.cos(30*deg)
+
+
+                e=x/1000
+                r=y/1000
                 t=z/889
                 if t <= 0.11656:
                     t = t+0.11656
@@ -93,6 +121,7 @@ class printer(Frame):
 
                 #print("%s,%s,%s" % (x, y, z))
 
+
         Button(pri, text='Quit', width=5, command=pri.quit).grid(row=8, column=2, sticky=W, pady=4)
         Button(pri, text='Go', width=5, command=show_entry_fields).grid(row=8, column=0, sticky=W, pady=4)
 
@@ -108,4 +137,3 @@ if __name__ == '__main__':
     app.mainloop()
 
 
-#print(x,y,z)

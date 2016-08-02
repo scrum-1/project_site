@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+<<<<<<< HEAD
 <feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-02T12:00:00+08:00</updated><entry><title>SLVS Library Functions</title><link href="http://project.mde.tw/blog/slvs-library-functions.html" rel="alternate"></link><updated>2016-08-02T12:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-02:blog/slvs-library-functions.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;slvs&lt;/code&gt; library（&lt;code&gt;_slvs.pyd&lt;/code&gt;or &lt;code&gt;_slvs.so&lt;/code&gt;）for Python.&lt;/p&gt;
@@ -637,6 +638,429 @@ sys.set_dragged(Point p)
 &lt;pre class="brush: python"&gt;
 #This feature is not Construction
 &lt;/pre&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323250日誌 - v-rep實做心得</title><link href="http://project.mde.tw/blog/40323250ri-zhi-v-repshi-zuo-xin-de.html" rel="alternate"></link><updated>2016-08-02T11:15:00+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-08-02:blog/40323250ri-zhi-v-repshi-zuo-xin-de.html</id><summary type="html">&lt;p&gt;V-rep 與 Solvespace的結合應用&lt;/p&gt;
+=======
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-02T14:25:04+08:00</updated><entry><title>40323218日誌 - 105/07/04</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050704.html" rel="alternate"></link><updated>2016-08-02T14:25:04+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-08-02:blog/40323218ri-zhi-1050704.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
+
+
+&lt;h3&gt;熟悉 V-Rep 基本操作&lt;/h3&gt;
+
+&lt;p&gt;&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/introduce1.PNG"&gt;
+&lt;br&gt;
+&lt;h3&gt;1. 2D移動&lt;br&gt;
+2. 3D旋轉&lt;br&gt;
+3. 遠近&lt;br&gt;
+4. 移動畫面至物體&lt;br&gt;
+5. 物體定位(x,y,z)&lt;br&gt;
+6. 物體旋轉(x,y,z)&lt;br&gt;
+7. 開始模擬&lt;br&gt;
+8. 暫停模擬&lt;br&gt;
+9. 結束模擬&lt;br&gt;
+10. 慢速&lt;br&gt;
+11. 加速&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;嘗試製作 one_link_robot&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step1.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;File→import→Mesh...(從資料夾中輸入 stl檔)&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;選擇單位和方向&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step3.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;點選物體使用"object shift"調整Z軸距離&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;點選物體 右鍵→Edit→Grouping/Merging→Divide selected shapes(使物體解體)&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;右鍵→Add→Joint→Revolute(增加旋轉軸)&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;連點兩下Revolute icon 打開 Scene Object Properties , 下面 Visual properties修改旋轉軸的長和直徑&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;接著點下面 Show dynamic properties dialog , 打勾Motor enabled 和 Lock motor ...
+&lt;br&gt;
+&lt;h3&gt;再來點旋轉軸 , Ctrl+左鍵點圓柱 , 使用"object shift"在XYZ都點Apply to selection , 在"Orientation/Rotations"也點 Apply , 使兩軸重疊&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step6.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;點選圓柱 icon , 點最下面Show dynamic properties dialog , 打勾Body is dynamic(使物體可作動)
+&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step7.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;
+使圓柱降階成為旋轉軸的Child&lt;br&gt;
+使旋轉物降階成為圓柱的Child&lt;br&gt;
+使旋轉軸降階成為底座的Child&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step8.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;按左側"Script" →Insert new script→Script type 選擇 Child script (threaded) , 下方 Associated object 選擇底座.&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step9.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;double - click the child script,  在最下面加上SimExtRemoteApiStart(19999)(參考老師範例研究中) &lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/Round.gif" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;點選"Start simulation" 啟動模擬 , 用SciTE 開啟老師的檔案 one_link_robot_remoteAPI.py , F5執行就會轉囉~~&lt;/h3&gt;&lt;/p&gt;
+&lt;h3&gt;製作影片：&lt;/h3&gt;
+
+&lt;iframe src="https://player.vimeo.com/video/173321561" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;p&gt;&lt;a href="https://vimeo.com/173321561"&gt;V-Rep one_link_robot&lt;/a&gt; from &lt;a href="https://vimeo.com/user44943624"&gt;Li Steven&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323218日誌 - 105/07/11</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050711.html" rel="alternate"></link><updated>2016-08-02T14:25:04+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-08-02:blog/40323218ri-zhi-1050711.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
+
+
+&lt;h4&gt;嘗試四連桿機構&lt;/h4&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h1&gt;&lt;h3&gt;理想狀態：&lt;/h3&gt;&lt;/h1&gt;
+&lt;h1&gt;&lt;br&gt;&lt;/h1&gt;
+&lt;h3&gt;前期嘗試：&lt;/h3&gt;
+
+&lt;p&gt;&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/before.gif" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;前期階級排列：&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step10.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;查詢資料：&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step11.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;(在兩個dynamic item之間不能有static item)&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;修改後：&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step12.png" weight=600 &gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/after.gif" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;未來嘗試：製作搖擺機構&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;參考網站：http://www.coppeliarobotics.com/helpFiles/en/jointDescription.htm &lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323218日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050714.html" rel="alternate"></link><updated>2016-08-02T14:25:04+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-08-02:blog/40323218ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
+
+
+&lt;h2&gt;翻譯文章重點&lt;/h2&gt;
+
+&lt;p&gt;&lt;br&gt;
+&lt;h2&gt;原文章網址：&lt;/h2&gt;
+&lt;p&gt;&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/buildingAModelTutorial.htm "&gt;http://www.coppeliarobotics.com/helpFiles/en/buildingAModelTutorial.htm &lt;/a&gt;&lt;/p&gt; 
+&lt;br&gt;
+&lt;h2&gt;Building the visible shapes：&lt;/h2&gt;
+&lt;br&gt;
+&lt;h3&gt;1. Automatic mesh division：&lt;br&gt;
+[Menu bar --&amp;gt; Edit --&amp;gt; Grouping/Merging --&amp;gt; Divide selected shapes]&lt;br&gt;
+(自動分割物件，有時候會無作用)&lt;br&gt;
+[Menu bar --&amp;gt; Edit -&amp;gt; Grouping/Merging --&amp;gt; Merge selected shapes]&lt;br&gt;(使選擇的物件組合在一起)&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;2. Extract the convex hull：&lt;br&gt;
+[Menu bar --&amp;gt; Edit --&amp;gt; Morph selection into convex shapes]&lt;br&gt;
+(使物件轉換成convex hull)&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;3. Decimate the mesh：&lt;br&gt;
+[Menu bar --&amp;gt; Edit --&amp;gt; Decimate selected shape...]&lt;br&gt;
+(減少mesh三角形量)&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;4. Remove the inside of the mesh：&lt;br&gt;
+[Menu bar --&amp;gt; Edit --&amp;gt; Extract inside of selected shape]&lt;br&gt;
+(此功能是基於視覺傳感器，可以依靠設定得到更多或更少滿意的結果。)&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;上述功能沒有先後順序(除了第一項應該先嘗試)，主要取決於我們如何嘗試精簡mesh。&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;下圖說明上述功能應用到imported mesh（沒有第一項）：&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/vrep1.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;再來我們要分割imported mesh，有兩種方式可使用。&lt;br&gt;&lt;br&gt;
+1. Automatic mesh division：跟上面一樣
+&lt;br&gt;
+2. Manual mesh division：這使用 triangle edit mode (左邊功能列第六個)，選擇你要的物體的三角形，再點 Extract shape，他會投影物件出來，再把原先選擇的三角形刪除。&lt;/h3&gt;
+&lt;br&gt;
+&lt;h2&gt;Building the joints&lt;/h2&gt;&lt;br&gt;
+&lt;h3&gt;再來我們要創建 joint，先 import mesh，使用 triangle edit mode 使物件三角形化。&lt;/h3&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/vrep2.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;我們需要使 joint 在圓心中間，所以我們點選圓形的三角形，點選 Extract cylinder 或 Extract shape ，他會在選擇的三角形上投影一個圓形出來。&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt; 右鍵→Add→Joint→Revolute(創建一個Revolute joint)，
+再來我們點Revolute joint、Ctrl點投影的圓型，點 Position/Translation 按鈕，然後在 Object/item position section裡，我們點 Apply to selection (使兩物體位置相同)。再來我們點Orientation/Rotation 按鈕，然後在Object/item orientation section裡，我們點 Apply to selection(使兩物體坐標軸相同)。&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/vrep3.png" weight=600 &gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/vrep4.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h2&gt;Building the dynamic shapes&lt;/h2&gt;
+&lt;br&gt;
+&lt;h3&gt;如果我們想要使 Robot 作動，那麼我們就需要適當地創建/配置形狀。形狀可以是：&lt;br&gt;&lt;br&gt;
+1. dynamic or static：&lt;br&gt;
+dynamic 是動態，如果這個形狀是動態的，它將會有重量會往下掉，也會對力/力矩造成影響。&lt;br&gt;
+static是靜態，他跟 dynamic 相反，他會固定在位置上或隨著
+運動移動。&lt;br&gt;&lt;br&gt;
+2. respondable or non-respondable：&lt;br&gt;
+respondable shape 是會跟其他的 respondable shape 造成碰撞效應，他們或其對撞機，將會影響其運動(如果它們是動態的) 。&lt;br&gt;non-respondable shapes 是相反，他們不會造成碰撞運動。&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;respondable shape應盡可能簡單，以允許快速和穩定的模擬。一個物理引擎將能夠模擬以下5種不同程度的速度和穩定的形狀：&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;1. Pure shapes：&lt;br&gt;
+ [Menu bar --&amp;gt; Add --&amp;gt; Primitive shape]&lt;br&gt;
+一個Pure shapes是穩定的，並由物理引擎非常有效地處理。Pure shapes在幾何限制：大部分長方體，圓柱體或球體。&lt;br&gt;
+&lt;br&gt;
+2. Pure compound shapes：&lt;br&gt;
+ [Menu bar --&amp;gt; Edit --&amp;gt; Grouping/Merging --&amp;gt; Group selected shapes]&lt;br&gt;
+它是由多個Pure shape組合而成的，功能跟Pure shape雷同。
+&lt;br&gt;
+&lt;br&gt;
+3. Convex shapes：&lt;br&gt;
+[Menu bar --&amp;gt; Add --&amp;gt; Convex hull of selection] &lt;br&gt;
+[Menu bar --&amp;gt; Edit --&amp;gt; Morph selection into convex shapes]&lt;br&gt;
+Convex shapes會有點不太穩定，當物理引擎處理時需要多一點點計算時間。它允許一個比純形狀更一般的幾何形狀（唯一的要求：它必須是 convex）。
+&lt;br&gt;
+&lt;br&gt;
+4. Compound convex shapes, or convex decomposed shapes&lt;br&gt;
+ [Menu bar --&amp;gt; Edit --&amp;gt; Grouping/Merging --&amp;gt; Group selected shapes]&lt;br&gt;
+[Menu bar --&amp;gt; Add --&amp;gt; Convex decomposition of selection...]&lt;br&gt;
+[Menu bar --&amp;gt; Edit --&amp;gt; Morph selection into its convex decomposition...]&lt;br&gt;
+它是由多個convex shapes組合而成的，功能跟convex shapes雷同。
+&lt;br&gt;
+&lt;br&gt;
+5. Random shapes：&lt;br&gt;
+一個Random shapes是一個形狀不是convex也不是pure。它一般具有性能差（計算速度和穩定性）。盡可能地避免使用隨機的形狀。&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;因此，優先順序是：pure shapes → pure compound shapes → convex shapes → compound convex shapes → random shapes。&lt;/h3&gt;&lt;br&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323218日誌 - 105/07/15</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050715.html" rel="alternate"></link><updated>2016-08-02T14:25:04+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-08-02:blog/40323218ri-zhi-1050715.html</id><summary type="html">&lt;p&gt;V-rep 程式應用&lt;/p&gt;
+
+
+&lt;h2&gt;從 irb360 程式中找尋可能用到的並嘗試解釋和整理。 &lt;/h2&gt;
+
+&lt;p&gt;&lt;br&gt;
+&lt;h3&gt;
+simGetObjectHandle - 對物件命名&lt;br&gt;
+&lt;br&gt;
+用法： number objectHandle=simGetObjectHandle(string objectName)&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+simSetJointTargetPosition - 設置目標位置(if the joint is in torque/force mode)(motor and position control are enabled)&lt;br&gt;
+&lt;br&gt;
+用法： number result=simSetJointTargetPosition(number objectHandle,number targetPosition)&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+simGetJointPosition - 得到軸的位置(不能使用在關節上 , 用simGetJointMatrix取代)&lt;br&gt;
+&lt;br&gt;
+用法： number position=simGetJointPosition(number objectHandle)&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+simSwitchThread - 轉換到另一個程式&lt;br&gt;
+&lt;br&gt;
+用法： number result=simSwitchThread()&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+simAddStatusbarMessage - 增加一則訊息到狀態欄&lt;br&gt;
+&lt;br&gt;
+用法： number result=simAddStatusbarMessage(string message)&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+simSetIkElementProperties - 設置性質的特定反向運動元素&lt;br&gt;
+&lt;br&gt;
+用法：  number result=simSetIkElementProperties(number ikGroupHandle,number tipDummyHandle,number constraints,table_2 precision=nil,table_2 weight=nil&lt;br&gt;
+&lt;br&gt;
+補充：  IK = Inverse kinematics(在左邊功能區第三個裡)&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+simSetJointMode - 設置joint的操作模式&lt;br&gt;
+&lt;br&gt;
+用法：  number result=simSetJointMode(number jointHandle,number jointMode,number options)&lt;br&gt;
+&lt;br&gt;
+補充：  option(現在設定為0是可以被使用，如果設定為1會啟用hybrid mode)&lt;br&gt;
+&lt;br&gt;
+jointMode&lt;br&gt; 
+sim_jointmode_passive&lt;br&gt;
+sim_jointmode_motion_deprecated&lt;br&gt;
+sim_jointmode_ik&lt;br&gt;
+sim_jointmode_ikdependent&lt;br&gt;
+sim_jointmode_dependent&lt;br&gt;
+sim_jointmode_force&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+simGetObjectAssociatedWithScript - 擷取角本附加到物體處理&lt;br&gt;
+&lt;br&gt;
+用法：  number objectHandle=simGetObjectAssociatedWithScript (number scriptHandle)&lt;br&gt;
+&lt;br&gt;
+補充：  scriptHandle = sim_handle_self&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;
+simRMLMoveToJointPositions - 在同一時間幾個關節一起使用Reflexxes Motion Library type IV移動（驅動）。這功能只能在child scripts中一個thread中運行（因為這是一個阻塞的操作），而且C-API的不可使用。&lt;br&gt;
+&lt;br&gt;
+用法：number result , table newPos , table newVel , table newAccel , number timeLeft =
+simRMLMoveToJointPositions ( table jointHandles , number flags , table currentVel , table currentAccel , table maxVel , table maxAccel , table maxJerk , table targetPos , table targetVel , table direction)&lt;br&gt;
+&lt;br&gt;
+補充：&lt;br&gt; 
+jointHandles: 要驅動的joint&lt;br&gt;
+flags: RML flags. -1 for default flags.&lt;br&gt;
+currentVel: the current velocity of the joints. Can be nil in which case a velocity vector of 0 is used.&lt;br&gt;
+currentAccel: the current acceleration of the joints. Can be nil in which case an acceleration vector of 0 is used.&lt;br&gt;
+maxVel: the maximum allowed velocity of the joints&lt;br&gt;
+maxAccel: the maximum allowed acceleration of the joints&lt;br&gt;
+maxJerk: the maximum allowed jerk of the joints&lt;br&gt;
+targetPos: the desired target positions of the joints&lt;br&gt;
+targetVel: the desired velocity of the joints at the target. Can be nil in which case a velocity vector of 0 is used.&lt;br&gt;
+direction: the desired rotation direction for cyclic revolute joints: 0 for the shortest distance, -x for a movement towards negative values, +x for a movement towards positive values (n=(x-1) represents the number of additional turns). Can be nil or omitted, in which case a value of 0 is used for all joints&lt;br&gt;
+&lt;br&gt;
+&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;(待補充)&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323218日誌 - 105/07/17</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050717.html" rel="alternate"></link><updated>2016-08-02T14:25:04+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-08-02:blog/40323218ri-zhi-1050717.html</id><summary type="html">&lt;p&gt;V-rep_solvespace_linkages&lt;/p&gt;
+
+
+&lt;h2&gt;嘗試 vrep_solvespace_linkages&lt;/h2&gt;
+
+&lt;p&gt;&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/linkages.png" weight=600 &gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h2&gt;影片教學：&lt;/h2&gt;
+&lt;br&gt;
+&lt;iframe src="https://player.vimeo.com/video/175117655" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt; &lt;p&gt;&lt;a href="https://vimeo.com/175117655"&gt;vrep_solvespace_linkages&lt;/a&gt; from &lt;a href="https://vimeo.com/user44943624"&gt;Li Steven&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h2&gt;檔案：&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/40323218/solvespace_successful.ttt?raw=true"&gt;solvespace_successful.ttt&lt;/a&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h2&gt;心得：&lt;/h2&gt;
+&lt;h3&gt;組裝這個物件的重點我認為是在零件的順序和Dummy放置的位置，嘗試了兩天終於作了出來，對零件的從屬關係有比較OK了，有學會dummy的應用，再來就是把這些統整可以試著弄我們的 printer。&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323218日誌 - 105/07/19</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050719.html" rel="alternate"></link><updated>2016-08-02T14:25:04+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-08-02:blog/40323218ri-zhi-1050719.html</id><summary type="html">&lt;p&gt;V-rep 翻譯 Inverse kinematics&lt;/p&gt;
+
+
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/IK1.png" weight=600 &gt;&lt;br&gt;&lt;br&gt;
+&lt;h3&gt;•  Inverse kinematics enabled:   啟用或禁用所有IK計算。&lt;br&gt;
+&lt;br&gt;&lt;br&gt;
+•  Add new IK group: &lt;br&gt;&lt;br&gt;新增一個空的 IK group. IK groups 可以包含一個或多個 IK elements.&lt;br&gt;&lt;br&gt; IK elements 是基本運動學綁著IK任務, IK groups可以組合他們來同時運行.&lt;br&gt;&lt;br&gt; 當需要時只使用同時運行(比依序運算花較長的計算時間).&lt;br&gt;&lt;br&gt; 一個IK element 總必須被一個IK group連結，而且不能單獨存在. &lt;br&gt;&lt;br&gt;在按鈕下方的列表中顯示所有的IK groups將會在IK計算時被運行.&lt;br&gt;&lt;br&gt; 在列表中一個 IK group需要被選擇，為了顯現它的參數在剩餘的對話框中.&lt;br&gt;&lt;br&gt; 在列表中的順序很重要(IK group 1的結果可能被IK group 2需要來正確地或更快的執行).&lt;br&gt;&lt;br&gt; 在列表旁的兩個按鈕可以改變被選擇的IK group的位置.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  IK group is active:     允許啟動這個IK groups.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  Explicit handling: &lt;br&gt;&lt;br&gt;表示被選擇的IK group 是否應該被明確地處理. &lt;br&gt;&lt;br&gt;如果打勾, 當呼叫simHandleIkGroup(sim_handle_all_except_explicit)時，&lt;br&gt;&lt;br&gt;在IK 計算這個IK group將不會被處理，但只有當&lt;br&gt;&lt;br&gt;simHandleIkGroup(sim_handle_all) or&lt;br&gt;&lt;br&gt; simHandleIkGroup(ikGroupHandle) 呼叫時除外. &lt;br&gt;&lt;br&gt;這是非常有用的當如果用戶希望在  child script 而不是在  main script&lt;br&gt;&lt;br&gt;處理IK group裡的kinematics  (如果沒有打勾, IK計算將會被執行兩次,一次是在&lt;br&gt;&lt;br&gt;main script呼叫simHandleIkGroup(sim_handle_all_except_explicit) 時, &lt;br&gt;&lt;br&gt;另一次是在child script 呼叫simHandleIkGroup(ikGroupHandle)時. &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  Mechanism is redundant: &lt;br&gt;&lt;br&gt;當被打勾時, 在IK解析時joint限制校正將被啟用. &lt;br&gt;&lt;br&gt;否則，joint limits 將會簡單地被強制執行在IK 解析之後，可能導致不穩定.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  Ignore max. step sizes:   如果被勾選，在  joint properties 裡的maximum step sizes 將會被忽略.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  Calc. method: &lt;br&gt;&lt;br&gt;具體說明IK group 決定使用的計算方式. &lt;br&gt;&lt;br&gt; Pseudo inverse  是最快的方式但可能不穩定當目標與 tip lie 距離太遠, 當一個運動鏈超過限制或當機構靠近一個單一組態 或 超出目標.&lt;br&gt;&lt;br&gt;  DLS 是較慢但更穩定因為它是一個阻尼分析方式(阻尼因子可以被指定（阻尼）). &lt;br&gt;&lt;br&gt;這是一個好的選擇當  pseudo inverse可能失敗.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  Damping: &lt;br&gt;&lt;br&gt;阻尼因子當使用DLS.  較大的值導致更穩定的分辨率，但速度很慢。適當地調整值是重要的。&lt;br&gt;&lt;br&gt;&lt;br&gt;
+•  Max. iterations: &lt;br&gt;&lt;br&gt;重複的最大數值可以被指定. 這是計算經過的最大數量對於給予的IK group，直到它指定的結果精度到達. DLS 經常需要比  Pseudo inverse更多的重複.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  Joint limits (calculation weights): &lt;br&gt;&lt;br&gt;the calculation weight 應該被使用在 joint limitation constraints &lt;br&gt;&lt;br&gt;(joint limitation constraints 是被指定在  joint properties &lt;br&gt;&lt;br&gt;(position minimum andposition range).&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  Obstacle avoidance (calculation weights): &lt;br&gt;&lt;br&gt;the calculation weight 應該被使用對於 obstacle avoidance(避開障礙物) constraints.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  Joint limit thresholds:   線性和角度的臨界值應該和joint limitation constraints 一起被使用.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  Edit conditional parameters:   調整選擇的IK group裡附加的參數 .&lt;/h3&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/IK2.png" weight=600 &gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;•  Perform if... : &lt;br&gt;&lt;br&gt;這是有條件的分析部分. &lt;br&gt;&lt;br&gt;使用者可以選擇下拉一個在列表中的IK group，&lt;br&gt;&lt;br&gt;這個IK分析結果將會決定當前IK group是否會被解決。&lt;br&gt;&lt;br&gt;被認為是成功的IK group計算的IK elements都位於指定的線性/角度精度內。&lt;br&gt;&lt;br&gt;&lt;br&gt;
+•  Restore if... : &lt;br&gt;&lt;br&gt;允許恢復初始IK group配置（goint values）如果分析沒有成功 (位置和/或定向精度沒有達到).&lt;br&gt;&lt;br&gt; 與上述條件的解結合時，用戶可以例如結合兩個不同的計算方法。&lt;br&gt;&lt;br&gt;這是有用的如果在操作者的目標可能超出範圍或靠近一個單一組態: &lt;br&gt;&lt;br&gt;第一次分析嘗試將試著求解IK group與non-damped resolution method (pseudo inverse, fast), &lt;br&gt;&lt;br&gt;而且如果不成功, 第二次嘗試將會試著解決它與damped resolution method (DLS, slower). &lt;br&gt;&lt;br&gt;使用者也當然可以自由手動地處理IK resolution 從script, plugin, 等.&lt;br&gt;&lt;br&gt;&lt;br&gt;
+•  Edit obstacle avoidance parameters: &lt;br&gt;&lt;br&gt;允許調整避障參數。&lt;br&gt;&lt;br&gt;請注意，這只是對熟練的操作者有意義, &lt;br&gt;&lt;br&gt;而且模擬速度會大幅度地放緩。&lt;/h3&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/IK3.png" weight=600 &gt;&lt;br&gt;&lt;br&gt;
+&lt;h3&gt;•  Select avoidance entities / Remove avoidance constraint: &lt;br&gt;&lt;br&gt;允許選擇/移除avoidance entities. &lt;br&gt;&lt;br&gt;一個整體通常是機器人，其他實體是障礙物。&lt;br&gt;&lt;br&gt; 使用簡單地measurable objects 來快速分析.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  Distance threshold: &lt;br&gt;&lt;br&gt;在兩個avoidance entities 之間應該保持最小的距離.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  Edit IK elements: &lt;br&gt;&lt;br&gt;允許編輯各種被選擇的IK group有關聯的IK elements.
+&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323218日誌 - 105/07/23</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050723.html" rel="alternate"></link><updated>2016-08-02T14:25:04+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-08-02:blog/40323218ri-zhi-1050723.html</id><summary type="html">&lt;p&gt;V-rep   printer_control&lt;/p&gt;
+
+
+&lt;h2&gt;嘗試組裝3Dprinter&lt;/h2&gt;
+
+&lt;p&gt;&lt;br&gt;
+&lt;h3&gt;現在已嘗試兩種方式操控&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;分別是：&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/40323218/Printer_position_control.ttt?raw=true"&gt;Printer_position_control.ttt&lt;/a&gt;&lt;/p&gt;&lt;br&gt;
+&lt;h3&gt;可以操控position(需用滑鼠移動)&lt;/h3&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/position.gif" weight=600 &gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/40323218/Printer_motor_control.ttt?raw=true"&gt;Printer_motor_control.ttt&lt;/a&gt;&lt;/p&gt;&lt;br&gt;
+&lt;h3&gt;可以操控motor(需用參數移動)&lt;/h3&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/motor.gif" weight=600 &gt;
+&lt;br&gt;&lt;br&gt;
+&lt;h3&gt;串列通訊：&lt;/h3&gt;
+&lt;br&gt;
+&lt;iframe width="854" height="480" src="https://www.youtube.com/embed/1-CW00QXwwk" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;br&gt;
+&lt;iframe width="854" height="480" src="https://www.youtube.com/embed/y1vbxmeJ4M0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323231日誌 - 指令(G碼、M碼...)</title><link href="http://project.mde.tw/blog/40323231ri-zhi-zhi-ling-gma-mma.html" rel="alternate"></link><updated>2016-08-02T14:00:00+08:00</updated><author><name>40323231</name></author><id>tag:project.mde.tw,2016-08-02:blog/40323231ri-zhi-zhi-ling-gma-mma.html</id><summary type="html">&lt;p&gt;常用指令與解說&lt;/p&gt;
+
+
+&lt;h3&gt;常用指令&lt;/h3&gt;
+
+&lt;h4&gt;G28 : 原點複歸&lt;/h4&gt;
+
+&lt;h4&gt;G29 : 自動校正&lt;/h4&gt;
+
+&lt;h4&gt;G01 X70 Y60 Z5 : 快速定位  X70 Y60 高度5&lt;/h4&gt;
+
+&lt;h4&gt;M104 : 設定噴頭溫度&lt;/h4&gt;
+
+&lt;h4&gt;M105 : 查詢溫度(噴頭和熱床)&lt;/h4&gt;
+
+&lt;h4&gt;M106 : 開啟風扇&lt;/h4&gt;
+
+&lt;h4&gt;M107 : 關閉風扇&lt;/h4&gt;
+
+&lt;h4&gt;M114 : 查詢目前位置(例如:X40 Y50 Z5)&lt;/h4&gt;
+
+&lt;h4&gt;M119 : 查詢限位開關目前狀態&lt;/h4&gt;
+
+&lt;h4&gt;M500 : 儲存參數&lt;/h4&gt;
+
+&lt;p&gt;&lt;br&gt;
+&lt;h3&gt;字母定義&lt;/h3&gt;
+&lt;h4&gt;G:範例說明&lt;/h4&gt;
+&lt;h4&gt;M:範例說明&lt;/h4&gt;
+&lt;h4&gt;T:選擇工具，單一噴頭所以無用&lt;/h4&gt;
+&lt;h4&gt;S:命令參數，如電壓，控制轉速、溫度等等&lt;/h4&gt;
+&lt;h4&gt;P:命令參數，多少毫秒&lt;/h4&gt;
+&lt;h4&gt;F:每分鐘進給(毫米)&lt;/h4&gt;
+&lt;h4&gt;E:擠出材料的長度(毫米)&lt;/h4&gt;
+&lt;br&gt;
+&lt;h3&gt;其他指令說明&lt;/h3&gt;
+&lt;h4&gt;G4的：暫停&lt;/h4&gt;
+&lt;h4&gt;例如：G4 P200&lt;/h4&gt;
+&lt;h4&gt;在這種狀態下暫停200秒不工作。在延時時的機器狀態下(例如:擠出機溫度)仍然會被保留和控制。&lt;/h4&gt;
+&lt;h4&gt;G20 設定從現在開始為英寸&lt;/h4&gt;
+&lt;h4&gt;G21 設定從現在開始為毫米&lt;/h4&gt;
+&lt;h4&gt;G90 從現在開始，所有的座標都是絕對座標&lt;/h4&gt;
+&lt;h4&gt;G91 設定現在位置為原點，之後的都為相對座標&lt;/h4&gt;&lt;/p&gt;
+&lt;h4&gt;M0 停止&lt;/h4&gt;
+
+&lt;h4&gt;M18 禁止所有步進馬達&lt;/h4&gt;
+
+&lt;h4&gt;M20：列出SD卡&lt;/h4&gt;
+
+&lt;h4&gt;M21：初始化SD卡&lt;/h4&gt;
+
+&lt;h4&gt;M22：釋放SD卡&lt;/h4&gt;
+
+&lt;h4&gt;M23：選擇SD文件&lt;/h4&gt;
+
+&lt;h4&gt;M24：啟動/恢復SD列印&lt;/h4&gt;
+
+&lt;h4&gt;M25：暫停SD列印&lt;/h4&gt;
+
+&lt;h4&gt;M26：設置的SD位置&lt;/h4&gt;
+
+&lt;h4&gt;M27：報告SD列印狀態&lt;/h4&gt;
+
+&lt;h4&gt;M28：開始寫入到SD卡&lt;/h4&gt;
+
+&lt;h4&gt;M29：停止向SD卡寫入&lt;/h4&gt;
+
+&lt;h4&gt;M42：用盡材料時停止(XY回歸原點但Z沒有，關閉所有電器和加熱器，要重新開始必須複歸，之後繼續列印)&lt;/h4&gt;
+
+&lt;h4&gt;M43: 用盡材料時等待(與M42相似，可是M43還可以下指令如G碼和M碼)&lt;/h4&gt;
+
+&lt;h4&gt;M101:正轉啟動擠出馬達&lt;/h4&gt;
+
+&lt;h4&gt;M102:逆向啟動擠出馬達&lt;/h4&gt;
+
+&lt;h4&gt;M109:設定擠出溫度&lt;/h4&gt;
+
+&lt;h4&gt;M112：緊急停止(全部動作停止包括電器關閉)&lt;/h4&gt;
+
+&lt;h4&gt;M113：設定擠出機的的PWM，例如:M113 S0.7，設定為擠出機70%速度，未用過猜測與軟體內的流量設定相同功用&lt;/h4&gt;
+
+&lt;h4&gt;M303 S200 C8 : 設定目標溫度200，並做8次震盪&lt;/h4&gt;
+
+&lt;p&gt;&lt;a href = "http://www.simplyalt.com/atom/viewthread.php?tid=1560&amp;highlight=PID"&gt; 震盪參考 &lt;/a&gt;&lt;/p&gt;</summary><category term="3DP"></category></entry><entry><title>40323250日誌 - v-rep實做心得</title><link href="http://project.mde.tw/blog/40323250ri-zhi-v-repshi-zuo-xin-de.html" rel="alternate"></link><updated>2016-08-02T11:15:00+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-08-02:blog/40323250ri-zhi-v-repshi-zuo-xin-de.html</id><summary type="html">&lt;p&gt;V-rep 與 Solvespace的結合應用&lt;/p&gt;
+>>>>>>> 2b3a711a8d95c1fa7d5ef34c68bf1905d62611d6
 
 
 &lt;h3&gt;最近開了很多V-rep的範例檔來看 ,但都不太有收穫 ,為了避免浪費時間 ,回去找了之前老師提到的solvespace和vrep的共同運用 ,也因為要完成3D - Printer就要先了解基本觀念和用法 ,所以就抓了檔案來測試 &lt;/h3&gt;
@@ -2556,29 +2980,7 @@ solvespace/exposed/Usage.py
 &lt;hr&gt;
 
 &lt;p&gt;另外在新電腦虛擬機的Ubuntu上裝了一下Git、Netbeans和GNU工具包，可以正常運作，不過可能是跨系統模擬的關係，反應還滿慢的。&lt;/p&gt;
-&lt;p&gt;然後Python3不知道怎麼更新，一直在3.4.2沒辦法升上去。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323218日誌 - 105/07/23</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050723.html" rel="alternate"></link><updated>2016-07-24T00:23:07+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-24:blog/40323218ri-zhi-1050723.html</id><summary type="html">&lt;p&gt;V-rep   printer_control&lt;/p&gt;
-
-
-&lt;h2&gt;嘗試組裝3Dprinter&lt;/h2&gt;
-
-&lt;p&gt;&lt;br&gt;
-&lt;h3&gt;現在已嘗試兩種方式操控&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;分別是：&lt;/h3&gt;
-&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/40323218/Printer_position_control.ttt?raw=true"&gt;Printer_position_control.ttt&lt;/a&gt;&lt;/p&gt;&lt;br&gt;
-&lt;h3&gt;可以操控position(需用滑鼠移動)&lt;/h3&gt;&lt;br&gt;&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/position.gif" weight=600 &gt;
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
-&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/40323218/Printer_motor_control.ttt?raw=true"&gt;Printer_motor_control.ttt&lt;/a&gt;&lt;/p&gt;&lt;br&gt;
-&lt;h3&gt;可以操控motor(需用參數移動)&lt;/h3&gt;
-&lt;br&gt;&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/motor.gif" weight=600 &gt;
-&lt;br&gt;&lt;br&gt;
-&lt;h3&gt;串列通訊：&lt;/h3&gt;
-&lt;br&gt;
-&lt;iframe width="854" height="480" src="https://www.youtube.com/embed/1-CW00QXwwk" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
-&lt;br&gt;
-&lt;iframe width="854" height="480" src="https://www.youtube.com/embed/y1vbxmeJ4M0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230紀錄 - C語言資料庫格式</title><link href="http://project.mde.tw/blog/40323230ji-lu-cyu-yan-zi-liao-ku-ge-shi.html" rel="alternate"></link><updated>2016-07-23T19:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-23:blog/40323230ji-lu-cyu-yan-zi-liao-ku-ge-shi.html</id><summary type="html">&lt;p&gt;關於各平台程式使用之連結庫類型。&lt;/p&gt;
+&lt;p&gt;然後Python3不知道怎麼更新，一直在3.4.2沒辦法升上去。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230紀錄 - C語言資料庫格式</title><link href="http://project.mde.tw/blog/40323230ji-lu-cyu-yan-zi-liao-ku-ge-shi.html" rel="alternate"></link><updated>2016-07-23T19:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-23:blog/40323230ji-lu-cyu-yan-zi-liao-ku-ge-shi.html</id><summary type="html">&lt;p&gt;關於各平台程式使用之連結庫類型。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Static libraries&lt;/p&gt;
@@ -3147,36 +3549,7 @@ all: cdemo _slvs.so slvs.py
 &lt;/pre&gt;
 
 &lt;p&gt;CDemo的部分已經成功轉出可執行檔；&lt;code&gt;_slvs.so&lt;/code&gt;還在最後階段的編譯中；&lt;code&gt;slvs.py&lt;/code&gt;則是原作者撰寫好的（不過是Python 2）。&lt;/p&gt;
-&lt;p&gt;預計不久後就能夠測試&lt;code&gt;_slvs.so&lt;/code&gt;的功能。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323218日誌 - 105/07/19</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050719.html" rel="alternate"></link><updated>2016-07-20T00:15:36+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-20:blog/40323218ri-zhi-1050719.html</id><summary type="html">&lt;p&gt;V-rep 翻譯 Inverse kinematics&lt;/p&gt;
-
-
-&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/IK1.png" weight=600 &gt;&lt;br&gt;&lt;br&gt;
-&lt;h3&gt;•  Inverse kinematics enabled:   啟用或禁用所有IK計算。&lt;br&gt;
-&lt;br&gt;&lt;br&gt;
-•  Add new IK group: &lt;br&gt;&lt;br&gt;新增一個空的 IK group. IK groups 可以包含一個或多個 IK elements.&lt;br&gt;&lt;br&gt; IK elements 是基本運動學綁著IK任務, IK groups可以組合他們來同時運行.&lt;br&gt;&lt;br&gt; 當需要時只使用同時運行(比依序運算花較長的計算時間).&lt;br&gt;&lt;br&gt; 一個IK element 總必須被一個IK group連結，而且不能單獨存在. &lt;br&gt;&lt;br&gt;在按鈕下方的列表中顯示所有的IK groups將會在IK計算時被運行.&lt;br&gt;&lt;br&gt; 在列表中一個 IK group需要被選擇，為了顯現它的參數在剩餘的對話框中.&lt;br&gt;&lt;br&gt; 在列表中的順序很重要(IK group 1的結果可能被IK group 2需要來正確地或更快的執行).&lt;br&gt;&lt;br&gt; 在列表旁的兩個按鈕可以改變被選擇的IK group的位置.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;•  IK group is active:     允許啟動這個IK groups.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;•  Explicit handling: &lt;br&gt;&lt;br&gt;表示被選擇的IK group 是否應該被明確地處理. &lt;br&gt;&lt;br&gt;如果打勾, 當呼叫simHandleIkGroup(sim_handle_all_except_explicit)時，&lt;br&gt;&lt;br&gt;在IK 計算這個IK group將不會被處理，但只有當&lt;br&gt;&lt;br&gt;simHandleIkGroup(sim_handle_all) or&lt;br&gt;&lt;br&gt; simHandleIkGroup(ikGroupHandle) 呼叫時除外. &lt;br&gt;&lt;br&gt;這是非常有用的當如果用戶希望在  child script 而不是在  main script&lt;br&gt;&lt;br&gt;處理IK group裡的kinematics  (如果沒有打勾, IK計算將會被執行兩次,一次是在&lt;br&gt;&lt;br&gt;main script呼叫simHandleIkGroup(sim_handle_all_except_explicit) 時, &lt;br&gt;&lt;br&gt;另一次是在child script 呼叫simHandleIkGroup(ikGroupHandle)時. &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;•  Mechanism is redundant: &lt;br&gt;&lt;br&gt;當被打勾時, 在IK解析時joint限制校正將被啟用. &lt;br&gt;&lt;br&gt;否則，joint limits 將會簡單地被強制執行在IK 解析之後，可能導致不穩定.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;•  Ignore max. step sizes:   如果被勾選，在  joint properties 裡的maximum step sizes 將會被忽略.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;•  Calc. method: &lt;br&gt;&lt;br&gt;具體說明IK group 決定使用的計算方式. &lt;br&gt;&lt;br&gt; Pseudo inverse  是最快的方式但可能不穩定當目標與 tip lie 距離太遠, 當一個運動鏈超過限制或當機構靠近一個單一組態 或 超出目標.&lt;br&gt;&lt;br&gt;  DLS 是較慢但更穩定因為它是一個阻尼分析方式(阻尼因子可以被指定（阻尼）). &lt;br&gt;&lt;br&gt;這是一個好的選擇當  pseudo inverse可能失敗.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;•  Damping: &lt;br&gt;&lt;br&gt;阻尼因子當使用DLS.  較大的值導致更穩定的分辨率，但速度很慢。適當地調整值是重要的。&lt;br&gt;&lt;br&gt;&lt;br&gt;
-•  Max. iterations: &lt;br&gt;&lt;br&gt;重複的最大數值可以被指定. 這是計算經過的最大數量對於給予的IK group，直到它指定的結果精度到達. DLS 經常需要比  Pseudo inverse更多的重複.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;•  Joint limits (calculation weights): &lt;br&gt;&lt;br&gt;the calculation weight 應該被使用在 joint limitation constraints &lt;br&gt;&lt;br&gt;(joint limitation constraints 是被指定在  joint properties &lt;br&gt;&lt;br&gt;(position minimum andposition range).&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;•  Obstacle avoidance (calculation weights): &lt;br&gt;&lt;br&gt;the calculation weight 應該被使用對於 obstacle avoidance(避開障礙物) constraints.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;•  Joint limit thresholds:   線性和角度的臨界值應該和joint limitation constraints 一起被使用.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;•  Edit conditional parameters:   調整選擇的IK group裡附加的參數 .&lt;/h3&gt;
-&lt;br&gt;&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/IK2.png" weight=600 &gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;h3&gt;•  Perform if... : &lt;br&gt;&lt;br&gt;這是有條件的分析部分. &lt;br&gt;&lt;br&gt;使用者可以選擇下拉一個在列表中的IK group，&lt;br&gt;&lt;br&gt;這個IK分析結果將會決定當前IK group是否會被解決。&lt;br&gt;&lt;br&gt;被認為是成功的IK group計算的IK elements都位於指定的線性/角度精度內。&lt;br&gt;&lt;br&gt;&lt;br&gt;
-•  Restore if... : &lt;br&gt;&lt;br&gt;允許恢復初始IK group配置（goint values）如果分析沒有成功 (位置和/或定向精度沒有達到).&lt;br&gt;&lt;br&gt; 與上述條件的解結合時，用戶可以例如結合兩個不同的計算方法。&lt;br&gt;&lt;br&gt;這是有用的如果在操作者的目標可能超出範圍或靠近一個單一組態: &lt;br&gt;&lt;br&gt;第一次分析嘗試將試著求解IK group與non-damped resolution method (pseudo inverse, fast), &lt;br&gt;&lt;br&gt;而且如果不成功, 第二次嘗試將會試著解決它與damped resolution method (DLS, slower). &lt;br&gt;&lt;br&gt;使用者也當然可以自由手動地處理IK resolution 從script, plugin, 等.&lt;br&gt;&lt;br&gt;&lt;br&gt;
-•  Edit obstacle avoidance parameters: &lt;br&gt;&lt;br&gt;允許調整避障參數。&lt;br&gt;&lt;br&gt;請注意，這只是對熟練的操作者有意義, &lt;br&gt;&lt;br&gt;而且模擬速度會大幅度地放緩。&lt;/h3&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/IK3.png" weight=600 &gt;&lt;br&gt;&lt;br&gt;
-&lt;h3&gt;•  Select avoidance entities / Remove avoidance constraint: &lt;br&gt;&lt;br&gt;允許選擇/移除avoidance entities. &lt;br&gt;&lt;br&gt;一個整體通常是機器人，其他實體是障礙物。&lt;br&gt;&lt;br&gt; 使用簡單地measurable objects 來快速分析.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;•  Distance threshold: &lt;br&gt;&lt;br&gt;在兩個avoidance entities 之間應該保持最小的距離.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;•  Edit IK elements: &lt;br&gt;&lt;br&gt;允許編輯各種被選擇的IK group有關聯的IK elements.
-&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/19</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050719.html" rel="alternate"></link><updated>2016-07-19T19:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-19:blog/40323230ri-zhi-1050719.html</id><summary type="html">&lt;p&gt;Python-Solvespace編譯除錯中。&lt;/p&gt;
+&lt;p&gt;預計不久後就能夠測試&lt;code&gt;_slvs.so&lt;/code&gt;的功能。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/19</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050719.html" rel="alternate"></link><updated>2016-07-19T19:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-19:blog/40323230ri-zhi-1050719.html</id><summary type="html">&lt;p&gt;Python-Solvespace編譯除錯中。&lt;/p&gt;
 
 
 &lt;h2&gt;Netbeans的版次管理與自訂工具列 :&lt;/h2&gt;
@@ -3331,26 +3704,7 @@ CFLAGS_SHARED = -fPIC -shared $(CFLAGS)
 
 &lt;p&gt;兩個Makefile編譯階段都進入整合階段，剩下的一些編譯問題主要是對MinGW的編譯程式不熟悉的緣故。&lt;/p&gt;
 &lt;p&gt;像是一般的&lt;code&gt;.so&lt;/code&gt;、&lt;code&gt;.o&lt;/code&gt;都較為廣用，可是將obj檔直接轉換成可執行檔，卻找不到範例。&lt;/p&gt;
-&lt;p&gt;之後要再找找看gcc和g++的編譯範例。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="Python-Solvespace"></category></entry><entry><title>40323218日誌 - 105/07/17</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050717.html" rel="alternate"></link><updated>2016-07-18T23:49:58+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-18:blog/40323218ri-zhi-1050717.html</id><summary type="html">&lt;p&gt;V-rep_solvespace_linkages&lt;/p&gt;
-
-
-&lt;h2&gt;嘗試 vrep_solvespace_linkages&lt;/h2&gt;
-
-&lt;p&gt;&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/linkages.png" weight=600 &gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;h2&gt;影片教學：&lt;/h2&gt;
-&lt;br&gt;
-&lt;iframe src="https://player.vimeo.com/video/175117655" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt; &lt;p&gt;&lt;a href="https://vimeo.com/175117655"&gt;vrep_solvespace_linkages&lt;/a&gt; from &lt;a href="https://vimeo.com/user44943624"&gt;Li Steven&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;h2&gt;檔案：&lt;/h2&gt;
-&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/40323218/solvespace_successful.ttt?raw=true"&gt;solvespace_successful.ttt&lt;/a&gt;&lt;/p&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;h2&gt;心得：&lt;/h2&gt;
-&lt;h3&gt;組裝這個物件的重點我認為是在零件的順序和Dummy放置的位置，嘗試了兩天終於作了出來，對零件的從屬關係有比較OK了，有學會dummy的應用，再來就是把這些統整可以試著弄我們的 printer。&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/18</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050718.html" rel="alternate"></link><updated>2016-07-18T19:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-18:blog/40323230ri-zhi-1050718.html</id><summary type="html">&lt;p&gt;改寫Python-Solvespace的Makefile運作方式。&lt;/p&gt;
+&lt;p&gt;之後要再找找看gcc和g++的編譯範例。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/18</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050718.html" rel="alternate"></link><updated>2016-07-18T19:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-18:blog/40323230ri-zhi-1050718.html</id><summary type="html">&lt;p&gt;改寫Python-Solvespace的Makefile運作方式。&lt;/p&gt;
 
 
 &lt;h2&gt;前言 :&lt;/h2&gt;
@@ -3548,86 +3902,7 @@ class STrimBy {
 &lt;hr&gt;
 
 &lt;p&gt;Makefile和cmake的CMakelist.txt一樣都是工程師自己要創建的，所以又是一項工程，不過除了一些內定代號，其他都滿好理解的。&lt;/p&gt;
-&lt;p&gt;找了一下Python-Solvespace相關的網站，但是內容都好少。不過在Github的說明已經滿詳盡了，只是倉儲內的資料時間有點久遠，所以要花些時間偵錯。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="Python-Solvespace"></category></entry><entry><title>40323218日誌 - 105/07/15</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050715.html" rel="alternate"></link><updated>2016-07-15T23:31:12+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323218ri-zhi-1050715.html</id><summary type="html">&lt;p&gt;V-rep 程式應用&lt;/p&gt;
-
-
-&lt;h2&gt;從 irb360 程式中找尋可能用到的並嘗試解釋和整理。 &lt;/h2&gt;
-
-&lt;p&gt;&lt;br&gt;
-&lt;h3&gt;
-simGetObjectHandle - 對物件命名&lt;br&gt;
-&lt;br&gt;
-用法： number objectHandle=simGetObjectHandle(string objectName)&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-simSetJointTargetPosition - 設置目標位置(if the joint is in torque/force mode)(motor and position control are enabled)&lt;br&gt;
-&lt;br&gt;
-用法： number result=simSetJointTargetPosition(number objectHandle,number targetPosition)&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-simGetJointPosition - 得到軸的位置(不能使用在關節上 , 用simGetJointMatrix取代)&lt;br&gt;
-&lt;br&gt;
-用法： number position=simGetJointPosition(number objectHandle)&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-simSwitchThread - 轉換到另一個程式&lt;br&gt;
-&lt;br&gt;
-用法： number result=simSwitchThread()&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-simAddStatusbarMessage - 增加一則訊息到狀態欄&lt;br&gt;
-&lt;br&gt;
-用法： number result=simAddStatusbarMessage(string message)&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-simSetIkElementProperties - 設置性質的特定反向運動元素&lt;br&gt;
-&lt;br&gt;
-用法：  number result=simSetIkElementProperties(number ikGroupHandle,number tipDummyHandle,number constraints,table_2 precision=nil,table_2 weight=nil&lt;br&gt;
-&lt;br&gt;
-補充：  IK = Inverse kinematics(在左邊功能區第三個裡)&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-simSetJointMode - 設置joint的操作模式&lt;br&gt;
-&lt;br&gt;
-用法：  number result=simSetJointMode(number jointHandle,number jointMode,number options)&lt;br&gt;
-&lt;br&gt;
-補充：  option(現在設定為0是可以被使用，如果設定為1會啟用hybrid mode)&lt;br&gt;
-&lt;br&gt;
-jointMode&lt;br&gt; 
-sim_jointmode_passive&lt;br&gt;
-sim_jointmode_motion_deprecated&lt;br&gt;
-sim_jointmode_ik&lt;br&gt;
-sim_jointmode_ikdependent&lt;br&gt;
-sim_jointmode_dependent&lt;br&gt;
-sim_jointmode_force&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-simGetObjectAssociatedWithScript - 擷取角本附加到物體處理&lt;br&gt;
-&lt;br&gt;
-用法：  number objectHandle=simGetObjectAssociatedWithScript (number scriptHandle)&lt;br&gt;
-&lt;br&gt;
-補充：  scriptHandle = sim_handle_self&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;
-simRMLMoveToJointPositions - 在同一時間幾個關節一起使用Reflexxes Motion Library type IV移動（驅動）。這功能只能在child scripts中一個thread中運行（因為這是一個阻塞的操作），而且C-API的不可使用。&lt;br&gt;
-&lt;br&gt;
-用法：number result , table newPos , table newVel , table newAccel , number timeLeft =
-simRMLMoveToJointPositions ( table jointHandles , number flags , table currentVel , table currentAccel , table maxVel , table maxAccel , table maxJerk , table targetPos , table targetVel , table direction)&lt;br&gt;
-&lt;br&gt;
-補充：&lt;br&gt; 
-jointHandles: 要驅動的joint&lt;br&gt;
-flags: RML flags. -1 for default flags.&lt;br&gt;
-currentVel: the current velocity of the joints. Can be nil in which case a velocity vector of 0 is used.&lt;br&gt;
-currentAccel: the current acceleration of the joints. Can be nil in which case an acceleration vector of 0 is used.&lt;br&gt;
-maxVel: the maximum allowed velocity of the joints&lt;br&gt;
-maxAccel: the maximum allowed acceleration of the joints&lt;br&gt;
-maxJerk: the maximum allowed jerk of the joints&lt;br&gt;
-targetPos: the desired target positions of the joints&lt;br&gt;
-targetVel: the desired velocity of the joints at the target. Can be nil in which case a velocity vector of 0 is used.&lt;br&gt;
-direction: the desired rotation direction for cyclic revolute joints: 0 for the shortest distance, -x for a movement towards negative values, +x for a movement towards positive values (n=(x-1) represents the number of additional turns). Can be nil or omitted, in which case a value of 0 is used for all joints&lt;br&gt;
-&lt;br&gt;
-&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;(待補充)&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/15</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050715.html" rel="alternate"></link><updated>2016-07-15T19:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323230ri-zhi-1050715.html</id><summary type="html">&lt;p&gt;研究Python-Solvespace。&lt;/p&gt;
+&lt;p&gt;找了一下Python-Solvespace相關的網站，但是內容都好少。不過在Github的說明已經滿詳盡了，只是倉儲內的資料時間有點久遠，所以要花些時間偵錯。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/15</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050715.html" rel="alternate"></link><updated>2016-07-15T19:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323230ri-zhi-1050715.html</id><summary type="html">&lt;p&gt;研究Python-Solvespace。&lt;/p&gt;
 
 
 &lt;h2&gt;更新Anaconda3 :&lt;/h2&gt;
@@ -3716,95 +3991,7 @@ swig -c++ -python -py3 slvs.i
 &lt;h3&gt;2.常開型和常關型只有微動開關才有，所以光學開關一定要3調都接&lt;/h3&gt;
 &lt;/br&gt;
 &lt;h3&gt;今天進度&lt;/h3&gt;
-&lt;h4&gt;組裝 3DP，將缺少的材料抄寫下來，將跟工廠管理員詢問，使用VREP，看組員的所寫的網誌並實際操作&lt;/h4&gt;&lt;/p&gt;</summary><category term="3DP"></category></entry><entry><title>40323218日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-14T19:13:49+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323218ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
-
-
-&lt;h2&gt;翻譯文章重點&lt;/h2&gt;
-
-&lt;p&gt;&lt;br&gt;
-&lt;h2&gt;原文章網址：&lt;/h2&gt;
-&lt;p&gt;&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/buildingAModelTutorial.htm "&gt;http://www.coppeliarobotics.com/helpFiles/en/buildingAModelTutorial.htm &lt;/a&gt;&lt;/p&gt; 
-&lt;br&gt;
-&lt;h2&gt;Building the visible shapes：&lt;/h2&gt;
-&lt;br&gt;
-&lt;h3&gt;1. Automatic mesh division：&lt;br&gt;
-[Menu bar --&amp;gt; Edit --&amp;gt; Grouping/Merging --&amp;gt; Divide selected shapes]&lt;br&gt;
-(自動分割物件，有時候會無作用)&lt;br&gt;
-[Menu bar --&amp;gt; Edit -&amp;gt; Grouping/Merging --&amp;gt; Merge selected shapes]&lt;br&gt;(使選擇的物件組合在一起)&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;2. Extract the convex hull：&lt;br&gt;
-[Menu bar --&amp;gt; Edit --&amp;gt; Morph selection into convex shapes]&lt;br&gt;
-(使物件轉換成convex hull)&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;3. Decimate the mesh：&lt;br&gt;
-[Menu bar --&amp;gt; Edit --&amp;gt; Decimate selected shape...]&lt;br&gt;
-(減少mesh三角形量)&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;4. Remove the inside of the mesh：&lt;br&gt;
-[Menu bar --&amp;gt; Edit --&amp;gt; Extract inside of selected shape]&lt;br&gt;
-(此功能是基於視覺傳感器，可以依靠設定得到更多或更少滿意的結果。)&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;上述功能沒有先後順序(除了第一項應該先嘗試)，主要取決於我們如何嘗試精簡mesh。&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;下圖說明上述功能應用到imported mesh（沒有第一項）：&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/vrep1.png" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;再來我們要分割imported mesh，有兩種方式可使用。&lt;br&gt;&lt;br&gt;
-1. Automatic mesh division：跟上面一樣
-&lt;br&gt;
-2. Manual mesh division：這使用 triangle edit mode (左邊功能列第六個)，選擇你要的物體的三角形，再點 Extract shape，他會投影物件出來，再把原先選擇的三角形刪除。&lt;/h3&gt;
-&lt;br&gt;
-&lt;h2&gt;Building the joints&lt;/h2&gt;&lt;br&gt;
-&lt;h3&gt;再來我們要創建 joint，先 import mesh，使用 triangle edit mode 使物件三角形化。&lt;/h3&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/vrep2.png" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;我們需要使 joint 在圓心中間，所以我們點選圓形的三角形，點選 Extract cylinder 或 Extract shape ，他會在選擇的三角形上投影一個圓形出來。&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt; 右鍵→Add→Joint→Revolute(創建一個Revolute joint)，
-再來我們點Revolute joint、Ctrl點投影的圓型，點 Position/Translation 按鈕，然後在 Object/item position section裡，我們點 Apply to selection (使兩物體位置相同)。再來我們點Orientation/Rotation 按鈕，然後在Object/item orientation section裡，我們點 Apply to selection(使兩物體坐標軸相同)。&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/vrep3.png" weight=600 &gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/vrep4.png" weight=600 &gt;
-&lt;br&gt;
-&lt;h2&gt;Building the dynamic shapes&lt;/h2&gt;
-&lt;br&gt;
-&lt;h3&gt;如果我們想要使 Robot 作動，那麼我們就需要適當地創建/配置形狀。形狀可以是：&lt;br&gt;&lt;br&gt;
-1. dynamic or static：&lt;br&gt;
-dynamic 是動態，如果這個形狀是動態的，它將會有重量會往下掉，也會對力/力矩造成影響。&lt;br&gt;
-static是靜態，他跟 dynamic 相反，他會固定在位置上或隨著
-運動移動。&lt;br&gt;&lt;br&gt;
-2. respondable or non-respondable：&lt;br&gt;
-respondable shape 是會跟其他的 respondable shape 造成碰撞效應，他們或其對撞機，將會影響其運動(如果它們是動態的) 。&lt;br&gt;non-respondable shapes 是相反，他們不會造成碰撞運動。&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;respondable shape應盡可能簡單，以允許快速和穩定的模擬。一個物理引擎將能夠模擬以下5種不同程度的速度和穩定的形狀：&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;1. Pure shapes：&lt;br&gt;
- [Menu bar --&amp;gt; Add --&amp;gt; Primitive shape]&lt;br&gt;
-一個Pure shapes是穩定的，並由物理引擎非常有效地處理。Pure shapes在幾何限制：大部分長方體，圓柱體或球體。&lt;br&gt;
-&lt;br&gt;
-2. Pure compound shapes：&lt;br&gt;
- [Menu bar --&amp;gt; Edit --&amp;gt; Grouping/Merging --&amp;gt; Group selected shapes]&lt;br&gt;
-它是由多個Pure shape組合而成的，功能跟Pure shape雷同。
-&lt;br&gt;
-&lt;br&gt;
-3. Convex shapes：&lt;br&gt;
-[Menu bar --&amp;gt; Add --&amp;gt; Convex hull of selection] &lt;br&gt;
-[Menu bar --&amp;gt; Edit --&amp;gt; Morph selection into convex shapes]&lt;br&gt;
-Convex shapes會有點不太穩定，當物理引擎處理時需要多一點點計算時間。它允許一個比純形狀更一般的幾何形狀（唯一的要求：它必須是 convex）。
-&lt;br&gt;
-&lt;br&gt;
-4. Compound convex shapes, or convex decomposed shapes&lt;br&gt;
- [Menu bar --&amp;gt; Edit --&amp;gt; Grouping/Merging --&amp;gt; Group selected shapes]&lt;br&gt;
-[Menu bar --&amp;gt; Add --&amp;gt; Convex decomposition of selection...]&lt;br&gt;
-[Menu bar --&amp;gt; Edit --&amp;gt; Morph selection into its convex decomposition...]&lt;br&gt;
-它是由多個convex shapes組合而成的，功能跟convex shapes雷同。
-&lt;br&gt;
-&lt;br&gt;
-5. Random shapes：&lt;br&gt;
-一個Random shapes是一個形狀不是convex也不是pure。它一般具有性能差（計算速度和穩定性）。盡可能地避免使用隨機的形狀。&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;因此，優先順序是：pure shapes → pure compound shapes → convex shapes → compound convex shapes → random shapes。&lt;/h3&gt;&lt;br&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-14T19:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323230ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;試圖解決SWIG問題&lt;/p&gt;
+&lt;h4&gt;組裝 3DP，將缺少的材料抄寫下來，將跟工廠管理員詢問，使用VREP，看組員的所寫的網誌並實際操作&lt;/h4&gt;&lt;/p&gt;</summary><category term="3DP"></category></entry><entry><title>40323230日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-14T19:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323230ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;試圖解決SWIG問題&lt;/p&gt;
 
 
 &lt;h2&gt;撰寫批次檔 :&lt;/h2&gt;
@@ -4202,38 +4389,7 @@ static PyObject* mod_score(PyObject *self, PyObject *args)
 
 &lt;p&gt;Leo的搜尋功能和復原功能真的不太實在。常常搜尋時就跳到其他Node去，搜尋目標也要每次都重新調整；復原直接還原到存檔前的樣子，所以用它來編譯程式真的滿吃力的。&lt;/p&gt;
 &lt;p&gt;這次使用的是Python，所以SciTE和只能寫C語言的NetBeans幫不上忙，因為無法呼叫Python.h。說不定設定環境係數可以奏效？&lt;/p&gt;
-&lt;p&gt;不然只靠Leo編輯，它的函式分類也不是很清楚，常常不知道Python.h中的函式原型用法是甚麼，不像NetBeans可以連進去查看stdio.h或是windows.h所引用的函式。&lt;/p&gt;</summary><category term="Kmol"></category><category term="CDemo"></category></entry><entry><title>40323218日誌 - 105/07/11</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050711.html" rel="alternate"></link><updated>2016-07-11T17:45:41+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323218ri-zhi-1050711.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
-
-
-&lt;h4&gt;嘗試四連桿機構&lt;/h4&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;h1&gt;&lt;h3&gt;理想狀態：&lt;/h3&gt;&lt;/h1&gt;
-&lt;h1&gt;&lt;br&gt;&lt;/h1&gt;
-&lt;h3&gt;前期嘗試：&lt;/h3&gt;
-
-&lt;p&gt;&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/before.gif" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;前期階級排列：&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step10.png" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;查詢資料：&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step11.png" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;(在兩個dynamic item之間不能有static item)&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;修改後：&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step12.png" weight=600 &gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/after.gif" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;未來嘗試：製作搖擺機構&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;參考網站：http://www.coppeliarobotics.com/helpFiles/en/jointDescription.htm &lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230練習 - 105/07/10</title><link href="http://project.mde.tw/blog/40323230lian-xi-1050710.html" rel="alternate"></link><updated>2016-07-10T19:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-10:blog/40323230lian-xi-1050710.html</id><summary type="html">&lt;p&gt;由於不熟悉動態連結庫的運作方式，先練習C語言呼叫動態連結庫，之後再研究python的方式。&lt;/p&gt;
+&lt;p&gt;不然只靠Leo編輯，它的函式分類也不是很清楚，常常不知道Python.h中的函式原型用法是甚麼，不像NetBeans可以連進去查看stdio.h或是windows.h所引用的函式。&lt;/p&gt;</summary><category term="Kmol"></category><category term="CDemo"></category></entry><entry><title>40323230練習 - 105/07/10</title><link href="http://project.mde.tw/blog/40323230lian-xi-1050710.html" rel="alternate"></link><updated>2016-07-10T19:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-10:blog/40323230lian-xi-1050710.html</id><summary type="html">&lt;p&gt;由於不熟悉動態連結庫的運作方式，先練習C語言呼叫動態連結庫，之後再研究python的方式。&lt;/p&gt;
 
 
 &lt;h2&gt;編譯出C的動態連結庫 :&lt;/h2&gt;
@@ -4962,76 +5118,7 @@ double solve_minangle(int lim, int a, int b, int r)
 &lt;hr&gt;
 
 &lt;p&gt;使用一款未接觸過的軟體，都會先研究它的介面和基本操作方式還有額外的設定，不過有些專業用詞不知道影響的關聯性。&lt;/p&gt;
-&lt;p&gt;以前只用過Visual Studio撰寫和測試一些簡單的程式，對這種大型的架構瞭解較少，應該會再找些相關資訊學習。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323218日誌 - 105/07/04</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050704.html" rel="alternate"></link><updated>2016-07-04T22:26:52+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323218ri-zhi-1050704.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
-
-
-&lt;h3&gt;熟悉 V-Rep 基本操作&lt;/h3&gt;
-
-&lt;p&gt;&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/introduce1.PNG"&gt;
-&lt;br&gt;
-&lt;h3&gt;1. 2D移動&lt;br&gt;
-2. 3D旋轉&lt;br&gt;
-3. 遠近&lt;br&gt;
-4. 移動畫面至物體&lt;br&gt;
-5. 物體定位(x,y,z)&lt;br&gt;
-6. 物體旋轉(x,y,z)&lt;br&gt;
-7. 開始模擬&lt;br&gt;
-8. 暫停模擬&lt;br&gt;
-9. 結束模擬&lt;br&gt;
-10. 慢速&lt;br&gt;
-11. 加速&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;嘗試製作 one_link_robot&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step1.png" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;File→import→Mesh...(從資料夾中輸入 stl檔)&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;選擇單位和方向&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step3.png" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;點選物體使用"object shift"調整Z軸距離&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;點選物體 右鍵→Edit→Grouping/Merging→Divide selected shapes(使物體解體)&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;右鍵→Add→Joint→Revolute(增加旋轉軸)&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;連點兩下Revolute icon 打開 Scene Object Properties , 下面 Visual properties修改旋轉軸的長和直徑&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;接著點下面 Show dynamic properties dialog , 打勾Motor enabled 和 Lock motor ...
-&lt;br&gt;
-&lt;h3&gt;再來點旋轉軸 , Ctrl+左鍵點圓柱 , 使用"object shift"在XYZ都點Apply to selection , 在"Orientation/Rotations"也點 Apply , 使兩軸重疊&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step6.png" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;點選圓柱 icon , 點最下面Show dynamic properties dialog , 打勾Body is dynamic(使物體可作動)
-&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step7.png" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;
-使圓柱降階成為旋轉軸的Child&lt;br&gt;
-使旋轉物降階成為圓柱的Child&lt;br&gt;
-使旋轉軸降階成為底座的Child&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step8.png" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;按左側"Script" →Insert new script→Script type 選擇 Child script (threaded) , 下方 Associated object 選擇底座.&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step9.png" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;double - click the child script,  在最下面加上SimExtRemoteApiStart(19999)(參考老師範例研究中) &lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/Round.gif" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;點選"Start simulation" 啟動模擬 , 用SciTE 開啟老師的檔案 one_link_robot_remoteAPI.py , F5執行就會轉囉~~&lt;/h3&gt;&lt;/p&gt;
-&lt;h3&gt;製作影片：&lt;/h3&gt;
-
-&lt;iframe src="https://player.vimeo.com/video/173321561" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
-
-&lt;p&gt;&lt;p&gt;&lt;a href="https://vimeo.com/173321561"&gt;V-Rep one_link_robot&lt;/a&gt; from &lt;a href="https://vimeo.com/user44943624"&gt;Li Steven&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/04-2</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050704-2.html" rel="alternate"></link><updated>2016-07-04T19:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050704-2.html</id><summary type="html">&lt;p&gt;NetBeans的相關探索&lt;/p&gt;
+&lt;p&gt;以前只用過Visual Studio撰寫和測試一些簡單的程式，對這種大型的架構瞭解較少，應該會再找些相關資訊學習。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/04-2</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050704-2.html" rel="alternate"></link><updated>2016-07-04T19:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050704-2.html</id><summary type="html">&lt;p&gt;NetBeans的相關探索&lt;/p&gt;
 
 
 &lt;h2&gt;NetBeans設定 :&lt;/h2&gt;

@@ -610,7 +610,7 @@ LineSegment3d(Point3d a, Point3d b)
 LineSegment2d(Workplane wrkpl, Point2d a, Point2d b)
 </pre>
 
-<p>在兩個<code>Point2d/3d</code>點之間繪出直線條。</p>
+<p>在兩個<code>Point2d/3d</code>之間繪出直線條。</p>
 <p>代表兩個點之間的連線。</p>
 <h2><a name="Cubic"></a>Cubic</h2>
 <p><code>SLVS_E_CUBIC</code></p>
@@ -672,7 +672,7 @@ Slvs_MakeConstraint((h, group, type, wrkpl, valA, ptA, ptB, entityA, entityB,  e
 
 <h2><a name="C-Distance"></a>Distance <kbd>Val</kbd></h2>
 <h2><code>SLVS_C_PT_PT_DISTANCE</code></h2>
-<p><kbd>3D</kbd> Use the command:</p>
+<p><kbd>3D</kbd> 使用指令：</p>
 <pre class="brush: python">
 Constraint.distance(double value, Point3d p1, Point3d p2)
 </pre>

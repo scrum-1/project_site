@@ -112,9 +112,19 @@
 &lt;p&gt;SLVS Library is compose by C language, Although &lt;code&gt;slvs.py&lt;/code&gt; was translate to Python interface, but some function names has change.&lt;/p&gt;
 &lt;p&gt;So I record these function, that how to use in Python program.&lt;/p&gt;
 &lt;h2&gt;&lt;a name="CDemo"&gt;&lt;/a&gt;CDemo&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;To be compose ...&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;SolveSpace is an open source 2D / 3D computer-aided design and drafting software, from 2008 released the first version, compatible with Windows / Mac / Linux three platforms.&lt;/p&gt;
+&lt;p&gt;Has a small size, perform fast, free, and no installation features, STEP or STL support open, or exported into DXF, PDF, SVG and other open formats, also has its own text-based format &lt;code&gt;* .slvs&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;For updating, you can go to GitHub's [official storage] (https://github.com/solvespace/solvespace"github.com") or [unofficial storage] (https://github.com/whitequark/solvespace"github.com") to download the latest source code, the direct use of developer tools (such as GNU) compile the main program.&lt;/p&gt;
+&lt;p&gt;Solvespace has another small executable file named CDemo, compiled with source code of Solvespace.&lt;/p&gt;
+&lt;p&gt;You can use this external program call library of Solvespace &lt;code&gt;libslvs.dll&lt;/code&gt; be 2D or 3D computing problem-solving, and without starting Solvespace.&lt;/p&gt;
+&lt;p&gt;The concept of CDemo is be able to use an external program to call functions from Solvespace, whether it is using its maximum travel untied, the interference position. You can use this app without need to use CAD software to personally solving problems by you self.&lt;/p&gt;
 &lt;h2&gt;&lt;a name="SLVS"&gt;&lt;/a&gt;SLVS Library&lt;/h2&gt;
-&lt;p&gt;&lt;em&gt;To be compose ...&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;CDemo compiled from C language. Solvespace database using the C++ compiler is useful and fast of course, but the utilization of more limited.&lt;/p&gt;
+&lt;p&gt;Python language has a lot of custom modules, easy-reading function, and has another scopes in the Internet than the C language, if Solvespace use database conversion, will make these Python programs have online problem-solving ability, mechanical design in particular it is a lot easier.&lt;/p&gt;
+&lt;p&gt;In Python link library, &lt;code&gt;*.pyd&lt;/code&gt; is similar to C language dynamic load library &lt;code&gt;*.dll&lt;/code&gt; in Windows; &lt;code&gt;*.so&lt;/code&gt; is the most open operating systems (such as Ubuntu) in use. Advantage of &lt;code&gt;*.so&lt;/code&gt; is beneficial to share information, perform file and database separation, updated library more convenient.&lt;/p&gt;
+&lt;p&gt;Concept of the production Python-Solvespace is using SWIG to create a C ++ to Python port to make any use of Anaconda 3 (Python 3.5) of Python programs are able to use the library of Solvespace.&lt;/p&gt;
+&lt;p&gt;When Solvespace the function is converted into when Python interface, but also want to keep consistently fresh and understandable names for this language, so I especially reclassified these names and usage instructions.&lt;/p&gt;
+&lt;p&gt;Below the title is original name of the command code, the database using to identify the type of command.&lt;/p&gt;
 &lt;hr&gt;
 
 &lt;h1&gt;&lt;a name="START"&gt;&lt;/a&gt;Starting Draw and Solve&lt;/h1&gt;
@@ -998,7 +1008,7 @@ LineSegment3d(Point3d a, Point3d b)
 LineSegment2d(Workplane wrkpl, Point2d a, Point2d b)
 &lt;/pre&gt;
 
-&lt;p&gt;在兩個&lt;code&gt;Point2d/3d&lt;/code&gt;點之間繪出直線條。&lt;/p&gt;
+&lt;p&gt;在兩個&lt;code&gt;Point2d/3d&lt;/code&gt;之間繪出直線條。&lt;/p&gt;
 &lt;p&gt;代表兩個點之間的連線。&lt;/p&gt;
 &lt;h2&gt;&lt;a name="Cubic"&gt;&lt;/a&gt;Cubic&lt;/h2&gt;
 &lt;p&gt;&lt;code&gt;SLVS_E_CUBIC&lt;/code&gt;&lt;/p&gt;
@@ -1060,7 +1070,7 @@ Slvs_MakeConstraint((h, group, type, wrkpl, valA, ptA, ptB, entityA, entityB,  e
 
 &lt;h2&gt;&lt;a name="C-Distance"&gt;&lt;/a&gt;Distance &lt;kbd&gt;Val&lt;/kbd&gt;&lt;/h2&gt;
 &lt;h2&gt;&lt;code&gt;SLVS_C_PT_PT_DISTANCE&lt;/code&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;kbd&gt;3D&lt;/kbd&gt; Use the command:&lt;/p&gt;
+&lt;p&gt;&lt;kbd&gt;3D&lt;/kbd&gt; 使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
 Constraint.distance(double value, Point3d p1, Point3d p2)
 &lt;/pre&gt;

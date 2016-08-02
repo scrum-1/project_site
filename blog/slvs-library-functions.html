@@ -363,9 +363,19 @@ init_mathjax();
 <p>SLVS Library is compose by C language, Although <code>slvs.py</code> was translate to Python interface, but some function names has change.</p>
 <p>So I record these function, that how to use in Python program.</p>
 <h2><a name="CDemo"></a>CDemo</h2>
-<p><em>To be compose ...</em></p>
+<p>SolveSpace is an open source 2D / 3D computer-aided design and drafting software, from 2008 released the first version, compatible with Windows / Mac / Linux three platforms.</p>
+<p>Has a small size, perform fast, free, and no installation features, STEP or STL support open, or exported into DXF, PDF, SVG and other open formats, also has its own text-based format <code>* .slvs</code>.</p>
+<p>For updating, you can go to GitHub's [official storage] (https://github.com/solvespace/solvespace"github.com") or [unofficial storage] (https://github.com/whitequark/solvespace"github.com") to download the latest source code, the direct use of developer tools (such as GNU) compile the main program.</p>
+<p>Solvespace has another small executable file named CDemo, compiled with source code of Solvespace.</p>
+<p>You can use this external program call library of Solvespace <code>libslvs.dll</code> be 2D or 3D computing problem-solving, and without starting Solvespace.</p>
+<p>The concept of CDemo is be able to use an external program to call functions from Solvespace, whether it is using its maximum travel untied, the interference position. You can use this app without need to use CAD software to personally solving problems by you self.</p>
 <h2><a name="SLVS"></a>SLVS Library</h2>
-<p><em>To be compose ...</em></p>
+<p>CDemo compiled from C language. Solvespace database using the C++ compiler is useful and fast of course, but the utilization of more limited.</p>
+<p>Python language has a lot of custom modules, easy-reading function, and has another scopes in the Internet than the C language, if Solvespace use database conversion, will make these Python programs have online problem-solving ability, mechanical design in particular it is a lot easier.</p>
+<p>In Python link library, <code>*.pyd</code> is similar to C language dynamic load library <code>*.dll</code> in Windows; <code>*.so</code> is the most open operating systems (such as Ubuntu) in use. Advantage of <code>*.so</code> is beneficial to share information, perform file and database separation, updated library more convenient.</p>
+<p>Concept of the production Python-Solvespace is using SWIG to create a C ++ to Python port to make any use of Anaconda 3 (Python 3.5) of Python programs are able to use the library of Solvespace.</p>
+<p>When Solvespace the function is converted into when Python interface, but also want to keep consistently fresh and understandable names for this language, so I especially reclassified these names and usage instructions.</p>
+<p>Below the title is original name of the command code, the database using to identify the type of command.</p>
 <hr>
 
 <h1><a name="START"></a>Starting Draw and Solve</h1>

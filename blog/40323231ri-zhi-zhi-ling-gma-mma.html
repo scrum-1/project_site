@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>yen - Raspberry Pi 3 基本設定 - 機械設計專題 (虎尾科大MDE)</title>
+    <title>40323231日誌 - 指令(G碼、M碼...) - 機械設計專題 (虎尾科大MDE)</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -166,22 +166,21 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 
-<link rel="canonical" href="http://project.mde.tw/blog/yen-raspberry-pi-3-ji-ben-she-ding.html">
+<link rel="canonical" href="http://project.mde.tw/blog/40323231ri-zhi-zhi-ling-gma-mma.html">
 
-        <meta name="author" content="yen" />
-        <meta name="keywords" content="Python3,Raspberry Pi" />
-        <meta name="description" content="Raspberry Pi 3 Model B 終於在 2016 年 2 月推出了, 這片採用 1.2GHz 64位元四核心 CPU ARMv8 晶片的卡片電腦, 將帶給機械設計專題更多應用的題目." />
+        <meta name="author" content="40323231" />
+        <meta name="keywords" content="3DP" />
+        <meta name="description" content="常用指令與解說" />
 
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="yen - Raspberry Pi 3 基本設定"/>
-        <meta property="og:url" content="http://project.mde.tw/blog/yen-raspberry-pi-3-ji-ben-she-ding.html"/>
-        <meta property="og:description" content="Raspberry Pi 3 Model B 終於在 2016 年 2 月推出了, 這片採用 1.2GHz 64位元四核心 CPU ARMv8 晶片的卡片電腦, 將帶給機械設計專題更多應用的題目."/>
-        <meta property="article:published_time" content="2016-03-22" />
-            <meta property="article:section" content="Misc" />
-            <meta property="article:tag" content="Python3" />
-            <meta property="article:tag" content="Raspberry Pi" />
-            <meta property="article:author" content="yen" />
+        <meta property="og:title" content="40323231日誌 - 指令(G碼、M碼...)"/>
+        <meta property="og:url" content="http://project.mde.tw/blog/40323231ri-zhi-zhi-ling-gma-mma.html"/>
+        <meta property="og:description" content="常用指令與解說"/>
+        <meta property="article:published_time" content="2016-08-02" />
+            <meta property="article:section" content="2016bg2" />
+            <meta property="article:tag" content="3DP" />
+            <meta property="article:author" content="40323231" />
 
 
     <!-- Bootstrap -->
@@ -262,13 +261,13 @@ init_mathjax();
                          <li><a href="http://project.mde.tw/blog/pages/about/">
                              About
                           </a></li>
-                        <li >
+                        <li class="active">
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
                         <li >
                             <a href="http://project.mde.tw/blog/category/2016g1.html">2016g1</a>
                         </li>
-                        <li class="active">
+                        <li >
                             <a href="http://project.mde.tw/blog/category/misc.html">Misc</a>
                         </li>
                         <li >
@@ -297,10 +296,10 @@ init_mathjax();
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="http://project.mde.tw/blog/yen-raspberry-pi-3-ji-ben-she-ding.html"
+                    <a href="http://project.mde.tw/blog/40323231ri-zhi-zhi-ling-gma-mma.html"
                        rel="bookmark"
-                       title="Permalink to yen - Raspberry Pi 3 基本設定">
-                        yen - Raspberry Pi 3 基本設定
+                       title="Permalink to 40323231日誌 - 指令(G碼、M碼...)">
+                        40323231日誌 - 指令(G碼、M碼...)
                     </a>
                 </h1>
             </header>
@@ -310,80 +309,102 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-03-22T01:20:00+08:00"> 週二 22 三月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-08-02T14:00:00+08:00"> 週二 02 八月 2016</time>
     </span>
             <span class="label label-default">By</span>
-            <a href="http://project.mde.tw/blog/author/yen.html"><i class="fa fa-user"></i> yen</a>
+            <a href="http://project.mde.tw/blog/author/40323231.html"><i class="fa fa-user"></i> 40323231</a>
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://project.mde.tw/blog/tag/python3.html">Python3</a>
-        /
-	<a href="http://project.mde.tw/blog/tag/raspberry-pi.html">Raspberry Pi</a>
+	<a href="http://project.mde.tw/blog/tag/3dp.html">3DP</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p><a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b/">Raspberry Pi 3 Model B</a> 終於在 2016 年 2 月推出了, 這片採用 1.2GHz 64位元四核心 CPU ARMv8 晶片的卡片電腦, 將帶給機械設計專題更多應用的題目.</p>
+                <p>常用指令與解說</p>
 
 
-<h2>raspbian 安裝</h2>
-<p>首先, 為了簡化新的 Raspberry Pi 3 安裝 <a href="https://www.raspberrypi.org/downloads/noobs/">https://www.raspberrypi.org/downloads/noobs/</a> 多重開機系統的過程, <a href="http://cadlab.mde.tw">http://cadlab.mde.tw</a> 特別採購一批支援 <a href="https://zh.wikipedia.org/zh-tw/HDMI">HDMI</a> 介面的電腦螢幕.</p>
-<p>由於 noobs 內含的 <a href="https://www.raspberrypi.org/downloads/raspbian/">https://www.raspberrypi.org/downloads/raspbian/</a> 與 Ubuntu 操作系統都屬於 Debian 系列, 因此未來幾年, 本地端與區域網路上的伺服器, 都將安裝 Ubuntu 16.04 LTS, 而希望學生人手一塊的 Raspberry Pi 3, 就以安裝 noobs 為主.</p>
-<p>完成操作系統安裝後, 必須 enable SSH, 並且參考<a href="http://www.kenming.idv.tw/raspberry-pi_post-installation_and_zh-tw-locale_building">這裡</a>的說明, 安裝並設定中文系統.</p>
-<p>基本過程為:</p>
-<p>安裝繁體中文語系:</p>
-<p>$ sudo locale-gen zh_TW.UTF-8</p>
-<p>將 /etc/locale.gen 檔案內 # zh_TW.UTF-8 UTF-8 的註解# 拿掉:</p>
-<p>$ sudo vi /etc/locale.gen</p>
-<p>產生繁體中文語系:</p>
-<p>$ sudo locale-gen</p>
-<p>更改預設語系為 zh_TW.UTF-8:</p>
-<p>$ sudo vi /etc/default/locale
-LANG=zh_TW.UTF-8</p>
-<p>安裝繁體中文字型:</p>
-<p>$ sudo apt-get install ttf-wqy-microhei ttf-wqy-zenhei xfonts-wqy</p>
-<p>安裝 scim 注音輸入:</p>
-<p>$ sudo apt-get install scim scim-tables-zh scim-chewing</p>
-<h2>PYQt5 與 Leo Editor 安裝</h2>
-<p>因為 Raspberry Pi 3 在機械設計專題流程中仍以機電控制為主, 而且 raspbian 已經內建 Python3 與 pip3, 因此只要利用 sudo apt-get install python3-pyqt5 安裝 PyQt5 即可.</p>
-<p>只是在實際操作 sudo pip3 install https://github.com/leo-editor/leo-editor/archive/master.zip 時, 發現 Leo Editor 無法正確完成安裝, 最後只好下載 Leo Editor 原始碼, 並且將 leo 模組目錄, 直接放到 /usr/local/lib/python3.4/dist-packages 目錄下, 然後再利用 python3 launchLeo.py 啟動 Leo Editor.</p>
-<p>launchLeo.py 程式碼:</p>
-<pre class="brush: python">
-#!/usr/bin/env python
+<h3>常用指令</h3>
 
-""" Leo launcher script
-A minimal script to launch leo.
-"""
+<h4>G28 : 原點複歸</h4>
 
-import leo.core.runLeo
-leo.core.runLeo.run()
-</pre>
+<h4>G29 : 自動校正</h4>
 
-<h2>Raspberry Pi 無線網路設定</h2>
-<p>利用 sudo vi 編輯 /etc/wpa_supplicant/wpa_supplicant.conf, 並且採用下列格式, 將周遭卡片電腦移動時可能擷取的無線網路, 以並列的方式進行設定登記.</p>
-<p>格式:</p>
-<pre class="brush: bash">
-network={
-    ssid="net1"
-    psk="net1_wifi_password"
-    key_mgmt=WPA-PSK
-}
+<h4>G01 X70 Y60 Z5 : 快速定位  X70 Y60 高度5</h4>
 
-network={
-    ssid="net2"
-    psk="net2_wifi_password"
-    key_mgmt=WPA-PSK
-}
-</pre>
+<h4>M104 : 設定噴頭溫度</h4>
 
-<p>相關指令:</p>
-<p>sudo ifdown wlan0 (關閉無線網路)</p>
-<p>sudo ifup wlan0 (啟動無線網路)</p>
-<p>ifconfig (察看網路設定)</p>
-<h2>Webcam 拍照</h2>
-<p>請參考 <a href="https://www.raspberrypi.org/documentation/usage/webcams/">https://www.raspberrypi.org/documentation/usage/webcams/</a>, 讓 Raspberry Pi 可以帶著 Webcam, 以 Python3 程式控制拍照流程.</p>
-<p>至於安裝 OpenCV 與 Python3 的過程與 <a href="http://project.mde.tw/blog/yen-dao-ru-opencv-yu-python3.html">http://project.mde.tw/blog/yen-dao-ru-opencv-yu-python3.html</a> 中的說明完全相同, 一旦完成, Raspberry Pi 就可以與其他機構結合, 進行基本的影像辨識應用.</p>
+<h4>M105 : 查詢溫度(噴頭和熱床)</h4>
+
+<h4>M106 : 開啟風扇</h4>
+
+<h4>M107 : 關閉風扇</h4>
+
+<h4>M114 : 查詢目前位置(例如:X40 Y50 Z5)</h4>
+
+<h4>M119 : 查詢限位開關目前狀態</h4>
+
+<h4>M500 : 儲存參數</h4>
+
+<p><br>
+<h3>字母定義</h3>
+<h4>G:範例說明</h4>
+<h4>M:範例說明</h4>
+<h4>T:選擇工具，單一噴頭所以無用</h4>
+<h4>S:命令參數，如電壓，控制轉速、溫度等等</h4>
+<h4>P:命令參數，多少毫秒</h4>
+<h4>F:每分鐘進給(毫米)</h4>
+<h4>E:擠出材料的長度(毫米)</h4>
+<br>
+<h3>其他指令說明</h3>
+<h4>G4的：暫停</h4>
+<h4>例如：G4 P200</h4>
+<h4>在這種狀態下暫停200秒不工作。在延時時的機器狀態下(例如:擠出機溫度)仍然會被保留和控制。</h4>
+<h4>G20 設定從現在開始為英寸</h4>
+<h4>G21 設定從現在開始為毫米</h4>
+<h4>G90 從現在開始，所有的座標都是絕對座標</h4>
+<h4>G91 設定現在位置為原點，之後的都為相對座標</h4></p>
+<h4>M0 停止</h4>
+
+<h4>M18 禁止所有步進馬達</h4>
+
+<h4>M20：列出SD卡</h4>
+
+<h4>M21：初始化SD卡</h4>
+
+<h4>M22：釋放SD卡</h4>
+
+<h4>M23：選擇SD文件</h4>
+
+<h4>M24：啟動/恢復SD列印</h4>
+
+<h4>M25：暫停SD列印</h4>
+
+<h4>M26：設置的SD位置</h4>
+
+<h4>M27：報告SD列印狀態</h4>
+
+<h4>M28：開始寫入到SD卡</h4>
+
+<h4>M29：停止向SD卡寫入</h4>
+
+<h4>M42：用盡材料時停止(XY回歸原點但Z沒有，關閉所有電器和加熱器，要重新開始必須複歸，之後繼續列印)</h4>
+
+<h4>M43: 用盡材料時等待(與M42相似，可是M43還可以下指令如G碼和M碼)</h4>
+
+<h4>M101:正轉啟動擠出馬達</h4>
+
+<h4>M102:逆向啟動擠出馬達</h4>
+
+<h4>M109:設定擠出溫度</h4>
+
+<h4>M112：緊急停止(全部動作停止包括電器關閉)</h4>
+
+<h4>M113：設定擠出機的的PWM，例如:M113 S0.7，設定為擠出機70%速度，未用過猜測與軟體內的流量設定相同功用</h4>
+
+<h4>M303 S200 C8 : 設定目標溫度200，並做8次震盪</h4>
+
+<p><a href = "http://www.simplyalt.com/atom/viewthread.php?tid=1560&highlight=PID"> 震盪參考 </a></p>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -395,8 +416,8 @@ network={
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'projectmdetw'; // required: replace example with your forum shortname
 
-                    var disqus_identifier = 'yen-raspberry-pi-3-ji-ben-she-ding';
-                var disqus_url = 'http://project.mde.tw/blog/yen-raspberry-pi-3-ji-ben-she-ding.html';
+                    var disqus_identifier = '40323231ri-zhi-zhi-ling-gma-mma';
+                var disqus_url = 'http://project.mde.tw/blog/40323231ri-zhi-zhi-ling-gma-mma.html';
 
             var disqus_config = function () {
                 this.language = "en";

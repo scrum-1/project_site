@@ -115,6 +115,8 @@
 &lt;p&gt;&lt;em&gt;To be compose ...&lt;/em&gt;&lt;/p&gt;
 &lt;h2&gt;&lt;a name="SLVS"&gt;&lt;/a&gt;SLVS Library&lt;/h2&gt;
 &lt;p&gt;&lt;em&gt;To be compose ...&lt;/em&gt;&lt;/p&gt;
+&lt;hr&gt;
+
 &lt;h1&gt;&lt;a name="START"&gt;&lt;/a&gt;Starting Draw and Solve&lt;/h1&gt;
 &lt;p&gt;To use SLVS database must be converted through the &lt;code&gt;slvs.py&lt;/code&gt; interface.&lt;/p&gt;
 &lt;p&gt;Use the following command in your Python program:&lt;/p&gt;

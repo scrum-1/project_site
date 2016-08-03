@@ -306,8 +306,8 @@ qw, qx, qy, qz = MakeQuaternion(1, 0, 0, 0, 1, 0)
 normal = Normal3d(Param(qw), Param(qx), Param(qy), Param(qz), sys)
 
 #Make a working plane
-o = Point3d(Param(0.0), Param(0.0), Param(0.0))
-plane = Workplane(o, normal)
+c = Point3d(Param(0.0), Param(0.0), Param(0.0))
+plane = Workplane(c, normal)
 &lt;/pre&gt;
 
 &lt;p&gt;When creating 2D plane, using this formula is very convenient.&lt;/p&gt;
@@ -502,7 +502,7 @@ Constraint.on(Workplane wrkpl, Point p, Circle circle)
 &lt;/pre&gt;
 
 &lt;p&gt;A &lt;code&gt;Point2d&lt;/code&gt; will be fixed on a &lt;code&gt;Circle&lt;/code&gt;.&lt;/p&gt;
-&lt;h2&gt;&lt;a name="C-Equal"&gt;Equal&lt;/h2&gt;
+&lt;h2&gt;&lt;a name="C-Equal"&gt;&lt;/a&gt;Equal&lt;/h2&gt;
 &lt;h2&gt;&lt;code&gt;SLVS_C_EQUAL_LENGTH_LINES&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;kbd&gt;2D&lt;/kbd&gt; Use the command:&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
@@ -952,8 +952,8 @@ qw, qx, qy, qz = MakeQuaternion(1, 0, 0, 0, 1, 0)
 normal = Normal3d(Param(qw), Param(qx), Param(qy), Param(qz), sys)
 
 #做成工作平面
-o = Point3d(Param(0.0), Param(0.0), Param(0.0))
-plane = Workplane(o, normal)
+c = Point3d(Param(0.0), Param(0.0), Param(0.0))
+plane = Workplane(c, normal)
 &lt;/pre&gt;
 
 &lt;p&gt;這個公式在製作2D平面時非常方便。&lt;/p&gt;
@@ -1149,7 +1149,7 @@ Constraint.on(Workplane wrkpl, Point p, Circle circle)
 &lt;/pre&gt;
 
 &lt;p&gt;一個&lt;code&gt;Point2d&lt;/code&gt;會被固定在一個&lt;code&gt;Circle&lt;/code&gt;上。&lt;/p&gt;
-&lt;h2&gt;&lt;a name="C-Equal"&gt;Equal&lt;/h2&gt;
+&lt;h2&gt;&lt;a name="C-Equal"&gt;&lt;/a&gt;Equal&lt;/h2&gt;
 &lt;h2&gt;&lt;code&gt;SLVS_C_EQUAL_LENGTH_LINES&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;kbd&gt;2D&lt;/kbd&gt; 使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;

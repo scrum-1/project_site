@@ -554,8 +554,8 @@ qw, qx, qy, qz = MakeQuaternion(1, 0, 0, 0, 1, 0)
 normal = Normal3d(Param(qw), Param(qx), Param(qy), Param(qz), sys)
 
 #做成工作平面
-o = Point3d(Param(0.0), Param(0.0), Param(0.0))
-plane = Workplane(o, normal)
+c = Point3d(Param(0.0), Param(0.0), Param(0.0))
+plane = Workplane(c, normal)
 </pre>
 
 <p>這個公式在製作2D平面時非常方便。</p>
@@ -751,7 +751,7 @@ Constraint.on(Workplane wrkpl, Point p, Circle circle)
 </pre>
 
 <p>一個<code>Point2d</code>會被固定在一個<code>Circle</code>上。</p>
-<h2><a name="C-Equal">Equal</h2>
+<h2><a name="C-Equal"></a>Equal</h2>
 <h2><code>SLVS_C_EQUAL_LENGTH_LINES</code></h2>
 <p><kbd>2D</kbd> 使用指令：</p>
 <pre class="brush: python">

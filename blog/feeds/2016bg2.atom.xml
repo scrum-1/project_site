@@ -53,7 +53,7 @@ if __name__ == '__main__':
 
 &lt;p&gt;今天花太多時間檢查ZeroMQ (libzmq)的安裝狀態，因為不同語言的需求好像都不一樣，Python已經包含在pyzmq中（Windows版本應該是如此，但是Linux要另外裝和設定lib位置）；而C語言是安裝後從安裝位置include。&lt;/p&gt;
 &lt;p&gt;而ZeroMQ也能導入Python中，不過Scoop給的指令更方便。&lt;/p&gt;
-&lt;p&gt;關於Scoop的說明和介紹資料好像滿少的，網路方面不知道如何架設。&lt;/p&gt;</summary><category term="Kmol"></category><category term="pyScoop"></category></entry><entry><title>40323231日誌 - 指令(G碼、M碼...)</title><link href="http://project.mde.tw/blog/40323231ri-zhi-zhi-ling-gma-mma.html" rel="alternate"></link><updated>2016-08-02T14:00:00+08:00</updated><author><name>40323231</name></author><id>tag:project.mde.tw,2016-08-02:blog/40323231ri-zhi-zhi-ling-gma-mma.html</id><summary type="html">&lt;p&gt;常用指令與解說&lt;/p&gt;
+&lt;p&gt;關於Scoop的說明和介紹資料好像滿少的，而網路方面不知道如何架設。&lt;/p&gt;</summary><category term="Kmol"></category><category term="pyScoop"></category></entry><entry><title>40323231日誌 - 指令(G碼、M碼...)</title><link href="http://project.mde.tw/blog/40323231ri-zhi-zhi-ling-gma-mma.html" rel="alternate"></link><updated>2016-08-02T14:00:00+08:00</updated><author><name>40323231</name></author><id>tag:project.mde.tw,2016-08-02:blog/40323231ri-zhi-zhi-ling-gma-mma.html</id><summary type="html">&lt;p&gt;常用指令與解說&lt;/p&gt;
 
 
 &lt;h3&gt;常用指令&lt;/h3&gt;

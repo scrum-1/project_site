@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g3.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-04T15:00:00+08:00</updated><entry><title>40323214日誌-Opencv範例</title><link href="http://project.mde.tw/blog/40323214ri-zhi-opencvfan-li.html" rel="alternate"></link><updated>2016-08-04T15:00:00+08:00</updated><author><name>40323214</name></author><id>tag:project.mde.tw,2016-08-04:blog/40323214ri-zhi-opencvfan-li.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;h3&gt;一.Windows執行範例程式&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;h4&gt;1.範例程式&lt;/h4&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;pre class="brush: bash"&gt;
+import cv2
+import sys
+
+cascPath = "haarcascade_frontalface_default.xml"
+faceCascade = cv2.CascadeClassifier(cascPath)
+
+video_capture = cv2.VideoCapture(0)
+
+while True:
+    # 逐一以影格取像
+    ret, frame = video_capture.read()
+
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    faces = faceCascade.detectMultiScale(
+        gray,
+        scaleFactor=1.1,
+        minNeighbors=5,
+        minSize=(30, 30),
+        flags=cv2.CASCADE_SCALE_IMAGE
+     )
+
+    # 在辨識的臉形外圍畫一個矩形
+    for (x, y, w, h) in faces:
+        cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+
+    # 呈現影像
+    cv2.imshow('Video', frame)
+
+    if cv2.waitKey(1) &amp; 0xFF == ord('q'):
+        break
+
+# 停止執行
+video_capture.release()
+cv2.destroyAllWindows()
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;h4&gt;2.執行結果&lt;/h4&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/H6NpM2F.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;二.網路上的相關範例&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;pre class="brush: bash"&gt;
+import cv2
+from webcam_gui import webcam_gui
+
+def imgproc(frame):
+
+    # convert color to gray scale and show it
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+    cv2.imshow('gray', gray)
+
+    blur = cv2.blur(gray, (5,5))
+    edge = cv2.Canny(blur, 30, 100)
+    edge = cv2.blur(edge, (2,2))
+    cv2.imshow('blured edge', edge)
+
+
+    # convert image to black and white and show it
+    thresh1, thresh = cv2.threshold(edge, 60, 255, cv2.THRESH_BINARY)
+    cv2.imshow('thresh', thresh)
+
+    # find contours!
+    _,contours, hry = cv2.findContours(thresh, cv2.RETR_TREE, cv2.CHAIN_APPROX_SIMPLE)
+
+    # draw all the contours
+    cpframe = frame.copy()
+    cv2.drawContours(cpframe, contours, -1, (0,255,0), 3)
+    cv2.imshow('cpframe', cpframe)
+
+    # ================== TODO ===================
+
+    # Modify these code to suit your need
+    contours = [ctr for ctr in contours if cv2.contourArea(ctr) &gt; 100]
+    contours = [cv2.approxPolyDP(ctr, 5 , True) for ctr in contours]
+    contours = [ctr for ctr in contours if cv2.isContourConvex(ctr)]
+
+    # ============================================
+
+
+    # draw on the frame
+    cv2.drawContours(frame, contours, -1, (0,255,0), 3)
+
+    return frame
+
+if __name__ == "__main__":
+    webcam_gui(imgproc, video_src=0)
+
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;h4&gt;1.執行結果&lt;/h4&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/J9Z93mG.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;三.執行範例後心得&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;h3&gt;執行老師範例後，配合視訊裝置，可以呼叫出影像，並且進行人臉辨識。另外，我也在網路上查詢了其他相關範例，但程式碼更為複雜難懂，而網路上的範例是使用python2.x版本，所以必須換成python3的版本。
+&lt;/br&gt;
+&lt;/br&gt;
+由於剛接觸到程式以及Opencv，所以有很多範例的程式碼是尚未瞭解的。
+&lt;/br&gt;
+&lt;/br&gt;
+因此，我從Opencv的基礎語法中開始學習，包含cv2.imread()，cv2.imshow()，cv2.imwrite()等，先從如何呼叫圖片視窗，再到呼叫影片視窗。
+&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;四.目前碰到的問題&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;
+1.不知道如何學習範例程式中的辨識輪廓部分，以及辨識輪廓的數值是從何處來的。
+&lt;/br&gt;
+&lt;/br&gt;
+2.有些程式中會提到Xml檔案，但不知道是如何製作出來。
+&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;五.參考的網頁資料&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;
+1.拍.電.視.時間Github範例程式:https://github.com/fatcloud/PyCV-time
+&lt;/br&gt;
+&lt;/br&gt;
+2.OpenCv基礎語法學習網頁:http://docs.opencv.org/3.0-beta/doc/py_tutorials/py_gui/py_table_of_contents_gui/py_table_of_contents_gui.html
+&lt;/br&gt;
+&lt;/br&gt;
+3.大兵萊恩學習OpenCv路程:http://gogoprivateryan.blogspot.tw/2015/09/opencv-3-opencv-python-face-recognition.html
+&lt;/br&gt;
+&lt;/br&gt;
+4.Python2 to Python3程式改變部分:https://docs.python.org/2/library/2to3.html&lt;/p&gt;</summary><category term="OpenCv"></category></entry><entry><title>40323214日誌-Opencv範例</title><link href="http://project.mde.tw/blog/40323214ri-zhi-opencvfan-li.html" rel="alternate"></link><updated>2016-08-02T14:00:00+08:00</updated><author><name>40323214</name></author><id>tag:project.mde.tw,2016-08-02:blog/40323214ri-zhi-opencvfan-li.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;h4&gt;Windows執行老師範例&lt;/h4&gt;
+
+&lt;h3&gt;範例程式1&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;pre class="brush: bash"&gt;
+import cv2
+import sys&lt;/p&gt;
+&lt;p&gt;cascPath = "haarcascade_frontalface_default.xml"
+faceCascade = cv2.CascadeClassifier(cascPath)&lt;/p&gt;
+&lt;p&gt;video_capture = cv2.VideoCapture(0)&lt;/p&gt;
+&lt;p&gt;while True:
+    # 逐一以影格取像
+    ret, frame = video_capture.read()&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+faces = faceCascade.detectMultiScale(
+    gray,
+    scaleFactor=1.1,
+    minNeighbors=5,
+    minSize=(30, 30),
+    flags=cv2.CASCADE_SCALE_IMAGE
+ )
+
+# 在辨識的臉形外圍畫一個矩形
+for (x, y, w, h) in faces:
+    cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+
+# 呈現影像
+cv2.imshow(&amp;#39;Video&amp;#39;, frame)
+
+if cv2.waitKey(1) &amp;amp; 0xFF == ord(&amp;#39;q&amp;#39;):
+    break
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;h1&gt;停止執行&lt;/h1&gt;
+&lt;p&gt;video_capture.release()
+cv2.destroyAllWindows()
+&lt;/pre&gt;
+&lt;h3&gt;執行結果&lt;/h3&gt;
+&lt;img src="http://i.imgur.com/H6NpM2F.png"&gt;
+&lt;/br&gt;
+&lt;h4&gt;網路上的相關範例&lt;/h4&gt;
+&lt;h3&gt;&lt;/h3&gt;&lt;/p&gt;
+&lt;h3&gt;執行範例後心得&lt;/h3&gt;
+
+&lt;h3&gt;執行老師範例後，配合視訊裝置，可以呼叫出影像，並且進行人臉辨識。
+&lt;/br&gt;
+但對於剛接觸到程式和Opencv的我來說，有很多基本的語法和架構我都還沒有弄懂，所以在網路上查詢了其他相關範例。
+&lt;/h3&gt;</summary><category term="Opcv"></category></entry></feed>

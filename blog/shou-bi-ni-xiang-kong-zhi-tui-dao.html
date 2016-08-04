@@ -337,24 +337,23 @@ init_mathjax();
 <p>$$\theta_\alpha = cos^{-1}(\frac{x^2+y^2+L1^2-L2^2}{2\times L1\times \sqrt{x^2+y^2}})$$</p>
 <h6>大軸旋轉的角度</h6>
 
-<p>$$\theta_2 = \theta_n + \theta_\alpha$$</p>
+<p>$$\theta_2 = 90 - (\theta_n + \theta_\alpha)$$</p>
 <h6>小軸旋轉的角度</h6>
 
-<p>$$\theta_3 = \theta_T + \theta_2$$</p>
+<p>$$\theta_3 = \theta_T - \theta_2$$</p>
 <h3>python 方程式推導</h3>
 
 <pre class="brush: python">
-
 import math
 from math import *
 
 L1 = 135.0
 L2 = 145.0
 
-#X ,Y= 要到的點
+#X ,Y= 0,0
 
-x = -189.443
-y = -58.074
+x =120.0
+y = 10.0
 
 theate = float((x*x+y*y-L1*L1-L2*L2)/(2*L1*L2))
 
@@ -365,10 +364,9 @@ tha = math.degrees(rad)
 #tha為算出來的角度
 print("算出來的",tha)
 
+###
+##test==================
 
-###大小轉軸的計算==================
-
-#公式為這兩行
 #thn = arcos(x/(sqrt(x^2+y^2)))
 #tha = (x^2+y^2+L1^2+L2^2)/(2(sqrt(x^2+y^2)*L1))
 
@@ -383,11 +381,15 @@ theatalpha = math.degrees(theatalphar)
 print("theatalpha角度",theatalpha)
 
 #theata2 = theatan + theatAlpha
-theata2 = theatan+theatalpha
+#theata2大軸轉的角度
+test = theatan+theatalpha
+theata2 = 90- test
 print("theata2",theata2)
 #theata3 = tha - theata2
-theata3 = tha - theata2
+#theata3小軸轉的角度
+theata3 = tha - test
 print("theata3",theata3)
+
 </pre>
             </div>
             <!-- /.entry-content -->
@@ -449,13 +451,13 @@ print("theata3",theata3)
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html">
-                            user - 使用者的範例網誌文章標題
+                        <a href="http://project.mde.tw/blog/40323231ri-zhi-zhi-ling-gma-mma.html">
+                            40323231日誌 - 指令(G碼、M碼...)
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323218ri-zhi-1050719.html">
-                            40323218日誌 - 105/07/19
+                        <a href="http://project.mde.tw/blog/slvs-cheng-shi-ku-han-shi.html">
+                            SLVS 程式庫函式
                         </a>
                     </li>
                 </ul>

@@ -12,24 +12,23 @@
 &lt;p&gt;$$\theta_\alpha = cos^{-1}(\frac{x^2+y^2+L1^2-L2^2}{2\times L1\times \sqrt{x^2+y^2}})$$&lt;/p&gt;
 &lt;h6&gt;大軸旋轉的角度&lt;/h6&gt;
 
-&lt;p&gt;$$\theta_2 = \theta_n + \theta_\alpha$$&lt;/p&gt;
+&lt;p&gt;$$\theta_2 = 90 - (\theta_n + \theta_\alpha)$$&lt;/p&gt;
 &lt;h6&gt;小軸旋轉的角度&lt;/h6&gt;
 
-&lt;p&gt;$$\theta_3 = \theta_T + \theta_2$$&lt;/p&gt;
+&lt;p&gt;$$\theta_3 = \theta_T - \theta_2$$&lt;/p&gt;
 &lt;h3&gt;python 方程式推導&lt;/h3&gt;
 
 &lt;pre class="brush: python"&gt;
-
 import math
 from math import *
 
 L1 = 135.0
 L2 = 145.0
 
-#X ,Y= 要到的點
+#X ,Y= 0,0
 
-x = -189.443
-y = -58.074
+x =120.0
+y = 10.0
 
 theate = float((x*x+y*y-L1*L1-L2*L2)/(2*L1*L2))
 
@@ -40,10 +39,9 @@ tha = math.degrees(rad)
 #tha為算出來的角度
 print("算出來的",tha)
 
+###
+##test==================
 
-###大小轉軸的計算==================
-
-#公式為這兩行
 #thn = arcos(x/(sqrt(x^2+y^2)))
 #tha = (x^2+y^2+L1^2+L2^2)/(2(sqrt(x^2+y^2)*L1))
 
@@ -58,11 +56,15 @@ theatalpha = math.degrees(theatalphar)
 print("theatalpha角度",theatalpha)
 
 #theata2 = theatan + theatAlpha
-theata2 = theatan+theatalpha
+#theata2大軸轉的角度
+test = theatan+theatalpha
+theata2 = 90- test
 print("theata2",theata2)
 #theata3 = tha - theata2
-theata3 = tha - theata2
+#theata3小軸轉的角度
+theata3 = tha - test
 print("theata3",theata3)
+
 &lt;/pre&gt;</summary><category term="machine Vrep"></category></entry><entry><title>40323131日誌 105/07/31</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050731.html" rel="alternate"></link><updated>2016-07-31T22:51:00+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-31:blog/40323131ri-zhi-1050731.html</id><summary type="html">&lt;p&gt;手臂的推導角度公式
 &lt;/p&gt;
 &lt;h3&gt;角度推導公式&lt;/h3&gt;

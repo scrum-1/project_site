@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/tutorial.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-30T11:29:00+08:00</updated><entry><title>yen - 有關機械設計專題網站內容</title><link href="http://project.mde.tw/blog/yen-you-guan-ji-jie-she-ji-zhuan-ti-wang-zhan-nei-rong.html" rel="alternate"></link><updated>2016-07-30T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-30:blog/yen-you-guan-ji-jie-she-ji-zhuan-ti-wang-zhan-nei-rong.html</id><summary type="html">&lt;p&gt;本機械設計專題網誌採用 Leo Editor 管理文章內容與設定, 並且透過 Pelican 靜態網誌系統程式, 將各參與協同人員所分別建立的 .md 檔案, 轉為一系列的 html 檔案, 其中包括全文內容的搜尋, 以及網誌分類的架構.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/tutorial.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-31T01:00:48+08:00</updated><entry><title>user - 使用者的範例網誌文章標題</title><link href="http://project.mde.tw/blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html" rel="alternate"></link><updated>2016-07-31T01:00:48+08:00</updated><author><name>user</name></author><id>tag:project.mde.tw,2016-07-31:blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 user 所寫的文章摘要&lt;/p&gt;
+
+
+&lt;p&gt;這裡為 user 所寫的文章主要內容&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>yen - 有關機械設計專題網站內容</title><link href="http://project.mde.tw/blog/yen-you-guan-ji-jie-she-ji-zhuan-ti-wang-zhan-nei-rong.html" rel="alternate"></link><updated>2016-07-30T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-30:blog/yen-you-guan-ji-jie-she-ji-zhuan-ti-wang-zhan-nei-rong.html</id><summary type="html">&lt;p&gt;本機械設計專題網誌採用 Leo Editor 管理文章內容與設定, 並且透過 Pelican 靜態網誌系統程式, 將各參與協同人員所分別建立的 .md 檔案, 轉為一系列的 html 檔案, 其中包括全文內容的搜尋, 以及網誌分類的架構.&lt;/p&gt;
 
 
 &lt;p&gt;假如您檢視現在這篇文章的 .md 檔案, 在文章最前頭的內容為:&lt;/p&gt;
@@ -2668,10 +2671,7 @@ print(ga.run())
 
       return tip3_coord;
     }
-&lt;/pre&gt;</summary><category term="RGA"></category></entry><entry><title>user - 使用者的範例網誌文章標題</title><link href="http://project.mde.tw/blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html" rel="alternate"></link><updated>2016-05-13T22:09:27+08:00</updated><author><name>user</name></author><id>tag:project.mde.tw,2016-05-13:blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 user 所寫的文章摘要&lt;/p&gt;
-
-
-&lt;p&gt;這裡為 user 所寫的文章主要內容&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>yen - 如何建立一好的 Wordpress 網站</title><link href="http://project.mde.tw/blog/yen-ru-he-jian-li-yi-hao-de-wordpress-wang-zhan.html" rel="alternate"></link><updated>2016-04-08T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-04-08:blog/yen-ru-he-jian-li-yi-hao-de-wordpress-wang-zhan.html</id><summary type="html">&lt;p&gt;機械設計專題專用的 Wordpress 必須俱備幾項特點: 能夠輸入數學公式, 能夠放入高亮顯示的程式碼, 能夠內嵌影片, 能夠利用 Gmail 帳號寄信, 能夠納入 Disqus 討論區, 能夠杜絕垃圾註冊.&lt;/p&gt;
+&lt;/pre&gt;</summary><category term="RGA"></category></entry><entry><title>yen - 如何建立一好的 Wordpress 網站</title><link href="http://project.mde.tw/blog/yen-ru-he-jian-li-yi-hao-de-wordpress-wang-zhan.html" rel="alternate"></link><updated>2016-04-08T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-04-08:blog/yen-ru-he-jian-li-yi-hao-de-wordpress-wang-zhan.html</id><summary type="html">&lt;p&gt;機械設計專題專用的 Wordpress 必須俱備幾項特點: 能夠輸入數學公式, 能夠放入高亮顯示的程式碼, 能夠內嵌影片, 能夠利用 Gmail 帳號寄信, 能夠納入 Disqus 討論區, 能夠杜絕垃圾註冊.&lt;/p&gt;
 
 
 &lt;p&gt;當然假如能夠如 &lt;a href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html"&gt;http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html&lt;/a&gt; 中所言, 可以利用 Leo Editor 的指令按鈕, 讓 Wordpress 網誌內容能與 Pelican 靜態網誌內容保持同步, 或許就能同時擁有改版歷程資料與即時動態維護內容的優點.&lt;/p&gt;

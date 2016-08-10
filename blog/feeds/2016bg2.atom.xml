@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-08T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/08</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050808.html" rel="alternate"></link><updated>2016-08-08T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-08:blog/40323230ri-zhi-1050808.html</id><summary type="html">&lt;p&gt;將bokeh繪圖搬入Flask，使用的是上學期的倉儲。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-10T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/10</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050810.html" rel="alternate"></link><updated>2016-08-10T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-10:blog/40323230ri-zhi-1050810.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;檢視python.log的錯誤&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;pyslvs的介紹圖&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;FileZilla 登入&lt;/h1&gt;
+&lt;p&gt;用FileZilla進入網站查看和下載檔案。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/oXaiwCp.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;在Openshift的網頁中按下"Want to log in to your application?"連結，能取得一個字串，形式如下。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;ssh 使用者名稱@主機&lt;/code&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/dpua4rp.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;將其內容填入FileZilla的站台設定中，協定選擇SFTP，登入形式選擇交談式。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/nmtCVUg.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;然後連線後，在&lt;code&gt;/var/lib/openshift/使用者名稱/app-root/logs&lt;/code&gt;資料夾中可以找到python.log，下載後開啟。&lt;/p&gt;
+&lt;p&gt;最下方是最新的執行紀錄和連線紀錄。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/l8Xoe0b.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;看到問題是錯在模組導入錯誤，雖然訊息跟之前模組匯入的問題一樣，但是造成原因應該不一樣。&lt;/p&gt;
+&lt;p&gt;不知道是python版本還是openshift不使用anaconda的關係。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;slvs.py&lt;/code&gt;無法像先前一般將&lt;code&gt;_slvs.pyd&lt;/code&gt;的名稱傳給python用。&lt;/p&gt;
+&lt;h1&gt;介紹圖&lt;/h1&gt;
+&lt;p&gt;用免費軟體XMind做兩張Python Solvespace的概念圖。&lt;/p&gt;
+&lt;p&gt;軟體中不能調整解析度，目前的比例還能符合網頁或文件中的說明。&lt;/p&gt;
+&lt;h2&gt;&lt;em&gt;製作過程&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/e6JWCWW.png" &gt;&lt;/p&gt;
+&lt;h2&gt;&lt;em&gt;利用規劃&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/62SVuDT.png" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;在想是否要將slvs的檔案做成模組的方式裝入Python，再裝到Openshift的python上。&lt;/p&gt;
+&lt;p&gt;做成模組後用途應該會增加。&lt;/p&gt;
+&lt;p&gt;近期將整理網誌內容改成書面格式，先存成Markdown檔，再另外參照學長的目錄做分類排序成章節。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/08/08</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050808.html" rel="alternate"></link><updated>2016-08-08T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-08:blog/40323230ri-zhi-1050808.html</id><summary type="html">&lt;p&gt;將bokeh繪圖搬入Flask，使用的是上學期的倉儲。&lt;/p&gt;
 
 
 &lt;h1&gt;bokeh網頁原始碼&lt;/h1&gt;
@@ -1097,7 +1132,7 @@ sys.set_dragged(Point p)
 &lt;p&gt;Has a small size, perform fast, free, and no installation features, STEP or STL support open, or exported into DXF, PDF, SVG and other open formats, also has its own text-based format &lt;code&gt;*.slvs&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;For updating, you can go to GitHub's &lt;a href="https://github.com/solvespace/solvespace" title="github.com"&gt;official storage&lt;/a&gt; or &lt;a href="https://github.com/whitequark/solvespace" title="github.com"&gt;unofficial storage&lt;/a&gt; to download the latest source code, the direct use of developer tools (such as GNU) compile the main program.&lt;/p&gt;
 &lt;p&gt;Solvespace has another small executable file named CDemo, compiled with source code of Solvespace.&lt;/p&gt;
-&lt;p&gt;You can use this external program call library of Solvespace &lt;code&gt;libslvs.dll&lt;/code&gt; be 2D or 3D computing problem-solving, and without starting Solvespace.&lt;/p&gt;
+&lt;p&gt;You can use this external program call library of Solvespace &lt;code&gt;libslvs.dll&lt;/code&gt; be 2D or 3D computing problem-solving, and without startup Solvespace.&lt;/p&gt;
 &lt;p&gt;The concept of CDemo is be able to use an external program to call functions from Solvespace, whether it is using its maximum travel untied, the interference position. You can use this app without need to use CAD software to personally solving problems by you self.&lt;/p&gt;
 &lt;h2&gt;&lt;a name="SLVS"&gt;&lt;/a&gt;SLVS Library&lt;/h2&gt;
 &lt;p&gt;CDemo compiled from C language. Solvespace database using the C++ compiler is useful and fast of course, but the utilization of more limited.&lt;/p&gt;

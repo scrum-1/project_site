@@ -1,5 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-10T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/10</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050810.html" rel="alternate"></link><updated>2016-08-10T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-10:blog/40323230ri-zhi-1050810.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-11T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/11</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050811.html" rel="alternate"></link><updated>2016-08-11T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-11:blog/40323230ri-zhi-1050811.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;安裝 Linux 版工具&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ubuntu 版本編譯&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;工作環境&lt;/h1&gt;
+&lt;p&gt;用以前安裝的雙系統做 Ubuntu 版本的編譯。&lt;/p&gt;
+&lt;p&gt;作業系統是基於 Ubuntu 14.04 的 ezgo 12，圖形介面為KDE。&lt;/p&gt;
+&lt;p&gt;原本 ezgo 中的python3版本為 3.4.0，安裝python3.4-dev後升級到最新的3.4.5。&lt;/p&gt;
+&lt;p&gt;而原版的GNU工具沒有裝入g++，所以就用apt安裝了。&lt;/p&gt;
+&lt;p&gt;在 Ubuntu 上運行 Netbeans 和 gcc 比 Windows 流暢，make的速度更快。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;產生問題&lt;/h1&gt;
+&lt;p&gt;因為作業系統換了環境，所以Makefile的位置研究並調整了一下。&lt;/p&gt;
+&lt;p&gt;不過在編譯&lt;code&gt;slvs_python.hpp&lt;/code&gt;時出現&lt;code&gt;‘__mingw_vasprintf’ was not declared in this scope&lt;/code&gt;的訊息。&lt;/p&gt;
+&lt;p&gt;這個函式應該是&lt;code&gt;stdio.h&lt;/code&gt;的，不知道為何無法找到它。&lt;/p&gt;
+&lt;p&gt;檢查了系統目錄，這個檔案應該都在&lt;code&gt;include&lt;/code&gt;的範圍內，所以應該是使用GNU和原本MinGW兩種版本gcc的問題。&lt;/p&gt;
+&lt;p&gt;不過這次並非在虛擬機測試，所以使用上會更小心。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/08/10</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050810.html" rel="alternate"></link><updated>2016-08-10T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-10:blog/40323230ri-zhi-1050810.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;檢視python.log的錯誤&lt;/p&gt;
 &lt;/li&gt;

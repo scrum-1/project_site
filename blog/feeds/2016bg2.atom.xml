@@ -27,7 +27,8 @@
 &lt;hr&gt;
 
 &lt;p&gt;不過將 &lt;code&gt;_slvs.so&lt;/code&gt; 和編譯好的附屬文件上傳到 Openshift 後仍然找不到 &lt;code&gt;_slvs&lt;/code&gt; 模組。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/juGSqv4.jpg" &gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/08/11</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050811.html" rel="alternate"></link><updated>2016-08-11T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-11:blog/40323230ri-zhi-1050811.html</id><summary type="html">&lt;ol&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/juGSqv4.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;接著會測試看看小型的pyd能不能用。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/08/11</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050811.html" rel="alternate"></link><updated>2016-08-11T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-11:blog/40323230ri-zhi-1050811.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;安裝 Linux 版工具&lt;/p&gt;
 &lt;/li&gt;

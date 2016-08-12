@@ -27,7 +27,8 @@
 &lt;hr&gt;
 
 &lt;p&gt;不過將 &lt;code&gt;_slvs.so&lt;/code&gt; 和編譯好的附屬文件上傳到 Openshift 後仍然找不到 &lt;code&gt;_slvs&lt;/code&gt; 模組。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/juGSqv4.jpg" &gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Python-Solvespace"></category></entry><entry><title>Vrep手臂逆向</title><link href="http://project.mde.tw/blog/vrepshou-bi-ni-xiang.html" rel="alternate"></link><updated>2016-08-12T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-12:blog/vrepshou-bi-ni-xiang.html</id><summary type="html">&lt;p&gt;利用tkinter連接給最後的點座標，算出轉軸的角度&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/juGSqv4.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;接著會測試看看小型的pyd能不能用。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Python-Solvespace"></category></entry><entry><title>Vrep手臂逆向</title><link href="http://project.mde.tw/blog/vrepshou-bi-ni-xiang.html" rel="alternate"></link><updated>2016-08-12T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-12:blog/vrepshou-bi-ni-xiang.html</id><summary type="html">&lt;p&gt;利用tkinter連接給最後的點座標，算出轉軸的角度&lt;/p&gt;
 
 
 &lt;p&gt;因為目前是使用class的方法去繼承function，因此可以用兩個頁面進行控制3DP和手臂的地方，因為把逆向的方程式帶進去了，可以直接給他要到的座標，就可以算出兩個角度的大小，以及範圍。&lt;/p&gt;

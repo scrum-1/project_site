@@ -65,7 +65,16 @@ print("theata2",theata2)
 theata3 = tha - test
 print("theata3",theata3)
 
-&lt;/pre&gt;</summary><category term="machine Vrep"></category></entry><entry><title>40323131日誌 105/07/31</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050731.html" rel="alternate"></link><updated>2016-07-31T22:51:00+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-31:blog/40323131ri-zhi-1050731.html</id><summary type="html">&lt;p&gt;手臂的推導角度公式
+&lt;/pre&gt;</summary><category term="machine Vrep"></category></entry><entry><title>Vrep手臂逆向</title><link href="http://project.mde.tw/blog/vrepshou-bi-ni-xiang.html" rel="alternate"></link><updated>2016-08-05T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-05:blog/vrepshou-bi-ni-xiang.html</id><summary type="html">&lt;p&gt;利用tkinter連接給最後的點座標，算出轉軸的角度&lt;/p&gt;
+
+
+&lt;p&gt;因為目前是使用class的方法去繼承function，因此可以用兩個頁面進行控制3DP和手臂的地方，因為把逆向的方程式帶進去了，可以直接給他要到的座標，就可以算出兩個角度的大小，以及範圍。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/fk51PNt.png"&gt;&lt;/p&gt;
+&lt;h3&gt;實驗室近況報告&lt;/h3&gt;
+
+&lt;p&gt;目前第三組已有部分組員回歸團隊，並著手進行OpenCv的開發，以及讀相關的資料和論文，而另外兩組目前都在著手報告的部分，以及Latex等設定檔和撰寫內容，目前大家進度都卡住，可能最近會有一陣子停頓期，大家的開發能力在七月也用的差不多，像是從0開始的V-rep到現在可以控制整合，動態模擬，Solvespace也改成python3的版本，大家的東西也串流再一起，像是我們手臂的部分，從模擬，推出數學方程式，到solvespace算點座標劃出曲線方程式以及路徑，最後一路的推導方程式，到現在只要給點就可以控制移動的路徑。&lt;/p&gt;
+&lt;p&gt;下學期的學弟妹應該會有不錯的收穫，除了有老師搬上flask的pygroup，還有新版的solvespace for python3，和最新的Vrep控制、組裝、模擬，這些都可以向下交接了，這些東西都可以結合我們的cad能力，應該是不錯的工具以及多元整合。&lt;/p&gt;
+&lt;p&gt;可能是我進度壓的緊了點，大家呈現疲倦的樣子，想說讓大家休息一兩周，好好恢復精神，讓大家可以動力繼續往更高的層次邁進，可能這一兩周，進度會比較少，讓大家輕鬆一周。&lt;/p&gt;</summary><category term="machine Vrep"></category></entry><entry><title>40323131日誌 105/07/31</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050731.html" rel="alternate"></link><updated>2016-07-31T22:51:00+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-31:blog/40323131ri-zhi-1050731.html</id><summary type="html">&lt;p&gt;手臂的推導角度公式
 &lt;/p&gt;
 &lt;h3&gt;角度推導公式&lt;/h3&gt;
 

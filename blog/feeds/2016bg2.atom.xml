@@ -1,322 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-28T18:13:47+08:00</updated><entry><title>40323230日誌 - 105/07/28</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050728.html" rel="alternate"></link><updated>2016-07-28T18:13:47+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-28:blog/40323230ri-zhi-1050728.html</id><summary type="html">&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;CDemo資料庫內容補正&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;已更新&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;h1&gt;未支援項目&lt;/h1&gt;
-&lt;p&gt;&lt;em&gt;＊某些項目未紀錄於DOC.exe中&lt;/em&gt;&lt;/p&gt;
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;SLVS_C_PT_FACE_DISTANCE
-SLVS_C_PT_ON_FACE
-SLVS_C_LENGTH_RATIO
-SLVS_C_EQ_LEN_PT_LINE_D
-SLVS_C_EQ_PT_LN_DISTANCES
-SLVS_C_EQUAL_ANGLE
-SLVS_C_EQUAL_LINE_ARC_LEN
-SLVS_C_SYMMETRIC
-SLVS_C_SYMMETRIC_HORIZ
-SLVS_C_SYMMETRIC_VERT
-SLVS_C_SYMMETRIC_LINE
-SLVS_C_AT_MIDPOINT
-SLVS_C_SAME_ORIENTATION
-SLVS_C_ANGLE
-SLVS_C_PARALLEL
-SLVS_C_PERPENDICULAR
-SLVS_C_ARC_LINE_TANGENT
-SLVS_C_CUBIC_LINE_TANGENT
-SLVS_C_PROJ_PT_DISTANCE
-SLVS_C_WHERE_DRAGGED
-SLVS_C_CURVE_CURVE_TANGENT
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
-&lt;p&gt;今天編譯完&lt;code&gt;slvs_python.hpp&lt;/code&gt;，並推送至倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;因為大部分都是強硬約束的關係，只測試過部分功能。&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h1&gt;編譯流程&lt;/h1&gt;
-&lt;p&gt;使用Netbeans編譯&lt;code&gt;slvs_python.hpp&lt;/code&gt;和&lt;code&gt;slvs.i&lt;/code&gt;，旁邊的&lt;code&gt;constrainteq.cpp&lt;/code&gt;供參考函式。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/zjppe0U.jpg" &gt;&lt;/p&gt;
-&lt;h2&gt;&lt;em&gt;slvs.i&lt;/em&gt;&lt;/h2&gt;
-&lt;pre class="brush: c"&gt;
-class Constraint {
-    Constraint();
-public:
-...
-    static Constraint some_other_constraint(
-            System* system,
-            int type, Workplane workplane, double value,
-            Point ptA, Point ptB, Entity entityA, Entity entityB,
-            Slvs_hGroup group = USE_DEFAULT_GROUP);
-&lt;/pre&gt;
-
-&lt;p&gt;標準的約束條件格式如上，其實所有的約束函式都是透過&lt;code&gt;slvs_python.hpp&lt;/code&gt;輸入&lt;code&gt;constrainteq.cpp&lt;/code&gt;的約束做計算。&lt;/p&gt;
-&lt;h2&gt;&lt;em&gt;slvs_python.hpp&lt;/em&gt;&lt;/h2&gt;
-&lt;pre class="brush: c"&gt;
-class Constraint {
-...
-public:
-static Constraint some_other_constraint(
-            System* system,
-            int type, Workplane workplane, double value,
-            Point ptA, Point ptB, Entity entityA, Entity entityB,
-            Slvs_hGroup group = USE_DEFAULT_GROUP) {
-        return init(system, Slvs_MakeConstraint(
-            0, group,
-            type,
-            workplane.handle(),
-            value,
-            ptA.handle(), ptB.handle(),
-            entityA.handle(), entityB.handle()));
-    }
-...
-&lt;/pre&gt;
-
-&lt;p&gt;但是由於約束&lt;code&gt;SLVS_C_EQUAL_ANGLE&lt;/code&gt;會用到四個Entity，預設只有開啟2個，另外的&lt;code&gt;EntityC&lt;/code&gt;、&lt;code&gt;EntityD&lt;/code&gt;沒有開啟，而相切約束需要的布林值&lt;code&gt;other&lt;/code&gt;和&lt;code&gt;other2&lt;/code&gt;亦沒有加入。&lt;/p&gt;
-&lt;p&gt;所以只能從&lt;code&gt;slvs.h&lt;/code&gt;添加這4個值。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/cV0HyKc.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;其他項目也要加上4個空位，以免出錯。&lt;/p&gt;
-&lt;p&gt;對照&lt;code&gt;constrainteq.cpp&lt;/code&gt;中需要的項目，在&lt;code&gt;slvs_python.hpp&lt;/code&gt;中填上需要的值的類型，應該就可以運作了。&lt;/p&gt;
-&lt;p&gt;測試了一些新加入的約束，如果&lt;code&gt;slvs_python.hpp&lt;/code&gt;中填上的類型正確，就會解題，不過「重複約束」的結果似乎是歸類在「過度約束」裡。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/Ej4JQHF.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;而如果本身類型填錯，就會回傳錯誤碼&lt;code&gt;-1&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/n3iIuhW.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;但是函式庫中只有&lt;code&gt;SLVS_C_WHERE_DRAGGED&lt;/code&gt;會抓住點（而且還是有移動量），還要研究一下如何鎖住這些點的位置。&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;今天幫忙編寫CDemo，使其擁有Solvespace全部約束的功能。&lt;/p&gt;
-&lt;p&gt;會找時間翻修一下之前的紀錄。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/27</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050727.html" rel="alternate"></link><updated>2016-07-27T19:46:57+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-27:blog/40323230ri-zhi-1050727.html</id><summary type="html">&lt;p&gt;規劃解題與檢驗函式&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;檢驗出功能缺損&lt;/em&gt;&lt;/p&gt;
-
-
-&lt;h2&gt;規劃解題 :&lt;/h2&gt;
-
-&lt;p&gt;計算題目，並一邊利用SciTE的偵錯窗來檢查之前寫的函式資料。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/tfgUIVX.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;之前的題目：&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://chiamingyen.github.io/kmolab/blog/zi-xing-che-chuan-dong-2d-lian-tiao-hui-tu-er.html" title="chiamingyen.github.io"&gt;http://chiamingyen.github.io/kmolab/blog/zi-xing-che-chuan-dong-2d-lian-tiao-hui-tu-er.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;規劃了一支程式來計算鍊輪的點座標（半成品）：&lt;/p&gt;
-&lt;pre class="brush: python"&gt;
-#鍊條解題：18齒與30齒的鏈條，上下外切線長為200。
-#小圓圓心為原點，大圓圓心在X軸上，求四個切點的座標
-from slvs import *
-from math import *
-sys = System(500)
-g = 1
-
-#相關參數
-n0 = 20 #鍊條長度(mm)
-n1 = 18 #小輪齒數(t)
-n2 = 30 #大輪齒數(t)
-#邊長為a的的正n邊形外接圓半徑為：
-#R=a/(2*sin(pi/n)) or R=(a/2)*csc(pi/n)
-R1 = n0/(2*sin(pi/n1))
-R2 = n0/(2*sin(pi/n2))
-
-#開始繪圖
-
-#原點Point0
-p0 = sys.add_param(0.0)
-p1 = sys.add_param(0.0)
-p2 = sys.add_param(0.0)
-Point0 = Point3d(p0, p1, p2)
-
-#XY法線
-qw, qx, qy, qz = Slvs_MakeQuaternion(1, 0, 0, 0, 1, 0)
-p3 = sys.add_param(qw)
-p4 = sys.add_param(qx)
-p5 = sys.add_param(qy)
-p6 = sys.add_param(qz)
-Normal1 = Normal3d(p3, p4, p5, p6, sys)
-
-#工作平面
-Workplane1 = Workplane(Point0, Normal1)
-
-#3D版的Point0=&gt;Point1
-Point1 = Point2d(Workplane1, p0, p1)
-
-#小圓
-p7 = sys.add_param(R1)
-Distance1 = Distance(Workplane1, p7)
-Circle1 = Circle(Workplane1, Normal1, Point1, Distance1)
-
-#Point2
-p8 = sys.add_param(500.0)
-p9 = sys.add_param(0.0)
-Point2 = Point2d(Workplane1, p7, p8)
-
-#大圓
-p10 = sys.add_param(R2)
-Distance2 = Distance(Workplane1, p10)
-Circle2 = Circle(Workplane1, Normal1, Point2, Distance2)
-
-#上端外切線的兩個點Point3和Point4
-p11 = sys.add_param(300.0)
-p12 = sys.add_param(500.0)
-Point3 = Point2d(Workplane1, p11, p12)
-p13 = sys.add_param(500.0)
-p14 = sys.add_param(500.0)
-Point4 = Point2d(Workplane1, p13, p14)
-
-#下端外切線的兩個點Point5和Point6
-p15 = sys.add_param(300.0)
-p16 = sys.add_param(-500.0)
-Point5 = Point2d(Workplane1, p15, p16)
-p17 = sys.add_param(500.0)
-p18 = sys.add_param(-500.0)
-Point6 = Point2d(Workplane1, p17, p18)
-
-...
-
-#以下解題
-
-sys.solve()
-
-if (sys.result == SLVS_RESULT_OKAY):
-    print ("兩點座標：")
-    print(("(%.3f %.3f %.3f)")%(sys.get_param(0).val, sys.get_param(1).val, sys.get_param(2).val))
-    print(("(%.3f %.3f %.3f)\n")%(sys.get_param(8).val, sys.get_param(9).val, sys.get_param(2).val))
-    print ("上切點座標：")
-    print(("(%.3f %.3f %.3f)")%(sys.get_param(11).val, sys.get_param(12).val, sys.get_param(2).val))
-    print(("(%.3f %.3f %.3f)\n")%(sys.get_param(13).val, sys.get_param(14).val, sys.get_param(2).val))
-    print ("下切點座標：")
-    print(("(%.3f %.3f %.3f)")%(sys.get_param(15).val, sys.get_param(16).val, sys.get_param(2).val))
-    print(("(%.3f %.3f %.3f)\n")%(sys.get_param(17).val, sys.get_param(18).val, sys.get_param(2).val))
-    print ("導入函數測試：")
-    print(pi)
-    print ("%d DOF" % sys.dof)
-else:
-    print ("solve failed")
-&lt;/pre&gt;
-
-&lt;p&gt;但是在使用畫線並約束與圓相切的指令時，之前臆測的程式碼卻沒有這個功能，於是去倉儲搜尋函式名稱。&lt;/p&gt;
-&lt;p&gt;發現某些Solvespace的功能並沒有轉給CDemo使用，之前&lt;code&gt;DOC.txt&lt;/code&gt;簡介只是說明出本體支援的功能。&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;在&lt;code&gt;h++&lt;/code&gt;的標頭檔&lt;code&gt;slvs_python.hpp&lt;/code&gt;中，有以下項目：&lt;/p&gt;
-&lt;pre class="brush: c"&gt;
-class Constraint {
-...
-public:
-    // This constructor can be used to make arbitrary
-    // constraints. It has a very ugly name to discourage
-    // its use. If you need a constraint that the library
-    // doesn't support, you should implement it.
-//以下是所有約束函式
-...
-&lt;/pre&gt;
-
-&lt;p&gt;而那些沒做出的功能都用註解的方式放在這些做好的函式之間，所以看來好像是要自己做了。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/3x4fBiB.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;目前瞭解需要編寫的檔案為&lt;code&gt;slvs.i&lt;/code&gt;的Interface檔、&lt;code&gt;slvs_python.hpp&lt;/code&gt;標頭檔、&lt;code&gt;constrainteq.cpp&lt;/code&gt;約束方程式的函式。&lt;/p&gt;
-&lt;p&gt;畢竟是用別人寫好的架構，自己修改應該沒甚麼太大的障礙，以一個Python模組而言，拓展所需才是協同作業重要之處。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323231日誌 - 105/07/25</title><link href="http://project.mde.tw/blog/40323231ri-zhi-1050725.html" rel="alternate"></link><updated>2016-07-26T14:54:04+08:00</updated><author><name>40323231</name></author><id>tag:project.mde.tw,2016-07-26:blog/40323231ri-zhi-1050725.html</id><summary type="html">&lt;p&gt;3DP問題、測試、解決方法&lt;/p&gt;
-
-
-&lt;h3&gt;固件組裝時的問題 : &lt;/h3&gt;
-
-&lt;h4&gt;1.熱床的安裝較不容易，因為它是暗孔所以比較難對齊，鎖固的時間較長，之後有要組一台的話要考慮是否改換成明孔&lt;/h4&gt;
-
-&lt;p&gt;&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;配電的問題 : &lt;/h3&gt;
-&lt;h4&gt;1.限位開關的接法，因為限位開關有分兩種，一種是機械式微動開關，一種是光學限位開關，要怎麼接?
-接法和注意事項:&lt;/h4&gt;
-&lt;h4&gt;  a. 機械微動開關接法
-機械微動開關只需接2個腳位的：單純使用微動開關當作限位器，那一定要接RAMPS上的 "S" 跟 "-" 腳位。絕對不要把3個腳位都接了，如果不小心接了3個腳位，那在觸發時會發生火花，會把5V穩壓 IC燒毀。&lt;/h4&gt;
-&lt;h4&gt;  b. 光學限位開關接法(我們的)
-光學限位開關則是需要用到3條線，接到RAMPS上的"S"、"-"及"+" 3個腳位。&lt;/h4&gt;
-&lt;h4&gt;  c.程式碼也需要改&lt;/h4&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;測機問題 : &lt;/h3&gt;
-&lt;h4&gt;1.用arduino燒入韌體時會說缺少東西，這時用(u8glib_arduino_v1.16)壓縮檔即可。&lt;/h4&gt;
-&lt;h4&gt;操作方法是 : &lt;/h4&gt;
-&lt;h4&gt;     a.先到網站下載u8glib_arduino_v1.16這包壓縮檔&lt;/h4&gt;
-&lt;h4&gt;     b.點開arduino&lt;/h4&gt;
-&lt;h4&gt;     c.點選Sketch  &lt;/h4&gt;
-&lt;h4&gt;     d.點選Include Library &lt;/h4&gt;
-&lt;h4&gt;     e.點選Add .ZIP Library...&lt;/h4&gt;
-&lt;h4&gt;     f.選擇u8glib_arduino_v1.16&lt;/h4&gt;
-&lt;h4&gt;     g.完成&lt;/h4&gt;
-&lt;/br&gt;
-&lt;h4&gt;2.擠出馬達不能運作,其他xyz馬達皆能動&lt;/h4&gt;
-&lt;h4&gt;測試方法:&lt;/h4&gt;
-&lt;h4&gt;    a.將擠出馬達的訊號線接到X軸的訊號端(馬達是否正常)，測試馬達正常&lt;/h4&gt;
-&lt;h4&gt;    b.將擠出軸的訊號線由E0接到E1(測試控制板和韌體是否正常)，測試結果無法作動&lt;/h4&gt;
-&lt;h4&gt;    c.將電源線和擠出訊號線接到ramps1.4和arduino上(測試控制板是否正常)，測試結果無法作動&lt;/h4&gt;
-&lt;h4&gt;解決方法:因為程式碼中有保護措施，保護措施為噴頭溫度要先加熱到指定的溫度後才能啟動，怕擠料不正常。可修改此程式碼define MIN_EXTRUDER_TEMP 170&lt;/h4&gt;
-&lt;/br&gt;
-&lt;h4&gt;3.馬達旋轉方向不符&lt;/h4&gt;
-&lt;h4&gt;解決方法:調整程式碼(後續說明)&lt;/h4&gt;
-&lt;/br&gt;
-&lt;h4&gt;4.G28回歸的時候，Z軸不動其他兩軸馬達回歸，導致噴頭座往外跑出&lt;/h4&gt;
-&lt;h4&gt;測試方法 : &lt;/h4&gt;
-&lt;h4&gt;    a.打指令M119檢查限位開關是否有開，測試結果有開&lt;/h4&gt;
-&lt;h4&gt;    b.用手讓限位器偵測是否會感應，測試結果有感應&lt;/h4&gt;
-&lt;h4&gt;    c.檢查程式碼true/false是否正確，正確(有說明此功能的一篇)&lt;/h4&gt;
-&lt;h4&gt;解決方法:更換新的杜邦端子，因為測量多次後發現時好時壞，所以猜測是訊號接收不正常，更換後能夠順利回歸&lt;/h4&gt;
-&lt;/br&gt;
-&lt;h4&gt;5.軟體關掉訊號後滑軌依然鎖住&lt;/h4&gt;
-&lt;h4&gt;解決方法:關掉訊號後再連接，之後再斷掉，就可以解鎖了&lt;/h4&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;使用韌體Repetier所碰到的問題 : &lt;/h3&gt;
-&lt;h4&gt;1.噴嘴高度不管怎麼改都是319.2mm不知道為什麼?&lt;/h4&gt;
-&lt;h4&gt;解決方法(還未真正找到解決方法)&lt;/h4&gt;
-&lt;h4&gt;    a.修改程式碼中噴頭最大高度，可是不管怎麼改依然都是319.2mm&lt;/h4&gt;
-&lt;h4&gt;    b.修改程式碼中噴頭最小高度，可是依然319.2mm&lt;/h4&gt;
-&lt;h4&gt;    c.修改3軸的補正值，依然不變&lt;/h4&gt;
-&lt;h4&gt;    d.修改xyz軸的最大值，發現xyz軸會超出設定的最大值，發現好像是code燒不進去，而且有看到RAM大小所以猜測是空間不足&lt;/h4&gt;
-&lt;h4&gt;    e.將空白的arduino燒進控制板後，機器不能運轉表示燒入成功，之後再把修改過的韌體在燒進去，可是依然還是319.2mm&lt;/h4&gt;
-&lt;h4&gt;    f.用軟體Repetier-Host直接修改高度，可是一樣還是319.2mm&lt;/h4&gt;
-&lt;h4&gt;    g.改用韌體Marlin，可是Marlin卻有更多的不穩定&lt;/h4&gt;
-&lt;h4&gt;    h.用Cura_15.04特別版，才成功修改，並能順利列印&lt;/h4&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;使用韌體Marlin所碰到的問題 : &lt;/h3&gt;
-&lt;h4&gt;1.G28回歸後，只能單軸單軸進行復歸補正，導致速度較慢，而且有時候複歸的途中會停下來，之後單軸複歸導致噴頭座跑出機台外。(備註:機台斷電後，軟體也要切斷訊號，不然機台重新開電後還是會繼續執行)&lt;/h4&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h3&gt;列印時碰到的問題 : &lt;h3&gt;
-&lt;h4&gt;1.翹邊&lt;/h4&gt;
-&lt;h4&gt;解決方法:塗口紅膠在平台上，以及再加熱期間把溢出來的料弄掉，因為溢出來的料會把底層弄掀，導致沒有地基、材料高低不平&lt;/h4&gt;
-&lt;/br&gt;
-&lt;h4&gt;2.馬達很燙&lt;/h4&gt;
-&lt;h4&gt;還未解決，有想要在熱床下加裝風扇&lt;/h4&gt;
-&lt;/br&gt;
-&lt;h4&gt;3.如何放置料桶&lt;/h4&gt;
-&lt;h4&gt;還未解決，想要製作料座，然後用軸承放置兩邊讓他能順利進料&lt;/h4&gt;
-&lt;/br&gt;
-&lt;h4&gt;4.擠料無法很順暢的進料，有時甚至滑脫&lt;/h4&gt;
-&lt;h4&gt;增加軸承的厚度讓她不會跳脫，或者增加擋板(還未測試)&lt;/h4&gt;
-&lt;/br&gt;
-&lt;/br&gt;
-&lt;h4&gt;因為家裡有事情需要回家幫忙，所以先把昨天和今天的部分推上，內容會做修改和增加，本篇還未結束。&lt;/h4&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230紀錄 - SLVS資料庫函式</title><link href="http://project.mde.tw/blog/40323230ji-lu-slvszi-liao-ku-han-shi.html" rel="alternate"></link><updated>2016-07-25T14:05:50+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-25:blog/40323230ji-lu-slvszi-liao-ku-han-shi.html</id><summary type="html">&lt;p&gt;&lt;code&gt;slvs&lt;/code&gt;資料庫（&lt;code&gt;_slvs.pyd&lt;/code&gt;或&lt;code&gt;_slvs.so&lt;/code&gt;）轉成Python後的內容。&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-29T16:55:52+08:00</updated><entry><title>40323230紀錄 - SLVS資料庫函式</title><link href="http://project.mde.tw/blog/40323230ji-lu-slvszi-liao-ku-han-shi.html" rel="alternate"></link><updated>2016-07-29T16:55:52+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-29:blog/40323230ji-lu-slvszi-liao-ku-han-shi.html</id><summary type="html">&lt;p&gt;&lt;code&gt;slvs&lt;/code&gt;資料庫（&lt;code&gt;_slvs.pyd&lt;/code&gt;或&lt;code&gt;_slvs.so&lt;/code&gt;）轉成Python後的內容。&lt;/p&gt;
 &lt;p&gt;協助Python程式使用指令。&lt;/p&gt;
 &lt;p&gt;＊ &lt;kbd&gt;Tips&lt;/kbd&gt; 的標籤是比較實用的註解。&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;內容待勘誤&lt;/em&gt;&lt;/p&gt;
@@ -914,67 +597,324 @@ sys.set_dragged(Point p)
 &lt;/pre&gt;
 
 &lt;p&gt;是命令約束盡量固定這個&lt;code&gt;Point2d/3d&lt;/code&gt;點，取而代之的是移動周遭的項目。&lt;/p&gt;
-&lt;p&gt;這個點被固定後移動量會較小。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230紀錄 - Python-Solvespace編譯完畢</title><link href="http://project.mde.tw/blog/40323230ji-lu-python-solvespacebian-yi-wan-bi.html" rel="alternate"></link><updated>2016-07-24T16:18:51+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-24:blog/40323230ji-lu-python-solvespacebian-yi-wan-bi.html</id><summary type="html">&lt;ol&gt;
+&lt;p&gt;這個點被固定後移動量會較小。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/27</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050727.html" rel="alternate"></link><updated>2016-07-29T16:55:52+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-29:blog/40323230ri-zhi-1050727.html</id><summary type="html">&lt;p&gt;規劃解題與檢驗函式&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;檢驗出功能缺損&lt;/em&gt;&lt;/p&gt;
+
+
+&lt;h2&gt;規劃解題 :&lt;/h2&gt;
+
+&lt;p&gt;計算題目，並一邊利用SciTE的偵錯窗來檢查之前寫的函式資料。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/tfgUIVX.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;之前的題目：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://chiamingyen.github.io/kmolab/blog/zi-xing-che-chuan-dong-2d-lian-tiao-hui-tu-er.html" title="chiamingyen.github.io"&gt;http://chiamingyen.github.io/kmolab/blog/zi-xing-che-chuan-dong-2d-lian-tiao-hui-tu-er.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;規劃了一支程式來計算鍊輪的點座標（半成品）：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+#鍊條解題：18齒與30齒的鏈條，上下外切線長為200。
+#小圓圓心為原點，大圓圓心在X軸上，求四個切點的座標
+from slvs import *
+from math import *
+sys = System(500)
+g = 1
+
+#相關參數
+n0 = 20 #鍊條長度(mm)
+n1 = 18 #小輪齒數(t)
+n2 = 30 #大輪齒數(t)
+#邊長為a的的正n邊形外接圓半徑為：
+#R=a/(2*sin(pi/n)) or R=(a/2)*csc(pi/n)
+R1 = n0/(2*sin(pi/n1))
+R2 = n0/(2*sin(pi/n2))
+
+#開始繪圖
+
+#原點Point0
+p0 = sys.add_param(0.0)
+p1 = sys.add_param(0.0)
+p2 = sys.add_param(0.0)
+Point0 = Point3d(p0, p1, p2)
+
+#XY法線
+qw, qx, qy, qz = Slvs_MakeQuaternion(1, 0, 0, 0, 1, 0)
+p3 = sys.add_param(qw)
+p4 = sys.add_param(qx)
+p5 = sys.add_param(qy)
+p6 = sys.add_param(qz)
+Normal1 = Normal3d(p3, p4, p5, p6, sys)
+
+#工作平面
+Workplane1 = Workplane(Point0, Normal1)
+
+#3D版的Point0=&gt;Point1
+Point1 = Point2d(Workplane1, p0, p1)
+
+#小圓
+p7 = sys.add_param(R1)
+Distance1 = Distance(Workplane1, p7)
+Circle1 = Circle(Workplane1, Normal1, Point1, Distance1)
+
+#Point2
+p8 = sys.add_param(500.0)
+p9 = sys.add_param(0.0)
+Point2 = Point2d(Workplane1, p7, p8)
+
+#大圓
+p10 = sys.add_param(R2)
+Distance2 = Distance(Workplane1, p10)
+Circle2 = Circle(Workplane1, Normal1, Point2, Distance2)
+
+#上端外切線的兩個點Point3和Point4
+p11 = sys.add_param(300.0)
+p12 = sys.add_param(500.0)
+Point3 = Point2d(Workplane1, p11, p12)
+p13 = sys.add_param(500.0)
+p14 = sys.add_param(500.0)
+Point4 = Point2d(Workplane1, p13, p14)
+
+#下端外切線的兩個點Point5和Point6
+p15 = sys.add_param(300.0)
+p16 = sys.add_param(-500.0)
+Point5 = Point2d(Workplane1, p15, p16)
+p17 = sys.add_param(500.0)
+p18 = sys.add_param(-500.0)
+Point6 = Point2d(Workplane1, p17, p18)
+
+...
+
+#以下解題
+
+sys.solve()
+
+if (sys.result == SLVS_RESULT_OKAY):
+    print ("兩點座標：")
+    print(("(%.3f %.3f %.3f)")%(sys.get_param(0).val, sys.get_param(1).val, sys.get_param(2).val))
+    print(("(%.3f %.3f %.3f)\n")%(sys.get_param(8).val, sys.get_param(9).val, sys.get_param(2).val))
+    print ("上切點座標：")
+    print(("(%.3f %.3f %.3f)")%(sys.get_param(11).val, sys.get_param(12).val, sys.get_param(2).val))
+    print(("(%.3f %.3f %.3f)\n")%(sys.get_param(13).val, sys.get_param(14).val, sys.get_param(2).val))
+    print ("下切點座標：")
+    print(("(%.3f %.3f %.3f)")%(sys.get_param(15).val, sys.get_param(16).val, sys.get_param(2).val))
+    print(("(%.3f %.3f %.3f)\n")%(sys.get_param(17).val, sys.get_param(18).val, sys.get_param(2).val))
+    print ("導入函數測試：")
+    print(pi)
+    print ("%d DOF" % sys.dof)
+else:
+    print ("solve failed")
+&lt;/pre&gt;
+
+&lt;p&gt;但是在使用畫線並約束與圓相切的指令時，之前臆測的程式碼卻沒有這個功能，於是去倉儲搜尋函式名稱。&lt;/p&gt;
+&lt;p&gt;發現某些Solvespace的功能並沒有轉給CDemo使用，之前&lt;code&gt;DOC.txt&lt;/code&gt;簡介只是說明出本體支援的功能。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;在&lt;code&gt;h++&lt;/code&gt;的標頭檔&lt;code&gt;slvs_python.hpp&lt;/code&gt;中，有以下項目：&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+class Constraint {
+...
+public:
+    // This constructor can be used to make arbitrary
+    // constraints. It has a very ugly name to discourage
+    // its use. If you need a constraint that the library
+    // doesn't support, you should implement it.
+//以下是所有約束函式
+...
+&lt;/pre&gt;
+
+&lt;p&gt;而那些沒做出的功能都用註解的方式放在這些做好的函式之間，所以看來好像是要自己做了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/3x4fBiB.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;目前瞭解需要編寫的檔案為&lt;code&gt;slvs.i&lt;/code&gt;的Interface檔、&lt;code&gt;slvs_python.hpp&lt;/code&gt;標頭檔、&lt;code&gt;constrainteq.cpp&lt;/code&gt;約束方程式的函式。&lt;/p&gt;
+&lt;p&gt;畢竟是用別人寫好的架構，自己修改應該沒甚麼太大的障礙，以一個Python模組而言，拓展所需才是協同作業重要之處。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/28</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050728.html" rel="alternate"></link><updated>2016-07-29T16:55:52+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-29:blog/40323230ri-zhi-1050728.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Windows執行成功！&lt;/p&gt;
+&lt;p&gt;CDemo資料庫內容補正&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;Ubuntu執行失敗（需重生&lt;code&gt;_slvs.so&lt;/code&gt;）。&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;公開倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;已更新。&lt;/p&gt;
+&lt;p&gt;倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;已更新&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 
 
-&lt;h2&gt;編譯結果 :&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src="http://i.imgur.com/E4PEUbR.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;最後編譯時把&lt;code&gt;_slvs.so&lt;/code&gt;改成了&lt;code&gt;_slvs.pyd&lt;/code&gt;就能使用了。&lt;/p&gt;
-&lt;p&gt;有測試過改成&lt;code&gt;.dll&lt;/code&gt;的方式，但是反而不能使用，可能是Windows平台Python辨認的問題。&lt;/p&gt;
-&lt;p&gt;不過由於&lt;code&gt;_slvs.pyd&lt;/code&gt;是參照&lt;code&gt;libslvs.so&lt;/code&gt;的內容生成的，所以這四個檔案必須放在同一個資料夾：&lt;/p&gt;
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2
-3
-4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;solvespace/exposed/_slvs.pyd
-solvespace/exposed/libslvs.so
-solvespace/exposed/slvs.py
-solvespace/exposed/Usage.py
+&lt;h1&gt;未支援項目&lt;/h1&gt;
+&lt;p&gt;&lt;em&gt;＊某些項目未紀錄於DOC.exe中&lt;/em&gt;&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;SLVS_C_PT_FACE_DISTANCE
+SLVS_C_PT_ON_FACE
+SLVS_C_LENGTH_RATIO
+SLVS_C_EQ_LEN_PT_LINE_D
+SLVS_C_EQ_PT_LN_DISTANCES
+SLVS_C_EQUAL_ANGLE
+SLVS_C_EQUAL_LINE_ARC_LEN
+SLVS_C_SYMMETRIC
+SLVS_C_SYMMETRIC_HORIZ
+SLVS_C_SYMMETRIC_VERT
+SLVS_C_SYMMETRIC_LINE
+SLVS_C_AT_MIDPOINT
+SLVS_C_SAME_ORIENTATION
+SLVS_C_ANGLE
+SLVS_C_PARALLEL
+SLVS_C_PERPENDICULAR
+SLVS_C_ARC_LINE_TANGENT
+SLVS_C_CUBIC_LINE_TANGENT
+SLVS_C_PROJ_PT_DISTANCE
+SLVS_C_WHERE_DRAGGED
+SLVS_C_CURVE_CURVE_TANGENT
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-&lt;p&gt;倉儲的Readme也做了一下說明。&lt;/p&gt;
-&lt;p&gt;而&lt;code&gt;test.py&lt;/code&gt;執行結果中，偵測到&lt;code&gt;long&lt;/code&gt;還沒定義，所以資料庫還需要修理一下。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/Ejc5KDo.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;搬到新電腦虛擬機的Ubuntu上測試時，使用的是&lt;code&gt;_slvs.so&lt;/code&gt;的樣式。&lt;/p&gt;
-&lt;p&gt;會顯示ELF標頭檔錯誤，而無法執行，應該是因為在Windows上生成的關係，重新在Ubuntu上編譯應該就行了。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/jolKcHW.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;今天編譯完&lt;code&gt;slvs_python.hpp&lt;/code&gt;，並推送至倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;因為大部分都是強硬約束的關係，只測試過部分功能。&lt;/p&gt;
 &lt;hr&gt;
 
-&lt;p&gt;另外在新電腦虛擬機的Ubuntu上裝了一下Git、Netbeans和GNU工具包，可以正常運作，不過可能是跨系統模擬的關係，反應還滿慢的。&lt;/p&gt;
-&lt;p&gt;然後Python3不知道怎麼更新，一直在3.4.2沒辦法升上去。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323218日誌 - 105/07/23</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050723.html" rel="alternate"></link><updated>2016-07-24T00:23:07+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-24:blog/40323218ri-zhi-1050723.html</id><summary type="html">&lt;p&gt;V-rep   printer_control&lt;/p&gt;
+&lt;h1&gt;編譯流程&lt;/h1&gt;
+&lt;p&gt;使用Netbeans編譯&lt;code&gt;slvs_python.hpp&lt;/code&gt;和&lt;code&gt;slvs.i&lt;/code&gt;，旁邊的&lt;code&gt;constrainteq.cpp&lt;/code&gt;供參考函式。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/zjppe0U.jpg" &gt;&lt;/p&gt;
+&lt;h2&gt;&lt;em&gt;slvs.i&lt;/em&gt;&lt;/h2&gt;
+&lt;pre class="brush: c"&gt;
+class Constraint {
+    Constraint();
+public:
+...
+    static Constraint some_other_constraint(
+            System* system,
+            int type, Workplane workplane, double value,
+            Point ptA, Point ptB, Entity entityA, Entity entityB,
+            Slvs_hGroup group = USE_DEFAULT_GROUP);
+&lt;/pre&gt;
+
+&lt;p&gt;標準的約束條件格式如上，其實所有的約束函式都是透過&lt;code&gt;slvs_python.hpp&lt;/code&gt;輸入&lt;code&gt;constrainteq.cpp&lt;/code&gt;的約束做計算。&lt;/p&gt;
+&lt;h2&gt;&lt;em&gt;slvs_python.hpp&lt;/em&gt;&lt;/h2&gt;
+&lt;pre class="brush: c"&gt;
+class Constraint {
+...
+public:
+static Constraint some_other_constraint(
+            System* system,
+            int type, Workplane workplane, double value,
+            Point ptA, Point ptB, Entity entityA, Entity entityB,
+            Slvs_hGroup group = USE_DEFAULT_GROUP) {
+        return init(system, Slvs_MakeConstraint(
+            0, group,
+            type,
+            workplane.handle(),
+            value,
+            ptA.handle(), ptB.handle(),
+            entityA.handle(), entityB.handle()));
+    }
+...
+&lt;/pre&gt;
+
+&lt;p&gt;但是由於約束&lt;code&gt;SLVS_C_EQUAL_ANGLE&lt;/code&gt;會用到四個Entity，預設只有開啟2個，另外的&lt;code&gt;EntityC&lt;/code&gt;、&lt;code&gt;EntityD&lt;/code&gt;沒有開啟，而相切約束需要的布林值&lt;code&gt;other&lt;/code&gt;和&lt;code&gt;other2&lt;/code&gt;亦沒有加入。&lt;/p&gt;
+&lt;p&gt;所以只能從&lt;code&gt;slvs.h&lt;/code&gt;添加這4個值。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/cV0HyKc.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;其他項目也要加上4個空位，以免出錯。&lt;/p&gt;
+&lt;p&gt;對照&lt;code&gt;constrainteq.cpp&lt;/code&gt;中需要的項目，在&lt;code&gt;slvs_python.hpp&lt;/code&gt;中填上需要的值的類型，應該就可以運作了。&lt;/p&gt;
+&lt;p&gt;測試了一些新加入的約束，如果&lt;code&gt;slvs_python.hpp&lt;/code&gt;中填上的類型正確，就會解題，不過「重複約束」的結果似乎是歸類在「過度約束」裡。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/Ej4JQHF.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;而如果本身類型填錯，就會回傳錯誤碼&lt;code&gt;-1&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/n3iIuhW.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;但是函式庫中只有&lt;code&gt;SLVS_C_WHERE_DRAGGED&lt;/code&gt;會抓住點（而且還是有移動量），還要研究一下如何鎖住這些點的位置。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;今天幫忙編寫CDemo，使其擁有Solvespace全部約束的功能。&lt;/p&gt;
+&lt;p&gt;會找時間翻修一下之前的紀錄。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323231日誌 - 105/07/25</title><link href="http://project.mde.tw/blog/40323231ri-zhi-1050725.html" rel="alternate"></link><updated>2016-07-29T16:55:52+08:00</updated><author><name>40323231</name></author><id>tag:project.mde.tw,2016-07-29:blog/40323231ri-zhi-1050725.html</id><summary type="html">&lt;p&gt;3DP問題、測試、解決方法&lt;/p&gt;
 
 
-&lt;h2&gt;嘗試組裝3Dprinter&lt;/h2&gt;
+&lt;h3&gt;固件組裝時的問題 : &lt;/h3&gt;
 
-&lt;p&gt;&lt;br&gt;
-&lt;h3&gt;現在已嘗試兩種方式操控&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;分別是：&lt;/h3&gt;
-&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/40323218/Printer_position_control.ttt?raw=true"&gt;Printer_position_control.ttt&lt;/a&gt;&lt;/p&gt;&lt;br&gt;
-&lt;h3&gt;可以操控position(需用滑鼠移動)&lt;/h3&gt;&lt;br&gt;&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/position.gif" weight=600 &gt;
-&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
-&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/40323218/Printer_motor_control.ttt?raw=true"&gt;Printer_motor_control.ttt&lt;/a&gt;&lt;/p&gt;&lt;br&gt;
-&lt;h3&gt;可以操控motor(需用參數移動)&lt;/h3&gt;
-&lt;br&gt;&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/motor.gif" weight=600 &gt;
-&lt;br&gt;&lt;br&gt;
-&lt;h3&gt;串列通訊：&lt;/h3&gt;
-&lt;br&gt;
-&lt;iframe width="854" height="480" src="https://www.youtube.com/embed/1-CW00QXwwk" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
-&lt;br&gt;
-&lt;iframe width="854" height="480" src="https://www.youtube.com/embed/y1vbxmeJ4M0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230紀錄 - C語言資料庫格式</title><link href="http://project.mde.tw/blog/40323230ji-lu-cyu-yan-zi-liao-ku-ge-shi.html" rel="alternate"></link><updated>2016-07-23T22:11:06+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-23:blog/40323230ji-lu-cyu-yan-zi-liao-ku-ge-shi.html</id><summary type="html">&lt;p&gt;關於各平台程式使用之連結庫類型。&lt;/p&gt;
+&lt;h4&gt;1.熱床的安裝較不容易，因為它是暗孔所以比較難對齊，鎖固的時間較長，之後有要組一台的話要考慮是否改換成明孔&lt;/h4&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;配電的問題 : &lt;/h3&gt;
+&lt;h4&gt;1.限位開關的接法，因為限位開關有分兩種，一種是機械式微動開關，一種是光學限位開關，要怎麼接?
+接法和注意事項:&lt;/h4&gt;
+&lt;h4&gt;  a. 機械微動開關接法
+機械微動開關只需接2個腳位的：單純使用微動開關當作限位器，那一定要接RAMPS上的 "S" 跟 "-" 腳位。絕對不要把3個腳位都接了，如果不小心接了3個腳位，那在觸發時會發生火花，會把5V穩壓 IC燒毀。&lt;/h4&gt;
+&lt;h4&gt;  b. 光學限位開關接法(我們的)
+光學限位開關則是需要用到3條線，接到RAMPS上的"S"、"-"及"+" 3個腳位。&lt;/h4&gt;
+&lt;h4&gt;  c.程式碼也需要改&lt;/h4&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;測機問題 : &lt;/h3&gt;
+&lt;h4&gt;1.用arduino燒入韌體時會說缺少東西，這時用(u8glib_arduino_v1.16)壓縮檔即可。&lt;/h4&gt;
+&lt;h4&gt;操作方法是 : &lt;/h4&gt;
+&lt;h4&gt;     a.先到網站下載u8glib_arduino_v1.16這包壓縮檔&lt;/h4&gt;
+&lt;h4&gt;     b.點開arduino&lt;/h4&gt;
+&lt;h4&gt;     c.點選Sketch  &lt;/h4&gt;
+&lt;h4&gt;     d.點選Include Library &lt;/h4&gt;
+&lt;h4&gt;     e.點選Add .ZIP Library...&lt;/h4&gt;
+&lt;h4&gt;     f.選擇u8glib_arduino_v1.16&lt;/h4&gt;
+&lt;h4&gt;     g.完成&lt;/h4&gt;
+&lt;/br&gt;
+&lt;h4&gt;2.擠出馬達不能運作,其他xyz馬達皆能動&lt;/h4&gt;
+&lt;h4&gt;測試方法:&lt;/h4&gt;
+&lt;h4&gt;    a.將擠出馬達的訊號線接到X軸的訊號端(馬達是否正常)，測試馬達正常&lt;/h4&gt;
+&lt;h4&gt;    b.將擠出軸的訊號線由E0接到E1(測試控制板和韌體是否正常)，測試結果無法作動&lt;/h4&gt;
+&lt;h4&gt;    c.將電源線和擠出訊號線接到ramps1.4和arduino上(測試控制板是否正常)，測試結果無法作動&lt;/h4&gt;
+&lt;h4&gt;解決方法:因為程式碼中有保護措施，保護措施為噴頭溫度要先加熱到指定的溫度後才能啟動，怕擠料不正常。可修改此程式碼define MIN_EXTRUDER_TEMP 170&lt;/h4&gt;
+&lt;/br&gt;
+&lt;h4&gt;3.馬達旋轉方向不符&lt;/h4&gt;
+&lt;h4&gt;解決方法:調整程式碼(後續說明)&lt;/h4&gt;
+&lt;/br&gt;
+&lt;h4&gt;4.G28回歸的時候，Z軸不動其他兩軸馬達回歸，導致噴頭座往外跑出&lt;/h4&gt;
+&lt;h4&gt;測試方法 : &lt;/h4&gt;
+&lt;h4&gt;    a.打指令M119檢查限位開關是否有開，測試結果有開&lt;/h4&gt;
+&lt;h4&gt;    b.用手讓限位器偵測是否會感應，測試結果有感應&lt;/h4&gt;
+&lt;h4&gt;    c.檢查程式碼true/false是否正確，正確(有說明此功能的一篇)&lt;/h4&gt;
+&lt;h4&gt;解決方法:更換新的杜邦端子，因為測量多次後發現時好時壞，所以猜測是訊號接收不正常，更換後能夠順利回歸&lt;/h4&gt;
+&lt;/br&gt;
+&lt;h4&gt;5.軟體關掉訊號後滑軌依然鎖住&lt;/h4&gt;
+&lt;h4&gt;解決方法:關掉訊號後再連接，之後再斷掉，就可以解鎖了&lt;/h4&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;使用韌體Repetier所碰到的問題 : &lt;/h3&gt;
+&lt;h4&gt;1.噴嘴高度不管怎麼改都是319.2mm不知道為什麼?&lt;/h4&gt;
+&lt;h4&gt;解決方法(還未真正找到解決方法)&lt;/h4&gt;
+&lt;h4&gt;    a.修改程式碼中噴頭最大高度，可是不管怎麼改依然都是319.2mm&lt;/h4&gt;
+&lt;h4&gt;    b.修改程式碼中噴頭最小高度，可是依然319.2mm&lt;/h4&gt;
+&lt;h4&gt;    c.修改3軸的補正值，依然不變&lt;/h4&gt;
+&lt;h4&gt;    d.修改xyz軸的最大值，發現xyz軸會超出設定的最大值，發現好像是code燒不進去，而且有看到RAM大小所以猜測是空間不足&lt;/h4&gt;
+&lt;h4&gt;    e.將空白的arduino燒進控制板後，機器不能運轉表示燒入成功，之後再把修改過的韌體在燒進去，可是依然還是319.2mm&lt;/h4&gt;
+&lt;h4&gt;    f.用軟體Repetier-Host直接修改高度，可是一樣還是319.2mm&lt;/h4&gt;
+&lt;h4&gt;    g.改用韌體Marlin，可是Marlin卻有更多的不穩定&lt;/h4&gt;
+&lt;h4&gt;    h.用Cura_15.04特別版，才成功修改，並能順利列印&lt;/h4&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;使用韌體Marlin所碰到的問題 : &lt;/h3&gt;
+&lt;h4&gt;1.G28回歸後，只能單軸單軸進行復歸補正，導致速度較慢，而且有時候複歸的途中會停下來，之後單軸複歸導致噴頭座跑出機台外。(備註:機台斷電後，軟體也要切斷訊號，不然機台重新開電後還是會繼續執行)&lt;/h4&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h3&gt;列印時碰到的問題 : &lt;h3&gt;
+&lt;h4&gt;1.翹邊&lt;/h4&gt;
+&lt;h4&gt;解決方法:塗口紅膠在平台上，以及再加熱期間把溢出來的料弄掉，因為溢出來的料會把底層弄掀，導致沒有地基、材料高低不平&lt;/h4&gt;
+&lt;/br&gt;
+&lt;h4&gt;2.馬達很燙&lt;/h4&gt;
+&lt;h4&gt;還未解決，有想要在熱床下加裝風扇&lt;/h4&gt;
+&lt;/br&gt;
+&lt;h4&gt;3.如何放置料桶&lt;/h4&gt;
+&lt;h4&gt;還未解決，想要製作料座，然後用軸承放置兩邊讓他能順利進料&lt;/h4&gt;
+&lt;/br&gt;
+&lt;h4&gt;4.擠料無法很順暢的進料，有時甚至滑脫&lt;/h4&gt;
+&lt;h4&gt;增加軸承的厚度讓她不會跳脫，或者增加擋板(還未測試)&lt;/h4&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h4&gt;因為家裡有事情需要回家幫忙，所以先把昨天和今天的部分推上，內容會做修改和增加，本篇還未結束。&lt;/h4&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230紀錄 - C語言資料庫格式</title><link href="http://project.mde.tw/blog/40323230ji-lu-cyu-yan-zi-liao-ku-ge-shi.html" rel="alternate"></link><updated>2016-07-25T16:16:36+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-25:blog/40323230ji-lu-cyu-yan-zi-liao-ku-ge-shi.html</id><summary type="html">&lt;p&gt;關於各平台程式使用之連結庫類型。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Static libraries&lt;/p&gt;
@@ -1071,49 +1011,67 @@ g++ -shared -o _slvs.so ../obj/util.obj ... ../obj/slvs_wrap.o -LW:/Anaconda3/li
 &lt;p&gt;但是這樣另一個問題就產生了，因為編出來的&lt;code&gt;_slvs.so&lt;/code&gt;是「可執行檔」，不指定&lt;code&gt;-o _slvs.so&lt;/code&gt;的話就會編譯成&lt;code&gt;a.exe&lt;/code&gt;，所以其他Python程式碼都找不到（有搬到虛擬機的Ubuntu測試，也找不到）。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/A9ITgDd.jpg" &gt;&lt;/p&gt;
 &lt;p&gt;想過學範例用&lt;code&gt;.c&lt;/code&gt;跳過Object File的階段直接轉成&lt;code&gt;.so&lt;/code&gt;檔，但是只有&lt;code&gt;libslvs.so&lt;/code&gt;成功，&lt;code&gt;_slvs.so&lt;/code&gt;反而在系統暫存檔Temp資料夾中找不到Python連結。&lt;/p&gt;
-&lt;p&gt;之後稍微看了一下SWIG轉出的&lt;code&gt;slvs.py&lt;/code&gt;結構，呼叫的&lt;code&gt;.py&lt;/code&gt;檔必須先導入&lt;code&gt;slvs.py&lt;/code&gt;後，&lt;code&gt;slvs.py&lt;/code&gt;會視Python版本取用&lt;code&gt;_slvs.so&lt;/code&gt;的內容，再傳給需要的&lt;code&gt;.py&lt;/code&gt;檔，所以&lt;code&gt;slvs.py&lt;/code&gt;和&lt;code&gt;_slvs.so&lt;/code&gt;都必須和撰寫的&lt;code&gt;.py&lt;/code&gt;檔放在一起。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/22</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050722.html" rel="alternate"></link><updated>2016-07-22T15:34:30+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-22:blog/40323230ri-zhi-1050722.html</id><summary type="html">&lt;ol&gt;
+&lt;p&gt;之後稍微看了一下SWIG轉出的&lt;code&gt;slvs.py&lt;/code&gt;結構，呼叫的&lt;code&gt;.py&lt;/code&gt;檔必須先導入&lt;code&gt;slvs.py&lt;/code&gt;後，&lt;code&gt;slvs.py&lt;/code&gt;會視Python版本取用&lt;code&gt;_slvs.so&lt;/code&gt;的內容，再傳給需要的&lt;code&gt;.py&lt;/code&gt;檔，所以&lt;code&gt;slvs.py&lt;/code&gt;和&lt;code&gt;_slvs.so&lt;/code&gt;都必須和撰寫的&lt;code&gt;.py&lt;/code&gt;檔放在一起。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230紀錄 - Python-Solvespace編譯完畢</title><link href="http://project.mde.tw/blog/40323230ji-lu-python-solvespacebian-yi-wan-bi.html" rel="alternate"></link><updated>2016-07-25T16:16:36+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-25:blog/40323230ji-lu-python-solvespacebian-yi-wan-bi.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
-&lt;p&gt;Python-Solvespace編譯完畢。&lt;/p&gt;
+&lt;p&gt;Windows執行成功！&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;進行&lt;code&gt;_slvs.so&lt;/code&gt;呼叫測試。&lt;/p&gt;
+&lt;p&gt;Ubuntu執行失敗（需重生&lt;code&gt;_slvs.so&lt;/code&gt;）。&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;公開倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;已推送。&lt;/p&gt;
+&lt;p&gt;公開倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;已更新。&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 
 
-&lt;h2&gt;編譯成功 :&lt;/h2&gt;
+&lt;h2&gt;編譯結果 :&lt;/h2&gt;
 
-&lt;p&gt;上次編譯時一直找不到&lt;code&gt;Slvs_&lt;/code&gt;相關名稱的問題。&lt;/p&gt;
-&lt;p&gt;最後發現編譯&lt;code&gt;_slvs.so&lt;/code&gt;時加入參照&lt;code&gt;libslvs.so&lt;/code&gt;資料庫的指令（&lt;code&gt;-L&lt;/code&gt;和&lt;code&gt;-l&lt;/code&gt;），就成功編譯了。&lt;/p&gt;
-&lt;p&gt;結束編譯時，Makefile執行了CDemo.exe證明C語言調用&lt;code&gt;libslvs.so&lt;/code&gt;是完全沒問題的。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/M7G0AH3.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;接著要試著執行Python調用&lt;code&gt;_slvs.so&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/E4PEUbR.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;最後編譯時把&lt;code&gt;_slvs.so&lt;/code&gt;改成了&lt;code&gt;_slvs.pyd&lt;/code&gt;就能使用了。&lt;/p&gt;
+&lt;p&gt;有測試過改成&lt;code&gt;.dll&lt;/code&gt;的方式，但是反而不能使用，可能是Windows平台Python辨認的問題。&lt;/p&gt;
+&lt;p&gt;不過由於&lt;code&gt;_slvs.pyd&lt;/code&gt;是參照&lt;code&gt;libslvs.so&lt;/code&gt;的內容生成的，所以這四個檔案必須放在同一個資料夾：&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;solvespace/exposed/_slvs.pyd
+solvespace/exposed/libslvs.so
+solvespace/exposed/slvs.py
+solvespace/exposed/Usage.py
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;倉儲的Readme也做了一下說明。&lt;/p&gt;
+&lt;p&gt;而&lt;code&gt;test.py&lt;/code&gt;執行結果中，偵測到&lt;code&gt;long&lt;/code&gt;還沒定義，所以資料庫還需要修理一下。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/Ejc5KDo.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;搬到新電腦虛擬機的Ubuntu上測試時，使用的是&lt;code&gt;_slvs.so&lt;/code&gt;的樣式。&lt;/p&gt;
+&lt;p&gt;會顯示ELF標頭檔錯誤，而無法執行，應該是因為在Windows上生成的關係，重新在Ubuntu上編譯應該就行了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/jolKcHW.jpg" &gt;&lt;/p&gt;
 &lt;hr&gt;
 
-&lt;h2&gt;測試test.py和Usage.py :&lt;/h2&gt;
+&lt;p&gt;另外在新電腦虛擬機的Ubuntu上裝了一下Git、Netbeans和GNU工具包，可以正常運作，不過可能是跨系統模擬的關係，反應還滿慢的。&lt;/p&gt;
+&lt;p&gt;然後Python3不知道怎麼更新，一直在3.4.2沒辦法升上去。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323218日誌 - 105/07/23</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050723.html" rel="alternate"></link><updated>2016-07-25T16:16:36+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-25:blog/40323218ri-zhi-1050723.html</id><summary type="html">&lt;p&gt;V-rep   printer_control&lt;/p&gt;
 
-&lt;p&gt;作者提供了2個範例使用，將它們和&lt;code&gt;_slvs.so&lt;/code&gt;放在相同目錄中。&lt;/p&gt;
-&lt;p&gt;&lt;code&gt;Usage.py&lt;/code&gt;是參照Readme的說明，將範例code抓下來存在&lt;code&gt;exposed&lt;/code&gt;資料夾的程式檔。&lt;/p&gt;
-&lt;p&gt;然而若直接執行會出下列錯誤：&lt;/p&gt;
-&lt;h2&gt;&lt;em&gt;test.py&lt;/em&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/Dp86EeP.jpg" &gt;&lt;/p&gt;
-&lt;h2&gt;&lt;em&gt;Usage.py&lt;/em&gt;&lt;/h2&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/goKX3du.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;意思是Python無法調用&lt;code&gt;_slvs&lt;/code&gt;這個模組，大部分的原因是名稱錯誤或是沒有導入。&lt;/p&gt;
-&lt;p&gt;SWIG手冊的"Using distutils"之後的幾章是講導出模組後的應用。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/xm3XyRs.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;看了一下內容，Python導出後的模組可以作為Python的附加元件、直接呼叫、動態模組、靜態連結之類的。&lt;/p&gt;
-&lt;p&gt;不過沒有解答一些例外的錯誤。&lt;/p&gt;
-&lt;p&gt;但是一直找不到&lt;code&gt;_slvs.so&lt;/code&gt;，不知道是出了甚麼問題，會繼續尋找資料。&lt;/p&gt;
-&lt;hr&gt;
 
-&lt;h2&gt;公開倉儲 :&lt;/h2&gt;
+&lt;h2&gt;嘗試組裝3Dprinter&lt;/h2&gt;
 
-&lt;p&gt;把目前進度推到了自己的&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;倉儲，在&lt;code&gt;exposed&lt;/code&gt;資料夾中的Makefile編輯工具位置，就能Make和Clean。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/u5OAbuX.jpg" &gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/20</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050720.html" rel="alternate"></link><updated>2016-07-20T20:13:40+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-20:blog/40323230ri-zhi-1050720.html</id><summary type="html">&lt;ol&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;h3&gt;現在已嘗試兩種方式操控&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;分別是：&lt;/h3&gt;
+&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/40323218/Printer_position_control.ttt?raw=true"&gt;Printer_position_control.ttt&lt;/a&gt;&lt;/p&gt;&lt;br&gt;
+&lt;h3&gt;可以操控position(需用滑鼠移動)&lt;/h3&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/position.gif" weight=600 &gt;
+&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;br&gt;
+&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/40323218/Printer_motor_control.ttt?raw=true"&gt;Printer_motor_control.ttt&lt;/a&gt;&lt;/p&gt;&lt;br&gt;
+&lt;h3&gt;可以操控motor(需用參數移動)&lt;/h3&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/motor.gif" weight=600 &gt;
+&lt;br&gt;&lt;br&gt;
+&lt;h3&gt;串列通訊：&lt;/h3&gt;
+&lt;br&gt;
+&lt;iframe width="854" height="480" src="https://www.youtube.com/embed/1-CW00QXwwk" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+&lt;br&gt;
+&lt;iframe width="854" height="480" src="https://www.youtube.com/embed/y1vbxmeJ4M0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/20</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050720.html" rel="alternate"></link><updated>2016-07-22T18:00:17+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-22:blog/40323230ri-zhi-1050720.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;gcc的&lt;code&gt;-M&lt;/code&gt;類型參數問題。&lt;/p&gt;
 &lt;/li&gt;
@@ -1246,36 +1204,49 @@ all: cdemo _slvs.so slvs.py
 &lt;/pre&gt;
 
 &lt;p&gt;CDemo的部分已經成功轉出可執行檔；&lt;code&gt;_slvs.so&lt;/code&gt;還在最後階段的編譯中；&lt;code&gt;slvs.py&lt;/code&gt;則是原作者撰寫好的（不過是Python 2）。&lt;/p&gt;
-&lt;p&gt;預計不久後就能夠測試&lt;code&gt;_slvs.so&lt;/code&gt;的功能。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323218日誌 - 105/07/19</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050719.html" rel="alternate"></link><updated>2016-07-20T00:15:36+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-20:blog/40323218ri-zhi-1050719.html</id><summary type="html">&lt;p&gt;V-rep 翻譯 Inverse kinematics&lt;/p&gt;
+&lt;p&gt;預計不久後就能夠測試&lt;code&gt;_slvs.so&lt;/code&gt;的功能。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/22</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050722.html" rel="alternate"></link><updated>2016-07-22T18:00:17+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-22:blog/40323230ri-zhi-1050722.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Python-Solvespace編譯完畢。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;進行&lt;code&gt;_slvs.so&lt;/code&gt;呼叫測試。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;公開倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;已推送。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 
 
-&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/IK1.png" weight=600 &gt;&lt;br&gt;&lt;br&gt;
-&lt;h3&gt;•  Inverse kinematics enabled:   啟用或禁用所有IK計算。&lt;br&gt;
-&lt;br&gt;&lt;br&gt;
-•  Add new IK group: &lt;br&gt;&lt;br&gt;新增一個空的 IK group. IK groups 可以包含一個或多個 IK elements.&lt;br&gt;&lt;br&gt; IK elements 是基本運動學綁著IK任務, IK groups可以組合他們來同時運行.&lt;br&gt;&lt;br&gt; 當需要時只使用同時運行(比依序運算花較長的計算時間).&lt;br&gt;&lt;br&gt; 一個IK element 總必須被一個IK group連結，而且不能單獨存在. &lt;br&gt;&lt;br&gt;在按鈕下方的列表中顯示所有的IK groups將會在IK計算時被運行.&lt;br&gt;&lt;br&gt; 在列表中一個 IK group需要被選擇，為了顯現它的參數在剩餘的對話框中.&lt;br&gt;&lt;br&gt; 在列表中的順序很重要(IK group 1的結果可能被IK group 2需要來正確地或更快的執行).&lt;br&gt;&lt;br&gt; 在列表旁的兩個按鈕可以改變被選擇的IK group的位置.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;•  IK group is active:     允許啟動這個IK groups.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;•  Explicit handling: &lt;br&gt;&lt;br&gt;表示被選擇的IK group 是否應該被明確地處理. &lt;br&gt;&lt;br&gt;如果打勾, 當呼叫simHandleIkGroup(sim_handle_all_except_explicit)時，&lt;br&gt;&lt;br&gt;在IK 計算這個IK group將不會被處理，但只有當&lt;br&gt;&lt;br&gt;simHandleIkGroup(sim_handle_all) or&lt;br&gt;&lt;br&gt; simHandleIkGroup(ikGroupHandle) 呼叫時除外. &lt;br&gt;&lt;br&gt;這是非常有用的當如果用戶希望在  child script 而不是在  main script&lt;br&gt;&lt;br&gt;處理IK group裡的kinematics  (如果沒有打勾, IK計算將會被執行兩次,一次是在&lt;br&gt;&lt;br&gt;main script呼叫simHandleIkGroup(sim_handle_all_except_explicit) 時, &lt;br&gt;&lt;br&gt;另一次是在child script 呼叫simHandleIkGroup(ikGroupHandle)時. &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;•  Mechanism is redundant: &lt;br&gt;&lt;br&gt;當被打勾時, 在IK解析時joint限制校正將被啟用. &lt;br&gt;&lt;br&gt;否則，joint limits 將會簡單地被強制執行在IK 解析之後，可能導致不穩定.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;•  Ignore max. step sizes:   如果被勾選，在  joint properties 裡的maximum step sizes 將會被忽略.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;•  Calc. method: &lt;br&gt;&lt;br&gt;具體說明IK group 決定使用的計算方式. &lt;br&gt;&lt;br&gt; Pseudo inverse  是最快的方式但可能不穩定當目標與 tip lie 距離太遠, 當一個運動鏈超過限制或當機構靠近一個單一組態 或 超出目標.&lt;br&gt;&lt;br&gt;  DLS 是較慢但更穩定因為它是一個阻尼分析方式(阻尼因子可以被指定（阻尼）). &lt;br&gt;&lt;br&gt;這是一個好的選擇當  pseudo inverse可能失敗.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;•  Damping: &lt;br&gt;&lt;br&gt;阻尼因子當使用DLS.  較大的值導致更穩定的分辨率，但速度很慢。適當地調整值是重要的。&lt;br&gt;&lt;br&gt;&lt;br&gt;
-•  Max. iterations: &lt;br&gt;&lt;br&gt;重複的最大數值可以被指定. 這是計算經過的最大數量對於給予的IK group，直到它指定的結果精度到達. DLS 經常需要比  Pseudo inverse更多的重複.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;•  Joint limits (calculation weights): &lt;br&gt;&lt;br&gt;the calculation weight 應該被使用在 joint limitation constraints &lt;br&gt;&lt;br&gt;(joint limitation constraints 是被指定在  joint properties &lt;br&gt;&lt;br&gt;(position minimum andposition range).&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;•  Obstacle avoidance (calculation weights): &lt;br&gt;&lt;br&gt;the calculation weight 應該被使用對於 obstacle avoidance(避開障礙物) constraints.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;•  Joint limit thresholds:   線性和角度的臨界值應該和joint limitation constraints 一起被使用.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;•  Edit conditional parameters:   調整選擇的IK group裡附加的參數 .&lt;/h3&gt;
-&lt;br&gt;&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/IK2.png" weight=600 &gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;h3&gt;•  Perform if... : &lt;br&gt;&lt;br&gt;這是有條件的分析部分. &lt;br&gt;&lt;br&gt;使用者可以選擇下拉一個在列表中的IK group，&lt;br&gt;&lt;br&gt;這個IK分析結果將會決定當前IK group是否會被解決。&lt;br&gt;&lt;br&gt;被認為是成功的IK group計算的IK elements都位於指定的線性/角度精度內。&lt;br&gt;&lt;br&gt;&lt;br&gt;
-•  Restore if... : &lt;br&gt;&lt;br&gt;允許恢復初始IK group配置（goint values）如果分析沒有成功 (位置和/或定向精度沒有達到).&lt;br&gt;&lt;br&gt; 與上述條件的解結合時，用戶可以例如結合兩個不同的計算方法。&lt;br&gt;&lt;br&gt;這是有用的如果在操作者的目標可能超出範圍或靠近一個單一組態: &lt;br&gt;&lt;br&gt;第一次分析嘗試將試著求解IK group與non-damped resolution method (pseudo inverse, fast), &lt;br&gt;&lt;br&gt;而且如果不成功, 第二次嘗試將會試著解決它與damped resolution method (DLS, slower). &lt;br&gt;&lt;br&gt;使用者也當然可以自由手動地處理IK resolution 從script, plugin, 等.&lt;br&gt;&lt;br&gt;&lt;br&gt;
-•  Edit obstacle avoidance parameters: &lt;br&gt;&lt;br&gt;允許調整避障參數。&lt;br&gt;&lt;br&gt;請注意，這只是對熟練的操作者有意義, &lt;br&gt;&lt;br&gt;而且模擬速度會大幅度地放緩。&lt;/h3&gt;
+&lt;h2&gt;編譯成功 :&lt;/h2&gt;
 
-&lt;p&gt;&lt;br&gt;&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/IK3.png" weight=600 &gt;&lt;br&gt;&lt;br&gt;
-&lt;h3&gt;•  Select avoidance entities / Remove avoidance constraint: &lt;br&gt;&lt;br&gt;允許選擇/移除avoidance entities. &lt;br&gt;&lt;br&gt;一個整體通常是機器人，其他實體是障礙物。&lt;br&gt;&lt;br&gt; 使用簡單地measurable objects 來快速分析.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;•  Distance threshold: &lt;br&gt;&lt;br&gt;在兩個avoidance entities 之間應該保持最小的距離.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
-&lt;p&gt;•  Edit IK elements: &lt;br&gt;&lt;br&gt;允許編輯各種被選擇的IK group有關聯的IK elements.
-&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/19</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050719.html" rel="alternate"></link><updated>2016-07-19T19:41:33+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-19:blog/40323230ri-zhi-1050719.html</id><summary type="html">&lt;p&gt;Python-Solvespace編譯除錯中。&lt;/p&gt;
+&lt;p&gt;上次編譯時一直找不到&lt;code&gt;Slvs_&lt;/code&gt;相關名稱的問題。&lt;/p&gt;
+&lt;p&gt;最後發現編譯&lt;code&gt;_slvs.so&lt;/code&gt;時加入參照&lt;code&gt;libslvs.so&lt;/code&gt;資料庫的指令（&lt;code&gt;-L&lt;/code&gt;和&lt;code&gt;-l&lt;/code&gt;），就成功編譯了。&lt;/p&gt;
+&lt;p&gt;結束編譯時，Makefile執行了CDemo.exe證明C語言調用&lt;code&gt;libslvs.so&lt;/code&gt;是完全沒問題的。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/M7G0AH3.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;接著要試著執行Python調用&lt;code&gt;_slvs.so&lt;/code&gt;。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2&gt;測試test.py和Usage.py :&lt;/h2&gt;
+
+&lt;p&gt;作者提供了2個範例使用，將它們和&lt;code&gt;_slvs.so&lt;/code&gt;放在相同目錄中。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Usage.py&lt;/code&gt;是參照Readme的說明，將範例code抓下來存在&lt;code&gt;exposed&lt;/code&gt;資料夾的程式檔。&lt;/p&gt;
+&lt;p&gt;然而若直接執行會出下列錯誤：&lt;/p&gt;
+&lt;h2&gt;&lt;em&gt;test.py&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/Dp86EeP.jpg" &gt;&lt;/p&gt;
+&lt;h2&gt;&lt;em&gt;Usage.py&lt;/em&gt;&lt;/h2&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/goKX3du.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;意思是Python無法調用&lt;code&gt;_slvs&lt;/code&gt;這個模組，大部分的原因是名稱錯誤或是沒有導入。&lt;/p&gt;
+&lt;p&gt;SWIG手冊的"Using distutils"之後的幾章是講導出模組後的應用。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/xm3XyRs.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;看了一下內容，Python導出後的模組可以作為Python的附加元件、直接呼叫、動態模組、靜態連結之類的。&lt;/p&gt;
+&lt;p&gt;不過沒有解答一些例外的錯誤。&lt;/p&gt;
+&lt;p&gt;但是一直找不到&lt;code&gt;_slvs.so&lt;/code&gt;，不知道是出了甚麼問題，會繼續尋找資料。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2&gt;公開倉儲 :&lt;/h2&gt;
+
+&lt;p&gt;把目前進度推到了自己的&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;倉儲，在&lt;code&gt;exposed&lt;/code&gt;資料夾中的Makefile編輯工具位置，就能Make和Clean。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/u5OAbuX.jpg" &gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/19</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050719.html" rel="alternate"></link><updated>2016-07-20T18:30:53+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-20:blog/40323230ri-zhi-1050719.html</id><summary type="html">&lt;p&gt;Python-Solvespace編譯除錯中。&lt;/p&gt;
 
 
 &lt;h2&gt;Netbeans的版次管理與自訂工具列 :&lt;/h2&gt;
@@ -1430,26 +1401,7 @@ CFLAGS_SHARED = -fPIC -shared $(CFLAGS)
 
 &lt;p&gt;兩個Makefile編譯階段都進入整合階段，剩下的一些編譯問題主要是對MinGW的編譯程式不熟悉的緣故。&lt;/p&gt;
 &lt;p&gt;像是一般的&lt;code&gt;.so&lt;/code&gt;、&lt;code&gt;.o&lt;/code&gt;都較為廣用，可是將obj檔直接轉換成可執行檔，卻找不到範例。&lt;/p&gt;
-&lt;p&gt;之後要再找找看gcc和g++的編譯範例。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="Python-Solvespace"></category></entry><entry><title>40323218日誌 - 105/07/17</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050717.html" rel="alternate"></link><updated>2016-07-18T23:49:58+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-18:blog/40323218ri-zhi-1050717.html</id><summary type="html">&lt;p&gt;V-rep_solvespace_linkages&lt;/p&gt;
-
-
-&lt;h2&gt;嘗試 vrep_solvespace_linkages&lt;/h2&gt;
-
-&lt;p&gt;&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/linkages.png" weight=600 &gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;h2&gt;影片教學：&lt;/h2&gt;
-&lt;br&gt;
-&lt;iframe src="https://player.vimeo.com/video/175117655" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt; &lt;p&gt;&lt;a href="https://vimeo.com/175117655"&gt;vrep_solvespace_linkages&lt;/a&gt; from &lt;a href="https://vimeo.com/user44943624"&gt;Li Steven&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;h2&gt;檔案：&lt;/h2&gt;
-&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/40323218/solvespace_successful.ttt?raw=true"&gt;solvespace_successful.ttt&lt;/a&gt;&lt;/p&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;h2&gt;心得：&lt;/h2&gt;
-&lt;h3&gt;組裝這個物件的重點我認為是在零件的順序和Dummy放置的位置，嘗試了兩天終於作了出來，對零件的從屬關係有比較OK了，有學會dummy的應用，再來就是把這些統整可以試著弄我們的 printer。&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/18</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050718.html" rel="alternate"></link><updated>2016-07-18T22:06:23+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-18:blog/40323230ri-zhi-1050718.html</id><summary type="html">&lt;p&gt;改寫Python-Solvespace的Makefile運作方式。&lt;/p&gt;
+&lt;p&gt;之後要再找找看gcc和g++的編譯範例。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/18</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050718.html" rel="alternate"></link><updated>2016-07-19T17:49:11+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-19:blog/40323230ri-zhi-1050718.html</id><summary type="html">&lt;p&gt;改寫Python-Solvespace的Makefile運作方式。&lt;/p&gt;
 
 
 &lt;h2&gt;前言 :&lt;/h2&gt;
@@ -1570,7 +1522,55 @@ class STrimBy {
 &lt;hr&gt;
 
 &lt;p&gt;這次學到了編譯程式重要的一環，雖然make的過程中很煩人，也要一直注意是否出錯，但是最後成功時滿有成就感的。&lt;/p&gt;
-&lt;p&gt;有些錯誤當下想不出來，不過換一種想法後就能克服許多障礙，訓練眼光放遠也是一件重要的事情。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230紀錄 - Makefile的建構</title><link href="http://project.mde.tw/blog/40323230ji-lu-makefilede-jian-gou.html" rel="alternate"></link><updated>2016-07-16T16:00:15+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-16:blog/40323230ji-lu-makefilede-jian-gou.html</id><summary type="html">&lt;p&gt;閱讀GNU-Make相關的知識。&lt;/p&gt;
+&lt;p&gt;有些錯誤當下想不出來，不過換一種想法後就能克服許多障礙，訓練眼光放遠也是一件重要的事情。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category><category term="Python-Solvespace"></category></entry><entry><title>40323218日誌 - 105/07/19</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050719.html" rel="alternate"></link><updated>2016-07-19T17:49:11+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-19:blog/40323218ri-zhi-1050719.html</id><summary type="html">&lt;p&gt;V-rep 翻譯 Inverse kinematics&lt;/p&gt;
+
+
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/IK1.png" weight=600 &gt;&lt;br&gt;&lt;br&gt;
+&lt;h3&gt;•  Inverse kinematics enabled:   啟用或禁用所有IK計算。&lt;br&gt;
+&lt;br&gt;&lt;br&gt;
+•  Add new IK group: &lt;br&gt;&lt;br&gt;新增一個空的 IK group. IK groups 可以包含一個或多個 IK elements.&lt;br&gt;&lt;br&gt; IK elements 是基本運動學綁著IK任務, IK groups可以組合他們來同時運行.&lt;br&gt;&lt;br&gt; 當需要時只使用同時運行(比依序運算花較長的計算時間).&lt;br&gt;&lt;br&gt; 一個IK element 總必須被一個IK group連結，而且不能單獨存在. &lt;br&gt;&lt;br&gt;在按鈕下方的列表中顯示所有的IK groups將會在IK計算時被運行.&lt;br&gt;&lt;br&gt; 在列表中一個 IK group需要被選擇，為了顯現它的參數在剩餘的對話框中.&lt;br&gt;&lt;br&gt; 在列表中的順序很重要(IK group 1的結果可能被IK group 2需要來正確地或更快的執行).&lt;br&gt;&lt;br&gt; 在列表旁的兩個按鈕可以改變被選擇的IK group的位置.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  IK group is active:     允許啟動這個IK groups.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  Explicit handling: &lt;br&gt;&lt;br&gt;表示被選擇的IK group 是否應該被明確地處理. &lt;br&gt;&lt;br&gt;如果打勾, 當呼叫simHandleIkGroup(sim_handle_all_except_explicit)時，&lt;br&gt;&lt;br&gt;在IK 計算這個IK group將不會被處理，但只有當&lt;br&gt;&lt;br&gt;simHandleIkGroup(sim_handle_all) or&lt;br&gt;&lt;br&gt; simHandleIkGroup(ikGroupHandle) 呼叫時除外. &lt;br&gt;&lt;br&gt;這是非常有用的當如果用戶希望在  child script 而不是在  main script&lt;br&gt;&lt;br&gt;處理IK group裡的kinematics  (如果沒有打勾, IK計算將會被執行兩次,一次是在&lt;br&gt;&lt;br&gt;main script呼叫simHandleIkGroup(sim_handle_all_except_explicit) 時, &lt;br&gt;&lt;br&gt;另一次是在child script 呼叫simHandleIkGroup(ikGroupHandle)時. &lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  Mechanism is redundant: &lt;br&gt;&lt;br&gt;當被打勾時, 在IK解析時joint限制校正將被啟用. &lt;br&gt;&lt;br&gt;否則，joint limits 將會簡單地被強制執行在IK 解析之後，可能導致不穩定.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  Ignore max. step sizes:   如果被勾選，在  joint properties 裡的maximum step sizes 將會被忽略.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  Calc. method: &lt;br&gt;&lt;br&gt;具體說明IK group 決定使用的計算方式. &lt;br&gt;&lt;br&gt; Pseudo inverse  是最快的方式但可能不穩定當目標與 tip lie 距離太遠, 當一個運動鏈超過限制或當機構靠近一個單一組態 或 超出目標.&lt;br&gt;&lt;br&gt;  DLS 是較慢但更穩定因為它是一個阻尼分析方式(阻尼因子可以被指定（阻尼）). &lt;br&gt;&lt;br&gt;這是一個好的選擇當  pseudo inverse可能失敗.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  Damping: &lt;br&gt;&lt;br&gt;阻尼因子當使用DLS.  較大的值導致更穩定的分辨率，但速度很慢。適當地調整值是重要的。&lt;br&gt;&lt;br&gt;&lt;br&gt;
+•  Max. iterations: &lt;br&gt;&lt;br&gt;重複的最大數值可以被指定. 這是計算經過的最大數量對於給予的IK group，直到它指定的結果精度到達. DLS 經常需要比  Pseudo inverse更多的重複.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  Joint limits (calculation weights): &lt;br&gt;&lt;br&gt;the calculation weight 應該被使用在 joint limitation constraints &lt;br&gt;&lt;br&gt;(joint limitation constraints 是被指定在  joint properties &lt;br&gt;&lt;br&gt;(position minimum andposition range).&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  Obstacle avoidance (calculation weights): &lt;br&gt;&lt;br&gt;the calculation weight 應該被使用對於 obstacle avoidance(避開障礙物) constraints.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  Joint limit thresholds:   線性和角度的臨界值應該和joint limitation constraints 一起被使用.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  Edit conditional parameters:   調整選擇的IK group裡附加的參數 .&lt;/h3&gt;
+&lt;br&gt;&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/IK2.png" weight=600 &gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h3&gt;•  Perform if... : &lt;br&gt;&lt;br&gt;這是有條件的分析部分. &lt;br&gt;&lt;br&gt;使用者可以選擇下拉一個在列表中的IK group，&lt;br&gt;&lt;br&gt;這個IK分析結果將會決定當前IK group是否會被解決。&lt;br&gt;&lt;br&gt;被認為是成功的IK group計算的IK elements都位於指定的線性/角度精度內。&lt;br&gt;&lt;br&gt;&lt;br&gt;
+•  Restore if... : &lt;br&gt;&lt;br&gt;允許恢復初始IK group配置（goint values）如果分析沒有成功 (位置和/或定向精度沒有達到).&lt;br&gt;&lt;br&gt; 與上述條件的解結合時，用戶可以例如結合兩個不同的計算方法。&lt;br&gt;&lt;br&gt;這是有用的如果在操作者的目標可能超出範圍或靠近一個單一組態: &lt;br&gt;&lt;br&gt;第一次分析嘗試將試著求解IK group與non-damped resolution method (pseudo inverse, fast), &lt;br&gt;&lt;br&gt;而且如果不成功, 第二次嘗試將會試著解決它與damped resolution method (DLS, slower). &lt;br&gt;&lt;br&gt;使用者也當然可以自由手動地處理IK resolution 從script, plugin, 等.&lt;br&gt;&lt;br&gt;&lt;br&gt;
+•  Edit obstacle avoidance parameters: &lt;br&gt;&lt;br&gt;允許調整避障參數。&lt;br&gt;&lt;br&gt;請注意，這只是對熟練的操作者有意義, &lt;br&gt;&lt;br&gt;而且模擬速度會大幅度地放緩。&lt;/h3&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/IK3.png" weight=600 &gt;&lt;br&gt;&lt;br&gt;
+&lt;h3&gt;•  Select avoidance entities / Remove avoidance constraint: &lt;br&gt;&lt;br&gt;允許選擇/移除avoidance entities. &lt;br&gt;&lt;br&gt;一個整體通常是機器人，其他實體是障礙物。&lt;br&gt;&lt;br&gt; 使用簡單地measurable objects 來快速分析.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  Distance threshold: &lt;br&gt;&lt;br&gt;在兩個avoidance entities 之間應該保持最小的距離.&lt;br&gt;&lt;br&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;•  Edit IK elements: &lt;br&gt;&lt;br&gt;允許編輯各種被選擇的IK group有關聯的IK elements.
+&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323218日誌 - 105/07/17</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050717.html" rel="alternate"></link><updated>2016-07-18T18:08:44+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-18:blog/40323218ri-zhi-1050717.html</id><summary type="html">&lt;p&gt;V-rep_solvespace_linkages&lt;/p&gt;
+
+
+&lt;h2&gt;嘗試 vrep_solvespace_linkages&lt;/h2&gt;
+
+&lt;p&gt;&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/linkages.png" weight=600 &gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h2&gt;影片教學：&lt;/h2&gt;
+&lt;br&gt;
+&lt;iframe src="https://player.vimeo.com/video/175117655" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt; &lt;p&gt;&lt;a href="https://vimeo.com/175117655"&gt;vrep_solvespace_linkages&lt;/a&gt; from &lt;a href="https://vimeo.com/user44943624"&gt;Li Steven&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h2&gt;檔案：&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/40323218/solvespace_successful.ttt?raw=true"&gt;solvespace_successful.ttt&lt;/a&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h2&gt;心得：&lt;/h2&gt;
+&lt;h3&gt;組裝這個物件的重點我認為是在零件的順序和Dummy放置的位置，嘗試了兩天終於作了出來，對零件的從屬關係有比較OK了，有學會dummy的應用，再來就是把這些統整可以試著弄我們的 printer。&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230紀錄 - Makefile的建構</title><link href="http://project.mde.tw/blog/40323230ji-lu-makefilede-jian-gou.html" rel="alternate"></link><updated>2016-07-18T18:08:44+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-18:blog/40323230ji-lu-makefilede-jian-gou.html</id><summary type="html">&lt;p&gt;閱讀GNU-Make相關的知識。&lt;/p&gt;
 &lt;p&gt;嘗試了解Python-Solvespace的Makefile運作方式。&lt;/p&gt;
 
 
@@ -1647,7 +1647,72 @@ class STrimBy {
 &lt;hr&gt;
 
 &lt;p&gt;Makefile和cmake的CMakelist.txt一樣都是工程師自己要創建的，所以又是一項工程，不過除了一些內定代號，其他都滿好理解的。&lt;/p&gt;
-&lt;p&gt;找了一下Python-Solvespace相關的網站，但是內容都好少。不過在Github的說明已經滿詳盡了，只是倉儲內的資料時間有點久遠，所以要花些時間偵錯。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="Python-Solvespace"></category></entry><entry><title>40323218日誌 - 105/07/15</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050715.html" rel="alternate"></link><updated>2016-07-15T23:31:12+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323218ri-zhi-1050715.html</id><summary type="html">&lt;p&gt;V-rep 程式應用&lt;/p&gt;
+&lt;p&gt;找了一下Python-Solvespace相關的網站，但是內容都好少。不過在Github的說明已經滿詳盡了，只是倉儲內的資料時間有點久遠，所以要花些時間偵錯。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/15</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050715.html" rel="alternate"></link><updated>2016-07-18T18:08:44+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-18:blog/40323230ri-zhi-1050715.html</id><summary type="html">&lt;p&gt;研究Python-Solvespace。&lt;/p&gt;
+
+
+&lt;h2&gt;更新Anaconda3 :&lt;/h2&gt;
+
+&lt;p&gt;從官方網站下載最新的Anaconda 3，配有Python 3.5.2。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.continuum.io/downloads" title="continuum.io"&gt;https://www.continuum.io/downloads&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;使用Path指令檢查環境變數。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/vvpj0ZV.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;確定無誤後放入可攜式環境中，並把原本的Python 3.5移除，將start.bat的環境位置改成Anaconda的資料夾。&lt;/p&gt;
+&lt;p&gt;接著再檢查Anaconda程式的運作狀態。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/2CfbnMR.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;安裝了其他工具，也包含Leo 5.3。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/BkhZNCL.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2&gt;說明 :&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href="https://github.com/BBBSnowball/python-solvespace" title="github.com"&gt;Python-Solvespace&lt;/a&gt;是由BBBSnowball所開發的Solvespace函式庫，另外能調用Solid-python來協助運算。&lt;/p&gt;
+&lt;p&gt;Python-Solvespace最後一次更新是在2013年，所以使用的是Python 2，SWIG可能也是舊版的。&lt;/p&gt;
+&lt;p&gt;而根據協同者們留下的"VbDemo.vb"紀錄，應該是用VC來編譯它的。&lt;/p&gt;
+&lt;p&gt;若要使用Solid-python，必須用"git submodule update --init"指令額外下載它，不然只有空資料夾。&lt;/p&gt;
+&lt;p&gt;不過目前沒有要使用Solid-python，所以可以不用下載。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/cn1yVuk.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;按照Readme的說明，要用make指令來編譯檔案。&lt;/p&gt;
+&lt;p&gt;但是在make的時候出錯了，顯示"missing separator. Stop."的錯誤，查了下面的網站，貌似是make.exe的新版本讀取舊的Makefile的問題，必須改寫他們的Makefile或使用舊版的MSYS。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.crifan.com/error_missing_separator_stop_while_make_in_windows_cmd/" title="crifan.com"&gt;http://www.crifan.com/error_missing_separator_stop_while_make_in_windows_cmd/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;而顯示的錯誤如下圖：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/P2M54ZE.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2&gt;與Whitequark的版本比較 :&lt;/h2&gt;
+
+&lt;p&gt;不過Python-Solvespace有留下來interface的檔案，但是它的檔案結構已經跟Whitequark的版本不一樣了，所以也不能直接讓interface對應新版的檔案來創建。&lt;/p&gt;
+&lt;p&gt;好消息是SWIG的interface檔案改變不大，新版仍能使用。只要切換到\exposed資料夾，使用下列指令就能生成"slvs_wrap.cxx"。&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+swig -c++ -python -py3 slvs.i
+&lt;/pre&gt;
+
+&lt;p&gt;新版有用到cmake來建置檔案，但是Python-Solvespace沒有，所以沒有CMakelist的清單。而CMakelist是要手動編寫的，視規模大小來分配。&lt;/p&gt;
+&lt;p&gt;Python-Solvespace似乎是只有原本Solvespace的"src"資料夾部分（不過外面原本就是給編譯器介紹用）。&lt;/p&gt;
+&lt;p&gt;並將"exposed"、"extlib"、"win32"等資料夾放了進來，並且將總標頭檔"slvs.h"和DLL的"lib.cpp"加入"exposed"中，讓CDemo成為主幹，調用Solvespace裡的約束函式。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/RJZXL0w.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;但是"exposed"中除了原本的CDemo，還有一個h++的標頭檔"slvs_python.hpp"、一個"DOC.txt"說明Python要如何呼叫編譯好的函式列表，以及一些Python的小程式。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2&gt;test.py :&lt;/h2&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/inHplBd.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;py檔總共有3個，其中一個是使用Solid-python的呼叫工具，其他的"test.py"分別用"2.scad"和"3.scad"命名。&lt;/p&gt;
+&lt;p&gt;檢查了一下Python-Solvespace附上的py檔，最後作者做了3個測試，並寫下了一些註解。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/FqBe5Ba.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;第一個"test.py"，展示了Python要如何取用slvs.dll的函式，長得跟原先的"CDemo.c"十分相似。&lt;/p&gt;
+&lt;p&gt;在這裡，可以注意到SWIG轉換後的函式名稱還是一樣，用法也極其相似。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/IhJD1yg.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;第二個"test2.scad.py"匯入了slvs和solid。&lt;/p&gt;
+&lt;p&gt;由於Python只要在附近資料中尋找到宣告的項目就可運作，所以不太確定它們的副檔名究竟是DLL還是SO、PYD之類的連結庫或Python程式。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/cHzJVHz.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;第三個"test3.scad.py"明顯使用了"slvs_solid.py"的內容，不過只有稍微閱讀過Solid-python的Readme，所以不太知道它的函式，但是看似比Solvespace更方便。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/TmysKJC.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;這次在Python-Solvespace碰上一些小瓶頸。&lt;/p&gt;
+&lt;p&gt;主要是MSYS的Makefile問題，論壇上滿多人討論它在編譯時的障礙，有時連參數前加個空格都會顯示錯誤，無法進行。&lt;/p&gt;
+&lt;p&gt;而Python-Solvespace應該是用不到cmake（因為原作者是用VC），如果需要用到Netbeams，就要自行撰寫一份CMakelist，或是在編譯器中捨棄它的功能。&lt;/p&gt;
+&lt;p&gt;至於需要Python 2轉Python 3的部分比較少，除非要動用Solid-python的內容。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category></entry><entry><title>40323218日誌 - 105/07/15</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050715.html" rel="alternate"></link><updated>2016-07-18T18:08:44+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-18:blog/40323218ri-zhi-1050715.html</id><summary type="html">&lt;p&gt;V-rep 程式應用&lt;/p&gt;
 
 
 &lt;h2&gt;從 irb360 程式中找尋可能用到的並嘗試解釋和整理。 &lt;/h2&gt;
@@ -1726,73 +1791,8 @@ targetVel: the desired velocity of the joints at the target. Can be nil in which
 direction: the desired rotation direction for cyclic revolute joints: 0 for the shortest distance, -x for a movement towards negative values, +x for a movement towards positive values (n=(x-1) represents the number of additional turns). Can be nil or omitted, in which case a value of 0 is used for all joints&lt;br&gt;
 &lt;br&gt;
 &lt;br&gt;&lt;/p&gt;
-&lt;p&gt;(待補充)&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/15</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050715.html" rel="alternate"></link><updated>2016-07-15T17:37:17+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323230ri-zhi-1050715.html</id><summary type="html">&lt;p&gt;研究Python-Solvespace。&lt;/p&gt;
-
-
-&lt;h2&gt;更新Anaconda3 :&lt;/h2&gt;
-
-&lt;p&gt;從官方網站下載最新的Anaconda 3，配有Python 3.5.2。&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.continuum.io/downloads" title="continuum.io"&gt;https://www.continuum.io/downloads&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;使用Path指令檢查環境變數。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/vvpj0ZV.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;確定無誤後放入可攜式環境中，並把原本的Python 3.5移除，將start.bat的環境位置改成Anaconda的資料夾。&lt;/p&gt;
-&lt;p&gt;接著再檢查Anaconda程式的運作狀態。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/2CfbnMR.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;安裝了其他工具，也包含Leo 5.3。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/BkhZNCL.jpg" &gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h2&gt;說明 :&lt;/h2&gt;
-
-&lt;p&gt;&lt;a href="https://github.com/BBBSnowball/python-solvespace" title="github.com"&gt;Python-Solvespace&lt;/a&gt;是由BBBSnowball所開發的Solvespace函式庫，另外能調用Solid-python來協助運算。&lt;/p&gt;
-&lt;p&gt;Python-Solvespace最後一次更新是在2013年，所以使用的是Python 2，SWIG可能也是舊版的。&lt;/p&gt;
-&lt;p&gt;而根據協同者們留下的"VbDemo.vb"紀錄，應該是用VC來編譯它的。&lt;/p&gt;
-&lt;p&gt;若要使用Solid-python，必須用"git submodule update --init"指令額外下載它，不然只有空資料夾。&lt;/p&gt;
-&lt;p&gt;不過目前沒有要使用Solid-python，所以可以不用下載。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/cn1yVuk.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;按照Readme的說明，要用make指令來編譯檔案。&lt;/p&gt;
-&lt;p&gt;但是在make的時候出錯了，顯示"missing separator. Stop."的錯誤，查了下面的網站，貌似是make.exe的新版本讀取舊的Makefile的問題，必須改寫他們的Makefile或使用舊版的MSYS。&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://www.crifan.com/error_missing_separator_stop_while_make_in_windows_cmd/" title="crifan.com"&gt;http://www.crifan.com/error_missing_separator_stop_while_make_in_windows_cmd/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;而顯示的錯誤如下圖：&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/P2M54ZE.jpg" &gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h2&gt;與Whitequark的版本比較 :&lt;/h2&gt;
-
-&lt;p&gt;不過Python-Solvespace有留下來interface的檔案，但是它的檔案結構已經跟Whitequark的版本不一樣了，所以也不能直接讓interface對應新版的檔案來創建。&lt;/p&gt;
-&lt;p&gt;好消息是SWIG的interface檔案改變不大，新版仍能使用。只要切換到\exposed資料夾，使用下列指令就能生成"slvs_wrap.cxx"。&lt;/p&gt;
-&lt;pre class="brush: c"&gt;
-swig -c++ -python -py3 slvs.i
-&lt;/pre&gt;
-
-&lt;p&gt;新版有用到cmake來建置檔案，但是Python-Solvespace沒有，所以沒有CMakelist的清單。而CMakelist是要手動編寫的，視規模大小來分配。&lt;/p&gt;
-&lt;p&gt;Python-Solvespace似乎是只有原本Solvespace的"src"資料夾部分（不過外面原本就是給編譯器介紹用）。&lt;/p&gt;
-&lt;p&gt;並將"exposed"、"extlib"、"win32"等資料夾放了進來，並且將總標頭檔"slvs.h"和DLL的"lib.cpp"加入"exposed"中，讓CDemo成為主幹，調用Solvespace裡的約束函式。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/RJZXL0w.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;但是"exposed"中除了原本的CDemo，還有一個h++的標頭檔"slvs_python.hpp"、一個"DOC.txt"說明Python要如何呼叫編譯好的函式列表，以及一些Python的小程式。&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h2&gt;test.py :&lt;/h2&gt;
-
-&lt;p&gt;&lt;img src="http://i.imgur.com/inHplBd.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;py檔總共有3個，其中一個是使用Solid-python的呼叫工具，其他的"test.py"分別用"2.scad"和"3.scad"命名。&lt;/p&gt;
-&lt;p&gt;檢查了一下Python-Solvespace附上的py檔，最後作者做了3個測試，並寫下了一些註解。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/FqBe5Ba.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;第一個"test.py"，展示了Python要如何取用slvs.dll的函式，長得跟原先的"CDemo.c"十分相似。&lt;/p&gt;
-&lt;p&gt;在這裡，可以注意到SWIG轉換後的函式名稱還是一樣，用法也極其相似。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/IhJD1yg.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;第二個"test2.scad.py"匯入了slvs和solid。&lt;/p&gt;
-&lt;p&gt;由於Python只要在附近資料中尋找到宣告的項目就可運作，所以不太確定它們的副檔名究竟是DLL還是SO、PYD之類的連結庫或Python程式。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/cHzJVHz.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;第三個"test3.scad.py"明顯使用了"slvs_solid.py"的內容，不過只有稍微閱讀過Solid-python的Readme，所以不太知道它的函式，但是看似比Solvespace更方便。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/TmysKJC.jpg" &gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;這次在Python-Solvespace碰上一些小瓶頸。&lt;/p&gt;
-&lt;p&gt;主要是MSYS的Makefile問題，論壇上滿多人討論它在編譯時的障礙，有時連參數前加個空格都會顯示錯誤，無法進行。&lt;/p&gt;
-&lt;p&gt;而Python-Solvespace應該是用不到cmake（因為原作者是用VC），如果需要用到Netbeams，就要自行撰寫一份CMakelist，或是在編譯器中捨棄它的功能。&lt;/p&gt;
-&lt;p&gt;至於需要Python 2轉Python 3的部分比較少，除非要動用Solid-python的內容。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category></entry><entry><title>40323250日誌 - V-rep &amp; 3D-Printer</title><link href="http://project.mde.tw/blog/40323250ri-zhi-v-rep-3d-printer.html" rel="alternate"></link><updated>2016-07-15T17:24:43+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323250ri-zhi-v-rep-3d-printer.html</id><summary type="html">&lt;p&gt;之後的 V-rep模擬Printer都整理於本文章中&lt;/p&gt;
-</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323231日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323231ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-15T17:24:43+08:00</updated><author><name>40323231</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323231ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;3DP碰到的問題及解決&lt;/p&gt;
+&lt;p&gt;(待補充)&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - V-rep &amp; 3D-Printer</title><link href="http://project.mde.tw/blog/40323250ri-zhi-v-rep-3d-printer.html" rel="alternate"></link><updated>2016-07-15T17:52:58+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323250ri-zhi-v-rep-3d-printer.html</id><summary type="html">&lt;p&gt;之後的 V-rep模擬Printer都整理於本文章中&lt;/p&gt;
+</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323231日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323231ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-15T09:47:45+08:00</updated><author><name>40323231</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323231ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;3DP碰到的問題及解決&lt;/p&gt;
 
 
 &lt;h3&gt;第一次組裝3D列印機，所以各個零件和電子元件的功用都不知道，所以只能從型號去著手，知道並了解運用。&lt;/h3&gt;
@@ -1816,7 +1816,7 @@ swig -c++ -python -py3 slvs.i
 &lt;h3&gt;2.常開型和常關型只有微動開關才有，所以光學開關一定要3調都接&lt;/h3&gt;
 &lt;/br&gt;
 &lt;h3&gt;今天進度&lt;/h3&gt;
-&lt;h4&gt;組裝 3DP，將缺少的材料抄寫下來，將跟工廠管理員詢問，使用VREP，看組員的所寫的網誌並實際操作&lt;/h4&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-14T19:29:17+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323230ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;試圖解決SWIG問題&lt;/p&gt;
+&lt;h4&gt;組裝 3DP，將缺少的材料抄寫下來，將跟工廠管理員詢問，使用VREP，看組員的所寫的網誌並實際操作&lt;/h4&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-15T09:47:45+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323230ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;試圖解決SWIG問題&lt;/p&gt;
 
 
 &lt;h2&gt;撰寫批次檔 :&lt;/h2&gt;
@@ -1905,7 +1905,7 @@ pause
 &lt;hr&gt;
 
 &lt;p&gt;SWIG在自身的編譯上有點小錯誤，但是有些地方因為不了解Python的模組，所以不知道要怎麼修改。&lt;/p&gt;
-&lt;p&gt;另外有些不知道C語言的格式轉換是怎麼套用到Python的，所以在Python.h的函式不知該怎麼用。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category></entry><entry><title>40323218日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-14T19:13:49+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323218ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
+&lt;p&gt;另外有些不知道C語言的格式轉換是怎麼套用到Python的，所以在Python.h的函式不知該怎麼用。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category></entry><entry><title>40323218日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-14T17:26:45+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323218ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
 
 
 &lt;h2&gt;翻譯文章重點&lt;/h2&gt;
@@ -1993,7 +1993,7 @@ Convex shapes會有點不太穩定，當物理引擎處理時需要多一點點�
 5. Random shapes：&lt;br&gt;
 一個Random shapes是一個形狀不是convex也不是pure。它一般具有性能差（計算速度和穩定性）。盡可能地避免使用隨機的形狀。&lt;/h3&gt;
 &lt;br&gt;
-&lt;h3&gt;因此，優先順序是：pure shapes → pure compound shapes → convex shapes → compound convex shapes → random shapes。&lt;/h3&gt;&lt;br&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/13</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050713.html" rel="alternate"></link><updated>2016-07-13T16:31:15+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-13:blog/40323230ri-zhi-1050713.html</id><summary type="html">&lt;p&gt;Python 3.5.2軟體更新&lt;/p&gt;
+&lt;h3&gt;因此，優先順序是：pure shapes → pure compound shapes → convex shapes → compound convex shapes → random shapes。&lt;/h3&gt;&lt;br&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/13</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050713.html" rel="alternate"></link><updated>2016-07-14T17:26:45+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323230ri-zhi-1050713.html</id><summary type="html">&lt;p&gt;Python 3.5.2軟體更新&lt;/p&gt;
 
 
 &lt;h2&gt;軟體更新目標 :&lt;/h2&gt;
@@ -2060,7 +2060,7 @@ python setup.py install
 
 &lt;p&gt;上次的swig還是沒成功，"_wrap.c"中似乎還要加一些python3的判斷式。&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://python3porting.com/cextensions.html#module-initialization" title="python3porting.com"&gt;http://python3porting.com/cextensions.html#module-initialization&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;這裡的作者描述還是有點看不懂，雖然下了-py3的指令，但是設定還是沒調。&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/12</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050712.html" rel="alternate"></link><updated>2016-07-12T10:58:48+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-12:blog/40323230ri-zhi-1050712.html</id><summary type="html">&lt;p&gt;瞭解SWIG的用法。&lt;/p&gt;
+&lt;p&gt;這裡的作者描述還是有點看不懂，雖然下了-py3的指令，但是設定還是沒調。&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/12</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050712.html" rel="alternate"></link><updated>2016-07-12T17:25:05+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-12:blog/40323230ri-zhi-1050712.html</id><summary type="html">&lt;p&gt;瞭解SWIG的用法。&lt;/p&gt;
 
 
 &lt;h2&gt;軟體修正 :&lt;/h2&gt;
@@ -2139,38 +2139,7 @@ swig -python example.i
 &lt;p&gt;另外，按照SWIG的邏輯，萬一使用者的Python版本比它還低，它會修改編譯語法嗎？覺得在編譯時的錯誤可能是3.4到3.5之間的衝突。&lt;/p&gt;
 &lt;hr&gt;
 
-&lt;p&gt;今天上網找資料的時候，發現了ctype，可以讓python直接讀取DLL的文件，好像是SWIG之後的產物，只是Python本身必須加裝模組。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category></entry><entry><title>40323218日誌 - 105/07/11</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050711.html" rel="alternate"></link><updated>2016-07-11T17:45:41+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323218ri-zhi-1050711.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
-
-
-&lt;h4&gt;嘗試四連桿機構&lt;/h4&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;h1&gt;&lt;h3&gt;理想狀態：&lt;/h3&gt;&lt;/h1&gt;
-&lt;h1&gt;&lt;br&gt;&lt;/h1&gt;
-&lt;h3&gt;前期嘗試：&lt;/h3&gt;
-
-&lt;p&gt;&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/before.gif" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;前期階級排列：&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step10.png" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;查詢資料：&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step11.png" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;(在兩個dynamic item之間不能有static item)&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;修改後：&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step12.png" weight=600 &gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/after.gif" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;未來嘗試：製作搖擺機構&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;參考網站：http://www.coppeliarobotics.com/helpFiles/en/jointDescription.htm &lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230練習 - 105/07/11</title><link href="http://project.mde.tw/blog/40323230lian-xi-1050711.html" rel="alternate"></link><updated>2016-07-11T15:36:26+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323230lian-xi-1050711.html</id><summary type="html">&lt;p&gt;使用2015cp範本練習".py"呼叫".pyd"。&lt;/p&gt;
+&lt;p&gt;今天上網找資料的時候，發現了ctype，可以讓python直接讀取DLL的文件，好像是SWIG之後的產物，只是Python本身必須加裝模組。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category></entry><entry><title>40323230練習 - 105/07/11</title><link href="http://project.mde.tw/blog/40323230lian-xi-1050711.html" rel="alternate"></link><updated>2016-07-12T16:57:56+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-12:blog/40323230lian-xi-1050711.html</id><summary type="html">&lt;p&gt;使用2015cp範本練習".py"呼叫".pyd"。&lt;/p&gt;
 
 
 &lt;h2&gt;編譯出Python的動態連結庫 :&lt;/h2&gt;
@@ -2333,7 +2302,211 @@ static PyObject* mod_score(PyObject *self, PyObject *args)
 
 &lt;p&gt;Leo的搜尋功能和復原功能真的不太實在。常常搜尋時就跳到其他Node去，搜尋目標也要每次都重新調整；復原直接還原到存檔前的樣子，所以用它來編譯程式真的滿吃力的。&lt;/p&gt;
 &lt;p&gt;這次使用的是Python，所以SciTE和只能寫C語言的NetBeans幫不上忙，因為無法呼叫Python.h。說不定設定環境係數可以奏效？&lt;/p&gt;
-&lt;p&gt;不然只靠Leo編輯，它的函式分類也不是很清楚，常常不知道Python.h中的函式原型用法是甚麼，不像NetBeans可以連進去查看stdio.h或是windows.h所引用的函式。&lt;/p&gt;</summary><category term="Kmol"></category><category term="CDemo"></category></entry><entry><title>40323230練習 - 105/07/10</title><link href="http://project.mde.tw/blog/40323230lian-xi-1050710.html" rel="alternate"></link><updated>2016-07-10T18:50:59+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-10:blog/40323230lian-xi-1050710.html</id><summary type="html">&lt;p&gt;由於不熟悉動態連結庫的運作方式，先練習C語言呼叫動態連結庫，之後再研究python的方式。&lt;/p&gt;
+&lt;p&gt;不然只靠Leo編輯，它的函式分類也不是很清楚，常常不知道Python.h中的函式原型用法是甚麼，不像NetBeans可以連進去查看stdio.h或是windows.h所引用的函式。&lt;/p&gt;</summary><category term="Kmol"></category><category term="CDemo"></category></entry><entry><title>40323230練習 - 105/07/09</title><link href="http://project.mde.tw/blog/40323230lian-xi-1050709.html" rel="alternate"></link><updated>2016-07-11T17:33:46+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323230lian-xi-1050709.html</id><summary type="html">&lt;p&gt;嘗試用C語言解題&lt;/p&gt;
+
+
+&lt;h2&gt;BUG fix :&lt;/h2&gt;
+
+&lt;p&gt;W:槽的SciTE有點小問題，因為設定檔是從Y:複製來的，所以需要重新定義TinyC的位置。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/nXiTYLx.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;只要修改cpp.properties的路徑就可以了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/zjc51Kz.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h2&gt;Nutcracker Solution :&lt;/h2&gt;
+
+&lt;p&gt;上學期的&lt;a href="http://chiamingyen.github.io/kmolab/blog/2015-fall-cadp-w16.html" title="github.io"&gt;Nutcracker網誌內容&lt;/a&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/Tfik6jG.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;之前的python題目，稍微研究一下後轉成C語言。&lt;/p&gt;
+&lt;p&gt;不過如果直接運行會跑很久。但是這裡可以練習一下小型演算法的模式。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/RwJbKM9.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;先做了兩個程式，不過第一是介面而已，第二個才是主要架構。&lt;/p&gt;
+&lt;p&gt;撰寫的途中使用Solvespace研究，由於數學邏輯不太好，很多幾何的東西沒那麼直觀。&lt;/p&gt;
+&lt;p&gt;有時候會偷吃步測試一些解法。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/PDHq9QA.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;第二支程式是從python的範例改來的，不過後來做了很多變化，只有解最小路徑最大角度。&lt;/p&gt;
+&lt;p&gt;演算法概念：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/iOuX4ks.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;途中查了很多數學公式，無奈常常打錯又不知道正確性，重複試了很多次才成功。&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+int k=40;
+int h=10;
+int a=40;
+int b=80;
+double r=10;
+double pi=M_PI;
+int num=1000;
+
+int main()
+{
+    double deg =pi/180;
+    for (int j=45*num; j&lt;=180*num; j++){
+        double num0=num;
+        double th=j/num0*deg;
+        double x1=a*cos(th);
+        double y1=a*sin(th);
+        double x2=x1+sqrt(b*b-y1*y1);
+        double m=tan(th);
+        double r1=abs((x2-x1)*(h-y1)-(0-y1)*(k/2-x1))/sqrt(y1*y1+(x2-x1)*(x2-x1));
+        printf("%g\n", (int)(j/num0*100000+.5)/100000.);
+        if(r1&lt;=r){
+            printf("(%f,%f) (%f,0)\n%f\n%f r=%f\nm=%f\n", x1, y1, x2, th/deg, r, r1, m);
+            break;
+        }
+    }
+    return 0;
+}
+&lt;/pre&gt;
+
+&lt;p&gt;第二支程式的最後成果。&lt;/p&gt;
+&lt;p&gt;最後精確度還是沒有很高，不知道問題出在哪裡。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/jbtn7X1.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;第一支程式是剛開始寫輸入端介面，供使用者輸入自訂參數，後來再把第二支程式的模型搬回來用，並另外寫一個解最大路徑和最小角度的程式，所有例外狀況也是在這裡排除。&lt;/p&gt;
+&lt;p&gt;後來還不知道怎麼讓副程式傳回double或其他浮點數，查一下才知道要在開始前宣告一次。&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+#include &lt;stdio.h&gt;
+#include &lt;math.h&gt;
+
+int a, b, k, h, r, lim;
+double o, wp, thmin, thmax;
+double pi=M_PI;
+int num=1000;
+
+double solve_minpath(int, int, int, int, int);
+double solve_maxangle(int, int, int, int, int);
+double solve_maxpath(int, int, int, int);
+double solve_minangle(int, int, int, int);
+
+int main()
+{
+    scanf("%d,%d,%d,%d,%d,%d", &amp;a, &amp;b, &amp;k, &amp;h, &amp;r, &amp;lim);
+//強制正值
+    a=abs(a);
+    b=abs(b);
+    h=abs(h);
+    k=abs(k);
+    r=abs(r);
+    lim=abs(lim);
+    printf("\n---\n");
+    printf("Used pi= %f\n", pi);
+    printf("---\n");
+    printf("Connecting Rod:\n");
+    printf("a= %d b= %d\n", a, b);
+    printf("Rod radius= %d\n", r);
+    printf("Rod width= %d\n", r*2);
+    printf("Space Usage:\n");
+    printf("h= %d k= %d\n", h, k);
+    printf("Work Path= %d\n", lim);
+    printf("---\n\n");
+//相關參數代入副程式解題
+    o=solve_minpath(k, h, a, b, r);
+    wp=solve_maxpath(lim, a, b, r)-o;
+    thmin=solve_minangle(lim, a, b, r);
+    thmax=solve_maxangle(k, h, a, b, r);
+    if(a*b*lim==0){
+        printf("---ERRO---\nSome value can't be zero.\n");
+        return 1;
+    }
+    else{
+        if(o+r&gt;lim){
+            printf("---ERRO---\nSpace is not enough.\n");
+            return 2;
+        }
+        else{
+            printf("\n---\n---Result---\n");
+            printf("Distance:\n");
+            printf("Offset distance:\n");
+            printf("o= %f\n", o);
+            printf("Work distance:\n");
+            printf("wp= %f\n", wp);
+            printf("Angle(Degree):\n");
+            printf("min= %f max= %f\n---\n", thmin, thmax);
+            return 0;
+        }
+    }
+}
+
+double solve_minpath(int k, int h, int a, int b, int r)
+{
+    double deg =pi/180;
+    for (int j=45*num; 180*num&gt;=j; j++){
+        double num0=num;
+        double th=j/num0*deg;
+        double x1=a*cos(th);
+        double y1=a*sin(th);
+        double x2=x1+sqrt(b*b-y1*y1);
+        double m=tan(th);
+        double r1=abs((x2-x1)*(h-y1)-(0-y1)*(k/2-x1))/sqrt(y1*y1+(x2-x1)*(x2-x1));
+        if(r&gt;=r1){
+            printf("(%f,%f) (%f,0)\n%f\n%f r=%f\nm=%f\n", x1, y1, x2, th/deg, r, r1, m);
+            return x2;
+            break;
+        }
+    }
+    return 0;
+}
+
+double solve_maxangle(int k, int h, int a, int b, int r)
+{
+    double deg =pi/180;
+    for (int j=45*num; 180*num&gt;=j; j++){
+        double num0=num;
+        double th=j/num0*deg;
+        double x1=a*cos(th);
+        double y1=a*sin(th);
+        double x2=x1+sqrt(b*b-y1*y1);
+        double m=tan(th);
+        double r1=abs((x2-x1)*(h-y1)-(0-y1)*(k/2-x1))/sqrt(y1*y1+(x2-x1)*(x2-x1));
+        if(r&gt;=r1){
+            printf("(%f,%f) (%f,0)\n%f\n%f r=%f\nm=%f\n", x1, y1, x2, th/deg, r, r1, m);
+            return th/deg;
+            break;
+        }
+    }
+    return 0;
+}
+
+double solve_maxpath(int lim, int a, int b, int r)
+{
+    double n;
+    double th;
+    if (lim&gt;a+b+r){
+        n=a+b;
+        th=0;
+    }
+    else{
+        n=lim-r;
+        th=acos((a*a+n*n-b*b)/2*a*n);
+    }
+    return n;
+}
+
+double solve_minangle(int lim, int a, int b, int r)
+{
+    double n;
+    double th;
+    if (lim&gt;a+b+r){
+        n=a+b;
+        th=0;
+    }
+    else{
+        n=lim-r;
+        th=acos((a*a+n*n-b*b)/(2*a*n));
+    }
+    return th;
+}
+
+&lt;/pre&gt;
+
+&lt;p&gt;最後執行的結果：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/S6oj3vJ.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;剛開始還以為是用公式推導座標點的結果，後來回去看網誌才知道用演算法計算。電腦演算時如果一邊列出結果，會拖慢速度，所以在最後的程式碼中只留檢查用的結果。&lt;/p&gt;
+&lt;p&gt;後來也有上網看其他人使用基因演算法的案例，未能完全了解，還有很多要學習的地方。這次解題複習了一些C語言的概念，希望在往後利用上能夠駕輕就熟。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230練習 - 105/07/10</title><link href="http://project.mde.tw/blog/40323230lian-xi-1050710.html" rel="alternate"></link><updated>2016-07-11T17:33:46+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323230lian-xi-1050710.html</id><summary type="html">&lt;p&gt;由於不熟悉動態連結庫的運作方式，先練習C語言呼叫動態連結庫，之後再研究python的方式。&lt;/p&gt;
 
 
 &lt;h2&gt;編譯出C的動態連結庫 :&lt;/h2&gt;
@@ -2431,7 +2604,7 @@ DLL void Slvs_Solve(Slvs_System *sys, Slvs_hGroup hg);
 &lt;hr&gt;
 
 &lt;p&gt;雖然這次編譯基礎程式時失敗了，但是瞭解這些引用功能的方式，仍然是有所收穫。&lt;/p&gt;
-&lt;p&gt;下次應該是模仿CDemo寫題目給libslvs.dll求解，不過若之後是要使用python的話還需要再研究一下SWIG的功能。&lt;/p&gt;</summary><category term="Kmol"></category><category term="CDemo"></category></entry><entry><title>40323230紀錄 - 瞭解SWIG &amp; CDemo的資源</title><link href="http://project.mde.tw/blog/40323230ji-lu-liao-jie-swig-cdemode-zi-yuan.html" rel="alternate"></link><updated>2016-07-09T19:05:03+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-09:blog/40323230ji-lu-liao-jie-swig-cdemode-zi-yuan.html</id><summary type="html">&lt;p&gt;安裝SWIG&lt;/p&gt;
+&lt;p&gt;下次應該是模仿CDemo寫題目給libslvs.dll求解，不過若之後是要使用python的話還需要再研究一下SWIG的功能。&lt;/p&gt;</summary><category term="Kmol"></category><category term="CDemo"></category></entry><entry><title>40323230紀錄 - 瞭解SWIG &amp; CDemo的資源</title><link href="http://project.mde.tw/blog/40323230ji-lu-liao-jie-swig-cdemode-zi-yuan.html" rel="alternate"></link><updated>2016-07-11T17:33:46+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323230ji-lu-liao-jie-swig-cdemode-zi-yuan.html</id><summary type="html">&lt;p&gt;安裝SWIG&lt;/p&gt;
 &lt;p&gt;並檢視下列檔案：&lt;/p&gt;
 &lt;p&gt;CDemo.exe&lt;/p&gt;
 &lt;p&gt;CDemo.c&lt;/p&gt;
@@ -2727,211 +2900,38 @@ void Example2d()
 
 &lt;p&gt;閱讀完pyd檔案的作用後，大約知道它和dll的關聯性了。&lt;/p&gt;
 &lt;p&gt;不過libslvs.dll究竟是從哪裡編譯出來的呢？是從主要的cpp檔還是標頭檔建立的？Build完之後多出了libslvs.dll.a和config.h。&lt;/p&gt;
-&lt;p&gt;雖然一些簡單的dll可以直接打開編輯，不過libslvs.dll應該是不能這樣做。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="SWIG"></category></entry><entry><title>40323230練習 - 105/07/09</title><link href="http://project.mde.tw/blog/40323230lian-xi-1050709.html" rel="alternate"></link><updated>2016-07-09T00:00:19+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-09:blog/40323230lian-xi-1050709.html</id><summary type="html">&lt;p&gt;嘗試用C語言解題&lt;/p&gt;
+&lt;p&gt;雖然一些簡單的dll可以直接打開編輯，不過libslvs.dll應該是不能這樣做。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="SWIG"></category></entry><entry><title>40323218日誌 - 105/07/11</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050711.html" rel="alternate"></link><updated>2016-07-11T17:33:46+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323218ri-zhi-1050711.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
 
 
-&lt;h2&gt;BUG fix :&lt;/h2&gt;
+&lt;h4&gt;嘗試四連桿機構&lt;/h4&gt;
 
-&lt;p&gt;W:槽的SciTE有點小問題，因為設定檔是從Y:複製來的，所以需要重新定義TinyC的位置。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/nXiTYLx.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;只要修改cpp.properties的路徑就可以了。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/zjc51Kz.jpg" &gt;&lt;/p&gt;
-&lt;hr&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h1&gt;&lt;h3&gt;理想狀態：&lt;/h3&gt;&lt;/h1&gt;
+&lt;h1&gt;&lt;br&gt;&lt;/h1&gt;
+&lt;h3&gt;前期嘗試：&lt;/h3&gt;
 
-&lt;h2&gt;Nutcracker Solution :&lt;/h2&gt;
-
-&lt;p&gt;上學期的&lt;a href="http://chiamingyen.github.io/kmolab/blog/2015-fall-cadp-w16.html" title="github.io"&gt;Nutcracker網誌內容&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/Tfik6jG.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;之前的python題目，稍微研究一下後轉成C語言。&lt;/p&gt;
-&lt;p&gt;不過如果直接運行會跑很久。但是這裡可以練習一下小型演算法的模式。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/RwJbKM9.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;先做了兩個程式，不過第一是介面而已，第二個才是主要架構。&lt;/p&gt;
-&lt;p&gt;撰寫的途中使用Solvespace研究，由於數學邏輯不太好，很多幾何的東西沒那麼直觀。&lt;/p&gt;
-&lt;p&gt;有時候會偷吃步測試一些解法。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/PDHq9QA.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;第二支程式是從python的範例改來的，不過後來做了很多變化，只有解最小路徑最大角度。&lt;/p&gt;
-&lt;p&gt;演算法概念：&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/iOuX4ks.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;途中查了很多數學公式，無奈常常打錯又不知道正確性，重複試了很多次才成功。&lt;/p&gt;
-&lt;pre class="brush: c"&gt;
-#include &lt;stdio.h&gt;
-#include &lt;math.h&gt;
-
-int k=40;
-int h=10;
-int a=40;
-int b=80;
-double r=10;
-double pi=M_PI;
-int num=1000;
-
-int main()
-{
-    double deg =pi/180;
-    for (int j=45*num; j&lt;=180*num; j++){
-        double num0=num;
-        double th=j/num0*deg;
-        double x1=a*cos(th);
-        double y1=a*sin(th);
-        double x2=x1+sqrt(b*b-y1*y1);
-        double m=tan(th);
-        double r1=abs((x2-x1)*(h-y1)-(0-y1)*(k/2-x1))/sqrt(y1*y1+(x2-x1)*(x2-x1));
-        printf("%g\n", (int)(j/num0*100000+.5)/100000.);
-        if(r1&lt;=r){
-            printf("(%f,%f) (%f,0)\n%f\n%f r=%f\nm=%f\n", x1, y1, x2, th/deg, r, r1, m);
-            break;
-        }
-    }
-    return 0;
-}
-&lt;/pre&gt;
-
-&lt;p&gt;第二支程式的最後成果。&lt;/p&gt;
-&lt;p&gt;最後精確度還是沒有很高，不知道問題出在哪裡。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/jbtn7X1.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;第一支程式是剛開始寫輸入端介面，供使用者輸入自訂參數，後來再把第二支程式的模型搬回來用，並另外寫一個解最大路徑和最小角度的程式，所有例外狀況也是在這裡排除。&lt;/p&gt;
-&lt;p&gt;後來還不知道怎麼讓副程式傳回double或其他浮點數，查一下才知道要在開始前宣告一次。&lt;/p&gt;
-&lt;pre class="brush: c"&gt;
-#include &lt;stdio.h&gt;
-#include &lt;math.h&gt;
-
-int a, b, k, h, r, lim;
-double o, wp, thmin, thmax;
-double pi=M_PI;
-int num=1000;
-
-double solve_minpath(int, int, int, int, int);
-double solve_maxangle(int, int, int, int, int);
-double solve_maxpath(int, int, int, int);
-double solve_minangle(int, int, int, int);
-
-int main()
-{
-    scanf("%d,%d,%d,%d,%d,%d", &amp;a, &amp;b, &amp;k, &amp;h, &amp;r, &amp;lim);
-//強制正值
-    a=abs(a);
-    b=abs(b);
-    h=abs(h);
-    k=abs(k);
-    r=abs(r);
-    lim=abs(lim);
-    printf("\n---\n");
-    printf("Used pi= %f\n", pi);
-    printf("---\n");
-    printf("Connecting Rod:\n");
-    printf("a= %d b= %d\n", a, b);
-    printf("Rod radius= %d\n", r);
-    printf("Rod width= %d\n", r*2);
-    printf("Space Usage:\n");
-    printf("h= %d k= %d\n", h, k);
-    printf("Work Path= %d\n", lim);
-    printf("---\n\n");
-//相關參數代入副程式解題
-    o=solve_minpath(k, h, a, b, r);
-    wp=solve_maxpath(lim, a, b, r)-o;
-    thmin=solve_minangle(lim, a, b, r);
-    thmax=solve_maxangle(k, h, a, b, r);
-    if(a*b*lim==0){
-        printf("---ERRO---\nSome value can't be zero.\n");
-        return 1;
-    }
-    else{
-        if(o+r&gt;lim){
-            printf("---ERRO---\nSpace is not enough.\n");
-            return 2;
-        }
-        else{
-            printf("\n---\n---Result---\n");
-            printf("Distance:\n");
-            printf("Offset distance:\n");
-            printf("o= %f\n", o);
-            printf("Work distance:\n");
-            printf("wp= %f\n", wp);
-            printf("Angle(Degree):\n");
-            printf("min= %f max= %f\n---\n", thmin, thmax);
-            return 0;
-        }
-    }
-}
-
-double solve_minpath(int k, int h, int a, int b, int r)
-{
-    double deg =pi/180;
-    for (int j=45*num; 180*num&gt;=j; j++){
-        double num0=num;
-        double th=j/num0*deg;
-        double x1=a*cos(th);
-        double y1=a*sin(th);
-        double x2=x1+sqrt(b*b-y1*y1);
-        double m=tan(th);
-        double r1=abs((x2-x1)*(h-y1)-(0-y1)*(k/2-x1))/sqrt(y1*y1+(x2-x1)*(x2-x1));
-        if(r&gt;=r1){
-            printf("(%f,%f) (%f,0)\n%f\n%f r=%f\nm=%f\n", x1, y1, x2, th/deg, r, r1, m);
-            return x2;
-            break;
-        }
-    }
-    return 0;
-}
-
-double solve_maxangle(int k, int h, int a, int b, int r)
-{
-    double deg =pi/180;
-    for (int j=45*num; 180*num&gt;=j; j++){
-        double num0=num;
-        double th=j/num0*deg;
-        double x1=a*cos(th);
-        double y1=a*sin(th);
-        double x2=x1+sqrt(b*b-y1*y1);
-        double m=tan(th);
-        double r1=abs((x2-x1)*(h-y1)-(0-y1)*(k/2-x1))/sqrt(y1*y1+(x2-x1)*(x2-x1));
-        if(r&gt;=r1){
-            printf("(%f,%f) (%f,0)\n%f\n%f r=%f\nm=%f\n", x1, y1, x2, th/deg, r, r1, m);
-            return th/deg;
-            break;
-        }
-    }
-    return 0;
-}
-
-double solve_maxpath(int lim, int a, int b, int r)
-{
-    double n;
-    double th;
-    if (lim&gt;a+b+r){
-        n=a+b;
-        th=0;
-    }
-    else{
-        n=lim-r;
-        th=acos((a*a+n*n-b*b)/2*a*n);
-    }
-    return n;
-}
-
-double solve_minangle(int lim, int a, int b, int r)
-{
-    double n;
-    double th;
-    if (lim&gt;a+b+r){
-        n=a+b;
-        th=0;
-    }
-    else{
-        n=lim-r;
-        th=acos((a*a+n*n-b*b)/(2*a*n));
-    }
-    return th;
-}
-
-&lt;/pre&gt;
-
-&lt;p&gt;最後執行的結果：&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/S6oj3vJ.jpg" &gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;剛開始還以為是用公式推導座標點的結果，後來回去看網誌才知道用演算法計算。電腦演算時如果一邊列出結果，會拖慢速度，所以在最後的程式碼中只留檢查用的結果。&lt;/p&gt;
-&lt;p&gt;後來也有上網看其他人使用基因演算法的案例，未能完全了解，還有很多要學習的地方。這次解題複習了一些C語言的概念，希望在往後利用上能夠駕輕就熟。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230紀錄 - 編譯Solvespace流程</title><link href="http://project.mde.tw/blog/40323230ji-lu-bian-yi-solvespaceliu-cheng.html" rel="alternate"></link><updated>2016-07-07T13:02:29+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-07:blog/40323230ji-lu-bian-yi-solvespaceliu-cheng.html</id><summary type="html">&lt;p&gt;由原始碼編譯出Solvespace和CDemo的執行檔&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/before.gif" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;前期階級排列：&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step10.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;查詢資料：&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step11.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;(在兩個dynamic item之間不能有static item)&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;修改後：&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step12.png" weight=600 &gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/after.gif" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;未來嘗試：製作搖擺機構&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;參考網站：http://www.coppeliarobotics.com/helpFiles/en/jointDescription.htm &lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230紀錄 - 編譯Solvespace流程</title><link href="http://project.mde.tw/blog/40323230ji-lu-bian-yi-solvespaceliu-cheng.html" rel="alternate"></link><updated>2016-07-07T17:07:56+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-07:blog/40323230ji-lu-bian-yi-solvespaceliu-cheng.html</id><summary type="html">&lt;p&gt;由原始碼編譯出Solvespace和CDemo的執行檔&lt;/p&gt;
 
 
 &lt;h2&gt;安裝工具 :&lt;/h2&gt;
@@ -2976,7 +2976,29 @@ double solve_minangle(int lim, int a, int b, int r)
 &lt;p&gt;&lt;img src="http://i.imgur.com/0CEdXhu.jpg" &gt;&lt;/p&gt;
 &lt;hr&gt;
 
-&lt;p&gt;接下來就是研究如何應用CDemo的解題程式協助解開範例，最後再修改供Python3呼叫和取用其動態連結庫。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category><category term="CDemo"></category></entry><entry><title>40323250日誌 - 105/07/05</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050705.html" rel="alternate"></link><updated>2016-07-06T15:40:27+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-06:blog/40323250ri-zhi-1050705.html</id><summary type="html">&lt;p&gt;V-rep 與 Solvespace的結合應用&lt;/p&gt;
+&lt;p&gt;接下來就是研究如何應用CDemo的解題程式協助解開範例，最後再修改供Python3呼叫和取用其動態連結庫。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category><category term="CDemo"></category></entry><entry><title>40323230紀錄 - Solvespace</title><link href="http://project.mde.tw/blog/40323230ji-lu-solvespace.html" rel="alternate"></link><updated>2016-07-06T17:06:43+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-06:blog/40323230ji-lu-solvespace.html</id><summary type="html">&lt;p&gt;找到的Solvespace原始碼版本&lt;/p&gt;
+
+
+&lt;h2&gt;目前可攜式環境內存放的Solvespace原始碼 :&lt;/h2&gt;
+
+&lt;h3&gt;超連結為下載處。&lt;/h3&gt;
+
+&lt;p&gt;1.&lt;a href="https://github.com/whitequark/solvespace/tree/master" title="github.com"&gt;Whitequark的倉儲&lt;/a&gt;：非官方人員開發的原始碼。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/dcchKn7.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;2.&lt;a href="http://solvespace.com/download.pl" title="solvespace.com"&gt;Solvespace 2.0&lt;/a&gt;：官方舊版2.0的原始碼。結構很簡單，沒有cmake建置的檔案。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/HBZ0DM4.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;3.&lt;a href="https://github.com/solvespace/solvespace/releases/tag/v2.1" title="github.com"&gt;Solvespace 2.1&lt;/a&gt;：官方最新穩定的版本。結構類似現在開發中的樣式。但是用NetBeans建置時會顯示\extlib資料夾中很多資料夾是空的錯誤，2.0版沒有這些資料夾，這些空的資料夾似乎和&lt;a href="https://github.com/solvespace/libdxfrw" title="github.com"&gt;solvespace/libdxfrw&lt;/a&gt;有關聯。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/Zqu4j7i.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;4.&lt;a href="https://github.com/solvespace/solvespace/tree/2.x" title="github.com"&gt;Solvespace的倉儲&lt;/a&gt;：官方開發中的2.2版。好像不能clone下來，只能載zip檔。也有2.1那些空資料夾。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/UYXGcF7.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;相關連結：版本差異紀錄-&lt;a href="https://github.com/solvespace/solvespace/blob/2.x/CHANGELOG.md" title="github.com"&gt;Solvespace的倉儲&lt;/a&gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;NetBeans方面，同樣使用C/C++ Project with Existing Sources建置檔案，官方的版本都會因為libdxfrw、libfreetype、libpng、zlib沒東西而顯示建置錯誤。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/ZGLaQ0j.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/WkmsWPq.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;點開記錄錯誤的視窗：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/52VlrUJ.jpg" &gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323250日誌 - 105/07/05</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050705.html" rel="alternate"></link><updated>2016-07-06T17:06:43+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-06:blog/40323250ri-zhi-1050705.html</id><summary type="html">&lt;p&gt;V-rep 與 Solvespace的結合應用&lt;/p&gt;
 
 
 &lt;h3&gt;最近開了很多V-rep的範例檔來看 ,但都不太有收穫 ,為了避免浪費時間 ,回去找了之前老師提到的solvespace和vrep的共同運用 ,也因為要完成3D - Printer就要先了解基本觀念和用法 ,所以就抓了檔案來測試 &lt;/h3&gt;
@@ -3160,29 +3182,7 @@ double solve_minangle(int lim, int a, int b, int r)
 &lt;/br&gt;
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/Nsgt8YPSDpU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
 &lt;/br&gt;
-&lt;/br&gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323230紀錄 - Solvespace</title><link href="http://project.mde.tw/blog/40323230ji-lu-solvespace.html" rel="alternate"></link><updated>2016-07-06T15:13:15+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-06:blog/40323230ji-lu-solvespace.html</id><summary type="html">&lt;p&gt;找到的Solvespace原始碼版本&lt;/p&gt;
-
-
-&lt;h2&gt;目前可攜式環境內存放的Solvespace原始碼 :&lt;/h2&gt;
-
-&lt;h3&gt;超連結為下載處。&lt;/h3&gt;
-
-&lt;p&gt;1.&lt;a href="https://github.com/whitequark/solvespace/tree/master" title="github.com"&gt;Whitequark的倉儲&lt;/a&gt;：非官方人員開發的原始碼。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/dcchKn7.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;2.&lt;a href="http://solvespace.com/download.pl" title="solvespace.com"&gt;Solvespace 2.0&lt;/a&gt;：官方舊版2.0的原始碼。結構很簡單，沒有cmake建置的檔案。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/HBZ0DM4.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;3.&lt;a href="https://github.com/solvespace/solvespace/releases/tag/v2.1" title="github.com"&gt;Solvespace 2.1&lt;/a&gt;：官方最新穩定的版本。結構類似現在開發中的樣式。但是用NetBeans建置時會顯示\extlib資料夾中很多資料夾是空的錯誤，2.0版沒有這些資料夾，這些空的資料夾似乎和&lt;a href="https://github.com/solvespace/libdxfrw" title="github.com"&gt;solvespace/libdxfrw&lt;/a&gt;有關聯。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/Zqu4j7i.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;4.&lt;a href="https://github.com/solvespace/solvespace/tree/2.x" title="github.com"&gt;Solvespace的倉儲&lt;/a&gt;：官方開發中的2.2版。好像不能clone下來，只能載zip檔。也有2.1那些空資料夾。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/UYXGcF7.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;相關連結：版本差異紀錄-&lt;a href="https://github.com/solvespace/solvespace/blob/2.x/CHANGELOG.md" title="github.com"&gt;Solvespace的倉儲&lt;/a&gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;NetBeans方面，同樣使用C/C++ Project with Existing Sources建置檔案，官方的版本都會因為libdxfrw、libfreetype、libpng、zlib沒東西而顯示建置錯誤。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/ZGLaQ0j.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/WkmsWPq.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;點開記錄錯誤的視窗：&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/52VlrUJ.jpg" &gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/05</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050705.html" rel="alternate"></link><updated>2016-07-05T10:47:11+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-05:blog/40323230ri-zhi-1050705.html</id><summary type="html">&lt;p&gt;NetBeans的相關探索-2&lt;/p&gt;
+&lt;/br&gt;&lt;/p&gt;</summary><category term="solvespace&amp;v-rep"></category></entry><entry><title>40323230日誌 - 105/07/05</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050705.html" rel="alternate"></link><updated>2016-07-05T17:24:02+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-05:blog/40323230ri-zhi-1050705.html</id><summary type="html">&lt;p&gt;NetBeans的相關探索-2&lt;/p&gt;
 &lt;p&gt;註：發現目前最新的原始碼內好像很多錯誤，不知道該怎麼辦。&lt;/p&gt;
 
 
@@ -3246,7 +3246,7 @@ double solve_minangle(int lim, int a, int b, int r)
 &lt;hr&gt;
 
 &lt;p&gt;使用一款未接觸過的軟體，都會先研究它的介面和基本操作方式還有額外的設定，不過有些專業用詞不知道影響的關聯性。&lt;/p&gt;
-&lt;p&gt;以前只用過Visual Studio撰寫和測試一些簡單的程式，對這種大型的架構瞭解較少，應該會再找些相關資訊學習。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323218日誌 - 105/07/04</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050704.html" rel="alternate"></link><updated>2016-07-04T22:26:52+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323218ri-zhi-1050704.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
+&lt;p&gt;以前只用過Visual Studio撰寫和測試一些簡單的程式，對這種大型的架構瞭解較少，應該會再找些相關資訊學習。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323218日誌 - 105/07/04</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050704.html" rel="alternate"></link><updated>2016-07-05T17:24:02+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-05:blog/40323218ri-zhi-1050704.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
 
 
 &lt;h3&gt;熟悉 V-Rep 基本操作&lt;/h3&gt;
@@ -3315,7 +3315,7 @@ double solve_minangle(int lim, int a, int b, int r)
 
 &lt;iframe src="https://player.vimeo.com/video/173321561" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
 
-&lt;p&gt;&lt;p&gt;&lt;a href="https://vimeo.com/173321561"&gt;V-Rep one_link_robot&lt;/a&gt; from &lt;a href="https://vimeo.com/user44943624"&gt;Li Steven&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/04-2</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050704-2.html" rel="alternate"></link><updated>2016-07-04T21:40:55+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050704-2.html</id><summary type="html">&lt;p&gt;NetBeans的相關探索&lt;/p&gt;
+&lt;p&gt;&lt;p&gt;&lt;a href="https://vimeo.com/173321561"&gt;V-Rep one_link_robot&lt;/a&gt; from &lt;a href="https://vimeo.com/user44943624"&gt;Li Steven&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/07/04-2</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050704-2.html" rel="alternate"></link><updated>2016-07-05T17:24:02+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-05:blog/40323230ri-zhi-1050704-2.html</id><summary type="html">&lt;p&gt;NetBeans的相關探索&lt;/p&gt;
 
 
 &lt;h2&gt;NetBeans設定 :&lt;/h2&gt;
@@ -3346,118 +3346,7 @@ double solve_minangle(int lim, int a, int b, int r)
 &lt;hr&gt;
 
 &lt;p&gt;這次也是使用之前備份並更新過的Solvespace原始碼操作，免得被之前的檔案影響。&lt;/p&gt;
-&lt;p&gt;雖然和SciTE一樣是文字編譯軟體，但是NetBeans能夠隨時呼叫需要使用的工具來支援。與Visual Studio相比還能夠在可攜環境中保存設定檔，更為方便。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050704.html" rel="alternate"></link><updated>2016-07-04T10:31:32+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050704.html</id><summary type="html">&lt;p&gt;改用CMD設定CMake&lt;/p&gt;
-
-
-&lt;h2&gt;CMD命令cmake連接Solvespace原始碼 :&lt;/h2&gt;
-
-&lt;h3&gt;Readme的Command-line build&lt;/h3&gt;
-
-&lt;p&gt;使用可攜式環境的Command Prompt到外部呼叫Visual Studio的vcvarsall.bat。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/F6tBRr1.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;然後為cmake的bin資料夾設定啟動位置(Path4)，可以正常呼叫。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/2h18M7K.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;到CMD中下Readme中提供的指令。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/zpzsMMZ.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;接著下nmake的指令。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/SMlMAQc.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;但是在最後出現一些錯誤，不知道原因為何。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/CZ2wMoU.jpg" &gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;與此同時可以用Visual Studio的相關功能。CMake也算是設定完成了。&lt;/p&gt;
-&lt;p&gt;如果要改用NetBeans，就不用下nmake的指令。&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h3&gt;Readme的MSVC build&lt;/h3&gt;
-
-&lt;p&gt;這次也把MinGW的bin設定進啟動位置(Path5)，可以正常呼叫。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/8D6cRvV.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;接著同樣按照Readme的說明用CMD下指令。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/iXmV4cR.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;不過後面的make指令會說無法讀取makefile檔。&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;Readme中說可以使用MinGW，只要確保git和MinGW的gcc在作業環境內就行了。至於gcc的功能繁多，還需要研究一下。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/03-2</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703-2.html" rel="alternate"></link><updated>2016-07-03T18:49:04+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-03:blog/40323230ri-zhi-1050703-2.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace(更新)&lt;/p&gt;
-
-
-&lt;h2&gt;使用CMake連接Solvespace原始碼 :&lt;/h2&gt;
-
-&lt;h3&gt;Readme的GUI build&lt;/h3&gt;
-
-&lt;p&gt;下載了放在140.130.17.17/public/Netbeans/的可攜式環境git2016，該環境使用的是W:磁碟機，不會和撰寫網誌的Y:環境衝突，可以同時開啟；但是其一關閉時會把所有cmd關掉。之後放入了Netbeans套件，不過還尚未使用。&lt;/p&gt;
-&lt;p&gt;在新的可攜式環境中存入了從GitHub下載的Solvespace的原始碼，並依照其Readme的方式，用git submodule update --init指令更新模組，並存了一個備份檔。&lt;/p&gt;
-&lt;p&gt;CMake的方面使用可攜版的Zip檔，而非Msi安裝。將CMake放在W:的根目錄下。相較於使用指令，因為可攜式環境沒辦法呼叫外部程式支援，所以用cmake-gui.exe圖形介面來設定相關環境。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/nk3qTV4.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;一開始對cmake-gui.exe的兩個位置指向不太清楚，所以嘗試了很多次。&lt;/p&gt;
-&lt;p&gt;要在Solvespace的目錄中建立一個/build資料夾，以存放binaries。&lt;/p&gt;
-&lt;p&gt;Source code的部分是填程式專案的目錄，binaries的地方填/build資料夾，再按Configure鈕設定編譯器，完成後會設置CMake的檔案。&lt;/p&gt;
-&lt;p&gt;雖然之前的目錄已經有檔案了，但是如果binaries直接設目錄內，貌似會衝突產生問題，也無法復原設定檔，幸好有先備份資料能復原。&lt;/p&gt;
-&lt;p&gt;Configure的部分嘗試選擇MinGW的選項。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/5br2VyW.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;下面則選Specify native compilers來自訂編譯器位置，這時執行出現一個錯誤，無法執行MinGW。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/OljnPa7.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;上網尋找似乎要修改系統環境參數到MinGW的bin資料夾才找的到原本就存在的libgmp-10.dll，不知道可攜式環境有沒有其他解法。&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;暫時用Visual Studio的設定，但是結果似乎不理想。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/TSfLb5n.jpg" &gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;參考資料：&lt;/p&gt;
-&lt;p&gt;1.&lt;a href="https://www.youtube.com/watch?v=gYmgbqGfv-8" title="youtube.com"&gt;教學影片-Visual Studio&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;2.&lt;a href="https://www.youtube.com/watch?v=2A-iRgOhL8A" title="youtube.com"&gt;教學影片-Mingw&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;目前還不會使用MinGW或Netbeans套件，所以暫時先放在可攜環境git2016中，之後會找資料學習如何編譯Solvespace的功能。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/03</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703.html" rel="alternate"></link><updated>2016-07-03T14:50:30+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-03:blog/40323230ri-zhi-1050703.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace&lt;/p&gt;
-
-
-&lt;h2&gt;編譯 Solvespace 前的準備 :&lt;/h2&gt;
-
-&lt;p&gt;從&lt;a href="http://www.activestate.com/activeperl/downloads" title="activestate.com"&gt;Active State&lt;/a&gt;下載了 ActivePerl，使用的是5.24.0／x64版。&lt;/p&gt;
-&lt;p&gt;從&lt;a href="https://www.visualstudio.com/downloads/download-visual-studio-vs" title="visualstudio.com"&gt;Microsoft&lt;/a&gt;下載並安裝了Visual Studio Professional 2015，安裝好像無法選擇C:以外的磁碟。&lt;/p&gt;
-&lt;p&gt;從&lt;a href="https://github.com/whitequark/solvespace" title="github.com"&gt;GitHub&lt;/a&gt;下載Solvespace的原始碼，另外在&lt;a href="http://solvespace.com/download.pl" title="solvespace.com"&gt;Solvespace&lt;/a&gt;提供下載的頁面中也有一個較舊版的原始碼。&lt;/p&gt;
-&lt;p&gt;裝完之後用Developer Command Prompt切換至專案目錄執行nmake，就能下相關指令了。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/we7AKIF.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;用CMD從安裝目錄的\VC\bin啟動vcvars32.bat，執行nmake好像也可以，不知道其差異性。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/iCFeYAe.jpg" &gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;p&gt;關於NMAKE的使用方法，找了幾個中國的網站介紹：&lt;/p&gt;
-&lt;p&gt;1.&lt;a href="http://www.cnblogs.com/kekec/archive/2013/04/21/3007277.html" title="cnblogs.com"&gt;NMAKE的指令&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;2.&lt;a href="http://blog.csdn.net/cneaglelee/article/details/11714803" title="csdn.net"&gt;NMAKE的開發環境設置&lt;/a&gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230紀錄</title><link href="http://project.mde.tw/blog/40323230ji-lu.html" rel="alternate"></link><updated>2016-07-02T13:30:01+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-02:blog/40323230ji-lu.html</id><summary type="html">&lt;p&gt;V-REP從範本學得的一些紀錄&lt;/p&gt;
-
-
-&lt;h2&gt;V-REP Example Learning Reviews&lt;/h2&gt;
-
-&lt;p&gt;&lt;/br&gt;
-&lt;h4&gt;嘗試用英文說明&lt;/h4&gt;
-&lt;/br&gt;
-&lt;h2&gt;Notes :&lt;/h2&gt;
-&lt;/br&gt;
-&lt;h3&gt;The "Scene hierarchy" panel can show whole of outward and entity in a tree.&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;
-&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/userInterface.htm#SceneHierarchy" title="coppeliarobotics.com"&gt;Scene hierarchy&lt;/a&gt; Description page
-&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://i.imgur.com/cqIHtFn.jpg" &gt;
-&lt;/br&gt;
-&lt;h3&gt;In this case, a group of parts will in the same level. they are outward, entity and joint parts. Maybe some sensor parts will put into this group.&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;Any parts can insert a script to control them.&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;"Dummy" parts is a calculation module. They are collidable, measurable and detectable like the entity. But now we are't clearly known it's application.&lt;/h3&gt;
-&lt;/br&gt;
-&lt;h3&gt;
-&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/dummies.htm" title="coppeliarobotics.com"&gt;Dummy&lt;/a&gt; Description page
-&lt;/h3&gt;
-&lt;/br&gt;&lt;hr&gt;&lt;/br&gt;
-&lt;h3&gt;組裝上可以使用「滑塊主動噴頭連動」或「噴頭主動滑塊連動」的方式，但是在從屬關係上必須顛倒，程式寫法也不一樣。「滑塊主動噴頭連動」的方式較符合3D印表機的物理運作。&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://i.imgur.com/caU2SLx.jpg" &gt;
-&lt;/br&gt;&lt;hr&gt;&lt;/br&gt;
-&lt;h3&gt;目前整理完幾何部件的檔案。存於\users\g2_files\VREP_Simulation.ttt中。&lt;/h3&gt;
-&lt;/br&gt;
-&lt;img src="http://i.imgur.com/jNvEHRc.jpg" &gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="V-rep"></category></entry><entry><title>40323250日誌 - V-rep 功能 (持續更新中)</title><link href="http://project.mde.tw/blog/40323250ri-zhi-v-rep-gong-neng-chi-xu-geng-xin-zhong.html" rel="alternate"></link><updated>2016-07-02T12:49:15+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-02:blog/40323250ri-zhi-v-rep-gong-neng-chi-xu-geng-xin-zhong.html</id><summary type="html">&lt;p&gt;V-rep 的使用與學習&lt;/p&gt;
+&lt;p&gt;雖然和SciTE一樣是文字編譯軟體，但是NetBeans能夠隨時呼叫需要使用的工具來支援。與Visual Studio相比還能夠在可攜環境中保存設定檔，更為方便。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323250日誌 - V-rep 功能 (持續更新中)</title><link href="http://project.mde.tw/blog/40323250ri-zhi-v-rep-gong-neng-chi-xu-geng-xin-zhong.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323250ri-zhi-v-rep-gong-neng-chi-xu-geng-xin-zhong.html</id><summary type="html">&lt;p&gt;V-rep 的使用與學習&lt;/p&gt;
 
 
 &lt;p&gt;&lt;/br&gt;
@@ -3754,7 +3643,7 @@ a.為orthographic type  及  b.為perspective type&lt;/h3&gt;
 &lt;/br&gt;
 &lt;h3&gt;之後就可以順利放上joint了&lt;/h3&gt;
 &lt;/br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/shape_2.png"&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - 105/06/28</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050628.html" rel="alternate"></link><updated>2016-07-01T12:10:06+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-01:blog/40323250ri-zhi-1050628.html</id><summary type="html">&lt;p&gt;暑期第一個禮拜的 星期二&lt;/p&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/shape_2.png"&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - 105/06/28</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050628.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323250ri-zhi-1050628.html</id><summary type="html">&lt;p&gt;暑期第一個禮拜的 星期二&lt;/p&gt;
 
 
 &lt;h3&gt;目前組合進度&lt;/h3&gt;
@@ -3767,7 +3656,7 @@ a.為orthographic type  及  b.為perspective type&lt;/h3&gt;
 &lt;/br&gt;
 &lt;img src="http://i.imgur.com/W3N5pkC.png"&gt;
 &lt;/br&gt;
-&lt;h4&gt;滑鼠選轉及縮放也跟著出問題，點選右方試圖方塊圖又會不見，只能重新再組一次。&lt;/h4&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - 105/06/29</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050629.html" rel="alternate"></link><updated>2016-07-01T12:10:06+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-01:blog/40323250ri-zhi-1050629.html</id><summary type="html">&lt;p&gt;暑期第一個禮拜的 星期三&lt;/p&gt;
+&lt;h4&gt;滑鼠選轉及縮放也跟著出問題，點選右方試圖方塊圖又會不見，只能重新再組一次。&lt;/h4&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323250日誌 - 105/06/29</title><link href="http://project.mde.tw/blog/40323250ri-zhi-1050629.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323250ri-zhi-1050629.html</id><summary type="html">&lt;p&gt;暑期第一個禮拜的 星期三&lt;/p&gt;
 
 
 &lt;h3&gt;進度&lt;/h3&gt;
@@ -3796,32 +3685,7 @@ a.為orthographic type  及  b.為perspective type&lt;/h3&gt;
 &lt;/br&gt;
 &lt;h3&gt;明天應該就可以開始測試模擬了。&lt;/h3&gt;
 &lt;/br&gt;
-&lt;h3&gt;Onshape零件及兩個stl檔案都放在users/g2_files目錄下，歡迎取用。&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>Summer Plan</title><link href="http://project.mde.tw/blog/summer-plan.html" rel="alternate"></link><updated>2016-07-01T12:10:06+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-01:blog/summer-plan.html</id><summary type="html">&lt;p&gt;Summer project&lt;/p&gt;
-
-
-&lt;p&gt;1.畫3D Printer (V-rep ,Onshape)&lt;/p&gt;
-
-&lt;p&gt;2.實驗室網站介面&lt;/p&gt;
-
-&lt;p&gt;3.Octopi ,機械手臂&lt;/p&gt;
-
-&lt;p&gt;4.OpenCV &lt;/p&gt;
-
-&lt;p&gt;5.RGA演算&lt;/p&gt;
-
-&lt;p&gt;6.認證主機(Virtual Box)&lt;/p&gt;
-
-&lt;p&gt;7.Proxy&lt;/p&gt;
-
-&lt;p&gt;8.報告(拍照 ,內容整理)&lt;/p&gt;
-
-&lt;p&gt;9.找碩班教授&lt;/p&gt;
-
-&lt;p&gt;&lt;/br&gt;
-&lt;p&gt;暑期人數 : &lt;/p&gt;
-&lt;p&gt;七月:第一組3人 ,第二組4人&lt;/p&gt;
-&lt;p&gt;八月:第一組3人 ,第二組4人 ,第三組1人&lt;/p&gt;
-&lt;p&gt;&lt;font size="5" face="Arial"&gt;&lt;marquee border="0" scrollamount="50" behavior="alternate"&gt;You can't see me&lt;/marquee&gt;&lt;/font&gt;&lt;/p&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>OpenCv範例執行</title><link href="http://project.mde.tw/blog/opencvfan-li-zhi-xing.html" rel="alternate"></link><updated>2016-07-01T12:10:06+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-01:blog/opencvfan-li-zhi-xing.html</id><summary type="html">&lt;p&gt;OpenCv example with python test&lt;/p&gt;
+&lt;h3&gt;Onshape零件及兩個stl檔案都放在users/g2_files目錄下，歡迎取用。&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>OpenCv範例執行</title><link href="http://project.mde.tw/blog/opencvfan-li-zhi-xing.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-04:blog/opencvfan-li-zhi-xing.html</id><summary type="html">&lt;p&gt;OpenCv example with python test&lt;/p&gt;
 
 
 &lt;h3&gt;實作系統Ubuntu 14.04 以及 老師整合的檔案&lt;/h3&gt;
@@ -3895,4 +3759,140 @@ out.release()
 cv2.destroyAllWindows()
 &lt;/pre&gt;
 &lt;h3&gt;執行結果&lt;/h3&gt;
-&lt;h4&gt;得到檔案名稱為output的avi影片檔&lt;/h4&gt;&lt;/p&gt;</summary><category term="OpenCv"></category></entry></feed>
+&lt;h4&gt;得到檔案名稱為output的avi影片檔&lt;/h4&gt;&lt;/p&gt;</summary><category term="OpenCv"></category></entry><entry><title>Summer Plan</title><link href="http://project.mde.tw/blog/summer-plan.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-07-04:blog/summer-plan.html</id><summary type="html">&lt;p&gt;Summer project&lt;/p&gt;
+
+
+&lt;p&gt;1.畫3D Printer (V-rep ,Onshape)&lt;/p&gt;
+
+&lt;p&gt;2.實驗室網站介面&lt;/p&gt;
+
+&lt;p&gt;3.Octopi ,機械手臂&lt;/p&gt;
+
+&lt;p&gt;4.OpenCV &lt;/p&gt;
+
+&lt;p&gt;5.RGA演算&lt;/p&gt;
+
+&lt;p&gt;6.認證主機(Virtual Box)&lt;/p&gt;
+
+&lt;p&gt;7.Proxy&lt;/p&gt;
+
+&lt;p&gt;8.報告(拍照 ,內容整理)&lt;/p&gt;
+
+&lt;p&gt;9.找碩班教授&lt;/p&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;p&gt;暑期人數 : &lt;/p&gt;
+&lt;p&gt;七月:第一組3人 ,第二組4人&lt;/p&gt;
+&lt;p&gt;八月:第一組3人 ,第二組4人 ,第三組1人&lt;/p&gt;
+&lt;p&gt;&lt;font size="5" face="Arial"&gt;&lt;marquee border="0" scrollamount="50" behavior="alternate"&gt;You can't see me&lt;/marquee&gt;&lt;/font&gt;&lt;/p&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230紀錄</title><link href="http://project.mde.tw/blog/40323230ji-lu.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ji-lu.html</id><summary type="html">&lt;p&gt;V-REP從範本學得的一些紀錄&lt;/p&gt;
+
+
+&lt;h2&gt;V-REP Example Learning Reviews&lt;/h2&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;h4&gt;嘗試用英文說明&lt;/h4&gt;
+&lt;/br&gt;
+&lt;h2&gt;Notes :&lt;/h2&gt;
+&lt;/br&gt;
+&lt;h3&gt;The "Scene hierarchy" panel can show whole of outward and entity in a tree.&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;
+&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/userInterface.htm#SceneHierarchy" title="coppeliarobotics.com"&gt;Scene hierarchy&lt;/a&gt; Description page
+&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/cqIHtFn.jpg" &gt;
+&lt;/br&gt;
+&lt;h3&gt;In this case, a group of parts will in the same level. they are outward, entity and joint parts. Maybe some sensor parts will put into this group.&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;Any parts can insert a script to control them.&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;"Dummy" parts is a calculation module. They are collidable, measurable and detectable like the entity. But now we are't clearly known it's application.&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h3&gt;
+&lt;a href="http://www.coppeliarobotics.com/helpFiles/en/dummies.htm" title="coppeliarobotics.com"&gt;Dummy&lt;/a&gt; Description page
+&lt;/h3&gt;
+&lt;/br&gt;&lt;hr&gt;&lt;/br&gt;
+&lt;h3&gt;組裝上可以使用「滑塊主動噴頭連動」或「噴頭主動滑塊連動」的方式，但是在從屬關係上必須顛倒，程式寫法也不一樣。「滑塊主動噴頭連動」的方式較符合3D印表機的物理運作。&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/caU2SLx.jpg" &gt;
+&lt;/br&gt;&lt;hr&gt;&lt;/br&gt;
+&lt;h3&gt;目前整理完幾何部件的檔案。存於\users\g2_files\VREP_Simulation.ttt中。&lt;/h3&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/jNvEHRc.jpg" &gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="V-rep"></category></entry><entry><title>40323230日誌 - 105/07/03</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050703.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace&lt;/p&gt;
+
+
+&lt;h2&gt;編譯 Solvespace 前的準備 :&lt;/h2&gt;
+
+&lt;p&gt;從&lt;a href="http://www.activestate.com/activeperl/downloads" title="activestate.com"&gt;Active State&lt;/a&gt;下載了 ActivePerl，使用的是5.24.0／x64版。&lt;/p&gt;
+&lt;p&gt;從&lt;a href="https://www.visualstudio.com/downloads/download-visual-studio-vs" title="visualstudio.com"&gt;Microsoft&lt;/a&gt;下載並安裝了Visual Studio Professional 2015，安裝好像無法選擇C:以外的磁碟。&lt;/p&gt;
+&lt;p&gt;從&lt;a href="https://github.com/whitequark/solvespace" title="github.com"&gt;GitHub&lt;/a&gt;下載Solvespace的原始碼，另外在&lt;a href="http://solvespace.com/download.pl" title="solvespace.com"&gt;Solvespace&lt;/a&gt;提供下載的頁面中也有一個較舊版的原始碼。&lt;/p&gt;
+&lt;p&gt;裝完之後用Developer Command Prompt切換至專案目錄執行nmake，就能下相關指令了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/we7AKIF.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;用CMD從安裝目錄的\VC\bin啟動vcvars32.bat，執行nmake好像也可以，不知道其差異性。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/iCFeYAe.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;關於NMAKE的使用方法，找了幾個中國的網站介紹：&lt;/p&gt;
+&lt;p&gt;1.&lt;a href="http://www.cnblogs.com/kekec/archive/2013/04/21/3007277.html" title="cnblogs.com"&gt;NMAKE的指令&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2.&lt;a href="http://blog.csdn.net/cneaglelee/article/details/11714803" title="csdn.net"&gt;NMAKE的開發環境設置&lt;/a&gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/03-2</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050703-2.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050703-2.html</id><summary type="html">&lt;p&gt;關於編譯 Solvespace(更新)&lt;/p&gt;
+
+
+&lt;h2&gt;使用CMake連接Solvespace原始碼 :&lt;/h2&gt;
+
+&lt;h3&gt;Readme的GUI build&lt;/h3&gt;
+
+&lt;p&gt;下載了放在140.130.17.17/public/Netbeans/的可攜式環境git2016，該環境使用的是W:磁碟機，不會和撰寫網誌的Y:環境衝突，可以同時開啟；但是其一關閉時會把所有cmd關掉。之後放入了Netbeans套件，不過還尚未使用。&lt;/p&gt;
+&lt;p&gt;在新的可攜式環境中存入了從GitHub下載的Solvespace的原始碼，並依照其Readme的方式，用git submodule update --init指令更新模組，並存了一個備份檔。&lt;/p&gt;
+&lt;p&gt;CMake的方面使用可攜版的Zip檔，而非Msi安裝。將CMake放在W:的根目錄下。相較於使用指令，因為可攜式環境沒辦法呼叫外部程式支援，所以用cmake-gui.exe圖形介面來設定相關環境。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/nk3qTV4.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;一開始對cmake-gui.exe的兩個位置指向不太清楚，所以嘗試了很多次。&lt;/p&gt;
+&lt;p&gt;要在Solvespace的目錄中建立一個/build資料夾，以存放binaries。&lt;/p&gt;
+&lt;p&gt;Source code的部分是填程式專案的目錄，binaries的地方填/build資料夾，再按Configure鈕設定編譯器，完成後會設置CMake的檔案。&lt;/p&gt;
+&lt;p&gt;雖然之前的目錄已經有檔案了，但是如果binaries直接設目錄內，貌似會衝突產生問題，也無法復原設定檔，幸好有先備份資料能復原。&lt;/p&gt;
+&lt;p&gt;Configure的部分嘗試選擇MinGW的選項。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/5br2VyW.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;下面則選Specify native compilers來自訂編譯器位置，這時執行出現一個錯誤，無法執行MinGW。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/OljnPa7.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;上網尋找似乎要修改系統環境參數到MinGW的bin資料夾才找的到原本就存在的libgmp-10.dll，不知道可攜式環境有沒有其他解法。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;暫時用Visual Studio的設定，但是結果似乎不理想。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/TSfLb5n.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;參考資料：&lt;/p&gt;
+&lt;p&gt;1.&lt;a href="https://www.youtube.com/watch?v=gYmgbqGfv-8" title="youtube.com"&gt;教學影片-Visual Studio&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;2.&lt;a href="https://www.youtube.com/watch?v=2A-iRgOhL8A" title="youtube.com"&gt;教學影片-Mingw&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;目前還不會使用MinGW或Netbeans套件，所以暫時先放在可攜環境git2016中，之後會找資料學習如何編譯Solvespace的功能。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323230日誌 - 105/07/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050704.html" rel="alternate"></link><updated>2016-07-04T15:50:40+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323230ri-zhi-1050704.html</id><summary type="html">&lt;p&gt;改用CMD設定CMake&lt;/p&gt;
+
+
+&lt;h2&gt;CMD命令cmake連接Solvespace原始碼 :&lt;/h2&gt;
+
+&lt;h3&gt;Readme的Command-line build&lt;/h3&gt;
+
+&lt;p&gt;使用可攜式環境的Command Prompt到外部呼叫Visual Studio的vcvarsall.bat。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/F6tBRr1.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;然後為cmake的bin資料夾設定啟動位置(Path4)，可以正常呼叫。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/2h18M7K.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;到CMD中下Readme中提供的指令。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/zpzsMMZ.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;接著下nmake的指令。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/SMlMAQc.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;但是在最後出現一些錯誤，不知道原因為何。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/CZ2wMoU.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;與此同時可以用Visual Studio的相關功能。CMake也算是設定完成了。&lt;/p&gt;
+&lt;p&gt;如果要改用NetBeans，就不用下nmake的指令。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h3&gt;Readme的MSVC build&lt;/h3&gt;
+
+&lt;p&gt;這次也把MinGW的bin設定進啟動位置(Path5)，可以正常呼叫。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/8D6cRvV.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;接著同樣按照Readme的說明用CMD下指令。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/iXmV4cR.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;不過後面的make指令會說無法讀取makefile檔。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;Readme中說可以使用MinGW，只要確保git和MinGW的gcc在作業環境內就行了。至於gcc的功能繁多，還需要研究一下。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry></feed>

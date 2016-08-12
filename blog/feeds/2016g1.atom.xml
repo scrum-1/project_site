@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-12T12:00:00+08:00</updated><entry><title>Vrep手臂逆向</title><link href="http://project.mde.tw/blog/vrepshou-bi-ni-xiang.html" rel="alternate"></link><updated>2016-08-12T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-12:blog/vrepshou-bi-ni-xiang.html</id><summary type="html">&lt;p&gt;利用tkinter連接給最後的點座標，算出轉軸的角度&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-12T17:44:36+08:00</updated><entry><title>40323143 - 手臂設計流程</title><link href="http://project.mde.tw/blog/40323143-shou-bi-she-ji-liu-cheng.html" rel="alternate"></link><updated>2016-08-12T17:44:36+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-08-12:blog/40323143-shou-bi-she-ji-liu-cheng.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;1.定義客觀值&lt;/p&gt;
+&lt;p&gt;將手臂外既有的空間以數值表現&lt;/p&gt;
+&lt;p&gt;2.規劃路徑&lt;/p&gt;
+&lt;p&gt;(1)定義原點&lt;/p&gt;
+&lt;p&gt;(2)定義夾取點&lt;/p&gt;
+&lt;p&gt;(3)定義可行路徑範圍&lt;/p&gt;
+&lt;p&gt;(4)依需求決定路徑&lt;/p&gt;
+&lt;p&gt;3.決定旋轉軸及旋轉軸安排&lt;/p&gt;
+&lt;p&gt;此旋轉軸指動力輸入軸&lt;/p&gt;
+&lt;p&gt;4.推導路徑方程式&lt;/p&gt;
+&lt;p&gt;依旋轉軸數個三角函數組合成一套路徑方程式&lt;/p&gt;
+&lt;p&gt;5.決定旋轉軸動力安排&lt;/p&gt;
+&lt;p&gt;決定旋轉軸動力輸入方式，直接輸入或以連桿等任何方式輸入旋轉軸&lt;/p&gt;
+&lt;p&gt;6.決定手臂連接桿及組裝配合尺寸&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>Vrep手臂逆向</title><link href="http://project.mde.tw/blog/vrepshou-bi-ni-xiang.html" rel="alternate"></link><updated>2016-08-12T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-12:blog/vrepshou-bi-ni-xiang.html</id><summary type="html">&lt;p&gt;利用tkinter連接給最後的點座標，算出轉軸的角度&lt;/p&gt;
 
 
 &lt;p&gt;因為目前是使用class的方法去繼承function，因此可以用兩個頁面進行控制3DP和手臂的地方，因為把逆向的方程式帶進去了，可以直接給他要到的座標，就可以算出兩個角度的大小，以及範圍。&lt;/p&gt;

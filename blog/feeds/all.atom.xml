@@ -37,7 +37,7 @@
 &lt;p&gt;(3)定義可行路徑範圍&lt;/p&gt;
 &lt;p&gt;(4)依需求決定路徑&lt;/p&gt;
 &lt;p&gt;3.決定旋轉軸及旋轉軸安排&lt;/p&gt;
-&lt;p&gt;此旋轉軸只動力輸入軸&lt;/p&gt;
+&lt;p&gt;此旋轉軸指動力輸入軸&lt;/p&gt;
 &lt;p&gt;4.推導路徑方程式&lt;/p&gt;
 &lt;p&gt;依旋轉軸數個三角函數組合成一套路徑方程式&lt;/p&gt;
 &lt;p&gt;5.決定旋轉軸動力安排&lt;/p&gt;

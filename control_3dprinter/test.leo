@@ -9,8 +9,7 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="roger.20160629121020.1"><vh>整理出來的node test.leo</vh></v>
-<v t="roger.20160629094453.1"><vh>@path printrun</vh>
+<v t="roger.20160629094453.1" a="E"><vh>@path printrun</vh>
 <v t="roger.20160629100446.1"><vh>@path gl</vh>
 <v t="roger.20160629100711.1"><vh>@path libtatlin</vh>
 <v t="roger.20160629100731.1" a="O"><vh>@edit actors.py</vh></v>
@@ -58,6 +57,7 @@
 <v t="roger.20160629095113.1" a="O"><vh>@edit gcoder_line_extra.h</vh></v>
 <v t="roger.20160629095016.1" a="O"><vh>@edit gcoder_heapy_support.patch</vh></v>
 </v>
+<v t="roger.20160629121020.1"><vh>newHeadline</vh></v>
 <v t="roger.20160629101557.1"><vh>@edit pronterface.py</vh></v>
 <v t="roger.20160629103730.1"><vh>@edit setup.py</vh></v>
 <v t="roger.20160629120344.1"><vh>@edit pronterface.py</vh></v>

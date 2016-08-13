@@ -340,35 +340,22 @@ init_mathjax();
 <h1>版本不合</h1>
 <p>後來發現為何找不到 <code>_slvs.so</code> 的檔案了，因為 <code>.gitignore</code> 中包含了 <code>*.so</code>，而不會上傳這兩個檔案，註解掉就行了。</p>
 <p>但是上傳後仍無法執行，回報的訊息為：</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14</pre></div></td><td class="code"><div class="codehilite"><pre><span class="n">Traceback</span> <span class="p">(</span><span class="n">most</span> <span class="n">recent</span> <span class="n">call</span> <span class="n">last</span><span class="p">):</span>
-  <span class="n">File</span> <span class="s">&quot;/var/lib/openshift/57182def7628e1988e00002a/app-root/runtime/repo/wsgi.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">5</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-    <span class="kn">import</span> <span class="nn">myflaskapp</span>
-  <span class="n">File</span> <span class="s">&quot;/var/lib/openshift/57182def7628e1988e00002a/app-root/runtime/repo/myflaskapp.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">18</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-    <span class="kn">import</span> <span class="nn">users.b.g9.bg9_40323230</span>
-  <span class="n">File</span> <span class="s">&quot;/var/lib/openshift/57182def7628e1988e00002a/app-root/runtime/repo/users/b/g9/bg9_40323230.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">2</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-    <span class="kn">from</span> <span class="nn">slvs</span> <span class="kn">import</span> <span class="o">*</span>
-  <span class="n">File</span> <span class="s">&quot;/var/lib/openshift/57182def7628e1988e00002a/app-root/runtime/repo/slvs.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">28</span><span class="p">,</span> <span class="ow">in</span> <span class="o">&lt;</span><span class="n">module</span><span class="o">&gt;</span>
-    <span class="n">_slvs</span> <span class="o">=</span> <span class="n">swig_import_helper</span><span class="p">()</span>
-  <span class="n">File</span> <span class="s">&quot;/var/lib/openshift/57182def7628e1988e00002a/app-root/runtime/repo/slvs.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">24</span><span class="p">,</span> <span class="ow">in</span> <span class="n">swig_import_helper</span>
-    <span class="n">_mod</span> <span class="o">=</span> <span class="n">imp</span><span class="o">.</span><span class="n">load_module</span><span class="p">(</span><span class="s">&#39;_slvs&#39;</span><span class="p">,</span> <span class="n">fp</span><span class="p">,</span> <span class="n">pathname</span><span class="p">,</span> <span class="n">description</span><span class="p">)</span>
-  <span class="n">File</span> <span class="s">&quot;/opt/rh/python33/root/usr/lib64/python3.3/imp.py&quot;</span><span class="p">,</span> <span class="n">line</span> <span class="mi">183</span><span class="p">,</span> <span class="ow">in</span> <span class="n">load_module</span>
-    <span class="k">return</span> <span class="n">load_dynamic</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">filename</span><span class="p">,</span> <span class="nb">file</span><span class="p">)</span>
-<span class="ne">ImportError</span><span class="p">:</span> <span class="n">libpython3</span><span class="o">.</span><span class="mi">4</span><span class="n">m</span><span class="o">.</span><span class="n">so</span><span class="o">.</span><span class="mf">1.0</span><span class="p">:</span> <span class="n">cannot</span> <span class="nb">open</span> <span class="n">shared</span> <span class="nb">object</span> <span class="nb">file</span><span class="p">:</span> <span class="n">No</span> <span class="n">such</span> <span class="nb">file</span> <span class="ow">or</span> <span class="n">directory</span>
-</pre></div>
-</td></tr></table>
+<pre>
+Traceback (most recent call last):
+  File "/var/lib/openshift/57182def7628e1988e00002a/app-root/runtime/repo/wsgi.py", line 5, in <module>
+    import myflaskapp
+  File "/var/lib/openshift/57182def7628e1988e00002a/app-root/runtime/repo/myflaskapp.py", line 18, in <module>
+    import users.b.g9.bg9_40323230
+  File "/var/lib/openshift/57182def7628e1988e00002a/app-root/runtime/repo/users/b/g9/bg9_40323230.py", line 2, in <module>
+    from slvs import *
+  File "/var/lib/openshift/57182def7628e1988e00002a/app-root/runtime/repo/slvs.py", line 28, in <module>
+    _slvs = swig_import_helper()
+  File "/var/lib/openshift/57182def7628e1988e00002a/app-root/runtime/repo/slvs.py", line 24, in swig_import_helper
+    _mod = imp.load_module('_slvs', fp, pathname, description)
+  File "/opt/rh/python33/root/usr/lib64/python3.3/imp.py", line 183, in load_module
+    return load_dynamic(name, filename, file)
+ImportError: libpython3.4m.so.1.0: cannot open shared object file: No such file or directory
+</pre>
 
 <p>看來開發時使用 Python 3.4 dev 會造成 Python 3.3 無法讀取。</p>
 <p><img src="http://i.imgur.com/jUsRUi4.jpg" ></p>

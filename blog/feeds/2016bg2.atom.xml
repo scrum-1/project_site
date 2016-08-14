@@ -34,6 +34,14 @@
 &lt;p&gt;另外就是檔案瀏覽器沒有權限在 &lt;code&gt;etc&lt;/code&gt; 或 &lt;code&gt;srv&lt;/code&gt; 目錄裡編輯或是建立檔案，要自動啟動就必須用終端機設定了。&lt;/p&gt;
 &lt;hr&gt;
 
+&lt;h1&gt;pyenv&lt;/h1&gt;
+&lt;p&gt;裝了 pyenv 來管理 Python 版本。&lt;/p&gt;
+&lt;p&gt;安裝時還需要 Mercurial。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/yZbLONl.png" &gt;&lt;/p&gt;
+&lt;p&gt;Python 3.3 dev 下載和安裝時都比較久，等了一段時間才弄好。&lt;/p&gt;
+&lt;p&gt;接下來會編譯 3.3 的版本來測試。&lt;/p&gt;
+&lt;hr&gt;
+
 &lt;p&gt;由於對網路方面不熟悉，所以可能設定方面有所缺失，還要花一些時間檢查。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/08/13</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050813.html" rel="alternate"></link><updated>2016-08-13T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-13:blog/40323230ri-zhi-1050813.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Ubuntu 版本與 Openshift 不合&lt;/p&gt;

@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-13T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/13</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050813.html" rel="alternate"></link><updated>2016-08-13T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-13:blog/40323230ri-zhi-1050813.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-14T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/14</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050814.html" rel="alternate"></link><updated>2016-08-14T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-14:blog/40323230ri-zhi-1050814.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;使用研究室網路設定&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;架站問題&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;網路設定&lt;/h1&gt;
+&lt;p&gt;由於之前上網是用手機網路，為了取得固定IP，使用的是原本給新電腦用的網路 &lt;code&gt;140.130.17.117&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/Su0D9Oc.png" &gt;&lt;/p&gt;
+&lt;p&gt;Windows 和 Ubuntu 中的設定是一樣的，兩個OS都能連到網際網路。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;Oauthenticator&lt;/h1&gt;
+&lt;p&gt;參考 Cadlab 有關 Jupyterhub 的安裝，在 Python 中安裝了 jupyterhub、notebook 和 oauthenticator。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://cadlab.mde.tw/post/jupyterhub-oauth2-deng-ru-she-ding.html" title="cadlab.mde.tw"&gt;http://cadlab.mde.tw/post/jupyterhub-oauth2-deng-ru-she-ding.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://cadlab.mde.tw/post/chun-ipv6-huan-jing-xia-an-zhuang-jupyterhub.html" title="cadlab.mde.tw"&gt;http://cadlab.mde.tw/post/chun-ipv6-huan-jing-xia-an-zhuang-jupyterhub.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;利用指令產生 &lt;code&gt;key&lt;/code&gt; 和 &lt;code&gt;crt&lt;/code&gt; 兩個憑證檔案。&lt;/p&gt;
+&lt;pre&gt;sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout jupyterhub.key -out jupyterhub.crt&lt;/pre&gt;
+
+&lt;p&gt;起動指令是：&lt;/p&gt;
+&lt;pre&gt;jupyterhub --ip 140.130.17.117 --port 9443 --ssl-key jupyterhub.key --ssl-cert jupyterhub.crt&lt;/pre&gt;
+
+&lt;p&gt;從&lt;a href="https://github.com/jupyterhub/oauthenticator/tree/master/example" title="github.com"&gt;https://github.com/jupyterhub/oauthenticator/tree/master/example&lt;/a&gt;下載了範例資料夾，不過 &lt;code&gt;jupyterhub_config.py&lt;/code&gt; 結構跟說明不太一樣，所以把他的指令碼改成 Cadlab 的方式，只是白名單和使用者清單的檔案可能不一樣，改一下資料夾或連結名稱就能對應。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/AkO0IE6.png" &gt;&lt;/p&gt;
+&lt;p&gt;接著進 Github 註冊新的app，取得 Client ID 和 Client Secret，不過不知道網域名稱該填甚麼，只能填上電腦IP名稱。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/l4FqQ1c.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;而 Google 方面也是一樣，但是重新導向 callback 的方面要使用頂層網域，就是包含 &lt;code&gt;.com&lt;/code&gt; 或 &lt;code&gt;.org&lt;/code&gt; 的名稱，這樣就沒辦法導向給 IP 名稱的網站用了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/u5TFwgH.png" &gt;&lt;/p&gt;
+&lt;p&gt;另外就是檔案瀏覽器沒有權限在 &lt;code&gt;etc&lt;/code&gt; 或 &lt;code&gt;srv&lt;/code&gt; 目錄裡編輯或是建立檔案，要自動啟動就必須用終端機設定了。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;由於對網路方面不熟悉，所以可能設定方面有所缺失，還要花一些時間檢查。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/08/13</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050813.html" rel="alternate"></link><updated>2016-08-13T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-13:blog/40323230ri-zhi-1050813.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Ubuntu 版本與 Openshift 不合&lt;/p&gt;
 &lt;/li&gt;

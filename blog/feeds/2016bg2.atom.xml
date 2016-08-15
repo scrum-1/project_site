@@ -31,6 +31,7 @@ def Multi_link(degree):
 
     sys = System(500)
     g = 1
+
     #3D原點Point0
     p0 = sys.add_param(0.0)
     p1 = sys.add_param(0.0)

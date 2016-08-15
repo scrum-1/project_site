@@ -11,7 +11,7 @@
 
 &lt;h1&gt;Jupyterhub&lt;/h1&gt;
 &lt;p&gt;用學校 Gmail 登入後用 notebook 進行運算，程式碼開頭只要加上 &lt;code&gt;%matplotlib inline&lt;/code&gt; 就能使用 matplotlib 了。&lt;/p&gt;
-&lt;p&gt;不過 notebook 目前是唯獨模式。&lt;/p&gt;
+&lt;p&gt;不過 notebook 目前是唯獨模式，無法建立檔案或是編輯。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/MyRvGoJ.jpg" &gt;&lt;/p&gt;
 &lt;hr&gt;
 

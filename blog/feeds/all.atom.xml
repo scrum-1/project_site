@@ -157,14 +157,14 @@ plt.show()
 &lt;/pre&gt;
 
 &lt;p&gt;因為是變速機構，如果將精度調成5度的話，圖形會比較粗糙，目前用1度的精度會比較平滑，不過相對運算時間會比較久。&lt;/p&gt;
-&lt;p&gt;執行結果（5度）：&lt;/p&gt;
+&lt;h2&gt;執行結果（5度）&lt;/h2&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/CvjRTBI.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;執行結果（1度）：&lt;/p&gt;
+&lt;h2&gt;執行結果（1度）&lt;/h2&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/xHnFqdE.png" &gt;&lt;/p&gt;
 &lt;hr&gt;
 
 &lt;p&gt;經過多次範例，若要使用 slvs 程式庫畫圖，要先看一下機構節點的大約位置，尤其是運動範圍跨象限的主動節點（即參數控制約束的點）。&lt;/p&gt;
-&lt;p&gt;機構中會360度繞軸旋轉的區柄端點，起始位置要定在90度（輸入值在0～180）或-90度（輸入值在181～359）。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/08/14</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050814.html" rel="alternate"></link><updated>2016-08-14T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-14:blog/40323230ri-zhi-1050814.html</id><summary type="html">&lt;ol&gt;
+&lt;p&gt;機構中會360度繞軸旋轉的區柄端點，起始位置要定在90度（輸入值在0～180）或-90度（輸入值在181～359），要用 &lt;code&gt;if&lt;/code&gt; 函式判斷。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/08/14</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050814.html" rel="alternate"></link><updated>2016-08-14T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-14:blog/40323230ri-zhi-1050814.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;使用研究室網路設定&lt;/p&gt;
 &lt;/li&gt;

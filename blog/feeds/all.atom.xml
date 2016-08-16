@@ -4174,7 +4174,7 @@ solvespace/exposed/Usage.py
 &lt;hr&gt;
 
 &lt;p&gt;另外在新電腦虛擬機的Ubuntu上裝了一下Git、Netbeans和GNU工具包，可以正常運作，不過可能是跨系統模擬的關係，反應還滿慢的。&lt;/p&gt;
-&lt;p&gt;然後Python3不知道怎麼更新，一直在3.4.2沒辦法升上去。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323218日誌 - 105/07/23</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050723.html" rel="alternate"></link><updated>2016-07-24T00:23:07+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-24:blog/40323218ri-zhi-1050723.html</id><summary type="html">&lt;p&gt;V-rep   printer_control&lt;/p&gt;
+&lt;p&gt;然後Python3不知道怎麼更新，一直在3.4.2沒辦法升上去。&lt;/p&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323218日誌 - 105/07/23</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050723.html" rel="alternate"></link><updated>2016-07-23T20:37:00+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-23:blog/40323218ri-zhi-1050723.html</id><summary type="html">&lt;p&gt;V-rep   printer_control&lt;/p&gt;
 
 
 &lt;h2&gt;嘗試組裝3Dprinter&lt;/h2&gt;
@@ -5045,7 +5045,7 @@ all: cdemo _slvs.so slvs.py
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;結語:&lt;/p&gt;
-&lt;p&gt;測試用的手臂可以直接用，剩下夾頭等零件列印組裝還有夾爪控制程式。&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323218日誌 - 105/07/19</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050719.html" rel="alternate"></link><updated>2016-07-20T00:15:36+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-20:blog/40323218ri-zhi-1050719.html</id><summary type="html">&lt;p&gt;V-rep 翻譯 Inverse kinematics&lt;/p&gt;
+&lt;p&gt;測試用的手臂可以直接用，剩下夾頭等零件列印組裝還有夾爪控制程式。&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323218日誌 - 105/07/19</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050719.html" rel="alternate"></link><updated>2016-07-19T20:37:00+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-19:blog/40323218ri-zhi-1050719.html</id><summary type="html">&lt;p&gt;V-rep 翻譯 Inverse kinematics&lt;/p&gt;
 
 
 &lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/IK1.png" weight=600 &gt;&lt;br&gt;&lt;br&gt;
@@ -5325,26 +5325,7 @@ if(0 &amp;lt;= d &amp;amp;&amp;amp; d &amp;lt;= 2500){   //限制訊號範圍
 &lt;/pre&gt;&lt;/div&gt;
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-&lt;p&gt;且包在其中的for迴圈可以同使對兩個馬達輸入訊號，達成控制兩個馬達的目的。   &lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323218日誌 - 105/07/17</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050717.html" rel="alternate"></link><updated>2016-07-18T23:49:58+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-18:blog/40323218ri-zhi-1050717.html</id><summary type="html">&lt;p&gt;V-rep_solvespace_linkages&lt;/p&gt;
-
-
-&lt;h2&gt;嘗試 vrep_solvespace_linkages&lt;/h2&gt;
-
-&lt;p&gt;&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/linkages.png" weight=600 &gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;h2&gt;影片教學：&lt;/h2&gt;
-&lt;br&gt;
-&lt;iframe src="https://player.vimeo.com/video/175117655" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt; &lt;p&gt;&lt;a href="https://vimeo.com/175117655"&gt;vrep_solvespace_linkages&lt;/a&gt; from &lt;a href="https://vimeo.com/user44943624"&gt;Li Steven&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;h2&gt;檔案：&lt;/h2&gt;
-&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/40323218/solvespace_successful.ttt?raw=true"&gt;solvespace_successful.ttt&lt;/a&gt;&lt;/p&gt;
-&lt;br&gt;
-&lt;br&gt;
-&lt;h2&gt;心得：&lt;/h2&gt;
-&lt;h3&gt;組裝這個物件的重點我認為是在零件的順序和Dummy放置的位置，嘗試了兩天終於作了出來，對零件的從屬關係有比較OK了，有學會dummy的應用，再來就是把這些統整可以試著弄我們的 printer。&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323131日誌 105/07/18</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050718.html" rel="alternate"></link><updated>2016-07-18T19:37:00+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-18:blog/40323131ri-zhi-1050718.html</id><summary type="html">&lt;p&gt;增加一些專題書面的資料及安裝Octoprint跟Webcam的練習
+&lt;p&gt;且包在其中的for迴圈可以同使對兩個馬達輸入訊號，達成控制兩個馬達的目的。   &lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323131日誌 105/07/18</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050718.html" rel="alternate"></link><updated>2016-07-18T19:37:00+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-18:blog/40323131ri-zhi-1050718.html</id><summary type="html">&lt;p&gt;增加一些專題書面的資料及安裝Octoprint跟Webcam的練習
 &lt;/p&gt;
 &lt;h3&gt;介面系統介紹及架構&lt;/h3&gt;
 
@@ -5613,7 +5594,26 @@ class STrimBy {
 &lt;p&gt;&lt;a href="http://yehnan.blogspot.tw/2013/09/arduinotower-pro-sg90.html"&gt;葉難: Arduino練習：伺服馬達以Tower Pro SG90為例&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;結語:&lt;/p&gt;
 &lt;p&gt;以控制角度的方法可修改i的數值控制馬達轉角，並可透過修改i+、i-與 delay的值控制馬達旋轉的速度。&lt;/p&gt;
-&lt;p&gt;以脈衝寬度控制的方法與控制角度的方法很相似，但每一個馬達的脈衝訊號寬度不一樣，還需要以馬達的條件來設定轉角及轉速。&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>報告的內容2</title><link href="http://project.mde.tw/blog/bao-gao-de-nei-rong-2.html" rel="alternate"></link><updated>2016-07-17T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-17:blog/bao-gao-de-nei-rong-2.html</id><summary type="html">&lt;p&gt;實作部分&lt;/p&gt;
+&lt;p&gt;以脈衝寬度控制的方法與控制角度的方法很相似，但每一個馬達的脈衝訊號寬度不一樣，還需要以馬達的條件來設定轉角及轉速。&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323218日誌 - 105/07/17</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050717.html" rel="alternate"></link><updated>2016-07-17T20:37:00+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-17:blog/40323218ri-zhi-1050717.html</id><summary type="html">&lt;p&gt;V-rep_solvespace_linkages&lt;/p&gt;
+
+
+&lt;h2&gt;嘗試 vrep_solvespace_linkages&lt;/h2&gt;
+
+&lt;p&gt;&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/linkages.png" weight=600 &gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h2&gt;影片教學：&lt;/h2&gt;
+&lt;br&gt;
+&lt;iframe src="https://player.vimeo.com/video/175117655" width="640" height="480" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt; &lt;p&gt;&lt;a href="https://vimeo.com/175117655"&gt;vrep_solvespace_linkages&lt;/a&gt; from &lt;a href="https://vimeo.com/user44943624"&gt;Li Steven&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h2&gt;檔案：&lt;/h2&gt;
+&lt;p&gt;&lt;a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/40323218/solvespace_successful.ttt?raw=true"&gt;solvespace_successful.ttt&lt;/a&gt;&lt;/p&gt;
+&lt;br&gt;
+&lt;br&gt;
+&lt;h2&gt;心得：&lt;/h2&gt;
+&lt;h3&gt;組裝這個物件的重點我認為是在零件的順序和Dummy放置的位置，嘗試了兩天終於作了出來，對零件的從屬關係有比較OK了，有學會dummy的應用，再來就是把這些統整可以試著弄我們的 printer。&lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>報告的內容2</title><link href="http://project.mde.tw/blog/bao-gao-de-nei-rong-2.html" rel="alternate"></link><updated>2016-07-17T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-17:blog/bao-gao-de-nei-rong-2.html</id><summary type="html">&lt;p&gt;實作部分&lt;/p&gt;
 
 
 &lt;h3&gt;pyserial&lt;/h3&gt;
@@ -5926,7 +5926,7 @@ if __name__ == '__main__':
 &lt;p&gt;今天將攝影機的模組mjpg串流做好了&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/G9KfFT4.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/P7r3lQb.jpg"&gt;&lt;/p&gt;
-&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/4sK0pn37HAQ" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="3dprint server"></category></entry><entry><title>40323218日誌 - 105/07/15</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050715.html" rel="alternate"></link><updated>2016-07-15T23:31:12+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323218ri-zhi-1050715.html</id><summary type="html">&lt;p&gt;V-rep 程式應用&lt;/p&gt;
+&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/4sK0pn37HAQ" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="3dprint server"></category></entry><entry><title>40323218日誌 - 105/07/15</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050715.html" rel="alternate"></link><updated>2016-07-15T20:37:00+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323218ri-zhi-1050715.html</id><summary type="html">&lt;p&gt;V-rep 程式應用&lt;/p&gt;
 
 
 &lt;h2&gt;從 irb360 程式中找尋可能用到的並嘗試解釋和整理。 &lt;/h2&gt;
@@ -6317,7 +6317,7 @@ swig -c++ -python -py3 slvs.i
 &lt;h3&gt;2.常開型和常關型只有微動開關才有，所以光學開關一定要3調都接&lt;/h3&gt;
 &lt;/br&gt;
 &lt;h3&gt;今天進度&lt;/h3&gt;
-&lt;h4&gt;組裝 3DP，將缺少的材料抄寫下來，將跟工廠管理員詢問，使用VREP，看組員的所寫的網誌並實際操作&lt;/h4&gt;&lt;/p&gt;</summary><category term="3DP"></category></entry><entry><title>40323218日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-14T19:13:49+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323218ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
+&lt;h4&gt;組裝 3DP，將缺少的材料抄寫下來，將跟工廠管理員詢問，使用VREP，看組員的所寫的網誌並實際操作&lt;/h4&gt;&lt;/p&gt;</summary><category term="3DP"></category></entry><entry><title>40323218日誌 - 105/07/14</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050714.html" rel="alternate"></link><updated>2016-07-14T20:37:00+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323218ri-zhi-1050714.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
 
 
 &lt;h2&gt;翻譯文章重點&lt;/h2&gt;
@@ -7272,7 +7272,38 @@ swig -python example.i
 &lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
 &lt;p&gt;結語:&lt;/p&gt;
-&lt;p&gt;以目前自己的能力沒辦法寫一套控制程式出來，連參考別人的程式也很吃力，今天修改出來的程式只能夠控制一個馬達，而且我只知道他能動能固定了，旋轉角度是否正確我就不知道了，還有極限開關也還沒寫進去，還得再努力。&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323131日誌 105/07/11 Python 數值型別</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050711-python-shu-zhi-xing-bie.html" rel="alternate"></link><updated>2016-07-11T19:00:00+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323131ri-zhi-1050711-python-shu-zhi-xing-bie.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;以目前自己的能力沒辦法寫一套控制程式出來，連參考別人的程式也很吃力，今天修改出來的程式只能夠控制一個馬達，而且我只知道他能動能固定了，旋轉角度是否正確我就不知道了，還有極限開關也還沒寫進去，還得再努力。&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323218日誌 - 105/07/11</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050711.html" rel="alternate"></link><updated>2016-07-11T20:37:00+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323218ri-zhi-1050711.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
+
+
+&lt;h4&gt;嘗試四連桿機構&lt;/h4&gt;
+
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;h1&gt;&lt;h3&gt;理想狀態：&lt;/h3&gt;&lt;/h1&gt;
+&lt;h1&gt;&lt;br&gt;&lt;/h1&gt;
+&lt;h3&gt;前期嘗試：&lt;/h3&gt;
+
+&lt;p&gt;&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/before.gif" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;前期階級排列：&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step10.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;查詢資料：&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step11.png" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;(在兩個dynamic item之間不能有static item)&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;修改後：&lt;/h3&gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step12.png" weight=600 &gt;
+&lt;br&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/after.gif" weight=600 &gt;
+&lt;br&gt;
+&lt;h3&gt;未來嘗試：製作搖擺機構&lt;/h3&gt;
+&lt;br&gt;
+&lt;h3&gt;參考網站：http://www.coppeliarobotics.com/helpFiles/en/jointDescription.htm &lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323131日誌 105/07/11 Python 數值型別</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050711-python-shu-zhi-xing-bie.html" rel="alternate"></link><updated>2016-07-11T19:00:00+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323131ri-zhi-1050711-python-shu-zhi-xing-bie.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;h3&gt;整數(int)與浮點數(float)&lt;/h3&gt;
 
@@ -7527,38 +7558,7 @@ static PyObject* mod_score(PyObject *self, PyObject *args)
 
 &lt;p&gt;Leo的搜尋功能和復原功能真的不太實在。常常搜尋時就跳到其他Node去，搜尋目標也要每次都重新調整；復原直接還原到存檔前的樣子，所以用它來編譯程式真的滿吃力的。&lt;/p&gt;
 &lt;p&gt;這次使用的是Python，所以SciTE和只能寫C語言的NetBeans幫不上忙，因為無法呼叫Python.h。說不定設定環境係數可以奏效？&lt;/p&gt;
-&lt;p&gt;不然只靠Leo編輯，它的函式分類也不是很清楚，常常不知道Python.h中的函式原型用法是甚麼，不像NetBeans可以連進去查看stdio.h或是windows.h所引用的函式。&lt;/p&gt;</summary><category term="Kmol"></category><category term="CDemo"></category></entry><entry><title>40323218日誌 - 105/07/11</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050711.html" rel="alternate"></link><updated>2016-07-11T17:45:41+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323218ri-zhi-1050711.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
-
-
-&lt;h4&gt;嘗試四連桿機構&lt;/h4&gt;
-
-&lt;p&gt;&lt;br&gt;&lt;/p&gt;
-&lt;h1&gt;&lt;h3&gt;理想狀態：&lt;/h3&gt;&lt;/h1&gt;
-&lt;h1&gt;&lt;br&gt;&lt;/h1&gt;
-&lt;h3&gt;前期嘗試：&lt;/h3&gt;
-
-&lt;p&gt;&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/before.gif" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;前期階級排列：&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step10.png" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;查詢資料：&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step11.png" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;(在兩個dynamic item之間不能有static item)&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;修改後：&lt;/h3&gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/step12.png" weight=600 &gt;
-&lt;br&gt;
-&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/g2/40323218/after.gif" weight=600 &gt;
-&lt;br&gt;
-&lt;h3&gt;未來嘗試：製作搖擺機構&lt;/h3&gt;
-&lt;br&gt;
-&lt;h3&gt;參考網站：http://www.coppeliarobotics.com/helpFiles/en/jointDescription.htm &lt;/h3&gt;&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323143 - 日誌 105年7月11日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-11ri.html" rel="alternate"></link><updated>2016-07-11T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323143-ri-zhi-105nian-7yue-11ri.html</id><summary type="html">&lt;p&gt;發現極限開關繪製的重大錯誤 測試的手臂組裝完成 控制程式未完成
+&lt;p&gt;不然只靠Leo編輯，它的函式分類也不是很清楚，常常不知道Python.h中的函式原型用法是甚麼，不像NetBeans可以連進去查看stdio.h或是windows.h所引用的函式。&lt;/p&gt;</summary><category term="Kmol"></category><category term="CDemo"></category></entry><entry><title>40323143 - 日誌 105年7月11日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-11ri.html" rel="alternate"></link><updated>2016-07-11T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323143-ri-zhi-105nian-7yue-11ri.html</id><summary type="html">&lt;p&gt;發現極限開關繪製的重大錯誤 測試的手臂組裝完成 控制程式未完成
 &lt;/p&gt;
 &lt;p&gt;日記:&lt;/p&gt;
 &lt;p&gt;今天發現了第二種極限開關及底座裝配的問題，原因是因為在繪製第二種極限開關的固定孔時出錯，圖上的孔與實際的孔位置是相反的，導致底座列印出來時裝配出問題，己決方法是變更極限開關方向及電路配置，補救醒的讓極限開關及底座配合。&lt;/p&gt;
@@ -8624,7 +8624,7 @@ double solve_minangle(int lim, int a, int b, int r)
 &lt;p&gt;極限開關組合完-1&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/gykOTCW.png"&gt;&lt;/p&gt;
 &lt;p&gt;極限開關組合完-2&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/te6PT6l.png"&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323218日誌 - 105/07/04</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050704.html" rel="alternate"></link><updated>2016-07-04T22:26:52+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323218ri-zhi-1050704.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/te6PT6l.png"&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323218日誌 - 105/07/04</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050704.html" rel="alternate"></link><updated>2016-07-04T20:37:00+08:00</updated><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323218ri-zhi-1050704.html</id><summary type="html">&lt;p&gt;V-rep&lt;/p&gt;
 
 
 &lt;h3&gt;熟悉 V-Rep 基本操作&lt;/h3&gt;

@@ -149,7 +149,10 @@ plt.show()
 &lt;p&gt;&lt;a href="http://tecadmin.net/install-python-3-4-on-centos-rhel-fedora/" title="tecadmin.net"&gt;http://tecadmin.net/install-python-3-4-on-centos-rhel-fedora/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/OVS9mZ2.png" &gt;&lt;/p&gt;
 &lt;p&gt;CentOS 相較於 Ubuntu 操作方式不太一樣，而雖然安裝畫面是寫 KDE 圖形介面，但卻是 GNOME 包著 KDE 的附屬程式，而且它們的介面還比 Ubuntu 陽春。&lt;/p&gt;
-&lt;p&gt;慶幸的是 CentOS 的開發者工具包十分完善，應該是不用 Netbeans 了，可以直接用終端機make。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Python-Solvespace"></category></entry><entry><title>SLVS 程式庫函式</title><link href="http://project.mde.tw/blog/slvs-cheng-shi-ku-han-shi.html" rel="alternate"></link><updated>2016-08-16T12:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-16:blog/slvs-cheng-shi-ku-han-shi.html</id><summary type="html">&lt;ol&gt;
+&lt;p&gt;慶幸的是 CentOS 的開發者工具包十分完善，應該是不用 Netbeans 了，可以直接用終端機make。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Python-Solvespace"></category></entry><entry><title>40323143 - 滾珠螺桿減速機構想</title><link href="http://project.mde.tw/blog/40323143-gun-zhu-luo-gan-jian-su-ji-gou-xiang.html" rel="alternate"></link><updated>2016-08-16T19:38:49+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-08-16:blog/40323143-gun-zhu-luo-gan-jian-su-ji-gou-xiang.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;利用滾珠作為媒介，在兩個不同節距螺桿間傳遞動力，達到增減速效果。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/vo3Va99.jpg"&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>SLVS 程式庫函式</title><link href="http://project.mde.tw/blog/slvs-cheng-shi-ku-han-shi.html" rel="alternate"></link><updated>2016-08-16T12:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-16:blog/slvs-cheng-shi-ku-han-shi.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;slvs&lt;/code&gt;程式庫（&lt;code&gt;_slvs.pyd&lt;/code&gt;或&lt;code&gt;_slvs.so&lt;/code&gt;）轉成Python後的內容。&lt;/p&gt;
 &lt;/li&gt;

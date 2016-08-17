@@ -1,5 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-16T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/16</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050816.html" rel="alternate"></link><updated>2016-08-16T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-16:blog/40323230ri-zhi-1050816.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-17T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/17</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050817.html" rel="alternate"></link><updated>2016-08-17T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-17:blog/40323230ri-zhi-1050817.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;距離約束 Bug 解決&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;CentOS 的 Python 3.3 版本&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;已更新&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;slvs_python.hpp&lt;/h1&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/tl8Nkk3.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;修改 &lt;code&gt;slvs_python.hpp&lt;/code&gt; 標頭檔，讓 value 的值等於 0 時自動轉換成重合約束。&lt;/p&gt;
+&lt;p&gt;不過點與線的重合約束還沒調整，稍後會做更新。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;CentOS 編譯&lt;/h1&gt;
+&lt;p&gt;在 CentOS 上重新編譯 Python 3.3，在執行configure時添加了 &lt;code&gt;--enable-shared&lt;/code&gt; 參數，這樣make時會產生可用的共享資料庫 &lt;code&gt;libpython3.3m.so&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/2d8tkYE.png" &gt;&lt;/p&gt;
+&lt;p&gt;另外還把 Makefile 修正到 Python 3.3 的 &lt;code&gt;include&lt;/code&gt; 和共享資料庫的目錄。&lt;/p&gt;
+&lt;p&gt;執行時會找不到 &lt;code&gt;libpython3.3m.so&lt;/code&gt;，可能是 CentOS 的 Python 3.3 是安裝在自訂的位置，所以環境變數沒對到。&lt;/p&gt;
+&lt;p&gt;後來想調整，但是虛擬機因為記憶體太少而卡住了，不過 Redhat 的 Python 是原生的，應該是沒問題。&lt;/p&gt;
+&lt;p&gt;目前還未搬上 Openshift 測試。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/08/16</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050816.html" rel="alternate"></link><updated>2016-08-16T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-16:blog/40323230ri-zhi-1050816.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Jupyterhub 繪圖 - 漸開線範例（已儲存8888.kmol.info）&lt;/p&gt;
 &lt;/li&gt;
@@ -161,7 +186,7 @@ plt.show()
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;em&gt;內容待勘誤&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;08/16 更新-已知距離為&lt;code&gt;0&lt;/code&gt;錯誤及解決方式&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;08/17 更新-錯誤已解決&lt;/em&gt;&lt;/p&gt;
 
 
 &lt;h1&gt;&lt;strong&gt;快速尋找&lt;/strong&gt;&lt;/h1&gt;
@@ -530,19 +555,6 @@ Constraint.distance(double value, Workplane wrkpl, Point p, LineSegment2d line)
 
 &lt;p&gt;從一個&lt;code&gt;Point2d/3d&lt;/code&gt;到一條&lt;code&gt;LineSegment2d/3d&lt;/code&gt;的距離。&lt;/p&gt;
 &lt;p&gt;距離值的正負會規定點在線段之上或之下。&lt;/p&gt;
-&lt;h2&gt;The Problem in Distance Constraint &lt;kbd&gt;Tips&lt;/kbd&gt;&lt;/h2&gt;
-&lt;p&gt;目前有關距離約束，已知會產生錯誤。&lt;/p&gt;
-&lt;p&gt;要避開這個問題，請使用接下來介紹的重合約束。&lt;/p&gt;
-&lt;p&gt;參考下面的範例避開此情況：&lt;/p&gt;
-&lt;pre class="brush: python"&gt;
-if d == 0:
-        Constraint.on(Workplane1, Point2, Point3)
-    else:
-        Line2 = LineSegment2d(Workplane1, Point2, Point3)
-        Constraint.distance(d, Workplane1, Point2, Point3)
-        Constraint.perpendicular(Workplane1, Line1, Line2, False)
-&lt;/pre&gt;
-
 &lt;h2&gt;&lt;a name="C-On"&gt;&lt;/a&gt;On&lt;/h2&gt;
 &lt;h2&gt;&lt;code&gt;SLVS_C_POINTS_COINCIDENT&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;kbd&gt;3D&lt;/kbd&gt; 使用指令：&lt;/p&gt;
@@ -820,7 +832,7 @@ sys.set_dragged(Point p)
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;&lt;em&gt;Content to be amended&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;&lt;em&gt;08/16 Updated&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;08/17 Updated&lt;/em&gt;&lt;/p&gt;
 
 
 &lt;h1&gt;&lt;strong&gt;Quick Search&lt;/strong&gt;&lt;/h1&gt;
@@ -1191,19 +1203,6 @@ Constraint.distance(double value, Workplane wrkpl, Point p, LineSegment2d line)
 
 &lt;p&gt;Distance from a &lt;code&gt;Point 2d/3d&lt;/code&gt; to a&lt;code&gt;LineSegment2d/3d&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;Positive and negative values will be predetermined distance above or below the line segment.&lt;/p&gt;
-&lt;h2&gt;The Problem in Distance Constraint &lt;kbd&gt;Tips&lt;/kbd&gt;&lt;/h2&gt;
-&lt;p&gt;The distance constraint, are known to produce errors.&lt;/p&gt;
-&lt;p&gt;To avoid this problem, use the following description of a coincident constraint.&lt;/p&gt;
-&lt;p&gt;Consider the following example to avoid this situation:&lt;/p&gt;
-&lt;pre class="brush: python"&gt;
-if d == 0:
-        Constraint.on(Workplane1, Point2, Point3)
-    else:
-        Line2 = LineSegment2d(Workplane1, Point2, Point3)
-        Constraint.distance(d, Workplane1, Point2, Point3)
-        Constraint.perpendicular(Workplane1, Line1, Line2, False)
-&lt;/pre&gt;
-
 &lt;h2&gt;&lt;a name="C-On"&gt;&lt;/a&gt;On&lt;/h2&gt;
 &lt;h2&gt;&lt;code&gt;SLVS_C_POINTS_COINCIDENT&lt;/code&gt;&lt;/h2&gt;
 &lt;p&gt;&lt;kbd&gt;3D&lt;/kbd&gt; Use the command:&lt;/p&gt;

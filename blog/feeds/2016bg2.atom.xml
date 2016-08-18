@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-17T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/17</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050817.html" rel="alternate"></link><updated>2016-08-17T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-17:blog/40323230ri-zhi-1050817.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-18T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/18</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050818.html" rel="alternate"></link><updated>2016-08-18T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-18:blog/40323230ri-zhi-1050818.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;CentOS 的 Python 3.3 版本&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;glibc 版本問題&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;GLIBC&lt;/h1&gt;
+&lt;p&gt;編譯好的 CentOS 版程式庫放入 Openshift 後，回傳了錯誤：&lt;/p&gt;
+&lt;pre&gt;
+libc.so.6: version `GLIBC_2.14' not found
+&lt;/pre&gt;
+
+&lt;p&gt;是執行系統的 GLIBC 版本較舊所引起的，最簡單的解決方法是升級執行系統的 GLIBC，但是不知道如何命令 Openshift 的倉儲升級。&lt;/p&gt;
+&lt;p&gt;用指令檢查了一下虛擬機上的 GLIBC 版本，是 &lt;code&gt;2.17&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/6JSlDKG.png" &gt;&lt;/p&gt;
+&lt;p&gt;不過 gcc 應該用了 &lt;code&gt;2.14&lt;/code&gt; 做編譯，而 Openshift 的版本沒到 &lt;code&gt;2.14&lt;/code&gt; 所致。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;今天在 &lt;code&gt;python.log&lt;/code&gt; 注意到 Openshift 使用的 Python 版本是 3.3.2，所以剛開始懷疑是小版號不合所致，但是並非如此。&lt;/p&gt;
+&lt;p&gt;從官方的連結下載了 &lt;code&gt;2.14&lt;/code&gt; 版：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://ftp.gnu.org/gnu/glibc/" title="ftp.gnu.org"&gt;http://ftp.gnu.org/gnu/glibc/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;上網找到的方法大約都是要執行端主機下命令，但是不知道如何對 Openshift 做出要求，所以先在編譯用的虛擬機做調整。&lt;/p&gt;
+&lt;p&gt;但是不知道如何在同一台電腦上取代或是安裝兩個版本的 GLIBC，而虛擬機的效能還滿不彰的。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/08/17</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050817.html" rel="alternate"></link><updated>2016-08-17T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-17:blog/40323230ri-zhi-1050817.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;距離約束 Bug 解決&lt;/p&gt;
 &lt;/li&gt;

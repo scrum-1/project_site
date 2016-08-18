@@ -50,157 +50,7 @@ libc.so.6: version `GLIBC_2.14' not found
 &lt;p&gt;另外還把 Makefile 修正到 Python 3.3 的 &lt;code&gt;include&lt;/code&gt; 和共享資料庫的目錄。&lt;/p&gt;
 &lt;p&gt;執行時會找不到 &lt;code&gt;libpython3.3m.so&lt;/code&gt;，可能是 CentOS 的 Python 3.3 是安裝在自訂的位置，所以環境變數沒對到。&lt;/p&gt;
 &lt;p&gt;後來想調整，但是虛擬機因為記憶體太少而卡住了，不過 Redhat 的 Python 是原生的，應該是沒問題。&lt;/p&gt;
-&lt;p&gt;目前還未搬上 Openshift 測試。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/08/16</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050816.html" rel="alternate"></link><updated>2016-08-16T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-16:blog/40323230ri-zhi-1050816.html</id><summary type="html">&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Jupyterhub 繪圖 - 漸開線範例（已儲存8888.kmol.info）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;CentOS 安裝 Python 3.3&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;已更新&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;h1&gt;漸開線範例&lt;/h1&gt;
-&lt;p&gt;嘗試使用純 &lt;code&gt;slvs&lt;/code&gt; 程式庫（而非使用 matlab 的公式）的方式畫出漸開線。&lt;/p&gt;
-&lt;p&gt;雖然程式庫中有比較弧長和線段長的公式，但是無法因應多圈的狀況，所以使用內建math的 &lt;code&gt;pi&lt;/code&gt; 來計算弧長。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/Dgdmbxm.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;越多圈的漸開線計算越久，角度參照是基圓而非漸開線尾。&lt;/p&gt;
-&lt;pre class="brush: python"&gt;
-%matplotlib inline
-#漸開線解題
-#由端點Point3畫出圖形
-from slvs import *
-import matplotlib.pyplot as plt
-from math import *
-
-#參數
-r = 10.0#基圓半徑
-
-def Involute(degree):
-    #角度換算：degree去除重複圈數
-    d = r*(degree*pi/180)
-    n = degree//360
-    degree -= 360*n
-
-    #開始繪圖
-    sys = System(500)
-    g = 1
-
-    #3D原點Point0
-    p0 = sys.add_param(0.0)
-    p1 = sys.add_param(0.0)
-    p2 = sys.add_param(0.0)
-    Point0 = Point3d(p0, p1, p2)
-
-    #XY法線
-    qw, qx, qy, qz = Slvs_MakeQuaternion(1, 0, 0, 0, 1, 0)
-    p3 = sys.add_param(qw)
-    p4 = sys.add_param(qx)
-    p5 = sys.add_param(qy)
-    p6 = sys.add_param(qz)
-    Normal1 = Normal3d(p3, p4, p5, p6)
-
-    #工作平面
-    Workplane1 = Workplane(Point0, Normal1)
-
-    #2D原點Point1
-    p7 = sys.add_param(0.0)
-    p8 = sys.add_param(0.0)
-    Point1 = Point2d(Workplane1, p7, p8)
-    Constraint.dragged(Workplane1, Point1)
-
-    #Angle約束判斷
-    if degree &gt;= 180:
-        other = -1
-    else:
-        other = 1
-
-    #Point2繞行圓周，距離r
-    p9 = sys.add_param(0.0)
-    p10 = sys.add_param(10.0*other)
-    Point2 = Point2d(Workplane1, p9, p10)
-    Constraint.distance(r, Workplane1, Point1, Point2)
-    Line1 = LineSegment2d(Workplane1, Point1, Point2)
-
-    #Point3距離Point2為目前圓周長
-    #並且連線d會垂直半徑連線r
-    p11 = sys.add_param(10.0*other)
-    p12 = sys.add_param(10.0*other)
-    Point3 = Point2d(Workplane1, p11, p12)
-    if d == 0:
-        Constraint.on(Workplane1, Point2, Point3)
-    else:
-        Line2 = LineSegment2d(Workplane1, Point2, Point3)
-        Constraint.distance(d, Workplane1, Point2, Point3)
-        Constraint.perpendicular(Workplane1, Line1, Line2, False)
-
-    #輔助基線Line0
-    p13 = sys.add_param(10.0)
-    p14 = sys.add_param(0.0)
-    Point4 = Point2d(Workplane1, p13, p14)
-    Constraint.dragged(Workplane1, Point4)
-    Line0 = LineSegment2d(Workplane1, Point1, Point4)
-
-    #約束角度
-    Constraint.angle(Workplane1, degree, Line1, Line0, False)
-
-    #以下解題
-    sys.solve()
-    if (sys.result == SLVS_RESULT_OKAY):
-        #回傳Point7
-        x = sys.get_param(11).val
-        y = sys.get_param(12).val
-        return x, y
-    elif (sys.result == SLVS_RESULT_INCONSISTENT):
-        print ("solve failed")
-        print ("SLVS_RESULT_INCONSISTENT")
-        print ("%d DOF" % sys.dof)
-    elif (sys.result == SLVS_RESULT_DIDNT_CONVERGE):
-        print ("solve failed")
-        print ("SLVS_RESULT_DIDNT_CONVERGE")
-        print ("%d DOF" % sys.dof)
-    elif (sys.result == SLVS_RESULT_TOO_MANY_UNKNOWNS):
-        print ("solve failed")
-        print ("SLVS_RESULT_TOO_MANY_UNKNOWNS")
-        print ("%d DOF" % sys.dof)
-
-#主程式
-Xval  = []
-Yval  = []
-degree = 720
-for i in range(0, degree+1, 1):
-    x, y = Involute(i)
-    Xval += [x]
-    Yval += [y]
-print ("Solve Completed")
-
-plt.plot(Xval, Yval)
-plt.xlabel('x coordinate')
-plt.ylabel('y coordinate')
-plt.title("Involute - "+str(degree)+" deg")
-plt.show()
-&lt;/pre&gt;
-
-&lt;p&gt;由於 &lt;code&gt;Point2&lt;/code&gt; 是逆時針旋轉，必須保持 &lt;code&gt;Point3&lt;/code&gt; 在它的後方，之間的連線也必須相切基圓，即與其半徑垂直。&lt;/p&gt;
-&lt;p&gt;然而 &lt;code&gt;slvs&lt;/code&gt; 程式庫無法解決距離為 &lt;code&gt;0&lt;/code&gt; 的情況，必須自己改成重合約束，目前在程式庫說明中加上註解，不過應該有辦法透過原始碼的標頭檔避開這個問題，晚點會修正這個情況，如果情況順利，明天的網誌中會更新。&lt;/p&gt;
-&lt;p&gt;結果圖形：&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/nbCrMjE.png" &gt;&lt;/p&gt;
-&lt;p&gt;Jupyter 運行結果（計算時間較長）：&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/QjE2qEl.jpg" &gt;&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h1&gt;CentOS 7&lt;/h1&gt;
-&lt;p&gt;為虛擬機（研究室的電腦）安裝官方的 Everything 版本（ISO映像檔），但是電腦效能只能同時跑一個程式，所以安裝很緩慢。&lt;/p&gt;
-&lt;p&gt;最後還是灌好了。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/BfVtw6K.png" &gt;&lt;/p&gt;
-&lt;p&gt;但是安裝完後之前選的 Python 工具包中竟然只有 Python 2.7，所以上網找了一下資料，用手動make的方式安裝 Python 3.3.6。&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://tecadmin.net/install-python-3-4-on-centos-rhel-fedora/" title="tecadmin.net"&gt;http://tecadmin.net/install-python-3-4-on-centos-rhel-fedora/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/OVS9mZ2.png" &gt;&lt;/p&gt;
-&lt;p&gt;CentOS 相較於 Ubuntu 操作方式不太一樣，而雖然安裝畫面是寫 KDE 圖形介面，但卻是 GNOME 包著 KDE 的附屬程式，而且它們的介面還比 Ubuntu 陽春。&lt;/p&gt;
-&lt;p&gt;慶幸的是 CentOS 的開發者工具包十分完善，應該是不用 Netbeans 了，可以直接用終端機make。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Python-Solvespace"></category></entry><entry><title>SLVS 程式庫函式</title><link href="http://project.mde.tw/blog/slvs-cheng-shi-ku-han-shi.html" rel="alternate"></link><updated>2016-08-16T12:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-16:blog/slvs-cheng-shi-ku-han-shi.html</id><summary type="html">&lt;ol&gt;
+&lt;p&gt;目前還未搬上 Openshift 測試。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Python-Solvespace"></category></entry><entry><title>SLVS 程式庫函式</title><link href="http://project.mde.tw/blog/slvs-cheng-shi-ku-han-shi.html" rel="alternate"></link><updated>2016-08-17T12:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-17:blog/slvs-cheng-shi-ku-han-shi.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;slvs&lt;/code&gt;程式庫（&lt;code&gt;_slvs.pyd&lt;/code&gt;或&lt;code&gt;_slvs.so&lt;/code&gt;）轉成Python後的內容。&lt;/p&gt;
 &lt;/li&gt;
@@ -846,7 +696,7 @@ sys.set_dragged(Point p)
 &lt;p&gt;&lt;kbd&gt;3D&lt;/kbd&gt; 使用指令：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
 #這個功能尚未建構
-&lt;/pre&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>SLVS Library Functions</title><link href="http://project.mde.tw/blog/slvs-library-functions.html" rel="alternate"></link><updated>2016-08-16T12:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-16:blog/slvs-library-functions.html</id><summary type="html">&lt;ol&gt;
+&lt;/pre&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>SLVS Library Functions</title><link href="http://project.mde.tw/blog/slvs-library-functions.html" rel="alternate"></link><updated>2016-08-17T12:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-17:blog/slvs-library-functions.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;slvs&lt;/code&gt; library（&lt;code&gt;_slvs.pyd&lt;/code&gt;or &lt;code&gt;_slvs.so&lt;/code&gt;）for Python.&lt;/p&gt;
 &lt;/li&gt;
@@ -1495,7 +1345,157 @@ sys.set_dragged(Point p)
 &lt;p&gt;&lt;kbd&gt;3D&lt;/kbd&gt; Use the command:&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
 #This feature is not Construction
-&lt;/pre&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/08/15</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050815.html" rel="alternate"></link><updated>2016-08-15T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-15:blog/40323230ri-zhi-1050815.html</id><summary type="html">&lt;ol&gt;
+&lt;/pre&gt;</summary><category term="Kmol"></category><category term="SWIG"></category><category term="Solvespace"></category><category term="CDemo"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/08/16</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050816.html" rel="alternate"></link><updated>2016-08-16T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-16:blog/40323230ri-zhi-1050816.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Jupyterhub 繪圖 - 漸開線範例（已儲存8888.kmol.info）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;CentOS 安裝 Python 3.3&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;已更新&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;漸開線範例&lt;/h1&gt;
+&lt;p&gt;嘗試使用純 &lt;code&gt;slvs&lt;/code&gt; 程式庫（而非使用 matlab 的公式）的方式畫出漸開線。&lt;/p&gt;
+&lt;p&gt;雖然程式庫中有比較弧長和線段長的公式，但是無法因應多圈的狀況，所以使用內建math的 &lt;code&gt;pi&lt;/code&gt; 來計算弧長。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/Dgdmbxm.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;越多圈的漸開線計算越久，角度參照是基圓而非漸開線尾。&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+%matplotlib inline
+#漸開線解題
+#由端點Point3畫出圖形
+from slvs import *
+import matplotlib.pyplot as plt
+from math import *
+
+#參數
+r = 10.0#基圓半徑
+
+def Involute(degree):
+    #角度換算：degree去除重複圈數
+    d = r*(degree*pi/180)
+    n = degree//360
+    degree -= 360*n
+
+    #開始繪圖
+    sys = System(500)
+    g = 1
+
+    #3D原點Point0
+    p0 = sys.add_param(0.0)
+    p1 = sys.add_param(0.0)
+    p2 = sys.add_param(0.0)
+    Point0 = Point3d(p0, p1, p2)
+
+    #XY法線
+    qw, qx, qy, qz = Slvs_MakeQuaternion(1, 0, 0, 0, 1, 0)
+    p3 = sys.add_param(qw)
+    p4 = sys.add_param(qx)
+    p5 = sys.add_param(qy)
+    p6 = sys.add_param(qz)
+    Normal1 = Normal3d(p3, p4, p5, p6)
+
+    #工作平面
+    Workplane1 = Workplane(Point0, Normal1)
+
+    #2D原點Point1
+    p7 = sys.add_param(0.0)
+    p8 = sys.add_param(0.0)
+    Point1 = Point2d(Workplane1, p7, p8)
+    Constraint.dragged(Workplane1, Point1)
+
+    #Angle約束判斷
+    if degree &gt;= 180:
+        other = -1
+    else:
+        other = 1
+
+    #Point2繞行圓周，距離r
+    p9 = sys.add_param(0.0)
+    p10 = sys.add_param(10.0*other)
+    Point2 = Point2d(Workplane1, p9, p10)
+    Constraint.distance(r, Workplane1, Point1, Point2)
+    Line1 = LineSegment2d(Workplane1, Point1, Point2)
+
+    #Point3距離Point2為目前圓周長
+    #並且連線d會垂直半徑連線r
+    p11 = sys.add_param(10.0*other)
+    p12 = sys.add_param(10.0*other)
+    Point3 = Point2d(Workplane1, p11, p12)
+    if d == 0:
+        Constraint.on(Workplane1, Point2, Point3)
+    else:
+        Line2 = LineSegment2d(Workplane1, Point2, Point3)
+        Constraint.distance(d, Workplane1, Point2, Point3)
+        Constraint.perpendicular(Workplane1, Line1, Line2, False)
+
+    #輔助基線Line0
+    p13 = sys.add_param(10.0)
+    p14 = sys.add_param(0.0)
+    Point4 = Point2d(Workplane1, p13, p14)
+    Constraint.dragged(Workplane1, Point4)
+    Line0 = LineSegment2d(Workplane1, Point1, Point4)
+
+    #約束角度
+    Constraint.angle(Workplane1, degree, Line1, Line0, False)
+
+    #以下解題
+    sys.solve()
+    if (sys.result == SLVS_RESULT_OKAY):
+        #回傳Point7
+        x = sys.get_param(11).val
+        y = sys.get_param(12).val
+        return x, y
+    elif (sys.result == SLVS_RESULT_INCONSISTENT):
+        print ("solve failed")
+        print ("SLVS_RESULT_INCONSISTENT")
+        print ("%d DOF" % sys.dof)
+    elif (sys.result == SLVS_RESULT_DIDNT_CONVERGE):
+        print ("solve failed")
+        print ("SLVS_RESULT_DIDNT_CONVERGE")
+        print ("%d DOF" % sys.dof)
+    elif (sys.result == SLVS_RESULT_TOO_MANY_UNKNOWNS):
+        print ("solve failed")
+        print ("SLVS_RESULT_TOO_MANY_UNKNOWNS")
+        print ("%d DOF" % sys.dof)
+
+#主程式
+Xval  = []
+Yval  = []
+degree = 720
+for i in range(0, degree+1, 1):
+    x, y = Involute(i)
+    Xval += [x]
+    Yval += [y]
+print ("Solve Completed")
+
+plt.plot(Xval, Yval)
+plt.xlabel('x coordinate')
+plt.ylabel('y coordinate')
+plt.title("Involute - "+str(degree)+" deg")
+plt.show()
+&lt;/pre&gt;
+
+&lt;p&gt;由於 &lt;code&gt;Point2&lt;/code&gt; 是逆時針旋轉，必須保持 &lt;code&gt;Point3&lt;/code&gt; 在它的後方，之間的連線也必須相切基圓，即與其半徑垂直。&lt;/p&gt;
+&lt;p&gt;然而 &lt;code&gt;slvs&lt;/code&gt; 程式庫無法解決距離為 &lt;code&gt;0&lt;/code&gt; 的情況，必須自己改成重合約束，目前在程式庫說明中加上註解，不過應該有辦法透過原始碼的標頭檔避開這個問題，晚點會修正這個情況，如果情況順利，明天的網誌中會更新。&lt;/p&gt;
+&lt;p&gt;結果圖形：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/nbCrMjE.png" &gt;&lt;/p&gt;
+&lt;p&gt;Jupyter 運行結果（計算時間較長）：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/QjE2qEl.jpg" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;CentOS 7&lt;/h1&gt;
+&lt;p&gt;為虛擬機（研究室的電腦）安裝官方的 Everything 版本（ISO映像檔），但是電腦效能只能同時跑一個程式，所以安裝很緩慢。&lt;/p&gt;
+&lt;p&gt;最後還是灌好了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/BfVtw6K.png" &gt;&lt;/p&gt;
+&lt;p&gt;但是安裝完後之前選的 Python 工具包中竟然只有 Python 2.7，所以上網找了一下資料，用手動make的方式安裝 Python 3.3.6。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://tecadmin.net/install-python-3-4-on-centos-rhel-fedora/" title="tecadmin.net"&gt;http://tecadmin.net/install-python-3-4-on-centos-rhel-fedora/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/OVS9mZ2.png" &gt;&lt;/p&gt;
+&lt;p&gt;CentOS 相較於 Ubuntu 操作方式不太一樣，而雖然安裝畫面是寫 KDE 圖形介面，但卻是 GNOME 包著 KDE 的附屬程式，而且它們的介面還比 Ubuntu 陽春。&lt;/p&gt;
+&lt;p&gt;慶幸的是 CentOS 的開發者工具包十分完善，應該是不用 Netbeans 了，可以直接用終端機make。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Python-Solvespace"></category></entry><entry><title>40323230日誌 - 105/08/15</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050815.html" rel="alternate"></link><updated>2016-08-15T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-15:blog/40323230ri-zhi-1050815.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Jupyterhub 繪圖&lt;/p&gt;
 &lt;/li&gt;

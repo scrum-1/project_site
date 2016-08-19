@@ -363,7 +363,7 @@ init_mathjax();
 33
 34
 35
-36</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Servo.h&gt;</span><span class="cp"></span>
+36</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;Servo.h&gt;</span>
 
 <span class="n">Servo</span> <span class="n">myservo</span><span class="p">;</span>      <span class="c1">//第一顆馬達</span>
 <span class="n">Servo</span> <span class="n">myservo2</span><span class="p">;</span>    <span class="c1">//第二顆馬達</span>
@@ -410,7 +410,7 @@ init_mathjax();
 4
 5
 6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int d;
+7</pre></div></td><td class="code"><div class="codehilite"><pre>int d;
 if(Serial.available()){           
 d = Serial.parseInt();    //定義輸入訊號值為d
 Serial.println(d);            
@@ -471,6 +471,11 @@ if(0 &lt;= d &amp;&amp; d &lt;= 2500){   //限制訊號範圍
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/vrep-bug-in-linux.html">
+                            Vrep Bug in Linux
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1050818.html">
                             40323230日誌 - 105/08/18
                         </a>
@@ -483,11 +488,6 @@ if(0 &lt;= d &amp;&amp; d &lt;= 2500){   //限制訊號範圍
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/slvs-cheng-shi-ku-han-shi.html">
                             SLVS 程式庫函式
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/slvs-library-functions.html">
-                            SLVS Library Functions
                         </a>
                     </li>
                 </ul>

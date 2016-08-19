@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g3.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-04T15:00:00+08:00</updated><entry><title>40323214日誌-Opencv範例</title><link href="http://project.mde.tw/blog/40323214ri-zhi-opencvfan-li.html" rel="alternate"></link><updated>2016-08-04T15:00:00+08:00</updated><author><name>40323214</name></author><id>tag:project.mde.tw,2016-08-04:blog/40323214ri-zhi-opencvfan-li.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g3.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-04T15:00:00+08:00</updated><entry><title>40323214日誌-Opencv範例</title><link href="http://project.mde.tw/blog/40323214ri-zhi-opencvfan-li.html" rel="alternate"></link><published>2016-08-04T15:00:00+08:00</published><author><name>40323214</name></author><id>tag:project.mde.tw,2016-08-04:blog/40323214ri-zhi-opencvfan-li.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;h3&gt;一.Windows執行範例程式&lt;/h3&gt;
 

@@ -312,7 +312,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-07-19T12:00:00+08:00"> 週二 19 七月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-07-19T12:00:00+08:00"> 二 19 七月 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323143.html"><i class="fa fa-user"></i> 40323143</a>
@@ -363,7 +363,7 @@ init_mathjax();
 33
 34
 35
-36</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;Servo.h&gt;</span>
+36</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Servo.h&gt;</span><span class="cp"></span>
 
 <span class="n">Servo</span> <span class="n">myservo</span><span class="p">;</span>      <span class="c1">//第一顆馬達</span>
 <span class="n">Servo</span> <span class="n">myservo2</span><span class="p">;</span>    <span class="c1">//第二顆馬達</span>
@@ -410,7 +410,7 @@ init_mathjax();
 4
 5
 6
-7</pre></div></td><td class="code"><div class="codehilite"><pre>int d;
+7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int d;
 if(Serial.available()){           
 d = Serial.parseInt();    //定義輸入訊號值為d
 Serial.println(d);            
@@ -466,6 +466,11 @@ if(0 &lt;= d &amp;&amp; d &lt;= 2500){   //限制訊號範圍
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1050819.html">
+                            40323230日誌 - 105/08/19
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1050818.html">
                             40323230日誌 - 105/08/18
                         </a>
@@ -483,11 +488,6 @@ if(0 &lt;= d &amp;&amp; d &lt;= 2500){   //限制訊號範圍
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/slvs-library-functions.html">
                             SLVS Library Functions
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1050816.html">
-                            40323230日誌 - 105/08/16
                         </a>
                     </li>
                 </ul>

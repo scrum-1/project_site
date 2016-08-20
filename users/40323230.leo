@@ -26,7 +26,7 @@
 <v t="amd.20151216001126.1"><vh>md 檔案範例</vh></v>
 <v t="amd.20151215170031.1" a="E"><vh>@path ./../content</vh>
 <v t="amd.20160106093454.1" a="E"><vh>40323230 網誌文章</vh>
-<v t="leo.20160729110330.1" a="E"><vh>重要文章</vh>
+<v t="leo.20160729110330.1"><vh>重要文章</vh>
 <v t="leo.20160725134048.1"><vh>@edit 40323230_20160725.md</vh></v>
 <v t="leo.20160802124937.1"><vh>@edit 40323230_20160802.md</vh></v>
 </v>
@@ -89,6 +89,7 @@
 <v t="leo.20160817170734.1"><vh>@edit 40323230_20160817.md</vh></v>
 <v t="leo.20160818190039.1"><vh>@edit 40323230_20160818.md</vh></v>
 <v t="ahshoe.20160819173253.1"><vh>@edit 40323230_20160819.md</vh></v>
+<v t="ahshoe.20160820211636.1"><vh>@edit 40323230_20160820.md</vh></v>
 </v>
 </v>
 </v>
@@ -211,8 +212,7 @@ vertical: body pane on the botton</t>
 import os
 #os.system("pelican content -o ./ -s publishconf.py -t theme/pelican-bootstrap3")
 os.system("pelican content -o blog -s publishconf.py")
-g.es("admin pelican 執行完畢")
-</t>
+g.es("admin pelican 執行完畢")</t>
 <t tx="leo.20151213085727.1">@language python
 import os
 #os.system("pelican content -o output -s local_publishconf.py -t theme/pelican-bootstrap3")

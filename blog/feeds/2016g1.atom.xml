@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-19T12:00:00+08:00</updated><entry><title>PyQt5 install</title><link href="http://project.mde.tw/blog/pyqt5-install.html" rel="alternate"></link><updated>2016-08-19T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-19:blog/pyqt5-install.html</id><summary type="html">&lt;p&gt;install Question&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-20T22:00:00+08:00</updated><entry><title>Vrep machine arm</title><link href="http://project.mde.tw/blog/vrep-machine-arm.html" rel="alternate"></link><updated>2016-08-20T22:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-20:blog/vrep-machine-arm.html</id><summary type="html">&lt;p&gt;change the the way to control the arm
+&lt;/p&gt;
+&lt;p&gt;I use the Inverse equation to compute the machine arm need to turn angle of rotation. After we use is to give the angel to control the arm, we can give the (x,y,z)point to control rotate correct angle and catch the bottle. And we will to develope the auto control by use OpenCv to judge when will to catch the printer components.
+Today had install the PyQt5, we will study the QT tutorial, and develope beautiful interface to control our machine.
+Vrep in Linux version need to makefile by youself, it have in remoteAPI in the folder, I can control Vrep in my ubuntu computer.
+The code have update on my Vrep_python3_control repository/mixer_test&lt;/p&gt;
+&lt;p&gt;https://github.com/smpss91341/Vrep_python3_control&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/5PpDI3A.png"&gt;&lt;/p&gt;</summary><category term="machine Vrep"></category></entry><entry><title>PyQt5 install</title><link href="http://project.mde.tw/blog/pyqt5-install.html" rel="alternate"></link><updated>2016-08-19T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-19:blog/pyqt5-install.html</id><summary type="html">&lt;p&gt;install Question&lt;/p&gt;
 
 
 &lt;p&gt;問題：&lt;/p&gt;

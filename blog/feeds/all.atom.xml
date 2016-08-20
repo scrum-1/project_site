@@ -83,7 +83,61 @@ $sudo pip3 install bs4 -U
 &lt;p&gt;&lt;img src="http://i.imgur.com/7VA7EXg.png" &gt;&lt;/p&gt;
 &lt;hr&gt;
 
-&lt;p&gt;未來若有必要軟體的特殊安裝方式，會更新在此。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Python-Solvespace"></category></entry><entry><title>Vrep Bug in Linux</title><link href="http://project.mde.tw/blog/vrep-bug-in-linux.html" rel="alternate"></link><updated>2016-08-19T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-19:blog/vrep-bug-in-linux.html</id><summary type="html">&lt;p&gt;無法執行windows的動態連結庫，remoteAPI.dll&lt;/p&gt;
+&lt;p&gt;未來若有必要軟體的特殊安裝方式，會更新在此。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Python-Solvespace"></category></entry><entry><title>PyQt5 install</title><link href="http://project.mde.tw/blog/pyqt5-install.html" rel="alternate"></link><updated>2016-08-19T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-19:blog/pyqt5-install.html</id><summary type="html">&lt;p&gt;install Question&lt;/p&gt;
+
+
+&lt;p&gt;問題：&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;作法：http://blog.csdn.net/idber/article/details/40076821
+
+安裝PyQt的圖形化介面的問題
+
+再安裝eric6 的介面時發生的問題
+
+所有工具都裝好了
+
+包括
+
+1.QT
+
+2.PyQt5
+
+3. QScintilla2
+
+就只剩eric6這個圖形化介面裝不進去了
+
+Error:
+
+Sorry, please install QScintilla2 and
+
+its PyQt5/PyQt4 wrapper.
+
+Error: /opt/Qt/5.3/gcc_64/lib/libQt5Gui.so.5: undefined symbol:             z_deflateReset
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><category term="machine Vrep"></category></entry><entry><title>Vrep Bug in Linux</title><link href="http://project.mde.tw/blog/vrep-bug-in-linux.html" rel="alternate"></link><updated>2016-08-19T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-19:blog/vrep-bug-in-linux.html</id><summary type="html">&lt;p&gt;無法執行windows的動態連結庫，remoteAPI.dll&lt;/p&gt;
 
 
 &lt;p&gt;Vrep haved install in Ubuntu and when we want to use our project control panel,because the RemoteAPI.dll isn't match with the Linux system, so how can we do for the remoteAPI.dll.&lt;/p&gt;

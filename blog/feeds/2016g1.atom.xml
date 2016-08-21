@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-20T22:00:00+08:00</updated><entry><title>Vrep machine arm</title><link href="http://project.mde.tw/blog/vrep-machine-arm.html" rel="alternate"></link><published>2016-08-20T22:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-20:blog/vrep-machine-arm.html</id><summary type="html">&lt;p&gt;change the the way to control the arm
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-21T22:00:00+08:00</updated><entry><title>QT GUI</title><link href="http://project.mde.tw/blog/qt-gui.html" rel="alternate"></link><published>2016-08-21T22:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-21:blog/qt-gui.html</id><summary type="html">&lt;p&gt;change the the way to control the arm
+&lt;/p&gt;
+&lt;p&gt;今天使用了QT做了介面，接下來會用點座標，將實體所走出去的曲線，再程式裡面也可以畫出相同的曲線，也可以同時把Vrep裡面的模擬出來的曲線，一起畫出來，以此驗證我下的點是正確的曲線，接下來會做新的一頁，畫方程式曲線圖，左邊會變成輸入方程式，右邊就會生成他的圖形。&lt;/p&gt;
+&lt;h3&gt;2Axis&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/35SShog.png"&gt;&lt;/p&gt;
+&lt;h3&gt;3Axis&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/UvnJMrC.png"&gt;&lt;/p&gt;</summary><category term="machine Vrep"></category></entry><entry><title>Vrep machine arm</title><link href="http://project.mde.tw/blog/vrep-machine-arm.html" rel="alternate"></link><published>2016-08-20T22:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-20:blog/vrep-machine-arm.html</id><summary type="html">&lt;p&gt;change the the way to control the arm
 &lt;/p&gt;
 &lt;p&gt;I use the Inverse equation to compute the machine arm need to turn angle of rotation. After we use is to give the angel to control the arm, we can give the (x,y,z)point to control rotate correct angle and catch the bottle. And we will to develope the auto control by use OpenCv to judge when will to catch the printer components.
 Today had install the PyQt5, we will study the QT tutorial, and develope beautiful interface to control our machine.

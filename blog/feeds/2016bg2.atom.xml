@@ -1,5 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-20T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/20</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050820.html" rel="alternate"></link><published>2016-08-20T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-20:blog/40323230ri-zhi-1050820.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-21T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/21</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050821.html" rel="alternate"></link><published>2016-08-21T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-21:blog/40323230ri-zhi-1050821.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Leo editor 輸入法問題&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Pyslvs 界面&lt;/h1&gt;
+&lt;p&gt;目前編譯的圖形化界面使用常見的功能表做命令設定。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/6iqBDFs.png" &gt;&lt;/p&gt;
+&lt;p&gt;不過只有外表，實際功能還需要連結。&lt;/p&gt;
+&lt;p&gt;目前只有控制視窗縮放，結束執行，連結說明網頁的功能。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;Leo Editor&lt;/h1&gt;
+&lt;p&gt;自從安裝過新版的 Qt 5.3 和 5.7 後 Leo Editor 就怪怪的，無法切換英文以外的輸入法，啟動時 Leo Editor 是使用 5.3 版。&lt;/p&gt;
+&lt;p&gt;而使用 Python 2 啟動是使用 Qt 4，所以沒這個問題，但是就無法使用 Pelican。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/08/20</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050820.html" rel="alternate"></link><published>2016-08-20T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-20:blog/40323230ri-zhi-1050820.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;安裝 eric 6 成功&lt;/p&gt;
 &lt;/li&gt;

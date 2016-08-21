@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en"
+>
+<head>
+    <title>40323231日誌 - 105/07/25 - 機械設計專題 (虎尾科大MDE)</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<style type="text/css">
+
+/*some stuff for output/input prompts*/
+div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}div.cell.selected{border-radius:4px;border:thin #ababab solid}
+div.cell.edit_mode{border-radius:4px;border:thin #008000 solid}
+div.cell{width:100%;padding:5px 5px 5px 0;margin:0;outline:none}
+div.prompt{min-width:11ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}
+@media (max-width:480px){div.prompt{text-align:left}}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}
+div.input_area{border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;line-height:1.21429em}
+div.prompt:empty{padding-top:0;padding-bottom:0}
+div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:horizontal;-moz-box-align:stretch;display:box;box-orient:horizontal;box-align:stretch;}
+div.inner_cell{width:90%;}
+div.input_area{border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;}
+div.input_prompt{color:navy;border-top:1px solid transparent;}
+div.output_wrapper{margin-top:5px;position:relative;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}
+div.output_scroll{height:24em;width:100%;overflow:auto;border-radius:4px;-webkit-box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);-moz-box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);}
+div.output_collapsed{margin:0px;padding:0px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}
+div.out_prompt_overlay{height:100%;padding:0px 0.4em;position:absolute;border-radius:4px;}
+div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000000;-moz-box-shadow:inset 0 0 1px #000000;box-shadow:inset 0 0 1px #000000;background:rgba(240, 240, 240, 0.5);}
+div.output_prompt{color:darkred;}
+
+a.anchor-link:link{text-decoration:none;padding:0px 20px;visibility:hidden;}
+h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible;}
+/* end stuff for output/input prompts*/
+
+
+.highlight-ipynb .hll { background-color: #ffffcc }
+.highlight-ipynb  { background: #f8f8f8; }
+.highlight-ipynb .c { color: #408080; font-style: italic } /* Comment */
+.highlight-ipynb .err { border: 1px solid #FF0000 } /* Error */
+.highlight-ipynb .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight-ipynb .o { color: #666666 } /* Operator */
+.highlight-ipynb .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight-ipynb .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight-ipynb .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight-ipynb .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight-ipynb .gd { color: #A00000 } /* Generic.Deleted */
+.highlight-ipynb .ge { font-style: italic } /* Generic.Emph */
+.highlight-ipynb .gr { color: #FF0000 } /* Generic.Error */
+.highlight-ipynb .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight-ipynb .gi { color: #00A000 } /* Generic.Inserted */
+.highlight-ipynb .go { color: #888888 } /* Generic.Output */
+.highlight-ipynb .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight-ipynb .gs { font-weight: bold } /* Generic.Strong */
+.highlight-ipynb .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight-ipynb .gt { color: #0044DD } /* Generic.Traceback */
+.highlight-ipynb .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight-ipynb .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight-ipynb .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight-ipynb .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight-ipynb .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight-ipynb .kt { color: #B00040 } /* Keyword.Type */
+.highlight-ipynb .m { color: #666666 } /* Literal.Number */
+.highlight-ipynb .s { color: #BA2121 } /* Literal.String */
+.highlight-ipynb .na { color: #7D9029 } /* Name.Attribute */
+.highlight-ipynb .nb { color: #008000 } /* Name.Builtin */
+.highlight-ipynb .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight-ipynb .no { color: #880000 } /* Name.Constant */
+.highlight-ipynb .nd { color: #AA22FF } /* Name.Decorator */
+.highlight-ipynb .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight-ipynb .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight-ipynb .nf { color: #0000FF } /* Name.Function */
+.highlight-ipynb .nl { color: #A0A000 } /* Name.Label */
+.highlight-ipynb .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight-ipynb .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight-ipynb .nv { color: #19177C } /* Name.Variable */
+.highlight-ipynb .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight-ipynb .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight-ipynb .mf { color: #666666 } /* Literal.Number.Float */
+.highlight-ipynb .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight-ipynb .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight-ipynb .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight-ipynb .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight-ipynb .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight-ipynb .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight-ipynb .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight-ipynb .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight-ipynb .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight-ipynb .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight-ipynb .sx { color: #008000 } /* Literal.String.Other */
+.highlight-ipynb .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight-ipynb .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight-ipynb .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight-ipynb .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight-ipynb .vc { color: #19177C } /* Name.Variable.Class */
+.highlight-ipynb .vg { color: #19177C } /* Name.Variable.Global */
+.highlight-ipynb .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight-ipynb .il { color: #666666 } /* Literal.Number.Integer.Long */
+</style>
+
+<style type="text/css">
+/* Overrides of notebook CSS for static HTML export */
+div.entry-content {
+  overflow: visible;
+  padding: 8px;
+}
+.input_area {
+  padding: 0.2em;
+}
+
+a.heading-anchor {
+ white-space: normal;
+}
+
+.rendered_html
+code {
+ font-size: .8em;
+}
+
+pre.ipynb {
+  color: black;
+  background: #f7f7f7;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0;
+  padding: 0;
+  margin: 0px;
+  font-size: 13px;
+}
+
+/* remove the prompt div from text cells */
+div.text_cell .prompt {
+    display: none;
+}
+
+/* remove horizontal padding from text cells, */
+/* so it aligns with outer body text */
+div.text_cell_render {
+    padding: 0.5em 0em;
+}
+
+img.anim_icon{padding:0; border:0; vertical-align:middle; -webkit-box-shadow:none; -box-shadow:none}
+</style>
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<script type="text/javascript">
+init_mathjax = function() {
+    if (window.MathJax) {
+        // MathJax loaded
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    }
+}
+init_mathjax();
+</script>
+
+<link rel="canonical" href="./40323231ri-zhi-1050725.html">
+
+        <meta name="author" content="40323231" />
+        <meta name="keywords" content="3DP" />
+        <meta name="description" content="3DP問題、測試、解決方法" />
+
+        <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="40323231日誌 - 105/07/25"/>
+        <meta property="og:url" content="./40323231ri-zhi-1050725.html"/>
+        <meta property="og:description" content="3DP問題、測試、解決方法"/>
+        <meta property="article:published_time" content="2016-07-25" />
+            <meta property="article:section" content="2016bg2" />
+            <meta property="article:tag" content="3DP" />
+            <meta property="article:author" content="40323231" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="./theme/css/bootstrap.united.min.css" type="text/css"/>
+    <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments/monokai.css" rel="stylesheet">
+    <link href="./theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
+
+        <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="機械設計專題 (虎尾科大MDE) ATOM Feed"/>
+
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushBash.js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://chiamingyen.github.io/kmolab_data/files/syntaxhighlighter/css/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://chiamingyen.github.io/kmolab_data/files/syntaxhighlighter/css/shThemeDefault.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="./" class="navbar-brand">
+機械設計專題 (虎尾科大MDE)            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="./pages/about/">
+                             About
+                          </a></li>
+                        <li class="active">
+                            <a href="./category/2016bg2.html">2016bg2</a>
+                        </li>
+                        <li >
+                            <a href="./category/2016g1.html">2016g1</a>
+                        </li>
+                        <li >
+                            <a href="./category/2016g3.html">2016g3</a>
+                        </li>
+                        <li >
+                            <a href="./category/misc.html">Misc</a>
+                        </li>
+                        <li >
+                            <a href="./category/tutorial.html">Tutorial</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="./search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+              <li><a href="./archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="./40323231ri-zhi-1050725.html"
+                       rel="bookmark"
+                       title="Permalink to 40323231日誌 - 105/07/25">
+                        40323231日誌 - 105/07/25
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-07-25T21:00:00+08:00"> 一 25 七月 2016</time>
+    </span>
+            <span class="label label-default">By</span>
+            <a href="./author/40323231.html"><i class="fa fa-user"></i> 40323231</a>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/3dp.html">3DP</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>3DP問題、測試、解決方法</p>
+
+
+<h3>固件組裝時的問題 : </h3>
+
+<h4>1.熱床的安裝較不容易，因為它是暗孔所以比較難對齊，鎖固的時間較長，之後有要組一台的話要考慮是否改換成明孔</h4>
+
+<p></br>
+</br>
+<h3>配電的問題 : </h3>
+<h4>1.限位開關的接法，因為限位開關有分兩種，一種是機械式微動開關，一種是光學限位開關，要怎麼接?
+接法和注意事項:</h4>
+<h4>  a. 機械微動開關接法
+機械微動開關只需接2個腳位的：單純使用微動開關當作限位器，那一定要接RAMPS上的 "S" 跟 "-" 腳位。絕對不要把3個腳位都接了，如果不小心接了3個腳位，那在觸發時會發生火花，會把5V穩壓 IC燒毀。</h4>
+<h4>  b. 光學限位開關接法(我們的)
+光學限位開關則是需要用到3條線，接到RAMPS上的"S"、"-"及"+" 3個腳位。</h4>
+<h4>  c.程式碼也需要改(由於我們的是光學限位所以都改成false)</h4>
+<h4>const bool X_MIN_ENDSTOP_INVERTING = false;</h4>
+<h4>const bool Y_MIN_ENDSTOP_INVERTING = false;</h4>
+<h4>const bool Z_MIN_ENDSTOP_INVERTING = false;</h4>
+</br>
+</br>
+<h3>測機問題 : </h3>
+<h4>1.用arduino燒入韌體時會說缺少東西，這時用(u8glib_arduino_v1.16)壓縮檔即可。</h4>
+<h4>操作方法是 : </h4>
+<h4>     a.先到網站下載u8glib_arduino_v1.16這包壓縮檔</h4>
+<h4>     b.點開arduino</h4>
+<h4>     c.點選Sketch  </h4>
+<h4>     d.點選Include Library </h4>
+<h4>     e.點選Add .ZIP Library...</h4>
+<h4>     f.選擇u8glib_arduino_v1.16</h4>
+<h4>     g.完成</h4>
+</br>
+<h4>2.擠出馬達不能運作,其他xyz馬達皆能動</h4>
+<h4>測試方法:</h4>
+<h4>    a.將擠出馬達的訊號線接到X軸的訊號端(馬達是否正常)，測試馬達正常</h4>
+<h4>    b.將擠出軸的訊號線由E0接到E1(測試控制板和韌體是否正常)，測試結果無法作動</h4>
+<h4>    c.將電源線和擠出訊號線接到ramps1.4和arduino上(測試控制板是否正常)，測試結果無法作動</h4>
+<h4>解決方法:因為程式碼中有保護措施，保護措施為噴頭溫度要先加熱到指定的溫度後才能啟動，怕擠料不正常。可修改此程式碼define MIN_EXTRUDER_TEMP 170</h4>
+</br>
+<h4>3.馬達旋轉方向不符</h4>
+<h4>解決方法:調整程式碼</h4>
+<h4>Repetier(0、1為正反轉)</h4>
+<h4>#define INVERT_X_DIR 0</h4>
+<h4>#define INVERT_Y_DIR 0</h4>
+<h4>#define INVERT_Z_DIR 0</h4>
+<h4>#define EXT0_INVERSE 0</h4>
+<h4>Marlin(true、false為正反轉)</h4>
+<h4>#define INVERT_X_DIR true</h4>
+<h4>#define INVERT_Y_DIR true</h4>
+<h4>#define INVERT_Z_DIR true</h4>
+<h4>#define INVERT_E0_DIR true</h4>
+</br>
+<h4>4.G28回歸的時候，Z軸不動其他兩軸馬達回歸，導致噴頭座往外跑出</h4>
+<h4>測試方法 : </h4>
+<h4>    a.打指令M119檢查限位開關是否有開，測試結果有開</h4>
+<h4>    b.用手讓限位器偵測是否會感應，測試結果有感應</h4>
+<h4>    c.檢查程式碼true/false是否正確，正確(有說明此功能的一篇)</h4>
+<h4>解決方法:更換新的杜邦端子，因為測量多次後發現時好時壞，所以猜測是訊號接收不正常，更換後能夠順利回歸</h4>
+</br>
+<h4>5.軟體關掉訊號後滑軌依然鎖住</h4>
+<h4>解決方法:關掉訊號後再連接(connect)，之後再斷掉，就可以解鎖了</h4>
+</br>
+</br>
+<h3>使用韌體Repetier所碰到的問題 : </h3>
+<h4>1.噴嘴高度不管怎麼改都是319.2mm不知道為什麼?</h4>
+<h4>解決方法(還未真正找到解決方法)</h4>
+<h4>    a.修改程式碼中噴頭最大高度，可是不管怎麼改依然都是319.2mm</h4>
+<h4>    b.修改程式碼中噴頭最小高度，可是依然319.2mm</h4>
+<h4>    c.修改3軸的補正值，依然不變</h4>
+<h4>    d.修改xyz軸的最大值，發現xyz軸會超出設定的最大值，發現好像是code燒不進去，而且有看到RAM大小所以猜測是空間不足</h4>
+<h4>    e.將空白的arduino燒進控制板後，機器不能運轉表示燒入成功，之後再把修改過的韌體在燒進去，可是依然還是319.2mm</h4>
+<h4>    f.用軟體Repetier-Host直接修改高度，可是一樣還是319.2mm</h4>
+<h4>    g.改用韌體Marlin，可是Marlin卻有更多的不穩定</h4>
+<h4>    h.用Cura_15.04特別版，才成功修改，並能順利列印</h4>
+</br>
+</br>
+<h3>使用韌體Marlin所碰到的問題 : </h3>
+<h4>1.G28回歸後，只能單軸單軸進行復歸補正，導致速度較慢，而且有時候複歸的途中會停下來，之後單軸複歸導致噴頭座跑出機台外。(備註:機台斷電後，軟體也要切斷訊號，不然機台重新開電後還是會繼續執行)</h4>
+</br>
+<h4>2.執行G28時個軸的速度，寫法與Repetier不太一樣，所以一開始沒注意到，導致速度過快差點撞機。</h4>
+<h4>#define HOMING_FEEDRATE {50<em>60, 50</em>60, 50*60, 0}</h4>
+</br>
+</br>
+<h3>列印時碰到的問題 : <h3>
+<h4>1.翹邊</h4>
+<h4>解決方法:塗口紅膠在平台上，以及再加熱期間把溢出來的料弄掉，因為溢出來的料會把底層弄掀，導致沒有地基、材料高低不平</h4>
+</br>
+<h4>2.列印出來的東西很稀疏，而且一捏就碎</h4>
+<h4>解決方法:</h4>
+<h4>a.先加熱，之後用細的鐵絲或夾子將堵塞住的料全部清除(清理時要注意不要直接觸摸噴頭組，請用工具夾持，夾持時勿將熱敏電阻和加熱棒弄壞)，清完後用鐵氟龍管測試深度(避免之後再裝鐵氟龍管時無法到達最深部，導致又回流堵料)</h4>
+<h4>b.如果上述不行，再清理噴頭，或直接更換，我是清理完喉管後還是不行，直接更換噴頭，之後就改善了</h4>
+</br>
+<h4>3.擠出馬達持續轉動，料則是斷斷續續的進料，有時甚至完全停止</h4>
+<h4>解決方法:</h4>
+<h4>a.進入軟體(cura)的基本 -&gt; 列印材料(Filament) -&gt; 流量(Flow)(%) -&gt;更改此數值(擠料速度會降低)</h4>
+<h4>b.還是未改善請依循:列印時碰到的問題2進行改善</h4>
+</br>
+<h4>4.列印時噴頭和熱床無法同時加熱</h4>
+<h4>還未解決</h4>
+</br>
+<h4>5.噴頭液料(部位有噴頭、喉管的鎖固部分)</h4>
+<h4>解決方法:重新鎖固，或者鎖緊即可</h4>
+</br>
+<h4>6.口紅膠的殘留，以及要拿下產品時要用刮刀拆下，導致平板會有刮傷</h4>
+<h4>還未解決，有看到網路上有人是購買專用的膠帶，不知道實不實用</h4>
+</br>
+<h4>7.馬達很燙</h4>
+<h4>還未解決，有想要在熱床下加裝風扇</h4>
+</br>
+<h4>8.如何放置料桶</h4>
+<h4>還未解決，想要製作料座，然後用軸承放置兩邊讓他能順利進料</h4>
+</br>
+<h4>持續更新</h4></p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
+                <ul class="list-group" id="recentposts">
+                    <li class="list-group-item">
+                        <a href="./qt-gui.html">
+                            QT GUI
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="./vrep-machine-arm.html">
+                            Vrep machine arm
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="./40323230ri-zhi-1050820.html">
+                            40323230日誌 - 105/08/20
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="./40323230ri-zhi-1050819.html">
+                            40323230日誌 - 105/08/19
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="./pyqt5-install.html">
+                            PyQt5 install
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="list-group-item"><a href="./categories.html"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+                <ul class="list-group" id="categories">
+                    <li class="list-group-item">
+                        <a href="./category/2016bg2.html">
+                            <i class="fa fa-folder-open fa-lg"></i> 2016bg2
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="./category/2016g1.html">
+                            <i class="fa fa-folder-open fa-lg"></i> 2016g1
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="./category/2016g3.html">
+                            <i class="fa fa-folder-open fa-lg"></i> 2016g3
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="./category/misc.html">
+                            <i class="fa fa-folder-open fa-lg"></i> Misc
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="./category/tutorial.html">
+                            <i class="fa fa-folder-open fa-lg"></i> Tutorial
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="list-group-item"><a href="./tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                </ul>
+            </li>
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://getpelican.com/" target="_blank">
+                Pelican
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/DandyDev/pelican-bootstrap3/" target="_blank">
+                pelican-bootstrap3
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/getpelican/pelican-plugins" target="_blank">
+                pelican-plugins
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/Tipue/Tipue-Search" target="_blank">
+                Tipue search
+            </a>
+        </li>
+      </ul>
+    </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2016 KMOL
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="./theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="./theme/js/respond.min.js"></script>
+
+
+</body>
+</html>

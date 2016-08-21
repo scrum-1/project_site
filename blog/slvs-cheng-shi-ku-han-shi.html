@@ -1,0 +1,1114 @@
+<!DOCTYPE html>
+<html lang="en"
+>
+<head>
+    <title>SLVS 程式庫函式 - 機械設計專題 (虎尾科大MDE)</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<style type="text/css">
+
+/*some stuff for output/input prompts*/
+div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}div.cell.selected{border-radius:4px;border:thin #ababab solid}
+div.cell.edit_mode{border-radius:4px;border:thin #008000 solid}
+div.cell{width:100%;padding:5px 5px 5px 0;margin:0;outline:none}
+div.prompt{min-width:11ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}
+@media (max-width:480px){div.prompt{text-align:left}}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}
+div.input_area{border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;line-height:1.21429em}
+div.prompt:empty{padding-top:0;padding-bottom:0}
+div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:horizontal;-moz-box-align:stretch;display:box;box-orient:horizontal;box-align:stretch;}
+div.inner_cell{width:90%;}
+div.input_area{border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;}
+div.input_prompt{color:navy;border-top:1px solid transparent;}
+div.output_wrapper{margin-top:5px;position:relative;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}
+div.output_scroll{height:24em;width:100%;overflow:auto;border-radius:4px;-webkit-box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);-moz-box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);}
+div.output_collapsed{margin:0px;padding:0px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}
+div.out_prompt_overlay{height:100%;padding:0px 0.4em;position:absolute;border-radius:4px;}
+div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000000;-moz-box-shadow:inset 0 0 1px #000000;box-shadow:inset 0 0 1px #000000;background:rgba(240, 240, 240, 0.5);}
+div.output_prompt{color:darkred;}
+
+a.anchor-link:link{text-decoration:none;padding:0px 20px;visibility:hidden;}
+h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible;}
+/* end stuff for output/input prompts*/
+
+
+.highlight-ipynb .hll { background-color: #ffffcc }
+.highlight-ipynb  { background: #f8f8f8; }
+.highlight-ipynb .c { color: #408080; font-style: italic } /* Comment */
+.highlight-ipynb .err { border: 1px solid #FF0000 } /* Error */
+.highlight-ipynb .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight-ipynb .o { color: #666666 } /* Operator */
+.highlight-ipynb .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight-ipynb .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight-ipynb .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight-ipynb .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight-ipynb .gd { color: #A00000 } /* Generic.Deleted */
+.highlight-ipynb .ge { font-style: italic } /* Generic.Emph */
+.highlight-ipynb .gr { color: #FF0000 } /* Generic.Error */
+.highlight-ipynb .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight-ipynb .gi { color: #00A000 } /* Generic.Inserted */
+.highlight-ipynb .go { color: #888888 } /* Generic.Output */
+.highlight-ipynb .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight-ipynb .gs { font-weight: bold } /* Generic.Strong */
+.highlight-ipynb .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight-ipynb .gt { color: #0044DD } /* Generic.Traceback */
+.highlight-ipynb .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight-ipynb .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight-ipynb .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight-ipynb .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight-ipynb .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight-ipynb .kt { color: #B00040 } /* Keyword.Type */
+.highlight-ipynb .m { color: #666666 } /* Literal.Number */
+.highlight-ipynb .s { color: #BA2121 } /* Literal.String */
+.highlight-ipynb .na { color: #7D9029 } /* Name.Attribute */
+.highlight-ipynb .nb { color: #008000 } /* Name.Builtin */
+.highlight-ipynb .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight-ipynb .no { color: #880000 } /* Name.Constant */
+.highlight-ipynb .nd { color: #AA22FF } /* Name.Decorator */
+.highlight-ipynb .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight-ipynb .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight-ipynb .nf { color: #0000FF } /* Name.Function */
+.highlight-ipynb .nl { color: #A0A000 } /* Name.Label */
+.highlight-ipynb .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight-ipynb .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight-ipynb .nv { color: #19177C } /* Name.Variable */
+.highlight-ipynb .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight-ipynb .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight-ipynb .mf { color: #666666 } /* Literal.Number.Float */
+.highlight-ipynb .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight-ipynb .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight-ipynb .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight-ipynb .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight-ipynb .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight-ipynb .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight-ipynb .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight-ipynb .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight-ipynb .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight-ipynb .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight-ipynb .sx { color: #008000 } /* Literal.String.Other */
+.highlight-ipynb .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight-ipynb .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight-ipynb .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight-ipynb .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight-ipynb .vc { color: #19177C } /* Name.Variable.Class */
+.highlight-ipynb .vg { color: #19177C } /* Name.Variable.Global */
+.highlight-ipynb .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight-ipynb .il { color: #666666 } /* Literal.Number.Integer.Long */
+</style>
+
+<style type="text/css">
+/* Overrides of notebook CSS for static HTML export */
+div.entry-content {
+  overflow: visible;
+  padding: 8px;
+}
+.input_area {
+  padding: 0.2em;
+}
+
+a.heading-anchor {
+ white-space: normal;
+}
+
+.rendered_html
+code {
+ font-size: .8em;
+}
+
+pre.ipynb {
+  color: black;
+  background: #f7f7f7;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0;
+  padding: 0;
+  margin: 0px;
+  font-size: 13px;
+}
+
+/* remove the prompt div from text cells */
+div.text_cell .prompt {
+    display: none;
+}
+
+/* remove horizontal padding from text cells, */
+/* so it aligns with outer body text */
+div.text_cell_render {
+    padding: 0.5em 0em;
+}
+
+img.anim_icon{padding:0; border:0; vertical-align:middle; -webkit-box-shadow:none; -box-shadow:none}
+</style>
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<script type="text/javascript">
+init_mathjax = function() {
+    if (window.MathJax) {
+        // MathJax loaded
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    }
+}
+init_mathjax();
+</script>
+
+<link rel="canonical" href="./slvs-cheng-shi-ku-han-shi.html">
+
+        <meta name="author" content="40323230" />
+        <meta name="keywords" content="Kmol,SWIG,Solvespace,CDemo,Python-Solvespace" />
+        <meta name="description" content="slvs程式庫（_slvs.pyd或_slvs.so）轉成Python後的內容。 協助Python程式使用指令。 內容待勘誤 08/17 更新-錯誤已解決" />
+
+        <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="SLVS 程式庫函式"/>
+        <meta property="og:url" content="./slvs-cheng-shi-ku-han-shi.html"/>
+        <meta property="og:description" content="slvs程式庫（_slvs.pyd或_slvs.so）轉成Python後的內容。 協助Python程式使用指令。 內容待勘誤 08/17 更新-錯誤已解決"/>
+        <meta property="article:published_time" content="2016-08-17" />
+            <meta property="article:section" content="2016bg2" />
+            <meta property="article:tag" content="Kmol" />
+            <meta property="article:tag" content="SWIG" />
+            <meta property="article:tag" content="Solvespace" />
+            <meta property="article:tag" content="CDemo" />
+            <meta property="article:tag" content="Python-Solvespace" />
+            <meta property="article:author" content="40323230" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="./theme/css/bootstrap.united.min.css" type="text/css"/>
+    <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments/monokai.css" rel="stylesheet">
+    <link href="./theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
+
+        <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="機械設計專題 (虎尾科大MDE) ATOM Feed"/>
+
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushBash.js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://chiamingyen.github.io/kmolab_data/files/syntaxhighlighter/css/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://chiamingyen.github.io/kmolab_data/files/syntaxhighlighter/css/shThemeDefault.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="./" class="navbar-brand">
+機械設計專題 (虎尾科大MDE)            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="./pages/about/">
+                             About
+                          </a></li>
+                        <li class="active">
+                            <a href="./category/2016bg2.html">2016bg2</a>
+                        </li>
+                        <li >
+                            <a href="./category/2016g1.html">2016g1</a>
+                        </li>
+                        <li >
+                            <a href="./category/2016g3.html">2016g3</a>
+                        </li>
+                        <li >
+                            <a href="./category/misc.html">Misc</a>
+                        </li>
+                        <li >
+                            <a href="./category/tutorial.html">Tutorial</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="./search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+              <li><a href="./archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="./slvs-cheng-shi-ku-han-shi.html"
+                       rel="bookmark"
+                       title="Permalink to SLVS 程式庫函式">
+                        SLVS 程式庫函式
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-08-17T12:00:00+08:00"> 三 17 八月 2016</time>
+    </span>
+            <span class="label label-default">By</span>
+            <a href="./author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/kmol.html">Kmol</a>
+        /
+	<a href="./tag/swig.html">SWIG</a>
+        /
+	<a href="./tag/solvespace.html">Solvespace</a>
+        /
+	<a href="./tag/cdemo.html">CDemo</a>
+        /
+	<a href="./tag/python-solvespace.html">Python-Solvespace</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <ol>
+<li>
+<p><code>slvs</code>程式庫（<code>_slvs.pyd</code>或<code>_slvs.so</code>）轉成Python後的內容。</p>
+</li>
+<li>
+<p>協助Python程式使用指令。</p>
+</li>
+</ol>
+<p><em>內容待勘誤</em></p>
+<p><em>08/17 更新-錯誤已解決</em></p>
+
+
+<h1><strong>快速尋找</strong></h1>
+<h2><a href="#FOREWORD">簡介</a></h2>
+<p><a href="#CDemo">CDemo</a>｜<a href="#SLVS">程式庫簡介</a></p>
+<h2><a href="#START">使用基礎</a></h2>
+<h2><a href="#ENTITIES">實體</a></h2>
+<p><a href="#Point">點</a>｜<a href="#Workplane">工作平面</a>｜<a href="#Distance">距離</a>｜<a href="#Normal">向量法線</a></p>
+<p><a href="#Line">線段</a>｜<a href="#Arc">中心點弧</a>｜<a href="#Circle">完整圓</a>｜<a href="#Cubic">貝茲曲線</a></p>
+<h2><a href="#CONSTRAINTS">約束</a></h2>
+<p><a href="#C-Distance">距離</a>｜<a href="#C-Ratio">線段比值</a>｜<a href="#C-Diameter">直徑</a>｜<a href="#C-Angle">角度</a></p>
+<p><a href="#C-On">重合</a>｜<a href="#C-Equal">相等</a>｜<a href="#C-Dragged">鎖定位置</a>｜<a href="#C-Midpoint">中點</a></p>
+<p><a href="#C-Symmetric">對稱</a>｜<a href="#C-HV">水平或垂直</a>｜<a href="#C-Parallel">平行</a>｜<a href="#C-Tangent">相切</a></p>
+<h2><a href="#ADD">未支援功能</a></h2>
+<hr>
+
+<h1><a name="FOREWORD"></a>Brief Introduction</h1>
+<p>SLVS 程式庫裡面的名稱結構是使用C語言撰寫，雖然 <code>slvs.py</code> 已經幫忙轉換了裡面的名稱，但是仍有些許函式名稱變化。</p>
+<p>所以紀錄一下在Python中如何使用這些功能，預計讓這篇文章達到易使用和易理解的功能。</p>
+<h2><a name="CDemo"></a>CDemo</h2>
+<p>SolveSpace 是一款開源的 2D / 3D 電腦輔助設計繪圖軟體，從 2008 年釋出第一個版本，相容於 Windows / Mac / Linux 三個平台。</p>
+<p>有著體積小、執行快速、免費，且不用安裝的特性，支援 STEP 或 STL 開啟，或輸出成 DXF 、 PDF 、 SVG 等開放格式，也有自己的文字式格式 <code>*.slvs</code> 。</p>
+<p>更新方面，可以在 GitHub 的<a href="https://github.com/solvespace/solvespace" title="github.com">官方倉儲</a>或是<a href="https://github.com/whitequark/solvespace" title="github.com">非官方倉儲</a>中下載最新的原始碼後，直接利用開發者工具（如 GNU）編譯出主程式。</p>
+<p>Solvespace 在繪圖程式本身外還附帶一個名為 CDemo 的小執行檔，是利用 Solvespace 的原始碼編譯出來的。</p>
+<p>可以利用此外部程式呼叫 Solvespace 的程式庫 <code>libslvs.dll</code> 進行 2D 或是 3D 的解題運算，而無須啟動 Solvespace 。</p>
+<p>CDemo 的概念是能夠讓外部程式使用 Solvespace 的功能，無論是利用其解開最大行程、干涉位置，都能讓應用程式免去您需要親自使用 CAD 軟體解題的困擾。</p>
+<h2><a name="SLVS"></a>SLVS Library</h2>
+<p>CDemo 為 C 語言編譯而成，使用的 Solvespace 程式庫則是C++編譯的，在運算和使用上固然快速，但活用性較局限。</p>
+<p>Python 語言擁有大量自定義模組、易讀的函式，並且在網際執行方面比C語言多一片天，若將 Solvespace 程式庫轉換使用，將會使這些 Python 程式擁有線上解題的能力，在機械設計方面更是方便許多。</p>
+<p>在 Python 的連結庫中， <code>*.pyd</code> 和 Windows 中 C 語言的動態載入庫 <code>*.dll</code> 相仿； <code>*.so</code> 則是大部分開放式作業系統（如為人熟知的 Ubuntu）使用的。 <code>*.so</code> 的優點是利於共享資料，執行檔與程式庫分離，更新函式庫更為方便。</p>
+<p>Python-Solvespace 的製作概念是利用 SWIG 軟體製作一個 C++ 至 Python 的端口，使任何一個使用 Anaconda 3 (Python 3.5) 的 Python 程式都能夠使用 Solvespace 的函式庫。</p>
+<p>當 Solvespace 的函式轉換成 Python 介面時，也希望保持這個語言一貫清爽易懂的名稱，因此特別重新分類了這些指令的名稱及用法。</p>
+<p>稱號下方是原始的命令代號，用於程式庫中識別命令的類型。</p>
+<hr>
+
+<h1><a name="START"></a>Starting Draw and Solve</h1>
+<p>若要使用SLVS程式庫，必須透過<code>slvs.py</code>介面來轉換。</p>
+<p>在您的Python程式中使用以下指令：</p>
+<pre class="brush: python">
+#導入slvs.py
+from slvs import *
+
+#導入Solid Python
+#沒有使用就不需要導入
+import solid
+
+#創造你的系統，以及支援單位數量
+#預設單位數為50
+#若是在迴圈中創造系統，將會重新洗掉記錄
+sys = System(20)
+...
+</pre>
+
+<p>欲執行解題，Python必須使用下列命令：</p>
+<pre class="brush: python">
+#執行解題
+sys.solve()
+#直接命令
+Slvs_Solve(sys, g)
+
+#結果回報的值如下
+if (sys.result == SLVS_RESULT_OKAY):
+    ...
+elif (sys.result == SLVS_RESULT_INCONSISTENT):
+    print ("solve failed")
+    print ("SLVS_RESULT_INCONSISTENT")
+    print ("%d DOF" % sys.dof)
+elif (sys.result == SLVS_RESULT_DIDNT_CONVERGE):
+    print ("solve failed")
+    print ("SLVS_RESULT_DIDNT_CONVERGE")
+    print ("%d DOF" % sys.dof)
+elif (sys.result == SLVS_RESULT_TOO_MANY_UNKNOWNS):
+    print ("solve failed")
+    print ("SLVS_RESULT_TOO_MANY_UNKNOWNS")
+    print ("%d DOF" % sys.dof)
+</pre>
+
+<p>在執行解題程式後，會出現三種結果：</p>
+<ol>
+<li>
+<p>所有約束都能滿足，會回傳<code>SLVS_RESULT_OKAY</code>，這時就能檢查您的約束結果，沒有完全約束的項目會被移動至滿足條件的範圍中，不過可能會不符合您的期待。</p>
+</li>
+<li>
+<p>解題程式證明約束條件互相牴觸，會傳回<code>SLVS_RESULT_INCONSISTENT</code>。</p>
+</li>
+<li>
+<p>解題程式證明約束條件沒有互相牴觸，但定義了一些重複的約束，會傳回<code>SLVS_RESULT_DIDNT_CONVERGE</code>。</p>
+</li>
+</ol>
+<p>最後能調用以下值來檢查結果。</p>
+<pre class="brush: python">
+#實體結果
+#格式為高精度浮點數
+sys.get_param(0).val
+</pre>
+
+<p>而過於嚴重的錯誤會回傳<code>SLVS_RESULT_TOO_MANY_UNKNOWNS</code>，必須檢查您的 Python 程式庫或是 SLVS 函式庫是否損壞。</p>
+<hr>
+
+<h1><a name="ENTITIES"></a>Types of Entities</h1>
+<p><code>SLVS_E</code></p>
+<p>實體的類型，屬於物件的部分，Entity中還有一些子分類。</p>
+<ol>
+<li>
+<p><kbd>Point</kbd> 此物件屬於點。</p>
+</li>
+<li>
+<p><kbd>LineSegment</kbd> 此物件屬於線段。</p>
+</li>
+<li>
+<p><kbd>Circular</kbd> 此物件屬於圓弧。</p>
+</li>
+<li>
+<p>沒有標籤的項目屬於 <kbd>Entity</kbd> 旗下的物件。</p>
+</li>
+</ol>
+<p>根據這些關係，在約束時必須判斷其分類以填入。</p>
+<p>輸入值後方加入<code>, sys</code>，以傳入系統清單<code>sys</code>中（也許有<code>sys2</code>或<code>sys3</code>等等）；亦可用<code>sys.add_</code>加入以下支援的實體，而取出的編號取決於註冊的順序。</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="codehilite"><pre>add_param( )
+add_point2d( )
+add_point3d( )
+add_entity( )
+</pre></div>
+</td></tr></table>
+
+<p>取出時亦同（函數中加上編號就能指定）：</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="codehilite"><pre>get_Point2d( )
+get_Point3d( )
+get_LineSegment2d( )
+get_LineSegment3d( )
+get_Normal3d( )
+get_Distance( )
+get_Workplane( )
+get_Cubic( )
+get_Circle( )
+get_ArcOfCircle( )
+</pre></div>
+</td></tr></table>
+
+<h2><a name="Point"></a>Point</h2>
+<p><code>SLVS_E_POINT_IN_3D</code></p>
+<p><kbd>Entity</kbd> / <kbd>Point</kbd> / <kbd>Point3d</kbd></p>
+<p>使用指令：</p>
+<pre class="brush: python">
+Point3d(Param x, Param y, Param z)
+</pre>
+
+<p>代表空間中的點。</p>
+<p><code>SLVS_E_POINT_IN_2D</code></p>
+<p><kbd>Entity</kbd> / <kbd>Point</kbd> / <kbd>Point2d</kbd></p>
+<p>使用指令：</p>
+<pre class="brush: python">
+Point2d(Workplane workplane, Param u, Param v)
+</pre>
+
+<p>代表工作平面上的點。</p>
+<h2><a name="Normal"></a>Normal</h2>
+<p><code>SLVS_E_NORMAL_IN_3D</code></p>
+<p><kbd>Entity</kbd> / <kbd>Normal3d</kbd></p>
+<p>使用指令：</p>
+<pre class="brush: python">
+Normal3d(Param qw, Param qx, Param qy, Param qz)
+</pre>
+
+<p>代表空間中的一條法線。</p>
+<p><code>SLVS_E_NORMAL_IN_2D</code></p>
+<p><kbd>Entity</kbd> / <kbd>Normal3d</kbd> / <kbd>Normal2d</kbd></p>
+<p>使用指令：</p>
+<pre class="brush: python">
+Normal3d(Workplane wrkpl)
+</pre>
+
+<p>代表垂直工作平面的一條法線。</p>
+<p>在SolveSpace中，法線是由一個3x3的旋轉矩陣從基本的坐標系到一個新的架構，是由單位四元數定義的。</p>
+<p>可以想像這個四元數代表一個通過原點的平面。</p>
+<p>這個平面跟三個向量相關：基礎向量<code>U</code>和<code>V</code>在平面上、而法線<code>N</code>則垂直它，相當於<code>[ U V N ]'</code>。</p>
+<p>因此U、N、N都有單位長度，而他們都正交，所以：</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="codehilite"><pre>U cross V = N
+V cross N = U
+N cross U = V
+</pre></div>
+</td></tr></table>
+
+<p>轉換函式<code>Slvs_Quaternion</code>提供了在<code>U</code>、<code>V</code>、<code>N</code>和單位四元數之間轉換。</p>
+<p>單位四元數只有三個自由度，但是要在四個參數中指定。因此一個額外的約束產生了，就是：</p>
+<p><code>w^2 + x^2 + y^2 + z^2 = 1</code></p>
+<h2>Make a Quaternion for a Work Plane <kbd>Tips</kbd></h2>
+<p>要定義一個由<code>U[1 0 0]</code>向量（等同X軸）和<code>V[0 1 0]</code>向量（等同Y軸）組成的平面，是需要一條3D法線的。</p>
+<p>若是不會計算四元數，可以利用下列函式達成：</p>
+<pre class="brush: python">
+#函式轉換四元數
+qw, qx, qy, qz = MakeQuaternion(1, 0, 0, 0, 1, 0)
+
+#帶入3D法線的函式中
+normal = Normal3d(Param(qw), Param(qx), Param(qy), Param(qz), sys)
+
+#做成工作平面
+c = Point3d(Param(0.0), Param(0.0), Param(0.0))
+plane = Workplane(c, normal)
+</pre>
+
+<p>這個公式在製作2D平面時非常方便。</p>
+<p>以下是不同平面參考：</p>
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8</pre></div></td><td class="code"><div class="codehilite"><pre>XY平面：[1 0 0], [0 1 0]
+MakeQuaternion(1, 0, 0, 0, 1, 0)
+
+YZ平面：[0 1 0], [0 0 1]
+MakeQuaternion(0, 1, 0, 0, 0, 1)
+
+XZ平面：[1 0 0], [0 0 1]
+MakeQuaternion(1, 0, 0, 0, 0, 1)
+</pre></div>
+</td></tr></table>
+
+<h2><a name="Distance"></a>Distance</h2>
+<p><code>SLVS_E_DISTANCE</code></p>
+<p><kbd>Entity</kbd> / <kbd>Distance</kbd></p>
+<p>使用指令：</p>
+<pre class="brush: python">
+Distance(Workplane wrkpl, Param distance)
+</pre>
+
+<p>代表與工作平面平行的距離。</p>
+<h2><a name="Workplane"></a>Work Plane</h2>
+<p><kbd>Entity</kbd> / <kbd>Workplane</kbd></p>
+<p><code>SLVS_E_WORKPLANE</code></p>
+<p>使用指令：</p>
+<pre class="brush: python">
+Workplane(Point3d origin, Normal3d normal)
+</pre>
+
+<p>代表通過原點，與法線垂直的工作平面。</p>
+<h2><a name="Line"></a>Line Segment</h2>
+<p><code>SLVS_E_LINE_SEGMENT</code></p>
+<p><kbd>Entity</kbd> / <kbd>LineSegment</kbd> / <kbd>LineSegment3d</kbd></p>
+<p><kbd>3D</kbd> 使用指令：</p>
+<pre class="brush: python">
+LineSegment3d(Point3d a, Point3d b)
+</pre>
+
+<p><kbd>Entity</kbd> / <kbd>LineSegment</kbd> / <kbd>LineSegment2d</kbd></p>
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+LineSegment2d(Workplane wrkpl, Point2d a, Point2d b)
+</pre>
+
+<p>在兩個<code>Point2d/3d</code>之間繪出直線條。</p>
+<p>代表兩個點之間的連線。</p>
+<h2><a name="Cubic"></a>Cubic</h2>
+<p><code>SLVS_E_CUBIC</code></p>
+<p><kbd>Entity</kbd> / <kbd>Cubic</kbd></p>
+<p><kbd>3D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Cubic(Point3d pt0, Point3d pt1, Point3d pt2, Point3d pt3)
+</pre>
+
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Cubic(Workplane wrkpl, Point2d pt0, Point2d pt1, Point2d pt2, Point2d pt3)
+</pre>
+
+<p>四個點構成的貝茲曲線，無論是用2D還是3D建構，都會視為3D物件。</p>
+<p>四個點的公式如下：</p>
+<p><code>公式（t從0積分到1）
+p(t) = P0*(1 - t)^3 + 3*P1*(1 - t)^2*t + 3*P2*(1 - t)*t^2 + P3*t^3</code></p>
+<h2><a name="Circle"></a>Circle</h2>
+<p><kbd>Entity</kbd> / <kbd>Circular</kbd> / <kbd>Circle</kbd></p>
+<p><code>SLVS_E_CIRCLE</code></p>
+<p>使用指令：</p>
+<pre class="brush: python">
+Circle(Workplane wrkpl, Normal3d normal, Point2d center, Distance radius)
+</pre>
+
+<p>與一條<code>Normal3d</code>法線垂直，與一個<code>Workplane</code>平面平行，由<code>Point2d</code>圓心和<code>Distance</code>半徑構成的完整圓。</p>
+<p>這個圓無法使用相切約束，除非給定切點，並使圓心距離永遠和切線保持半徑長度。</p>
+<h2><a name="Arc"></a>Arc of Circle</h2>
+<p><code>SLVS_E_ARC_OF_CIRCLE</code></p>
+<p><kbd>Circular</kbd> / <kbd>ArcOfCircle</kbd></p>
+<p>使用指令：</p>
+<pre class="brush: python">
+ArcOfCircle(Workplane wrkpl, Normal3d normal, Point2d center, Point2d start, Point2d end)
+</pre>
+
+<p>與一條<code>Normal3d</code>法線垂直，與一個<code>Workplane</code>平面平行，由<code>Point2d</code>圓心和兩個<code>Point2d</code>點構成的三點弧。</p>
+<hr>
+
+<h1><a name="CONSTRAINTS"></a>Types of Constrains</h1>
+<p><code>SLVS_C</code></p>
+<p>約束的類型，大部分的指令都會自動判斷狀況。</p>
+<ol>
+<li>
+<p><kbd>3D</kbd> 此種約束只能用在3D或投影到平面上。</p>
+</li>
+<li>
+<p><kbd>2D</kbd> 此種約束只能用在平面上。</p>
+</li>
+<li>
+<p><kbd>Val</kbd> 此種約束必須設定額外的參考值。</p>
+</li>
+</ol>
+<p>輸入值最後端加入群組編號可以規定群組（預設值<code>Slvs_hGroup group = USE_DEFAULT_GROUP</code>）。</p>
+<p>約束的直接命令（必須在空白項目中填入 <code>0</code>）：</p>
+<pre class="brush: python">
+Slvs_MakeConstraint((h, group, type, wrkpl, valA, ptA, ptB, entityA, entityB,  entityC,  entityD, other, other2)
+</pre>
+
+<h2><a name="C-Distance"></a>Distance <kbd>Val</kbd></h2>
+<h2><code>SLVS_C_PT_PT_DISTANCE</code></h2>
+<p><kbd>3D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.distance(double value, Point3d p1, Point3d p2)
+</pre>
+
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.distance(double value, Workplane wrkpl, Point p1, Point p2)
+</pre>
+
+<p>約束兩個<code>Point2d/3d</code>的距離。</p>
+<h2><code>SLVS_C_PROJ_PT_DISTANCE</code></h2>
+<p><kbd>3D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.distance_proj(double value, Point3d p1, Point3d p2, Workplane wrkpl)
+</pre>
+
+<p>約束兩個<code>Point3d</code>的投影到<code>Workplane</code>的距離。</p>
+<h2><code>SLVS_C_PT_PLANE_DISTANCE</code></h2>
+<p><kbd>3D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.distance(double value, Workplane wrkpl, Point3d p)
+</pre>
+
+<p>從一個<code>Point3d</code>到一個<code>Workplane</code>的距離。</p>
+<p>距離值的正負會規定點在平面之上或之下。</p>
+<h2><code>SLVS_C_PT_LINE_DISTANCE</code></h2>
+<p><kbd>3D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.distance(double value, Point3d p, LineSegment3d line)
+</pre>
+
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.distance(double value, Workplane wrkpl, Point p, LineSegment2d line)
+</pre>
+
+<p>從一個<code>Point2d/3d</code>到一條<code>LineSegment2d/3d</code>的距離。</p>
+<p>距離值的正負會規定點在線段之上或之下。</p>
+<h2><a name="C-On"></a>On</h2>
+<h2><code>SLVS_C_POINTS_COINCIDENT</code></h2>
+<p><kbd>3D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.on(Point3d p1, Point3d p2)
+</pre>
+
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.on(Workplane wrkpl, Point p1, Point p2)
+</pre>
+
+<p>兩個<code>Point2d/3d</code>的座標相等。</p>
+<h2><code>SLVS_C_PT_IN_PLANE</code></h2>
+<p><kbd>3D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.on(Workplane wrkpl, Point3d p)
+</pre>
+
+<p>一個<code>Point3d</code>會被固定在一個<code>Workplane</code>上。</p>
+<h2><code>SLVS_C_PT_ON_LINE</code></h2>
+<p><kbd>3D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.on(Point3d p, LineSegment3d line)
+</pre>
+
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.on(Workplane wrkpl, Point p, LineSegment2d line)
+</pre>
+
+<p>一個<code>Point2d/3d</code>會被固定在一條<code>LineSegment2d/3d</code>上。</p>
+<p>注意此約束會在2D時移除一個自由度；而在3D空間時變成兩個。</p>
+<h2><code>SLVS_C_PT_ON_CIRCLE</code></h2>
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.on(Workplane wrkpl, Point p, Circle circle)
+</pre>
+
+<p>一個<code>Point2d</code>會被固定在一個<code>Circle</code>上。</p>
+<h2><a name="C-Equal"></a>Equal</h2>
+<h2><code>SLVS_C_EQUAL_LENGTH_LINES</code></h2>
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.equal(Workplane wrkpl, LineSegment2d line1, LineSegment2d line line2)
+</pre>
+
+<p>兩條<code>LineSegment2d</code>的長度等長。</p>
+<h2><code>SLVS_C_EQ_LEN_PT_LINE_D</code></h2>
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.equal(Workplane wrkpl, Point2d p, LineSegment2d line1, LineSegment2d line line2)
+</pre>
+
+<p>第一條<code>LineSegment2d</code>長度等於一個<code>Point2d</code>到第二條<code>LineSegment2d</code>的距離。</p>
+<h2><code>SLVS_C_EQ_PT_LN_DISTANCES</code></h2>
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.equal_point_line(Workplane wrkpl, Point2d p1, Point2d p2, LineSegment2d line1, LineSegment2d line2)
+</pre>
+
+<p>第一個<code>Point2d</code>到第一條<code>LineSegment2d</code>的距離等於第二個<code>Point2d</code>到第二條<code>LineSegment2d</code>的距離。</p>
+<h2><code>SLVS_C_EQUAL_ANGLE</code></h2>
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.equal_angle(Workplane wrkpl, LineSegment2d line1, LineSegment2d line2, LineSegment2d line3, LineSegment2d line4)
+</pre>
+
+<p>第一條<code>LineSegment2d</code>和第二條<code>LineSegment2d</code>的夾角等於第三條<code>LineSegment2d</code>和第四條<code>LineSegment2d</code>的夾角。</p>
+<h2><code>SLVS_C_EQUAL_LINE_ARC_LEN</code></h2>
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.equal(Workplane wrkpl, LineSegment2d line, Circular c)
+</pre>
+
+<p>一條<code>LineSegment2d</code>線段長度和另一段<code>Circular</code>長度相等。</p>
+<h2><code>SLVS_C_EQUAL_RADIUS</code></h2>
+<p><kbd>3D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.equal_radius(Workplane wrkpl, Circular c1, Circular c2)
+</pre>
+
+<p>兩條<code>Circular</code>的半徑相等。</p>
+<h2><code>SLVS_C_SAME_ORIENTATION</code></h2>
+<p><kbd>3D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.orientation(Normal3d nrml1, Normal3d nrml2)
+</pre>
+
+<p>兩條<code>Normal3d</code>法線的方向相等。</p>
+<h2><a name="C-Ratio"></a>Ratio of Length <kbd>Val</kbd></h2>
+<h2><code>SLVS_C_LENGTH_RATIO</code></h2>
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.ratio(double value, Workplane wrkpl, LineSegment2d line1, LineSegment2d line2)
+</pre>
+
+<p>第一條<code>LineSegment2d</code>長度對上第二條<code>LineSegment2d</code>長度的比值。</p>
+<h2><a name="C-Symmetric"></a>Symmetric</h2>
+<h2><code>SLVS_C_SYMMETRIC</code></h2>
+<p><kbd>3D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.symmetric(Workplane wrkpl, Point3d p1, Point3d p2)
+</pre>
+
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.symmetric(Workplane wrkpl, Point2d p1, Point2d p2)
+</pre>
+
+<p>第一個<code>Point2d/3d</code>會和第二個<code>Point2d/3d</code>對稱於一個工作平面。</p>
+<p>意味著兩個點到平面的距離都相等，而兩點的連線可以做為平面的法線。</p>
+<h2><code>SLVS_C_SYMMETRIC_HORIZ</code></h2>
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.symmetric_H(Workplane wrkpl, Point2d p1, Point2d p2)
+</pre>
+
+<p>兩個<code>Point2d</code>會鎖定在相同的水平座標。</p>
+<h2><code>SLVS_C_SYMMETRIC_VERT</code></h2>
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.symmetric_V(Workplane wrkpl, Point2d p1, Point2d p2)
+</pre>
+
+<p>兩個<code>Point2d</code>會鎖定在相同的垂直座標。</p>
+<h2><code>SLVS_C_SYMMETRIC_LINE</code></h2>
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.symmetric(Workplane wrkpl, Point2d p1, Point2d p2, LineSegment2d line)
+</pre>
+
+<p>規定兩個<code>Point2d</code>，對稱<code>LineSegment2d</code>。</p>
+<h2><a name="C-Midpoint"></a>Middle point</h2>
+<h2><code>SLVS_C_AT_MIDPOINT</code></h2>
+<p><kbd>3D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.midpoint(Point3d p, LineSegment3d line)
+</pre>
+
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.midpoint(Workplane wrkpl, Point2d p, LineSegment2d line)
+</pre>
+
+<p>讓一個<code>Point2d/3d</code>位於一條<code>LineSegment2d</code>的中點。</p>
+<h2><a name="C-HV"></a>Horizontal &amp; Vertical</h2>
+<h2><code>SLVS_C_HORIZONTAL</code></h2>
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.horizontal(Workplane wrkpl, LineSegment2d line)
+</pre>
+
+<p><code>SLVS_C_VERTICAL</code></p>
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.vertical(Workplane wrkpl, LineSegment2d line)
+</pre>
+
+<p>規定一條<code>LineSegment2d</code>水平或垂直。</p>
+<h2><a name="C-Diameter"></a>Diameter <kbd>Val</kbd></h2>
+<h2><code>SLVS_C_DIAMETER</code></h2>
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.diameter(double diameter, Workplane wrkpl, Circular c)
+</pre>
+
+<p>一段<code>Circular</code>的直徑。</p>
+<h2><a name="C-Angle"></a>Angle <kbd>Val</kbd></h2>
+<h2><code>SLVS_C_ANGLE</code></h2>
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.angle(Workplane wrkpl, double value, LineSegment2d line1, LineSegment2d line2, bool other)
+</pre>
+
+<p>兩條<code>LineSegment2d</code>的夾角，定義值單位為度。</p>
+<p>公式如下（<code>A</code>和<code>B</code>為兩條線的向量）：</p>
+<p><code>(A dot B)/(|A||B|) = cos(valA)</code></p>
+<p>注意這裡的值定義比較不明確，無論正負90度都會是相同的結果。</p>
+<p>所以必須使用<code>other</code>布林值來判斷正負。</p>
+<h2><code>SLVS_C_PERPENDICULAR</code></h2>
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.perpendicular(Workplane wrkpl, LineSegment2d line1, LineSegment2d line2, bool other)
+</pre>
+
+<p>源自約束<code>SLVS_C_ANGLE</code>。</p>
+<p>這個約束是定義角度約束為90度的情況。</p>
+<h2><a name="C-Parallel"></a>Parallel</h2>
+<h2><code>SLVS_C_PARALLEL</code></h2>
+<p><kbd>3D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.parallel(LineSegment3d line1, LineSegment3d line2)
+</pre>
+
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.parallel(Workplane wrkpl, LineSegment2d line1, LineSegment2d line2)
+</pre>
+
+<p>兩條<code>LineSegment2d/3d</code>互相平行。</p>
+<p>注意此約束會在投影到一個平面上時移除一個自由度；而在3D空間時變成兩個。</p>
+<h2><a name="C-Tangent"></a>Tangent <kbd>Val</kbd></h2>
+<h2><code>SLVS_C_ARC_LINE_TANGENT</code></h2>
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.tangent(ArcOfCircle arc, LineSegment2d line, bool other)
+</pre>
+
+<p>一段<code>ArcOfCircle</code>和一條<code>LineSegment2d</code>相切。</p>
+<p>若布林值是<code>False</code>，則圓弧的切點會位於它的起點<code>s</code>；反之若為<code>True</code>，則會位於它的終點<code>e</code>。</p>
+<h2><code>SLVS_C_CUBIC_LINE_TANGENT</code></h2>
+<p><kbd>3D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.tangent(Cubic c, LineSegment3d l, bool other)
+</pre>
+
+<p>一條<code>Cubic</code>和一條<code>LineSegment3d</code>相切。</p>
+<p>若布林值是<code>False</code>，則貝茲曲線的切點會位於它的起點<code>p0</code>；反之若為<code>True</code>，則會位於它的終點<code>p3</code>。</p>
+<h2><code>SLVS_C_CURVE_CURVE_TANGENT</code></h2>
+<p><kbd>3D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.tangent(ArcOfCircle c1, ArcOfCircle c2, bool other, bool other2)
+Constraint.tangent(Cubic c1, Cubic c2, bool other, bool other2)
+Constraint.tangent(ArcOfCircle c1, Cubic c2, bool other, bool other2)
+Constraint.tangent(Cubic c1, ArcOfCircle c2, bool other, bool other2)
+</pre>
+
+<p>兩條曲線的相切組合。</p>
+<p>若布林值是<code>False</code>，則圓弧的切點會位於它的起點<code>s</code>，貝茲曲線的切點會位於它的起點<code>p0</code>；反之若為<code>True</code>，則會位於它的終點<code>e</code>或<code>p3</code>。</p>
+<h2><a name="C-Dragged"></a>Dragged</h2>
+<h2><code>SLVS_C_WHERE_DRAGGED</code></h2>
+<p><kbd>3D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.dragged(Point3d p)
+</pre>
+
+<p><kbd>2D</kbd> 使用指令：</p>
+<pre class="brush: python">
+Constraint.dragged(Workplane wrkpl, Point2d p)
+</pre>
+
+<p>永久鎖定這個<code>Point2d/3d</code>的座標在目前計算的座標上，再也不會改變。</p>
+<p>在2D平面上，會移除兩個自由度；在3D空間中，是三個自由度。</p>
+<h2>Set Dragged <kbd>Tips</kbd></h2>
+<p>關於鎖定位置，另一個系統的約束如下：</p>
+<pre class="brush: python">
+sys.set_dragged(Point p)
+</pre>
+
+<p>是命令約束盡量固定這個<code>Point2d/3d</code>點，取而代之的是移動周遭的項目。</p>
+<p>這個點被固定後移動量會較小。</p>
+<hr>
+
+<h1><a name="ADD"></a>Additional Types of Constrains</h1>
+<p>一些額外的約束條件，目前沒有對應實體項目可用。</p>
+<h2>Point and Face</h2>
+<p><code>SLVS_C_PT_FACE_DISTANCE</code></p>
+<p><kbd>3D</kbd> 使用指令：</p>
+<pre class="brush: python">
+#這個功能尚未建構
+</pre>
+
+<h2>Point on Face</h2>
+<p><code>SLVS_C_PT_ON_FACE</code></p>
+<p><kbd>3D</kbd> 使用指令：</p>
+<pre class="brush: python">
+#這個功能尚未建構
+</pre>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
+                <ul class="list-group" id="recentposts">
+                    <li class="list-group-item">
+                        <a href="./qt-gui.html">
+                            QT GUI
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="./vrep-machine-arm.html">
+                            Vrep machine arm
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="./40323230ri-zhi-1050820.html">
+                            40323230日誌 - 105/08/20
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="./40323230ri-zhi-1050819.html">
+                            40323230日誌 - 105/08/19
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="./pyqt5-install.html">
+                            PyQt5 install
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="list-group-item"><a href="./categories.html"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+                <ul class="list-group" id="categories">
+                    <li class="list-group-item">
+                        <a href="./category/2016bg2.html">
+                            <i class="fa fa-folder-open fa-lg"></i> 2016bg2
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="./category/2016g1.html">
+                            <i class="fa fa-folder-open fa-lg"></i> 2016g1
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="./category/2016g3.html">
+                            <i class="fa fa-folder-open fa-lg"></i> 2016g3
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="./category/misc.html">
+                            <i class="fa fa-folder-open fa-lg"></i> Misc
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="./category/tutorial.html">
+                            <i class="fa fa-folder-open fa-lg"></i> Tutorial
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="list-group-item"><a href="./tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                </ul>
+            </li>
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://getpelican.com/" target="_blank">
+                Pelican
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/DandyDev/pelican-bootstrap3/" target="_blank">
+                pelican-bootstrap3
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/getpelican/pelican-plugins" target="_blank">
+                pelican-plugins
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/Tipue/Tipue-Search" target="_blank">
+                Tipue search
+            </a>
+        </li>
+      </ul>
+    </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2016 KMOL
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="./theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="./theme/js/respond.min.js"></script>
+
+
+</body>
+</html>

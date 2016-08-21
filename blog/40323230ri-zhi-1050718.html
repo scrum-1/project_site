@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en"
+>
+<head>
+    <title>40323230日誌 - 105/07/18 - 機械設計專題 (虎尾科大MDE)</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<style type="text/css">
+
+/*some stuff for output/input prompts*/
+div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}div.cell.selected{border-radius:4px;border:thin #ababab solid}
+div.cell.edit_mode{border-radius:4px;border:thin #008000 solid}
+div.cell{width:100%;padding:5px 5px 5px 0;margin:0;outline:none}
+div.prompt{min-width:11ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}
+@media (max-width:480px){div.prompt{text-align:left}}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}
+div.input_area{border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;line-height:1.21429em}
+div.prompt:empty{padding-top:0;padding-bottom:0}
+div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:horizontal;-moz-box-align:stretch;display:box;box-orient:horizontal;box-align:stretch;}
+div.inner_cell{width:90%;}
+div.input_area{border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;}
+div.input_prompt{color:navy;border-top:1px solid transparent;}
+div.output_wrapper{margin-top:5px;position:relative;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}
+div.output_scroll{height:24em;width:100%;overflow:auto;border-radius:4px;-webkit-box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);-moz-box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);}
+div.output_collapsed{margin:0px;padding:0px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}
+div.out_prompt_overlay{height:100%;padding:0px 0.4em;position:absolute;border-radius:4px;}
+div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000000;-moz-box-shadow:inset 0 0 1px #000000;box-shadow:inset 0 0 1px #000000;background:rgba(240, 240, 240, 0.5);}
+div.output_prompt{color:darkred;}
+
+a.anchor-link:link{text-decoration:none;padding:0px 20px;visibility:hidden;}
+h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible;}
+/* end stuff for output/input prompts*/
+
+
+.highlight-ipynb .hll { background-color: #ffffcc }
+.highlight-ipynb  { background: #f8f8f8; }
+.highlight-ipynb .c { color: #408080; font-style: italic } /* Comment */
+.highlight-ipynb .err { border: 1px solid #FF0000 } /* Error */
+.highlight-ipynb .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight-ipynb .o { color: #666666 } /* Operator */
+.highlight-ipynb .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight-ipynb .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight-ipynb .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight-ipynb .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight-ipynb .gd { color: #A00000 } /* Generic.Deleted */
+.highlight-ipynb .ge { font-style: italic } /* Generic.Emph */
+.highlight-ipynb .gr { color: #FF0000 } /* Generic.Error */
+.highlight-ipynb .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight-ipynb .gi { color: #00A000 } /* Generic.Inserted */
+.highlight-ipynb .go { color: #888888 } /* Generic.Output */
+.highlight-ipynb .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight-ipynb .gs { font-weight: bold } /* Generic.Strong */
+.highlight-ipynb .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight-ipynb .gt { color: #0044DD } /* Generic.Traceback */
+.highlight-ipynb .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight-ipynb .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight-ipynb .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight-ipynb .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight-ipynb .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight-ipynb .kt { color: #B00040 } /* Keyword.Type */
+.highlight-ipynb .m { color: #666666 } /* Literal.Number */
+.highlight-ipynb .s { color: #BA2121 } /* Literal.String */
+.highlight-ipynb .na { color: #7D9029 } /* Name.Attribute */
+.highlight-ipynb .nb { color: #008000 } /* Name.Builtin */
+.highlight-ipynb .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight-ipynb .no { color: #880000 } /* Name.Constant */
+.highlight-ipynb .nd { color: #AA22FF } /* Name.Decorator */
+.highlight-ipynb .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight-ipynb .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight-ipynb .nf { color: #0000FF } /* Name.Function */
+.highlight-ipynb .nl { color: #A0A000 } /* Name.Label */
+.highlight-ipynb .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight-ipynb .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight-ipynb .nv { color: #19177C } /* Name.Variable */
+.highlight-ipynb .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight-ipynb .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight-ipynb .mf { color: #666666 } /* Literal.Number.Float */
+.highlight-ipynb .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight-ipynb .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight-ipynb .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight-ipynb .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight-ipynb .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight-ipynb .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight-ipynb .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight-ipynb .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight-ipynb .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight-ipynb .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight-ipynb .sx { color: #008000 } /* Literal.String.Other */
+.highlight-ipynb .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight-ipynb .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight-ipynb .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight-ipynb .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight-ipynb .vc { color: #19177C } /* Name.Variable.Class */
+.highlight-ipynb .vg { color: #19177C } /* Name.Variable.Global */
+.highlight-ipynb .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight-ipynb .il { color: #666666 } /* Literal.Number.Integer.Long */
+</style>
+
+<style type="text/css">
+/* Overrides of notebook CSS for static HTML export */
+div.entry-content {
+  overflow: visible;
+  padding: 8px;
+}
+.input_area {
+  padding: 0.2em;
+}
+
+a.heading-anchor {
+ white-space: normal;
+}
+
+.rendered_html
+code {
+ font-size: .8em;
+}
+
+pre.ipynb {
+  color: black;
+  background: #f7f7f7;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0;
+  padding: 0;
+  margin: 0px;
+  font-size: 13px;
+}
+
+/* remove the prompt div from text cells */
+div.text_cell .prompt {
+    display: none;
+}
+
+/* remove horizontal padding from text cells, */
+/* so it aligns with outer body text */
+div.text_cell_render {
+    padding: 0.5em 0em;
+}
+
+img.anim_icon{padding:0; border:0; vertical-align:middle; -webkit-box-shadow:none; -box-shadow:none}
+</style>
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<script type="text/javascript">
+init_mathjax = function() {
+    if (window.MathJax) {
+        // MathJax loaded
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    }
+}
+init_mathjax();
+</script>
+
+<link rel="canonical" href="./40323230ri-zhi-1050718.html">
+
+        <meta name="author" content="40323230" />
+        <meta name="keywords" content="Kmol,Solvespace,Python-Solvespace" />
+        <meta name="description" content="改寫Python-Solvespace的Makefile運作方式。" />
+
+        <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="40323230日誌 - 105/07/18"/>
+        <meta property="og:url" content="./40323230ri-zhi-1050718.html"/>
+        <meta property="og:description" content="改寫Python-Solvespace的Makefile運作方式。"/>
+        <meta property="article:published_time" content="2016-07-18" />
+            <meta property="article:section" content="2016bg2" />
+            <meta property="article:tag" content="Kmol" />
+            <meta property="article:tag" content="Solvespace" />
+            <meta property="article:tag" content="Python-Solvespace" />
+            <meta property="article:author" content="40323230" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="./theme/css/bootstrap.united.min.css" type="text/css"/>
+    <link href="./theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="./theme/css/pygments/monokai.css" rel="stylesheet">
+    <link href="./theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="./theme/css/style.css" type="text/css"/>
+
+        <link href="./feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="機械設計專題 (虎尾科大MDE) ATOM Feed"/>
+
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushBash.js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://chiamingyen.github.io/kmolab_data/files/syntaxhighlighter/css/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://chiamingyen.github.io/kmolab_data/files/syntaxhighlighter/css/shThemeDefault.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="./" class="navbar-brand">
+機械設計專題 (虎尾科大MDE)            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="./pages/about/">
+                             About
+                          </a></li>
+                        <li class="active">
+                            <a href="./category/2016bg2.html">2016bg2</a>
+                        </li>
+                        <li >
+                            <a href="./category/2016g1.html">2016g1</a>
+                        </li>
+                        <li >
+                            <a href="./category/2016g3.html">2016g3</a>
+                        </li>
+                        <li >
+                            <a href="./category/misc.html">Misc</a>
+                        </li>
+                        <li >
+                            <a href="./category/tutorial.html">Tutorial</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="./search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+              <li><a href="./archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="./40323230ri-zhi-1050718.html"
+                       rel="bookmark"
+                       title="Permalink to 40323230日誌 - 105/07/18">
+                        40323230日誌 - 105/07/18
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-07-18T19:00:00+08:00"> 一 18 七月 2016</time>
+    </span>
+            <span class="label label-default">By</span>
+            <a href="./author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="./tag/kmol.html">Kmol</a>
+        /
+	<a href="./tag/solvespace.html">Solvespace</a>
+        /
+	<a href="./tag/python-solvespace.html">Python-Solvespace</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>改寫Python-Solvespace的Makefile運作方式。</p>
+
+
+<h2>前言 :</h2>
+
+<p>閱讀GNU-Make的手冊之後，已經了解Makefile基本的運作方式，所以試圖解決Python-Solvespace編譯程序中出現的問題。</p>
+<p>手冊連結：<a href="https://www.gnu.org/software/make/manual/make.pdf" title="gnu.org">https://www.gnu.org/software/make/manual/make.pdf</a></p>
+<p>利用Interface來轉換Whitequark的新版Solvespace應該是不太可行的方式了，何況Python-Solvespace也未使用全部的功能，我們需要的是解題的函式就好。</p>
+<p>而另一方面Solid-python現在已經完全支援Python 3，若之後要調用其功能，應該也不會有太大的障礙。</p>
+<p>所以決定把Python-Solvespace的Makefile重新寫好，將Python-Solvespace的資料庫建構完成。</p>
+<hr>
+
+<h2>Netbeans的支援 :</h2>
+
+<p>其實Netbeans與$GNU開發者工具包$周邊的軟體都有良好的相依性，因此在撰寫Makefile時方便不少。</p>
+<p>在編寫完Makefile時，可以在個別的Makefile上點擊右鍵，選擇需要的命令讓make執行，諸如all、clean等等的功能可以選擇。</p>
+<p>Makefile中可以撰寫功能讓工程師執行，連基本的clean功能也可以自訂要刪除哪些檔案。</p>
+<p>當然利用這點，Makefile中也可以利用Echo做help的功能，Whitequark的Solvespace就有支援。</p>
+<p><img src="http://i.imgur.com/9DDeyVj.jpg" ></p>
+<hr>
+
+<h2>編寫Makefile :</h2>
+
+<p>原本Python-Solvespace的Makefile是將檔案分類，再一類類用一樣的式子做轉換，而且語法冗長還有許多錯誤。若有新增檔案，就必須填入參數的名單中登記。</p>
+<p>一個小型程式專案的Makefile事實上只需要下列的式子就能轉換：</p>
+<pre class="brush: c">
+$(ADIR)/%.obj: $(BDIR)/%.cpp $(HEADERS)
+    $(CXX) $(FLAGS) -c -o $@ $＜
+</pre>
+
+<p>意思是ADIR中的obj檔都與BDIR的cpp檔、標頭檔有關聯，而每個obj檔是由每個cpp檔透過＄(CXX)命令式產生的。</p>
+<p>$後面的＄＠表示每個目標項（包括其位置）$；同理，$＄＜亦代表每個參照項$，不過＄＜是只包含第一個條件的參照項，所以後面的多個標頭檔就不會帶入＄(CXX)命令中。</p>
+<p>若要在命令式中使用所有條件的參照項，要使用＄+，但是更好的選擇是使用＄^，會自動排除重複名稱的參照項。</p>
+<p>這樣寫固然簡單，但是每個檔案都在不同的資料夾中，要如何讓make搜尋？</p>
+<p>所以必須加上VPath這個參數，讓尋找參照檔案時可以搜尋到所有符合的項目。</p>
+<p><img src="http://i.imgur.com/wpUqKDX.jpg" ></p>
+<p>make在找檔案時最大的特性就是$按邏輯去找$。</p>
+<p>也因為這點，不用顧慮產生檔案的順序問題。只要"填寫"檔案是如何產生的，make就會根據需要的檔案來做順序調整。</p>
+<p>make會先忽略還沒產生的參照檔案，尋找已經備齊參照檔案的項目先做，指令亦可使用外部程式來執行。</p>
+<hr>
+
+<h2>編譯瓶頸 :</h2>
+
+<p>經過重新整理的Makefile，應該是沒有問題了，都將指令分配完整沒有衝突。</p>
+<p><img src="http://i.imgur.com/IkKQSqe.jpg" ></p>
+<p>但是仍然遇到Makefile以外的一些問題。</p>
+<h4>已解決</h4>
+
+<p><em>Stdint.h</em></p>
+<p>這個原先是C語言的額外函式庫，幫助統一化使用的格式，但是如果沒裝，就會選擇作者寫的指令。</p>
+<p><img src="http://i.imgur.com/Rz3xBwO.jpg" ></p>
+<p>不過這個地方應該是寫錯了，會一直認為這些是未定義的格式。</p>
+<p>其實導入"stdint.h"的地方也只有上圖的前半段，所以最快的解決方法就是讓solvespace.h擁有stdint.h一部份的能力。</p>
+<p><img src="http://i.imgur.com/BireSqB.jpg" ></p>
+<p>在上面這張Netbeans的比較圖中，直接把前半段的功能插進來用了，並成功解決問題。</p>
+<p><em>Min &amp; Max Functions</em></p>
+<p>下列solvespace.h的函式出了問題。</p>
+<pre class="brush: c">
+#ifndef min
+#define min(x, y) ((x) < (y) ? (x) : (y))
+#endif
+#ifndef max
+#define max(x, y) ((x) > (y) ? (x) : (y))
+#endif
+</pre>
+
+<p>上網搜尋了一下，找到基本款的用法：</p>
+<pre class="brush: c">
+#define min(x, y) (((x)＜(y)) ? (x):(y))
+#define max(x, y) (((x)>(y)) ? (x):(y))
+</pre>
+
+<p>加上括弧其實非必要，因為三元運算子的優先度本身就比大於小於還低。</p>
+<p><img src="http://i.imgur.com/l5u0t2N.jpg" ></p>
+<p>不過這個判斷式使用上怪怪的，移除後直接define就沒這個問題了。</p>
+<p><em>Object-oriented problem</em></p>
+<p>在surface.h中有一段是這樣描述的：</p>
+<pre class="brush: c">
+class STrimBy {
+...
+    static STrimBy STrimBy::EntireCurve(SShell *shell, hSCurve hsc, bool bkwds);
+...
+};
+</pre>
+
+<p>到stackoverflow.com的論壇尋找後，有相似的問題。</p>
+<p>是物件導向的從屬錯誤，不應該重複稱呼，但是編譯器通常不會抓這種錯誤，解決方法是刪掉前面的父項名稱。</p>
+<p><img src="http://i.imgur.com/PC43snc.jpg" ></p>
+<p>最後變成：</p>
+<pre class="brush: c">
+class STrimBy {
+...
+    static EntireCurve(SShell *shell, hSCurve hsc, bool bkwds);
+...
+};
+</pre>
+
+<p>也是成功解決。</p>
+<h4>未解決</h4>
+
+<p><em>Icons</em></p>
+<p>首先是圖示(icon)的問題。</p>
+<p>Python-Solvespace的作者使用另一個語言$Perl$的程式來做出"icons.h"這個檔案。</p>
+<p>Perl是一個高階語言，特點就是除了自己的寫法，還可以安裝大量模組來改變撰寫方式，甚至還繼承許多C語言的標準式。</p>
+<p><img src="http://i.imgur.com/eXwWp0J.jpg" ></p>
+<p>安裝方式跟Python相同，複製檔案跟設定環境變數就能使用了。</p>
+<p>作者用了"GD"這個模組來導出"icons.h"。</p>
+<p><img src="http://i.imgur.com/Y1p6Mck.jpg" ></p>
+<p>Netbeans雖然也有Perl的附加元件，但是功能比SciTE還陽春，就沒使用它了。</p>
+<p>Perl的副檔名是pl，專案中有"png2c.pl"和"pngchar2c.pl"，應該就是將PNG檔導入C語言中的意思，Makefile中是要執行"png2c.pl"並產生出"icons.h"和"icons-proto.h"的樣子，不過"icons-proto.h"不會用到。</p>
+<p>在Netbeans中似乎無法呼叫外部程式，會顯示無法找到Perl指令的訊息。</p>
+<p>可是到CMD中執行時又會發生無法回應的情況，接著make就會因為找不到"icons.h"而無法編譯。</p>
+<p><em>ld.exe does not find libraries</em></p>
+<p>在exposed資料的Makefile中，g++的參數中需要導入資料庫"-lslvs"。</p>
+<p>而在上一個步驟中，"libslvs.so"確定已經產生，但是找不到的狀況。</p>
+<p><img src="http://i.imgur.com/67n3jzL.jpg" ></p>
+<p>網路上普遍都是需要資料連結和打錯名稱，但是好像沒這種狀況，莫非是"libslvs.so"產生失敗，或是並非"slvs"這個名稱？</p>
+<p>Python-Solvespace的作者有特別指名不要使用DLL做副檔名。</p>
+<hr>
+
+<p>這次學到了編譯程式重要的一環，雖然make的過程中很煩人，也要一直注意是否出錯，但是最後成功時滿有成就感的。</p>
+<p>有些錯誤當下想不出來，不過換一種想法後就能克服許多障礙，訓練眼光放遠也是一件重要的事情。</p>
+            </div>
+            <!-- /.entry-content -->
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
+                <ul class="list-group" id="recentposts">
+                    <li class="list-group-item">
+                        <a href="./qt-gui.html">
+                            QT GUI
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="./vrep-machine-arm.html">
+                            Vrep machine arm
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="./40323230ri-zhi-1050820.html">
+                            40323230日誌 - 105/08/20
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="./40323230ri-zhi-1050819.html">
+                            40323230日誌 - 105/08/19
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="./pyqt5-install.html">
+                            PyQt5 install
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="list-group-item"><a href="./categories.html"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+                <ul class="list-group" id="categories">
+                    <li class="list-group-item">
+                        <a href="./category/2016bg2.html">
+                            <i class="fa fa-folder-open fa-lg"></i> 2016bg2
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="./category/2016g1.html">
+                            <i class="fa fa-folder-open fa-lg"></i> 2016g1
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="./category/2016g3.html">
+                            <i class="fa fa-folder-open fa-lg"></i> 2016g3
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="./category/misc.html">
+                            <i class="fa fa-folder-open fa-lg"></i> Misc
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="./category/tutorial.html">
+                            <i class="fa fa-folder-open fa-lg"></i> Tutorial
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="list-group-item"><a href="./tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                </ul>
+            </li>
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://getpelican.com/" target="_blank">
+                Pelican
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/DandyDev/pelican-bootstrap3/" target="_blank">
+                pelican-bootstrap3
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/getpelican/pelican-plugins" target="_blank">
+                pelican-plugins
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/Tipue/Tipue-Search" target="_blank">
+                Tipue search
+            </a>
+        </li>
+      </ul>
+    </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2016 KMOL
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="./theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="./theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="./theme/js/respond.min.js"></script>
+
+
+</body>
+</html>

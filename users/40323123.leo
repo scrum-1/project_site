@@ -10,7 +10,7 @@
 <preferences/>
 <find_panel_settings/>
 <vnodes>
-<v t="leo.20151212173315.1"><vh>@settings</vh>
+<v t="leo.20151212173315.1" a="E"><vh>@settings</vh>
 <v t="leo.20151212173315.2"><vh>@data qt-gui-plugin-style-sheet</vh></v>
 <v t="leo.20151212173315.3"><vh>@string initial_split_orientation = horizontal</vh></v>
 </v>
@@ -58,6 +58,10 @@
 </v>
 <v t="leo.20160803234319.1"><vh>@edit 40323123_20160803.md</vh></v>
 <v t="leo.20160812124408.1"><vh>@edit 40323123_20160812.md</vh></v>
+<v t="roger.20160819234851.1"><vh>@edit 40323123_20160819.md</vh></v>
+<v t="roger.20160820121342.1"><vh>@edit 40323123_20160820_1.md</vh></v>
+<v t="roger.20160820211841.1"><vh>@edit 40323123_20160820_2.md</vh></v>
+<v t="roger.20160821220326.1"><vh>@edit 40323123_20160821.md</vh></v>
 </v>
 </v>
 </v>

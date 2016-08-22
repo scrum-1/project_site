@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Created by Leo: http://leoeditor.com/leo_toc.html -->
-<?xml-stylesheet ekr_test ?>
 <leo_file xmlns:leo="http://leoeditor.com/namespaces/leo-python-editor/1.1" >
 <leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
 <globals body_outline_ratio="0.5" body_secondary_ratio="0.5">
@@ -27,11 +26,11 @@
 <v t="amd.20151216001126.1"><vh>md 檔案範例</vh></v>
 <v t="amd.20151215170031.1" a="E"><vh>@path ./../content</vh>
 <v t="amd.20160106093454.1" a="E"><vh>40323230 網誌文章</vh>
-<v t="leo.20160729110330.1" a="E"><vh>重要文章</vh>
+<v t="leo.20160729110330.1"><vh>重要文章</vh>
 <v t="leo.20160725134048.1"><vh>@edit 40323230_20160725.md</vh></v>
 <v t="leo.20160802124937.1"><vh>@edit 40323230_20160802.md</vh></v>
 </v>
-<v t="amd.20160106093510.1" a="E"><vh>201607</vh>
+<v t="amd.20160106093510.1"><vh>201607</vh>
 <v t="amd.20160106093531.1"><vh>w1</vh>
 <v t="leo.20160702131016.1"><vh>@edit 40323230_20160702.md</vh></v>
 </v>
@@ -76,7 +75,7 @@
 <v t="leo.20160803194659.1"><vh>@edit 40323230_20160803.md</vh></v>
 <v t="leo.20160805160545.1"><vh>@edit 40323230_20160805.md</vh></v>
 </v>
-<v t="leo.20160808172613.1"><vh>w7</vh>
+<v t="leo.20160808172613.1" a="E"><vh>w7</vh>
 <v t="leo.20160808172628.1"><vh>@edit 40323230_20160808.md</vh></v>
 <v t="leo.20160810132223.1"><vh>@edit 40323230_20160810.md</vh></v>
 <v t="leo.20160811175745.1"><vh>@edit 40323230_20160811.md</vh></v>
@@ -86,12 +85,21 @@
 <v t="leo.20160814133516.1" a="E"><vh>w8</vh>
 <v t="leo.20160814133525.1"><vh>@edit 40323230_20160814.md</vh></v>
 <v t="leo.20160815144536.1"><vh>@edit 40323230_20160815.md</vh></v>
+<v t="leo.20160816181401.1"><vh>@edit 40323230_20160816.md</vh></v>
+<v t="leo.20160817170734.1"><vh>@edit 40323230_20160817.md</vh></v>
+<v t="leo.20160818190039.1"><vh>@edit 40323230_20160818.md</vh></v>
+<v t="ahshoe.20160819173253.1"><vh>@edit 40323230_20160819.md</vh></v>
+<v t="ahshoe.20160820211636.1"><vh>@edit 40323230_20160820.md</vh></v>
+</v>
+<v t="ahshoe.20160821213649.1" a="E"><vh>w9</vh>
+<v t="ahshoe.20160821213656.1"><vh>@edit 40323230_20160821.md</vh></v>
 </v>
 </v>
 </v>
 </v>
 </vnodes>
 <tnodes>
+<t tx="ahshoe.20160821213649.1"></t>
 <t tx="amd.20151215170031.1"></t>
 <t tx="amd.20151215170350.1"></t>
 <t tx="amd.20151216001126.1">@language md
@@ -208,14 +216,12 @@ vertical: body pane on the botton</t>
 import os
 #os.system("pelican content -o ./ -s publishconf.py -t theme/pelican-bootstrap3")
 os.system("pelican content -o blog -s publishconf.py")
-g.es("admin pelican 執行完畢")
-</t>
+g.es("admin pelican 執行完畢")</t>
 <t tx="leo.20151213085727.1">@language python
 import os
 #os.system("pelican content -o output -s local_publishconf.py -t theme/pelican-bootstrap3")
 os.system("pelican content -o blog -s local_publishconf.py")
-g.es("admin pelican 近端執行完畢")
-</t>
+g.es("admin pelican 近端執行完畢")</t>
 <t tx="leo.20151213173811.1"></t>
 <t tx="leo.20151213173830.1"></t>
 <t tx="leo.20160703102920.1"></t>

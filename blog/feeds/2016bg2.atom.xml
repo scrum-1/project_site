@@ -1,5 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-23T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/23</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050823.html" rel="alternate"></link><published>2016-08-23T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-23:blog/40323230ri-zhi-1050823.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-24T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/24</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050824.html" rel="alternate"></link><published>2016-08-24T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-24:blog/40323230ri-zhi-1050824.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;已更新&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Pyslvs 界面&lt;/h1&gt;
+&lt;p&gt;新增了管理物件（點、連線、呆鍊）的功能。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/ItXXzqt.png" &gt;&lt;/p&gt;
+&lt;h2&gt;刪除物件&lt;/h2&gt;
+&lt;p&gt;在選單中選取名稱即可刪除。&lt;/p&gt;
+&lt;p&gt;不過還沒為刪除點的連帶影響作調整。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/83q2bA7.png" &gt;&lt;/p&gt;
+&lt;h2&gt;編輯物件&lt;/h2&gt;
+&lt;p&gt;可以重新複寫物件的狀態而不用刪除。&lt;/p&gt;
+&lt;p&gt;包括重新調整點的位置和固定狀態。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/IUbVmBj.png" &gt;&lt;/p&gt;
+&lt;h2&gt;點外觀&lt;/h2&gt;
+&lt;p&gt;紀錄點的外觀，包括用環圈起來，並能讓使用者直接調整其大小和顏色。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/pVwY0sP.png" &gt;&lt;/p&gt;
+&lt;h2&gt;CSV匯入功能&lt;/h2&gt;
+&lt;p&gt;後來有把匯出功能調整一下，可以用 &lt;code&gt;Fixed&lt;/code&gt; 和 &lt;code&gt;noFixed&lt;/code&gt; 紀錄點的固定狀態了。&lt;/p&gt;
+&lt;p&gt;所以在讀值時，可以將每列的物件精準填入點的列表中。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/qL1OB6X.png" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;因為要讓其他 &lt;code&gt;.py&lt;/code&gt; 檔讀值，又要回傳回 &lt;code&gt;main.py&lt;/code&gt; 中，想要可以浮動創造 Point 並新增約束的功能，所以在思考執行的可行性。&lt;/p&gt;
+&lt;p&gt;打算使用 Python 的「文字區塊」功能，和 Leo Editor 一樣，生成一段 Python Solvespace 的程式碼來執行，解完座標後回傳，不知道可不可行？&lt;/p&gt;
+&lt;p&gt;有嘗試過兩個檔案互相 &lt;code&gt;import&lt;/code&gt;，不過出錯的機率很大，想要找一個比較保險的方式計算。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/08/23</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050823.html" rel="alternate"></link><published>2016-08-23T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-23:blog/40323230ri-zhi-1050823.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
 &lt;/li&gt;

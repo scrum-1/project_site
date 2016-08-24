@@ -30,8 +30,9 @@
 &lt;hr&gt;
 
 &lt;p&gt;因為要讓其他 &lt;code&gt;.py&lt;/code&gt; 檔讀值，又要回傳回 &lt;code&gt;main.py&lt;/code&gt; 中，想要可以浮動創造 Point 並新增約束的功能，所以在思考執行的可行性。&lt;/p&gt;
-&lt;p&gt;打算使用 Python 的「文字區塊」功能，和 Leo Editor 一樣，生成一段 Python Solvespace 的程式碼來執行，解完座標後回傳，不知道可不可行？&lt;/p&gt;
-&lt;p&gt;有嘗試過兩個檔案互相 &lt;code&gt;import&lt;/code&gt;，不過出錯的機率很大，想要找一個比較保險的方式計算。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323143 - 機械腳構想</title><link href="http://project.mde.tw/blog/40323143-ji-jie-jiao-gou-xiang.html" rel="alternate"></link><published>2016-08-23T22:27:38+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-08-23:blog/40323143-ji-jie-jiao-gou-xiang.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;有嘗試過兩個檔案互相 &lt;code&gt;import&lt;/code&gt;，不過出錯的機率很大，上網尋找的建議是 import 兩邊的檔名就好，需要該物件才會特別指定。&lt;/p&gt;
+&lt;p&gt;也就是說直接指定 def 或 class 就會出錯，之後會試試看。&lt;/p&gt;
+&lt;p&gt;想要找一個比較保險的方式計算，不然只能盡量避開會衝突的地方。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323143 - 機械腳構想</title><link href="http://project.mde.tw/blog/40323143-ji-jie-jiao-gou-xiang.html" rel="alternate"></link><published>2016-08-23T22:27:38+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-08-23:blog/40323143-ji-jie-jiao-gou-xiang.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;p&gt;&lt;img src="http://i.imgur.com/c3jBcx7.jpg"&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323230日誌 - 105/08/23</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050823.html" rel="alternate"></link><published>2016-08-23T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-23:blog/40323230ri-zhi-1050823.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;

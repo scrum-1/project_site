@@ -358,8 +358,9 @@ init_mathjax();
 <hr>
 
 <p>因為要讓其他 <code>.py</code> 檔讀值，又要回傳回 <code>main.py</code> 中，想要可以浮動創造 Point 並新增約束的功能，所以在思考執行的可行性。</p>
-<p>打算使用 Python 的「文字區塊」功能，和 Leo Editor 一樣，生成一段 Python Solvespace 的程式碼來執行，解完座標後回傳，不知道可不可行？</p>
-<p>有嘗試過兩個檔案互相 <code>import</code>，不過出錯的機率很大，想要找一個比較保險的方式計算。</p>
+<p>有嘗試過兩個檔案互相 <code>import</code>，不過出錯的機率很大，上網尋找的建議是 import 兩邊的檔名就好，需要該物件才會特別指定。</p>
+<p>也就是說直接指定 def 或 class 就會出錯，之後會試試看。</p>
+<p>想要找一個比較保險的方式計算，不然只能盡量避開會衝突的地方。</p>
             </div>
             <!-- /.entry-content -->
     <hr/>

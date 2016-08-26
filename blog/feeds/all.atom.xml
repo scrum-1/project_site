@@ -1,5 +1,53 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-24T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/24</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050824.html" rel="alternate"></link><published>2016-08-24T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-24:blog/40323230ri-zhi-1050824.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-26T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/26</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050826.html" rel="alternate"></link><published>2016-08-26T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-26:blog/40323230ri-zhi-1050826.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;一些後續寫法想法&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;圖層統整&lt;/h1&gt;
+&lt;p&gt;重新編排了圖層，以在縮放視窗時還能對齊調整大小，不過空間判定上還需要調整參數，才能達到理想的結果。&lt;/p&gt;
+&lt;p&gt;另外有研究下 PyQt 嵌入 matpoltlib 繪圖的資料，大約知道該如何嵌入繪出的結果了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/DyQCMsS.png" &gt;&lt;/p&gt;
+&lt;h2&gt;右鍵選單&lt;/h2&gt;
+&lt;p&gt;嘗試寫了表格的右鍵選單，功能等同於叫出新增、刪除和編輯的對話方塊。&lt;/p&gt;
+&lt;p&gt;不過位置無法置中，參數可能還要看一下。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/Qdu2JpG.png" &gt;&lt;/p&gt;
+&lt;h2&gt;從屬項目刪除&lt;/h2&gt;
+&lt;p&gt;刪除點時會將包含這個點的連桿或呆鍊一起刪除。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/viCG92Z.png" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;程式結構&lt;/h1&gt;
+&lt;p&gt;之後大約會將 import 程式庫的程式碼放在 &lt;code&gt;main.py&lt;/code&gt; 同層的資料夾下，互相載入。&lt;/p&gt;
+&lt;p&gt;而 &lt;code&gt;main.py&lt;/code&gt; 中會有一個專門的 def 放在主視窗的 class 外，好讓算點的程式可以讀表格的資料。&lt;/p&gt;
+&lt;p&gt;以下是原始碼結構，括弧中還待建構。&lt;/p&gt;
+&lt;pre&gt;
+Pyslvs
+    launch_pyslvs.py（啟動檔）
+    icons_rc.py（圖示資源）
+    +icons（讀取用圖示）
+    +core
+        main.py（主程式-待加入）
+        （算點程式.py）
+        slvs.py
+        _slvs.so
+        libslvs.so
+        +draw（繪圖表管理視窗-已完成）
+        +info（提示與說明視窗-待加入）
+        +warning（警告視窗-待加入）
+        +（模擬表管理視窗）
+        +（一些給使用者的設定檔）
+&lt;/pre&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;今天由於花了些時間更新 Ubuntu 版的顯示卡驅動，所以拖了一些時間。&lt;/p&gt;
+&lt;p&gt;之後會快點將核心的算點功能做好。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/08/24</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050824.html" rel="alternate"></link><published>2016-08-24T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-24:blog/40323230ri-zhi-1050824.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
 &lt;/li&gt;

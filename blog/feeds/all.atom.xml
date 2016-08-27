@@ -1,5 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-26T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/26</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050826.html" rel="alternate"></link><published>2016-08-26T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-26:blog/40323230ri-zhi-1050826.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-27T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/27</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050827.html" rel="alternate"></link><published>2016-08-27T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-27:blog/40323230ri-zhi-1050827.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Linkage 的參考心得&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;運動約束類型&lt;/h1&gt;
+&lt;p&gt;打算使用主動旋轉軸和滑塊用在繪製動態圖或是移動路徑上。&lt;/p&gt;
+&lt;p&gt;旋轉軸可以在定義的角度範圍中旋轉，滑塊則是一個被約束在直線上的點（至於滑動範圍不知道程式庫是否能辦得到）。&lt;/p&gt;
+&lt;p&gt;在模擬選項中可以調整：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;靜態移動 - 所有旋轉軸待在某個角度時，整體機構的外觀狀態。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;移動路徑 - 指定一點位置，轉動所有旋轉軸（或自訂），畫出移動路徑。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;目前旋轉軸和滑塊的新增方式都和其他實體一樣。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;字型大小&lt;/h1&gt;
+&lt;p&gt;系統會因為字型大小的問題而跑出外框，只能調整多一點的空間給太大的字。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/mE1vIkO.png" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;Linkage&lt;/h1&gt;
+&lt;p&gt;參考了技術手冊的介紹和使用說明，Linkage 有一些滿複雜的功能，也支援彈簧計算之類的。&lt;/p&gt;
+&lt;p&gt;應該能夠在 Pyslvs 中加入一些值得使用的優點，不過實作性要先評估。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/08/26</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050826.html" rel="alternate"></link><published>2016-08-26T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-26:blog/40323230ri-zhi-1050826.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
 &lt;/li&gt;

@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-27T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/27</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050827.html" rel="alternate"></link><published>2016-08-27T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-27:blog/40323230ri-zhi-1050827.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-28T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/28</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050828.html" rel="alternate"></link><published>2016-08-28T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-28:blog/40323230ri-zhi-1050828.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;測試程式庫能否支援 Python 的 list 型態&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Pyslvs 界面&lt;/h1&gt;
+&lt;h2&gt;旋轉軸及滑塊清單&lt;/h2&gt;
+&lt;p&gt;和點、連桿、呆鍊一樣都有增刪功能，不過還沒支援右鍵選單。&lt;/p&gt;
+&lt;p&gt;一些細節也可能還沒做好，需要一些時間修正。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/rWzmiDc.png" &gt;&lt;/p&gt;
+&lt;h2&gt;CSV 匯出入功能調整&lt;/h2&gt;
+&lt;p&gt;現在可以支援匯出整個工作簿存檔，並能完整載入所有表格。&lt;/p&gt;
+&lt;p&gt;意味著可以保留工作階段而不會遺失。&lt;/p&gt;
+&lt;p&gt;在每個表格間插入的是 &lt;code&gt;Next_table&lt;/code&gt; 這個欄位來辨識。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/obOpMJz.png" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;算點程式測試&lt;/h1&gt;
+&lt;p&gt;打算使用 Python 的 list 來存 SLVS 程式庫的 &lt;code&gt;Point&lt;/code&gt; 或 &lt;code&gt;Line&lt;/code&gt;，對迴圈的相性比較好。&lt;/p&gt;
+&lt;p&gt;所以建立了一個清單物件 &lt;code&gt;draw&lt;/code&gt;，來測試看看能不能存入後提出來給約束函式用。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/IoRqjaT.png" &gt;&lt;/p&gt;
+&lt;p&gt;結果是可行的。&lt;/p&gt;
+&lt;p&gt;上面測試寫法有點累贅，應該直接用 &lt;code&gt;draw += [Point]&lt;/code&gt; 加入清單就可以了。&lt;/p&gt;
+&lt;p&gt;這樣支援迴圈讀取就十分不錯了，只是在 &lt;code&gt;import&lt;/code&gt; 的部份還需要另外測試。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/08/27</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050827.html" rel="alternate"></link><published>2016-08-27T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-27:blog/40323230ri-zhi-1050827.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
 &lt;/li&gt;

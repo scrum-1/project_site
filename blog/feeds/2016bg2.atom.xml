@@ -1,5 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-28T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/28</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050828.html" rel="alternate"></link><published>2016-08-28T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-28:blog/40323230ri-zhi-1050828.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-29T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/29</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050829.html" rel="alternate"></link><published>2016-08-29T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-29:blog/40323230ri-zhi-1050829.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;SQLite 資料&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Pyslvs 界面&lt;/h1&gt;
+&lt;p&gt;新增一個類似活塞／彈簧的連結器，可以自訂最大和最小拉伸長度，造型方面應該只會改線段顏色。&lt;/p&gt;
+&lt;p&gt;不過不知道程式方面怎寫，因為程式庫中沒有類似約束，可能要寫在外部，帶入最大值／最小值／範圍內（不須約束）的結果。&lt;/p&gt;
+&lt;p&gt;至於彈簧的彈性效果可能作不太出來，所以目前是朝活塞桿設計。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/uZrfXYx.png" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;SQLite 資料庫&lt;/h1&gt;
+&lt;p&gt;上網找了一些有關寫入寫出 Data Base 的範例，主要是 Python 官方的解說。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://docs.python.org/3.4/library/sqlite3.html" title="docs.python.org"&gt;https://docs.python.org/3.4/library/sqlite3.html&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="http://www.runoob.com/sqlite/sqlite-python.html" title="runoob.com"&gt;http://www.runoob.com/sqlite/sqlite-python.html&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/UwwvSQ5.png" &gt;&lt;/p&gt;
+&lt;p&gt;不過主要還是研究 peewee 套件的功能。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://docs.peewee-orm.com/en/latest/peewee/quickstart.html" title="docs.peewee-orm.com"&gt;http://docs.peewee-orm.com/en/latest/peewee/quickstart.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;peewee 的用法比較直覺化一些，畢竟不用對 C++ 資料庫下指令。&lt;/p&gt;
+&lt;p&gt;不過上網找了一下 FreeCAD 的技術文件，沒有提到關於 Data Base 如何匯入 2D 圖形的解說，只有模擬材料表的格式。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.freecadweb.org/wiki/index.php?title=Material" title="freecadweb.org"&gt;http://www.freecadweb.org/wiki/index.php?title=Material&lt;/a&gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/08/28</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050828.html" rel="alternate"></link><published>2016-08-28T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-28:blog/40323230ri-zhi-1050828.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
 &lt;/li&gt;

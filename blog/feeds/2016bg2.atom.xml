@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-29T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/29</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050829.html" rel="alternate"></link><published>2016-08-29T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-29:blog/40323230ri-zhi-1050829.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-30T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/30</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050830.html" rel="alternate"></link><published>2016-08-30T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-30:blog/40323230ri-zhi-1050830.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;已更新&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Pyslvs 界面&lt;/h1&gt;
+&lt;p&gt;寫了算點程式（&lt;code&gt;calculation.py&lt;/code&gt;）的雛型，目前只 &lt;code&gt;print&lt;/code&gt; 出來結果，還沒直接寫進表格。&lt;/p&gt;
+&lt;p&gt;而以後模擬的路徑座標功能會寫在同個檔案裡。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/SIZhCiM.png" &gt;&lt;/p&gt;
+&lt;p&gt;由於 Python 在記憶體中的物件名稱不能撞名，所以如果是用 launch 腳本來帶動整個程式執行的話，若其中有部件互相 &lt;code&gt;import&lt;/code&gt; ，會造成暫存檔重疊而無法載入，這種方法只適用啟動一端的腳本。&lt;/p&gt;
+&lt;p&gt;所以在 class 中寫了一條指令 &lt;code&gt;Reload_Canvas&lt;/code&gt;，讓它將表格物件代入 &lt;code&gt;calculation.py&lt;/code&gt; 的 &lt;code&gt;table_process&lt;/code&gt; 中，回傳點座標的 list 回來。&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;Reload_Canvas&lt;/code&gt; 打算也會有判斷 Solve 成功或失敗的功能，會跳出警告，亦不會覆寫到原本的表格上。&lt;/p&gt;
+&lt;p&gt;程式碼大約的樣子：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/Ayh1BHm.png" &gt;&lt;/p&gt;
+&lt;p&gt;執行結果（加入 Point2 後回傳第三組點座標）：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/o8iA22K.png" &gt;&lt;/p&gt;
+&lt;p&gt;目前加入 Link 的表單，約束距離的功能正常。&lt;/p&gt;
+&lt;p&gt;不過碰到無法對重合點作距離約束的情況，可能要提前作座標修正（增加間隙）。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;Reload_Canvas 函式應當是在表格增刪或是編輯後執行，不過如果顯示失敗的話相當麻煩，可能之後會做1步復原功能之類的。&lt;/p&gt;
+&lt;p&gt;而繪圖功能比較沒那麼繁瑣，會拖比較後面。&lt;/p&gt;
+&lt;p&gt;隔天要回虎尾搬遷宿舍，所以能利用時間較少，預計下午後做好 &lt;code&gt;table_process&lt;/code&gt; 整體功能，包括座標修正的判斷。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/08/29</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050829.html" rel="alternate"></link><published>2016-08-29T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-29:blog/40323230ri-zhi-1050829.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
 &lt;/li&gt;

@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-30T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/30</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050830.html" rel="alternate"></link><published>2016-08-30T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-30:blog/40323230ri-zhi-1050830.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-31T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/08/31</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050831.html" rel="alternate"></link><published>2016-08-31T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-31:blog/40323230ri-zhi-1050831.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Pyslvs 編譯進度 - 繪圖功能&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;已更新&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;畫布嵌入&lt;/h1&gt;
+&lt;p&gt;成功嵌入畫布，使用另一個繼承自 &lt;code&gt;matplotlib.backends&lt;/code&gt;.&lt;code&gt;backend_qt5agg&lt;/code&gt;.&lt;code&gt;FigureCanvasQTAgg&lt;/code&gt;（更名為&lt;code&gt;FigureCanvas&lt;/code&gt;）的 class 函式 &lt;code&gt;DynamicMplCanvas&lt;/code&gt;來繪製點座標。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/lRrnk7z.png" &gt;&lt;/p&gt;
+&lt;p&gt;這個 class 只包含三個功能，初始化圖形、清除畫布、更新畫布。&lt;/p&gt;
+&lt;p&gt;而在主視窗的 &lt;code&gt;__init__&lt;/code&gt; 中初始在預設的 Layout 中嵌入一個 Widget（名稱為「mplWindow」），複製 &lt;code&gt;DynamicMplCanvas()&lt;/code&gt; 的格式來用。&lt;/p&gt;
+&lt;p&gt;當初 &lt;code&gt;DynamicMplCanvas()&lt;/code&gt; 是參考自網站範例：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://matplotlib.org/examples/user_interfaces/embedding_in_qt4.html" title="matplotlib.org"&gt;http://matplotlib.org/examples/user_interfaces/embedding_in_qt4.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;後來改寫成可以匯入表格代參數的功能。&lt;/p&gt;
+&lt;p&gt;目前畫布只有支援繪製節點、連桿和呆鍊，以下是繪製未約束的呆鍊。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/XZfsLGI.png" &gt;&lt;/p&gt;
+&lt;p&gt;而另外也修正一些程式庫帶入重疊點的問題，會自動增加偏移量。&lt;/p&gt;
+&lt;p&gt;表格在畫布重新繪製時也會作修改，重新繪製的功能目前是&lt;em&gt;手動的&lt;/em&gt;，所以還待改進。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/08/30</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050830.html" rel="alternate"></link><published>2016-08-30T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-30:blog/40323230ri-zhi-1050830.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
 &lt;/li&gt;

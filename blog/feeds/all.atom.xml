@@ -60,7 +60,21 @@ $sudo rm -r -f /usr/lib/python3/dist-packages/PyQt5
 &lt;p&gt;新版的 Qt 支援 OpenGL3D 的嵌入，會找一些範例，作到和之前 bokeh 套件相仿的功能，再把其他運算功能補齊（或許之後會做銜接其他 CAD 軟體的格式），本機解題+繪圖專案就完成了。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/LuIz34p.png" &gt;&lt;/p&gt;
 &lt;p&gt;專題在 Python Solvespace 的部份在想要如何結構化，因為尚未圖形化的編譯部份比較難呈現，如果將現成的程式理論搬上報告又有點太「資訊系」和發散了些。&lt;/p&gt;
-&lt;p&gt;預計報告中會包含一部分原版 Solvespace 的解說，還有 SWIG 相關的原始碼呈現。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/01</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050901.html" rel="alternate"></link><published>2016-09-01T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-01:blog/40323230ri-zhi-1050901.html</id><summary type="html">&lt;ol&gt;
+&lt;p&gt;預計報告中會包含一部分原版 Solvespace 的解說，還有 SWIG 相關的原始碼呈現。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>yen - Anaconda on Windows 10</title><link href="http://project.mde.tw/blog/yen-anaconda-on-windows-10.html" rel="alternate"></link><published>2016-09-02T11:29:00+08:00</published><author><name>yen</name></author><id>tag:project.mde.tw,2016-09-02:blog/yen-anaconda-on-windows-10.html</id><summary type="html">&lt;p&gt;在 Windows 10 中的 Anaconda 使用 Python 3.5.2 以及 Pelican, 測試將 .md 檔案轉為 html.&lt;/p&gt;
+
+
+&lt;p&gt;目前所使用的 Python 3.5.2 與 Leo Editor 5.4-devel 配合 Pelican, 以舊有的倉儲架構進行測試.&lt;/p&gt;
+&lt;p&gt;首先, 因為 Anaconda 中的 Python 沒有 Pelican 模組, 因此利用 &lt;/p&gt;
+&lt;p&gt;conda install pelican&lt;/p&gt;
+&lt;p&gt;進行安裝&lt;/p&gt;
+&lt;p&gt;沒有成功, 改用&lt;/p&gt;
+&lt;p&gt;conda install -c conda-forge pelican=3.6.3&lt;/p&gt;
+&lt;p&gt;進行安裝&lt;/p&gt;
+&lt;p&gt;完成後利用按鈕建立 Pelican 網誌.&lt;/p&gt;
+&lt;p&gt;系統抱怨 no module named markdown, 而且 Pelican 模組沒有 liquid_tags_notebook&lt;/p&gt;
+&lt;p&gt;先用 conda install markdown 安裝 markdown 模組, 再來處理 Pelican liquid_tags plugin.&lt;/p&gt;
+&lt;p&gt;安裝 markdown 之後, 發現專案中已經有 liquid_tag plugin, 因此直接利用按鈕, 先在近端產生 html, 沒有問題.&lt;/p&gt;
+&lt;p&gt;接著利用遠端按鈕產生 html 後將 gh-pages 分支資料提交推送回倉儲.&lt;/p&gt;</summary><category term="測試"></category></entry><entry><title>40323230日誌 - 105/09/01</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050901.html" rel="alternate"></link><published>2016-09-01T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-01:blog/40323230ri-zhi-1050901.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
 &lt;/li&gt;
@@ -314,9 +328,7 @@ Pyslvs
 &lt;p&gt;因為要讓其他 &lt;code&gt;.py&lt;/code&gt; 檔讀值，又要回傳回 &lt;code&gt;main.py&lt;/code&gt; 中，想要可以浮動創造 Point 並新增約束的功能，所以在思考執行的可行性。&lt;/p&gt;
 &lt;p&gt;有嘗試過兩個檔案互相 &lt;code&gt;import&lt;/code&gt;，不過出錯的機率很大，上網尋找的建議是 import 兩邊的檔名就好，需要該物件才會特別指定。&lt;/p&gt;
 &lt;p&gt;也就是說直接指定 def 或 class 就會出錯，之後會試試看。&lt;/p&gt;
-&lt;p&gt;想要找一個比較保險的方式計算，不然只能盡量避開會衝突的地方。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323143 - 機械腳構想</title><link href="http://project.mde.tw/blog/40323143-ji-jie-jiao-gou-xiang.html" rel="alternate"></link><published>2016-08-23T22:27:38+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-08-23:blog/40323143-ji-jie-jiao-gou-xiang.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;&lt;img src="http://i.imgur.com/c3jBcx7.jpg"&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323230日誌 - 105/08/23</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050823.html" rel="alternate"></link><published>2016-08-23T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-23:blog/40323230ri-zhi-1050823.html</id><summary type="html">&lt;ol&gt;
+&lt;p&gt;想要找一個比較保險的方式計算，不然只能盡量避開會衝突的地方。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/08/23</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050823.html" rel="alternate"></link><published>2016-08-23T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-08-23:blog/40323230ri-zhi-1050823.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
 &lt;/li&gt;
@@ -347,7 +359,9 @@ Pyslvs
 &lt;hr&gt;
 
 &lt;p&gt;大部分的功能由於都沒接觸過，每換一種元件都要上網搜尋它們取值、設值的用法，Qt 的相關介紹又都是以 C++ 撰寫的，為此研究了一下 Python 物件導向的說明。&lt;/p&gt;
-&lt;p&gt;由於再過 2 天就要回去家裡了，所以會盡量將需要整合的工作完成，回去後仍會繼續整理資料。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>QT GUI</title><link href="http://project.mde.tw/blog/qt-gui.html" rel="alternate"></link><published>2016-08-21T22:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-21:blog/qt-gui.html</id><summary type="html">&lt;p&gt;change the the way to control the arm
+&lt;p&gt;由於再過 2 天就要回去家裡了，所以會盡量將需要整合的工作完成，回去後仍會繼續整理資料。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323143 - 機械腳構想</title><link href="http://project.mde.tw/blog/40323143-ji-jie-jiao-gou-xiang.html" rel="alternate"></link><published>2016-08-22T11:29:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-08-22:blog/40323143-ji-jie-jiao-gou-xiang.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/c3jBcx7.jpg"&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>QT GUI</title><link href="http://project.mde.tw/blog/qt-gui.html" rel="alternate"></link><published>2016-08-21T22:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-21:blog/qt-gui.html</id><summary type="html">&lt;p&gt;change the the way to control the arm
 &lt;/p&gt;
 &lt;p&gt;今天使用了QT做了介面，接下來會用點座標，將實體所走出去的曲線，再程式裡面也可以畫出相同的曲線，也可以同時把Vrep裡面的模擬出來的曲線，一起畫出來，以此驗證我下的點是正確的曲線，接下來會做新的一頁，畫方程式曲線圖，左邊會變成輸入方程式，右邊就會生成他的圖形。&lt;/p&gt;
 &lt;h3&gt;2Axis&lt;/h3&gt;

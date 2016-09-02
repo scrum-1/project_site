@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Created by Leo: http://leoeditor.com/leo_toc.html -->
-<?xml-stylesheet ekr_test ?>
 <leo_file xmlns:leo="http://leoeditor.com/namespaces/leo-python-editor/1.1" >
 <leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
 <globals body_outline_ratio="0.5" body_secondary_ratio="0.5">
@@ -187,6 +186,9 @@
 <v t="amd.20160708145548.1"><vh>@@edit yen_20160708.md</vh></v>
 <v t="amd.20160727111427.1"><vh>@edit yen_20160727.md</vh></v>
 <v t="amd.20160727120222.1"><vh>@edit yen_20160728.md</vh></v>
+</v>
+<v t="leo.20160902104008.1" a="E"><vh>201609</vh>
+<v t="leo.20160902104020.1"><vh>@edit yen_20160902.md</vh></v>
 </v>
 </v>
 <v t="amd.20160323000221.1"><vh>40323143 所寫的文章</vh>
@@ -1408,5 +1410,6 @@ PLUGINS = ['liquid_tags.notebook', 'summary']
 <t tx="leo.20151213230957.1"># 設定網誌以 md 檔案建立的 file system date 為準, 無需自行設定
 
 DEFAULT_DATE = 'fs'</t>
+<t tx="leo.20160902104008.1"></t>
 </tnodes>
 </leo_file>

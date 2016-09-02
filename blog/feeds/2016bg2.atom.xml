@@ -58,7 +58,8 @@ $sudo rm -r -f /usr/lib/python3/dist-packages/PyQt5
 
 &lt;p&gt;稍微看過上次範例倉儲的程式碼，QPainter 是可以和 QOpenGL 的元件組合使用的，不過如果直接插入空的圖形化元件，會造成程式視窗內黑屏，應該要另外設定。&lt;/p&gt;
 &lt;p&gt;新版的 Qt 支援 OpenGL3D 的嵌入，會找一些範例，作到和之前 bokeh 套件相仿的功能，再把其他運算功能補齊（或許之後會做銜接其他 CAD 軟體的格式），本機解題+繪圖專案就完成了。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/LuIz34p.png" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/LuIz34p.png" &gt;
+&lt;img src="http://i.imgur.com/tKoNPIx.png" &gt;&lt;/p&gt;
 &lt;p&gt;專題在 Python Solvespace 的部份在想要如何結構化，因為尚未圖形化的編譯部份比較難呈現，如果將現成的程式理論搬上報告又有點太「資訊系」和發散了些。&lt;/p&gt;
 &lt;p&gt;預計報告中會包含一部分原版 Solvespace 的解說，還有 SWIG 相關的原始碼呈現。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/01</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050901.html" rel="alternate"></link><published>2016-09-01T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-01:blog/40323230ri-zhi-1050901.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;

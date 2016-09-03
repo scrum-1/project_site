@@ -1,5 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-02T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/02</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050902.html" rel="alternate"></link><published>2016-09-02T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-02:blog/40323230ri-zhi-1050902.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-03T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/03</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050903.html" rel="alternate"></link><published>2016-09-03T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-03:blog/40323230ri-zhi-1050903.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;QPaint 繪圖&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;模擬功能-目標&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;QPaint&lt;/h1&gt;
+&lt;p&gt;其實 QPaint 繪圖就跟 slvs 程式庫滿像的，只需要擔心順序（圖層）問題。&lt;/p&gt;
+&lt;p&gt;用 QPaint 繪圖的話，想辦法將最新的座標 copy 進去就行了。&lt;/p&gt;
+&lt;p&gt;把繪圖的 Widget 和處理 list 的副程式獨立出來，名為 &lt;code&gt;canvas.py&lt;/code&gt; 和 &lt;code&gt;list_process&lt;/code&gt;，沒什麼影響，讓主程式不會太雜亂。&lt;/p&gt;
+&lt;p&gt;Class 中宣告一個名為 &lt;code&gt;update_figure&lt;/code&gt; 的函式，主程式要刷新時就會呼叫，並填進主程式的表單，這個函式就會將所有表單填進 &lt;code&gt;self&lt;/code&gt; 的 object 裡，讓 &lt;code&gt;paintEvent&lt;/code&gt; 函式讀取。&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+def update_figure(self, table_point, table_line,
+        table_chain, table_shaft,
+        table_slider, table_rod,
+        table_style, zoom_rate):
+    self.Xval = []
+    self.Yval = []
+    zoom = float(zoom_rate.replace("%", ""))/100
+    self.table_point = table_point
+    ...
+    self.update()
+&lt;/pre&gt;
+
+&lt;p&gt;之所以這樣寫，是因為 &lt;code&gt;paintEvent&lt;/code&gt; 函式和所有 Qt 的 &lt;code&gt;Event&lt;/code&gt; 函式都不能輸入 &lt;code&gt;event&lt;/code&gt; 以外的參數。&lt;/p&gt;
+&lt;p&gt;而且 Qt 有規定 QPainter 只能畫在 &lt;code&gt;paintEvent&lt;/code&gt; 函式中，不然會出錯。而這個函式也同時決定重新繪製的時機（視窗縮放，改變大小時）。&lt;/p&gt;
+&lt;p&gt;若想手動刷新，對 Widget 物件下 &lt;code&gt;self.update()&lt;/code&gt; 或 &lt;code&gt;self.repaint()&lt;/code&gt;（不建議，閃爍頻率高）就行了。&lt;/p&gt;
+&lt;p&gt;而 &lt;code&gt;event&lt;/code&gt; 參數是專門傳入事件發生相關的數據，如滑鼠座標：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+def mouseMoveEvent(self, event):
+    if self.drag:
+        self.origin_x = event.x()
+        self.origin_y = event.y()
+        self.update()
+&lt;/pre&gt;
+
+&lt;p&gt;能夠繪圖後，必須校正視圖的大小和位置，由於大小要看這個機構的基本尺寸是多少，所以給使用者自己調整是最好的方法了。&lt;/p&gt;
+&lt;p&gt;預設是將座標尺度放大兩倍後定義為畫布的一倍，所以剛才的 &lt;code&gt;update_figure&lt;/code&gt; 中有下列轉換式：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+for i in range(table_point.rowCount()):
+    self.Xval += [float(table_point.item(i, 1).text())*zoom*rate_all]
+    self.Yval += [float(table_point.item(i, 2).text())*zoom*rate_all*(-1)]
+&lt;/pre&gt;
+
+&lt;p&gt;Y 軸座標乘上負號是因為不論 Window 和 Widget，兩者都是從「標題欄」往下延伸的，所以向下是負值。&lt;/p&gt;
+&lt;p&gt;&lt;img src="" &gt;&lt;/p&gt;
+&lt;p&gt;上次更新中加入沒用到的 QSlider 滑桿，這次讓它能夠定義放大的倍率，從 50％ 到 500％，應該都能夠支援幾乎所有尺度的機構了。&lt;/p&gt;
+&lt;p&gt;另外調整畫布大小可以用 &lt;kbd&gt;Ctrl&lt;/kbd&gt; + 滑鼠滾輪調整，&lt;kbd&gt;Ctrl&lt;/kbd&gt; + 左鍵按住拖移或雙擊可以定義原點位置。&lt;/p&gt;
+&lt;p&gt;這樣設定是讓使用者不會亂拉將圖面移走，也更能知道機構樣貌。&lt;/p&gt;
+&lt;p&gt;而這次顏色設定暫時只有 R、G、B 三色，其他色碼的加入還要看下說明文件，原本的顏色都偏亮或太黯淡，所以會整合後加入其他顏色。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;＊上次的 mpl 畫布就有加入存成 png 圖片的功能了，想不到現在 QPainter 也能如法炮製。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;好像大部分 Widget 都能用這個方式截圖，不過 OpenGL 不知道可不可行。&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+fileName, sub = QFileDialog.getSaveFileName(self, 'Save file...', '../', 'PNG file(*.png)')
+if fileName:
+    fileName = fileName.replace(".png", "")
+    fileName += ".png"
+    pixmap = self.mplWindow.grab()
+    pixmap.save(fileName)
+&lt;/pre&gt;
+
+&lt;hr&gt;
+
+&lt;h1&gt;模擬功能&lt;/h1&gt;
+&lt;p&gt;期望模擬的部份有如下效果：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;畫出機構運動時指定點（可複數）路徑。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;相關動畫的展示。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用者自訂角度（滑鼠在圖面上拖拉最佳）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;測量工具（指定點距離）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/02</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050902.html" rel="alternate"></link><published>2016-09-02T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-02:blog/40323230ri-zhi-1050902.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;改換 Qt 5.7 與 PyQt 5.7&lt;/p&gt;
 &lt;/li&gt;

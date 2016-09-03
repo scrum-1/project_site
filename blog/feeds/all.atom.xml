@@ -48,7 +48,7 @@ for i in range(table_point.rowCount()):
 &lt;/pre&gt;
 
 &lt;p&gt;Y 軸座標乘上負號是因為不論 Window 和 Widget，兩者都是從「標題欄」往下延伸的，所以向下是負值。&lt;/p&gt;
-&lt;p&gt;&lt;img src="" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/tqzbuxp.png" &gt;&lt;/p&gt;
 &lt;p&gt;上次更新中加入沒用到的 QSlider 滑桿，這次讓它能夠定義放大的倍率，從 50％ 到 500％，應該都能夠支援幾乎所有尺度的機構了。&lt;/p&gt;
 &lt;p&gt;另外調整畫布大小可以用 &lt;kbd&gt;Ctrl&lt;/kbd&gt; + 滑鼠滾輪調整，&lt;kbd&gt;Ctrl&lt;/kbd&gt; + 左鍵按住拖移或雙擊可以定義原點位置。&lt;/p&gt;
 &lt;p&gt;這樣設定是讓使用者不會亂拉將圖面移走，也更能知道機構樣貌。&lt;/p&gt;

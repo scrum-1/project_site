@@ -15,7 +15,7 @@
 &lt;h1&gt;Pyslvs 界面&lt;/h1&gt;
 &lt;h2&gt;繪圖選項&lt;/h2&gt;
 &lt;p&gt;新增顯示尺度和反黑背景的選項。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/CbBWoST.png" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/GR2XV7W.png" &gt;&lt;/p&gt;
 &lt;h2&gt;佈署面板&lt;/h2&gt;
 &lt;p&gt;由於碰到一些小障礙，所以就先作模擬面板的部份。&lt;/p&gt;
 &lt;p&gt;之所以使用嵌入的 Widget，是因為必須一面看著畫布作調整，所以都放在主視窗作業會比較好。&lt;/p&gt;

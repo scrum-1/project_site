@@ -1,5 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-03T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/03</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050903.html" rel="alternate"></link><published>2016-09-03T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-03:blog/40323230ri-zhi-1050903.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-05T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/05</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050905.html" rel="alternate"></link><published>2016-09-05T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-05:blog/40323230ri-zhi-1050905.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;小細節修正&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;程式碼顯示功能&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;路徑計算問題&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Pyslvs 界面&lt;/h1&gt;
+&lt;h2&gt;繪圖選項&lt;/h2&gt;
+&lt;p&gt;新增顯示尺度和反黑背景的選項。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/CbBWoST.png" &gt;&lt;/p&gt;
+&lt;h2&gt;佈署面板&lt;/h2&gt;
+&lt;p&gt;由於碰到一些小障礙，所以就先作模擬面板的部份。&lt;/p&gt;
+&lt;p&gt;之所以使用嵌入的 Widget，是因為必須一面看著畫布作調整，所以都放在主視窗作業會比較好。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/mzzttQV.png" &gt;&lt;/p&gt;
+&lt;p&gt;不過之間的傳輸功能還在研究，和視窗設定的形式不一樣，不能在關閉的瞬間偵測。&lt;/p&gt;
+&lt;h2&gt;右鍵選單&lt;/h2&gt;
+&lt;p&gt;由於發現會受表格標頭欄厚度的影響，微調了一下右鍵選單的位置，不過這些定值會因為字體大小而改變。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/i1HaiEu.png" &gt;&lt;/p&gt;
+&lt;p&gt;拆開滑鼠游標的 X Y 位置作像素調整：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+def on_point_context_menu(self, point):
+    pos = QPoint(point.x()+43, point.y()+23)
+    action = self.popMenu_point.exec_(self.Entiteis_Point.mapToGlobal(pos))
+    ...
+&lt;/pre&gt;
+
+&lt;p&gt;以及偵測加入項目後出現欄的寬度：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+def on_link_context_menu(self, point):
+    if self.Entiteis_Link.rowCount()==0: pos = QPoint(point.x()+3, point.y()+23)
+    else: pos = QPoint(point.x()+15, point.y()+23)
+&lt;/pre&gt;
+
+&lt;h2&gt;存檔提示&lt;/h2&gt;
+&lt;p&gt;視窗標題會在修改後，未存檔時多出星號。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/vu3IpEj.png" &gt;&lt;/p&gt;
+&lt;p&gt;讀檔、開新檔案、存檔後星號後消失。&lt;/p&gt;
+&lt;h2&gt;圖形顏色對應&lt;/h2&gt;
+&lt;p&gt;利用 Python 的 dict 鍵值功能作顏色對應表，基本概念如下：&lt;/p&gt;
+&lt;pre&gt;
+dict = {key1 : value1, key2 : value2}
+dict[key1] 得 value1
+dict[key2] 得 value2
+&lt;/pre&gt;
+
+&lt;p&gt;可以使用 zip 來將兩個 list 縫合，顏色代碼對應 Qt 的 Name space。&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+self.Color = dict(zip(self.re_Color, val_Color))
+&lt;/pre&gt;
+
+&lt;p&gt;這樣就可得（無定義則用綠色）：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+try: pen.setColor(self.Color[self.table_style.item(i, 1).text()])
+except KeyError: pen.setColor(Qt.green)
+&lt;/pre&gt;
+
+&lt;hr&gt;
+
+&lt;h1&gt;Print 程式碼&lt;/h1&gt;
+&lt;p&gt;新增一個功能，會在監視窗中 Print 所有迴圈呈現的程式碼。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/IaWfQ3B.png" &gt;&lt;/p&gt;
+&lt;p&gt;這個功能目前僅只於 print，之後會做成顯示在視窗中、存成文字的功能。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;路徑計算問題&lt;/h1&gt;
+&lt;p&gt;將約束帶入後似乎出現了問題，還在研究如何解決。&lt;/p&gt;
+&lt;p&gt;路徑計算功能能夠畫出指定點（可複數）的移動軌跡，設定視窗中使用兩個表單達成這個功能。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/vAZJs5i.png" &gt;&lt;/p&gt;
+&lt;p&gt;結果計算後變成 180° 之後的軌跡出現錯亂。&lt;/p&gt;
+&lt;p&gt;下圖繪製 Point2 和 Point3 的軌跡，Point3 的圓周運動是一切正常，但是 Point2 在繞回來時運算不知道為何出了嚴重的錯誤，畫在不可能出現的位置。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/VYzwVFZ.png" &gt;&lt;/p&gt;
+&lt;p&gt;由於這部份功能的程式滿大的，也是用自己的邏輯手寫的，可能會漏一些沒注意的地方，檢查費了不少功夫。&lt;/p&gt;
+&lt;p&gt;原理是用一整個 list object 傳送座標群的，包含選擇的點，從 start angle 到 end angle 的範圍，理論上是三維的。&lt;/p&gt;
+&lt;p&gt;不過迴圈迭代時有點小毛病，所以改成 object[0] 是第一個點的 X 軸，object[1] 是 Y 軸，object[2] 是第二個點的 X 軸，以此類推。&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+#取值用的迴圈
+for i in range(0, len(self.Path), 2):
+    X_path = self.Path[i]
+    Y_path = self.Path[i+1]
+&lt;/pre&gt;
+
+&lt;p&gt;可能是 slvs 程式庫的約束處理問題，因為我是先將「呆鍊」組成三角形後才約束「連桿」接起，因而動到主動軸的點，產生了這個問題。&lt;/p&gt;
+&lt;p&gt;相反地，「客製化」零件的約束順序採用最保險的方式，所以沒有這個問題。&lt;/p&gt;
+&lt;p&gt;歸納幾個解決方式，是製作以下功能（都會加入）：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;調整表格順序的功能（決定優先權，比較好知道原因）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;優先偵測主動軸的參照點，優先定義與其相關的連桿約束。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;之前提到的，因為這部份程式碼滿大的，跨了3個檔案，所以可能要一些時間處理。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/03</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050903.html" rel="alternate"></link><published>2016-09-03T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-03:blog/40323230ri-zhi-1050903.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;QPaint 繪圖&lt;/p&gt;
 &lt;/li&gt;

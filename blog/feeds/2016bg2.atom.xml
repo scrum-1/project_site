@@ -43,7 +43,7 @@ def on_link_context_menu(self, point):
 &lt;p&gt;視窗標題會在修改後，未存檔時多出星號。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/vu3IpEj.png" &gt;&lt;/p&gt;
 &lt;p&gt;讀檔、開新檔案、存檔後星號會消失。&lt;/p&gt;
-&lt;p&gt;再沒有星號的情形下，關閉程式時不會提示是否存檔。&lt;/p&gt;
+&lt;p&gt;在沒有星號的情形下，關閉程式時不會提示是否存檔。&lt;/p&gt;
 &lt;h2&gt;圖形顏色對應&lt;/h2&gt;
 &lt;p&gt;利用 Python 的 dict 鍵值功能作顏色對應表，基本概念如下：&lt;/p&gt;
 &lt;pre&gt;

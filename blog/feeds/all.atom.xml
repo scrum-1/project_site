@@ -46,9 +46,9 @@ Constraint.dragged(Workplane1, Point1)
 """
 ...
 #加入點
-Script += """p"+str(i+7)+" = sys.add_param("""+str(float(table_point.item(i, 1).text()))+""")
-p"""+str(i+8)+""" = sys.add_param("""+str(float(table_point.item(i, 2).text()))+""")"
-Point"+str(i+1)+" = Point2d(Workplane1, p"+str(i+8)+", p"+str(i+9)+")
+Script += """p"""+str(i+7)+""" = sys.add_param("""+str(float(table_point.item(i, 1).text()))+""")
+p"""+str(i+8)+""" = sys.add_param("""+str(float(table_point.item(i, 2).text()))+""")
+Point"""+str(i+1)+""" = Point2d(Workplane1, p"""+str(i+8)+""", p"""+str(i+9)+""")
 """
 #如果點固定
 Script += """Constraint.dragged(Workplane1, Point"""+str(i+1)+""")

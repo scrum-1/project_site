@@ -1,5 +1,223 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-06T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/06</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050906.html" rel="alternate"></link><published>2016-09-06T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-06:blog/40323230ri-zhi-1050906.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-07T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/07</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050907.html" rel="alternate"></link><published>2016-09-07T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-07:blog/40323230ri-zhi-1050907.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;路徑計算解決&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;程式碼功能簡介&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;PyQt5 線程 QThread 教學&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;PyQt5 信號槽教學&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;PyQt5 進度條教學&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;已更新&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;書籤：
+&lt;a href="#QThread"&gt;PyQt 線程&lt;/a&gt;
+&lt;a href="#pyqtSlot"&gt;PyQt 信號槽&lt;/a&gt;
+&lt;a href="#QProgressBar"&gt;PyQt 進度條&lt;/a&gt;&lt;/p&gt;
+&lt;h1&gt;路徑計算解決&lt;/h1&gt;
+&lt;p&gt;煩惱多日的路徑問題解決了，是靠觀察程式碼產生結果觀察出判斷式有問題。&lt;/p&gt;
+&lt;p&gt;在 Qt 表格的回傳值中&lt;strong&gt;不可以這樣用&lt;/strong&gt;*，因為永遠不會發生：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+if table_point.item(i, 3).checkState()==True:
+    ...
+&lt;/pre&gt;
+
+&lt;p&gt;必須這樣用：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+if table_point.item(i, 3).checkState():
+    ...
+&lt;/pre&gt;
+
+&lt;hr&gt;
+
+&lt;h1&gt;Pyslvs 界面&lt;/h1&gt;
+&lt;h2&gt;程式碼 Demo&lt;/h2&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/7C2HXYY.png" &gt;&lt;/p&gt;
+&lt;p&gt;這個程式碼使用 matplotlib 繪出圖形，最上端可以設定運算的對象。&lt;/p&gt;
+&lt;p&gt;按下「Copy」鈕可以複製到剪貼簿，「Help」鈕會連到之前寫的程式庫網頁。&lt;/p&gt;
+&lt;p&gt;PyQt 的剪貼簿用法很簡單：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+clipboard = QApplication.clipboard()
+clipboard.setText(self.script.toPlainText())
+&lt;/pre&gt;
+
+&lt;p&gt;「Save」可以存成 Python 程式碼，執行過確認沒問題。&lt;/p&gt;
+&lt;h2&gt;路徑追蹤&lt;/h2&gt;
+&lt;p&gt;追加解析度功能，預設 5 度，最大 45 度，最小到 0.5 度。&lt;/p&gt;
+&lt;p&gt;表單也經過篩選，不會加入固定點了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/oorux4u.png" &gt;&lt;/p&gt;
+&lt;p&gt;按下「Apply」鈕後會開始執行運算，而且進度條會顯示運算進度（進度無誤）。&lt;/p&gt;
+&lt;p&gt;中途隨時可以停止執行，只是一旦停止就會關閉小視窗且刪除暫存資料，要重新計算。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/VRNWAbp.png" &gt;&lt;/p&gt;
+&lt;p&gt;執行完畢後，就會自動關閉視窗，呈現路徑圖。&lt;/p&gt;
+&lt;p&gt;接著就能調整畫布，用內建的存檔功能存成圖片！&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/Uvud38L.png" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/MPRQtB5.png" &gt;&lt;/p&gt;
+&lt;p&gt;關於路徑追蹤的視窗，其實花了不少功夫研究 Qt 的功能，將 Python 的教學寫在下面。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;&lt;a name="QThread"&gt;&lt;/a&gt;PyQt 線程&lt;/h1&gt;
+&lt;p&gt;需要執行序的原因是，程式語言通常會將複雜運算的程序優先度提高，相對畫面的處理較簡單，因此會將「複雜運算」處理完後才會更新畫面顯示。&lt;/p&gt;
+&lt;p&gt;若是不想讓視窗凍結，使用排程功能就十分重要，提醒使用者正在運算，亦可以避免輸入過多指令時，因為正在處理「複雜運算」，而無法理會使用者的呼叫。&lt;/p&gt;
+&lt;p&gt;線程功能並非平行運算，而是拖慢所有進度，在執行序之間來回處理，以因應多方面需求。&lt;/p&gt;
+&lt;p&gt;Python3 雖然有內建 &lt;code&gt;threading&lt;/code&gt; 和 &lt;code&gt;_thread&lt;/code&gt; 的模組，但是還滿難使用與管理的，所以利用 Qt 的功能來替代之。&lt;/p&gt;
+&lt;p&gt;可以想像成 QThread 是另一個元件，也是使用 class的方式繼承，基本架構如下：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+class WorkerThread(QThread):
+    #這裡是信號（括弧中填入傳出參數類型，沒有就不用）
+    #必須擺外面
+    done = pyqtSignal(list)
+
+    #初始化
+    def __init__(self, parent = None):
+        QThread.__init__(self, parent)
+        self.stoped = False
+        self.mutex = QMutex()
+
+    #執行序（可以很多個）
+    def run(self):
+        ...
+        #完成，發出信號（帶一個 list 參數）
+        self.done.emit(nPath)
+
+    #中止序
+    def stop(self):
+        with QMutexLocker(self.mutex): self.stoped = True
+&lt;/pre&gt;
+
+&lt;p&gt;QThread 跟外界溝通的方式是靠信號跟從外部定值（這樣可以從 self 直接讀值）。&lt;/p&gt;
+&lt;p&gt;Window 或 Widget 可以如下使用：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+class Path_Track_show(QDialog, Ui_Dialog):
+    def __init__(self, parent=None):
+        super(Path_Track_show, self).__init__(parent)
+        ...
+        #定義線程
+        self.work = WorkerThread()
+        #連接啟動信號
+        self.buttonBox.button(QDialogButtonBox.Apply).clicked.connect(self.start)
+        #連接強制結束訊號
+        self.buttonBox.button(QDialogButtonBox.Cancel).clicked.connect(self.stop)
+        #連接完成信號
+        self.work.done.connect(self.finish)
+
+    #啟動
+    def start(self):
+        #傳入值（或任何前置作業）
+        self.work.Run_list = self.Run_list
+        ...
+        #啟動
+        self.work.start()
+        #關閉按鈕（有關GUI項目）
+        #會同時執行work和之後的項目
+        self.buttonBox.button(QDialogButtonBox.Apply).setEnabled(False)
+        ...
+
+    #強制結束
+    def stop(self): self.work.stop()
+
+    #完成
+    #信號槽接收值（帶一個 list 參數）
+    @pyqtSlot(list)
+    def finish(self, Path):
+        self.Path_data = Path
+        #接收後關閉
+        self.accept()
+&lt;/pre&gt;
+
+&lt;hr&gt;
+
+&lt;h1&gt;&lt;a name="pyqtSlot"&gt;&lt;/a&gt;PyQt 信號槽&lt;/h1&gt;
+&lt;p&gt;信號是 Qt 元件用來溝通的方式，通常是「函式」使用「信號物件」發送訊息給連結的「信號槽」，而配戴此信號槽的函式就會在接收訊息的時候開始執行。&lt;/p&gt;
+&lt;p&gt;特別注意 PyQt4 和 PyQt5 的信號連接方式有所不同。&lt;/p&gt;
+&lt;p&gt;在一個 class 配置「信號物件」：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+class a(parentA):
+    done = pyqtSignal()
+&lt;/pre&gt;
+
+&lt;p&gt;這個物件必須擺在 class 中，不過不行在任何函式裡（包括初始化函式 &lt;code&gt;__init__&lt;/code&gt;）。&lt;/p&gt;
+&lt;p&gt;呼叫方式是跟其他同 class 底下的函式同個位階（如 &lt;code&gt;self&lt;/code&gt;.&lt;code&gt;done&lt;/code&gt; 或 &lt;code&gt;a&lt;/code&gt;.&lt;code&gt;done&lt;/code&gt;）。&lt;/p&gt;
+&lt;p&gt;接著在一個函式配置一個信號槽：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+class b(parentB):
+    @pyqtSlot()
+    def b_1(self):
+        ...
+&lt;/pre&gt;
+
+&lt;p&gt;然後在需要連接的時段連結它們（亦可以在時機內斷開連結），例如 class b 的初始化：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+class b(parentB):
+    def __init__(self, parent=None):
+        ...
+        self.Come_from_A = a()
+        self.Come_from_A.done.connect(self.b_1)
+&lt;/pre&gt;
+
+&lt;p&gt;最後就是發送信號的時機，剛才的信號物件是 class a 內的函式都可調用的：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+class a(parentA):
+    def a_1(self):
+        ...
+        self.done.emit()
+&lt;/pre&gt;
+
+&lt;p&gt;這樣 class b 內的 b_1 就會執行了。&lt;/p&gt;
+&lt;p&gt;這些括弧內都是可以帶入參數的，由於 Qt 是 C++ 寫成的，&lt;code&gt;@pyqtSlot()&lt;/code&gt; 的括弧中是填參數類型。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;&lt;a name="QProgressBar"&gt;&lt;/a&gt;PyQt 進度條&lt;/h1&gt;
+&lt;p&gt;知道線程和信號槽的利用後，處理時控制進度條物件就易如反掌了。&lt;/p&gt;
+&lt;p&gt;首先在執行前算一下進度條跑滿後的格數（若是迴圈，會在執行一次時加 1，加到滿）：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+self.progressBar.setRange(0, limit)
+&lt;/pre&gt;
+
+&lt;p&gt;接著在線程的初始化中設置一個整數 &lt;code&gt;progress_Signal&lt;/code&gt;，從零開始。&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+self.progress = 0
+&lt;/pre&gt;
+
+&lt;p&gt;執行時的迴圈，用另一個函式發送訊息與增加進度值：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+def run(self):
+    for i in range(_range_):
+        self.progress_going()
+
+def progress_going(self):
+        self.progress = self.progress+1
+        self.progress_Signal.emit(self.progress)
+&lt;/pre&gt;
+
+&lt;p&gt;接收端函式（也許是另一個 class）：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+@pyqtSlot(int)
+def progressbar_change(self, val): self.progressBar.setValue(val)
+&lt;/pre&gt;
+
+&lt;p&gt;連接（在初始化就可以了）：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+self.work = WorkerThread()
+self.work.progress_Signal.connect(self.progressbar_change)
+&lt;/pre&gt;
+
+&lt;hr&gt;
+
+&lt;p&gt;最重要的功能做完了，最終也學會了難懂的信號槽（以前都是編譯器幫忙產生的），剩下的功能應該也能順利做完。&lt;/p&gt;
+&lt;p&gt;雖然最終沒有在暑假內完成專題的項目，但是也學會許東西，培養出快速統整資料並架構化的能力。&lt;/p&gt;
+&lt;p&gt;覺得自己需要多練習語言表達的部份，因為可能統整資料十分明瞭，在口語上卻節奏太快，順著聽者的思路呈現才是最重要的方向。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/06</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050906.html" rel="alternate"></link><published>2016-09-06T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-06:blog/40323230ri-zhi-1050906.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;表格管理與程式碼&lt;/p&gt;
 &lt;/li&gt;
@@ -8108,7 +8326,6 @@ top.mainloop()
 
 &lt;p&gt;參考範例：&lt;/p&gt;
 &lt;p&gt;/Examples/python/simple/index.html&lt;/p&gt;
-&lt;p&gt;&lt;img src="" &gt;&lt;/p&gt;
 &lt;p&gt;先寫一個".c"程式碼。&lt;/p&gt;
 &lt;pre class="brush: c"&gt;
 /* File : example.c */

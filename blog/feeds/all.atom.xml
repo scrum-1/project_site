@@ -217,7 +217,8 @@ self.work.progress_Signal.connect(self.progressbar_change)
 
 &lt;p&gt;最重要的功能做完了，最終也學會了難懂的信號槽（以前都是編譯器幫忙產生的），剩下的功能應該也能順利做完。&lt;/p&gt;
 &lt;p&gt;雖然最終沒有在暑假內完成專題的項目，但是也學會許東西，培養出快速統整資料並架構化的能力。&lt;/p&gt;
-&lt;p&gt;覺得自己需要多練習語言表達的部份，因為可能統整資料十分明瞭，在口語上卻節奏太快，順著聽者的思路呈現才是最重要的方向。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/06</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050906.html" rel="alternate"></link><published>2016-09-06T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-06:blog/40323230ri-zhi-1050906.html</id><summary type="html">&lt;ol&gt;
+&lt;p&gt;覺得自己需要多練習語言表達的部份，因為可能統整資料十分明瞭，在口語上卻節奏太快，順著聽者的思路呈現才是最重要的方向。&lt;/p&gt;
+&lt;p&gt;P.S Roger 用 wordpress 架了一個存文章的網站：&lt;a href="http://roger-blog.tk/" title="roger-blog.tk"&gt;http://roger-blog.tk/&lt;/a&gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/06</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050906.html" rel="alternate"></link><published>2016-09-06T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-06:blog/40323230ri-zhi-1050906.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;表格管理與程式碼&lt;/p&gt;
 &lt;/li&gt;

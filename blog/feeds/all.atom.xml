@@ -21,10 +21,10 @@
 &lt;/ol&gt;
 
 
-&lt;p&gt;書籤：
-&lt;a href="#QThread"&gt;PyQt 線程&lt;/a&gt;
-&lt;a href="#pyqtSlot"&gt;PyQt 信號槽&lt;/a&gt;
-&lt;a href="#QProgressBar"&gt;PyQt 進度條&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;書籤：&lt;/p&gt;
+&lt;p&gt;&lt;a href="#QThread"&gt;PyQt 線程&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="#pyqtSlot"&gt;PyQt 信號槽&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="#QProgressBar"&gt;PyQt 進度條&lt;/a&gt;&lt;/p&gt;
 &lt;h1&gt;路徑計算解決&lt;/h1&gt;
 &lt;p&gt;煩惱多日的路徑問題解決了，是靠觀察程式碼產生結果觀察出判斷式有問題。&lt;/p&gt;
 &lt;p&gt;在 Qt 表格的回傳值中&lt;strong&gt;不可以這樣用&lt;/strong&gt;*，因為永遠不會發生：&lt;/p&gt;

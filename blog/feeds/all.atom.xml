@@ -1,5 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-07T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/07</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050907.html" rel="alternate"></link><published>2016-09-07T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-07:blog/40323230ri-zhi-1050907.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-08T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/08</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050908.html" rel="alternate"></link><published>2016-09-08T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-08:blog/40323230ri-zhi-1050908.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;已更新&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Pyslvs Demo 功能介紹 錄影準備中&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Pyslvs 界面&lt;/h1&gt;
+&lt;h2&gt;模擬功能按鈕調整&lt;/h2&gt;
+&lt;p&gt;路徑追蹤功能區隔出來，其他兩個面板類的歸在下方。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/le7waBe.png" &gt;&lt;/p&gt;
+&lt;p&gt;面板同時只能開啟一個，必須關掉前一個才能切換。&lt;/p&gt;
+&lt;p&gt;而開啟新檔時會自動關閉已開啟的面板。&lt;/p&gt;
+&lt;h2&gt;路徑座標輸出&lt;/h2&gt;
+&lt;p&gt;路徑追蹤功能啟動時做一些小改變，會自動開啟顯示標註。&lt;/p&gt;
+&lt;p&gt;現在會將運算後的路徑保留，會顯示在畫面上，使用者可以決定其去留，若是沒刪除，再次執行追蹤功能時結果將覆蓋當前數據。&lt;/p&gt;
+&lt;p&gt;因應新增兩個按鈕，分別為清除鈕和結果預覽。&lt;/p&gt;
+&lt;p&gt;座標表格亦可匯出成 CSV 表格。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/XQwvacu.png" &gt;&lt;/p&gt;
+&lt;p&gt;而不同點的路徑現在會用不同顏色呈現了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/VFH69Nr.png" &gt;&lt;/p&gt;
+&lt;p&gt;點外觀的分頁中可以調整路徑粗細。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/BgkLaSS.png" &gt;&lt;/p&gt;
+&lt;h2&gt;量測面板&lt;/h2&gt;
+&lt;p&gt;量測面板可以計算機構任意兩點間的距離，並且顯示滑鼠座標位置，以供滑鼠附近點的座標參考，座標單位已經為縮放調整了。&lt;/p&gt;
+&lt;p&gt;面板開啟時會自動開啟顯示標註。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/36wGlPe.png" &gt;&lt;/p&gt;
+&lt;h2&gt;驅動軸面板&lt;/h2&gt;
+&lt;p&gt;這個面板可以選擇任意設定好的主動軸調整角度，並且還有慢速播放的功能，不過暫停後等待延遲的缺陷還在找方法修正。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/lBrMQBA.png" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;影片簡介&lt;/h1&gt;
+&lt;p&gt;當初預想的功能大部分都快完成了，剩下一些輸出和防呆的細節處理。&lt;/p&gt;
+&lt;p&gt;之後想錄製一點說明影片，介紹基本功能之類的，算是專題資料的一部分。&lt;/p&gt;
+&lt;p&gt;而如果找不到輸出給其他 CAD 軟體的方式的話，網頁版可能得沿用目前 Data Sheet 的儲存方式。&lt;/p&gt;
+&lt;p&gt;網頁版在這學期學習 Java Script 之後，配合專題所學得的技能，應該有能力做一個圖形化界面出來。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/07</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050907.html" rel="alternate"></link><published>2016-09-07T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-07:blog/40323230ri-zhi-1050907.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;路徑計算解決&lt;/p&gt;
 &lt;/li&gt;

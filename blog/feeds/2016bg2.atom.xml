@@ -1,5 +1,71 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-08T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/08</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050908.html" rel="alternate"></link><published>2016-09-08T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-08:blog/40323230ri-zhi-1050908.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-09T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/09</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050909.html" rel="alternate"></link><published>2016-09-09T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-09:blog/40323230ri-zhi-1050909.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;近似直線機構問題&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;活塞 → 動力源而非被動元件&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;參數式設計？&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;測量能力待加強&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Pyslvs 界面&lt;/h1&gt;
+&lt;h2&gt;Fusion 主題&lt;/h2&gt;
+&lt;p&gt;使用 QApplication 的主題選擇功能指定主題。&lt;/p&gt;
+&lt;p&gt;這樣在 Ubuntu 執行時會強制使用該元件外觀，而非之前節圖的鐵灰色。&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+QApplication.setStyle("fusion")
+app = QApplication(argv)
+run  = MainWindow()
+run.show()
+exit(app.exec())
+&lt;/pre&gt;
+
+&lt;p&gt;Qt 的說明文件提及，雖然 Qt 程式庫擁有 5 種主題，但是所有平台共通的是 &lt;code&gt;fusion&lt;/code&gt; 和 &lt;code&gt;windows&lt;/code&gt;（傳統佈景）主題。&lt;/p&gt;
+&lt;p&gt;只在有在特定平台才能正常顯示特定主題，如在麥金塔上使用 &lt;code&gt;macintosh&lt;/code&gt;，Windows XP 上使用 &lt;code&gt;windowsxp&lt;/code&gt;，Windows Vista 以上的作業系統使用 &lt;code&gt;windowsvista&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/AuNkVl3.png" &gt;&lt;/p&gt;
+&lt;h2&gt;編輯視窗提取舊資料&lt;/h2&gt;
+&lt;p&gt;編輯視窗會在下拉選單變更對象時提取該項目資料，以供參考。&lt;/p&gt;
+&lt;p&gt;使用右鍵選單時，亦會嘗試讀取選中的欄位，自動選到該項目。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/hHMwFx7.png" &gt;&lt;/p&gt;
+&lt;p&gt;刪除功能的右鍵選單也會將選中的欄位對應下拉式選單。&lt;/p&gt;
+&lt;h2&gt;移除驅動軸面板的暫停功能&lt;/h2&gt;
+&lt;p&gt;由於暫停的功能也不算是非常必須，所以將停止的功能拿掉。&lt;/p&gt;
+&lt;p&gt;若要中止動畫，直接將面板關掉就好了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/Qj26wE2.png" &gt;&lt;/p&gt;
+&lt;h1&gt;直線機構問題&lt;/h1&gt;
+&lt;p&gt;今天嘗試了 Peaucellier 直線機構的模擬，但是在輸入軸轉動的時候碰到一些障礙。&lt;/p&gt;
+&lt;p&gt;直線機構無法立即得知其極限，而之前做的路徑追蹤功能只支援&lt;strong&gt;知道範圍&lt;/strong&gt;的圓周運動。&lt;/p&gt;
+&lt;p&gt;不過按理說頂多會回傳約束錯誤的訊息，但是沒想到連一度都無法搖擺，不知道是機構卡死還是什麼問題。&lt;/p&gt;
+&lt;p&gt;所以想正視這個情況，讓直線機構也可以在 Pyslvs 上模擬。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/wRWDQ3x.png" &gt;&lt;/p&gt;
+&lt;p&gt;應該做一個能夠解極限的功能。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;活塞動力源&lt;/h1&gt;
+&lt;p&gt;由於程式庫的技術問題，可能無法計算可以改變長度的被動元件，所以將活塞功能改成直線驅動的連桿，可以嘗試讓一活動點進行固定直線運動。&lt;/p&gt;
+&lt;p&gt;構成是由節點、兩固定點構成的直線上作動，跟滑塊不同的是，這個項目是無極限的主動元件，利用增量進行移動（使用者可設定範圍），遇到約束衝突會強制結束。&lt;/p&gt;
+&lt;p&gt;預計這個功能要加入驅動面板中，讓這個面板能管理主動軸與活塞動力。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;參數式設計&lt;/h1&gt;
+&lt;p&gt;想讓 Pyslvs 加入新的參數設計表，紀錄所有使用者使用的參數，支援使用者自行註解、在表內進行交叉運算。&lt;/p&gt;
+&lt;p&gt;這樣修改更快，達成機械設計的目的，跟上大部分 CAD 軟體一樣的功能。&lt;/p&gt;
+&lt;p&gt;表格會跟點座標和連桿約束等等的項目存入 Data Sheet 中。&lt;/p&gt;
+&lt;p&gt;不過這樣所有新增和編輯界面就得做調整。&lt;/p&gt;
+&lt;h1&gt;測量能力&lt;/h1&gt;
+&lt;p&gt;測量面板目前只有計算點之間的距離，無法測量角度之類，有些不方便。&lt;/p&gt;
+&lt;p&gt;有大量現成的數學公式求解，拿來用在點座標結果上是再好不過了。&lt;/p&gt;
+&lt;p&gt;預計之後測量、驅動面板會增強許多，上面提到的解極限的功能或許也會歸類在面板類。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/08</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050908.html" rel="alternate"></link><published>2016-09-08T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-08:blog/40323230ri-zhi-1050908.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
 &lt;/li&gt;

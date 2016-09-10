@@ -1,5 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-09T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/09</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050909.html" rel="alternate"></link><published>2016-09-09T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-09:blog/40323230ri-zhi-1050909.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-10T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/10</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050910.html" rel="alternate"></link><published>2016-09-10T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-10:blog/40323230ri-zhi-1050910.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;參數式架構&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;測試影片&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Pyslvs 界面&lt;/h1&gt;
+&lt;p&gt;今天將所有的視窗都用圖層或 Widget 固定化，免得編譯後位置出現落差。&lt;/p&gt;
+&lt;p&gt;不過也花了許多時間，之後主要是為參數式編輯做架構。&lt;/p&gt;
+&lt;p&gt;最後決定使用單行文字框做輸入。&lt;/p&gt;
+&lt;p&gt;未來的輸入界面大約像這樣：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/tqvi7j1.png" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;參數式界面改良&lt;/h1&gt;
+&lt;p&gt;在點座標分頁中新增參數表，使用右鍵可以新增或刪除項目，點擊兩下就能編輯數據與註解。&lt;/p&gt;
+&lt;p&gt;而下方加入點的欄位中，可以打入新增的代碼。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/4AWc7cw.png" &gt;&lt;/p&gt;
+&lt;p&gt;雖然整體改換還需要段時間，但是重要的功能已經有雛型了。&lt;/p&gt;
+&lt;h2&gt;輸入遮罩&lt;/h2&gt;
+&lt;p&gt;遮罩設定存於主視窗中，對話方塊生成時會複製內容，給其所有需要的單行文字框。&lt;/p&gt;
+&lt;p&gt;有了這個設定，就能避免使用者亂輸入文字了，基本概念如下：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+X_coordinate = QLineEdit()
+X_coordinate.setValidator(QRegExpValidator(QRegExp(mask)))
+&lt;/pre&gt;
+
+&lt;p&gt;其中 &lt;code&gt;mask&lt;/code&gt; 是字串，也是篩選的條件。&lt;/p&gt;
+&lt;p&gt;基本規則如下：&lt;/p&gt;
+&lt;pre&gt;
+[ 任何文字 ]{ 必要出現次數 , 在接下來的長度內 }
+&lt;/pre&gt;
+
+&lt;p&gt;中括弧中是打允許使用者的字元。&lt;/p&gt;
+&lt;p&gt;如 &lt;code&gt;[a]&lt;/code&gt;，使用者必須打入 1 個小寫的 a 才能再繼續之後的規則，可以使用 &lt;code&gt;[0-9]&lt;/code&gt; 表示 0 至 9 的數字，&lt;code&gt;[a-z]&lt;/code&gt; 表示小寫的 26 個英文字母等等。&lt;/p&gt;
+&lt;p&gt;大括弧是篩選條件，默認是 &lt;code&gt;{1, 1}&lt;/code&gt;，第一項是必須打的數量，第二項是這個規則最大的數量。&lt;/p&gt;
+&lt;p&gt;小括弧是邏輯順序，跟其他程式語言差不多，如 &lt;code&gt;([a] | [b]{3, 5})&lt;/code&gt; 就是在這個位置可以選擇打入 1 個 a，或是 3 個到 5 個 b。&lt;/p&gt;
+&lt;p&gt;至於 &lt;code&gt;^&lt;/code&gt; 和 &lt;code&gt;$&lt;/code&gt; 則是標示貼緊字頭與字尾的符號，能夠比較明確，但是要注意是否會導致字頭設下太多規則，而讓使用者打不了半個字。&lt;/p&gt;
+&lt;p&gt;基本規則容易搞混的話，可以使用簡語，如 &lt;code&gt;?&lt;/code&gt; 符號代表 &lt;code&gt;{0, 1}&lt;/code&gt;，就是能選擇要不要輸入的意思，可以省略它打入下個規則的字串。&lt;/p&gt;
+&lt;p&gt;其他簡語可以參考&lt;a href="http://doc.qt.io/qt-5/qregexp.html" title="doc.qt.io"&gt;官方網站&lt;/a&gt;的說明。&lt;/p&gt;
+&lt;p&gt;以下是 Pyslvs的遮罩：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+#超過10個參數
+param_10 = '[1-'+str(int(self.Parameter_list.rowCount()/10))+']?' if self.Parameter_list.rowCount()&gt;=10 else ''
+#有參數
+param_use = '(^[n]'+param_10+'[0-'+str(int(self.Parameter_list.rowCount())-1)+']$|' if self.Parameter_list.rowCount()&gt;=1 else ''
+#最小值 0.0 最大值 9999.9999 的數字
+mask = param_use+'^[1-9][0-9]{1,3}[.][0-9]{1,4}$'
+if param_use: mask += ')'
+self.Mask = QRegExpValidator(QRegExp(mask))
+self.X_coordinate.setValidator(self.Mask)
+self.Y_coordinate.setValidator(self.Mask)
+&lt;/pre&gt;
+
+&lt;p&gt;如果參數表長度超過 1，只要開頭打入 &lt;code&gt;n&lt;/code&gt; 這個字母，就會啟用參數規則，而且只能打入目前長度設入的參數代號。&lt;/p&gt;
+&lt;p&gt;如果沒有設定參數，文字欄內只能填入最大 9999.9999 的數字。&lt;/p&gt;
+&lt;p&gt;因為要讀表的長度，上述設定在參數表新增或移除項目時就會更新。&lt;/p&gt;
+&lt;p&gt;另一方面，因為變成了文字欄，為了偵測是否為空值，做了一些小篩選：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+x = self.X_coordinate.text() if not self.X_coordinate.text()=="" else self.X_coordinate.placeholderText()
+y = self.Y_coordinate.text() if not self.Y_coordinate.text()=="" else self.Y_coordinate.placeholderText()
+&lt;/pre&gt;
+
+&lt;p&gt;至於空的欄位上的淡色文字（Place Holder Text）部份地方只是寫好看的，之後可能就直接讀淡色文字來用。例如編輯視窗中只需要改動 X 軸座標，不小心動到 Y 軸座標時直接刪成空欄位，系統可以填回原本的數值。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;測試影片&lt;/h1&gt;
+&lt;p&gt;錄製一段粗糙的影片展示目前基本功能。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;路徑追蹤&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;程式碼和路徑座標展示&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;動態模擬&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;距離量測&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;iframe src="https://player.vimeo.com/video/182206176" width="640" height="360" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;a href="https://vimeo.com/182206176"&gt;Pyslvs preview&lt;/a&gt; from &lt;a href="https://vimeo.com/user56487696"&gt;Union000&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/09</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050909.html" rel="alternate"></link><published>2016-09-09T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-09:blog/40323230ri-zhi-1050909.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
 &lt;/li&gt;

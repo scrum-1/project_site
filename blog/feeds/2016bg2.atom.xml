@@ -52,8 +52,8 @@ X_coordinate.setValidator(QRegExpValidator(QRegExp(mask)))
 param_10 = '[1-'+str(int(self.Parameter_list.rowCount()/10))+']?' if self.Parameter_list.rowCount()&gt;=10 else ''
 #有參數
 param_use = '(^[n]'+param_10+'[0-'+str(int(self.Parameter_list.rowCount())-1)+']$|' if self.Parameter_list.rowCount()&gt;=1 else ''
-#最小值 0.0 最大值 9999.9999 的數字
-mask = param_use+'^[1-9][0-9]{1,3}[.][0-9]{1,4}$'
+#最小值 -9999.9999 最大值 9999.9999 的數字
+mask = param_use+'^[-]?[1-9][0-9]{1,3}[.][0-9]{1,4}$'
 if param_use: mask += ')'
 self.Mask = QRegExpValidator(QRegExp(mask))
 self.X_coordinate.setValidator(self.Mask)
@@ -74,6 +74,7 @@ y = self.Y_coordinate.text() if not self.Y_coordinate.text()=="" else self.Y_coo
 
 &lt;h1&gt;測試影片&lt;/h1&gt;
 &lt;p&gt;錄製一段粗糙的影片展示目前基本功能。&lt;/p&gt;
+&lt;p&gt;之後會找一個比較好的軟體剪接。&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;路徑追蹤&lt;/p&gt;

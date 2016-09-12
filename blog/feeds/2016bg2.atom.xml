@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-11T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/11</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050911.html" rel="alternate"></link><published>2016-09-11T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-11:blog/40323230ri-zhi-1050911.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-12T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/12</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050912.html" rel="alternate"></link><published>2016-09-12T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-12:blog/40323230ri-zhi-1050912.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;第二對連桿腳&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Pyslvs 界面&lt;/h1&gt;
+&lt;h2&gt;參數式界面&lt;/h2&gt;
+&lt;p&gt;大部分的界面都統整好了，剩下遮罩沒設定。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/yz2lXJN.png" &gt;&lt;/p&gt;
+&lt;p&gt;這些參數確定可用，不過角度格式還不支援。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/PKUskgY.png" &gt;&lt;/p&gt;
+&lt;h2&gt;滑鼠加入點&lt;/h2&gt;
+&lt;p&gt;在畫布上使用滑鼠右鍵選單就可以在該位置加入座標。&lt;/p&gt;
+&lt;p&gt;加入後會出現在左側的表格裡，亦可供編輯。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/GYnvhQz.png" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;連桿組範例&lt;/h1&gt;
+&lt;p&gt;用新的繪圖系統加入了第二組連桿腳。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/G4VXlZe.png" &gt;&lt;/p&gt;
+&lt;p&gt;模擬了一下動作，效果還不錯。&lt;/p&gt;
+&lt;p&gt;之後會改試試 OpenGL 的模組功能，之前執行範例時會出錯，要找辦法解決。&lt;/p&gt;
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+&lt;p&gt;另外在 imgur.com 的圖片載了一個副本下來，找時間會移到倉儲上。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/11</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050911.html" rel="alternate"></link><published>2016-09-11T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-11:blog/40323230ri-zhi-1050911.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Pyslvs 編譯進度 - 參數式架構核心完成&lt;/p&gt;
 &lt;/li&gt;
@@ -10,7 +38,7 @@
 
 
 &lt;h1&gt;Pyslvs 界面&lt;/h1&gt;
-&lt;p&gt;解略 log：&lt;/p&gt;
+&lt;p&gt;簡略 log：&lt;/p&gt;
 &lt;p&gt;大改核心，寫了一條函式將表格轉為 list 型態，並自動儲存成相應的類型。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/1hV4XYP.png" &gt;&lt;/p&gt;
 &lt;p&gt;整修後的計算式乾淨多了，沒有型態問題，從對應 list 取出來就行。&lt;/p&gt;

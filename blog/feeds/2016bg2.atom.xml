@@ -1,5 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-13T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/13</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050913.html" rel="alternate"></link><published>2016-09-13T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-13:blog/40323230ri-zhi-1050913.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-14T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/14</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050914.html" rel="alternate"></link><published>2016-09-14T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-14:blog/40323230ri-zhi-1050914.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Qt OpenGL 教學資料&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;PySide 2 安裝問題&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Qt OpenGL&lt;/h1&gt;
+&lt;p&gt;Qt 的官方頁面還沒有撰寫說明，只看函式與格式不太能了解其用途。&lt;/p&gt;
+&lt;p&gt;所以去找其他 QtOpenGLWidgets 的教學，找到滿多資料的。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://blog.csdn.net/cly116/article/details/47184729" title="blog.csdn.net"&gt;http://blog.csdn.net/cly116/article/details/47184729&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;PyQt 的詳細說明比較少，不過找到幾篇範例後，可以對照著看。由於是高階語言，Python 使用 C++ 函式滿容易的，省略不少步驟。&lt;/p&gt;
+&lt;h1&gt;PySide 2 安裝問題&lt;/h1&gt;
+&lt;p&gt;今天將 Qt 版本改成 5.6，並重新下載官方倉儲安裝。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/PySide/pyside2-setup" title="github.com/PySide"&gt;https://github.com/PySide/pyside2-setup&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;使用的參數：&lt;/p&gt;
+&lt;pre&gt;
+$sudo python3 setup.py install --qmake=/usr/bin/qmake --cmake=/usr/bin/cmake
+&lt;/pre&gt;
+
+&lt;p&gt;剛開始遇到 Makelist 找不到指定檔案的問題，如下圖：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/hougrQE.png" &gt;&lt;/p&gt;
+&lt;p&gt;必須安裝以下套件：&lt;/p&gt;
+&lt;pre&gt;
+$sudo apt-get install libqt5xmlpatterns5-dev
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/7OnYdB8.png" &gt;&lt;/p&gt;
+&lt;p&gt;不過接下來遇到編譯 shiboken 的問題，編到一半就中斷了。&lt;/p&gt;
+&lt;p&gt;上網查了下結果，是因為函式未回傳值，可是不知道什麼原因。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/957Qjp3.png" &gt;&lt;/p&gt;
+&lt;p&gt;到官方的倉儲找 Issue，不過好像都沒遇到這種情況。&lt;/p&gt;
+&lt;p&gt;所以另外從非官方倉儲下載 wheel 來用。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/fredrikaverpil/pyside2-wheels" title="github.com/fredrikaverpil"&gt;https://github.com/fredrikaverpil/pyside2-wheels&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;下載了編譯完成的 wheel (Python 3.4) 後，按照下方 Readme 的說明安裝。&lt;/p&gt;
+&lt;p&gt;這個套件提供者是將 Qt 版本分開裝的，所以會和 PyQt 使用的資料庫不一樣。&lt;/p&gt;
+&lt;p&gt;不過不須擔心這個問題，因為包好的 wheel 會直接讀安裝的 Qt 資料庫，可以不用裝說明裡的套件。&lt;/p&gt;
+&lt;p&gt;以下連結有 4 個平台的 PySide 2 載點，只需使用 &lt;code&gt;pip3 install&lt;/code&gt; 或 &lt;code&gt;pip3 install&lt;/code&gt; 就能裝成功。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://bintray.com/fredrikaverpil/pyside2-wheels/pyside2/2.0.0.dev0#files/" title="bintray.com"&gt;https://bintray.com/fredrikaverpil/pyside2-wheels/pyside2/2.0.0.dev0#files/&lt;/a&gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/13</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050913.html" rel="alternate"></link><published>2016-09-13T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-13:blog/40323230ri-zhi-1050913.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Pyslvs 版本子倉儲&lt;/p&gt;
 &lt;/li&gt;

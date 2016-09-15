@@ -1,5 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-14T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/14</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050914.html" rel="alternate"></link><published>2016-09-14T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-14:blog/40323230ri-zhi-1050914.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-15T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/15</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050915.html" rel="alternate"></link><published>2016-09-15T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-15:blog/40323230ri-zhi-1050915.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;現時 Ubuntu 版 Solvespace 安裝&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;.slvs&lt;/code&gt; 檔案格式&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Pyslvs 3D 模式&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Solvespace 編譯&lt;/h1&gt;
+&lt;p&gt;確保下列事項：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;GNU 5.3 以上&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;CMake 3.0 以上&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;下載後進入資料夾。&lt;/p&gt;
+&lt;pre&gt;
+$git submodule update --init extlib/libdxfrw
+$mkdir build
+$cd build
+$cmake .. -DENABLE_TESTS=OFF
+&lt;/pre&gt;
+
+&lt;p&gt;若出現 &lt;code&gt;GCC 5.0+ is required&lt;/code&gt; 問題，請使用下列指令更改優先權：&lt;/p&gt;
+&lt;pre&gt;
+$sudo update-alternatives --install /usr/bin/gcc gcc /usr/bin/gcc-5 1
+$sudo update-alternatives --config gcc
+替代項目 gcc（提供 /usr/bin/gcc）有 2 個選擇。
+
+  選項       路徑            優先權  狀態
+------------------------------------------------------------
+* 0            /usr/bin/gcc-4.8   48        自動模式
+  1            /usr/bin/gcc-4.8   48        手動模式
+  2            /usr/bin/gcc-5     1         手動模式
+
+按 [enter] 保留目前選項 [*]，或輸入選項編號：2   
+update-alternatives: 以 /usr/bin/gcc-5 提供 手動模式 中的 /usr/bin/gcc (gcc)
+&lt;/pre&gt;
+
+&lt;p&gt;若出現這個警告：&lt;/p&gt;
+&lt;pre&gt;
+The CMAKE_CXX_COMPILER:
+
+/usr/bin/c++
+
+is not a full path to an existing compiler tool.
+&lt;/pre&gt;
+
+&lt;p&gt;請更改 CMake List 的參數（注意不要指到軟連結，必須是執行檔本體）：&lt;/p&gt;
+&lt;pre&gt;
+$sudo cmake -D CMAKE_C_COMPILER="/usr/bin/gcc-5" -D CMAKE_CXX_COMPILER="/usr/bin/g++-5" ../CMakeLists.txt
+&lt;/pre&gt;
+
+&lt;p&gt;最後 build 檔案出來後，使用下列指令：&lt;/p&gt;
+&lt;pre&gt;
+$cd ..
+$sudo make
+&lt;/pre&gt;
+
+&lt;p&gt;編譯完畢後，可以在 &lt;code&gt;src&lt;/code&gt; 資料夾中找到 &lt;code&gt;solvespace&lt;/code&gt; 執行檔，點兩下就能執行了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;&lt;code&gt;.slvs&lt;/code&gt; 檔案格式&lt;/h1&gt;
+&lt;p&gt;為了瞭解 Solvespace 的運作流程，也以便之後跟它溝通，想知道 &lt;code&gt;.slvs&lt;/code&gt; 的儲存方式。&lt;/p&gt;
+&lt;p&gt;觀察檔案格式，用文字編輯軟體開啟之前存的範例。&lt;/p&gt;
+&lt;p&gt;&lt;img src="" &gt;&lt;/p&gt;
+&lt;p&gt;Solvespace 是用西歐語系 &lt;code&gt;ISO-8859-15&lt;/code&gt; 編碼儲存圖檔的，以這點來說，Python 要輸出成 &lt;code&gt;.slvs&lt;/code&gt; 應該是輕而易舉。&lt;/p&gt;
+&lt;p&gt;之後觀察一下每種圖形的變化式，應該就能理解如何將 Pyslvs 的表格 Output 給 Solvespace 開啟了。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;Pyslvs 3D 模式&lt;/h1&gt;
+&lt;p&gt;在想 Pyslvs 之後會加入 3D 模式，採用 Qt OpenGL 繪圖（可以控制鏡頭），且和 2D 模式並存，參考這裡的文章：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://doc.qt.io/qt-5/topics-graphics.html#2d-graphics-with-qpainter" title="doc.qt.io"&gt;http://doc.qt.io/qt-5/topics-graphics.html#2d-graphics-with-qpainter&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;之前好像看過 QPainter 和 QOpenglWidgets 重疊渲染錯誤的問題，不過只要分開 Widget，應該是不會造成太大衝突。&lt;/p&gt;
+&lt;p&gt;而 2D 和 3D 共存不知道是否會吃太多資源，還有待觀察。&lt;/p&gt;
+&lt;p&gt;另外在成功大學的文件裡找到關於 STL 格式的說明：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://vr.me.ncku.edu.tw/courses/cg99/Download/STL.pdf" title="vr.me.ncku.edu.tw"&gt;http://vr.me.ncku.edu.tw/courses/cg99/Download/STL.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;想要大約瞭解一下，畢竟大部分的 3D CAD 軟體應該都支援 STL 檔。&lt;/p&gt;
+&lt;p&gt;亦找到一篇 C++ 讀取 STL 並用 OpenGL 顯示的範例 code，值得研究一下。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.cnblogs.com/xds1224/p/3565280.html" title="www.cnblogs.com"&gt;http://www.cnblogs.com/xds1224/p/3565280.html&lt;/a&gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/14</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050914.html" rel="alternate"></link><published>2016-09-14T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-14:blog/40323230ri-zhi-1050914.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Qt OpenGL 教學資料&lt;/p&gt;
 &lt;/li&gt;

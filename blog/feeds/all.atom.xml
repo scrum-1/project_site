@@ -127,7 +127,7 @@ $sudo apt-get install libqt5xmlpatterns5-dev
 &lt;p&gt;下載了編譯完成的 wheel (Python 3.4) 後，按照下方 Readme 的說明安裝。&lt;/p&gt;
 &lt;p&gt;這個套件提供者是將 Qt 版本分開裝的，所以會和 PyQt 使用的資料庫不一樣。&lt;/p&gt;
 &lt;p&gt;不過不須擔心這個問題，因為包好的 wheel 會直接讀安裝的 Qt 資料庫，可以不用裝說明裡的套件。&lt;/p&gt;
-&lt;p&gt;以下連結有 4 個平台的 PySide 2 載點，只需使用 &lt;code&gt;pip3 install&lt;/code&gt; 或 &lt;code&gt;pip3 install&lt;/code&gt; 就能裝成功。&lt;/p&gt;
+&lt;p&gt;以下連結有 4 個平台的 PySide 2 載點，只需使用 &lt;code&gt;pip install&lt;/code&gt; 或 &lt;code&gt;pip3 install&lt;/code&gt; 就能裝成功。&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://bintray.com/fredrikaverpil/pyside2-wheels/pyside2/2.0.0.dev0#files/" title="bintray.com"&gt;https://bintray.com/fredrikaverpil/pyside2-wheels/pyside2/2.0.0.dev0#files/&lt;/a&gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/13</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050913.html" rel="alternate"></link><published>2016-09-13T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-13:blog/40323230ri-zhi-1050913.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Pyslvs 版本子倉儲&lt;/p&gt;

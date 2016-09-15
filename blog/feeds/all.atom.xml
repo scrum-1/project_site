@@ -67,13 +67,13 @@ $sudo make
 &lt;/pre&gt;
 
 &lt;p&gt;編譯完畢後，可以在 &lt;code&gt;src&lt;/code&gt; 資料夾中找到 &lt;code&gt;solvespace&lt;/code&gt; 執行檔，點兩下就能執行了。&lt;/p&gt;
-&lt;p&gt;&lt;img src="" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/rgW87Ao.png" &gt;&lt;/p&gt;
 &lt;hr&gt;
 
 &lt;h1&gt;&lt;code&gt;.slvs&lt;/code&gt; 檔案格式&lt;/h1&gt;
 &lt;p&gt;為了瞭解 Solvespace 的運作流程，也以便之後跟它溝通，想知道 &lt;code&gt;.slvs&lt;/code&gt; 的儲存方式。&lt;/p&gt;
 &lt;p&gt;觀察檔案格式，用文字編輯軟體開啟之前存的範例。&lt;/p&gt;
-&lt;p&gt;&lt;img src="" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/7E2onBk.png" &gt;&lt;/p&gt;
 &lt;p&gt;Solvespace 是用西歐語系 &lt;code&gt;ISO-8859-15&lt;/code&gt; 編碼儲存圖檔的，以這點來說，Python 要輸出成 &lt;code&gt;.slvs&lt;/code&gt; 應該是輕而易舉。&lt;/p&gt;
 &lt;p&gt;之後觀察一下每種圖形的變化式，應該就能理解如何將 Pyslvs 的表格 Output 給 Solvespace 開啟了。&lt;/p&gt;
 &lt;hr&gt;

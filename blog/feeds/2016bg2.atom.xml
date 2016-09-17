@@ -1,5 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-15T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/15</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050915.html" rel="alternate"></link><published>2016-09-15T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-15:blog/40323230ri-zhi-1050915.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-17T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/17</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050917.html" rel="alternate"></link><published>2016-09-17T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-17:blog/40323230ri-zhi-1050917.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;PyOpenGL&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Pyslvs 界面&lt;/h1&gt;
+&lt;h2&gt;3D 模式&lt;/h2&gt;
+&lt;p&gt;在另一個分頁新增相同的面板，不過拿掉了呆鍊約束。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/9GEGPzD.png" &gt;&lt;/p&gt;
+&lt;p&gt;新的 Widget 名稱都改成 &lt;code&gt;_3d&lt;/code&gt; 字尾以供辨識。&lt;/p&gt;
+&lt;p&gt;不過上方的 QMenuBar 必須應對這個改變，估計製作 3D 的 QAction 後，會根據當前頁籤隱藏另一邊的 QAction。&lt;/p&gt;
+&lt;h2&gt;記憶體釋放&lt;/h2&gt;
+&lt;p&gt;由於初學時的寫法沒優化觀念，Qt 的視窗物件必須用 &lt;code&gt;setAttribute()&lt;/code&gt; 設定屬性，其中的 &lt;code&gt;Qt.WA_DeleteOnClose&lt;/code&gt; 會在關閉後刪除物件，以免開過太多視窗會導致速度降低。&lt;/p&gt;
+&lt;h2&gt;&lt;code&gt;.slvs&lt;/code&gt; 格式&lt;/h2&gt;
+&lt;p&gt;今天還是沒時間研究詳細的用法，但是可以確定 2D 圖面的初步內容（基準面之類的），用 Python 程式碼存成 &lt;code&gt;.slvs&lt;/code&gt; 附檔名的 &lt;code&gt;ISO-8859-15&lt;/code&gt; 編碼文字檔。&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+with open(fileName, 'w', encoding="iso-8859-15", newline="") as f:
+    f.write(self.Slvs_Script)
+print("Successful Save: "+fileName)
+&lt;/pre&gt;
+
+&lt;hr&gt;
+
+&lt;h1&gt;PyOpenGL&lt;/h1&gt;
+&lt;p&gt;找了一下之前為何無法使用 OpenGL 範例的原因，似乎是因為那些範例無法支援新的 OpenGL 了。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://stackoverflow.com/questions/38645674/issues-with-pyqt5s-opengl-module-and-versioning-calls-for-incorrect-qopenglfu" title="stackoverflow.com"&gt;http://stackoverflow.com/questions/38645674/issues-with-pyqt5s-opengl-module-and-versioning-calls-for-incorrect-qopenglfu&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;所以按照建議，安裝了 PyOpenGL（License: BSD） ，不過它的開發期較長。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://pyopengl.sourceforge.net/documentation/installation.html" title="pyopengl.sourceforge.net"&gt;http://pyopengl.sourceforge.net/documentation/installation.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;執行過上面文章的範例，可以成功使用（不過那個範例 code 忘記匯入 sys 和 math）。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/hZf6lu2.png" &gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;明天可能會利用時間放圖片。&lt;/p&gt;
+&lt;p&gt;Mark Down 圖片的語法（其實和超連結很像）：&lt;/p&gt;
+&lt;pre&gt;
+![替代文字](近端或遠端連結"滑鼠提示文字")
+&lt;/pre&gt;
+
+&lt;p&gt;只是無法調整圖片大小。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/15</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050915.html" rel="alternate"></link><published>2016-09-15T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-15:blog/40323230ri-zhi-1050915.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;現時 Ubuntu 版 Solvespace 安裝&lt;/p&gt;
 &lt;/li&gt;

@@ -9419,13 +9419,13 @@ DLL void Slvs_Solve(Slvs_System *sys, Slvs_hGroup hg);
 &lt;p&gt;接著從&lt;a href="http://www.swig.org/download.html" title="swig.org"&gt;swig.org&lt;/a&gt;下載最新版的SWIG 3.0.10，將壓縮包解至W:內。&lt;/p&gt;
 &lt;p&gt;SWIG能夠給Windows/Unix/MacOSX三個平台使用，所以壓縮檔的附檔名是三個平台都共通的".tar.gz"。&lt;/p&gt;
 &lt;p&gt;解壓縮後，在Windows環境中有很多檔案是打不開的，不過說明檔是沒有附檔名的，隨便用任何一款文字編輯軟體都能查看。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/G3moEiW.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709-2_01.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;如果該步驟需要完整的流程，\Doc\Manual中有寫好的html網頁手冊，用網頁瀏覽器就能開啟。&lt;/p&gt;
 &lt;p&gt;在閱讀\Doc\Manual\Windows.html的說明之後，手冊解釋SWIG並不是使用通常的Windows類型安裝程式。&lt;/p&gt;
 &lt;p&gt;只要在編譯器中（手冊的範例是Visual Studio）設置環境變數就能使用其範例檔。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/VHvu5ps.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709-2_02.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;手冊上也有說明能夠用MinGW和MSYS，Build出SWIG的可執行檔swig.exe。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/vaa3Shm.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709-2_03.jpg" /&gt;&lt;/p&gt;
 &lt;hr&gt;
 
 &lt;h2&gt;CDemo.exe :&lt;/h2&gt;
@@ -9433,17 +9433,17 @@ DLL void Slvs_Solve(Slvs_System *sys, Slvs_hGroup hg);
 &lt;p&gt;CDemo.exe是由CDemo.c編譯出來的可執行檔，取用libslvs.dll的動態連結庫運作。&lt;/p&gt;
 &lt;p&gt;在原本的\exposed資料夾中還有工程師留下的VbDemo.vb，Visual Basic或是Visual C#的專案文件，不過不使用這兩個編譯器的話就用不到。&lt;/p&gt;
 &lt;p&gt;為此特別將CDemo.exe和libslvs.dll拿出來放在獨立的資料夾中。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/7y0nwjC.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709-2_04.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;由CMD進入資料夾中執行CDemo.exe，會發現CDemo是直接顯示了結果。&lt;/p&gt;
 &lt;p&gt;顯然CDemo.exe原先已經設定好題目，於是打開CDemo.c看看工程師的註解怎麼說。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/hzotTGs.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709-2_05.jpg" /&gt;&lt;/p&gt;
 &lt;hr&gt;
 
 &lt;h2&gt;CDemo.c :&lt;/h2&gt;
 
 &lt;p&gt;由於NetBeans和Windows的截圖程式似乎有衝突，會常常截完圖後自動閃退，所以改用簡便的SciTE。&lt;/p&gt;
 &lt;p&gt;用SciTE開啟CDemo.c，可以發現CDemo的原始碼。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/6IlMv1k.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709-2_06.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;而為了方便，將它部分的原始碼貼在下面：&lt;/p&gt;
 &lt;pre class="brush: c"&gt;
 /*---------------------------
@@ -9703,25 +9703,25 @@ void Example2d()
 &lt;h2&gt;BUG fix :&lt;/h2&gt;
 
 &lt;p&gt;W:槽的SciTE有點小問題，因為設定檔是從Y:複製來的，所以需要重新定義TinyC的位置。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/nXiTYLx.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709_01.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;只要修改cpp.properties的路徑就可以了。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/zjc51Kz.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709_02.jpg" /&gt;&lt;/p&gt;
 &lt;hr&gt;
 
 &lt;h2&gt;Nutcracker Solution :&lt;/h2&gt;
 
 &lt;p&gt;上學期的&lt;a href="http://chiamingyen.github.io/kmolab/blog/2015-fall-cadp-w16.html" title="github.io"&gt;Nutcracker網誌內容&lt;/a&gt;。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/Tfik6jG.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709_03.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;之前的python題目，稍微研究一下後轉成C語言。&lt;/p&gt;
 &lt;p&gt;不過如果直接運行會跑很久。但是這裡可以練習一下小型演算法的模式。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/RwJbKM9.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709_04.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;先做了兩個程式，不過第一是介面而已，第二個才是主要架構。&lt;/p&gt;
 &lt;p&gt;撰寫的途中使用Solvespace研究，由於數學邏輯不太好，很多幾何的東西沒那麼直觀。&lt;/p&gt;
 &lt;p&gt;有時候會偷吃步測試一些解法。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/PDHq9QA.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709_05.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;第二支程式是從python的範例改來的，不過後來做了很多變化，只有解最小路徑最大角度。&lt;/p&gt;
 &lt;p&gt;演算法概念：&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/iOuX4ks.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709_06.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;途中查了很多數學公式，無奈常常打錯又不知道正確性，重複試了很多次才成功。&lt;/p&gt;
 &lt;pre class="brush: c"&gt;
 #include &lt;stdio.h&gt;
@@ -9758,7 +9758,7 @@ int main()
 
 &lt;p&gt;第二支程式的最後成果。&lt;/p&gt;
 &lt;p&gt;最後精確度還是沒有很高，不知道問題出在哪裡。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/jbtn7X1.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709_07.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;第一支程式是剛開始寫輸入端介面，供使用者輸入自訂參數，後來再把第二支程式的模型搬回來用，並另外寫一個解最大路徑和最小角度的程式，所有例外狀況也是在這裡排除。&lt;/p&gt;
 &lt;p&gt;後來還不知道怎麼讓副程式傳回double或其他浮點數，查一下才知道要在開始前宣告一次。&lt;/p&gt;
 &lt;pre class="brush: c"&gt;
@@ -9897,7 +9897,7 @@ double solve_minangle(int lim, int a, int b, int r)
 &lt;/pre&gt;
 
 &lt;p&gt;最後執行的結果：&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/S6oj3vJ.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709_08.jpg" /&gt;&lt;/p&gt;
 &lt;hr&gt;
 
 &lt;p&gt;剛開始還以為是用公式推導座標點的結果，後來回去看網誌才知道用演算法計算。電腦演算時如果一邊列出結果，會拖慢速度，所以在最後的程式碼中只留檢查用的結果。&lt;/p&gt;
@@ -10116,37 +10116,37 @@ double solve_minangle(int lim, int a, int b, int r)
 &lt;p&gt;3.CMake  (Official version), &lt;a href="https://cmake.org/download/" title="cmake.org"&gt;https://cmake.org/download/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;4.NetBeans (Our storage), &lt;a href="http://140.130.17.17/public/Netbeans/" title="140.130.17.17/public/"&gt;http://140.130.17.17/public/Netbeans/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;存放位置除了CMake之外皆為W:內，CMake存於W:\app資料夾中。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/kHQFc1g.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0707_01.jpg" /&gt;&lt;/p&gt;
 &lt;h2&gt;下載Solvespace原始碼 :&lt;/h2&gt;
 
 &lt;p&gt;從&lt;a href="https://github.com/whitequark/solvespace/tree/master" title="github.com"&gt;Whitequark的倉儲&lt;/a&gt;git clone最新的原始碼到W:\tmp資料夾內，並執行git submodule update --init命令以從相關倉儲下載submodule的原始碼。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/KUJCPoJ.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0707_02.jpg" /&gt;&lt;/p&gt;
 &lt;h2&gt;NetBeans設定 :&lt;/h2&gt;
 
 &lt;p&gt;從\NetBeans\bin執行NetBeans，亦可編輯start.bat和stop.bat後，在啟動時呼叫和關閉它。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/m7uH7TA.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0707_03.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;在Tools-&amp;gt;Options的C/C++中新增編譯工具，選擇GNU MinGW，並填入MinGW的存放位置。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/D6TKKRZ.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0707_04.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;大部分的程式位置會自動填入，不過還要指定msys的make.exe和cmake的位置。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/rame7tV.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0707_05.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;若有必要可以為NetBeans安裝CMake的附加元件。&lt;/p&gt;
 &lt;p&gt;在Tools-&amp;gt;Plugins的Available Plugins中搜尋cmake就能找到，勾選後按下Install鈕就能夠安裝。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/6mi2Lz1.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0707_06.jpg" /&gt;&lt;/p&gt;
 &lt;h2&gt;執行Build :&lt;/h2&gt;
 
 &lt;p&gt;接著按下New Project...新增專案。&lt;/p&gt;
 &lt;p&gt;選擇Project with Existing Sources繼續。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/TxisGUv.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0707_07.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;然後選擇Whitequark的Solvespace原始碼目錄。&lt;/p&gt;
 &lt;p&gt;並使用Automatic讓cmake自動清理專案，直接按完成就會開始Clean和嘗試Build。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/Gzqb7so.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0707_08.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;這時在Build時會出現錯誤，顯示一串類似undefined reference to `BZ2_bzDecompressEnd'的訊息，是因為沒有加入bz2的程式庫連結所致。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/DF15llN.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0707_09.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;這時開啟專案內的\src\CMakeLists.txt，找到target_link_libraries這一行，並將bz2加到最後的括弧內，就可以繼續完成Build。&lt;/p&gt;
 &lt;p&gt;註：如果不是填在最後一項會有讀取順序錯誤的問題。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/rAC4a2W.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0707_10.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;修改CMake的清單後，就能順利建立solvespace.exe和CDemo.exe，分別存放在\src和\exposed資料夾下。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/0CEdXhu.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0707_11.jpg" /&gt;&lt;/p&gt;
 &lt;hr&gt;
 
 &lt;p&gt;接下來就是研究如何應用CDemo的解題程式協助解開範例，最後再修改供Python3呼叫和取用其動態連結庫。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category><category term="CDemo"></category></entry><entry><title>40323143 - 日誌 105年7月7日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-7ri.html" rel="alternate"></link><published>2016-07-07T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-07:blog/40323143-ri-zhi-105nian-7yue-7ri.html</id><summary type="html">&lt;p&gt;承臂和馬達組裝完成 發現極限開關固定桿問題 新增旋盤外接件 電路配置構想
@@ -10184,21 +10184,21 @@ double solve_minangle(int lim, int a, int b, int r)
 &lt;h3&gt;超連結為下載處。&lt;/h3&gt;
 
 &lt;p&gt;1.&lt;a href="https://github.com/whitequark/solvespace/tree/master" title="github.com"&gt;Whitequark的倉儲&lt;/a&gt;：非官方人員開發的原始碼。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/dcchKn7.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0706_01.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;2.&lt;a href="http://solvespace.com/download.pl" title="solvespace.com"&gt;Solvespace 2.0&lt;/a&gt;：官方舊版2.0的原始碼。結構很簡單，沒有cmake建置的檔案。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/HBZ0DM4.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0706_02.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;3.&lt;a href="https://github.com/solvespace/solvespace/releases/tag/v2.1" title="github.com"&gt;Solvespace 2.1&lt;/a&gt;：官方最新穩定的版本。結構類似現在開發中的樣式。但是用NetBeans建置時會顯示\extlib資料夾中很多資料夾是空的錯誤，2.0版沒有這些資料夾，這些空的資料夾似乎和&lt;a href="https://github.com/solvespace/libdxfrw" title="github.com"&gt;solvespace/libdxfrw&lt;/a&gt;有關聯。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/Zqu4j7i.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0706_03.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;4.&lt;a href="https://github.com/solvespace/solvespace/tree/2.x" title="github.com"&gt;Solvespace的倉儲&lt;/a&gt;：官方開發中的2.2版。好像不能clone下來，只能載zip檔。也有2.1那些空資料夾。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/UYXGcF7.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0706_04.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;相關連結：版本差異紀錄-&lt;a href="https://github.com/solvespace/solvespace/blob/2.x/CHANGELOG.md" title="github.com"&gt;Solvespace的倉儲&lt;/a&gt;&lt;/p&gt;
 &lt;hr&gt;
 
 &lt;p&gt;NetBeans方面，同樣使用C/C++ Project with Existing Sources建置檔案，官方的版本都會因為libdxfrw、libfreetype、libpng、zlib沒東西而顯示建置錯誤。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/ZGLaQ0j.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/WkmsWPq.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0706_05.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0706_06.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;點開記錄錯誤的視窗：&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/52VlrUJ.jpg" &gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323143 - 日誌 105年7月6日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-6ri.html" rel="alternate"></link><published>2016-07-06T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-06:blog/40323143-ri-zhi-105nian-7yue-6ri.html</id><summary type="html">&lt;p&gt;第二種極限開關的繪圖及安裝設計 第一種極限開關的安裝測試 承臂和馬達的安裝問題
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0706_07.jpg" /&gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category></entry><entry><title>40323143 - 日誌 105年7月6日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-6ri.html" rel="alternate"></link><published>2016-07-06T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-06:blog/40323143-ri-zhi-105nian-7yue-6ri.html</id><summary type="html">&lt;p&gt;第二種極限開關的繪圖及安裝設計 第一種極限開關的安裝測試 承臂和馬達的安裝問題
 &lt;/p&gt;
 &lt;p&gt;日記:&lt;/p&gt;
 &lt;p&gt;今天將第二種極限開關新增到零件庫中，並在底座上依其尺寸新增了一個安裝位置，以及在懸盤上新增了一個用來安裝觸發極限開關突出物的安裝孔，和觸發極限開關的圓桿。&lt;/p&gt;
@@ -10231,33 +10231,33 @@ double solve_minangle(int lim, int a, int b, int r)
 &lt;p&gt;另外NetBeans需要連線的服務（ex.附加元件）也會在啟動時檢查更新。只要背景有程序執行，右下角的進度條就會提醒。&lt;/p&gt;
 &lt;p&gt;不過NetBeans似乎有時載入太多東西或其他背景程式開太多，如果再對它下指令，會反應跟不上而閃退。也有可能是在可攜環境執行的關係，比較吃資源。&lt;/p&gt;
 &lt;p&gt;設定start.bat在啟動後自動打開NetBeans。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/VyTHn6F.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0705_01.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;NetBeans在啟動時載入專案的提示。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/g2hnriA.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0705_02.jpg" /&gt;&lt;/p&gt;
 &lt;h2&gt;NetBeans介面 :&lt;/h2&gt;
 
-&lt;p&gt;&lt;img src="http://i.imgur.com/dpboPO9.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0705_03.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;跟大部分的文字編譯軟體差不多的介面。&lt;/p&gt;
 &lt;p&gt;在畫面中按住Ctrl鍵選取#include或import的檔案能直接在分頁中開啟它們；如果是物件，點擊後會移到宣告的地方；如果是副程式，會移到其開始位置。&lt;/p&gt;
 &lt;p&gt;行號中會標記錯誤或警告提示，滑鼠移上去就會解說，並且按下Alt+Enter可以顯示更多提示。&lt;/p&gt;
 &lt;p&gt;捲軸的旁邊會標記標籤，顯示整個檔案中哪些位置有警告或錯誤，直接點擊可以快速移到該處。&lt;/p&gt;
 &lt;p&gt;NetBeans還有內建自動拼寫校正（註解處）。不過有時候讀取和偵錯反應比較慢。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/dHiNW4x.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0705_04.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;主工具列比較簡單。新建獨立檔案／專案、讀取專案、全部儲存、復原／重做之類的基本功能。&lt;/p&gt;
 &lt;p&gt;另外還有選取專案設定檔、Build／Clean than Build的功能、執行／除錯的功能。&lt;/p&gt;
 &lt;p&gt;上方的選單比較特殊的是Team的功能，似乎能管理版次和執行git的指令，但是嘗試了一些似乎沒反應？&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/Y94zmYv.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0705_05.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;Project的欄目可以快速選取開啟CMake的檔案，除此之外和File的檔案結構是一樣的。&lt;/p&gt;
 &lt;p&gt;以下是File的檔案目錄和檔案總管顯示的比較。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/ekWZDfJ.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/ORqMv0Q.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0705_06.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0705_07.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;服務頁籤中會顯示一些工具，不過不知道怎麼使用。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/qMeIdGo.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0705_08.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;讀取檔案後會顯示第4個欄位Class，是拆解程式後的物件樹，點擊兩下會開啟程式碼。&lt;/p&gt;
 &lt;p&gt;在物件上點擊兩下會移到該物件所在的檔案位置。&lt;/p&gt;
 &lt;p&gt;在物件上打關鍵字並使用上下鍵移動能夠搜尋檔案中的物件。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/rTjJ0jx.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/XBywmpk.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0705_09.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0705_10.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;工具列的功能說明：&lt;/p&gt;
 &lt;p&gt;1：Source-切換至編輯原始碼模式。&lt;/p&gt;
 &lt;p&gt;2：History-切換至編輯記錄模式。&lt;/p&gt;
@@ -10377,26 +10377,26 @@ double solve_minangle(int lim, int a, int b, int r)
 &lt;p&gt;從&lt;a href="https://nuwen.net/mingw.html" title="nuwen.net"&gt;MinGW Distro - nuwen.net&lt;/a&gt;下載了新版配有gcc 6.1.0和Boost 1.61.0的MinGW，原本可攜式環境的MinGW是用gcc 4.9.3，暫且在名稱加上.old不使用。&lt;/p&gt;
 &lt;p&gt;下圖是新版和舊版的比對。新版的資料夾有附一個README_STL.txt文件說明內含的附加元件版本。&lt;/p&gt;
 &lt;p&gt;這個MinGW裡還配有一個比較簡單的git工具。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/QusRHMc.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0704-2_01.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;NetBeans的版本是8.1，存放於根目錄W:，已經是最新版。&lt;/p&gt;
 &lt;p&gt;先在Option裡設定C語言用的Build Tool，在新增工具的下拉選單設定使用MinGW，並指定到MinGW的目錄。成功新增Tool後，NetBeans會自己抓到gcc.exe、g++.exe、as.exe、gdb.exe，最下方則是有QMake和CMake的選項，將CMake指定到存放的位置。&lt;/p&gt;
 &lt;p&gt;設定裡所有的位置都是指定於可攜式環境內，沒用到任何外部資料夾。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/aY6AzV5.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0704-2_02.jpg" /&gt;&lt;/p&gt;
 &lt;h2&gt;NetBeans專案 :&lt;/h2&gt;
 
 &lt;p&gt;之後新建專案，選擇C語言已有源代碼的專案。&lt;/p&gt;
 &lt;p&gt;選擇模式部分選擇Solvespace的目錄。工具只有剛才設定的MinGW，並選擇自訂查看一下。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/MOdwa0P.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0704-2_03.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;基本上是使用Predefined Command，使用的是CMake的gui設定，也就是Solvespace目錄存放的CMakeLists.txt檔。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/f4sSsvQ.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0704-2_04.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;接下來是清理和建置指令，就和打在CMD視窗裡的一樣。&lt;/p&gt;
 &lt;p&gt;幾乎每個環節都會詢問工作環境，但是Solvespace沒特別區分的話就是原本目錄內，所以直接按下一步。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/HrGJNnU.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0704-2_05.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;按下完成鈕後會花個幾秒載入。然後就會在左側讀入原始碼資料夾和檔案的結構。&lt;/p&gt;
 &lt;p&gt;下面則會執行並顯示CMake和Clean指令輸出的訊息，最後完成後就完成編譯環境了。&lt;/p&gt;
 &lt;p&gt;左側的欄位分成Project、Files和Services。只要在Project或Files的檔案樹點兩下就能在中央開啟文件編輯。Services則可以呼叫MinGW的附加元件來用（包含gcc）。&lt;/p&gt;
 &lt;p&gt;左下的導航欄似乎能執行CMake的指令。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/mFKn2Pc.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0704-2_06.jpg" /&gt;&lt;/p&gt;
 &lt;hr&gt;
 
 &lt;p&gt;這次也是使用之前備份並更新過的Solvespace原始碼操作，免得被之前的檔案影響。&lt;/p&gt;
@@ -10424,15 +10424,15 @@ double solve_minangle(int lim, int a, int b, int r)
 &lt;h3&gt;Readme的Command-line build&lt;/h3&gt;
 
 &lt;p&gt;使用可攜式環境的Command Prompt到外部呼叫Visual Studio的vcvarsall.bat。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/F6tBRr1.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0704_01.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;然後為cmake的bin資料夾設定啟動位置(Path4)，可以正常呼叫。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/2h18M7K.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0704_02.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;到CMD中下Readme中提供的指令。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/zpzsMMZ.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0704_03.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;接著下nmake的指令。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/SMlMAQc.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0704_04.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;但是在最後出現一些錯誤，不知道原因為何。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/CZ2wMoU.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0704_05.jpg" /&gt;&lt;/p&gt;
 &lt;hr&gt;
 
 &lt;p&gt;與此同時可以用Visual Studio的相關功能。CMake也算是設定完成了。&lt;/p&gt;
@@ -10442,9 +10442,9 @@ double solve_minangle(int lim, int a, int b, int r)
 &lt;h3&gt;Readme的MSVC build&lt;/h3&gt;
 
 &lt;p&gt;這次也把MinGW的bin設定進啟動位置(Path5)，可以正常呼叫。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/8D6cRvV.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0704_06.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;接著同樣按照Readme的說明用CMD下指令。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/iXmV4cR.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0704_07.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;不過後面的make指令會說無法讀取makefile檔。&lt;/p&gt;
 &lt;hr&gt;
 
@@ -10479,20 +10479,20 @@ double solve_minangle(int lim, int a, int b, int r)
 &lt;p&gt;下載了放在140.130.17.17/public/Netbeans/的可攜式環境git2016，該環境使用的是W:磁碟機，不會和撰寫網誌的Y:環境衝突，可以同時開啟；但是其一關閉時會把所有cmd關掉。之後放入了Netbeans套件，不過還尚未使用。&lt;/p&gt;
 &lt;p&gt;在新的可攜式環境中存入了從GitHub下載的Solvespace的原始碼，並依照其Readme的方式，用git submodule update --init指令更新模組，並存了一個備份檔。&lt;/p&gt;
 &lt;p&gt;CMake的方面使用可攜版的Zip檔，而非Msi安裝。將CMake放在W:的根目錄下。相較於使用指令，因為可攜式環境沒辦法呼叫外部程式支援，所以用cmake-gui.exe圖形介面來設定相關環境。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/nk3qTV4.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0703-2_01.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;一開始對cmake-gui.exe的兩個位置指向不太清楚，所以嘗試了很多次。&lt;/p&gt;
 &lt;p&gt;要在Solvespace的目錄中建立一個/build資料夾，以存放binaries。&lt;/p&gt;
 &lt;p&gt;Source code的部分是填程式專案的目錄，binaries的地方填/build資料夾，再按Configure鈕設定編譯器，完成後會設置CMake的檔案。&lt;/p&gt;
 &lt;p&gt;雖然之前的目錄已經有檔案了，但是如果binaries直接設目錄內，貌似會衝突產生問題，也無法復原設定檔，幸好有先備份資料能復原。&lt;/p&gt;
 &lt;p&gt;Configure的部分嘗試選擇MinGW的選項。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/5br2VyW.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0703-2_02.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;下面則選Specify native compilers來自訂編譯器位置，這時執行出現一個錯誤，無法執行MinGW。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/OljnPa7.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0703-2_03.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;上網尋找似乎要修改系統環境參數到MinGW的bin資料夾才找的到原本就存在的libgmp-10.dll，不知道可攜式環境有沒有其他解法。&lt;/p&gt;
 &lt;hr&gt;
 
 &lt;p&gt;暫時用Visual Studio的設定，但是結果似乎不理想。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/TSfLb5n.jpg" &gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0703-2_04.jpg" /&gt;&lt;/p&gt;
 &lt;hr&gt;
 
 &lt;p&gt;參考資料：&lt;/p&gt;

@@ -127,7 +127,17 @@ AddConstraint
 &lt;p&gt;關於 3D Printer 模擬的部份，可能必須寫一個新的軟體來應對。&lt;/p&gt;
 &lt;p&gt;因為一些定義如果直接套用目前的範本，可能會無法模擬。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0919_01.jpg" /&gt;&lt;/p&gt;
-&lt;p&gt;畫了個模型，之後套範本應該比較快。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/17</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050917.html" rel="alternate"></link><published>2016-09-17T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-17:blog/40323230ri-zhi-1050917.html</id><summary type="html">&lt;ol&gt;
+&lt;p&gt;畫了個模型，之後套範本應該比較快。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/21</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050921.html" rel="alternate"></link><published>2016-09-19T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-19:blog/40323230ri-zhi-1050921.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;.slvs&lt;/code&gt; 格式&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;&lt;code&gt;.slvs&lt;/code&gt; 格式&lt;/h1&gt;
+&lt;p&gt;簡述進度：&lt;/p&gt;
+&lt;p&gt;輸出功能做了之後就測試 Pyslvs 產生的檔案是否能給 Solvespace 讀取，但是發現其實 16 進位編號是有順序的，如果跳號或對錯位就會導致閃退。&lt;/p&gt;
+&lt;p&gt;測試之後，目前基本的點輸入一切正常，但是當有連接線時就會產生錯誤，可能是數值對錯位，轉檔紀錄時應該必須和現在的算點功能分離。&lt;/p&gt;
+&lt;p&gt;目前轉出點成功：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0921_01.jpg" /&gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/17</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050917.html" rel="alternate"></link><published>2016-09-17T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-17:blog/40323230ri-zhi-1050917.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
 &lt;/li&gt;

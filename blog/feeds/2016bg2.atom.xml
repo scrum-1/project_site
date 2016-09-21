@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-21T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/21</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050921.html" rel="alternate"></link><published>2016-09-21T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-21:blog/40323230ri-zhi-1050921.html</id><summary type="html">&lt;ol&gt;
-&lt;li&gt;&lt;code&gt;.slvs&lt;/code&gt; 格式&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;.slvs&lt;/code&gt; 格式&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;速度計算&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 
 
@@ -9,7 +14,10 @@
 &lt;p&gt;輸出功能做了之後就測試 Pyslvs 產生的檔案是否能給 Solvespace 讀取，但是發現其實 16 進位編號是有順序的，如果跳號或對錯位就會導致閃退。&lt;/p&gt;
 &lt;p&gt;測試之後，目前基本的點輸入一切正常，但是當有連接線時就會產生錯誤，可能是數值對錯位，轉檔紀錄時應該必須和現在的算點功能分離。&lt;/p&gt;
 &lt;p&gt;目前轉出點成功：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0921_01.jpg" /&gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/19</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050919.html" rel="alternate"></link><published>2016-09-19T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-19:blog/40323230ri-zhi-1050919.html</id><summary type="html">&lt;ol&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0921_01.jpg" /&gt;&lt;/p&gt;
+&lt;h1&gt;速度計算功能&lt;/h1&gt;
+&lt;p&gt;想做一個有關速度計算的功能，從轉的角度轉換距離，用自訂 RPM 速度轉換當前線速度。&lt;/p&gt;
+&lt;p&gt;可能會結合路徑追蹤使用。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/19</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050919.html" rel="alternate"></link><published>2016-09-19T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-19:blog/40323230ri-zhi-1050919.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;.slvs&lt;/code&gt; 格式&lt;/p&gt;
 &lt;/li&gt;

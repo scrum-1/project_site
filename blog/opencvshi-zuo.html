@@ -329,62 +329,70 @@ init_mathjax();
 
 <p>實作系統Ubuntu 14.04</p>
 <p>剛開始必須要先安裝依些相關的compiler以及設定黨
-步驟如同老師所下載的順序
-<pre class="brush: python"></p>
-<h1>apt-get 更新</h1>
-<p>$ sudo apt-get update</p>
-<h1>apt-get 升級</h1>
-<p>$ sudo apt-get upgrade</p>
-<h1>安裝所需的開發套件</h1>
-<p>$ sudo apt-get install build-essential cmake git pkg-config</p>
-<h1>安裝編譯過程所需的程式庫</h1>
-<p>$ sudo apt-get install libjpeg8-dev libtiff4-dev libjasper-dev libpng12-dev</p>
-<h1>安裝編譯過程所需的程式庫</h1>
-<p>$ sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev</p>
-<h1>安裝編譯過程所需的程式庫</h1>
-<p>$ sudo apt-get install libgtk2.0-dev</p>
-<h1>安裝編譯過程所需的 fortran 編譯器</h1>
-<p>$ sudo apt-get install libatlas-base-dev gfortran</p>
-<h1>安裝編譯過程所需的原始碼</h1>
-<p>$ sudo apt-get install python3.4-dev</p>
-<h1>本台機器的 python 為 2.7 版, 而 python3 則為 python 3.4, 這裡安裝 numpy  模組</h1>
-<p>$ sudo pip3 install numpy</p>
-<h1>希望在帳號目錄下的 tmp 進行編譯工作</h1>
-<p>$ cd</p>
-<h1>new folder</h1>
-<p>$ mkdir tmp</p>
-<h1>更換目錄到 tmp</h1>
-<p>$ cd tmp</p>
-<h1>利用 git clone 取得原始碼</h1>
-<p>$ git clone https://github.com/Itseez/opencv.git</p>
-<h1>準備進入倉儲切換分支</h1>
-<p>$ cd opencv</p>
-<h1>採用 3.1.0 版</h1>
-<p>$ git checkout 3.1.0</p>
-<h1>回到用戶目錄</h1>
-<p>$ cd ..</p>
-<h1>再利用 git clone 下載原始碼</h1>
-<p>$ git clone https://github.com/Itseez/opencv_contrib.git</p>
-<h1>準備進入倉儲切換分支</h1>
-<p>$ cd opencv_contrib</p>
-<h1>與 opencv 配合, 採用 3.1.0 版</h1>
-<p>$ git checkout 3.1.0</p>
-<p>$ cd ..</p>
-<h1>準備開始建立程式庫</h1>
-<p>$ cd opencv</p>
-<p>$ mkdir build</p>
-<p>$ cd build</p>
-<h1>這裡會同時建立 Python2 與 Python3 的 OpenCV 程式庫檔案</h1>
-<p>$ cmake -D CMAKE_BUILD_TYPE=RELEASE \
+步驟如同老師所下載的順序</p>
+<pre class="brush: python">
+# apt-get 更新
+$ sudo apt-get update
+# apt-get 升級
+$ sudo apt-get upgrade
+# 安裝所需的開發套件
+$ sudo apt-get install build-essential cmake git pkg-config
+# 安裝編譯過程所需的程式庫
+$ sudo apt-get install libjpeg8-dev libtiff4-dev libjasper-dev libpng12-dev
+# 安裝編譯過程所需的程式庫
+$ sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+# 安裝編譯過程所需的程式庫
+$ sudo apt-get install libgtk2.0-dev
+# 安裝編譯過程所需的 fortran 編譯器
+$ sudo apt-get install libatlas-base-dev gfortran
+# 安裝編譯過程所需的原始碼
+$ sudo apt-get install python3.4-dev
+# 本台機器的 python 為 2.7 版, 而 python3 則為 python 3.4, 這裡安裝 numpy  模組
+$ sudo pip3 install numpy
+# 希望在帳號目錄下的 tmp 進行編譯工作
+$ cd
+#new folder
+$ mkdir tmp
+# 更換目錄到 tmp
+$ cd tmp
+# 利用 git clone 取得原始碼
+$ git clone https://github.com/Itseez/opencv.git
+# 準備進入倉儲切換分支
+$ cd opencv
+# 採用 3.1.0 版
+$ git checkout 3.1.0
+# 回到用戶目錄
+$ cd ..
+# 再利用 git clone 下載原始碼
+$ git clone https://github.com/Itseez/opencv_contrib.git
+# 準備進入倉儲切換分支
+$ cd opencv_contrib
+# 與 opencv 配合, 採用 3.1.0 版
+$ git checkout 3.1.0
+
+$ cd ..
+# 準備開始建立程式庫
+$ cd opencv
+
+$ mkdir build
+
+$ cd build
+
+# 這裡會同時建立 Python2 與 Python3 的 OpenCV 程式庫檔案
+$ cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D CMAKE_INSTALL_PREFIX=/usr/local \
     -D INSTALL_C_EXAMPLES=OFF \
     -D INSTALL_PYTHON_EXAMPLES=ON \
     -D PYTHON_EXECUTABLE=$(which python3) \
     -D OPENCV_EXTRA_MODULES_PATH= ./../../opencv_contrib/modules \
-    -D BUILD_EXAMPLES=ON ..</p>
-<p>$ make -j4</p>
-<p>$ sudo make install</p>
-<p>$ sudo ldconfig</p>
+    -D BUILD_EXAMPLES=ON ..
+
+$ make -j4
+
+$ sudo make install
+
+$ sudo ldconfig
+
 </pre>
 
 <p><img src="http://coursemdetw.github.io/project_site_files/files/2016spring/opencv_python3_windows.png" width="800" /></p>
@@ -445,6 +453,11 @@ init_mathjax();
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/bullet-dynamic-engine.html">
+                            bullet dynamic engine
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/pyslvs-xue-xi.html">
                             Pyslvs 學習
                         </a>
@@ -462,11 +475,6 @@ init_mathjax();
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1050917.html">
                             40323230日誌 - 105/09/17
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1050915.html">
-                            40323230日誌 - 105/09/15
                         </a>
                     </li>
                 </ul>

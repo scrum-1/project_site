@@ -1,5 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-24T12:00:00+08:00</updated><entry><title>Pyslvs 學習</title><link href="http://project.mde.tw/blog/pyslvs-xue-xi.html" rel="alternate"></link><published>2016-09-24T12:00:00+08:00</published><updated>2016-09-24T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-09-24:blog/pyslvs-xue-xi.html</id><summary type="html">&lt;p&gt;本篇關於開發的分配
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-24T20:00:00+08:00</updated><entry><title>bullet dynamic engine</title><link href="http://project.mde.tw/blog/bullet-dynamic-engine.html" rel="alternate"></link><published>2016-09-24T20:00:00+08:00</published><updated>2016-09-24T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-09-24:blog/bullet-dynamic-engine.html</id><summary type="html">&lt;p&gt;目前唯一可惜的部份是只能用在python2.7上面&lt;/p&gt;
+
+
+&lt;p&gt;今天將v-rep裡面的運動引擎,找了許多資料其中有&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;bullet dynamic (blender)
+&lt;li&gt;newton 
+&lt;li&gt;ODE (opensource dynamic engine)
+&lt;/ul&gt;
+
+&lt;p&gt;再找了許多資料後,發現現在這些引擎都幾乎和python掛不著邊,資料相當稀少,目前已經將bullet的部份轉成可以用python去調度裡面的運算模擬,例如碰撞 慣性等,但是目前有個極大的問題,swap的部份部是我寫的,當時他是使用python2.7,已經沒有開發成python3以上的版本,但是我不知道如何去撰寫關於這個swap的部份,可能要請老師教我們如何撰寫。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/20tab/pybulletphysics.git"&gt;https://github.com/20tab/pybulletphysics.git&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/coursemdetw/project_site_files/blob/gh-pages/files/2016spring/g1/dynamic.png?raw=true" /&gt;&lt;/p&gt;</summary><category term="dynamic"></category></entry><entry><title>Pyslvs 學習</title><link href="http://project.mde.tw/blog/pyslvs-xue-xi.html" rel="alternate"></link><published>2016-09-24T12:00:00+08:00</published><updated>2016-09-24T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-09-24:blog/pyslvs-xue-xi.html</id><summary type="html">&lt;p&gt;本篇關於開發的分配
 &lt;/p&gt;
 &lt;h5&gt; 參考範例所延伸的心得&lt;/h5&gt;
 
@@ -4525,62 +4537,70 @@ https://github.com/nneves/Raspberrypi_NodeJS&lt;/p&gt;
 
 &lt;p&gt;實作系統Ubuntu 14.04&lt;/p&gt;
 &lt;p&gt;剛開始必須要先安裝依些相關的compiler以及設定黨
-步驟如同老師所下載的順序
-&lt;pre class="brush: python"&gt;&lt;/p&gt;
-&lt;h1&gt;apt-get 更新&lt;/h1&gt;
-&lt;p&gt;$ sudo apt-get update&lt;/p&gt;
-&lt;h1&gt;apt-get 升級&lt;/h1&gt;
-&lt;p&gt;$ sudo apt-get upgrade&lt;/p&gt;
-&lt;h1&gt;安裝所需的開發套件&lt;/h1&gt;
-&lt;p&gt;$ sudo apt-get install build-essential cmake git pkg-config&lt;/p&gt;
-&lt;h1&gt;安裝編譯過程所需的程式庫&lt;/h1&gt;
-&lt;p&gt;$ sudo apt-get install libjpeg8-dev libtiff4-dev libjasper-dev libpng12-dev&lt;/p&gt;
-&lt;h1&gt;安裝編譯過程所需的程式庫&lt;/h1&gt;
-&lt;p&gt;$ sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev&lt;/p&gt;
-&lt;h1&gt;安裝編譯過程所需的程式庫&lt;/h1&gt;
-&lt;p&gt;$ sudo apt-get install libgtk2.0-dev&lt;/p&gt;
-&lt;h1&gt;安裝編譯過程所需的 fortran 編譯器&lt;/h1&gt;
-&lt;p&gt;$ sudo apt-get install libatlas-base-dev gfortran&lt;/p&gt;
-&lt;h1&gt;安裝編譯過程所需的原始碼&lt;/h1&gt;
-&lt;p&gt;$ sudo apt-get install python3.4-dev&lt;/p&gt;
-&lt;h1&gt;本台機器的 python 為 2.7 版, 而 python3 則為 python 3.4, 這裡安裝 numpy  模組&lt;/h1&gt;
-&lt;p&gt;$ sudo pip3 install numpy&lt;/p&gt;
-&lt;h1&gt;希望在帳號目錄下的 tmp 進行編譯工作&lt;/h1&gt;
-&lt;p&gt;$ cd&lt;/p&gt;
-&lt;h1&gt;new folder&lt;/h1&gt;
-&lt;p&gt;$ mkdir tmp&lt;/p&gt;
-&lt;h1&gt;更換目錄到 tmp&lt;/h1&gt;
-&lt;p&gt;$ cd tmp&lt;/p&gt;
-&lt;h1&gt;利用 git clone 取得原始碼&lt;/h1&gt;
-&lt;p&gt;$ git clone https://github.com/Itseez/opencv.git&lt;/p&gt;
-&lt;h1&gt;準備進入倉儲切換分支&lt;/h1&gt;
-&lt;p&gt;$ cd opencv&lt;/p&gt;
-&lt;h1&gt;採用 3.1.0 版&lt;/h1&gt;
-&lt;p&gt;$ git checkout 3.1.0&lt;/p&gt;
-&lt;h1&gt;回到用戶目錄&lt;/h1&gt;
-&lt;p&gt;$ cd ..&lt;/p&gt;
-&lt;h1&gt;再利用 git clone 下載原始碼&lt;/h1&gt;
-&lt;p&gt;$ git clone https://github.com/Itseez/opencv_contrib.git&lt;/p&gt;
-&lt;h1&gt;準備進入倉儲切換分支&lt;/h1&gt;
-&lt;p&gt;$ cd opencv_contrib&lt;/p&gt;
-&lt;h1&gt;與 opencv 配合, 採用 3.1.0 版&lt;/h1&gt;
-&lt;p&gt;$ git checkout 3.1.0&lt;/p&gt;
-&lt;p&gt;$ cd ..&lt;/p&gt;
-&lt;h1&gt;準備開始建立程式庫&lt;/h1&gt;
-&lt;p&gt;$ cd opencv&lt;/p&gt;
-&lt;p&gt;$ mkdir build&lt;/p&gt;
-&lt;p&gt;$ cd build&lt;/p&gt;
-&lt;h1&gt;這裡會同時建立 Python2 與 Python3 的 OpenCV 程式庫檔案&lt;/h1&gt;
-&lt;p&gt;$ cmake -D CMAKE_BUILD_TYPE=RELEASE \
+步驟如同老師所下載的順序&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+# apt-get 更新
+$ sudo apt-get update
+# apt-get 升級
+$ sudo apt-get upgrade
+# 安裝所需的開發套件
+$ sudo apt-get install build-essential cmake git pkg-config
+# 安裝編譯過程所需的程式庫
+$ sudo apt-get install libjpeg8-dev libtiff4-dev libjasper-dev libpng12-dev
+# 安裝編譯過程所需的程式庫
+$ sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+# 安裝編譯過程所需的程式庫
+$ sudo apt-get install libgtk2.0-dev
+# 安裝編譯過程所需的 fortran 編譯器
+$ sudo apt-get install libatlas-base-dev gfortran
+# 安裝編譯過程所需的原始碼
+$ sudo apt-get install python3.4-dev
+# 本台機器的 python 為 2.7 版, 而 python3 則為 python 3.4, 這裡安裝 numpy  模組
+$ sudo pip3 install numpy
+# 希望在帳號目錄下的 tmp 進行編譯工作
+$ cd
+#new folder
+$ mkdir tmp
+# 更換目錄到 tmp
+$ cd tmp
+# 利用 git clone 取得原始碼
+$ git clone https://github.com/Itseez/opencv.git
+# 準備進入倉儲切換分支
+$ cd opencv
+# 採用 3.1.0 版
+$ git checkout 3.1.0
+# 回到用戶目錄
+$ cd ..
+# 再利用 git clone 下載原始碼
+$ git clone https://github.com/Itseez/opencv_contrib.git
+# 準備進入倉儲切換分支
+$ cd opencv_contrib
+# 與 opencv 配合, 採用 3.1.0 版
+$ git checkout 3.1.0
+
+$ cd ..
+# 準備開始建立程式庫
+$ cd opencv
+
+$ mkdir build
+
+$ cd build
+
+# 這裡會同時建立 Python2 與 Python3 的 OpenCV 程式庫檔案
+$ cmake -D CMAKE_BUILD_TYPE=RELEASE \
     -D CMAKE_INSTALL_PREFIX=/usr/local \
     -D INSTALL_C_EXAMPLES=OFF \
     -D INSTALL_PYTHON_EXAMPLES=ON \
     -D PYTHON_EXECUTABLE=$(which python3) \
     -D OPENCV_EXTRA_MODULES_PATH= ./../../opencv_contrib/modules \
-    -D BUILD_EXAMPLES=ON ..&lt;/p&gt;
-&lt;p&gt;$ make -j4&lt;/p&gt;
-&lt;p&gt;$ sudo make install&lt;/p&gt;
-&lt;p&gt;$ sudo ldconfig&lt;/p&gt;
+    -D BUILD_EXAMPLES=ON ..
+
+$ make -j4
+
+$ sudo make install
+
+$ sudo ldconfig
+
 &lt;/pre&gt;
 
 &lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/opencv_python3_windows.png" width="800" /&gt;&lt;/p&gt;

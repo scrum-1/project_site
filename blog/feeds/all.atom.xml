@@ -19,6 +19,7 @@ $sudo make
 $sudo make install
 &lt;/pre&gt;
 
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0924_01.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;預設會安裝於 &lt;code&gt;/usr/loca/lib/&lt;/code&gt; 中。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>bullet dynamic engine</title><link href="http://project.mde.tw/blog/bullet-dynamic-engine.html" rel="alternate"></link><published>2016-09-24T20:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-09-24:blog/bullet-dynamic-engine.html</id><summary type="html">&lt;p&gt;目前唯一可惜的部份是只能用在python2.7上面&lt;/p&gt;
 
 

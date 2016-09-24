@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!-- Created by Leo: http://leoeditor.com/leo_toc.html -->
-<?xml-stylesheet ekr_test ?>
 <leo_file xmlns:leo="http://leoeditor.com/namespaces/leo-python-editor/1.1" >
 <leo_header file_format="2" tnodes="0" max_tnode_index="0" clone_windows="0"/>
 <globals body_outline_ratio="0.5" body_secondary_ratio="0.5">
@@ -56,12 +55,17 @@
 <v t="leo.20160731010703.1"><vh>@edit 40323123_20160730.md</vh></v>
 <v t="leo.20160731215352.1"><vh>@edit 40323123_20160731.md</vh></v>
 </v>
+<v t="roger.20160924150955.1"><vh>八月</vh>
 <v t="leo.20160803234319.1"><vh>@edit 40323123_20160803.md</vh></v>
 <v t="leo.20160812124408.1"><vh>@edit 40323123_20160812.md</vh></v>
 <v t="roger.20160819234851.1"><vh>@edit 40323123_20160819.md</vh></v>
 <v t="roger.20160820121342.1"><vh>@edit 40323123_20160820_1.md</vh></v>
 <v t="roger.20160820211841.1"><vh>@edit 40323123_20160820_2.md</vh></v>
 <v t="roger.20160821220326.1"><vh>@edit 40323123_20160821.md</vh></v>
+</v>
+</v>
+<v t="roger.20160924142045.1" a="E"><vh>九月</vh>
+<v t="roger.20160924142057.1"><vh>@edit 40323123_20160924_1.md</vh></v>
 </v>
 </v>
 </v>
@@ -199,5 +203,7 @@ g.es("admin pelican 近端執行完畢")
 <t tx="leo.20151213173830.1"></t>
 <t tx="leo.20160627143542.1"></t>
 <t tx="leo.20160804120820.1"></t>
+<t tx="roger.20160924142045.1"></t>
+<t tx="roger.20160924150955.1"></t>
 </tnodes>
 </leo_file>

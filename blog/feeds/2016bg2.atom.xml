@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-21T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/21</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050921.html" rel="alternate"></link><published>2016-09-21T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-21:blog/40323230ri-zhi-1050921.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-24T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/24</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050924.html" rel="alternate"></link><published>2016-09-24T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-24:blog/40323230ri-zhi-1050924.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;安裝 bullet-2.81 程式庫&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;安裝 bullet 程式庫&lt;/h1&gt;
+&lt;p&gt;Bullet 其中一個用途為 Blender 的物理運算。&lt;/p&gt;
+&lt;p&gt;由於找到了一些 Python 相關的端口，所以想先安裝來讓 Python 使用。&lt;/p&gt;
+&lt;p&gt;＊先確認已安裝 OpenCL。&lt;/p&gt;
+&lt;p&gt;從官方網站下載 Bullet Physics Library。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://bulletphysics.org/Bullet/phpBB3/viewtopic.php?t=8490" title="bulletphysics.org"&gt;http://bulletphysics.org/Bullet/phpBB3/viewtopic.php?t=8490&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;載點為 bullet-2.81-rev2613.tgz：&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://code.google.com/archive/p/bullet/downloads" title="bullet"&gt;https://code.google.com/archive/p/bullet/downloads&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;使用 CMake 設定系統參數，並安裝：&lt;/p&gt;
+&lt;pre&gt;
+$cmake . -G "Unix Makefiles" -DBUILD_SHARED_LIBS=ON
+$sudo make
+$sudo make install
+&lt;/pre&gt;
+
+&lt;p&gt;預設會安裝於 &lt;code&gt;/usr/loca/lib/&lt;/code&gt; 中。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/21</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050921.html" rel="alternate"></link><published>2016-09-21T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-21:blog/40323230ri-zhi-1050921.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;.slvs&lt;/code&gt; 格式&lt;/p&gt;
 &lt;/li&gt;

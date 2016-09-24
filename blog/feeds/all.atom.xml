@@ -25,7 +25,10 @@
 &lt;li&gt;將線畫出來
 &lt;li&gt;設定角度
 &lt;li&gt;解題會得掉回傳值再決定狀態
-&lt;/ul&gt;</summary><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/21</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050921.html" rel="alternate"></link><published>2016-09-21T21:00:00+08:00</published><updated>2016-09-21T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-21:blog/40323230ri-zhi-1050921.html</id><summary type="html">&lt;ol&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Q:
+目前遇到的問題是來自於這些物理引擎不知道可以如何作接口到python上&lt;/p&gt;</summary><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/21</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050921.html" rel="alternate"></link><published>2016-09-21T21:00:00+08:00</published><updated>2016-09-21T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-21:blog/40323230ri-zhi-1050921.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;code&gt;.slvs&lt;/code&gt; 格式&lt;/p&gt;
 &lt;/li&gt;

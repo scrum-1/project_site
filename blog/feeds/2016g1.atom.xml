@@ -25,7 +25,10 @@
 &lt;li&gt;將線畫出來
 &lt;li&gt;設定角度
 &lt;li&gt;解題會得掉回傳值再決定狀態
-&lt;/ul&gt;</summary><category term="Pyslvs"></category></entry><entry><title>40323143 - 機械腳構想</title><link href="http://project.mde.tw/blog/40323143-ji-jie-jiao-gou-xiang.html" rel="alternate"></link><published>2016-08-22T11:29:00+08:00</published><updated>2016-08-22T11:29:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-08-22:blog/40323143-ji-jie-jiao-gou-xiang.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Q:
+目前遇到的問題是來自於這些物理引擎不知道可以如何作接口到python上&lt;/p&gt;</summary><category term="Pyslvs"></category></entry><entry><title>40323143 - 機械腳構想</title><link href="http://project.mde.tw/blog/40323143-ji-jie-jiao-gou-xiang.html" rel="alternate"></link><published>2016-08-22T11:29:00+08:00</published><updated>2016-08-22T11:29:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-08-22:blog/40323143-ji-jie-jiao-gou-xiang.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;p&gt;&lt;img src="http://i.imgur.com/c3jBcx7.jpg"&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>QT GUI</title><link href="http://project.mde.tw/blog/qt-gui.html" rel="alternate"></link><published>2016-08-21T22:00:00+08:00</published><updated>2016-08-21T22:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-21:blog/qt-gui.html</id><summary type="html">&lt;p&gt;change the the way to control the arm
 &lt;/p&gt;

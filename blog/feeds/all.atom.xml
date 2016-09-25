@@ -2,8 +2,8 @@
 <feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-25T22:00:00+08:00</updated><entry><title>WebGL_three.js</title><link href="http://project.mde.tw/blog/webgl_threejs.html" rel="alternate"></link><updated>2016-09-25T22:00:00+08:00</updated><author><name>40323250</name></author><id>tag:project.mde.tw,2016-09-25:blog/webgl_threejs.html</id><summary type="html">&lt;p&gt;研究WebGL的框架three.js ,嘗試建立和Onshape同性質的網頁繪圖系統 
 &lt;/p&gt;
 &lt;p&gt;經過討論後 ,我比較想要嘗試網頁方面的繪圖 ,然後上網找到了一些對岸製作的有關於WebGL、three.js的介紹&lt;/p&gt;
-&lt;p&gt;[http://www.hewebgl.com/article/getarticle/27]
-(http://www.hewebgl.com/article/getarticle/27)&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.hewebgl.com/article/getarticle/27"&gt;WebGL中文网&lt;/a&gt;&lt;/p&gt;
+
 &lt;p&gt;因為之前也沒有很深入的了解 ,所以可能要接觸一些範例來加深印象 ,假如可行 便能加入30號同學的核心進行2D線上繪圖 ,這樣資源也會更加豐富&lt;/p&gt;</summary><category term="WebGL"></category></entry><entry><title>dynamic engine with python3</title><link href="http://project.mde.tw/blog/dynamic-engine-with-python3.html" rel="alternate"></link><updated>2016-09-25T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-09-25:blog/dynamic-engine-with-python3.html</id><summary type="html">&lt;p&gt;今天在找相關開源的運算引擎找到的資料&lt;/p&gt;
 
 

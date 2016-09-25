@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>40323230日誌 - 105/08/08 - 機械設計專題 (虎尾科大MDE)</title>
+    <title>dynamic engine with python3 - 機械設計專題 (虎尾科大MDE)</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -166,23 +166,21 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 
-<link rel="canonical" href="http://project.mde.tw/blog/40323230ri-zhi-1050808.html">
+<link rel="canonical" href="http://project.mde.tw/blog/dynamic-engine-with-python3.html">
 
-        <meta name="author" content="40323230" />
-        <meta name="keywords" content="Kmol,bokeh,Python-Solvespace" />
-        <meta name="description" content="將bokeh繪圖搬入Flask，使用的是上學期的倉儲。" />
+        <meta name="author" content="40323123" />
+        <meta name="keywords" content="dynamic" />
+        <meta name="description" content="今天在找相關開源的運算引擎找到的資料" />
 
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="40323230日誌 - 105/08/08"/>
-        <meta property="og:url" content="http://project.mde.tw/blog/40323230ri-zhi-1050808.html"/>
-        <meta property="og:description" content="將bokeh繪圖搬入Flask，使用的是上學期的倉儲。"/>
-        <meta property="article:published_time" content="2016-08-08" />
-            <meta property="article:section" content="2016bg2" />
-            <meta property="article:tag" content="Kmol" />
-            <meta property="article:tag" content="bokeh" />
-            <meta property="article:tag" content="Python-Solvespace" />
-            <meta property="article:author" content="40323230" />
+        <meta property="og:title" content="dynamic engine with python3"/>
+        <meta property="og:url" content="http://project.mde.tw/blog/dynamic-engine-with-python3.html"/>
+        <meta property="og:description" content="今天在找相關開源的運算引擎找到的資料"/>
+        <meta property="article:published_time" content="2016-09-25" />
+            <meta property="article:section" content="2016g1" />
+            <meta property="article:tag" content="dynamic" />
+            <meta property="article:author" content="40323123" />
 
 
     <!-- Bootstrap -->
@@ -263,10 +261,10 @@ init_mathjax();
                          <li><a href="http://project.mde.tw/blog/pages/about/">
                              About
                           </a></li>
-                        <li class="active">
+                        <li >
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
-                        <li >
+                        <li class="active">
                             <a href="http://project.mde.tw/blog/category/2016g1.html">2016g1</a>
                         </li>
                         <li >
@@ -301,10 +299,10 @@ init_mathjax();
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="http://project.mde.tw/blog/40323230ri-zhi-1050808.html"
+                    <a href="http://project.mde.tw/blog/dynamic-engine-with-python3.html"
                        rel="bookmark"
-                       title="Permalink to 40323230日誌 - 105/08/08">
-                        40323230日誌 - 105/08/08
+                       title="Permalink to dynamic engine with python3">
+                        dynamic engine with python3
                     </a>
                 </h1>
             </header>
@@ -314,111 +312,27 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-08-08T21:00:00+08:00"> 一 08 八月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-09-25T20:00:00+08:00"> 日 25 九月 2016</time>
     </span>
             <span class="label label-default">By</span>
-            <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
+            <a href="http://project.mde.tw/blog/author/40323123.html"><i class="fa fa-user"></i> 40323123</a>
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://project.mde.tw/blog/tag/kmol.html">Kmol</a>
-        /
-	<a href="http://project.mde.tw/blog/tag/bokeh.html">bokeh</a>
-        /
-	<a href="http://project.mde.tw/blog/tag/python-solvespace.html">Python-Solvespace</a>
+	<a href="http://project.mde.tw/blog/tag/dynamic.html">dynamic</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>將bokeh繪圖搬入Flask，使用的是上學期的倉儲。</p>
+                <p>今天在找相關開源的運算引擎找到的資料</p>
 
 
-<h1>bokeh網頁原始碼</h1>
-<p>bokeh在使用後，可以不選擇存檔，而是變成網頁原始碼的型態，讓程式利用。</p>
-<pre class="brush: python">
-#不使用from bokeh.plotting import figure, output_file, show, save
-
-#而導入：
-from bokeh.plotting import figure
-from bokeh.resources import CDN
-from bokeh.embed import file_html
-
-#照常畫圖
-plot = figure(...)
-plot.line(...)
-
-#最後傳出給outstring
-outstring = str(file_html(plot, CDN, "網頁視窗標題"))
-</pre>
-
-<p>變成這樣的形態後，會先讓SLVS程式庫和bokeh計算完原始碼後才使用，算是靜態結果，這樣會產生一個缺點，稍後會提到。</p>
-<p>bokeh也有自己的附加功能"JavaScript Callbacks"，屬於動態運算，讓圖形能及時更新，不用重新整理。</p>
-<p>參考連結：<a href="http://bokeh.pydata.org/en/latest/docs/user_guide/interaction/callbacks.html#customjs-for-widgets" title="bokeh.pydata.org">http://bokeh.pydata.org/en/latest/docs/user_guide/interaction/callbacks.html#customjs-for-widgets</a></p>
-<p>試過了範例Slider的方法（最接近需求：給角度求機構當前狀態），在JavaScript中卻不知所以然，不知道要如何把callback的內容帶入我的函式中。</p>
-<p>上網看過別人的範例，不同利用方式都不一樣，但是不知道如何修改JS迴圈中的內容。因為機構的圖形要回傳所有的點，可能要了解一下這些物件的關係。</p>
-<hr>
-
-<h1>Flask</h1>
-<p>和上學期的專案一樣，用<code>python wsgi.py</code>啟動後就能呼叫程式並帶入變數求解。</p>
-<p>不同的是用到新模組和自己的程式庫。</p>
-<p>在自己的檔案中再插入一段<code>Mango(k)</code>來嵌入bokeh的圖形，並希望能控制機構的角度狀態。</p>
-<p><img src="http://i.imgur.com/jTqqiDg.jpg" ></p>
-<p>稍微調整了bokeh的選項，隱藏工具、取消預設工具、不可拖移、放大介面等等。</p>
-<pre class="brush: python">
-@bg9_40323230.route('/crank_rock/＜k>')
-def Mango(k):
-    outstring = ""
-    #相關參數
-    d0 = 90 #基線長度(mm)
-    n1 = 35 #短連桿長度(mm)
-    n2 = 70 #長連桿長度(mm)
-    t1 = 40 #三角形第一邊(mm)
-    t2 = 40 #三角形第二邊(mm)
-    t3 = 70 #三角形第三邊(mm)
-
-    #迴圈求路徑用
-    def crank_rock(degree):
-        ...
-    #當前機構狀態用
-    def crank_rock_M(degree):
-        ...
-    #主程式
-    X1val  = []
-    Y1val  = []
-    for i in range(0, 361):
-        x, y = crank_rock(i)
-        X1val += [x]
-        Y1val += [y]
-    x1, y1, x2, y2, x3, y3, x4, y4, x5, y5 = crank_rock_M(float(k))
-    X2val = [x1, x4, x3, x5, x4, x5, x2]
-    Y2val = [y1, y4, y3, y5, y4, y5, y2]
-    X3val = [x1, x2]
-    Y3val = [y1, y2]
-    #bokeh
-    plot = figure(title="simple line example", x_axis_label='x', y_axis_label='y', toolbar_location=None, plot_width=700, plot_height=700)
-    plot.line(X1val, Y1val, legend="Path.", line_width=2, line_color="blue")
-    plot.line(X2val, Y2val, legend="Mechanism.", line_width=4, line_color="red")
-    plot.line(X3val, Y3val, line_width=3, line_dash=[4, 4], line_color="orange")
-    plot.toolbar.active_drag = None
-
-    outstring = str(file_html(plot, CDN, "Crank Rocker: "+str(k)+" degree"))
-
-    return outstring
-</pre>
-
-<p>這樣子程式會計算出HTML的原始碼給網頁，而bokeh的網頁中不會用到python程式。</p>
-<p>在這裡<code>k</code>是以<strong>字串</strong>的方式帶進來的，所以必須轉成Float才能計算。</p>
-<p>但是如果預先設置了<code>defaults</code>值時（例如<code>120</code>），這裡的<code>120</code>可以代表字串或整數或浮點數，python會搶先認定<code>defaults</code>值能用，儘管自訂的<code>k</code>值後來轉成浮點數，結果仍然會是<code>defaults</code>值。</p>
-<p>所以最後不得以把<code>defaults</code>值捨棄。</p>
-<p>最後結果：</p>
-<p><img src="http://i.imgur.com/kuaUOnR.jpg" ></p>
-<p>建立了一支Openshift程式，但是上傳後卻無法使用，不知道是Python 3.3還是其他的問題，整個程式都跑不了。</p>
-<p><img src="http://i.imgur.com/tSmySff.jpg" ></p>
-<hr>
-
-<p>最近因為有點感冒，研究bokeh的互動功能函式滿久的。</p>
-<p>嘗試過用3D的方式解手臂極限範圍，但是程式庫有些盲點。</p>
-<p>SLVS似乎會認定4個約束在同平面的3D點，他們之間的2條連線如果約束為平行，是重複約束，目前不知道要怎麼辦。</p>
+<p><a href="https://github.com/pybox2d/pybox2d">pybox2d</a></p>
+<p>今天找到一篇看似可以使用的開源運動模擬,範例裡面是使用pygame來顯示運動模擬,而且是符合python3 版本的,可能先從這邊下手,或者有找到更好的大型模擬引擎,已經有先build成so 和swig寫的啟動檔,執行他的範例是使用自由落體當範例,看起來是可以使用的,但是裡面的物理引擎沒有大型的這麼強大（bullet newton ),因為編成so和swig,就可以和pyslvs一樣做成可攜系統,直接包在裡面使用,而部用綁系統。</p>
+<p>open dynamic engine 還沒真的深入下去看資料和相關python的部份,昨天作的bullet再python2的部份,確定真的可以使用,有一個範例是作自由落體的部份看值大致上是差不多相等的。</p>
+<p>這次使用的pybox2d我也有作一個自由落體的範例程式,利用pygame呈現結果,詳細要使用還要看參考說明書來使用函式庫。</p>
+<p><img src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g1/so.png"></p>
+<p><img src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g1/%E8%87%AA%E7%94%B1%E8%90%BD%E9%AB%94.png"></p>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -430,8 +344,8 @@ def Mango(k):
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'projectmdetw'; // required: replace example with your forum shortname
 
-                    var disqus_identifier = '40323230ri-zhi-1050808';
-                var disqus_url = 'http://project.mde.tw/blog/40323230ri-zhi-1050808.html';
+                    var disqus_identifier = 'dynamic-engine-with-python3';
+                var disqus_url = 'http://project.mde.tw/blog/dynamic-engine-with-python3.html';
 
             var disqus_config = function () {
                 this.language = "en";

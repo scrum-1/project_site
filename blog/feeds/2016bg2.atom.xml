@@ -23,7 +23,12 @@
 &lt;hr&gt;
 
 &lt;p&gt;今天花時間在輔助線的功能上，還沒做滑塊的計算。&lt;/p&gt;
-&lt;p&gt;滑塊可能會和主動軸分開面板控制。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/24</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050924.html" rel="alternate"></link><published>2016-09-24T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-24:blog/40323230ri-zhi-1050924.html</id><summary type="html">&lt;ol&gt;
+&lt;p&gt;滑塊可能會和主動軸分開面板控制。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>WebGL_three.js</title><link href="http://project.mde.tw/blog/webgl_threejs.html" rel="alternate"></link><published>2016-09-25T22:00:00+08:00</published><author><name>40323250</name></author><id>tag:project.mde.tw,2016-09-25:blog/webgl_threejs.html</id><summary type="html">&lt;p&gt;研究WebGL的框架three.js ,嘗試建立和Onshape同性質的網頁繪圖系統 
+&lt;/p&gt;
+&lt;p&gt;經過討論後 ,我比較想要嘗試網頁方面的繪圖 ,然後上網找到了一些對岸製作的有關於WebGL、three.js的介紹&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.hewebgl.com/article/getarticle/27"&gt;WebGL中文网&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;因為之前也沒有很深入的了解 ,所以可能要接觸一些範例來加深印象 ,假如可行 便能加入30號同學的核心進行2D線上繪圖 ,這樣資源也會更加豐富&lt;/p&gt;</summary><category term="WebGL"></category></entry><entry><title>40323230日誌 - 105/09/24</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050924.html" rel="alternate"></link><published>2016-09-24T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-24:blog/40323230ri-zhi-1050924.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;安裝 bullet-2.81 程式庫&lt;/li&gt;
 &lt;/ol&gt;
 

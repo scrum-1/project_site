@@ -1,5 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-24T20:00:00+08:00</updated><entry><title>bullet dynamic engine</title><link href="http://project.mde.tw/blog/bullet-dynamic-engine.html" rel="alternate"></link><published>2016-09-24T20:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-09-24:blog/bullet-dynamic-engine.html</id><summary type="html">&lt;p&gt;目前唯一可惜的部份是只能用在python2.7上面&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-25T20:00:00+08:00</updated><entry><title>dynamic engine with python3</title><link href="http://project.mde.tw/blog/dynamic-engine-with-python3.html" rel="alternate"></link><published>2016-09-25T20:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-09-25:blog/dynamic-engine-with-python3.html</id><summary type="html">&lt;p&gt;今天在找相關開源的運算引擎找到的資料&lt;/p&gt;
+
+
+&lt;p&gt;&lt;a href="https://github.com/pybox2d/pybox2d"&gt;pybox2d&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;今天找到一篇看似可以使用的開源運動模擬,範例裡面是使用pygame來顯示運動模擬,而且是符合python3 版本的,可能先從這邊下手,或者有找到更好的大型模擬引擎,已經有先build成so 和swig寫的啟動檔,執行他的範例是使用自由落體當範例,看起來是可以使用的,但是裡面的物理引擎沒有大型的這麼強大（bullet newton ),因為編成so和swig,就可以和pyslvs一樣做成可攜系統,直接包在裡面使用,而部用綁系統。&lt;/p&gt;
+&lt;p&gt;open dynamic engine 還沒真的深入下去看資料和相關python的部份,昨天作的bullet再python2的部份,確定真的可以使用,有一個範例是作自由落體的部份看值大致上是差不多相等的。&lt;/p&gt;
+&lt;p&gt;這次使用的pybox2d我也有作一個自由落體的範例程式,利用pygame呈現結果,詳細要使用還要看參考說明書來使用函式庫。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g1/so.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g1/%E8%87%AA%E7%94%B1%E8%90%BD%E9%AB%94.png"&gt;&lt;/p&gt;</summary><category term="dynamic"></category></entry><entry><title>bullet dynamic engine</title><link href="http://project.mde.tw/blog/bullet-dynamic-engine.html" rel="alternate"></link><published>2016-09-24T20:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-09-24:blog/bullet-dynamic-engine.html</id><summary type="html">&lt;p&gt;目前唯一可惜的部份是只能用在python2.7上面&lt;/p&gt;
 
 
 &lt;p&gt;今天將v-rep裡面的運動引擎,找了許多資料其中有&lt;/p&gt;

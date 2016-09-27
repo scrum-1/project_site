@@ -23,7 +23,20 @@
 &lt;hr&gt;
 
 &lt;p&gt;今天花時間在輔助線的功能上，還沒做滑塊的計算。&lt;/p&gt;
-&lt;p&gt;滑塊可能會和主動軸分開面板控制。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/24</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050924.html" rel="alternate"></link><published>2016-09-24T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-24:blog/40323230ri-zhi-1050924.html</id><summary type="html">&lt;ol&gt;
+&lt;p&gt;滑塊可能會和主動軸分開面板控制。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>WebGL_three.js</title><link href="http://project.mde.tw/blog/webgl_threejs.html" rel="alternate"></link><published>2016-09-25T22:00:00+08:00</published><author><name>40323250</name></author><id>tag:project.mde.tw,2016-09-25:blog/webgl_threejs.html</id><summary type="html">&lt;p&gt;研究WebGL的框架three.js ,嘗試建立和Onshape同性質的網頁繪圖系統 
+&lt;/p&gt;
+&lt;p&gt;經過討論後 ,我比較想要嘗試網頁方面的繪圖 ,然後上網找到了一些對岸製作的有關於WebGL、three.js的介紹&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.hewebgl.com/article/getarticle/27"&gt;WebGL中文网&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;因為之前也沒有很深入的了解 ,所以可能要接觸一些範例來加深印象 ,假如可行 便能加入30號同學的核心進行2D線上繪圖 ,這樣資源也會更加豐富&lt;/p&gt;</summary><category term="WebGL"></category></entry><entry><title>dynamic engine with python3</title><link href="http://project.mde.tw/blog/dynamic-engine-with-python3.html" rel="alternate"></link><published>2016-09-25T20:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-09-25:blog/dynamic-engine-with-python3.html</id><summary type="html">&lt;p&gt;今天在找相關開源的運算引擎找到的資料&lt;/p&gt;
+
+
+&lt;p&gt;&lt;a href="https://github.com/pybox2d/pybox2d"&gt;pybox2d&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;今天找到一篇看似可以使用的開源運動模擬,範例裡面是使用pygame來顯示運動模擬,而且是符合python3 版本的,可能先從這邊下手,或者有找到更好的大型模擬引擎,已經有先build成so 和swig寫的啟動檔,執行他的範例是使用自由落體當範例,看起來是可以使用的,但是裡面的物理引擎沒有大型的這麼強大（bullet newton ),因為編成so和swig,就可以和pyslvs一樣做成可攜系統,直接包在裡面使用,而部用綁系統。&lt;/p&gt;
+&lt;p&gt;open dynamic engine 還沒真的深入下去看資料和相關python的部份,昨天作的bullet再python2的部份,確定真的可以使用,有一個範例是作自由落體的部份看值大致上是差不多相等的。&lt;/p&gt;
+&lt;p&gt;這次使用的pybox2d我也有作一個自由落體的範例程式,利用pygame呈現結果,詳細要使用還要看參考說明書來使用函式庫。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g1/so.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g1/%E8%87%AA%E7%94%B1%E8%90%BD%E9%AB%94.png"&gt;&lt;/p&gt;</summary><category term="dynamic"></category></entry><entry><title>40323230日誌 - 105/09/24</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050924.html" rel="alternate"></link><published>2016-09-24T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-24:blog/40323230ri-zhi-1050924.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;安裝 bullet-2.81 程式庫&lt;/li&gt;
 &lt;/ol&gt;
 

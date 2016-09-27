@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-24T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/24</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050924.html" rel="alternate"></link><published>2016-09-24T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-24:blog/40323230ri-zhi-1050924.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-27T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/27</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050927.html" rel="alternate"></link><published>2016-09-27T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-27:blog/40323230ri-zhi-1050927.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Release v0.1.0&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Release v0.1.0&lt;/h1&gt;
+&lt;p&gt;穩定版本釋出，開發中的功能有標示「Alpha」的字樣，未做出的功能鈕已經 disable。&lt;/p&gt;
+&lt;p&gt;目前更動的部份都是 GUI 相關，動態模擬的部份可能會整合進圖形界面。&lt;/p&gt;
+&lt;p&gt;之後的編譯進度更新的是第二版號，第三版號是單純修正 bug，第一版號是大功能的整合。&lt;/p&gt;
+&lt;h1&gt;Pyslvs 編譯進度&lt;/h1&gt;
+&lt;h2&gt;輔助線&lt;/h2&gt;
+&lt;p&gt;新增輔助線面板，可以觀察機構點的水平或垂直位置，之後會加入最大最小位置紀錄的功能。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0927_01.jpg" /&gt;&lt;/p&gt;
+&lt;h2&gt;主動軸標示&lt;/h2&gt;
+&lt;p&gt;圖中會標示主動軸的相對點連線，使用橘色虛線表示，之後自訂功能做好後就能改別的顏色了。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0927_02.jpg" /&gt;&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;p&gt;今天花時間在輔助線的功能上，還沒做滑塊的計算。&lt;/p&gt;
+&lt;p&gt;滑塊可能會和主動軸分開面板控制。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/24</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050924.html" rel="alternate"></link><published>2016-09-24T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-24:blog/40323230ri-zhi-1050924.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;安裝 bullet-2.81 程式庫&lt;/li&gt;
 &lt;/ol&gt;
 

@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-27T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/27</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050927.html" rel="alternate"></link><published>2016-09-27T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-27:blog/40323230ri-zhi-1050927.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-28T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/28</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050928.html" rel="alternate"></link><published>2016-09-28T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-28:blog/40323230ri-zhi-1050928.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;Pyslvs 編譯進度&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Pyslvs 編譯進度&lt;/h1&gt;
+&lt;h2&gt;輔助線面板&lt;/h2&gt;
+&lt;p&gt;增加標示極限功能，開啟顯示標註的話，會顯示極限的數值（最大 6 位小數）。&lt;/p&gt;
+&lt;p&gt;這個面板在關閉後仍會保留上次的資料（歸類在畫布的參數中），不過切換到其他機構點時就會清掉極限紀錄。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0928_01.jpg" /&gt;&lt;/p&gt;
+&lt;h2&gt;模擬面板改進&lt;/h2&gt;
+&lt;p&gt;這次調整過模擬功能的面板，更明確易懂。&lt;/p&gt;
+&lt;p&gt;另外新增開關路徑圖的功能，之前要刪掉才會消失。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0928_02.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;路徑圖最後會加入存檔中，這部份功能會之後做。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/27</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050927.html" rel="alternate"></link><published>2016-09-27T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-27:blog/40323230ri-zhi-1050927.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Release v0.1.0&lt;/p&gt;
 &lt;/li&gt;

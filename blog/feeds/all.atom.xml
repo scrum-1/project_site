@@ -1,11 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-09-30T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/09/30</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050930.html" rel="alternate"></link><published>2016-09-30T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-30:blog/40323230ri-zhi-1050930.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-10-02T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/10/02</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051002.html" rel="alternate"></link><published>2016-10-02T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-02:blog/40323230ri-zhi-1051002.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;OCE Kernel&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Pyslvs 編譯進度&lt;/h1&gt;
+&lt;p&gt;Log：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;圖片格式選擇&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;按照機構寬度或高度縮放視角功能&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;表格提示文字&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;表格右鍵複製數據&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;遮罩修正&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h1&gt;OCE Kernel&lt;/h1&gt;
+&lt;p&gt;Open CASCADE Community Edition:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/tpaviot/oce" title="https://github.com"&gt;https://github.com/tpaviot/oce&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;pythonocc:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/tpaviot/pythonocc-core" title="https://github.com"&gt;https://github.com/tpaviot/pythonocc-core&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;找到官方 Open CASCADE 的 C++ 核心，還有 Python 的接口 pythonocc。&lt;/p&gt;
+&lt;p&gt;另外 pythonocc 有一個附加模組 aocxchange 可以幫忙轉換 3D 檔案格式。&lt;/p&gt;
+&lt;p&gt;預想在 Pyslvs 設計草圖後，可以利用模組轉出簡單的 3D 零件樣式（例如連桿），供 3D CAD 軟體編修。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/30</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050930.html" rel="alternate"></link><published>2016-09-30T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-30:blog/40323230ri-zhi-1050930.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;Pyslvs 編譯進度&lt;/li&gt;
 &lt;/ol&gt;
 
 
 &lt;h1&gt;Pyslvs 編譯進度&lt;/h1&gt;
-&lt;p&gt;簡易 Log：&lt;/p&gt;
+&lt;p&gt;Log：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;格式加入路徑儲存功能&lt;/p&gt;

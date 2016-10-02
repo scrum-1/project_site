@@ -35,7 +35,19 @@
 &lt;p&gt;&lt;a href="https://github.com/tpaviot/pythonocc-core" title="https://github.com"&gt;https://github.com/tpaviot/pythonocc-core&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;找到官方 Open CASCADE 的 C++ 核心，還有 Python 的接口 pythonocc。&lt;/p&gt;
 &lt;p&gt;另外 pythonocc 有一個附加模組 aocxchange 可以幫忙轉換 3D 檔案格式。&lt;/p&gt;
-&lt;p&gt;預想在 Pyslvs 設計草圖後，可以利用模組轉出簡單的 3D 零件樣式（例如連桿），供 3D CAD 軟體編修。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/09/30</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050930.html" rel="alternate"></link><published>2016-09-30T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-30:blog/40323230ri-zhi-1050930.html</id><summary type="html">&lt;ol&gt;
+&lt;p&gt;預想在 Pyslvs 設計草圖後，可以利用模組轉出簡單的 3D 零件樣式（例如連桿），供 3D CAD 軟體編修。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>automatic control</title><link href="http://project.mde.tw/blog/automatic-control.html" rel="alternate"></link><published>2016-10-01T20:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-10-01:blog/automatic-control.html</id><summary type="html">&lt;p&gt;自動控制系統中理解的部份筆記&lt;/p&gt;
+
+
+&lt;p&gt;相關名詞：&lt;/p&gt;
+&lt;p&gt;1.控制器&lt;/p&gt;
+&lt;p&gt;2.pole&lt;/p&gt;
+&lt;p&gt;3.古典控制&lt;/p&gt;
+&lt;p&gt;4.現代控制&lt;/p&gt;
+&lt;p&gt;5.後現代控制&lt;/p&gt;
+&lt;p&gt;6.拉普拉斯變換&lt;/p&gt;
+&lt;p&gt;7.回授(sensor)&lt;/p&gt;
+&lt;p&gt;大致上是這些相關名詞真的要使用的話看是要用現代的理論(數值的方法讓他學習),或者利用古典的方式推出數學方程式,利用laplace的方法,將T domain 轉到S domain將解解出來後,再進行調值和使用讓(kp ki kd )利用pid的方式進行控制相關的物理量。
+才看一部分的自動控制,感覺還有一大部分會不了解,光是這樣我就決的自動控制在機械裡面是不可或缺的,只要他要動,就可以設計一套控制器來控制他,無論是在簡單的馬達控制或者是大型的機台控制,這些理論一定會實際的應用在這些控制器裡面。&lt;/p&gt;</summary><category term="python-control"></category></entry><entry><title>40323230日誌 - 105/09/30</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1050930.html" rel="alternate"></link><published>2016-09-30T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-09-30:blog/40323230ri-zhi-1050930.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;Pyslvs 編譯進度&lt;/li&gt;
 &lt;/ol&gt;
 

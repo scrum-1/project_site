@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-10-02T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/10/02</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051002.html" rel="alternate"></link><published>2016-10-02T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-02:blog/40323230ri-zhi-1051002.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-10-04T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/10/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051004.html" rel="alternate"></link><published>2016-10-04T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-04:blog/40323230ri-zhi-1051004.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;Pyslvs 編譯進度&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Pyslvs 編譯進度&lt;/h1&gt;
+&lt;h2&gt;DXF 輸出&lt;/h2&gt;
+&lt;p&gt;使用 dxfwrite 模組進行建檔，成功轉出 DXF 檔，可以在其他 CAD 軟體使用。&lt;/p&gt;
+&lt;p&gt;dxfwrite 可以使用 pip 安裝。&lt;/p&gt;
+&lt;p&gt;不過這個模組的讀取功能似乎不太能支援直接取得 DXF 的數據。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1004_01.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;dxfwrite documentation:&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://pythonhosted.org/dxfwrite/" title="pythonhosted.org"&gt;http://pythonhosted.org/dxfwrite/&lt;/a&gt;&lt;/p&gt;
+&lt;h2&gt;設定功能&lt;/h2&gt;
+&lt;p&gt;規劃了一些自訂功能，想使用 QSettings 功能製作使用者的偏好選項。&lt;/p&gt;
+&lt;p&gt;預計會有面板位置、顏色等等選項可以調整。&lt;/p&gt;
+&lt;p&gt;不過還在研究 QSettings，可能屬於次要項目。&lt;/p&gt;
+&lt;h2&gt;SLVS 輸出&lt;/h2&gt;
+&lt;p&gt;將 &lt;code&gt;.slvs&lt;/code&gt; 輸出功能分離出來做調整，希望以後可以單獨使用。&lt;/p&gt;
+&lt;p&gt;類似一般撰寫的功能，輸入點或線後可以寫成 &lt;code&gt;.slvs&lt;/code&gt; 檔。&lt;/p&gt;
+&lt;p&gt;不過還有一些問題待調整，仍要測試一些項目。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/10/02</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051002.html" rel="alternate"></link><published>2016-10-02T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-02:blog/40323230ri-zhi-1051002.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
 &lt;/li&gt;

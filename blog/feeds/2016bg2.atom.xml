@@ -1,5 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-10-04T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/10/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051004.html" rel="alternate"></link><published>2016-10-04T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-04:blog/40323230ri-zhi-1051004.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-10-05T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/10/05</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051005.html" rel="alternate"></link><published>2016-10-05T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-05:blog/40323230ri-zhi-1051005.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Ubuntu MinGW&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Ubuntu 16.04 與 Windows 10&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Leo Editor IDE&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h2&gt;Ubuntu MinGW&lt;/h2&gt;
+&lt;p&gt;用 apt-get 安裝 MinGW，以在 Ubuntu 編譯 Windows 的可執行檔 &lt;code&gt;.exe&lt;/code&gt;。&lt;/p&gt;
+&lt;pre&gt;
+$sudo apt-get install mingw-w64
+&lt;/pre&gt;
+
+&lt;p&gt;編譯時使用下列指令（相當於 GNU 工具）：&lt;/p&gt;
+&lt;pre&gt;
+$x86_64-w64-mingw32-gcc
+$x86_64-w64-mingw32-g++
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1005_01.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;不過若要使用在 Pyslvs，Qt 方面仍要做相應的調整。&lt;/p&gt;
+&lt;h1&gt;Ubuntu 16.04 與 Windows 10&lt;/h1&gt;
+&lt;p&gt;目前研究室沒有實體機使用這兩個系統，所以打算使用一台學校的電腦安裝 Virtualbox，模擬兩個系統的環境。&lt;/p&gt;
+&lt;p&gt;該電腦由於安裝雙系統，Ubuntu 不使用時 Virtualbox 不會佔用 Windows 7 的記憶體，所以應該能提供較流暢的模擬環境。&lt;/p&gt;
+&lt;p&gt;明天早上會裝好 Virtualbox 的設定。&lt;/p&gt;
+&lt;h1&gt;Leo Editor IDE&lt;/h1&gt;
+&lt;p&gt;目前觀察利用 Python 3 的程式碼編譯 Solvespace 是沒有問題的，不過在 14.04 與 16.04 的 Python 3.4 和 3.5 之間需要切換 Makefile。不然會沒有 include 或 lib 位置。&lt;/p&gt;
+&lt;pre&gt;
+slvs_wrap.cxx:14:23: fatal error: Python.h: 沒有此一檔案或目錄
+&lt;/pre&gt;
+
+&lt;p&gt;而若是編譯給 Windows 使用，也是要改一些設定。&lt;/p&gt;
+&lt;p&gt;除了之前無法輸入中文的問題以外，測試執行 Button 的 Script 是沒問題。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/10/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051004.html" rel="alternate"></link><published>2016-10-04T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-04:blog/40323230ri-zhi-1051004.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;Pyslvs 編譯進度&lt;/li&gt;
 &lt;/ol&gt;
 

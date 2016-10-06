@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-10-05T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/10/05</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051005.html" rel="alternate"></link><published>2016-10-05T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-05:blog/40323230ri-zhi-1051005.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-10-06T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/10/06</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051006.html" rel="alternate"></link><published>2016-10-06T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-06:blog/40323230ri-zhi-1051006.html</id><summary type="html">&lt;p&gt;：：影片作業環境（Ubuntu）：：&lt;/p&gt;
+
+
+&lt;h1&gt;Kazam&lt;/h1&gt;
+&lt;p&gt;Ubuntu 平台的錄製軟體，為 KDE 系列的附屬程式，因此安裝 Kubuntu 時就內建了。&lt;/p&gt;
+&lt;h1&gt;FFmpeg&lt;/h1&gt;
+&lt;p&gt;從官方網站下載 &lt;code&gt;.tar.bz2&lt;/code&gt; 壓縮檔解開並進入資料夾。&lt;/p&gt;
+&lt;pre&gt;
+$./configure --disable-yasm #若是不支援某些項目會提醒停用參數
+$make
+$sudo make install
+&lt;/pre&gt;
+
+&lt;p&gt;最後檢查一下是否安裝：&lt;/p&gt;
+&lt;pre&gt;
+$ffmpeg -h
+&lt;/pre&gt;
+
+&lt;h1&gt;SRT 字幕&lt;/h1&gt;
+&lt;p&gt;以前自己載過 Youtube 的字幕練習英文，所以不算陌生。&lt;/p&gt;
+&lt;p&gt;未來做 introduction video 應該能好好發揮。&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/10/05</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051005.html" rel="alternate"></link><published>2016-10-05T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-05:blog/40323230ri-zhi-1051005.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Ubuntu MinGW&lt;/p&gt;
 &lt;/li&gt;

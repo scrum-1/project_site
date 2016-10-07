@@ -16,7 +16,7 @@
 &lt;p&gt;升級時所有內建軟體（包括終端機 Konsole）都會凍結，設定功能也會停用，整個過程大約 1 小時左右。升級時建議不要開外部程式以免造成中斷。&lt;/p&gt;
 &lt;p&gt;而自己的電腦仍在 14.04 開發。&lt;/p&gt;
 &lt;h2&gt;升級後問題&lt;/h2&gt;
-&lt;p&gt;主要最大的部份是改用 &lt;strong&gt;Python 3.5&lt;/strong&gt; 與內建 &lt;strong&gt;PyQt 5.5.1&lt;/strong&gt;。因此在升級時 Python 3.4 和它相關的所有套件都會被移除。（Python 2.7 也因為比 16.04 舊的關係，一樣會被移除）&lt;/p&gt;
+&lt;p&gt;主要最大的部份是改用 &lt;strong&gt;Python 3.5&lt;/strong&gt; 與內建 &lt;strong&gt;Qt 5.5.1&lt;/strong&gt;。因此在升級時 Python 3.4 和它相關的所有套件都會被移除。（Python 2.7 也因為比 16.04 舊的關係，一樣會被移除）&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;新工具：由於官方套件供應者變成 Xenial，所有套件都已經捨棄舊版（如不再提供 GNU 4），而且內建更多工具（如 CMake、Python-dev）。&lt;/p&gt;

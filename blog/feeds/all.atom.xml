@@ -25,10 +25,13 @@
 &lt;p&gt;sudo apt purge python3-sip python3-sip-dev&lt;/p&gt;
 &lt;p&gt;移除 sip 前後, 可以利用 sip -V 確認版次.&lt;/p&gt;
 &lt;p&gt;接著安裝, Solvespace 與程式庫開發所需的各種套件:&lt;/p&gt;
-&lt;p&gt;apt-get install libpng-dev libjson-c-dev libfreetype6-dev \
+&lt;pre class="brush: python"&gt;
+apt-get install libpng-dev libjson-c-dev libfreetype6-dev \
                 libfontconfig1-dev libgtkmm-2.4-dev libpangomm-1.4-dev \
                 libcairo2-dev libgl-dev libglu-dev cmake swig \
-                python3-dev python3-pip pyqt5-dev mingw-w64&lt;/p&gt;
+                python3-dev python3-pip pyqt5-dev mingw-w64
+&lt;/pre&gt;
+
 &lt;p&gt;然後安裝 Pyslvs-PyQt5 所需要的 peewee ORM 模組, 以及產生靜態網誌所需的 pelican 與 Markdown:&lt;/p&gt;
 &lt;p&gt;sudo pip3 install peewee pelican Markdown&lt;/p&gt;
 &lt;p&gt;接著下載 &lt;a href="http://download.qt.io/official_releases/qt/5.7/5.7.0/qt-opensource-linux-x64-5.7.0.run"&gt;http://download.qt.io/official_releases/qt/5.7/5.7.0/qt-opensource-linux-x64-5.7.0.run&lt;/a&gt;, 安裝 Qt5.7:&lt;/p&gt;
@@ -45,32 +48,64 @@ export PATH=&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;QTDIR&lt
 &lt;p&gt;要確認 Qt 版次, 使用:&lt;/p&gt;
 &lt;p&gt;qmake -v&lt;/p&gt;
 &lt;p&gt;接下來下載 &lt;a href="http://www.riverbankcomputing.com/software/sip/download "&gt;http://www.riverbankcomputing.com/software/sip/download &lt;/a&gt;, 然後以下列指令安裝 sip 4.18.1:&lt;/p&gt;
-&lt;p&gt;python3 configure.py 
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python3 configure.py 
 make
-sudo make install&lt;/p&gt;
+sudo make install
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 &lt;p&gt;如同前面移除 sip 4.17.1 時相同, 利用  sip -V 確認系統中 sip 的版本, 假如要確認 Python3 導入時使用的 sip 版本, 利用下列程式碼檢查:&lt;/p&gt;
-&lt;p&gt;import sip
-print(sip, sip.SIP_VERSION_STR)&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sip&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sip&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sip&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SIP_VERSION_STR&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 &lt;p&gt;PyQt5 的安裝步驟與 sip 相同, 從 &lt;a href="http://www.riverbankcomputing.com/software/pyqt/download5"&gt;http://www.riverbankcomputing.com/software/pyqt/download5&lt;/a&gt; 下載原始碼之後:&lt;/p&gt;
-&lt;p&gt;python3 configure.py 
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python3 configure.py 
 make
-sudo make install&lt;/p&gt;
+sudo make install
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 &lt;p&gt;至於 qscintilla 的安裝, 牽涉3個步驟, 首先從 &lt;a href="http://www.riverbankcomputing.com/software/qscintilla/download"&gt;http://www.riverbankcomputing.com/software/qscintilla/download&lt;/a&gt; 下載原始碼:&lt;/p&gt;
 &lt;p&gt;步驟一:&lt;/p&gt;
-&lt;p&gt;cd Qt4Qt5
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd Qt4Qt5
 qmake qscintilla.pro
 make
-sudo make install&lt;/p&gt;
+sudo make install
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 &lt;p&gt;步驟二:&lt;/p&gt;
-&lt;p&gt;cd ../designer-Qt4Qt5
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd ../designer-Qt4Qt5
 qmake designer.pro
 make
-sudo make install&lt;/p&gt;
+sudo make install
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 &lt;p&gt;步驟三:&lt;/p&gt;
-&lt;p&gt;cd ../Python
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd ../Python
 python3 configure.py --pyqt=PyQt5
 make
-sudo make install&lt;/p&gt;
+sudo make install
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 &lt;p&gt;接下來則安裝 eric6, 從 &lt;a href="http://eric-ide.python-projects.org/eric-download.html"&gt;http://eric-ide.python-projects.org/eric-download.html&lt;/a&gt; 下載原始碼後, 以 sudo python3 install.py 進行安裝, 並以 eric6 開啟.&lt;/p&gt;
 &lt;h3&gt;安裝 Leo Editor&lt;/h3&gt;
 &lt;p&gt;因為前面已經安裝 PyQt5, 因此只要從 &lt;a href="https://github.com/leo-editor/leo-editor.git"&gt;https://github.com/leo-editor/leo-editor.git&lt;/a&gt; 取得 Leo Editor 的原始碼, 並將 leo 目錄複製到 /usr/local/lib/python3.5/dist-packages 目錄中即完成安裝, 啟動 Leo Editor, 則以 python3 launchLeo.py, 或者將 python3 launchLeo.py 放入可執行的 leo 檔案中, 以 ./leo&amp;amp; 啟動.&lt;/p&gt;

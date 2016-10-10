@@ -176,19 +176,22 @@
 <v t="amd.20160327224113.1"><vh>@@edit yen_20160327.md</vh></v>
 <v t="amd.20160327224200.1"><vh>@@edit yen_20160327-1.md</vh></v>
 </v>
-<v t="amd.20160727114410.1"><vh>2016_before_07</vh>
+<v t="amd.20160727114410.1"><vh>2016_before_09</vh>
 <v t="amd.20160401184837.1"><vh>@edit yen_20160401.md</vh></v>
 <v t="amd.20160521230100.1"><vh>@edit yen_20160521.md</vh></v>
 <v t="amd.20160405235750.1"><vh>@edit yen_20160405.md</vh></v>
 <v t="amd.20160408221721.1"><vh>@edit yen_20160408.md</vh></v>
-</v>
-<v t="amd.20160727114506.1" a="E"><vh>201607</vh>
+<v t="amd.20160727114506.1"><vh>201607</vh>
 <v t="amd.20160708145548.1"><vh>@@edit yen_20160708.md</vh></v>
 <v t="amd.20160727111427.1"><vh>@edit yen_20160727.md</vh></v>
 <v t="amd.20160727120222.1"><vh>@edit yen_20160728.md</vh></v>
 </v>
 <v t="leo.20160902104008.1" a="E"><vh>201609</vh>
 <v t="leo.20160902104020.1"><vh>@edit yen_20160902.md</vh></v>
+</v>
+</v>
+<v t="yen.20161010133345.1" a="E"><vh>201610</vh>
+<v t="yen.20161010133351.1"><vh>@edit yen_20161010.md</vh></v>
 </v>
 </v>
 <v t="amd.20160323000221.1"><vh>40323143 所寫的文章</vh>
@@ -1411,5 +1414,6 @@ PLUGINS = ['liquid_tags.notebook', 'summary']
 
 DEFAULT_DATE = 'fs'</t>
 <t tx="leo.20160902104008.1"></t>
+<t tx="yen.20161010133345.1"></t>
 </tnodes>
 </leo_file>

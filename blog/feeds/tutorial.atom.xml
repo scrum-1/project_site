@@ -1,5 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/tutorial.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-07-30T11:29:00+08:00</updated><entry><title>yen - 有關機械設計專題網站內容</title><link href="http://project.mde.tw/blog/yen-you-guan-ji-jie-she-ji-zhuan-ti-wang-zhan-nei-rong.html" rel="alternate"></link><published>2016-07-30T11:29:00+08:00</published><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-30:blog/yen-you-guan-ji-jie-she-ji-zhuan-ti-wang-zhan-nei-rong.html</id><summary type="html">&lt;p&gt;本機械設計專題網誌採用 Leo Editor 管理文章內容與設定, 並且透過 Pelican 靜態網誌系統程式, 將各參與協同人員所分別建立的 .md 檔案, 轉為一系列的 html 檔案, 其中包括全文內容的搜尋, 以及網誌分類的架構.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="./" rel="alternate"></link><link href="./feeds/tutorial.atom.xml" rel="self"></link><id>./</id><updated>2016-10-10T11:29:00+08:00</updated><entry><title>yen - KMOL 的程式開發環境</title><link href="./yen-kmol-de-cheng-shi-kai-fa-huan-jing.html" rel="alternate"></link><published>2016-10-10T11:29:00+08:00</published><updated>2016-10-10T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:,2016-10-10:./yen-kmol-de-cheng-shi-kai-fa-huan-jing.html</id><summary type="html">&lt;p&gt;當 Ubuntu 在年初推出 16.04 版本時, 因為許多舊型的 AMD 電腦顯示卡無法內建支援, 因此仍然停留在 Ubuntu 14.04 LTS 的使用, 但是隨著 Solvespace 與 PyQt5 相關應用程式的開發需要, Python 3.4 與 PyQt4 已經不敷使用, 因此從今天開始, 利用實體或虛擬安裝的方式, 將 KMOL 機械設計專題的主要程式開發系統, 定調採用 Ubuntu 16.04 版本.&lt;/p&gt;
+
+
+&lt;h2&gt;基本程式開發策略&lt;/h2&gt;
+&lt;p&gt;在 &lt;a href="https://www.onshape.com/"&gt;OnShape&lt;/a&gt; 推出之前, KMOL 機械設計專題為了在 &lt;a href="http://www.freecadweb.org/"&gt;FreeCAD&lt;/a&gt; 與 &lt;a href="http://solvespace.com"&gt;Solvespace&lt;/a&gt; 之外, 能夠採用 PTC Creo 與 Solidworks, 因此除了在 Ubuntu 建構程式開發系統之外, 還利用 NetBeans 與 MinGW, 在 Windows 7 與 Windows 10 64 位元環境中建立可攜的程式開發系統, 但是隨著 Windows 10 越發強勢地主導自動更新, KMOL 機械設計專題決定要在 Ubuntu 環境中, 以 cmake 及 mingw-w64 開發 Windows 10 適用的套件, 換言之, 從今以後, Windows 操作系統只是 KMOL 機械設計專題的執行平台而非開發平台.&lt;/p&gt;
+&lt;h2&gt;理想的程式開發環境&lt;/h2&gt;
+&lt;p&gt;假如實體主機無法直接安裝 Ubuntu 16.04, 建議仍安裝 Ubuntu 14.04 與 Virtualbox, 並且在 Virtualbox 中配置 64 位元的虛擬 Ubuntu 16.04 或 Windows 10 執行環境.&lt;/p&gt;
+&lt;p&gt;有鑑於一台實體主機將經常要開啟一個實體的 Ubuntu 14.04 與兩個虛擬操作系統, 因此除了要俱備 Vti 相關虛擬技術的支援外, 記憶體必須 12GB 以上, 而硬碟則是 1TB 以上較佳.&lt;/p&gt;
+&lt;p&gt;當然, 因為這一台主機仍必須執行至少一套虛擬 Windows 10 64 位元操作系統, 因此必須購買相應合法的 Windows 操作系統使用授權.&lt;/p&gt;
+&lt;h3&gt;Ubuntu 14.04 主機的安裝&lt;/h3&gt;
+&lt;p&gt;當實體主機進行 Ubuntu 14.04 Server 操作系統安裝時, 僅需選擇安裝 OpenSSH server 加上 ubuntu-desktop 即可, 之後可以安裝 gcin 中文輸入系統、git、pip3、PyQt4、pelican、Markdown 以及 Leo Editor 等模組, 目的在於可以處理與 Github 相關倉儲的資料更新.&lt;/p&gt;
+&lt;p&gt;基本步驟如下:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;sudo apt-get install gcin git python3-pip python-pyqt4&lt;/li&gt;
+&lt;li&gt;git clone https://github.com/leo-editor/leo-editor.git&lt;/li&gt;
+&lt;li&gt;將 leo-editor 目錄下的 leo 檔案複製到 /usr/local/lib/python3.4/dist-packages 目錄下&lt;/li&gt;
+&lt;li&gt;利用 python3 launchLeo.py 啟動 Leo Editor&lt;/li&gt;
+&lt;li&gt;sudo pip3 install pelican Markdown&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;因為 gcin 在 Ubuntu 14.04 操作系統環境下, 可以直接支援 PyQt4 程式的中文輸入, 因此只要選用 gcin 後重新開機即可.&lt;/p&gt;
+&lt;h3&gt;Ubuntu 16.04 實體或虛擬主機安裝&lt;/h3&gt;
+&lt;p&gt;Ubuntu 16.04 Server 操作系統的安裝, 雖然步驟與 14.04 大致相同, 但是因為要作為 CMake 與 PyQt5 程式開發之用, 因此除了必要的程式模組採 apt 安裝外, 其他的 Qt5、sip、PyQt5、qscintilla2 與 eric6 等, 都直接從原始碼編譯連結後進行安裝.&lt;/p&gt;
+&lt;p&gt;首先, 利用 apt purge 徹底移除 Ubuntu 16.04 內建的 sip 4.17.1 舊版本:&lt;/p&gt;
+&lt;p&gt;sudo apt purge python3-sip python3-sip-dev&lt;/p&gt;
+&lt;p&gt;移除 sip 前後, 可以利用 sip -V 確認版次.&lt;/p&gt;
+&lt;p&gt;接著安裝, Solvespace 與程式庫開發所需的各種套件:&lt;/p&gt;
+&lt;p&gt;apt-get install libpng-dev libjson-c-dev libfreetype6-dev \
+                libfontconfig1-dev libgtkmm-2.4-dev libpangomm-1.4-dev \
+                libcairo2-dev libgl-dev libglu-dev cmake swig \
+                python3-dev python3-pip pyqt5-dev mingw-w64&lt;/p&gt;
+&lt;p&gt;然後安裝 Pyslvs-PyQt5 所需要的 peewee ORM 模組, 以及產生靜態網誌所需的 pelican 與 Markdown:&lt;/p&gt;
+&lt;p&gt;sudo pip3 install peewee pelican Markdown&lt;/p&gt;
+&lt;p&gt;接著下載 &lt;a href="http://download.qt.io/official_releases/qt/5.7/5.7.0/qt-opensource-linux-x64-5.7.0.run"&gt;http://download.qt.io/official_releases/qt/5.7/5.7.0/qt-opensource-linux-x64-5.7.0.run&lt;/a&gt;, 安裝 Qt5.7:&lt;/p&gt;
+&lt;p&gt;然後利用 gedit ~/.bashrc, 編輯 .bashrc, 加入:&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;export QTDIR=/opt/Qt5.7.0/5.7/gcc_64/ 
+export LD_LIBRARY_PATH=&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;:&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;QTDIR&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;/lib 
+export PATH=&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;QTDIR&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;/bin:&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;然後以 source ~/.bashrc 讓設定生效.&lt;/p&gt;
+&lt;p&gt;要確認 Qt 版次, 使用:&lt;/p&gt;
+&lt;p&gt;qmake -v&lt;/p&gt;
+&lt;p&gt;接下來下載 &lt;a href="http://www.riverbankcomputing.com/software/sip/download "&gt;http://www.riverbankcomputing.com/software/sip/download &lt;/a&gt;, 然後以下列指令安裝 sip 4.18.1:&lt;/p&gt;
+&lt;p&gt;python3 configure.py 
+make
+sudo make install&lt;/p&gt;
+&lt;p&gt;如同前面移除 sip 4.17.1 時相同, 利用  sip -V 確認系統中 sip 的版本, 假如要確認 Python3 導入時使用的 sip 版本, 利用下列程式碼檢查:&lt;/p&gt;
+&lt;p&gt;import sip
+print(sip, sip.SIP_VERSION_STR)&lt;/p&gt;
+&lt;p&gt;PyQt5 的安裝步驟與 sip 相同, 從 &lt;a href="http://www.riverbankcomputing.com/software/pyqt/download5"&gt;http://www.riverbankcomputing.com/software/pyqt/download5&lt;/a&gt; 下載原始碼之後:&lt;/p&gt;
+&lt;p&gt;python3 configure.py 
+make
+sudo make install&lt;/p&gt;
+&lt;p&gt;至於 qscintilla 的安裝, 牽涉3個步驟, 首先從 &lt;a href="http://www.riverbankcomputing.com/software/qscintilla/download"&gt;http://www.riverbankcomputing.com/software/qscintilla/download&lt;/a&gt; 下載原始碼:&lt;/p&gt;
+&lt;p&gt;步驟一:&lt;/p&gt;
+&lt;p&gt;cd Qt4Qt5
+qmake qscintilla.pro
+make
+sudo make install&lt;/p&gt;
+&lt;p&gt;步驟二:&lt;/p&gt;
+&lt;p&gt;cd ../designer-Qt4Qt5
+qmake designer.pro
+make
+sudo make install&lt;/p&gt;
+&lt;p&gt;步驟三:&lt;/p&gt;
+&lt;p&gt;cd ../Python
+python3 configure.py --pyqt=PyQt5
+make
+sudo make install&lt;/p&gt;
+&lt;p&gt;接下來則安裝 eric6, 從 &lt;a href="http://eric-ide.python-projects.org/eric-download.html"&gt;http://eric-ide.python-projects.org/eric-download.html&lt;/a&gt; 下載原始碼後, 以 sudo python3 install.py 進行安裝, 並以 eric6 開啟.&lt;/p&gt;
+&lt;h3&gt;安裝 Leo Editor&lt;/h3&gt;
+&lt;p&gt;因為前面已經安裝 PyQt5, 因此只要從 &lt;a href="https://github.com/leo-editor/leo-editor.git"&gt;https://github.com/leo-editor/leo-editor.git&lt;/a&gt; 取得 Leo Editor 的原始碼, 並將 leo 目錄複製到 /usr/local/lib/python3.5/dist-packages 目錄中即完成安裝, 啟動 Leo Editor, 則以 python3 launchLeo.py, 或者將 python3 launchLeo.py 放入可執行的 leo 檔案中, 以 ./leo&amp;amp; 啟動.&lt;/p&gt;
+&lt;h3&gt;安裝 fcitx 中文輸入&lt;/h3&gt;
+&lt;p&gt;由於目前 gcin 對於 PyQt5 的支援較不完全, 因此在 Ubuntu 16.04 操作系統中, 採用 fcitx 作為中文輸入的套件:&lt;/p&gt;
+&lt;p&gt;sudo apt install fcitx fcitx-chewing&lt;/p&gt;
+&lt;p&gt;表示將採用 fcitx 中文輸入法中的酷音輸入套件.&lt;/p&gt;
+&lt;p&gt;酷音輸入法的使用牽涉3個步驟, 第1步驟就是上方的套件安裝, 而第2步驟就是進入系統設定中的 language support, 將原先內建的 ibus 改為 fcitx, 而第3步驟則是在輸入 configure 時, 加入 chewing 中文輸入法, 並且將原先的切換鍵 space 改為 ctrl+space.&lt;/p&gt;
+&lt;p&gt;完成上述步驟的安裝與設定後, 就可以利用 Leo Editor 及 eric6 來開發 Solvespace 與 api 應用, 包含所有相關系統原始碼的倉儲位於 &lt;a href="https://github.com/mdecourse/solvespack"&gt;https://github.com/mdecourse/solvespack&lt;/a&gt;, 以 submodule  設定的相同倉儲則位於: &lt;a href="https://github.com/mdecourse/solvk"&gt;https://github.com/mdecourse/solvk&lt;/a&gt;.&lt;/p&gt;</summary><category term="機械設計"></category><category term="專題"></category></entry><entry><title>yen - 有關機械設計專題網站內容</title><link href="./yen-you-guan-ji-jie-she-ji-zhuan-ti-wang-zhan-nei-rong.html" rel="alternate"></link><published>2016-07-30T11:29:00+08:00</published><updated>2016-07-30T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:,2016-07-30:./yen-you-guan-ji-jie-she-ji-zhuan-ti-wang-zhan-nei-rong.html</id><summary type="html">&lt;p&gt;本機械設計專題網誌採用 Leo Editor 管理文章內容與設定, 並且透過 Pelican 靜態網誌系統程式, 將各參與協同人員所分別建立的 .md 檔案, 轉為一系列的 html 檔案, 其中包括全文內容的搜尋, 以及網誌分類的架構.&lt;/p&gt;
 
 
 &lt;p&gt;假如您檢視現在這篇文章的 .md 檔案, 在文章最前頭的內容為:&lt;/p&gt;
@@ -15,7 +95,7 @@ Author: yen
 &lt;p&gt;但是就實務應用的觀點, 各用戶一旦 git clone 本倉儲內容, 或者在操作系統中搬動或複製倉儲檔案, 而沒能利用像 cp -p 這種可以保留原始檔案建立時間的指令, 整個倉儲的 .md 檔案就會隨著不同操作流程, 而讓網誌的文章順序變來變去, 從讀者的角度來看, 我們應該要加以解決這個問題.&lt;/p&gt;
 &lt;p&gt;解決的方法很簡單, 我們仍然保留原先近端與遠端 DEFAULT_DATE = 'fs' 的設定, 也就是若使用者的文章沒有 Date: 註記, 就仍舊採用該 .md 檔案的建立時間作為文章登錄的時間 ,但是若使用者的 .md 檔案提供了 Date: 註記, 那麼就以註記的時間作為文章建立時間.&lt;/p&gt;
 &lt;p&gt;好了, 接下來就是要求所有參與協同的作者, 在各自的文章標題後面, 加上 Date:, 而格式則是 Date: 2016-07-27 11:29, 一旦所有的文章都各自標註建立的確切時間, 之後所產生的機械設計專題網誌文章順序, 應該就不會再變來變去了.&lt;/p&gt;
-&lt;p&gt;當然, 我們為了要讓現在這篇文章能夠放在網誌的最上頭幾天, 我們把它註記為三天後的時間.&lt;/p&gt;</summary><category term="Pelican"></category><category term="文章日期"></category></entry><entry><title>yen - RGA 基因演算法</title><link href="http://project.mde.tw/blog/yen-rga-ji-yin-yan-suan-fa.html" rel="alternate"></link><published>2016-05-21T01:20:00+08:00</published><author><name>yen</name></author><id>tag:project.mde.tw,2016-05-21:blog/yen-rga-ji-yin-yan-suan-fa.html</id><summary type="html">&lt;p&gt;RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.&lt;/p&gt;
+&lt;p&gt;當然, 我們為了要讓現在這篇文章能夠放在網誌的最上頭幾天, 我們把它註記為三天後的時間.&lt;/p&gt;</summary><category term="Pelican"></category><category term="文章日期"></category></entry><entry><title>yen - RGA 基因演算法</title><link href="./yen-rga-ji-yin-yan-suan-fa.html" rel="alternate"></link><published>2016-05-21T01:20:00+08:00</published><updated>2016-05-21T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:,2016-05-21:./yen-rga-ji-yin-yan-suan-fa.html</id><summary type="html">&lt;p&gt;RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.&lt;/p&gt;
 
 
 &lt;pre class="brush: python"&gt;
@@ -2668,7 +2748,7 @@ print(ga.run())
 
       return tip3_coord;
     }
-&lt;/pre&gt;</summary><category term="RGA"></category></entry><entry><title>yen - 如何建立一好的 Wordpress 網站</title><link href="http://project.mde.tw/blog/yen-ru-he-jian-li-yi-hao-de-wordpress-wang-zhan.html" rel="alternate"></link><published>2016-04-08T01:20:00+08:00</published><author><name>yen</name></author><id>tag:project.mde.tw,2016-04-08:blog/yen-ru-he-jian-li-yi-hao-de-wordpress-wang-zhan.html</id><summary type="html">&lt;p&gt;機械設計專題專用的 Wordpress 必須俱備幾項特點: 能夠輸入數學公式, 能夠放入高亮顯示的程式碼, 能夠內嵌影片, 能夠利用 Gmail 帳號寄信, 能夠納入 Disqus 討論區, 能夠杜絕垃圾註冊.&lt;/p&gt;
+&lt;/pre&gt;</summary><category term="RGA"></category></entry><entry><title>yen - 如何建立一好的 Wordpress 網站</title><link href="./yen-ru-he-jian-li-yi-hao-de-wordpress-wang-zhan.html" rel="alternate"></link><published>2016-04-08T01:20:00+08:00</published><updated>2016-04-08T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:,2016-04-08:./yen-ru-he-jian-li-yi-hao-de-wordpress-wang-zhan.html</id><summary type="html">&lt;p&gt;機械設計專題專用的 Wordpress 必須俱備幾項特點: 能夠輸入數學公式, 能夠放入高亮顯示的程式碼, 能夠內嵌影片, 能夠利用 Gmail 帳號寄信, 能夠納入 Disqus 討論區, 能夠杜絕垃圾註冊.&lt;/p&gt;
 
 
 &lt;p&gt;當然假如能夠如 &lt;a href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html"&gt;http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html&lt;/a&gt; 中所言, 可以利用 Leo Editor 的指令按鈕, 讓 Wordpress 網誌內容能與 Pelican 靜態網誌內容保持同步, 或許就能同時擁有改版歷程資料與即時動態維護內容的優點.&lt;/p&gt;
@@ -2685,12 +2765,12 @@ print(ga.run())
 &lt;p&gt;選擇 Use SSL encryption&lt;/p&gt;
 &lt;p&gt;選擇 Use SMTP authentication&lt;/p&gt;
 &lt;p&gt;然後給定對應的 Gmail 帳號 與 Gmail 密碼 之後存檔.&lt;/p&gt;
-&lt;p&gt;第2項設定則是必須配合所使用的 Gmail 帳號, 利用 &lt;a href="https://www.google.com/settings/security/lesssecureapps"&gt;https://www.google.com/settings/security/lesssecureapps&lt;/a&gt; 將原定的 Turn off 改為 Turn on, 也就是降低安全設定等級, 接著就可以寄出測試信件, 若成功, 則 WordPress 中的其他模組就可以利用設定寄信.&lt;/p&gt;</summary><category term="Wordpress"></category></entry><entry><title>yen - Solvespace 與 V-rep 結合應用</title><link href="http://project.mde.tw/blog/yen-solvespace-yu-v-rep-jie-he-ying-yong.html" rel="alternate"></link><published>2016-04-05T01:20:00+08:00</published><author><name>yen</name></author><id>tag:project.mde.tw,2016-04-05:blog/yen-solvespace-yu-v-rep-jie-he-ying-yong.html</id><summary type="html">&lt;p&gt;Solvespace 是一套小型的參數式 3D 繪圖開源套件, 而 V-rep 則是一套允許教育界免費使用的開源動態模擬套件, 結合這兩個套件在機械設計專題應用, 一方面使用者可以在可攜的架構下來進行產品開發與模擬, 更重要的是, 使用者可以透過原始程式碼, 一窺專業人士編寫電腦輔助機械設計與分析工具時, 所應用的理論分析與基本架構.&lt;/p&gt;
+&lt;p&gt;第2項設定則是必須配合所使用的 Gmail 帳號, 利用 &lt;a href="https://www.google.com/settings/security/lesssecureapps"&gt;https://www.google.com/settings/security/lesssecureapps&lt;/a&gt; 將原定的 Turn off 改為 Turn on, 也就是降低安全設定等級, 接著就可以寄出測試信件, 若成功, 則 WordPress 中的其他模組就可以利用設定寄信.&lt;/p&gt;</summary><category term="Wordpress"></category></entry><entry><title>yen - Solvespace 與 V-rep 結合應用</title><link href="./yen-solvespace-yu-v-rep-jie-he-ying-yong.html" rel="alternate"></link><published>2016-04-05T01:20:00+08:00</published><updated>2016-04-05T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:,2016-04-05:./yen-solvespace-yu-v-rep-jie-he-ying-yong.html</id><summary type="html">&lt;p&gt;Solvespace 是一套小型的參數式 3D 繪圖開源套件, 而 V-rep 則是一套允許教育界免費使用的開源動態模擬套件, 結合這兩個套件在機械設計專題應用, 一方面使用者可以在可攜的架構下來進行產品開發與模擬, 更重要的是, 使用者可以透過原始程式碼, 一窺專業人士編寫電腦輔助機械設計與分析工具時, 所應用的理論分析與基本架構.&lt;/p&gt;
 
 
 &lt;p&gt;Solvespace: &lt;a href="http://solvespace.com/"&gt;http://solvespace.com/&lt;/a&gt; 與 &lt;a href="https://github.com/whitequark/solvespace"&gt;https://github.com/whitequark/solvespace&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;V-rep: &lt;a href="http://www.coppeliarobotics.com/"&gt;http://www.coppeliarobotics.com/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/solvespace_v-rep.png" width="800" /&gt;&lt;/p&gt;</summary><category term="Solvespace"></category><category term="V-rep"></category></entry><entry><title>yen - 編譯 Solvespace</title><link href="http://project.mde.tw/blog/yen-bian-yi-solvespace.html" rel="alternate"></link><published>2016-03-10T01:20:00+08:00</published><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-10:blog/yen-bian-yi-solvespace.html</id><summary type="html">&lt;p&gt;我們有沒有能力在機械設計專題中, 自行編譯 Solvespace, 並且了解其中的原理後, 新增自己需要的零件設計功能?&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/solvespace_v-rep.png" width="800" /&gt;&lt;/p&gt;</summary><category term="Solvespace"></category><category term="V-rep"></category></entry><entry><title>yen - 編譯 Solvespace</title><link href="./yen-bian-yi-solvespace.html" rel="alternate"></link><published>2016-03-10T01:20:00+08:00</published><updated>2016-03-10T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:,2016-03-10:./yen-bian-yi-solvespace.html</id><summary type="html">&lt;p&gt;我們有沒有能力在機械設計專題中, 自行編譯 Solvespace, 並且了解其中的原理後, 新增自己需要的零件設計功能?&lt;/p&gt;
 
 
 &lt;p&gt;&lt;a href="https://github.com/whitequark/solvespace"&gt;https://github.com/whitequark/solvespace&lt;/a&gt;&lt;/p&gt;
@@ -2710,7 +2790,7 @@ print(ga.run())
 &lt;p&gt;進入 Solvespace Makefile 所在目錄, 執行 nmake.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;就可以完成 Solvespace.exe 的編譯.&lt;/p&gt;</summary><category term="Solvespace"></category><category term="MCAD"></category></entry><entry><title>yen - 如何參與 project.mde.tw 的協同編輯</title><link href="http://project.mde.tw/blog/yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html" rel="alternate"></link><published>2016-03-09T01:20:00+08:00</published><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-09:blog/yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html</id><summary type="html">&lt;p&gt;只要是 KMOL 機械設計專題的成員, 就可以依照特定程序, 管理 project.mde.tw 網站上的資料&lt;/p&gt;
+&lt;p&gt;就可以完成 Solvespace.exe 的編譯.&lt;/p&gt;</summary><category term="Solvespace"></category><category term="MCAD"></category></entry><entry><title>yen - 如何參與 project.mde.tw 的協同編輯</title><link href="./yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html" rel="alternate"></link><published>2016-03-09T01:20:00+08:00</published><updated>2016-03-09T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:,2016-03-09:./yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html</id><summary type="html">&lt;p&gt;只要是 KMOL 機械設計專題的成員, 就可以依照特定程序, 管理 project.mde.tw 網站上的資料&lt;/p&gt;
 
 
 &lt;p&gt;首先, 你必須是 &lt;a href="https://github.com/coursemdetw/project_site/watchers"&gt;https://github.com/coursemdetw/project_site/watchers&lt;/a&gt; 名單上的成員, 否則就必須透過 Pull Request 的方式來參與 &lt;a href="http://project.mde.tw"&gt;http://project.mde.tw&lt;/a&gt; 網誌內容的協同管理.&lt;/p&gt;
@@ -2735,7 +2815,7 @@ for i in range(5):
 &lt;p&gt;git add -A&lt;/p&gt;
 &lt;p&gt;git commit -m "提交說明訊息"&lt;/p&gt;
 &lt;p&gt;git push origin gh-pages&lt;/p&gt;
-&lt;p&gt;最後, 與 &lt;a href="http://project.mde.tw"&gt;http://project.mde.tw&lt;/a&gt; 網站維護有關的訊息溝通或註記, 請透過 &lt;a href="https://github.com/coursemdetw/project_site/wiki/%E6%A9%9F%E6%A2%B0%E8%A8%AD%E8%A8%88%E5%B0%88%E9%A1%8C%E5%8D%94%E5%90%8C%E7%B6%B2%E7%AB%99%E8%A8%98%E4%BA%8B"&gt;倉儲 Wiki&lt;/a&gt; 進行.&lt;/p&gt;</summary><category term="Pelican"></category><category term="Leo Editor"></category></entry><entry><title>yen - 網際 Flask 程式架構</title><link href="http://project.mde.tw/blog/yen-wang-ji-flask-cheng-shi-jia-gou.html" rel="alternate"></link><published>2016-03-08T01:20:00+08:00</published><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-08:blog/yen-wang-ji-flask-cheng-shi-jia-gou.html</id><summary type="html">&lt;p&gt;Flask 是一套支援 Python3 的全球資訊網程式框架, 這裡希望用它來開發網際輔助機械設計程式.&lt;/p&gt;
+&lt;p&gt;最後, 與 &lt;a href="http://project.mde.tw"&gt;http://project.mde.tw&lt;/a&gt; 網站維護有關的訊息溝通或註記, 請透過 &lt;a href="https://github.com/coursemdetw/project_site/wiki/%E6%A9%9F%E6%A2%B0%E8%A8%AD%E8%A8%88%E5%B0%88%E9%A1%8C%E5%8D%94%E5%90%8C%E7%B6%B2%E7%AB%99%E8%A8%98%E4%BA%8B"&gt;倉儲 Wiki&lt;/a&gt; 進行.&lt;/p&gt;</summary><category term="Pelican"></category><category term="Leo Editor"></category></entry><entry><title>yen - 網際 Flask 程式架構</title><link href="./yen-wang-ji-flask-cheng-shi-jia-gou.html" rel="alternate"></link><published>2016-03-08T01:20:00+08:00</published><updated>2016-03-08T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:,2016-03-08:./yen-wang-ji-flask-cheng-shi-jia-gou.html</id><summary type="html">&lt;p&gt;Flask 是一套支援 Python3 的全球資訊網程式框架, 這裡希望用它來開發網際輔助機械設計程式.&lt;/p&gt;
 
 
 &lt;p&gt;&lt;a href="http://flask.pocoo.org/"&gt;http://flask.pocoo.org/&lt;/a&gt; 是一套簡潔的 Python3 網際程式框架, 在這一系列的導引資料中, 將利用 &lt;a href="https://github.com/2015fallhw/simpleflask"&gt;https://github.com/2015fallhw/simpleflask&lt;/a&gt; 倉儲來存放資料, 並將資料同步推送到 &lt;a href="http://simpleflask-2014openshift.rhcloud.com/"&gt;http://simpleflask-2014openshift.rhcloud.com/&lt;/a&gt; 執行.&lt;/p&gt;
@@ -2870,10 +2950,10 @@ if __name__ == "__main__":
 &lt;/pre&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p&gt;此外, 因為 Flask 內定靜態目錄名稱為 static, 且 template 名稱為 templates, 因此在最基本的 Flask 程式架構中, 也需要自行建立這兩個目錄, 然後將靜態文件放入 static 目錄中, 而對應的  template 文件檔案, 則放入 templates 目錄中.&lt;/p&gt;</summary><category term="OpenShift"></category><category term="Flask"></category></entry><entry><title>user - 使用者的範例網誌文章標題</title><link href="http://project.mde.tw/blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html" rel="alternate"></link><published>2016-03-01T21:00:00+08:00</published><author><name>user</name></author><id>tag:project.mde.tw,2016-03-01:blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 user 所寫的文章摘要&lt;/p&gt;
+&lt;p&gt;此外, 因為 Flask 內定靜態目錄名稱為 static, 且 template 名稱為 templates, 因此在最基本的 Flask 程式架構中, 也需要自行建立這兩個目錄, 然後將靜態文件放入 static 目錄中, 而對應的  template 文件檔案, 則放入 templates 目錄中.&lt;/p&gt;</summary><category term="OpenShift"></category><category term="Flask"></category></entry><entry><title>user - 使用者的範例網誌文章標題</title><link href="./user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html" rel="alternate"></link><published>2016-03-01T21:00:00+08:00</published><updated>2016-03-01T21:00:00+08:00</updated><author><name>user</name></author><id>tag:,2016-03-01:./user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 user 所寫的文章摘要&lt;/p&gt;
 
 
-&lt;p&gt;這裡為 user 所寫的文章主要內容&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>yen - 2016 年專題啟動</title><link href="http://project.mde.tw/blog/yen-2016-nian-zhuan-ti-qi-dong.html" rel="alternate"></link><published>2016-03-01T01:20:00+08:00</published><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-01:blog/yen-2016-nian-zhuan-ti-qi-dong.html</id><summary type="html">&lt;p&gt;利用 Github Pages 與 Pelican 建立協同專題製作網誌&lt;/p&gt;
+&lt;p&gt;這裡為 user 所寫的文章主要內容&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>yen - 2016 年專題啟動</title><link href="./yen-2016-nian-zhuan-ti-qi-dong.html" rel="alternate"></link><published>2016-03-01T01:20:00+08:00</published><updated>2016-03-01T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:,2016-03-01:./yen-2016-nian-zhuan-ti-qi-dong.html</id><summary type="html">&lt;p&gt;利用 Github Pages 與 Pelican 建立協同專題製作網誌&lt;/p&gt;
 
 
 &lt;h2&gt;機械設計工程網誌啟動&lt;/h2&gt;

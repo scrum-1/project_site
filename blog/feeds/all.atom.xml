@@ -5,7 +5,34 @@
 &lt;p&gt;首先, 必須要知道 Github 帳號啟用後, 可以 &lt;a href="https://help.github.com/articles/changing-your-primary-email-address/"&gt;更改對應的 email&lt;/a&gt;, 必須在學校 email 面臨被取消之前, 轉換到其他生命週期較長的電子郵箱.&lt;/p&gt;
 &lt;p&gt;根據課程的規劃, 2016Fall 的計算機程式對應網站位於 &lt;a href="https://mdecourse.github.io/2016fallcpa"&gt;https://mdecourse.github.io/2016fallcpa&lt;/a&gt;, 而 2016Fall 的電腦輔助設計實習課程則位於 &lt;a href="https://mdecourse.github.io/2016fallcadpa"&gt;https://mdecourse.github.io/2016fallcadpa&lt;/a&gt;, 在課程進行期間, 兩班將使用相同的 reveal.js 投影片, 但各自擁有一份 pelican 靜態網誌, 等到課程結束, 將會合併到年度的課程投影片與網誌中.&lt;/p&gt;
 &lt;p&gt;上述課程網頁的基本架構與過去幾年所使用的大致相同, 最大的區別在於, 各倉儲都只關注 gh-pages 分支, 且從班上的網頁到各組的網頁, 一直下達各學員的網際內容, 都透過 git submodule 綁定與時間對應的版本, 各組與各學員在規定檢核內容的時限之後, 仍可持續改版, 不致影響自評與互評的版本內容.&lt;/p&gt;
-&lt;p&gt;此外, 各倉儲中除了影片檔案, 必須放在 Vimeo 與 Youtube 外, 其他的相關檔案都建議存在各自對應的倉儲中, 並且以相對目錄設定, 如此, 一旦課程結束後, 班級課程倉儲就可以被 git clone 到近端繼續使用, 唯一必須處理的就是將各頁面所使用的 cdn 或統一的 Github Pages 對應 Javascripts, 以近端的程式庫取代, 並且使用各學年規劃下的版本.&lt;/p&gt;</summary><category term="機械設計"></category><category term="專題"></category></entry><entry><title>yen - KMOL 的程式開發環境</title><link href="http://project.mde.tw/blog/yen-kmol-de-cheng-shi-kai-fa-huan-jing.html" rel="alternate"></link><published>2016-10-10T11:29:00+08:00</published><updated>2016-10-10T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-10-10:blog/yen-kmol-de-cheng-shi-kai-fa-huan-jing.html</id><summary type="html">&lt;p&gt;當 Ubuntu 在年初推出 16.04 版本時, 因為許多舊型的 AMD 電腦顯示卡無法內建支援, 因此仍然停留在 Ubuntu 14.04 LTS 的使用, 但是隨著 Solvespace 與 PyQt5 相關應用程式的開發需要, Python 3.4 與 PyQt4 已經不敷使用, 因此從今天開始, 利用實體或虛擬安裝的方式, 將 KMOL 機械設計專題的主要程式開發系統, 定調採用 Ubuntu 16.04 版本.&lt;/p&gt;
+&lt;p&gt;此外, 各倉儲中除了影片檔案, 必須放在 Vimeo 與 Youtube 外, 其他的相關檔案都建議存在各自對應的倉儲中, 並且以相對目錄設定, 如此, 一旦課程結束後, 班級課程倉儲就可以被 git clone 到近端繼續使用, 唯一必須處理的就是將各頁面所使用的 cdn 或統一的 Github Pages 對應 Javascripts, 以近端的程式庫取代, 並且使用各學年規劃下的版本.&lt;/p&gt;</summary><category term="機械設計"></category><category term="專題"></category></entry><entry><title>40323230日誌 - 105/10/11</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051011.html" rel="alternate"></link><published>2016-10-11T21:00:00+08:00</published><updated>2016-10-11T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-11:blog/40323230ri-zhi-1051011.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Kubuntu 16.04 一些瑣事&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Python Solvespace Makefile 配置&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;已更新&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Kubuntu 16.04&lt;/h1&gt;
+&lt;p&gt;安裝 Eric6 成功之後，又安裝了 Leo Editor（使用 &lt;code&gt;git clone&lt;/code&gt; 後直接 launch 的方式），在 Python 3.5 + PyQt 5.5 的情形下沒有遇到無法切換輸入法的問題，所以就可以用這台電腦寫網誌了。&lt;/p&gt;
+&lt;p&gt;升級之後有類似 Windows 的不定期更新，不過是非強制的，可以不用理它。&lt;/p&gt;
+&lt;p&gt;另外新版的 Plasma 將帳戶和即時通綁在一起，所以通知列一直會有即時通的圖示關不掉，不過不妨礙工作。&lt;/p&gt;
+&lt;p&gt;資源使用量：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1011_01.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;另外比較奇怪的一點是 Eric6 偵測相關工具時發現了 Pyside（不過 Python 3 無法 import；Python 2 可以）；卻找不到 PyQt（但是可以 import），可能是路徑問題。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1011_02.jpg" /&gt;&lt;/p&gt;
+&lt;h1&gt;Python Solvespace Makefile 配置&lt;/h1&gt;
+&lt;p&gt;撰寫了 configure.py 來幫忙生成 Makefile，放在 exposed 資料夾裡。&lt;/p&gt;
+&lt;p&gt;不過目前只能支援 Ubuntu（測試成功），Windows 的部份因為有可攜環境的關係，需要知道各種工具的位置，必須另外做調整。&lt;/p&gt;
+&lt;p&gt;也因為如此，目前 Windows 的部份是原本 W: 槽的設定，之後會改用 Windows 7 測試新的可攜 Solvespace 編譯環境，還有如果本機直接安裝相關工具的環境。&lt;/p&gt;
+&lt;p&gt;能夠自動偵測環境編譯後，在想是否需要重新規劃 Submodule 的父子關係，因為 Pyslvs GUI 無法直接切換對應 Python 版本的 Kernal 來用，只會拿到上個使用者的核心來使用，有很大的機率會出問題。&lt;/p&gt;
+&lt;p&gt;因此當其他協同者下載 Pyslvs 後，可能需要重新編譯 Kernal 來用，之後放入專案中（或許 Makefile 可以協助），協同 GUI 時就不用理會核心版本不同了。&lt;/p&gt;
+&lt;p&gt;至於之後是否會在 16.04 升級 Qt 或 PyQt，可能得尋找其他方法，目前是不會更改內建的程式庫。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>yen - KMOL 的程式開發環境</title><link href="http://project.mde.tw/blog/yen-kmol-de-cheng-shi-kai-fa-huan-jing.html" rel="alternate"></link><published>2016-10-10T11:29:00+08:00</published><updated>2016-10-10T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-10-10:blog/yen-kmol-de-cheng-shi-kai-fa-huan-jing.html</id><summary type="html">&lt;p&gt;當 Ubuntu 在年初推出 16.04 版本時, 因為許多舊型的 AMD 電腦顯示卡無法內建支援, 因此仍然停留在 Ubuntu 14.04 LTS 的使用, 但是隨著 Solvespace 與 PyQt5 相關應用程式的開發需要, Python 3.4 與 PyQt4 已經不敷使用, 因此從今天開始, 利用實體或虛擬安裝的方式, 將 KMOL 機械設計專題的主要程式開發系統, 定調採用 Ubuntu 16.04 版本.&lt;/p&gt;
 
 
 &lt;h2&gt;基本程式開發策略&lt;/h2&gt;

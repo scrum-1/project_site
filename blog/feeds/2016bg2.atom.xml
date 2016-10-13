@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-10-07T21:00:00+08:00</updated><entry><title>40323230日誌 - Kubuntu 16.04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-kubuntu-1604.html" rel="alternate"></link><published>2016-10-07T21:00:00+08:00</published><updated>2016-10-07T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-07:blog/40323230ri-zhi-kubuntu-1604.html</id><summary type="html">&lt;p&gt;：：Kubuntu 16.04 資訊紀錄：：&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-10-11T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/10/11</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051011.html" rel="alternate"></link><published>2016-10-11T21:00:00+08:00</published><updated>2016-10-11T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-11:blog/40323230ri-zhi-1051011.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Kubuntu 16.04 一些瑣事&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Python Solvespace Makefile 配置&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;倉儲&lt;a href="https://github.com/40323230/python-solvespace" title="github.com"&gt;python-solvespace&lt;/a&gt;已更新&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Kubuntu 16.04&lt;/h1&gt;
+&lt;p&gt;安裝 Eric6 成功之後，又安裝了 Leo Editor（使用 &lt;code&gt;git clone&lt;/code&gt; 後直接 launch 的方式），在 Python 3.5 + PyQt 5.5 的情形下沒有遇到無法切換輸入法的問題，所以就可以用這台電腦寫網誌了。&lt;/p&gt;
+&lt;p&gt;升級之後有類似 Windows 的不定期更新，不過是非強制的，可以不用理它。&lt;/p&gt;
+&lt;p&gt;另外新版的 Plasma 將帳戶和即時通綁在一起，所以通知列一直會有即時通的圖示關不掉，不過不妨礙工作。&lt;/p&gt;
+&lt;p&gt;資源使用量：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1011_01.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;另外比較奇怪的一點是 Eric6 偵測相關工具時發現了 Pyside（不過 Python 3 無法 import；Python 2 可以）；卻找不到 PyQt（但是可以 import），可能是路徑問題。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1011_02.jpg" /&gt;&lt;/p&gt;
+&lt;h1&gt;Python Solvespace Makefile 配置&lt;/h1&gt;
+&lt;p&gt;撰寫了 configure.py 來幫忙生成 Makefile，放在 exposed 資料夾裡。&lt;/p&gt;
+&lt;p&gt;不過目前只能支援 Ubuntu（測試成功），Windows 的部份因為有可攜環境的關係，需要知道各種工具的位置，必須另外做調整。&lt;/p&gt;
+&lt;p&gt;也因為如此，目前 Windows 的部份是原本 W: 槽的設定，之後會改用 Windows 7 測試新的可攜 Solvespace 編譯環境，還有如果本機直接安裝相關工具的環境。&lt;/p&gt;
+&lt;p&gt;能夠自動偵測環境編譯後，在想是否需要重新規劃 Submodule 的父子關係，因為 Pyslvs GUI 無法直接切換對應 Python 版本的 Kernal 來用，只會拿到上個使用者的核心來使用，有很大的機率會出問題。&lt;/p&gt;
+&lt;p&gt;因此當其他協同者下載 Pyslvs 後，可能需要重新編譯 Kernal 來用，之後放入專案中（或許 Makefile 可以協助），協同 GUI 時就不用理會核心版本不同了。&lt;/p&gt;
+&lt;p&gt;至於之後是否會在 16.04 升級 Qt 或 PyQt，可能得尋找其他方法，目前是不會更改內建的程式庫。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - Kubuntu 16.04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-kubuntu-1604.html" rel="alternate"></link><published>2016-10-07T21:00:00+08:00</published><updated>2016-10-07T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-07:blog/40323230ri-zhi-kubuntu-1604.html</id><summary type="html">&lt;p&gt;：：Kubuntu 16.04 資訊紀錄：：&lt;/p&gt;
 
 
 &lt;h1&gt;Kubuntu 16.04&lt;/h1&gt;

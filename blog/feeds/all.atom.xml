@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
 <feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-10-13T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/10/13</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051013.html" rel="alternate"></link><published>2016-10-13T21:00:00+08:00</published><updated>2016-10-13T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-13:blog/40323230ri-zhi-1051013.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Asus 開機選項（UEFI）&lt;/p&gt;
@@ -18,7 +17,7 @@
 &lt;p&gt;學校的新電腦 BIOS 必須啟用相容模式（預設是自動，要強制啟動）才能讀取安裝光碟或隨身碟。&lt;/p&gt;
 &lt;p&gt;啟用後重新開機，按 F8 叫出開機選單，選擇沒有「UEFI」字樣的選項，才能用一般的選項載入。&lt;/p&gt;
 &lt;p&gt;之前發現第一台測試機的顯示卡不太好，跑 QPainter 的快速 Render 時會滿 lag 的（拖動滑桿控制轉軸時），所以想用新電腦的配備處理看看。&lt;/p&gt;
-&lt;h1&gt;Qt 升級&lt;/h1&gt;
+&lt;h1&gt;Qt 和 PyQt 升級&lt;/h1&gt;
 &lt;p&gt;安裝 Qt 後會多出 Qt Maintanance Tool 的捷徑，使用其可以額外安裝、升級、移除現有的 Qt 程式庫。&lt;/p&gt;
 &lt;p&gt;不過若要升級，必須每個新版本慢慢升上去，有點花時間就是。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1013_01.jpg" /&gt;&lt;/p&gt;
@@ -27,16 +26,13 @@
 &lt;h1&gt;個人網頁&lt;/h1&gt;
 &lt;p&gt;複製了 project site 網站的倉儲建了一個副本，準備改成自己的個人網頁，目前只有存自己的文章。&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://40323230.github.io/YuanBlog/blog/"&gt;https://40323230.github.io/YuanBlog/blog/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;之後會在 About 加入簡介和心智圖，並整理 Tags。&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/10/11</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051011.html" rel="alternate"></link><published>2016-10-11T21:00:00+08:00</published><updated>2016-10-11T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-11:blog/40323230ri-zhi-1051011.html</id><summary type="html">&lt;ol&gt;
-=======
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-10-13T11:29:00+08:00</updated><entry><title>yen - 機械設計課程對應網頁</title><link href="http://project.mde.tw/blog/yen-ji-jie-she-ji-ke-cheng-dui-ying-wang-ye.html" rel="alternate"></link><published>2016-10-13T11:29:00+08:00</published><updated>2016-10-13T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-10-13:blog/yen-ji-jie-she-ji-ke-cheng-dui-ying-wang-ye.html</id><summary type="html">&lt;p&gt;今年機械設計專題的任務之一, 就是希望每一位學員都能各自維護一份自己的網頁, 修課的網頁以及分組的網頁, 過去我們選擇在 OpenShift 進行, 現在 Github Pages 應該是最佳選擇.&lt;/p&gt;
+&lt;p&gt;之後會在 About 加入簡介和心智圖，並整理 Tags。&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>yen - 機械設計課程對應網頁</title><link href="http://project.mde.tw/blog/yen-ji-jie-she-ji-ke-cheng-dui-ying-wang-ye.html" rel="alternate"></link><published>2016-10-13T11:29:00+08:00</published><updated>2016-10-13T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-10-13:blog/yen-ji-jie-she-ji-ke-cheng-dui-ying-wang-ye.html</id><summary type="html">&lt;p&gt;今年機械設計專題的任務之一, 就是希望每一位學員都能各自維護一份自己的網頁, 修課的網頁以及分組的網頁, 過去我們選擇在 OpenShift 進行, 現在 Github Pages 應該是最佳選擇.&lt;/p&gt;
 
 
 &lt;p&gt;首先, 必須要知道 Github 帳號啟用後, 可以 &lt;a href="https://help.github.com/articles/changing-your-primary-email-address/"&gt;更改對應的 email&lt;/a&gt;, 必須在學校 email 面臨被取消之前, 轉換到其他生命週期較長的電子郵箱.&lt;/p&gt;
 &lt;p&gt;根據課程的規劃, 2016Fall 的計算機程式對應網站位於 &lt;a href="https://mdecourse.github.io/2016fallcpa"&gt;https://mdecourse.github.io/2016fallcpa&lt;/a&gt;, 而 2016Fall 的電腦輔助設計實習課程則位於 &lt;a href="https://mdecourse.github.io/2016fallcadpa"&gt;https://mdecourse.github.io/2016fallcadpa&lt;/a&gt;, 在課程進行期間, 兩班將使用相同的 reveal.js 投影片, 但各自擁有一份 pelican 靜態網誌, 等到課程結束, 將會合併到年度的課程投影片與網誌中.&lt;/p&gt;
 &lt;p&gt;上述課程網頁的基本架構與過去幾年所使用的大致相同, 最大的區別在於, 各倉儲都只關注 gh-pages 分支, 且從班上的網頁到各組的網頁, 一直下達各學員的網際內容, 都透過 git submodule 綁定與時間對應的版本, 各組與各學員在規定檢核內容的時限之後, 仍可持續改版, 不致影響自評與互評的版本內容.&lt;/p&gt;
 &lt;p&gt;此外, 各倉儲中除了影片檔案, 必須放在 Vimeo 與 Youtube 外, 其他的相關檔案都建議存在各自對應的倉儲中, 並且以相對目錄設定, 如此, 一旦課程結束後, 班級課程倉儲就可以被 git clone 到近端繼續使用, 唯一必須處理的就是將各頁面所使用的 cdn 或統一的 Github Pages 對應 Javascripts, 以近端的程式庫取代, 並且使用各學年規劃下的版本.&lt;/p&gt;</summary><category term="機械設計"></category><category term="課程"></category></entry><entry><title>40323230日誌 - 105/10/11</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051011.html" rel="alternate"></link><published>2016-10-11T21:00:00+08:00</published><updated>2016-10-11T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-11:blog/40323230ri-zhi-1051011.html</id><summary type="html">&lt;ol&gt;
->>>>>>> 87ac2bc0d1e8ac54341bc53026124e3165878c92
 &lt;li&gt;
 &lt;p&gt;Kubuntu 16.04 一些瑣事&lt;/p&gt;
 &lt;/li&gt;

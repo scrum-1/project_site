@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-10-16T11:29:00+08:00</updated><entry><title>yen - 電腦輔助設計室電腦配置</title><link href="http://project.mde.tw/blog/yen-dian-nao-fu-zhu-she-ji-shi-dian-nao-pei-zhi.html" rel="alternate"></link><published>2016-10-16T11:29:00+08:00</published><author><name>yen</name></author><id>tag:project.mde.tw,2016-10-16:blog/yen-dian-nao-fu-zhu-she-ji-shi-dian-nao-pei-zhi.html</id><summary type="html">&lt;p&gt;2016 年暑假機械設計工程系八樓的電腦輔助設計室更換了 54 台四年保固的華碩 Skylake MD790/I7-6700, 這一批 Intel 第六代 Core i7/3.4GHz/8M 電腦, 採用 Intel Q170 晶片組, 搭載 16GB DDR4/2133/288 Pin 記憶體 (8 GBx2), 2 TB-SATA3 硬碟, Asus MINI-GTX950-2G 顯示卡 (支援 PCIE 3.0, OpenGL 4.5, 768 個CUDA 核心數), 500瓦電源供應器, USB 3.1x2 (10GB/s) , USB 3.0x6 (5GB/s), USB 2.0x2 (480MB/s), 以及 &lt;a href="http://www.teamsoftex.com"&gt;群準&lt;/a&gt;的 EVOsys PRO/SATA 還原卡, 可同時支援 D-sub、HDMI 及 DisplayPort 三台獨立顯示器多工作業.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-10-16T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/10/16</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051016.html" rel="alternate"></link><published>2016-10-16T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-16:blog/40323230ri-zhi-1051016.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Putty 連線&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Pyslvs 編譯進度&lt;/h1&gt;
+&lt;h2&gt;顯示資訊&lt;/h2&gt;
+&lt;p&gt;啟動時顯示的資訊加上 commit 編號和平台類型。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1016_01.jpg" /&gt;&lt;/p&gt;
+&lt;h2&gt;自動選擇平台版本&lt;/h2&gt;
+&lt;p&gt;現在程式庫改移到 kernel 資料夾中，Pyslvs 會讀取平台資訊和 Python 版本來選擇 import 的程式庫。&lt;/p&gt;
+&lt;p&gt;名稱為不同版本的 Python 名稱，如 py35。後方加上「w」為 Windows 平台的版本。&lt;/p&gt;
+&lt;p&gt;不過若是如此，當 Python Solvespace kernel 更新時，要為所有平台搬運進倉儲。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1016_02.jpg" /&gt;&lt;/p&gt;
+&lt;h2&gt;設定檔&lt;/h2&gt;
+&lt;p&gt;GUI 的設定檔存放在主目錄，名為 &lt;code&gt;Pyslvs_Settings.ini&lt;/code&gt;，還未開始連結設定功能。&lt;/p&gt;
+&lt;p&gt;這個檔案並不會被 git 上傳。&lt;/p&gt;
+&lt;h2&gt;License&lt;/h2&gt;
+&lt;p&gt;加入了 GPL 3 的授權檔案。&lt;/p&gt;
+&lt;p&gt;另外，在 main.py 程式碼中加入了簡短宣告條文（參考自 Gimp）。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;Putty 連線&lt;/h1&gt;
+&lt;p&gt;在研究室用 Putty 實測了虛擬機連線的部份，同為 Linux 平台中就沒出現跨平台的錯誤，所以在跨平台撰寫後，測試時可能就得注意了。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>yen - 電腦輔助設計室電腦配置</title><link href="http://project.mde.tw/blog/yen-dian-nao-fu-zhu-she-ji-shi-dian-nao-pei-zhi.html" rel="alternate"></link><published>2016-10-16T11:29:00+08:00</published><author><name>yen</name></author><id>tag:project.mde.tw,2016-10-16:blog/yen-dian-nao-fu-zhu-she-ji-shi-dian-nao-pei-zhi.html</id><summary type="html">&lt;p&gt;2016 年暑假機械設計工程系八樓的電腦輔助設計室更換了 54 台四年保固的華碩 Skylake MD790/I7-6700, 這一批 Intel 第六代 Core i7/3.4GHz/8M 電腦, 採用 Intel Q170 晶片組, 搭載 16GB DDR4/2133/288 Pin 記憶體 (8 GBx2), 2 TB-SATA3 硬碟, Asus MINI-GTX950-2G 顯示卡 (支援 PCIE 3.0, OpenGL 4.5, 768 個CUDA 核心數), 500瓦電源供應器, USB 3.1x2 (10GB/s) , USB 3.0x6 (5GB/s), USB 2.0x2 (480MB/s), 以及 &lt;a href="http://www.teamsoftex.com"&gt;群準&lt;/a&gt;的 EVOsys PRO/SATA 還原卡, 可同時支援 D-sub、HDMI 及 DisplayPort 三台獨立顯示器多工作業.&lt;/p&gt;
 
 
 &lt;p&gt;當我們為了機械設計專題, 在這台電腦實體安裝 Ubuntu 16.04 LTS Server 加上 ubuntu-desktop 之後, 發現 UEFI secure boot 必須要關閉, 才能配合 VT-x 功能的啟用, 避開無法載入 Kernel Module 的&lt;a href="https://forums.virtualbox.org/viewtopic.php?f=7&amp;t=77363"&gt;錯誤&lt;/a&gt;, 正確安裝 64 位元的 Virtualbox 套件. 要關閉華碩 Skylake MD790/I7-6700 UEFI secure boot 功能, 共有&lt;a href="https://www.asus.com/tw/support/faq/1004383/"&gt;兩個步驟&lt;/a&gt;, 先將 Secure Boot 裡的 OS Type 設為 Other OS 之後, 然後將 CSM 中的 Launch CSM 設為 Enabled 即可.&lt;/p&gt;
@@ -42,35 +70,7 @@ Realtech Gigabit 網卡, 可以利用三條 Cat. 6 網路線, 透過三台虛擬
 &lt;h1&gt;個人網頁&lt;/h1&gt;
 &lt;p&gt;複製了 project site 網站的倉儲建了一個副本，準備改成自己的個人網頁，目前只有存自己的文章。&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://40323230.github.io/YuanBlog/blog/"&gt;https://40323230.github.io/YuanBlog/blog/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;之後會在 About 加入簡介和心智圖，並整理 Tags。&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/10/16</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051016.html" rel="alternate"></link><published>2016-10-13T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-13:blog/40323230ri-zhi-1051016.html</id><summary type="html">&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Putty 連線&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;h1&gt;Pyslvs 編譯進度&lt;/h1&gt;
-&lt;h2&gt;顯示資訊&lt;/h2&gt;
-&lt;p&gt;啟動時顯示的資訊加上 commit 編號和平台類型。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1016_01.jpg" /&gt;&lt;/p&gt;
-&lt;h2&gt;自動選擇平台版本&lt;/h2&gt;
-&lt;p&gt;現在程式庫改移到 kernel 資料夾中，Pyslvs 會讀取平台資訊和 Python 版本來選擇 import 的程式庫。&lt;/p&gt;
-&lt;p&gt;名稱為不同版本的 Python 名稱，如 py35。後方加上「w」為 Windows 平台的版本。&lt;/p&gt;
-&lt;p&gt;不過若是如此，當 Python Solvespace kernel 更新時，要為所有平台搬運進倉儲。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1016_02.jpg" /&gt;&lt;/p&gt;
-&lt;h2&gt;設定檔&lt;/h2&gt;
-&lt;p&gt;GUI 的設定檔存放在主目錄，名為 &lt;code&gt;Pyslvs_Settings.ini&lt;/code&gt;，還未開始連結設定功能。&lt;/p&gt;
-&lt;p&gt;這個檔案並不會被 git 上傳。&lt;/p&gt;
-&lt;h2&gt;License&lt;/h2&gt;
-&lt;p&gt;加入了 GPL 3 的授權檔案。&lt;/p&gt;
-&lt;p&gt;另外，在 main.py 程式碼中加入了簡短宣告條文（參考自 Gimp）。&lt;/p&gt;
-&lt;hr&gt;
-
-&lt;h1&gt;Putty 連線&lt;/h1&gt;
-&lt;p&gt;在研究室用 Putty 實測了虛擬機連線的部份，同為 Linux 平台中就沒出現跨平台的錯誤，所以在跨平台撰寫後，測試時可能就得注意了。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>yen - 機械設計課程對應網頁</title><link href="http://project.mde.tw/blog/yen-ji-jie-she-ji-ke-cheng-dui-ying-wang-ye.html" rel="alternate"></link><published>2016-10-13T11:29:00+08:00</published><author><name>yen</name></author><id>tag:project.mde.tw,2016-10-13:blog/yen-ji-jie-she-ji-ke-cheng-dui-ying-wang-ye.html</id><summary type="html">&lt;p&gt;今年機械設計專題的任務之一, 就是希望每一位學員都能各自維護一份自己的網頁, 修課的網頁以及分組的網頁, 過去我們選擇在 OpenShift 進行, 現在 Github Pages 應該是最佳選擇.&lt;/p&gt;
+&lt;p&gt;之後會在 About 加入簡介和心智圖，並整理 Tags。&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>yen - 機械設計課程對應網頁</title><link href="http://project.mde.tw/blog/yen-ji-jie-she-ji-ke-cheng-dui-ying-wang-ye.html" rel="alternate"></link><published>2016-10-13T11:29:00+08:00</published><author><name>yen</name></author><id>tag:project.mde.tw,2016-10-13:blog/yen-ji-jie-she-ji-ke-cheng-dui-ying-wang-ye.html</id><summary type="html">&lt;p&gt;今年機械設計專題的任務之一, 就是希望每一位學員都能各自維護一份自己的網頁, 修課的網頁以及分組的網頁, 過去我們選擇在 OpenShift 進行, 現在 Github Pages 應該是最佳選擇.&lt;/p&gt;
 
 
 &lt;p&gt;首先, 必須要知道 Github 帳號啟用後, 可以 &lt;a href="https://help.github.com/articles/changing-your-primary-email-address/"&gt;更改對應的 email&lt;/a&gt;, 必須在學校 email 面臨被取消之前, 轉換到其他生命週期較長的電子郵箱.&lt;/p&gt;

@@ -1,32 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-10-13T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/10/13</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051013.html" rel="alternate"></link><published>2016-10-13T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-13:blog/40323230ri-zhi-1051013.html</id><summary type="html">&lt;ol&gt;
-&lt;li&gt;
-&lt;p&gt;Asus 開機選項（UEFI）&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;Qt 升級&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;個人網頁創建&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ol&gt;
-
-
-&lt;h1&gt;Asus BIOS&lt;/h1&gt;
-&lt;p&gt;一些新版的 BIOS 採用 UEFI 模式讀取開機硬體，會有以光碟開機後產生光碟錯誤的提示（甚至讀不到鍵盤無法選擇）；或是選單黑屏卡死。&lt;/p&gt;
-&lt;p&gt;學校的新電腦 BIOS 必須啟用相容模式（預設是自動，要強制啟動）才能讀取安裝光碟或隨身碟。&lt;/p&gt;
-&lt;p&gt;啟用後重新開機，按 F8 叫出開機選單，選擇沒有「UEFI」字樣的選項，才能用一般的選項載入。&lt;/p&gt;
-&lt;p&gt;之前發現第一台測試機的顯示卡不太好，跑 QPainter 的快速 Render 時會滿 lag 的（拖動滑桿控制轉軸時），所以想用新電腦的配備處理看看。&lt;/p&gt;
-&lt;h1&gt;Qt 和 PyQt 升級&lt;/h1&gt;
-&lt;p&gt;安裝 Qt 後會多出 Qt Maintanance Tool 的捷徑，使用其可以額外安裝、升級、移除現有的 Qt 程式庫。&lt;/p&gt;
-&lt;p&gt;不過若要升級，必須每個新版本慢慢升上去，有點花時間就是。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1013_01.jpg" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1013_02.jpg" /&gt;&lt;/p&gt;
-&lt;p&gt;至於 PyQt 的部份，由於 apt-get 的 &lt;code&gt;python3-pyqt5&lt;/code&gt; 16.04 只支援到 5.5，而且 16.10 也只支援到 5.6，所以看似只能使用 pip3 安裝，不過還沒測試是否會衝突。&lt;/p&gt;
-&lt;h1&gt;個人網頁&lt;/h1&gt;
-&lt;p&gt;複製了 project site 網站的倉儲建了一個副本，準備改成自己的個人網頁，目前只有存自己的文章。&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://40323230.github.io/YuanBlog/blog/"&gt;https://40323230.github.io/YuanBlog/blog/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;之後會在 About 加入簡介和心智圖，並整理 Tags。&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/10/16</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051016.html" rel="alternate"></link><published>2016-10-13T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-13:blog/40323230ri-zhi-1051016.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-10-16T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/10/16</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051016.html" rel="alternate"></link><published>2016-10-16T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-16:blog/40323230ri-zhi-1051016.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
 &lt;/li&gt;
@@ -54,7 +27,34 @@
 &lt;hr&gt;
 
 &lt;h1&gt;Putty 連線&lt;/h1&gt;
-&lt;p&gt;在研究室用 Putty 實測了虛擬機連線的部份，同為 Linux 平台中就沒出現跨平台的錯誤，所以在跨平台撰寫後，測試時可能就得注意了。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/10/11</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051011.html" rel="alternate"></link><published>2016-10-11T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-11:blog/40323230ri-zhi-1051011.html</id><summary type="html">&lt;ol&gt;
+&lt;p&gt;在研究室用 Putty 實測了虛擬機連線的部份，同為 Linux 平台中就沒出現跨平台的錯誤，所以在跨平台撰寫後，測試時可能就得注意了。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/10/13</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051013.html" rel="alternate"></link><published>2016-10-13T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-13:blog/40323230ri-zhi-1051013.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Asus 開機選項（UEFI）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Qt 升級&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;個人網頁創建&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Asus BIOS&lt;/h1&gt;
+&lt;p&gt;一些新版的 BIOS 採用 UEFI 模式讀取開機硬體，會有以光碟開機後產生光碟錯誤的提示（甚至讀不到鍵盤無法選擇）；或是選單黑屏卡死。&lt;/p&gt;
+&lt;p&gt;學校的新電腦 BIOS 必須啟用相容模式（預設是自動，要強制啟動）才能讀取安裝光碟或隨身碟。&lt;/p&gt;
+&lt;p&gt;啟用後重新開機，按 F8 叫出開機選單，選擇沒有「UEFI」字樣的選項，才能用一般的選項載入。&lt;/p&gt;
+&lt;p&gt;之前發現第一台測試機的顯示卡不太好，跑 QPainter 的快速 Render 時會滿 lag 的（拖動滑桿控制轉軸時），所以想用新電腦的配備處理看看。&lt;/p&gt;
+&lt;h1&gt;Qt 和 PyQt 升級&lt;/h1&gt;
+&lt;p&gt;安裝 Qt 後會多出 Qt Maintanance Tool 的捷徑，使用其可以額外安裝、升級、移除現有的 Qt 程式庫。&lt;/p&gt;
+&lt;p&gt;不過若要升級，必須每個新版本慢慢升上去，有點花時間就是。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1013_01.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1013_02.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;至於 PyQt 的部份，由於 apt-get 的 &lt;code&gt;python3-pyqt5&lt;/code&gt; 16.04 只支援到 5.5，而且 16.10 也只支援到 5.6，所以看似只能使用 pip3 安裝，不過還沒測試是否會衝突。&lt;/p&gt;
+&lt;h1&gt;個人網頁&lt;/h1&gt;
+&lt;p&gt;複製了 project site 網站的倉儲建了一個副本，準備改成自己的個人網頁，目前只有存自己的文章。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://40323230.github.io/YuanBlog/blog/"&gt;https://40323230.github.io/YuanBlog/blog/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;之後會在 About 加入簡介和心智圖，並整理 Tags。&lt;/p&gt;</summary><category term="Kmol"></category></entry><entry><title>40323230日誌 - 105/10/11</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051011.html" rel="alternate"></link><published>2016-10-11T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-11:blog/40323230ri-zhi-1051011.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Kubuntu 16.04 一些瑣事&lt;/p&gt;
 &lt;/li&gt;

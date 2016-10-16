@@ -4,7 +4,7 @@
 
 &lt;p&gt;當我們為了機械設計專題, 在這台電腦實體安裝 Ubuntu 16.04 LTS Server 加上 ubuntu-desktop 之後, 發現 UEFI secure boot 必須要關閉, 才能配合 VT-x 功能的啟用, 避開無法載入 Kernel Module 的&lt;a href="https://forums.virtualbox.org/viewtopic.php?f=7&amp;t=77363"&gt;錯誤&lt;/a&gt;, 正確安裝 64 位元的 Virtualbox 套件. 要關閉華碩 Skylake MD790/I7-6700 UEFI secure boot 功能, 共有&lt;a href="https://www.asus.com/tw/support/faq/1004383/"&gt;兩個步驟&lt;/a&gt;, 先將 Secure Boot 裡的 OS Type 設為 Other OS 之後, 然後將 CSM 中的 Launch CSM 設為 Enabled 即可.&lt;/p&gt;
 &lt;p&gt;之所以選擇在電腦實體安裝 Ubuntu 16.04 LTS 操作系統, 加上 Ubuntu Desktop 的原因是, 其生命週期長達 5 年, 能夠涵蓋電腦硬體四年保固的範圍, 也能利用虛擬的 Windows 10 64位元操作系統, 進行最有效率的配置使用.&lt;/p&gt;
-&lt;p&gt;此外, 這台華碩 Skylake MD790/I7-6700 電腦主機板, 內建 Intel I219LM 與 Intel I211 Gigabit 網卡外, 另外又加裝了一片 
+&lt;p&gt;此外, 這台華碩 Skylake MD790/I7-6700 電腦主機板, 內建 &lt;a href="http://www.intel.com/content/www/us/en/embedded/products/networking/ethernet-connection-i219-datasheet.html"&gt;Intel I219LM&lt;/a&gt; 與 &lt;a href="http://www.intel.com/content/www/us/en/embedded/products/networking/i211-ethernet-controller-datasheet.html"&gt;Intel I211&lt;/a&gt; Gigabit 網卡外, 另外又加裝了一片 
 Realtech Gigabit 網卡, 可以利用三條 Cat. 6 網路線, 透過三台虛擬 Ubuntu 16.04 LTS 中的 &lt;a href="http://www.squid-cache.org/"&gt;Squid&lt;/a&gt;, 作為 IPV4/IPV6 雙支援代理伺服器. 並且配合不同課程的需求, 配置各式套件組合的 Windows 10 Pro 虛擬主機群, 而無需將所有的 CAD/CAE/CAM、自動控制與各式程式開發環境, 混雜在同一個開機磁區.&lt;/p&gt;
 &lt;p&gt;MD790 電腦機殼:&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/cadlab_pc/asus_md790.jpeg" width="400" /&gt;&lt;/p&gt;

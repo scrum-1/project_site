@@ -110,13 +110,13 @@
 </v>
 <v t="amd.20160301010714.1"><vh>組員名單</vh></v>
 <v t="amd.20160301223228.1"><vh>程式測試</vh></v>
-<v t="amd.20160301011834.1"><vh>參考資料</vh>
+<v t="amd.20160301011834.1" a="E"><vh>參考資料</vh>
 <v t="amd.20160302110137.1"><vh>機械設計專案參考</vh></v>
 <v t="amd.20160303145322.1"><vh>Node.js</vh></v>
 <v t="amd.20160303153826.1"><vh>jupyter</vh></v>
 <v t="amd.20160303163519.1"><vh>Windows</vh></v>
 </v>
-<v t="amd.20160309123311.1"><vh>處理錯誤</vh>
+<v t="amd.20160309123311.1" a="E"><vh>處理錯誤</vh>
 <v t="amd.20160309123318.1" a="E"><vh>@path content</vh>
 <v t="amd.20160309123402.1"><vh>@edit 40323130_20160301.md</vh></v>
 <v t="amd.20160309123451.1"><vh>@edit 40323143_20160309.md</vh></v>
@@ -148,7 +148,7 @@
 </v>
 <v t="amd.20160317165434.1"><vh>有關 Flask 程式</vh></v>
 <v t="amd.20160317164722.1"><vh>有關 Firepick 專案</vh></v>
-<v t="amd.20160321213855.1" a="E"><vh>有關網際繪圖</vh>
+<v t="amd.20160321213855.1"><vh>有關網際繪圖</vh>
 <v t="amd.20160321214152.1"><vh>正齒輪</vh></v>
 <v t="amd.20160321214628.1"><vh>模型製作</vh></v>
 </v>
@@ -194,13 +194,11 @@
 <v t="yen.20161010133351.1"><vh>@edit yen_20161010.md</vh></v>
 <v t="yen.20161013111738.1"><vh>@edit yen_20161013.md</vh></v>
 <v t="yen.20161016090502.1"><vh>@edit yen_20161016.md</vh></v>
+<v t="yen.20161022170058.1"><vh>@edit yen_20161022.md</vh></v>
 </v>
 </v>
-<v t="amd.20160323000221.1"><vh>40323143 所寫的文章</vh>
-<v t="amd.20160323000247.1"><vh>@edit 40323143_20160319.md</vh></v>
 </v>
-</v>
-<v t="amd.20160106094754.1" a="E"><vh>@path ./../content/pages</vh>
+<v t="amd.20160106094754.1"><vh>@path ./../content/pages</vh>
 <v t="amd.20160106094829.1" a="E"><vh>yen 所寫的 pages 文章</vh>
 <v t="amd.20160106094844.1"><vh>@edit yen_pages_1.md</vh></v>
 </v>
@@ -1240,7 +1238,6 @@ http://geargenerator.com/index_proto.html
 
 http://p208328.webspaceconfig.de/en/products/standard-gears/spur-gear-mechanisms/</t>
 <t tx="amd.20160321214628.1">http://lcamtuf.coredump.cx/gcnc/</t>
-<t tx="amd.20160323000221.1"></t>
 <t tx="amd.20160326184051.1">@language md
 Title: yen - 利用機械手臂模擬學習 Python
 Date: 2016-03-26 01:20

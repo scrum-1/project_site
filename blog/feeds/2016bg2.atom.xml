@@ -1,5 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-10-13T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/10/13</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051013.html" rel="alternate"></link><published>2016-10-13T21:00:00+08:00</published><updated>2016-10-13T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-13:blog/40323230ri-zhi-1051013.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-10-17T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/10/17</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051017.html" rel="alternate"></link><published>2016-10-17T21:00:00+08:00</published><updated>2016-10-17T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-17:blog/40323230ri-zhi-1051017.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Kernel 編譯&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Kernel 編譯&lt;/h1&gt;
+&lt;p&gt;位於 python-solvespace 倉儲的程式庫文件因應 Pyslvs 的自動切換功能，編譯後不會放在 Ubuntu 或是 Windows 資料夾中了，而是採用 Pyslvs 的顯示方式。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1017_01.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;這個改變儲存在 configure.py 文件中，生成後的 Makefile 將會鎖定在一個編譯者的 Python 版本上，使用其他 Python 編譯的話，要重新用 configure.py 生成。&lt;/p&gt;
+&lt;p&gt;而這個 configure.py 的功能之後可能會變成 Leo Editor 的按鈕。&lt;/p&gt;
+&lt;p&gt;目前為止還沒測試 Windows 的編譯，也許試過之後會嘗試改用 MinGW，讓 Ubuntu 平台的協同者能為 Windows 編譯。&lt;/p&gt;
+&lt;h1&gt;Pyslvs 編譯進度&lt;/h1&gt;
+&lt;p&gt;增加參數控制功能，使用 Python 內建的 sys.argv 清單判定。&lt;/p&gt;
+&lt;pre&gt;
+$python3 launch_pyslvs.py [arg1] [arg2] ...
+&lt;/pre&gt;
+
+&lt;p&gt;可能包裝成執行檔後用終端機呼叫才會出現。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1017_02.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;目前大約做了如下幾個基本的參數。&lt;/p&gt;
+&lt;h2&gt;Git 資訊 &lt;code&gt;-g / --git&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;使用後啟動時的標題會讀取目前版次的代碼，不過軟體若是沒帶有 Git 的資訊就會無法顯示。&lt;/p&gt;
+&lt;h2&gt;開啟檔案 &lt;code&gt;-o&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;在這個參數上直接接上 CSV 檔案的名稱，可以在開啟 Pyslvs 時馬上載入這個檔案。&lt;/p&gt;
+&lt;p&gt;不過如果副檔名不是 CSV 的話就不會讀取。&lt;/p&gt;
+&lt;h2&gt;基本資訊 &lt;code&gt;-h / --help&lt;/code&gt; &lt;code&gt;-v / --version&lt;/code&gt;&lt;/h2&gt;
+&lt;p&gt;使用這兩個參數後將不會開啟 Pyslvs 本體，只會顯示其資訊，偵測的優先權最高。&lt;/p&gt;
+&lt;p&gt;若是使用 &lt;code&gt;-v / --version&lt;/code&gt;，只會列出 Pyslvs 和 Python 的版本。&lt;/p&gt;
+&lt;h2&gt;其他待加入功能&lt;/h2&gt;
+&lt;p&gt;預計加入檢查程式庫和整個 GUI 的 Debug 功能，不過還要研究 Python 的 unit test。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/10/16</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051016.html" rel="alternate"></link><published>2016-10-16T21:00:00+08:00</published><updated>2016-10-16T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-16:blog/40323230ri-zhi-1051016.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Putty 連線&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Pyslvs 編譯進度&lt;/h1&gt;
+&lt;h2&gt;顯示資訊&lt;/h2&gt;
+&lt;p&gt;啟動時顯示的資訊加上 commit 編號和平台類型。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1016_01.jpg" /&gt;&lt;/p&gt;
+&lt;h2&gt;自動選擇平台版本&lt;/h2&gt;
+&lt;p&gt;現在程式庫改移到 kernel 資料夾中，Pyslvs 會讀取平台資訊和 Python 版本來選擇 import 的程式庫。&lt;/p&gt;
+&lt;p&gt;名稱為不同版本的 Python 名稱，如 py35。後方加上「w」為 Windows 平台的版本。&lt;/p&gt;
+&lt;p&gt;不過若是如此，當 Python Solvespace kernel 更新時，要為所有平台搬運進倉儲。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1016_02.jpg" /&gt;&lt;/p&gt;
+&lt;h2&gt;設定檔&lt;/h2&gt;
+&lt;p&gt;GUI 的設定檔存放在主目錄，名為 &lt;code&gt;Pyslvs_Settings.ini&lt;/code&gt;，還未開始連結設定功能。&lt;/p&gt;
+&lt;p&gt;這個檔案並不會被 git 上傳。&lt;/p&gt;
+&lt;h2&gt;License&lt;/h2&gt;
+&lt;p&gt;加入了 GPL 3 的授權檔案。&lt;/p&gt;
+&lt;p&gt;另外，在 main.py 程式碼中加入了簡短宣告條文（參考自 Gimp）。&lt;/p&gt;
+&lt;hr&gt;
+
+&lt;h1&gt;Putty 連線&lt;/h1&gt;
+&lt;p&gt;在研究室用 Putty 實測了虛擬機連線的部份，同為 Linux 平台中就沒出現跨平台的錯誤，所以在跨平台撰寫後，測試時可能就得注意了。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/10/13</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051013.html" rel="alternate"></link><published>2016-10-13T21:00:00+08:00</published><updated>2016-10-13T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-13:blog/40323230ri-zhi-1051013.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Asus 開機選項（UEFI）&lt;/p&gt;
 &lt;/li&gt;

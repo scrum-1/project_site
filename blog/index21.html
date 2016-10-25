@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>40323131日誌 105/07/31 - 機械設計專題 (虎尾科大MDE)</title>
+    <title>機械設計專題 (虎尾科大MDE)</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -166,21 +166,15 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 
-<link rel="canonical" href="http://project.mde.tw/blog/40323131ri-zhi-1050731.html">
+<link rel="canonical" href="http://project.mde.tw/blog">
+        <meta name="author" content="KMOL" />
 
-        <meta name="author" content="40323131" />
-        <meta name="keywords" content="g1project" />
-        <meta name="description" content="手臂的推導角度公式" />
-
+    <!-- Open Graph tags -->
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
-        <meta property="og:type" content="article"/>
-        <meta property="og:title" content="40323131日誌 105/07/31"/>
-        <meta property="og:url" content="http://project.mde.tw/blog/40323131ri-zhi-1050731.html"/>
-        <meta property="og:description" content="手臂的推導角度公式"/>
-        <meta property="article:published_time" content="2016-07-31" />
-            <meta property="article:section" content="2016g1" />
-            <meta property="article:tag" content="g1project" />
-            <meta property="article:author" content="40323131" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="機械設計專題 (虎尾科大MDE)"/>
+        <meta property="og:url" content="http://project.mde.tw/blog"/>
+        <meta property="og:description" content="機械設計專題 (虎尾科大MDE)"/>
 
 
     <!-- Bootstrap -->
@@ -264,7 +258,7 @@ init_mathjax();
                         <li >
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
-                        <li class="active">
+                        <li >
                             <a href="http://project.mde.tw/blog/category/2016g1.html">2016g1</a>
                         </li>
                         <li >
@@ -295,192 +289,62 @@ init_mathjax();
     <div class="row">
         <div class="col-sm-9">
 
-    <section id="content">
-        <article>
-            <header class="page-header">
-                <h1>
-                    <a href="http://project.mde.tw/blog/40323131ri-zhi-1050731.html"
-                       rel="bookmark"
-                       title="Permalink to 40323131日誌 105/07/31">
-                        40323131日誌 105/07/31
-                    </a>
-                </h1>
-            </header>
-            <div class="entry-content">
-                <div class="panel">
-                    <div class="panel-body">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-07-31T22:51:00+08:00"> Sun 31 July 2016</time>
-    </span>
-            <span class="label label-default">By</span>
-            <a href="http://project.mde.tw/blog/author/40323131.html"><i class="fa fa-user"></i> 40323131</a>
+            <article>
+                <h2><a href="http://project.mde.tw/blog/yen-xie-tong-chan-pin-she-ji-ke-cheng-task0-yan-shen-lian-xi.html">yen - 協同產品設計課程 Task0 延伸練習</a></h2>
+                <div class="summary"><p>如何將電腦教室分組, 比序與排座位的流程網際自動化</p>
 
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://project.mde.tw/blog/tag/g1project.html">g1project</a>
-    
-</footer><!-- /.post-info -->                    </div>
+                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/yen-xie-tong-chan-pin-she-ji-ke-cheng-task0-yan-shen-lian-xi.html">more ...</a>
                 </div>
-                <p>手臂的推導角度公式
-</p>
-<h3>角度推導公式</h3>
+            </article>
+            <hr/>
 
-<p></br>
-<img src="http://i.imgur.com/hBZPkTS.jpg">
-</br>
-<h3>先用圖解法解，再來用python-solvespace 來驗證點坐標是否相符</h3>
-</br>
-<h4>底下是程式碼，可以跑出所有結果</h4>
-</br></p>
-<pre class="brush: python">
-from slvs import *
-from math import *
-
-def arm(degree1, degree2):
-    sys = System(500)
-    g = 1
-
-    #原點Point0
-    p0 = sys.add_param(0.0)
-    p1 = sys.add_param(0.0)
-    p2 = sys.add_param(0.0)
-    Point0 = Point3d(p0, p1, p2)
-
-    #XY法線
-    qw, qx, qy, qz = Slvs_MakeQuaternion(1, 0, 0, 0, 1, 0)
-    p3 = sys.add_param(qw)
-    p4 = sys.add_param(qx)
-    p5 = sys.add_param(qy)
-    p6 = sys.add_param(qz)
-    Normal1 = Normal3d(p3, p4, p5, p6)
-
-    #工作平面
-    Workplane1 = Workplane(Point0, Normal1)
-
-    #3D版的Point0=>Point1
-    p7 = sys.add_param(0.0)
-    p8 = sys.add_param(0.0)
-    Point1 = Point2d(Workplane1, p7, p8)
-    Constraint.dragged(Workplane1, Point1)
-
-    #Point2
-    p9 = sys.add_param(10.0)
-    p10 = sys.add_param(10.0)
-    Point2 = Point2d(Workplane1, p9, p10)
-    p11 = sys.add_param(-20.0)
-    p12 = sys.add_param(20.0)
-    Point3 = Point2d(Workplane1, p11, p12)
-    p13 = sys.add_param(-30.0)
-    p14 = sys.add_param(15.0)
-    Point4 = Point2d(Workplane1, p13, p14)
-    p15 = sys.add_param(-40.0)
-    p16 = sys.add_param(10.0)
-    Point5 = Point2d(Workplane1, p15, p16)
-    #基線點
-    p17 = sys.add_param(10.0)
-    p18 = sys.add_param(0.0)
-    Point6 = Point2d(Workplane1, p17, p18)
-    Constraint.dragged(Workplane1, Point6)
-    Line0 = LineSegment2d(Workplane1, Point1, Point6)
-    Constraint.distance(55, Workplane1, Point1, Point2)
-    Constraint.distance(135, Workplane1, Point2, Point3)
-    Constraint.distance(55, Workplane1, Point3, Point4)
-    Constraint.distance(145, Workplane1, Point4, Point5)
-    Constraint.distance(135, Workplane1, Point4, Point1)
-    Line1 = LineSegment2d(Workplane1, Point1, Point2)
-    Line2 = LineSegment2d(Workplane1, Point3, Point4)
-    Line3 = LineSegment2d(Workplane1, Point1, Point4)
-    Constraint.on(Workplane1, Point5, Line2)
-    Constraint.angle(Workplane1, degree1, Line0,  Line3, False)
-    Constraint.angle(Workplane1, degree2, Line0,  Line1, False)
-
-
-    sys.solve()
-    if (sys.result == SLVS_RESULT_OKAY):
-        print ("點座標：")
-        print(("P5(%.3f %.3f %.3f)")%(sys.get_param(15).val, sys.get_param(16).val, sys.get_param(2).val))
-        print(("P4(%.3f %.3f %.3f)")%(sys.get_param(13).val, sys.get_param(14).val, sys.get_param(2).val))
-        #print(("P3(%.3f %.3f %.3f)")%(sys.get_param(11).val, sys.get_param(12).val, sys.get_param(2).val))
-        #print(("P2(%.3f %.3f %.3f)")%(sys.get_param(9).val, sys.get_param(10).val, sys.get_param(2).val))
-        print ("%d DOF" % sys.dof)
-    elif (sys.result == SLVS_RESULT_INCONSISTENT):
-        print ("solve failed")
-        print ("SLVS_RESULT_INCONSISTENT")
-        print ("%d DOF" % sys.dof)
-        for i in range(sys.faileds):
-            print(" %lu", sys.failed[i]);
-    elif (sys.result == SLVS_RESULT_DIDNT_CONVERGE):
-        print ("solve failed")
-        print ("SLVS_RESULT_DIDNT_CONVERGE")
-        print ("%d DOF" % sys.dof)
-    elif (sys.result == SLVS_RESULT_TOO_MANY_UNKNOWNS):
-        print ("solve failed")
-        print ("SLVS_RESULT_TOO_MANY_UNKNOWNS")
-        print ("%d DOF" % sys.dof)
-
-#主程式
-#限制範圍內的角度的所有組合
-for i in range(90, 151):
-    for j in range(0, 61):
-        print (i,j)
-        arm(i, j)
-</pre>
-
-<p></br>
-</br>
-<h4>下圖的連桿是可以跑的最大角度範圍</h4>
-</br>
-<img src="http://i.imgur.com/mv0wkc6.png">
-</br>
-<h4>底下是隨機抓取在限制範圍內的角度</h4>
-</br>
-<img src="http://i.imgur.com/gthsCoM.png">
-</br>
-</br>
-<img src="http://i.imgur.com/HOGOxEq.png">
-</br>
-</br>
-<img src="http://i.imgur.com/eGc8LQL.png">
-</br>
-<h3>可以從限制範圍的角度裡，去求出點坐標，然後再跑迴圈將所有的點結果列出，然後用matplotlip將路徑畫出來，所以可以求得路徑方程式，然後我是用已知點的坐標，然後去算出 θ2的角度，然後就可以用三角形的關係去求出θ1、θ3。</h3></p>
-            </div>
-            <!-- /.entry-content -->
-    <hr/>
-    <section class="comments" id="comments">
-        <h2>Comments</h2>
-
-        <div id="disqus_thread"></div>
-        <script type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-            var disqus_shortname = 'projectmdetw'; // required: replace example with your forum shortname
-
-                    var disqus_identifier = '40323131ri-zhi-1050731';
-                var disqus_url = 'http://project.mde.tw/blog/40323131ri-zhi-1050731.html';
-
-            var disqus_config = function () {
-                this.language = "en";
-            };
-
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function () {
-                var dsq = document.createElement('script');
-                dsq.type = 'text/javascript';
-                dsq.async = true;
-                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
-            Disqus.</a></noscript>
-        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-    </section>
-        </article>
-    </section>
-
+        <ul class="pagination">
+                <li class="prev"><a href="http://project.mde.tw/blog/index20.html">&laquo;</a>
+                </li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/index.html">1</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/index2.html">2</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/index3.html">3</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/index4.html">4</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/index5.html">5</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/index6.html">6</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/index7.html">7</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/index8.html">8</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/index9.html">9</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/index10.html">10</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/index11.html">11</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/index12.html">12</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/index13.html">13</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/index14.html">14</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/index15.html">15</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/index16.html">16</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/index17.html">17</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/index18.html">18</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/index19.html">19</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/index20.html">20</a></li>
+                    <li class="active"><a
+                            href="http://project.mde.tw/blog/index21.html">21</a></li>
+                <li class="next disabled"><a href="#">&raquo;</a></li>
+        </ul>
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>

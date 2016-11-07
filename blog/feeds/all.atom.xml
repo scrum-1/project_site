@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-11-01T11:29:00+08:00</updated><entry><title>現代機器人學-力學、規劃與控制</title><link href="http://project.mde.tw/blog/xian-dai-ji-qi-ren-xue-li-xue-gui-hua-yu-kong-zhi.html" rel="alternate"></link><published>2016-11-01T11:29:00+08:00</published><updated>2016-11-01T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-11-01:blog/xian-dai-ji-qi-ren-xue-li-xue-gui-hua-yu-kong-zhi.html</id><summary type="html">&lt;p&gt;身為現代機械設計專題成員, 只要有網路連線, 俱備英文閱讀能力, 就能夠同步檢視美國電腦系排名第1的 Carnegie Mellon University, 2016 年秋季班 &lt;a href="http://www.cs.cmu.edu/afs/cs/academic/class/16741-s07/www/"&gt;Mechanics of Manipulation&lt;/a&gt; 課程內容. 從中還能得知, 目前編寫接近完成, 用於韓國首爾大學與美國西北大學相關課程的&lt;a href="http://hades.mech.northwestern.edu/images/7/7f/MR.pdf"&gt;教材 pdf&lt;/a&gt;與&lt;a href="https://github.com/NxRLab/ModernRobotics"&gt;軟體&lt;/a&gt;, 也已經同步&lt;a href="http://hades.mech.northwestern.edu/index.php/LynchAndPark"&gt;釋出&lt;/a&gt;.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-11-06T11:29:00+08:00</updated><entry><title>機械設計工程系網路講座(二)</title><link href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-er.html" rel="alternate"></link><published>2016-11-06T11:29:00+08:00</published><updated>2016-11-06T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-11-06:blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-er.html</id><summary type="html">&lt;p&gt;因為 IPv4 與 IPv6 是兩種彼此不相容的網路協定, IPv4 採 32 位元定址, 而 IPv6 則為 128 位元定址. 因此, 採用純 IPv6 網路協定設置的連網裝置, 無法與純 IPv4 網路協定設置的連網裝置進行連線, 反之亦然, 也就是採用純 IPv4 網路協定設置的連網裝置, 無法與純 IPv6 網路協定設置的連網裝置進行連線.&lt;/p&gt;
+
+
+&lt;p&gt;假如您使用中華電信的光世代, 而且使用  VDSL2 P883 路由器, 根據 &lt;a href="http://chiamingyen.github.io/kmolab/blog/mechanical-designer-and-ipv6.html"&gt;http://chiamingyen.github.io/kmolab/blog/mechanical-designer-and-ipv6.html&lt;/a&gt; 流程設定後,  使用 sudo pon dsl-provider 進行撥號後, 出現 Plugin rp-pppoe.so loaded, 表示已經取得 IPv6 協定上網, 就可以透過瀏覽器連線到 &lt;a href="http://[2001:288:6004:17::17]"&gt;http://[2001:288:6004:17::17]&lt;/a&gt;, 其中 IPv6 位址與埠號結合的寫法為 [2001:288:6004:17::17]:3128, 假如要利用網路位址設定代理主機就必須採用 IPv6 的格式.&lt;/p&gt;
+&lt;p&gt;因為機械設計工程系所分配到的 IPv6 網址為 2001:288:6004:17::/64, 表示前面 64 bits 的網址已經指定, 因此 subnet 設為 /64. 至於點對點的連線則建議設為 /127, 理由是可以避開子網路中許多未啟用的位址搜尋, 以免拖累路由器的速度.&lt;/p&gt;
+&lt;p&gt;在 IPv6 協定中, 每一個網路卡除了所設定使用的網路位址外, 還配置了一個所謂的 link-local address (本地連結位址). 而且 link-local addresses 一定位於 fe80::/10 區段. 至於在區域網路中各裝置的網路卡所使用的本地連結位址則會加上網卡代號存在路由表中. 例如, fe80::1:2:3:4%eth0&lt;/p&gt;
+&lt;p&gt;機械設計工程系區域網路中的電腦使用 IPv6 協定上網, 共有以下四種方法取得  IPv6 網路位址:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;採用 EUI-64 Global identifier 位址, 利用網路卡的 MAC address 進行&lt;a href="http://service.mde.tw/static/address_calculator.html"&gt;換算&lt;/a&gt;. 例如, 若 MAC 網路編號為 00-11-22-33-44-55, 則換算後使用 2001:288:6004:17:211:22FF:FE33:4455 作為 IPv6 網路位址.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;個別伺服器則設定固定 IPv6 網址, 並且將設定登錄到 DNS 伺服器中, 由於單一網路卡可以與多個 IPv6 位址綁定, 因此可以就個別服務設定不同的 IPv6 位址. 如此就可以在不同的伺服器硬體中搬遷各種不同服務. 以機械設計工程系網段中, 必須固定設置 IPv6 網址的建議是由目前所使用的 140.130.17.XXX 自行轉換為 2001:288:6004: 17::XXX, 至於採用網路卡 MAC 位址運算得到的 EUI-64 網址, 則不可任意搬遷.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在 Windows 7 或 10 操作系統中直接關閉 IPv4 協定, 採用純 IPv6 協定, 並且透過 DHCPv6 取得 IPv6 網路位址, 只要設定 DNS 為 2001:288:6004:1::2 與 2001:b000:168::1, 並採用 [2001:288:6004:17::17]:3128 或 proxy.mde.tw:3128 作為 proxy, 就可以連線上網.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用電腦自行亂數設定位於 fe80::/10 區段的 IPv6 本地連結網址上網, 假如要連結到廣域網路, 則使用橫跨內外網段的代理主機上網.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</summary><category term="機械設計"></category><category term="網路"></category><category term="導引"></category></entry><entry><title>現代機器人學-力學、規劃與控制</title><link href="http://project.mde.tw/blog/xian-dai-ji-qi-ren-xue-li-xue-gui-hua-yu-kong-zhi.html" rel="alternate"></link><published>2016-11-01T11:29:00+08:00</published><updated>2016-11-01T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-11-01:blog/xian-dai-ji-qi-ren-xue-li-xue-gui-hua-yu-kong-zhi.html</id><summary type="html">&lt;p&gt;身為現代機械設計專題成員, 只要有網路連線, 俱備英文閱讀能力, 就能夠同步檢視美國電腦系排名第1的 Carnegie Mellon University, 2016 年秋季班 &lt;a href="http://www.cs.cmu.edu/afs/cs/academic/class/16741-s07/www/"&gt;Mechanics of Manipulation&lt;/a&gt; 課程內容. 從中還能得知, 目前編寫接近完成, 用於韓國首爾大學與美國西北大學相關課程的&lt;a href="http://hades.mech.northwestern.edu/images/7/7f/MR.pdf"&gt;教材 pdf&lt;/a&gt;與&lt;a href="https://github.com/NxRLab/ModernRobotics"&gt;軟體&lt;/a&gt;, 也已經同步&lt;a href="http://hades.mech.northwestern.edu/index.php/LynchAndPark"&gt;釋出&lt;/a&gt;.&lt;/p&gt;
 
 
 &lt;p&gt;這本&lt;a href="http://hades.mech.northwestern.edu/images/7/7f/MR.pdf"&gt;電子書&lt;/a&gt;, 標題是: INTRODUCTION TO MODERN

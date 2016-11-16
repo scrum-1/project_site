@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg3.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-11-15T20:53:00+08:00</updated><entry><title>40323206日誌 - OpenCV (Dots)</title><link href="http://project.mde.tw/blog/40323206ri-zhi-opencv-dots.html" rel="alternate"></link><updated>2016-11-15T20:53:00+08:00</updated><author><name>40323206</name></author><id>tag:project.mde.tw,2016-11-15:blog/40323206ri-zhi-opencv-dots.html</id><summary type="html">&lt;p&gt;物體角落(點)的辨識 --- cv2.cornerHarris &amp;amp; cv2.dilate&lt;/p&gt;
+
+
+&lt;h3&gt;★cv2.cornerHarris的使用&amp;格式&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/zne7h7s.jpg"&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;★範例所使用的圖檔下載位置&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href="http://imgur.com/F05kwRB"&gt;http://imgur.com/F05kwRB&lt;/a&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;★程式範例執行&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;pre class="brush: bash"&gt;
+import cv2
+import numpy as np
+
+filename = 'chessboard.png'
+img = cv2.imread(filename)
+gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+
+gray = np.float32(gray)
+dst = cv2.cornerHarris(gray,2,3,0.04)
+
+#result is dilated for marking the corners, not important
+dst = cv2.dilate(dst,None)
+
+# Threshold for an optimal value, it may vary depending on the image.
+img[dst&gt;0.01*dst.max()]=[0,0,255]
+
+cv2.imshow('dst',img)
+if cv2.waitKey(0) &amp; 0xff == 27:
+    cv2.destroyAllWindows()
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;★範例執行(已灰階)前後之比較&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/chMPHbO.jpg"&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;★套用於齒輪辨識&lt;/h3&gt;
+
+&lt;h4&gt;
+有包含圓和圓心的辨識&amp;單獨作角落抓點
+&lt;pre class="brush: bash"&gt;
+import numpy as np
+import cv2
+from matplotlib import pyplot as plt
+
+img = cv2.imread("gear2.png", 1)
+imgGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+cv2.imwrite('graygear.png', imgGray)
+
+# 抓點
+gray = np.float32(imgGray)
+dst = cv2.cornerHarris(gray,2,3,0.04)
+
+# result is dilated for marking the corners, not important
+dst = cv2.dilate(dst,None)
+
+# Threshold for an optimal value, it may vary depending on the image.
+img[dst&gt;0.01*dst.max()]=[0,0,255]
+
+cv2.imshow('dst',img)
+
+# 抓圓
+circles = cv2.HoughCircles(imgGray,cv2.HOUGH_GRADIENT,1,20,
+                            param1=60,param2=50,minRadius=0,maxRadius=60)
+
+circles = np.uint16(np.around(circles))
+for i in circles[0,:]:
+    # draw the outer circle
+    cv2.circle(img,(i[0],i[1]),i[2],(255,0,255),2)
+    # draw the center of the circle
+    cv2.circle(img,(i[0],i[1]),2,(0,0,255),3)
+
+cv2.imshow('detected circles',img)
+
+
+cv2.waitKey(0)
+
+
+cv2.destroyAllWindows()
+&lt;/pre&gt;
+
+&lt;/br&gt;
+
+&lt;h3&gt;★齒輪辨識目的&lt;/h3&gt;
+&lt;h4&gt;配合之前的圓心可以初步抓出齒輪的外徑、內徑，方便之後直行計算相關程式的條件。&lt;/h4&gt;
+&lt;/br&gt;
+
+&lt;h3&gt;★齒輪辨識結果&lt;/h3&gt;
+&lt;img src="http://i.imgur.com/116TeT4.jpg"&gt;
+&lt;/br&gt;</summary><category term="Kmol &amp; OpenCV"></category></entry><entry><title>40323206日誌 - OpenCV (Circles)</title><link href="http://project.mde.tw/blog/40323206ri-zhi-opencv-circles.html" rel="alternate"></link><updated>2016-11-14T20:16:00+08:00</updated><author><name>40323206</name></author><id>tag:project.mde.tw,2016-11-14:blog/40323206ri-zhi-opencv-circles.html</id><summary type="html">&lt;p&gt;圓形的辨識 --- cv2.HoughCircles&lt;/p&gt;
+
+
+&lt;h3&gt;★cv2.HoughCircles的使用&amp;格式&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/sSe92Wx.jpg"&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;★範例所使用的圖檔下載位置&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href="http://imgur.com/EyLp3Qx"&gt;http://imgur.com/EyLp3Qx&lt;/a&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;★程式範例執行&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;pre class="brush: bash"&gt;
+import cv2
+import numpy as np
+
+img = cv2.imread('opencv_logo.png',0)
+img = cv2.medianBlur(img,5)
+cimg = cv2.cvtColor(img,cv2.COLOR_GRAY2BGR)
+
+circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,
+                            1,20,
+                            param1=50,
+                            param2=40, 
+                            minRadius=0,
+                            maxRadius=0)
+
+circles = np.uint16(np.around(circles))
+for i in circles[0,:]:
+    # draw the outer circle
+    cv2.circle(cimg,(i[0],i[1]),i[2],(0,255,0),3)
+    # draw the center of the circle
+    cv2.circle(cimg,(i[0],i[1]),2,(0,0,255),3)
+
+cv2.imshow('detected circles',cimg)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;★範例執行前後之比較&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/fSWa1OC.jpg"&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;★套用於齒輪辨識&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;pre class="brush: bash"&gt;
+import numpy as np
+import cv2
+from matplotlib import pyplot as plt
+
+# 讀取圖檔
+img = cv2.imread("gear1.png", 1)
+# 圖檔轉灰階
+imgGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+# 灰階後進行存檔
+cv2.imwrite('graygear.png', imgGray)
+
+# 使用灰階圖抓圓
+circles = cv2.HoughCircles(imgGray,cv2.HOUGH_GRADIENT,
+                            1,20,
+                            param1=60,
+                            param2=50,
+                            minRadius=0,
+                            maxRadius=60)
+
+circles = np.uint16(np.around(circles))
+for i in circles[0,:]:
+    # 圓形的繪製
+    cv2.circle(img,(i[0],i[1]),i[2],(255,0,255),2)
+    # 圓心的繪製
+    cv2.circle(img,(i[0],i[1]),2,(0,0,255),3)
+
+cv2.imshow('detected circles',img)
+
+cv2.waitKey(0)
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;★齒輪辨識目的&lt;/h3&gt;
+
+&lt;h4&gt;找出齒輪的圓心位置，方便之後直行計算相關程式的條件。&lt;/h4&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;★齒輪辨識結果&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/1gvQ3vH.jpg"&gt;
+&lt;/br&gt;&lt;/p&gt;</summary><category term="Kmol &amp; OpenCV"></category></entry></feed>

@@ -97,7 +97,61 @@ cv2.destroyAllWindows()
 &lt;/pre&gt;
 
 &lt;p&gt;&lt;/br&gt;&lt;/p&gt;
-&lt;h4&gt;後記 - 目前正在研究其他OpenCV程式，在這裡先呈現最基礎的繪圖函式。&lt;/h4&gt;</summary><category term="Kmol &amp; OpenCV"></category></entry><entry><title>40323206日誌 - OpenCV (Dots)</title><link href="http://project.mde.tw/blog/40323206ri-zhi-opencv-dots.html" rel="alternate"></link><updated>2016-11-15T20:53:00+08:00</updated><author><name>40323206</name></author><id>tag:project.mde.tw,2016-11-15:blog/40323206ri-zhi-opencv-dots.html</id><summary type="html">&lt;p&gt;物體角落(點)的辨識 --- cv2.cornerHarris &amp;amp; cv2.dilate&lt;/p&gt;
+&lt;h4&gt;後記 - 目前正在研究其他OpenCV程式，在這裡先呈現最基礎的繪圖函式。&lt;/h4&gt;</summary><category term="Kmol &amp; OpenCV"></category></entry><entry><title>40323203日誌 - OpenCV(載入圖像)</title><link href="http://project.mde.tw/blog/40323203ri-zhi-opencvzai-ru-tu-xiang.html" rel="alternate"></link><updated>2016-11-17T22:00:00+08:00</updated><author><name>40323203</name></author><id>tag:project.mde.tw,2016-11-17:blog/40323203ri-zhi-opencvzai-ru-tu-xiang.html</id><summary type="html">&lt;h3&gt;載入圖片及影像--cv2.imread,cv2.VideoCapture&lt;/h3&gt;
+
+
+
+&lt;hr /&gt;
+&lt;h4&gt;載入圖片程式&lt;/h4&gt;
+
+&lt;pre class="brush: bash"&gt;
+import numpy as np
+import cv2
+
+#載入jpg圖檔
+#imread:讀取圖片，並將資料寫入Mat/flags:影像標誌
+#IMREAD_COLOR:彩色模式可用1表示
+#IMREAD_GRAYSCALE:灰度圖可用0表示
+#IMREAD_UNCHANGED:透明度可用-1表示
+image = cv2.imread("DSC00040.jpg", flags=cv2.IMREAD_COLOR)
+
+#WINDOW_NORMAL:調節窗口大小
+#WINDOW_AUTOSIZE:固定窗口大小
+cv2.namedWindow('image',cv2.WINDOW_NORMAL) 
+
+cv2.imshow('image',image) 
+cv2.waitKey(0) 
+cv2.destroyAllWindows()
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h4&gt;顯示圖片結果可為彩色及黑白:&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/1nXHjD7.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h4&gt;載入影片程式&lt;/h4&gt;&lt;/p&gt;
+&lt;pre class="brush: bash"&gt;
+import numpy as np
+import cv2
+
+#Capture:拍攝,紀錄
+cap = cv2.VideoCapture('00007.avi')
+
+while(cap.isOpened()):
+    ret, frame = cap.read()
+
+    #cvtColor：轉換影像色域，程式以轉換RGB到gray為例
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    cv2.imshow('frame',gray)
+    if cv2.waitKey(6) &amp; 0xFF == ord('q'):
+        break
+
+cap.release()
+cv2.destroyAllWindows()
+&lt;/pre&gt;</summary><category term="Kmol &amp; OpenCV"></category></entry><entry><title>40323206日誌 - OpenCV (Dots)</title><link href="http://project.mde.tw/blog/40323206ri-zhi-opencv-dots.html" rel="alternate"></link><updated>2016-11-15T20:53:00+08:00</updated><author><name>40323206</name></author><id>tag:project.mde.tw,2016-11-15:blog/40323206ri-zhi-opencv-dots.html</id><summary type="html">&lt;p&gt;物體角落(點)的辨識 --- cv2.cornerHarris &amp;amp; cv2.dilate&lt;/p&gt;
 
 
 &lt;h3&gt;★cv2.cornerHarris的使用&amp;格式&lt;/h3&gt;

@@ -19,9 +19,8 @@
 &lt;/ul&gt;
 &lt;h2&gt;問題&lt;/h2&gt;
 &lt;p&gt;暫停進階選項的開發，將階段放在解題異常的問題上。&lt;/p&gt;
-&lt;p&gt;目前已知問題是在解題時，運算某些位置會發生錯誤，推測應該是之前將原始位置與運算後位置隔離造成的，將會修正此問題。&lt;/p&gt;
-&lt;p&gt;而 v0.3.0 的目標就是將運算解果重複帶入迴圈解題，不再永遠使用原始位置。&lt;/p&gt;
-&lt;p&gt;原始位置的欄位會刪除，而滑塊功能仍會繼續測試。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/10/17</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051017.html" rel="alternate"></link><published>2016-10-17T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-17:blog/40323230ri-zhi-1051017.html</id><summary type="html">&lt;ol&gt;
+&lt;p&gt;目前已知問題是在解題時，運算某些位置會發生錯誤，必須修正此問題。&lt;/p&gt;
+&lt;p&gt;而 v0.3.0 的目標就是解決死點問題，而滑塊功能仍會繼續測試。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/10/17</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051017.html" rel="alternate"></link><published>2016-10-17T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-17:blog/40323230ri-zhi-1051017.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Kernel 編譯&lt;/p&gt;
 &lt;/li&gt;

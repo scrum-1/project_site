@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en"
+>
+<head>
+    <title>機械設計工程系網路講座(一) - 機械設計專題 (虎尾科大MDE)</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+
+
+<style type="text/css">
+
+/*some stuff for output/input prompts*/
+div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}div.cell.selected{border-radius:4px;border:thin #ababab solid}
+div.cell.edit_mode{border-radius:4px;border:thin #008000 solid}
+div.cell{width:100%;padding:5px 5px 5px 0;margin:0;outline:none}
+div.prompt{min-width:11ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}
+@media (max-width:480px){div.prompt{text-align:left}}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}
+div.input_area{border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;line-height:1.21429em}
+div.prompt:empty{padding-top:0;padding-bottom:0}
+div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:horizontal;-moz-box-align:stretch;display:box;box-orient:horizontal;box-align:stretch;}
+div.inner_cell{width:90%;}
+div.input_area{border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;}
+div.input_prompt{color:navy;border-top:1px solid transparent;}
+div.output_wrapper{margin-top:5px;position:relative;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}
+div.output_scroll{height:24em;width:100%;overflow:auto;border-radius:4px;-webkit-box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);-moz-box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);}
+div.output_collapsed{margin:0px;padding:0px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}
+div.out_prompt_overlay{height:100%;padding:0px 0.4em;position:absolute;border-radius:4px;}
+div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000000;-moz-box-shadow:inset 0 0 1px #000000;box-shadow:inset 0 0 1px #000000;background:rgba(240, 240, 240, 0.5);}
+div.output_prompt{color:darkred;}
+
+a.anchor-link:link{text-decoration:none;padding:0px 20px;visibility:hidden;}
+h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible;}
+/* end stuff for output/input prompts*/
+
+
+.highlight-ipynb .hll { background-color: #ffffcc }
+.highlight-ipynb  { background: #f8f8f8; }
+.highlight-ipynb .c { color: #408080; font-style: italic } /* Comment */
+.highlight-ipynb .err { border: 1px solid #FF0000 } /* Error */
+.highlight-ipynb .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight-ipynb .o { color: #666666 } /* Operator */
+.highlight-ipynb .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight-ipynb .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight-ipynb .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight-ipynb .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight-ipynb .gd { color: #A00000 } /* Generic.Deleted */
+.highlight-ipynb .ge { font-style: italic } /* Generic.Emph */
+.highlight-ipynb .gr { color: #FF0000 } /* Generic.Error */
+.highlight-ipynb .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight-ipynb .gi { color: #00A000 } /* Generic.Inserted */
+.highlight-ipynb .go { color: #888888 } /* Generic.Output */
+.highlight-ipynb .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight-ipynb .gs { font-weight: bold } /* Generic.Strong */
+.highlight-ipynb .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight-ipynb .gt { color: #0044DD } /* Generic.Traceback */
+.highlight-ipynb .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight-ipynb .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight-ipynb .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight-ipynb .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight-ipynb .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight-ipynb .kt { color: #B00040 } /* Keyword.Type */
+.highlight-ipynb .m { color: #666666 } /* Literal.Number */
+.highlight-ipynb .s { color: #BA2121 } /* Literal.String */
+.highlight-ipynb .na { color: #7D9029 } /* Name.Attribute */
+.highlight-ipynb .nb { color: #008000 } /* Name.Builtin */
+.highlight-ipynb .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight-ipynb .no { color: #880000 } /* Name.Constant */
+.highlight-ipynb .nd { color: #AA22FF } /* Name.Decorator */
+.highlight-ipynb .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight-ipynb .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight-ipynb .nf { color: #0000FF } /* Name.Function */
+.highlight-ipynb .nl { color: #A0A000 } /* Name.Label */
+.highlight-ipynb .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight-ipynb .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight-ipynb .nv { color: #19177C } /* Name.Variable */
+.highlight-ipynb .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight-ipynb .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight-ipynb .mf { color: #666666 } /* Literal.Number.Float */
+.highlight-ipynb .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight-ipynb .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight-ipynb .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight-ipynb .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight-ipynb .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight-ipynb .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight-ipynb .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight-ipynb .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight-ipynb .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight-ipynb .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight-ipynb .sx { color: #008000 } /* Literal.String.Other */
+.highlight-ipynb .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight-ipynb .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight-ipynb .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight-ipynb .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight-ipynb .vc { color: #19177C } /* Name.Variable.Class */
+.highlight-ipynb .vg { color: #19177C } /* Name.Variable.Global */
+.highlight-ipynb .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight-ipynb .il { color: #666666 } /* Literal.Number.Integer.Long */
+</style>
+
+<style type="text/css">
+/* Overrides of notebook CSS for static HTML export */
+div.entry-content {
+  overflow: visible;
+  padding: 8px;
+}
+.input_area {
+  padding: 0.2em;
+}
+
+a.heading-anchor {
+ white-space: normal;
+}
+
+.rendered_html
+code {
+ font-size: .8em;
+}
+
+pre.ipynb {
+  color: black;
+  background: #f7f7f7;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0;
+  padding: 0;
+  margin: 0px;
+  font-size: 13px;
+}
+
+/* remove the prompt div from text cells */
+div.text_cell .prompt {
+    display: none;
+}
+
+/* remove horizontal padding from text cells, */
+/* so it aligns with outer body text */
+div.text_cell_render {
+    padding: 0.5em 0em;
+}
+
+img.anim_icon{padding:0; border:0; vertical-align:middle; -webkit-box-shadow:none; -box-shadow:none}
+</style>
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<script type="text/javascript">
+init_mathjax = function() {
+    if (window.MathJax) {
+        // MathJax loaded
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    }
+}
+init_mathjax();
+</script>
+
+<link rel="canonical" href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-yi.html">
+
+        <meta name="author" content="yen" />
+        <meta name="keywords" content="機械設計,網路,導引" />
+        <meta name="description" content="過去在 IPV4 的網路環境中, 經常需要利用各種網路管理軟硬體, 進行用戶對於網路頻寬使用的限制或者綁定, 轉換到 IPV6 網路環境之後, 儘管可能無法直接擷取目前仍使用純 IPV4 協定的網路服務, 但是透過代理主機, 不但不會影響各用戶的權益, 反而因為 IPV6 協定的寬廣位址, 而過得海闊天空, 自由自在." />
+
+        <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="機械設計工程系網路講座(一)"/>
+        <meta property="og:url" content="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-yi.html"/>
+        <meta property="og:description" content="過去在 IPV4 的網路環境中, 經常需要利用各種網路管理軟硬體, 進行用戶對於網路頻寬使用的限制或者綁定, 轉換到 IPV6 網路環境之後, 儘管可能無法直接擷取目前仍使用純 IPV4 協定的網路服務, 但是透過代理主機, 不但不會影響各用戶的權益, 反而因為 IPV6 協定的寬廣位址, 而過得海闊天空, 自由自在."/>
+        <meta property="article:published_time" content="2016-10-27" />
+            <meta property="article:section" content="Tutorial" />
+            <meta property="article:tag" content="機械設計" />
+            <meta property="article:tag" content="網路" />
+            <meta property="article:tag" content="導引" />
+            <meta property="article:author" content="yen" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="http://project.mde.tw/blog/theme/css/bootstrap.united.min.css" type="text/css"/>
+    <link href="http://project.mde.tw/blog/theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="http://project.mde.tw/blog/theme/css/pygments/monokai.css" rel="stylesheet">
+    <link href="http://project.mde.tw/blog/theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://project.mde.tw/blog/theme/css/style.css" type="text/css"/>
+
+        <link href="http://project.mde.tw/blog/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
+              title="機械設計專題 (虎尾科大MDE) ATOM Feed"/>
+
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shCore.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushJScript.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushJava.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushPython.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushSql.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushXml.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushPhp.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushCpp.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushCss.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushCSharp.js"></script>
+<script type="text/javascript" src="http://coursemdetw.github.io/project_site_files/files/syntaxhighlighter/shBrushBash.js"></script>
+<script type='text/javascript'>
+	(function(){
+		var corecss = document.createElement('link');
+		var themecss = document.createElement('link');
+		var corecssurl = "http://chiamingyen.github.io/kmolab_data/files/syntaxhighlighter/css/shCore.css";
+		if ( corecss.setAttribute ) {
+				corecss.setAttribute( "rel", "stylesheet" );
+				corecss.setAttribute( "type", "text/css" );
+				corecss.setAttribute( "href", corecssurl );
+		} else {
+				corecss.rel = "stylesheet";
+				corecss.href = corecssurl;
+		}
+		document.getElementsByTagName("head")[0].insertBefore( corecss, document.getElementById("syntaxhighlighteranchor") );
+		var themecssurl = "http://chiamingyen.github.io/kmolab_data/files/syntaxhighlighter/css/shThemeDefault.css?ver=3.0.9b";
+		if ( themecss.setAttribute ) {
+				themecss.setAttribute( "rel", "stylesheet" );
+				themecss.setAttribute( "type", "text/css" );
+				themecss.setAttribute( "href", themecssurl );
+		} else {
+				themecss.rel = "stylesheet";
+				themecss.href = themecssurl;
+		}
+		//document.getElementById("syntaxhighlighteranchor").appendChild(themecss);
+		document.getElementsByTagName("head")[0].insertBefore( themecss, document.getElementById("syntaxhighlighteranchor") );
+	})();
+	SyntaxHighlighter.config.strings.expandSource = '+ expand source';
+	SyntaxHighlighter.config.strings.help = '?';
+	SyntaxHighlighter.config.strings.alert = 'SyntaxHighlighter\n\n';
+	SyntaxHighlighter.config.strings.noBrush = 'Can\'t find brush for: ';
+	SyntaxHighlighter.config.strings.brushNotHtmlScript = 'Brush wasn\'t configured for html-script option: ';
+	SyntaxHighlighter.defaults['pad-line-numbers'] = false;
+	SyntaxHighlighter.defaults['toolbar'] = false;
+	SyntaxHighlighter.all();
+</script>
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="http://project.mde.tw/blog/" class="navbar-brand">
+機械設計專題 (虎尾科大MDE)            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                         <li><a href="http://project.mde.tw/blog/pages/about/">
+                             About
+                          </a></li>
+                        <li >
+                            <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
+                        </li>
+                        <li >
+                            <a href="http://project.mde.tw/blog/category/2016g1.html">2016g1</a>
+                        </li>
+                        <li >
+                            <a href="http://project.mde.tw/blog/category/2016g3.html">2016g3</a>
+                        </li>
+                        <li >
+                            <a href="http://project.mde.tw/blog/category/misc.html">Misc</a>
+                        </li>
+                        <li class="active">
+                            <a href="http://project.mde.tw/blog/category/tutorial.html">Tutorial</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="http://project.mde.tw/blog/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+              <li><a href="http://project.mde.tw/blog/archives.html"><i class="fa fa-th-list"></i><span class="icon-label">Archives</span></a></li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-yi.html"
+                       rel="bookmark"
+                       title="Permalink to 機械設計工程系網路講座(一)">
+                        機械設計工程系網路講座(一)
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2016-10-27T11:29:00+08:00"> 週四 27 十月 2016</time>
+    </span>
+            <span class="label label-default">By</span>
+            <a href="http://project.mde.tw/blog/author/yen.html"><i class="fa fa-user"></i> yen</a>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://project.mde.tw/blog/tag/ji-jie-she-ji.html">機械設計</a>
+        /
+	<a href="http://project.mde.tw/blog/tag/wang-lu.html">網路</a>
+        /
+	<a href="http://project.mde.tw/blog/tag/dao-yin.html">導引</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <p>過去在 IPV4 的網路環境中, 經常需要利用各種網路管理軟硬體, 進行用戶對於網路頻寬使用的限制或者綁定, 轉換到 IPV6 網路環境之後, 儘管可能無法直接擷取目前仍使用純 IPV4 協定的網路服務, 但是透過代理主機, 不但不會影響各用戶的權益, 反而因為 IPV6 協定的寬廣位址, 而過得海闊天空, 自由自在.</p>
+
+
+<h2>數量眾多的 IPV6 網址</h2>
+<p>從 <a href="http://cadlab.mde.tw/post/ji-jie-she-ji-gong-cheng-xi-ipv6-wang-zhi-fen-pei.html">機械設計工程系 IPV6 網址分配</a> 文章中, 大家就可以了解,  IPV6 網路位址雖然不是無限, 但是數量眾多, 絕對可以滿足多元使用的需求.</p>
+<p>因此各機械設計工程系的教學與研究團隊, 在決定使用 IPV6 網路協定之後, 第1件事就是要確定各用戶是否透過 gigabit switch, 讓所有電腦都直接連線到系上的廣域網路.</p>
+<p>假如您之前只是使用電腦的瀏覽器上網, 而且使用系上分配的 IPV4 固定網址, 那麼您可以準備將這個 IPV4 的固定網址交回管理室, 因為在從 IPV4 網路環境轉進到 IPV6 的過程中, 只有雙支援需求的 Proxy Server 需要使用 IPV4 固定網址, 一般用戶只要使用各自所在樓層與所分配的 IPV6 固定網址, 就可以上網.</p>
+<h2>使用固定 IPV4 網址的轉換</h2>
+<p>在此以綜一館八樓實驗室編號尾碼為 8768 的用戶為例, 因為所分配的 IPV6 網址範圍為2001:288:6004:17:8F:8768:0000:0000 ~
+2001:288:6004:17:8F:8768:FFFF:FFFF, 意思就是這個實驗室有 16 的 8 次方個 IPV6 網路位址可以使用, 其下可以再透過使用者的身分證字號最後四碼 (例如為 1234), 使用 2001:288:6004:17:8F:8768:1234:0000 ~ 2001:288:6004:17:8F:8768:1234:FFFF 的網段.</p>
+<p>假如該名用戶採用 Windows 操作系統, 只要進入控制台的網路卡設定, 將 IPV4 協定勾選去除, 只留下 IPV6 網路協定, 然後自行設定網路位址為 2001:288:6004:17:8F:8768:1234:1, 子網路首碼長度設為 64, 預設閘道設為 2001:288:6004:17::254 (請注意, 因為 17 到 254 中間有三個位址段皆為 0000 而省略, 因此要使用 "::"), DNS 伺服器設為 2001:288:6004:1::2 (學校 DNS) 與 2001:b000:168::1 (中華電信 DNS) 即可.</p>
+<p>接下來只要將瀏覽器的代理主機設為 proxy.mde.tw:3128 即可連線上網.</p>
+<h2>使用 NAT 轉址的用戶轉換</h2>
+<p>假如您目前是透過 NAT 從 IPV4 的內部網路轉換為外部網路上網, 只需要將 NAT 移除, 換成 Gigabit 交換器, 就可以利用上一節中的說明, 轉換到固定的 IPV6 網址設定上網.</p>
+<p>也就是說, 只要使用該電腦所分配到的 IPV6 網址, 並去除 IPV4 網路協定, 就可以透過代理主機 proxy.mde.tw:3128 連線上網.</p>
+<h2>網路認証授權主機的轉換</h2>
+<p>當各用戶從 IPV4 網路協定轉而使用純 IPV6 協定上網之後, 若先前使用 SolidWorks、Matlab、Creo Parametric、Ansys 與 Comsol 等套件的網路授權, 也必須確定各授權主機啟用 IPV6 的協定, 有關這點, 我們極力推廣各系要自行管理各自的 DNS 伺服器, 如此一來, 無論使用者採用 IPV4 或 IPV6 協定要求認証 ,都只要將認証主機設為 solidworks.mde.nfu.edu.tw:埠號, mat.mde.nfu.edu.tw:埠號, creo.mde.nfu.edu.tw:埠號, ansys.mde.nfu.edu.tw:埠號與 comsol.mde.nfu.edu.tw:埠號即可, 無需使用 IPV6 或 IPV4 的網址要求認証, 因為這些主機可能因為各種原因進行硬體搬遷或固定網址而變換, 各管理者只要從各系的 DNS 伺服器中因應調整, 完全不需要更動認証客戶端的伺服器 IP 設定.</p>
+<h2>結論</h2>
+<p>從上述說明可以了解, IPV6 的網路架構就在我們的身旁, 只要各用戶依據<a href="http://cadlab.mde.tw/post/ji-jie-she-ji-gong-cheng-xi-ipv6-wang-zhi-fen-pei.html">機械設計工程系 IPV6 網址分配</a>使用, 就可以全面改善目前爭搶 IPV4 網路位址的情形, 也無需將個人電腦的 MAC 卡號交由電算中心綁定, 或者區分教師與學生網段, 只要讓管理室可以回收部份 IPV4 網址, 增加雙網路協定支援的代理主機, 並且推廣伺服主機也採用純 IPV6 設定, 就能逐步從舊 IPV4 進入新 IPV6 世代, 享受新協定所帶來的便利.</p>
+            </div>
+            <!-- /.entry-content -->
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'projectmdetw'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = 'ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-yi';
+                var disqus_url = 'http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-yi.html';
+
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+
+<section class="well well-sm">
+    <ul class="list-group list-group-flush">
+
+            <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
+                <ul class="list-group" id="recentposts">
+                    <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/40323205ri-zhi-opencv-hui-tu-han-shi.html">
+                            40323205日誌 - OpenCV (繪圖函式)
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/40323203ri-zhi-opencvzai-ru-tu-xiang.html">
+                            40323203日誌 - OpenCV(載入圖像)
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/40323206ri-zhi-opencv-dots.html">
+                            40323206日誌 - OpenCV (Dots)
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/40323206ri-zhi-opencv-circles.html">
+                            40323206日誌 - OpenCV (Circles)
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/shu-xue-you-he-yong.html">
+                            數學有何用?
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="list-group-item"><a href="http://project.mde.tw/blog/categories.html"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Categories</span></h4></a>
+                <ul class="list-group" id="categories">
+                    <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/category/2016bg2.html">
+                            <i class="fa fa-folder-open fa-lg"></i> 2016bg2
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/category/2016g1.html">
+                            <i class="fa fa-folder-open fa-lg"></i> 2016g1
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/category/2016g3.html">
+                            <i class="fa fa-folder-open fa-lg"></i> 2016g3
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/category/misc.html">
+                            <i class="fa fa-folder-open fa-lg"></i> Misc
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/category/tutorial.html">
+                            <i class="fa fa-folder-open fa-lg"></i> Tutorial
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="list-group-item"><a href="http://project.mde.tw/blog/tags.html"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
+                <ul class="list-group list-inline tagcloud" id="tags">
+                </ul>
+            </li>
+    <li class="list-group-item"><h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+      <ul class="list-group" id="links">
+        <li class="list-group-item">
+            <a href="http://getpelican.com/" target="_blank">
+                Pelican
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/DandyDev/pelican-bootstrap3/" target="_blank">
+                pelican-bootstrap3
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/getpelican/pelican-plugins" target="_blank">
+                pelican-plugins
+            </a>
+        </li>
+        <li class="list-group-item">
+            <a href="https://github.com/Tipue/Tipue-Search" target="_blank">
+                Tipue search
+            </a>
+        </li>
+      </ul>
+    </li>
+    </ul>
+</section>
+            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2016 KMOL
+            &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="http://project.mde.tw/blog/theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="http://project.mde.tw/blog/theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="http://project.mde.tw/blog/theme/js/respond.min.js"></script>
+
+    <!-- Disqus -->
+    <script type="text/javascript">
+        /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+        var disqus_shortname = 'projectmdetw'; // required: replace example with your forum shortname
+
+        /* * * DON'T EDIT BELOW THIS LINE * * */
+        (function () {
+            var s = document.createElement('script');
+            s.async = true;
+            s.type = 'text/javascript';
+            s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+            (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+        }());
+    </script>
+    <!-- End Disqus Code -->
+
+</body>
+</html>

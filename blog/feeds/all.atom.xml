@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-11-18T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/11/18</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051118.html" rel="alternate"></link><published>2016-11-18T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-11-18:blog/40323230ri-zhi-1051118.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-11-19T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/11/19</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051119.html" rel="alternate"></link><published>2016-11-19T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-11-19:blog/40323230ri-zhi-1051119.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;Pyslvs 編譯進度&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Pyslvs 編譯進度&lt;/h1&gt;
+&lt;h2&gt;視角拖曳&lt;/h2&gt;
+&lt;p&gt;做出與 AutoCAD 相似的檢視方式，單靠按住滑鼠滾輪即可自由移動圖形而不會一直鎖定在畫面上。&lt;/p&gt;
+&lt;p&gt;過去按住 Ctrl 鍵的功能仍會保留。由於必須按住鍵盤，不至於會與主要檢視方式衝突。&lt;/p&gt;
+&lt;h2&gt;技術手冊&lt;/h2&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;User Manual
+Developer Manual
+Application Examples
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;技術手冊採用 Markdown 的方式寫成。&lt;/p&gt;
+&lt;p&gt;在系統裝上 Pandoc 與 TeX Live 可以轉成其他純文字格式或 PDF。&lt;/p&gt;
+&lt;p&gt;接下來會先大約在 Developer Manual 簡介原始碼，細部內容會一邊開發一邊補齊。&lt;/p&gt;
+&lt;p&gt;User Manual 的部份則是做所有功能的介紹，不過預計會附上程式的圖片（改版時若是動到界面就比較麻煩），解釋操作各項功能的方式。&lt;/p&gt;
+&lt;p&gt;這三個手冊目前是使用中文說明。&lt;/p&gt;
+&lt;h2&gt;v0.3.0 核心改動&lt;/h2&gt;
+&lt;p&gt;最近參考大量  Java Script 的程式架構後，覺得以鍵值管理變數的方式比較容易分清用途，解說上也較好管理。&lt;/p&gt;
+&lt;p&gt;不過相對於 Java Script，Python 的物件得先建立 class，定義上比較繁瑣，所以就使用 Dictionary 來存取變數，雖然使用上比 Java Script 麻煩許多。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1119_01.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;目前畫布 &lt;code&gt;canvas.py&lt;/code&gt; 中的變數已經分類得差不多了，計算那塊由於關聯太多物件，修改需要花一段時間，亦或使用 Python 原本的 class 建構？&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/11/18</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051118.html" rel="alternate"></link><published>2016-11-18T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-11-18:blog/40323230ri-zhi-1051118.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;Pyslvs v0.2.0 Release &amp;amp; informations&lt;/li&gt;
 &lt;/ol&gt;
 

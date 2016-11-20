@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-11-19T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/11/19</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051119.html" rel="alternate"></link><published>2016-11-19T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-11-19:blog/40323230ri-zhi-1051119.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-11-20T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/11/20</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051120.html" rel="alternate"></link><published>2016-11-20T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-11-20:blog/40323230ri-zhi-1051120.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;Pyslvs 編譯進度&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Pyslvs 編譯進度&lt;/h1&gt;
+&lt;h2&gt;佈署單元測試函式（unittest）&lt;/h2&gt;
+&lt;p&gt;建構了需要測試的項目，會提取主程式的函式測試回傳值。&lt;/p&gt;
+&lt;p&gt;也因為測試需求，把主程式 &lt;code&gt;main.py&lt;/code&gt; 單獨留在 core 資料夾中，其他程式都歸類進資料夾中，方便之後測試函式呼叫。&lt;/p&gt;
+&lt;p&gt;不過目前的項目只有 Kernel 解題，之後會增加測試單元。&lt;/p&gt;
+&lt;p&gt;執行頂層目錄的 &lt;code&gt;launch_test.py&lt;/code&gt; 來啟動單元測試。&lt;/p&gt;
+&lt;h2&gt;清單處理格式轉移&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;處理表格及算點的程式都放到 calculation 資料夾中。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;原本都是讀取 Qt 的 Table Widget 來取得點座標，但是這樣處理太過混亂（因為回傳值是字串而非數字），也會降低執行效率，所以打算更改。&lt;/p&gt;
+&lt;p&gt;原先處理表格的 &lt;code&gt;list_process.py&lt;/code&gt; 劃分出不同表格的 class，它們的函式也重新命名過，更能知道用途。&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Points (style)
+Lines
+Chains
+Shafts
+Sliders
+Rods
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;下一步是在 &lt;strong&gt;init&lt;/strong&gt; 初始化函式中建立空的 list（每筆資料型態都是鍵值），和 Qt 的 Table Widget 同時紀錄資料（格式對應），取資料時不再於 Table Widget 抓資料，而是呼叫所屬 class 的 list，不用轉換格式。&lt;/p&gt;
+&lt;p&gt;至於還有一些名稱太冗長的程式碼，可能會用 class 歸類，更容易瞭解用途。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/11/19</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051119.html" rel="alternate"></link><published>2016-11-19T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-11-19:blog/40323230ri-zhi-1051119.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;Pyslvs 編譯進度&lt;/li&gt;
 &lt;/ol&gt;
 

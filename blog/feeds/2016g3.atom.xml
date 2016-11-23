@@ -1,5 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g3.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-11-17T22:30:00+08:00</updated><entry><title>40323205日誌 - OpenCV (繪圖函式)</title><link href="http://project.mde.tw/blog/40323205ri-zhi-opencv-hui-tu-han-shi.html" rel="alternate"></link><published>2016-11-17T22:30:00+08:00</published><author><name>40323205</name></author><id>tag:project.mde.tw,2016-11-17:blog/40323205ri-zhi-opencv-hui-tu-han-shi.html</id><summary type="html">&lt;h4&gt;繪圖函式 - cv2.line, cv2.circle, cv2.rectangle, cv2.ellipse&lt;/h4&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g3.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-11-23T10:00:00+08:00</updated><entry><title>40323214日誌-齒輪計算</title><link href="http://project.mde.tw/blog/40323214ri-zhi-chi-lun-ji-suan.html" rel="alternate"></link><updated>2016-11-23T10:00:00+08:00</updated><author><name>40323214</name></author><id>tag:project.mde.tw,2016-11-23:blog/40323214ri-zhi-chi-lun-ji-suan.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;h3&gt;一.齒輪的公式轉換&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;h4&gt;執行程式&lt;/h4&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;pre class="brush: bash"&gt;
+import math
+import sympy
+from sympy import pi
+#a=壓力角
+#算節圓直徑
+def tes1(m,t):
+    d=m*t
+    return(d)
+
+#有效齒深
+def tes2(m):
+    h=2*m
+    return(h)
+
+#算模數 d1=外徑
+def tes3(d1):
+    m=d1/(t+2)
+    return(m)
+
+#基圓直徑
+def tes4(d,a):
+    dg=d *math.cos(a)
+    return(dg)
+
+#周節
+def tes5(m):
+    t0=pi.evalf()*m
+    return(t0)
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;h3&gt;二.執行後心得&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h4&gt;以上程式是關於計算正齒輪的數值，在小組做出辨識齒輪的外徑以及尺數之後，導入上述程式可以求得齒輪其他的數值，例如模數、節圓直徑...等。
+&lt;/br&gt;
+&lt;/br&gt;
+而辨識出壓力角之後，就可以再計算更多關於齒輪的數值。
+&lt;/h4&gt;
+&lt;/br&gt;
+&lt;h3&gt;三.執行後問題&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h4&gt;
+在寫完這些程式之後，發現 sympy函式庫出現問題"No module named 'sympy'"，而原因是導入pi這個函式需要使用到sympy，所以自己在網路上找了解答，發現原來是環境裡面並沒有這個函式庫，於是我從"https://pypi.python.org/pypi/sympy"網址中下載了安裝檔，並且把所需的資料拉進環境路徑裡面，就能夠正常執行計算式子。
+&lt;/h4&gt;
+&lt;/br&gt;
+&lt;h3&gt;五.參考的網頁資料&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h4&gt;
+1.齒輪計算公式:http://coccad.com/subject/about/2427.html
+&lt;/br&gt;
+&lt;/br&gt;
+2.Sympy安裝網頁:https://pypi.python.org/pypi/sympy
+&lt;/br&gt;
+&lt;/h4&gt;&lt;/p&gt;</summary><category term="OpenCv"></category></entry><entry><title>40323205日誌 - OpenCV (繪圖函式)</title><link href="http://project.mde.tw/blog/40323205ri-zhi-opencv-hui-tu-han-shi.html" rel="alternate"></link><updated>2016-11-17T22:30:00+08:00</updated><author><name>40323205</name></author><id>tag:project.mde.tw,2016-11-17:blog/40323205ri-zhi-opencv-hui-tu-han-shi.html</id><summary type="html">&lt;h4&gt;繪圖函式 - cv2.line, cv2.circle, cv2.rectangle, cv2.ellipse&lt;/h4&gt;
 
 
 
@@ -97,7 +158,7 @@ cv2.destroyAllWindows()
 &lt;/pre&gt;
 
 &lt;p&gt;&lt;/br&gt;&lt;/p&gt;
-&lt;h4&gt;後記 - 目前正在研究其他OpenCV程式，在這裡先呈現最基礎的繪圖函式。&lt;/h4&gt;</summary><category term="Kmol &amp; OpenCV"></category></entry><entry><title>40323203日誌 - OpenCV(載入圖像)</title><link href="http://project.mde.tw/blog/40323203ri-zhi-opencvzai-ru-tu-xiang.html" rel="alternate"></link><published>2016-11-17T22:00:00+08:00</published><author><name>40323203</name></author><id>tag:project.mde.tw,2016-11-17:blog/40323203ri-zhi-opencvzai-ru-tu-xiang.html</id><summary type="html">&lt;h3&gt;載入圖片及影像--cv2.imread,cv2.VideoCapture&lt;/h3&gt;
+&lt;h4&gt;後記 - 目前正在研究其他OpenCV程式，在這裡先呈現最基礎的繪圖函式。&lt;/h4&gt;</summary><category term="Kmol &amp; OpenCV"></category></entry><entry><title>40323203日誌 - OpenCV(載入圖像)</title><link href="http://project.mde.tw/blog/40323203ri-zhi-opencvzai-ru-tu-xiang.html" rel="alternate"></link><updated>2016-11-17T22:00:00+08:00</updated><author><name>40323203</name></author><id>tag:project.mde.tw,2016-11-17:blog/40323203ri-zhi-opencvzai-ru-tu-xiang.html</id><summary type="html">&lt;h3&gt;載入圖片及影像--cv2.imread,cv2.VideoCapture&lt;/h3&gt;
 
 
 
@@ -151,7 +212,7 @@ while(cap.isOpened()):
 
 cap.release()
 cv2.destroyAllWindows()
-&lt;/pre&gt;</summary><category term="Kmol &amp; OpenCV"></category></entry><entry><title>40323206日誌 - OpenCV (Dots)</title><link href="http://project.mde.tw/blog/40323206ri-zhi-opencv-dots.html" rel="alternate"></link><published>2016-11-15T20:53:00+08:00</published><author><name>40323206</name></author><id>tag:project.mde.tw,2016-11-15:blog/40323206ri-zhi-opencv-dots.html</id><summary type="html">&lt;p&gt;物體角落(點)的辨識 --- cv2.cornerHarris &amp;amp; cv2.dilate&lt;/p&gt;
+&lt;/pre&gt;</summary><category term="Kmol &amp; OpenCV"></category></entry><entry><title>40323206日誌 - OpenCV (Dots)</title><link href="http://project.mde.tw/blog/40323206ri-zhi-opencv-dots.html" rel="alternate"></link><updated>2016-11-15T20:53:00+08:00</updated><author><name>40323206</name></author><id>tag:project.mde.tw,2016-11-15:blog/40323206ri-zhi-opencv-dots.html</id><summary type="html">&lt;p&gt;物體角落(點)的辨識 --- cv2.cornerHarris &amp;amp; cv2.dilate&lt;/p&gt;
 
 
 &lt;h3&gt;★cv2.cornerHarris的使用&amp;格式&lt;/h3&gt;
@@ -245,7 +306,7 @@ cv2.destroyAllWindows()
 
 &lt;h3&gt;★齒輪辨識結果&lt;/h3&gt;
 &lt;img src="http://i.imgur.com/116TeT4.jpg"&gt;
-&lt;/br&gt;</summary><category term="Kmol &amp; OpenCV"></category></entry><entry><title>40323206日誌 - OpenCV (Circles)</title><link href="http://project.mde.tw/blog/40323206ri-zhi-opencv-circles.html" rel="alternate"></link><published>2016-11-14T20:16:00+08:00</published><author><name>40323206</name></author><id>tag:project.mde.tw,2016-11-14:blog/40323206ri-zhi-opencv-circles.html</id><summary type="html">&lt;p&gt;圓形的辨識 --- cv2.HoughCircles&lt;/p&gt;
+&lt;/br&gt;</summary><category term="Kmol &amp; OpenCV"></category></entry><entry><title>40323206日誌 - OpenCV (Circles)</title><link href="http://project.mde.tw/blog/40323206ri-zhi-opencv-circles.html" rel="alternate"></link><updated>2016-11-14T20:16:00+08:00</updated><author><name>40323206</name></author><id>tag:project.mde.tw,2016-11-14:blog/40323206ri-zhi-opencv-circles.html</id><summary type="html">&lt;p&gt;圓形的辨識 --- cv2.HoughCircles&lt;/p&gt;
 
 
 &lt;h3&gt;★cv2.HoughCircles的使用&amp;格式&lt;/h3&gt;
@@ -335,7 +396,7 @@ cv2.waitKey(0)
 &lt;h3&gt;★齒輪辨識結果&lt;/h3&gt;
 
 &lt;p&gt;&lt;img src="http://i.imgur.com/1gvQ3vH.jpg"&gt;
-&lt;/br&gt;&lt;/p&gt;</summary><category term="Kmol &amp; OpenCV"></category></entry><entry><title>40323214日誌-Opencv範例</title><link href="http://project.mde.tw/blog/40323214ri-zhi-opencvfan-li.html" rel="alternate"></link><published>2016-08-04T15:00:00+08:00</published><author><name>40323214</name></author><id>tag:project.mde.tw,2016-08-04:blog/40323214ri-zhi-opencvfan-li.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;/br&gt;&lt;/p&gt;</summary><category term="Kmol &amp; OpenCV"></category></entry><entry><title>40323214日誌-Opencv範例</title><link href="http://project.mde.tw/blog/40323214ri-zhi-opencvfan-li.html" rel="alternate"></link><updated>2016-08-04T15:00:00+08:00</updated><author><name>40323214</name></author><id>tag:project.mde.tw,2016-08-04:blog/40323214ri-zhi-opencvfan-li.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;h3&gt;一.Windows執行範例程式&lt;/h3&gt;
 

@@ -1,17 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-11-27T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/11/27</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051127.html" rel="alternate"></link><published>2016-11-27T21:00:00+08:00</published><updated>2016-11-27T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-11-27:blog/40323230ri-zhi-1051127.html</id><summary type="html">&lt;p&gt;關於 Pyslvs 格式整合的計畫&lt;/p&gt;
-
-
-&lt;h1&gt;2D 格式&lt;/h1&gt;
-&lt;p&gt;目前只能畫出支架的圖形，所以要盡快弄出完整樣式。&lt;/p&gt;
-&lt;p&gt;使用 dxfwrite（授權類型：MIT）畫出基本連桿（或滑塊）的圖形，也許可以給幾種款式選擇。&lt;/p&gt;
-&lt;p&gt;匯出後（到其他 CAD 軟體上），不同件使用不同圖塊，方便使用者分開更改或直接長出建模。&lt;/p&gt;
-&lt;p&gt;這方面參照一下 dxfwrite 寫入的方式，放到 Free CAD 或 Autodesk 產品中能夠編修就沒問題了。&lt;/p&gt;
-&lt;h1&gt;3D 格式&lt;/h1&gt;
-&lt;p&gt;使用 &lt;a href="https://github.com/apparentlymart/python-stl" title="github.com"&gt;python-stl&lt;/a&gt;（授權類型：MIT）畫出立體的模型，符合結構強度的外觀。&lt;/p&gt;
-&lt;p&gt;這部份可以盡量少讓使用者修改，或變成組合圖的形式（需要調整重疊順序）。&lt;/p&gt;
-&lt;p&gt;轉成 3D 的功能主要是讓 V-rep 可以馬上導入做模擬，可以做一個「生成關節轉軸」的選項。&lt;/p&gt;
-&lt;p&gt;不過對寫入 STL 文件沒什麼經驗，可能要稍微比對其他 3D 模型。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/12/06</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051206.html" rel="alternate"></link><published>2016-11-27T21:00:00+08:00</published><updated>2016-11-27T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-11-27:blog/40323230ri-zhi-1051206.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-06T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/12/06</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051206.html" rel="alternate"></link><published>2016-12-06T21:00:00+08:00</published><updated>2016-12-06T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-06:blog/40323230ri-zhi-1051206.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Windows 環境&lt;/p&gt;
 &lt;/li&gt;
@@ -54,7 +42,19 @@
 &lt;h1&gt;Pyslvs 編譯進度&lt;/h1&gt;
 &lt;p&gt;將範例檔直接放入程式中而不會不小心覆蓋到原始檔。&lt;/p&gt;
 &lt;p&gt;另外還將存檔功能歸類了一下，避免搞亂原本的範例。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1206_01.jpg" /&gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/11/20</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051120.html" rel="alternate"></link><published>2016-11-20T21:00:00+08:00</published><updated>2016-11-20T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-11-20:blog/40323230ri-zhi-1051120.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1206_01.jpg" /&gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/11/27</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051127.html" rel="alternate"></link><published>2016-11-27T21:00:00+08:00</published><updated>2016-11-27T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-11-27:blog/40323230ri-zhi-1051127.html</id><summary type="html">&lt;p&gt;關於 Pyslvs 格式整合的計畫&lt;/p&gt;
+
+
+&lt;h1&gt;2D 格式&lt;/h1&gt;
+&lt;p&gt;目前只能畫出支架的圖形，所以要盡快弄出完整樣式。&lt;/p&gt;
+&lt;p&gt;使用 dxfwrite（授權類型：MIT）畫出基本連桿（或滑塊）的圖形，也許可以給幾種款式選擇。&lt;/p&gt;
+&lt;p&gt;匯出後（到其他 CAD 軟體上），不同件使用不同圖塊，方便使用者分開更改或直接長出建模。&lt;/p&gt;
+&lt;p&gt;這方面參照一下 dxfwrite 寫入的方式，放到 Free CAD 或 Autodesk 產品中能夠編修就沒問題了。&lt;/p&gt;
+&lt;h1&gt;3D 格式&lt;/h1&gt;
+&lt;p&gt;使用 &lt;a href="https://github.com/apparentlymart/python-stl" title="github.com"&gt;python-stl&lt;/a&gt;（授權類型：MIT）畫出立體的模型，符合結構強度的外觀。&lt;/p&gt;
+&lt;p&gt;這部份可以盡量少讓使用者修改，或變成組合圖的形式（需要調整重疊順序）。&lt;/p&gt;
+&lt;p&gt;轉成 3D 的功能主要是讓 V-rep 可以馬上導入做模擬，可以做一個「生成關節轉軸」的選項。&lt;/p&gt;
+&lt;p&gt;不過對寫入 STL 文件沒什麼經驗，可能要稍微比對其他 3D 模型。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/11/20</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051120.html" rel="alternate"></link><published>2016-11-20T21:00:00+08:00</published><updated>2016-11-20T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-11-20:blog/40323230ri-zhi-1051120.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
 
 
 &lt;h1&gt;Pyslvs 編譯進度&lt;/h1&gt;

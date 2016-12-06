@@ -1,5 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-10-17T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/10/17</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051017.html" rel="alternate"></link><published>2016-10-17T21:00:00+08:00</published><updated>2016-10-17T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-17:blog/40323230ri-zhi-1051017.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-11-27T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/11/27</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051127.html" rel="alternate"></link><published>2016-11-27T21:00:00+08:00</published><updated>2016-11-27T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-11-27:blog/40323230ri-zhi-1051127.html</id><summary type="html">&lt;p&gt;關於 Pyslvs 格式整合的計畫&lt;/p&gt;
+
+
+&lt;h1&gt;2D 格式&lt;/h1&gt;
+&lt;p&gt;目前只能畫出支架的圖形，所以要盡快弄出完整樣式。&lt;/p&gt;
+&lt;p&gt;使用 dxfwrite（授權類型：MIT）畫出基本連桿（或滑塊）的圖形，也許可以給幾種款式選擇。&lt;/p&gt;
+&lt;p&gt;匯出後（到其他 CAD 軟體上），不同件使用不同圖塊，方便使用者分開更改或直接長出建模。&lt;/p&gt;
+&lt;p&gt;這方面參照一下 dxfwrite 寫入的方式，放到 Free CAD 或 Autodesk 產品中能夠編修就沒問題了。&lt;/p&gt;
+&lt;h1&gt;3D 格式&lt;/h1&gt;
+&lt;p&gt;使用 &lt;a href="https://github.com/apparentlymart/python-stl" title="github.com"&gt;python-stl&lt;/a&gt;（授權類型：MIT）畫出立體的模型，符合結構強度的外觀。&lt;/p&gt;
+&lt;p&gt;這部份可以盡量少讓使用者修改，或變成組合圖的形式（需要調整重疊順序）。&lt;/p&gt;
+&lt;p&gt;轉成 3D 的功能主要是讓 V-rep 可以馬上導入做模擬，可以做一個「生成關節轉軸」的選項。&lt;/p&gt;
+&lt;p&gt;不過對寫入 STL 文件沒什麼經驗，可能要稍微比對其他 3D 模型。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/11/20</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051120.html" rel="alternate"></link><published>2016-11-20T21:00:00+08:00</published><updated>2016-11-20T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-11-20:blog/40323230ri-zhi-1051120.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
+
+
+&lt;h1&gt;Pyslvs 編譯進度&lt;/h1&gt;
+&lt;h2&gt;佈署單元測試函式（unittest）&lt;/h2&gt;
+&lt;p&gt;建構了需要測試的項目，會提取主程式的函式測試回傳值。&lt;/p&gt;
+&lt;p&gt;也因為測試需求，把主程式 &lt;code&gt;main.py&lt;/code&gt; 單獨留在 core 資料夾中，其他程式都歸類進資料夾中，方便之後測試函式呼叫。&lt;/p&gt;
+&lt;p&gt;不過目前的項目只有 Kernel 解題，之後會增加測試單元。&lt;/p&gt;
+&lt;p&gt;執行頂層目錄的 &lt;code&gt;launch_test.py&lt;/code&gt; 來啟動單元測試。&lt;/p&gt;
+&lt;h2&gt;清單處理格式轉移&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;處理表格及算點的程式都放到 calculation 資料夾中。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;原本都是讀取 Qt 的 Table Widget 來取得點座標，但是這樣處理太過混亂（因為回傳值是字串而非數字），也會降低執行效率，所以打算更改。&lt;/p&gt;
+&lt;p&gt;原先處理表格的 &lt;code&gt;list_process.py&lt;/code&gt; 劃分出不同表格的 class，它們的函式也重新命名過，更能知道用途。&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4
+5
+6&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Points (style)
+Lines
+Chains
+Shafts
+Sliders
+Rods
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;下一步是在 &lt;strong&gt;init&lt;/strong&gt; 初始化函式中建立空的 list（每筆資料型態都是鍵值），和 Qt 的 Table Widget 同時紀錄資料（格式對應），取資料時不再於 Table Widget 抓資料，而是呼叫所屬 class 的 list，不用轉換格式。&lt;/p&gt;
+&lt;p&gt;至於還有一些名稱太冗長的程式碼，可能會用 class 歸類，更容易瞭解用途。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/11/19</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051119.html" rel="alternate"></link><published>2016-11-19T21:00:00+08:00</published><updated>2016-11-19T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-11-19:blog/40323230ri-zhi-1051119.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;Pyslvs 編譯進度&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Pyslvs 編譯進度&lt;/h1&gt;
+&lt;h2&gt;視角拖曳&lt;/h2&gt;
+&lt;p&gt;做出與 AutoCAD 相似的檢視方式，單靠按住滑鼠滾輪即可自由移動圖形而不會一直鎖定在畫面上。&lt;/p&gt;
+&lt;p&gt;過去按住 Ctrl 鍵的功能仍會保留。由於必須按住鍵盤，不至於會與主要檢視方式衝突。&lt;/p&gt;
+&lt;h2&gt;技術手冊&lt;/h2&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;User Manual
+Developer Manual
+Application Examples
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;技術手冊採用 Markdown 的方式寫成。&lt;/p&gt;
+&lt;p&gt;在系統裝上 Pandoc 與 TeX Live 可以轉成其他純文字格式或 PDF。&lt;/p&gt;
+&lt;p&gt;接下來會先大約在 Developer Manual 簡介原始碼，細部內容會一邊開發一邊補齊。&lt;/p&gt;
+&lt;p&gt;User Manual 的部份則是做所有功能的介紹，不過預計會附上程式的圖片（改版時若是動到界面就比較麻煩），解釋操作各項功能的方式。&lt;/p&gt;
+&lt;p&gt;這三個手冊目前是使用中文說明。&lt;/p&gt;
+&lt;h2&gt;v0.3.0 核心改動&lt;/h2&gt;
+&lt;p&gt;最近參考大量  Java Script 的程式架構後，覺得以鍵值管理變數的方式比較容易分清用途，解說上也較好管理。&lt;/p&gt;
+&lt;p&gt;不過相對於 Java Script，Python 的物件得先建立 class，定義上比較繁瑣，所以就使用 Dictionary 來存取變數，雖然使用上比 Java Script 麻煩許多。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1119_01.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;目前畫布 &lt;code&gt;canvas.py&lt;/code&gt; 中的變數已經分類得差不多了，計算那塊由於關聯太多物件，修改需要花一段時間，亦或使用 Python 原本的 class 建構？&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/11/18</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051118.html" rel="alternate"></link><published>2016-11-18T21:00:00+08:00</published><updated>2016-11-18T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-11-18:blog/40323230ri-zhi-1051118.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;Pyslvs v0.2.0 Release &amp;amp; informations&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Pyslvs v0.2.0 Release&lt;/h1&gt;
+&lt;h2&gt;包含功能&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;儲存時紀錄路徑（存檔格式改變）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;多種輔助與控制面板&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;授權聲明&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;問題&lt;/h2&gt;
+&lt;p&gt;暫停進階選項的開發，將階段放在解題異常的問題上。&lt;/p&gt;
+&lt;p&gt;目前已知問題是在解題時，運算某些位置會發生錯誤，必須修正此問題。&lt;/p&gt;
+&lt;p&gt;而 v0.3.0 的目標就是解決死點問題，而滑塊功能仍會繼續測試。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/10/17</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051017.html" rel="alternate"></link><published>2016-10-17T21:00:00+08:00</published><updated>2016-10-17T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-10-17:blog/40323230ri-zhi-1051017.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Kernel 編譯&lt;/p&gt;
 &lt;/li&gt;

@@ -1,5 +1,402 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g3.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-08-04T15:00:00+08:00</updated><entry><title>40323214日誌-Opencv範例</title><link href="http://project.mde.tw/blog/40323214ri-zhi-opencvfan-li.html" rel="alternate"></link><published>2016-08-04T15:00:00+08:00</published><updated>2016-08-04T15:00:00+08:00</updated><author><name>40323214</name></author><id>tag:project.mde.tw,2016-08-04:blog/40323214ri-zhi-opencvfan-li.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g3.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-11-23T10:00:00+08:00</updated><entry><title>40323214日誌-齒輪計算</title><link href="http://project.mde.tw/blog/40323214ri-zhi-chi-lun-ji-suan.html" rel="alternate"></link><published>2016-11-23T10:00:00+08:00</published><updated>2016-11-23T10:00:00+08:00</updated><author><name>40323214</name></author><id>tag:project.mde.tw,2016-11-23:blog/40323214ri-zhi-chi-lun-ji-suan.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;h3&gt;一.齒輪的公式轉換&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;h4&gt;執行程式&lt;/h4&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;pre class="brush: bash"&gt;
+import math
+import sympy
+from sympy import pi
+#a=壓力角
+#算節圓直徑
+def tes1(m,t):
+    d=m*t
+    return(d)
+
+#有效齒深
+def tes2(m):
+    h=2*m
+    return(h)
+
+#算模數 d1=外徑
+def tes3(d1):
+    m=d1/(t+2)
+    return(m)
+
+#基圓直徑
+def tes4(d,a):
+    dg=d *math.cos(a)
+    return(dg)
+
+#周節
+def tes5(m):
+    t0=pi.evalf()*m
+    return(t0)
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;h3&gt;二.執行後心得&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h4&gt;以上程式是關於計算正齒輪的數值，在小組做出辨識齒輪的外徑以及尺數之後，導入上述程式可以求得齒輪其他的數值，例如模數、節圓直徑...等。
+&lt;/br&gt;
+&lt;/br&gt;
+而辨識出壓力角之後，就可以再計算更多關於齒輪的數值。
+&lt;/h4&gt;
+&lt;/br&gt;
+&lt;h3&gt;三.執行後問題&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h4&gt;
+在寫完這些程式之後，發現 sympy函式庫出現問題"No module named 'sympy'"，而原因是導入pi這個函式需要使用到sympy，所以自己在網路上找了解答，發現原來是環境裡面並沒有這個函式庫，於是我從"https://pypi.python.org/pypi/sympy"網址中下載了安裝檔，並且把所需的資料拉進環境路徑裡面，就能夠正常執行計算式子。
+&lt;/h4&gt;
+&lt;/br&gt;
+&lt;h3&gt;五.參考的網頁資料&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h4&gt;
+1.齒輪計算公式:http://coccad.com/subject/about/2427.html
+&lt;/br&gt;
+&lt;/br&gt;
+2.Sympy安裝網頁:https://pypi.python.org/pypi/sympy
+&lt;/br&gt;
+&lt;/h4&gt;&lt;/p&gt;</summary><category term="OpenCv"></category></entry><entry><title>40323205日誌 - OpenCV (繪圖函式)</title><link href="http://project.mde.tw/blog/40323205ri-zhi-opencv-hui-tu-han-shi.html" rel="alternate"></link><published>2016-11-17T22:30:00+08:00</published><updated>2016-11-17T22:30:00+08:00</updated><author><name>40323205</name></author><id>tag:project.mde.tw,2016-11-17:blog/40323205ri-zhi-opencv-hui-tu-han-shi.html</id><summary type="html">&lt;h4&gt;繪圖函式 - cv2.line, cv2.circle, cv2.rectangle, cv2.ellipse&lt;/h4&gt;
+
+
+
+&lt;h4&gt;目前電腦都可畫出線、矩形、圓、橢圓，並更改黑色背景大小。&lt;/h4&gt;
+
+&lt;h3&gt;【畫線】&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/dC0Jpmg.jpg"&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;【畫線-程式範例執行】&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;pre class="brush: bash"&gt;
+import numpy as np
+import cv2
+
+# 建立一個黑色背景
+img = np.zeros((512,512,3), np.uint8)
+
+# 以寬度 5 px 畫一條藍色的對角線
+img = cv2.line(img,(0,0),(511,511),(255,0,0),5)
+# 呈現此影像
+cv2.imshow('image',img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;【畫矩形】&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/xHEpGBC.jpg"&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;【畫矩形-程式範例執行】&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;pre class="brush: bash"&gt;
+import numpy as np
+import cv2
+
+# 建立一個黑色背景
+img = np.zeros((200,200,3), np.uint8)
+
+# 以寬度 5 px 畫一條藍色的對角線
+img = cv2.rectangle(img,(10,10),(100,150),(0,255,0),10)
+# 呈現此影像
+cv2.imshow('image',img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;【畫圓】&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/pIBit41.jpg"&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;【畫圓-程式範例執行】&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;pre class="brush: bash"&gt;
+import numpy as np
+import cv2
+
+# 建立一個黑色背景
+img = np.zeros((300,300,3), np.uint8)
+
+# 以寬度 5 px 畫一條藍色的對角線
+img = cv2.circle(img,(100,150), 100, (0,0,255), -1)
+# 呈現此影像
+cv2.imshow('image',img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;【畫橢圓】&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/wkuBhn5.jpg"&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;【畫橢圓-程式範例執行】&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;pre class="brush: bash"&gt;
+import numpy as np
+import cv2
+
+# 建立一個黑色背景
+img = np.zeros((450,450,3), np.uint8)
+
+# 以寬度 5 px 畫一條藍色的對角線
+img = cv2.ellipse(img,(256,256),(100,50),20,150,360, (255,0,255),3)
+# 呈現此影像
+cv2.imshow('image',img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h4&gt;後記 - 目前正在研究其他OpenCV程式，在這裡先呈現最基礎的繪圖函式。&lt;/h4&gt;</summary><category term="Kmol &amp; OpenCV"></category></entry><entry><title>40323203日誌 - OpenCV(載入圖像)</title><link href="http://project.mde.tw/blog/40323203ri-zhi-opencvzai-ru-tu-xiang.html" rel="alternate"></link><published>2016-11-17T22:00:00+08:00</published><updated>2016-11-17T22:00:00+08:00</updated><author><name>40323203</name></author><id>tag:project.mde.tw,2016-11-17:blog/40323203ri-zhi-opencvzai-ru-tu-xiang.html</id><summary type="html">&lt;h3&gt;載入圖片及影像--cv2.imread,cv2.VideoCapture&lt;/h3&gt;
+
+
+
+&lt;hr /&gt;
+&lt;h4&gt;載入圖片程式&lt;/h4&gt;
+
+&lt;pre class="brush: bash"&gt;
+import numpy as np
+import cv2
+
+#載入jpg圖檔
+#imread:讀取圖片，並將資料寫入Mat/flags:影像標誌
+#IMREAD_COLOR:彩色模式可用1表示
+#IMREAD_GRAYSCALE:灰度圖可用0表示
+#IMREAD_UNCHANGED:透明度可用-1表示
+image = cv2.imread("DSC00040.jpg", flags=cv2.IMREAD_COLOR)
+
+#WINDOW_NORMAL:調節窗口大小
+#WINDOW_AUTOSIZE:固定窗口大小
+cv2.namedWindow('image',cv2.WINDOW_NORMAL) 
+
+cv2.imshow('image',image) 
+cv2.waitKey(0) 
+cv2.destroyAllWindows()
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h4&gt;顯示圖片結果可為彩色及黑白:&lt;/h4&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/1nXHjD7.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;h4&gt;載入影片程式&lt;/h4&gt;&lt;/p&gt;
+&lt;pre class="brush: bash"&gt;
+import numpy as np
+import cv2
+
+#Capture:拍攝,紀錄
+cap = cv2.VideoCapture('00007.avi')
+
+while(cap.isOpened()):
+    ret, frame = cap.read()
+
+    #cvtColor：轉換影像色域，程式以轉換RGB到gray為例
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    cv2.imshow('frame',gray)
+    if cv2.waitKey(6) &amp; 0xFF == ord('q'):
+        break
+
+cap.release()
+cv2.destroyAllWindows()
+&lt;/pre&gt;</summary><category term="Kmol &amp; OpenCV"></category></entry><entry><title>40323206日誌 - OpenCV (Dots)</title><link href="http://project.mde.tw/blog/40323206ri-zhi-opencv-dots.html" rel="alternate"></link><published>2016-11-15T20:53:00+08:00</published><updated>2016-11-15T20:53:00+08:00</updated><author><name>40323206</name></author><id>tag:project.mde.tw,2016-11-15:blog/40323206ri-zhi-opencv-dots.html</id><summary type="html">&lt;p&gt;物體角落(點)的辨識 --- cv2.cornerHarris &amp;amp; cv2.dilate&lt;/p&gt;
+
+
+&lt;h3&gt;★cv2.cornerHarris的使用&amp;格式&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/zne7h7s.jpg"&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;★範例所使用的圖檔下載位置&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href="http://imgur.com/F05kwRB"&gt;http://imgur.com/F05kwRB&lt;/a&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;★程式範例執行&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;pre class="brush: bash"&gt;
+import cv2
+import numpy as np
+
+filename = 'chessboard.png'
+img = cv2.imread(filename)
+gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+
+gray = np.float32(gray)
+dst = cv2.cornerHarris(gray,2,3,0.04)
+
+#result is dilated for marking the corners, not important
+dst = cv2.dilate(dst,None)
+
+# Threshold for an optimal value, it may vary depending on the image.
+img[dst&gt;0.01*dst.max()]=[0,0,255]
+
+cv2.imshow('dst',img)
+if cv2.waitKey(0) &amp; 0xff == 27:
+    cv2.destroyAllWindows()
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;★範例執行(已灰階)前後之比較&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/chMPHbO.jpg"&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;★套用於齒輪辨識&lt;/h3&gt;
+
+&lt;h4&gt;
+有包含圓和圓心的辨識&amp;單獨作角落抓點
+&lt;pre class="brush: bash"&gt;
+import numpy as np
+import cv2
+from matplotlib import pyplot as plt
+
+img = cv2.imread("gear2.png", 1)
+imgGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+cv2.imwrite('graygear.png', imgGray)
+
+# 抓點
+gray = np.float32(imgGray)
+dst = cv2.cornerHarris(gray,2,3,0.04)
+
+# result is dilated for marking the corners, not important
+dst = cv2.dilate(dst,None)
+
+# Threshold for an optimal value, it may vary depending on the image.
+img[dst&gt;0.01*dst.max()]=[0,0,255]
+
+cv2.imshow('dst',img)
+
+# 抓圓
+circles = cv2.HoughCircles(imgGray,cv2.HOUGH_GRADIENT,1,20,
+                            param1=60,param2=50,minRadius=0,maxRadius=60)
+
+circles = np.uint16(np.around(circles))
+for i in circles[0,:]:
+    # draw the outer circle
+    cv2.circle(img,(i[0],i[1]),i[2],(255,0,255),2)
+    # draw the center of the circle
+    cv2.circle(img,(i[0],i[1]),2,(0,0,255),3)
+
+cv2.imshow('detected circles',img)
+
+
+cv2.waitKey(0)
+
+
+cv2.destroyAllWindows()
+&lt;/pre&gt;
+
+&lt;/br&gt;
+
+&lt;h3&gt;★齒輪辨識目的&lt;/h3&gt;
+&lt;h4&gt;配合之前的圓心可以初步抓出齒輪的外徑、內徑，方便之後直行計算相關程式的條件。&lt;/h4&gt;
+&lt;/br&gt;
+
+&lt;h3&gt;★齒輪辨識結果&lt;/h3&gt;
+&lt;img src="http://i.imgur.com/116TeT4.jpg"&gt;
+&lt;/br&gt;</summary><category term="Kmol &amp; OpenCV"></category></entry><entry><title>40323206日誌 - OpenCV (Circles)</title><link href="http://project.mde.tw/blog/40323206ri-zhi-opencv-circles.html" rel="alternate"></link><published>2016-11-14T20:16:00+08:00</published><updated>2016-11-14T20:16:00+08:00</updated><author><name>40323206</name></author><id>tag:project.mde.tw,2016-11-14:blog/40323206ri-zhi-opencv-circles.html</id><summary type="html">&lt;p&gt;圓形的辨識 --- cv2.HoughCircles&lt;/p&gt;
+
+
+&lt;h3&gt;★cv2.HoughCircles的使用&amp;格式&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/sSe92Wx.jpg"&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;★範例所使用的圖檔下載位置&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href="http://imgur.com/EyLp3Qx"&gt;http://imgur.com/EyLp3Qx&lt;/a&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;★程式範例執行&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;pre class="brush: bash"&gt;
+import cv2
+import numpy as np
+
+img = cv2.imread('opencv_logo.png',0)
+img = cv2.medianBlur(img,5)
+cimg = cv2.cvtColor(img,cv2.COLOR_GRAY2BGR)
+
+circles = cv2.HoughCircles(img,cv2.HOUGH_GRADIENT,
+                            1,20,
+                            param1=50,
+                            param2=40, 
+                            minRadius=0,
+                            maxRadius=0)
+
+circles = np.uint16(np.around(circles))
+for i in circles[0,:]:
+    # draw the outer circle
+    cv2.circle(cimg,(i[0],i[1]),i[2],(0,255,0),3)
+    # draw the center of the circle
+    cv2.circle(cimg,(i[0],i[1]),2,(0,0,255),3)
+
+cv2.imshow('detected circles',cimg)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;★範例執行前後之比較&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/fSWa1OC.jpg"&gt;
+&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;★套用於齒輪辨識&lt;/h3&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;pre class="brush: bash"&gt;
+import numpy as np
+import cv2
+from matplotlib import pyplot as plt
+
+# 讀取圖檔
+img = cv2.imread("gear1.png", 1)
+# 圖檔轉灰階
+imgGray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+# 灰階後進行存檔
+cv2.imwrite('graygear.png', imgGray)
+
+# 使用灰階圖抓圓
+circles = cv2.HoughCircles(imgGray,cv2.HOUGH_GRADIENT,
+                            1,20,
+                            param1=60,
+                            param2=50,
+                            minRadius=0,
+                            maxRadius=60)
+
+circles = np.uint16(np.around(circles))
+for i in circles[0,:]:
+    # 圓形的繪製
+    cv2.circle(img,(i[0],i[1]),i[2],(255,0,255),2)
+    # 圓心的繪製
+    cv2.circle(img,(i[0],i[1]),2,(0,0,255),3)
+
+cv2.imshow('detected circles',img)
+
+cv2.waitKey(0)
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;★齒輪辨識目的&lt;/h3&gt;
+
+&lt;h4&gt;找出齒輪的圓心位置，方便之後直行計算相關程式的條件。&lt;/h4&gt;
+
+&lt;p&gt;&lt;/br&gt;&lt;/p&gt;
+&lt;h3&gt;★齒輪辨識結果&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="http://i.imgur.com/1gvQ3vH.jpg"&gt;
+&lt;/br&gt;&lt;/p&gt;</summary><category term="Kmol &amp; OpenCV"></category></entry><entry><title>40323214日誌-Opencv範例</title><link href="http://project.mde.tw/blog/40323214ri-zhi-opencvfan-li.html" rel="alternate"></link><published>2016-08-04T15:00:00+08:00</published><updated>2016-08-04T15:00:00+08:00</updated><author><name>40323214</name></author><id>tag:project.mde.tw,2016-08-04:blog/40323214ri-zhi-opencvfan-li.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;h3&gt;一.Windows執行範例程式&lt;/h3&gt;
 

@@ -1,5 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/tutorial.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-10-13T11:29:00+08:00</updated><entry><title>yen - 機械設計課程對應網頁</title><link href="http://project.mde.tw/blog/yen-ji-jie-she-ji-ke-cheng-dui-ying-wang-ye.html" rel="alternate"></link><published>2016-10-13T11:29:00+08:00</published><updated>2016-10-13T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-10-13:blog/yen-ji-jie-she-ji-ke-cheng-dui-ying-wang-ye.html</id><summary type="html">&lt;p&gt;今年機械設計專題的任務之一, 就是希望每一位學員都能各自維護一份自己的網頁, 修課的網頁以及分組的網頁, 過去我們選擇在 OpenShift 進行, 現在 Github Pages 應該是最佳選擇.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/tutorial.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-11-14T11:29:00+08:00</updated><entry><title>數學有何用?</title><link href="http://project.mde.tw/blog/shu-xue-you-he-yong.html" rel="alternate"></link><published>2016-11-14T11:29:00+08:00</published><updated>2016-11-14T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-11-14:blog/shu-xue-you-he-yong.html</id><summary type="html">&lt;p&gt;簡單的算術, 在日常生活購物流程, 隨時都會用到. 至於各種數學範疇的研究, 也都與工程應用的發展息息相關, 數學有何用? 請參考以下的說明.&lt;/p&gt;
+
+
+&lt;h2&gt;微積分的用途&lt;/h2&gt;
+&lt;p&gt;微積分起源於 17 世紀, 是用來研究特定內容"變化"的數學. 當機構運動時, 各零件的位置與速度, 都將發生"變化". 因此研究機構的運動, 需要運用微積分. 當熱量傳遞時, 不同位置的溫度與材料特性, 都將發生"變化".  因此研究熱量與流體的運動特性時, 需要運用微積分. 再者, 當材料加工時, 不同的施作方式, 也會讓不同部位的組成, 發生"變化".  因此研究材料加工過程時的各項性質, 需要運用微積分.&lt;/p&gt;
+&lt;p&gt;如眾所週知, 工程是一門運用自然科學與數學知識, 進行特定項目的研究、累積經驗, 並期以最佳方式解決人所面臨問題的科學.  而所謂的最佳方式, 可能是最省成本、最省時間、最輕量化、達到最長生命週期或全面最佳解決方式.&lt;/p&gt;
+&lt;p&gt;而工程師通常直接或間接在工作流程中使用數學. 以直接套用微積分解題而言, 工程師可以利用微積分計算平面特殊造型材料的面積, 用來決定零件的摩擦力. 也可以利用微積分計算三度空間特殊造型材料的表面積與體積, 算出表面積後, 可用來計算塗層所需用料多寡, 至於體積則可以用來計算材料密度, 或配合其他材料特性, 計算零件施力後可達到的運動速度,  或經由摩擦力與流體阻力大小, 估算達到一定操作速度時, 所需施力大小.&lt;/p&gt;
+&lt;p&gt;工程師間接套用微積分解題, 則通常使用電腦軟體作為工具解決問題,  而這些軟體的解題流程套用微積分, 例如: 利用系統模擬過程中的系統方程式微分來求取極值, 以最佳化該系統特定值.&lt;/p&gt;
+&lt;h2&gt;為何數學對工程師非常重要?&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;數學是讓人理解設計的表達工具 - 因為許多自然界的規律已經被發現, 且能用數學模式加以表達, 意即數學是物理科學與工程的重要表達工具 (另外五種表達工具分別為: 口語、文字、2D、3D 與實體, 並且各表達工具彼此互相組成配合, 以完成設計或製造流程之充分表達) , 自然規律以數學模式表達者, 例如: 牛頓運動定律、熱力學定律、電磁學的麥斯威爾方程式、電路分析的克希荷夫規則等.&lt;/li&gt;
+&lt;li&gt;數學可用來作為培育人才的訓練工具 - 數學除了可以用來表達設計理念之外,  還能用來訓練工程師的邏輯與數值分析能力.&lt;/li&gt;
+&lt;li&gt;數學有實際解題的應用功能 - 電腦的發展主要從數位邏輯出發,  結合各種數值分析與數學演算法, 發展出各式應用, 工程師為了更進一步應用電腦解題, 就必須熟悉各種數值分析方法與數學演算法.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;而機械工程需要用到的數學, 通常包括代數 (Algebra)、幾何 (Geometry)、三角函數 (Trigonometry)、微積分 (Calculus)、微分方程 (Differential Equations) 與統計 (Statistics) 等.&lt;/p&gt;</summary><category term="機械設計"></category><category term="數學"></category><category term="導引"></category></entry><entry><title>機械設計工程系網路講座(三)</title><link href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-san.html" rel="alternate"></link><published>2016-11-12T11:29:00+08:00</published><updated>2016-11-12T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-11-12:blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-san.html</id><summary type="html">&lt;p&gt;執行機械設計專題的過程, 經常需要在不同操作系統與網路位置使用不同的軟硬體, 以 &lt;a href="http://project.mde.tw/blog/yen-dian-nao-fu-zhu-she-ji-shi-dian-nao-pei-zhi.html"&gt;CADLab 電腦硬體&lt;/a&gt; 為例, 連同實體操作系統, 總共可以開啟三台虛擬主機, 其中實體操作系統安裝 Ubuntu 16.04 伺服器加上 ubuntu-desktop, 而虛擬主機則分別安裝 Ubuntu 16.04 伺服器加上 ubuntu-desktop, Windows 10 64 位元 Professional 與 Windows 7 64 位元 Professional 版本.&lt;/p&gt;
+
+
+&lt;p&gt;除了當作 Squid Proxy 主機的 Ubuntu 16.04 虛擬主機需要使用 IPv4 與 IPv6 網路協定位址外, 其餘的 Windows 10 與 Windows 7 虛擬主機都僅使用 IPv6 網路協定, 然後透過 Proxy Server 使用各種網路服務.&lt;/p&gt;
+&lt;p&gt;這樣的配置有幾項好處:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;四台主機只需要使用一個 IPv4 網路位址, 也就是負責支援 Proxy 伺服的 Ubuntu 16.04 虛擬機, 且此一固定的 IPv4 網路位址, 可以在 Windows 10 與 Windows 7 操作系統執行授權認證時, 臨時派上用場, 因為目前多數的微軟認證主機只支援 IPv4 網路協定.&lt;/li&gt;
+&lt;li&gt;實體主機無需認証, 且生命週期可達五年, Ubuntu 16.04 虛擬主機上的 Squid Proxy Server 使用靈活, 可以隨時配合需要更動設定.&lt;/li&gt;
+&lt;li&gt;Windows 10 與 Windows 7 虛擬主機可以在跨操作系統的 Virtualbox 應用程式架構下, 跨主機配置, 且可隨時在一定的軟硬體配置下增減各項設定或軟體套件, 使用限制較低.&lt;/li&gt;
+&lt;li&gt;從其他主機連線到實體主機, 可以使用純 IPv6 網路協定, 比較不會受到 IPv4 網路協定的干擾.&lt;/li&gt;
+&lt;li&gt;跨網域管理實體主機, 可以採用 Putty 加上 X-Windows, 若在 Windows 環境則使用 &lt;a href="https://sourceforge.net/projects/xming/"&gt;Xming&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;跨網域管理 Windows 10 與 Windows 7 則使用 Remote Desktop 協定, 若在 Ubuntu 環境則使用內建的 &lt;a href="https://apps.ubuntu.com/cat/applications/oneiric/remmina/"&gt;Remmina&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;自 Virtualbox 5.0 之後, 可以在虛擬主機中, 再配置 32 位元的虛擬主機, 當作測試使用.&lt;/li&gt;
+&lt;/ol&gt;</summary><category term="機械設計"></category><category term="網路"></category><category term="導引"></category></entry><entry><title>機械設計工程網站的短網址</title><link href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-wang-zhan-de-duan-wang-zhi.html" rel="alternate"></link><published>2016-11-07T11:29:00+08:00</published><updated>2016-11-07T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-11-07:blog/ji-jie-she-ji-gong-cheng-wang-zhan-de-duan-wang-zhi.html</id><summary type="html">&lt;p&gt;機械設計工程的英文為 Mechanical Design Engineering, 簡稱為 MDE, 有很長一段時間, 機械設計工程系的網路符號名稱為 mde.nfu.edu.tw, 但是在 DNS 上下綁定經常出現問題之後, 權宜之計採用 mde.tw 作為  domain name, 現在可以透過 &lt;a href="http://mde.tw"&gt;http://mde.tw&lt;/a&gt;, 連結到相關網站.&lt;/p&gt;
+
+
+&lt;p&gt;簡短有意義的網路符號名稱在 Google 搜索引擎撲天蓋地提供完善服務之後, 好像變得不很重要, 但是隨著 IPv6 網址的逐漸普及, 若覺得每一種伺服器都帶著長位址, 使用非常不方便時, 透過雙協定支援的 DNS 伺服器, 所完成的簡短網站符號名稱就會愈來愈重要.&lt;/p&gt;
+&lt;p&gt;要設定位於 Github Pages 的 &lt;a href="http://mdecourse.github.io"&gt;http://mdecourse.github.io&lt;/a&gt; 成為 &lt;a href="http://mde.tw"&gt;http://mde.tw&lt;/a&gt;, 共有兩個步驟:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;登入 mdecourse.github.io 對應的倉儲, 設定 domain name 為 mde.tw&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;進入 mde.tw DNS 管理設定, 根據 &lt;a href="https://help.github.com/articles/setting-up-an-apex-domain/"&gt;https://help.github.com/articles/setting-up-an-apex-domain/&lt;/a&gt; 中的說明, 建立兩筆 A 設定 (也就是 mde.tw Internet Address 的綁定), 分別指向 192.30.252.153 與 192.30.252.154 就算完成.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</summary><category term="機械設計"></category><category term="網路"></category><category term="導引"></category></entry><entry><title>機械設計工程系網路講座(二)</title><link href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-er.html" rel="alternate"></link><published>2016-11-06T11:29:00+08:00</published><updated>2016-11-06T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-11-06:blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-er.html</id><summary type="html">&lt;p&gt;因為 IPv4 與 IPv6 是兩種彼此不相容的網路協定, IPv4 採 32 位元定址, 而 IPv6 則為 128 位元定址. 因此, 採用純 IPv6 網路協定設置的連網裝置, 無法與純 IPv4 網路協定設置的連網裝置進行連線, 反之亦然, 也就是採用純 IPv4 網路協定設置的連網裝置, 無法與純 IPv6 網路協定設置的連網裝置進行連線.&lt;/p&gt;
+
+
+&lt;p&gt;假如您使用中華電信的光世代, 而且使用  VDSL2 P883 路由器, 根據 &lt;a href="http://chiamingyen.github.io/kmolab/blog/mechanical-designer-and-ipv6.html"&gt;http://chiamingyen.github.io/kmolab/blog/mechanical-designer-and-ipv6.html&lt;/a&gt; 流程設定後,  使用 sudo pon dsl-provider 進行撥號後, 出現 Plugin rp-pppoe.so loaded, 表示已經取得 IPv6 協定上網, 就可以透過瀏覽器連線到 &lt;a href="http://[2001:288:6004:17::17]"&gt;http://[2001:288:6004:17::17]&lt;/a&gt;, 其中 IPv6 位址與埠號結合的寫法為 [2001:288:6004:17::17]:3128, 假如要利用網路位址設定代理主機就必須採用 IPv6 的格式.&lt;/p&gt;
+&lt;p&gt;因為機械設計工程系所分配到的 IPv6 網址為 2001:288:6004:17::/64, 表示前面 64 bits 的網址已經指定, 因此 subnet 設為 /64. 至於點對點的連線則建議設為 /127, 理由是可以避開子網路中許多未啟用的位址搜尋, 以免拖累路由器的速度.&lt;/p&gt;
+&lt;p&gt;在 IPv6 協定中, 每一個網路卡除了所設定使用的網路位址外, 還配置了一個所謂的 link-local address (本地連結位址). 而且 link-local addresses 一定位於 fe80::/10 區段. 至於在區域網路中各裝置的網路卡所使用的本地連結位址則會加上網卡代號存在路由表中. 例如, fe80::1:2:3:4%eth0&lt;/p&gt;
+&lt;p&gt;機械設計工程系區域網路中的電腦使用 IPv6 協定上網, 共有以下四種方法取得  IPv6 網路位址:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;採用 EUI-64 Global identifier 位址, 利用網路卡的 MAC address 進行&lt;a href="http://service.mde.tw/static/address_calculator.html"&gt;換算&lt;/a&gt;. 例如, 若 MAC 網路編號為 00-11-22-33-44-55, 則換算後使用 2001:288:6004:17:211:22FF:FE33:4455 作為 IPv6 網路位址.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;個別伺服器則設定固定 IPv6 網址, 並且將設定登錄到 DNS 伺服器中, 由於單一網路卡可以與多個 IPv6 位址綁定, 因此可以就個別服務設定不同的 IPv6 位址. 如此就可以在不同的伺服器硬體中搬遷各種不同服務. 以機械設計工程系網段中, 必須固定設置 IPv6 網址的建議是由目前所使用的 140.130.17.XXX 自行轉換為 2001:288:6004: 17::XXX, 至於採用網路卡 MAC 位址運算得到的 EUI-64 網址, 則不可任意搬遷.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在 Windows 7 或 10 操作系統中直接關閉 IPv4 協定, 採用純 IPv6 協定, 並且透過 DHCPv6 取得 IPv6 網路位址, 只要設定 DNS 為 2001:288:6004:1::2 與 2001:b000:168::1, 並採用 [2001:288:6004:17::17]:3128 或 proxy.mde.tw:3128 作為 proxy, 就可以連線上網.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用電腦自行亂數設定位於 fe80::/10 區段的 IPv6 本地連結網址上網, 假如要連結到廣域網路, 則使用橫跨內外網段的代理主機上網.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</summary><category term="機械設計"></category><category term="網路"></category><category term="導引"></category></entry><entry><title>機械設計工程系網路講座(一)</title><link href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-yi.html" rel="alternate"></link><published>2016-10-27T11:29:00+08:00</published><updated>2016-10-27T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-10-27:blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-yi.html</id><summary type="html">&lt;p&gt;過去在 IPV4 的網路環境中, 經常需要利用各種網路管理軟硬體, 進行用戶對於網路頻寬使用的限制或者綁定, 轉換到 IPV6 網路環境之後, 儘管可能無法直接擷取目前仍使用純 IPV4 協定的網路服務, 但是透過代理主機, 不但不會影響各用戶的權益, 反而因為 IPV6 協定的寬廣位址, 而過得海闊天空, 自由自在.&lt;/p&gt;
+
+
+&lt;h2&gt;數量眾多的 IPV6 網址&lt;/h2&gt;
+&lt;p&gt;從 &lt;a href="http://cadlab.mde.tw/post/ji-jie-she-ji-gong-cheng-xi-ipv6-wang-zhi-fen-pei.html"&gt;機械設計工程系 IPV6 網址分配&lt;/a&gt; 文章中, 大家就可以了解,  IPV6 網路位址雖然不是無限, 但是數量眾多, 絕對可以滿足多元使用的需求.&lt;/p&gt;
+&lt;p&gt;因此各機械設計工程系的教學與研究團隊, 在決定使用 IPV6 網路協定之後, 第1件事就是要確定各用戶是否透過 gigabit switch, 讓所有電腦都直接連線到系上的廣域網路.&lt;/p&gt;
+&lt;p&gt;假如您之前只是使用電腦的瀏覽器上網, 而且使用系上分配的 IPV4 固定網址, 那麼您可以準備將這個 IPV4 的固定網址交回管理室, 因為在從 IPV4 網路環境轉進到 IPV6 的過程中, 只有雙支援需求的 Proxy Server 需要使用 IPV4 固定網址, 一般用戶只要使用各自所在樓層與所分配的 IPV6 固定網址, 就可以上網.&lt;/p&gt;
+&lt;h2&gt;使用固定 IPV4 網址的轉換&lt;/h2&gt;
+&lt;p&gt;在此以綜一館八樓實驗室編號尾碼為 8768 的用戶為例, 因為所分配的 IPV6 網址範圍為2001:288:6004:17:8F:8768:0000:0000 ~
+2001:288:6004:17:8F:8768:FFFF:FFFF, 意思就是這個實驗室有 16 的 8 次方個 IPV6 網路位址可以使用, 其下可以再透過使用者的身分證字號最後四碼 (例如為 1234), 使用 2001:288:6004:17:8F:8768:1234:0000 ~ 2001:288:6004:17:8F:8768:1234:FFFF 的網段.&lt;/p&gt;
+&lt;p&gt;假如該名用戶採用 Windows 操作系統, 只要進入控制台的網路卡設定, 將 IPV4 協定勾選去除, 只留下 IPV6 網路協定, 然後自行設定網路位址為 2001:288:6004:17:8F:8768:1234:1, 子網路首碼長度設為 64, 預設閘道設為 2001:288:6004:17::254 (請注意, 因為 17 到 254 中間有三個位址段皆為 0000 而省略, 因此要使用 "::"), DNS 伺服器設為 2001:288:6004:1::2 (學校 DNS) 與 2001:b000:168::1 (中華電信 DNS) 即可.&lt;/p&gt;
+&lt;p&gt;接下來只要將瀏覽器的代理主機設為 proxy.mde.tw:3128 即可連線上網.&lt;/p&gt;
+&lt;h2&gt;使用 NAT 轉址的用戶轉換&lt;/h2&gt;
+&lt;p&gt;假如您目前是透過 NAT 從 IPV4 的內部網路轉換為外部網路上網, 只需要將 NAT 移除, 換成 Gigabit 交換器, 就可以利用上一節中的說明, 轉換到固定的 IPV6 網址設定上網.&lt;/p&gt;
+&lt;p&gt;也就是說, 只要使用該電腦所分配到的 IPV6 網址, 並去除 IPV4 網路協定, 就可以透過代理主機 proxy.mde.tw:3128 連線上網.&lt;/p&gt;
+&lt;h2&gt;網路認証授權主機的轉換&lt;/h2&gt;
+&lt;p&gt;當各用戶從 IPV4 網路協定轉而使用純 IPV6 協定上網之後, 若先前使用 SolidWorks、Matlab、Creo Parametric、Ansys 與 Comsol 等套件的網路授權, 也必須確定各授權主機啟用 IPV6 的協定, 有關這點, 我們極力推廣各系要自行管理各自的 DNS 伺服器, 如此一來, 無論使用者採用 IPV4 或 IPV6 協定要求認証 ,都只要將認証主機設為 solidworks.mde.nfu.edu.tw:埠號, mat.mde.nfu.edu.tw:埠號, creo.mde.nfu.edu.tw:埠號, ansys.mde.nfu.edu.tw:埠號與 comsol.mde.nfu.edu.tw:埠號即可, 無需使用 IPV6 或 IPV4 的網址要求認証, 因為這些主機可能因為各種原因進行硬體搬遷或固定網址而變換, 各管理者只要從各系的 DNS 伺服器中因應調整, 完全不需要更動認証客戶端的伺服器 IP 設定.&lt;/p&gt;
+&lt;h2&gt;結論&lt;/h2&gt;
+&lt;p&gt;從上述說明可以了解, IPV6 的網路架構就在我們的身旁, 只要各用戶依據&lt;a href="http://cadlab.mde.tw/post/ji-jie-she-ji-gong-cheng-xi-ipv6-wang-zhi-fen-pei.html"&gt;機械設計工程系 IPV6 網址分配&lt;/a&gt;使用, 就可以全面改善目前爭搶 IPV4 網路位址的情形, 也無需將個人電腦的 MAC 卡號交由電算中心綁定, 或者區分教師與學生網段, 只要讓管理室可以回收部份 IPV4 網址, 增加雙網路協定支援的代理主機, 並且推廣伺服主機也採用純 IPV6 設定, 就能逐步從舊 IPV4 進入新 IPV6 世代, 享受新協定所帶來的便利.&lt;/p&gt;</summary><category term="機械設計"></category><category term="網路"></category><category term="導引"></category></entry><entry><title>yen - 機械設計課程對應網頁</title><link href="http://project.mde.tw/blog/yen-ji-jie-she-ji-ke-cheng-dui-ying-wang-ye.html" rel="alternate"></link><published>2016-10-13T11:29:00+08:00</published><updated>2016-10-13T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-10-13:blog/yen-ji-jie-she-ji-ke-cheng-dui-ying-wang-ye.html</id><summary type="html">&lt;p&gt;今年機械設計專題的任務之一, 就是希望每一位學員都能各自維護一份自己的網頁, 修課的網頁以及分組的網頁, 過去我們選擇在 OpenShift 進行, 現在 Github Pages 應該是最佳選擇.&lt;/p&gt;
 
 
 &lt;p&gt;首先, 必須要知道 Github 帳號啟用後, 可以 &lt;a href="https://help.github.com/articles/changing-your-primary-email-address/"&gt;更改對應的 email&lt;/a&gt;, 必須在學校 email 面臨被取消之前, 轉換到其他生命週期較長的電子郵箱.&lt;/p&gt;

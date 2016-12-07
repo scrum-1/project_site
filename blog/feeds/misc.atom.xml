@@ -1,5 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/misc.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-11-01T11:29:00+08:00</updated><entry><title>現代機器人學-力學、規劃與控制</title><link href="http://project.mde.tw/blog/xian-dai-ji-qi-ren-xue-li-xue-gui-hua-yu-kong-zhi.html" rel="alternate"></link><published>2016-11-01T11:29:00+08:00</published><updated>2016-11-01T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-11-01:blog/xian-dai-ji-qi-ren-xue-li-xue-gui-hua-yu-kong-zhi.html</id><summary type="html">&lt;p&gt;身為現代機械設計專題成員, 只要有網路連線, 俱備英文閱讀能力, 就能夠同步檢視美國電腦系排名第1的 Carnegie Mellon University, 2016 年秋季班 &lt;a href="http://www.cs.cmu.edu/afs/cs/academic/class/16741-s07/www/"&gt;Mechanics of Manipulation&lt;/a&gt; 課程內容. 從中還能得知, 目前編寫接近完成, 用於韓國首爾大學與美國西北大學相關課程的&lt;a href="http://hades.mech.northwestern.edu/images/7/7f/MR.pdf"&gt;教材 pdf&lt;/a&gt;與&lt;a href="https://github.com/NxRLab/ModernRobotics"&gt;軟體&lt;/a&gt;, 也已經同步&lt;a href="http://hades.mech.northwestern.edu/index.php/LynchAndPark"&gt;釋出&lt;/a&gt;.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/misc.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-07T13:29:00+08:00</updated><entry><title>Leo Editor 專案的 https 按鈕</title><link href="http://project.mde.tw/blog/leo-editor-zhuan-an-de-https-an-niu.html" rel="alternate"></link><published>2016-12-07T13:29:00+08:00</published><updated>2016-12-07T13:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-07:blog/leo-editor-zhuan-an-de-https-an-niu.html</id><summary type="html">&lt;p&gt;隨著機械設計專題在&lt;a href="yen-ji-jie-she-ji-zhuan-ti-de-jin-duan-yu-yuan-duan.html"&gt;近端與遠端分散式版次管理的需求&lt;/a&gt;, 我們增加在純 IPv6 模式下啟動近端 https 伺服器的按鈕.&lt;/p&gt;
+
+
+&lt;p&gt;IPv4 https 近端伺服器按鈕程式碼:&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+import os
+import subprocess
+import threading
+import http.server, ssl
+
+def domake():
+    # build directory
+    os.chdir("./../")
+    server_address = ('localhost', 5443)
+    httpd = http.server.HTTPServer(server_address, http.server.SimpleHTTPRequestHandler)
+    httpd.socket = ssl.wrap_socket(httpd.socket,
+                                   server_side=True,
+                                   certfile='localhost.crt',
+                                   keyfile='localhost.key',
+                                   ssl_version=ssl.PROTOCOL_TLSv1)
+    print("5443 https server started")
+    httpd.serve_forever()
+
+# 利用執行緒執行 https 伺服器
+make = threading.Thread(target=domake)
+make.start()
+&lt;/pre&gt;
+
+&lt;p&gt;IPv6 https 近端伺服器按鈕程式碼:&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+import os
+import subprocess
+import threading
+import socket
+import http.server, ssl
+
+class HTTPServerV6(http.server.HTTPServer):
+    address_family = socket.AF_INET6
+
+def domake():
+    # build directory
+    os.chdir("./../")
+    ipv6_address = '::1'
+    server_address = (ipv6_address, 6443)
+    #httpd = http.server.HTTPServer(server_address, http.server.SimpleHTTPRequestHandler)
+    httpd = HTTPServerV6(server_address, http.server.SimpleHTTPRequestHandler)
+    httpd.socket = ssl.wrap_socket(httpd.socket,
+                                   server_side=True,
+                                   certfile='localhost.crt',
+                                   keyfile='localhost.key',
+                                   ssl_version=ssl.PROTOCOL_TLSv1)
+    print("6443 https server started")
+    httpd.serve_forever()
+
+# 利用執行緒執行 https 伺服器
+make = threading.Thread(target=domake)
+make.start()
+&lt;/pre&gt;
+
+&lt;p&gt;另外, 為了配合近端與遠端全面支援雙網路協定伺服器, 所有 Pelican template 連結, 也都從 http 改為 https 連結.&lt;/p&gt;</summary><category term="Leo Editor"></category><category term="https"></category></entry><entry><title>現代機器人學-力學、規劃與控制</title><link href="http://project.mde.tw/blog/xian-dai-ji-qi-ren-xue-li-xue-gui-hua-yu-kong-zhi.html" rel="alternate"></link><published>2016-11-01T11:29:00+08:00</published><updated>2016-11-01T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-11-01:blog/xian-dai-ji-qi-ren-xue-li-xue-gui-hua-yu-kong-zhi.html</id><summary type="html">&lt;p&gt;身為現代機械設計專題成員, 只要有網路連線, 俱備英文閱讀能力, 就能夠同步檢視美國電腦系排名第1的 Carnegie Mellon University, 2016 年秋季班 &lt;a href="http://www.cs.cmu.edu/afs/cs/academic/class/16741-s07/www/"&gt;Mechanics of Manipulation&lt;/a&gt; 課程內容. 從中還能得知, 目前編寫接近完成, 用於韓國首爾大學與美國西北大學相關課程的&lt;a href="http://hades.mech.northwestern.edu/images/7/7f/MR.pdf"&gt;教材 pdf&lt;/a&gt;與&lt;a href="https://github.com/NxRLab/ModernRobotics"&gt;軟體&lt;/a&gt;, 也已經同步&lt;a href="http://hades.mech.northwestern.edu/index.php/LynchAndPark"&gt;釋出&lt;/a&gt;.&lt;/p&gt;
 
 
 &lt;p&gt;這本&lt;a href="http://hades.mech.northwestern.edu/images/7/7f/MR.pdf"&gt;電子書&lt;/a&gt;, 標題是: INTRODUCTION TO MODERN
@@ -968,7 +1027,7 @@ g.es("資料已經取回")
 &lt;p&gt;因應之道, 只能刪除原先不再更新的倉儲, 另外再建立一個對應的 Github Pages 倉儲, 重新進行各項設定.&lt;/p&gt;</summary><category term="Github Pages"></category></entry><entry><title>yen - 協同產品設計課程 Task0 延伸練習</title><link href="http://project.mde.tw/blog/yen-xie-tong-chan-pin-she-ji-ke-cheng-task0-yan-shen-lian-xi.html" rel="alternate"></link><published>2016-03-01T01:20:00+08:00</published><updated>2016-03-01T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-01:blog/yen-xie-tong-chan-pin-she-ji-ke-cheng-task0-yan-shen-lian-xi.html</id><summary type="html">&lt;p&gt;如何將電腦教室分組, 比序與排座位的流程網際自動化&lt;/p&gt;
 
 
-&lt;p&gt;在 &lt;a href="http://chiamingyen.github.io/kmolab/blog/2016-spring-cd-task0.html"&gt;http://chiamingyen.github.io/kmolab/blog/2016-spring-cd-task0.html&lt;/a&gt; 中, 說明了一個實際的電腦教室排座位的流程, 其中使用了網際即時試算表 &lt;a href="https://ethercalc.tw/"&gt;https://ethercalc.tw/&lt;/a&gt;, 以及幾個 Python3 的資料處理程式, 最後可以根據電腦教室的配置, 完成各組員的座位編排.&lt;/p&gt;
+&lt;p&gt;在 &lt;a href="https://chiamingyen.github.io/kmolab/blog/2016-spring-cd-task0.html"&gt;https://chiamingyen.github.io/kmolab/blog/2016-spring-cd-task0.html&lt;/a&gt; 中, 說明了一個實際的電腦教室排座位的流程, 其中使用了網際即時試算表 &lt;a href="https://ethercalc.tw/"&gt;https://ethercalc.tw/&lt;/a&gt;, 以及幾個 Python3 的資料處理程式, 最後可以根據電腦教室的配置, 完成各組員的座位編排.&lt;/p&gt;
 &lt;p&gt;座位編排流程如下:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;讓所有學員自行分組&lt;/li&gt;

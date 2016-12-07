@@ -72,7 +72,52 @@ make.start()
 &lt;p&gt;而一般工程表達的方法, 包括口語表達, 文字表達, 2D 表達, 3D 表達, 理論解析(定性定量)表達, 實體表達等.&lt;/p&gt;
 &lt;p&gt;且上述各類表達, 會因時間、地點、參與者、團隊組織的遷流變化而衍生出各式版本, 機械產品的協同設計, 便在各式表達的版本中, 尋求各互動元件組成的可用性外, 也期望透過相同功能的不同供應者, 作為精巧配置的選項, 以降低風險.&lt;/p&gt;
 &lt;p&gt;至於機械設計的所謂互動元件, 包括固體、流體與軟體, 隨著全球化數位經濟的蓬勃發展, 直接利用雲端統合機械協同設計過程中的所有內容, 已然成為可行方案之一.&lt;/p&gt;
-&lt;p&gt;當然, 隨著 &lt;a href="https://www.onshape.com/"&gt;Onshape&lt;/a&gt; 雲端設計表達工具的出現, 各公司目前將所有資料集中在雲端, 統一由一組團隊控管的模式, 未來勢必要納入如 Git 分散式版次管理的模式, 讓資料擁有者可以在無網路支援的單機狀態也能改版, 畢竟, 雲端 CAD/CAE/CAM, 充其量, 只不過是機械設計工程表達的方式之一而已.&lt;/p&gt;</summary><category term="機械設計"></category><category term="導引"></category></entry><entry><title>機台控制</title><link href="http://project.mde.tw/blog/ji-tai-kong-zhi.html" rel="alternate"></link><published>2016-12-02T20:00:00+08:00</published><updated>2016-12-02T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-02:blog/ji-tai-kong-zhi.html</id><summary type="html">&lt;p&gt;已經可以使用python進行控制了,只是目前gui還在實做當中,或許再一陣子就可以做出gui了,目前單獨用讀檔案的方式在送值到機器裡面。&lt;/p&gt;
+&lt;p&gt;當然, 隨著 &lt;a href="https://www.onshape.com/"&gt;Onshape&lt;/a&gt; 雲端設計表達工具的出現, 各公司目前將所有資料集中在雲端, 統一由一組團隊控管的模式, 未來勢必要納入如 Git 分散式版次管理的模式, 讓資料擁有者可以在無網路支援的單機狀態也能改版, 畢竟, 雲端 CAD/CAE/CAM, 充其量, 只不過是機械設計工程表達的方式之一而已.&lt;/p&gt;</summary><category term="機械設計"></category><category term="導引"></category></entry><entry><title>40323230日誌 - 105/12/06</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051206.html" rel="alternate"></link><published>2016-12-06T21:00:00+08:00</published><updated>2016-12-06T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-06:blog/40323230ri-zhi-1051206.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Windows 環境&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Pyslvs 編譯進度&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Windows 版進度&lt;/h1&gt;
+&lt;p&gt;因為其他作業需求必須編譯 Windows 版的 Python 執行檔，所以順便弄了一下編譯環境。&lt;/p&gt;
+&lt;p&gt;在 Windows 架好了撰寫 Pyslvs 所必須的工具：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Anaconda Python 3.5.4（執行檔安裝）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Qt 5.7（官方執行檔安裝）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;pip 套件（下載&lt;code&gt;get-pip.py&lt;/code&gt;執行）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;更新 SIP（conda install 更新）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;PyQt 5.7（pip 安裝）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;QScintilla（pip 安裝）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Eric6（Python 執行 &lt;code&gt;install.py&lt;/code&gt;）&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;PyInstaller（pip 安裝）&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;現在的 PyInstaller 已經不能跨平台編譯了，只能在相應的平台編出可執行檔，而且有 32 和 64 位元的差異。&lt;/p&gt;
+&lt;h1&gt;Pyslvs 編譯進度&lt;/h1&gt;
+&lt;p&gt;將範例檔直接放入程式中而不會不小心覆蓋到原始檔。&lt;/p&gt;
+&lt;p&gt;另外還將存檔功能歸類了一下，避免搞亂原本的範例。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1206_01.jpg" /&gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>機台控制</title><link href="http://project.mde.tw/blog/ji-tai-kong-zhi.html" rel="alternate"></link><published>2016-12-02T20:00:00+08:00</published><updated>2016-12-02T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-02:blog/ji-tai-kong-zhi.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;p&gt;已經可以使用python進行控制了,只是目前gui還在實做當中,或許再一陣子就可以做出gui了,目前單獨用讀檔案的方式在送值到機器裡面。&lt;/p&gt;
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/bo7XS4TGyNs" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="python-control"></category></entry><entry><title>40323230日誌 - 105/11/27</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051127.html" rel="alternate"></link><published>2016-11-27T21:00:00+08:00</published><updated>2016-11-27T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-11-27:blog/40323230ri-zhi-1051127.html</id><summary type="html">&lt;p&gt;關於 Pyslvs 格式整合的計畫&lt;/p&gt;
 
 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-07T20:00:00+08:00</updated><entry><title>寫字機</title><link href="http://project.mde.tw/blog/xie-zi-ji.html" rel="alternate"></link><published>2016-12-07T20:00:00+08:00</published><updated>2016-12-07T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-07:blog/xie-zi-ji.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
-
-&lt;p&gt;起源
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-07T20:00:00+08:00</updated><entry><title>寫字機</title><link href="http://project.mde.tw/blog/xie-zi-ji.html" rel="alternate"></link><published>2016-12-07T20:00:00+08:00</published><updated>2016-12-07T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-07:blog/xie-zi-ji.html</id><summary type="html">&lt;p&gt;起源
 一般寫字機，都是用最基本的XYZ型式做的，因為在thingverse上面找到相關的機器，想說就來做做看。&lt;/p&gt;
+
+
 &lt;p&gt;&lt;a href="http://www.thingiverse.com/thing:1517211"&gt;thingverse&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://thingiverse-production-new.s3.amazonaws.com/renders/1a/c8/b9/18/eb/4d67f546ef9ffa51918d3309259fbfb4_preview_featured.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;在機構方面看到許多相關資料，想試試看不一樣的機構製做這個平台，因此搜尋了CoreXY這種結構的皮帶運動，看他的介紹是可以在高速運動下使用的機構，因為手邊也有3D列印機，就把他列印出來試試看可不可行。&lt;/p&gt;

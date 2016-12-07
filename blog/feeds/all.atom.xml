@@ -41,7 +41,116 @@ Ubuntu 編譯成功
 
 在一台 16.04 的實體機中，使用 PyInstaller 直接用預設設定編譯，能成功編譯出 Pyslvs 的 Linux 版可執行檔。
 
-Linux 平台的 SO 函式庫似乎不用特別指定也能找到 `_slvs.so` 和 `libslvs.so` 的內容；Windows 的 DLL 就得看當初連結庫的名稱是什麼了。</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/12/06</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051206.html" rel="alternate"></link><published>2016-12-06T21:00:00+08:00</published><updated>2016-12-06T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-06:blog/40323230ri-zhi-1051206.html</id><summary type="html">&lt;ol&gt;
+Linux 平台的 SO 函式庫似乎不用特別指定也能找到 `_slvs.so` 和 `libslvs.so` 的內容；Windows 的 DLL 就得看當初連結庫的名稱是什麼了。</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>寫字機</title><link href="http://project.mde.tw/blog/xie-zi-ji.html" rel="alternate"></link><published>2016-12-07T20:00:00+08:00</published><updated>2016-12-07T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-07:blog/xie-zi-ji.html</id><summary type="html">&lt;p&gt;起源
+一般寫字機，都是用最基本的XYZ型式做的，因為在thingverse上面找到相關的機器，想說就來做做看。&lt;/p&gt;
+
+
+&lt;p&gt;&lt;a href="http://www.thingiverse.com/thing:1517211"&gt;thingverse&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://thingiverse-production-new.s3.amazonaws.com/renders/1a/c8/b9/18/eb/4d67f546ef9ffa51918d3309259fbfb4_preview_featured.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;在機構方面看到許多相關資料，想試試看不一樣的機構製做這個平台，因此搜尋了CoreXY這種結構的皮帶運動，看他的介紹是可以在高速運動下使用的機構，因為手邊也有3D列印機，就把他列印出來試試看可不可行。&lt;/p&gt;
+&lt;h3&gt;電機相關&lt;/h3&gt;
+
+&lt;p&gt;在機構處理完就開始找電控的板子，因為這台機台和CNC的控制方式類似，同樣都擁有XY兩軸，在加上手邊只有arduino ，就嘗試性的google了一下:"Arduino CNC"，結果就找到了這塊版子&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://3.bp.blogspot.com/-ZKQO9V8WN5Y/VJqsswmk3uI/AAAAAAAAFVM/_g8BcOxZfsQ/s1600/DSC04958.JPG"&gt;&lt;/p&gt;
+&lt;p&gt;這塊版子在大量生產下的原因，價錢也非常的平價，加上也是開源系統，全部控制加一加，1000元以內有找，加上這塊板子也是用A4988這塊驅動晶片，和大部分3D列印機的驅動晶片相同，因為有四組，可以控制四顆馬達。&lt;/p&gt;
+&lt;p&gt;在晶片上面可以看到有個可以旋轉的螺絲頭，他是負責調電壓，扭力要大一點就把電壓開大一點(千萬不要開太大會超燙)，大約就調到0.37V就已經很夠了，因為不是重負荷，調整的方法就是，使用三用電錶，一端放在螺絲上，一端在地線，就可以測得他的電壓，切記小心，不小心短路就沒了。&lt;/p&gt;
+&lt;p&gt;接下來就開始往韌體方向尋找相關方法，還在想說可能要自己寫控制器，算數學的時候，發現到一套從以前就已經開源的CNC韌體Grbl，在裡面的程式碼可以學習相關的控制器撰寫，&lt;a href="http://bengler.no/grbl"&gt;grbl&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;控制方面&lt;/h3&gt;
+
+&lt;p&gt;在一般傳統CNC，都會有sensor，知道目前刀軸現在的位置，程式會判斷是否要補正，但是這些感測器的價錢都不便宜，就我們學生而言，這已經不是負荷的起的價錢，Grbl利用一些方法來防止步數少的問題，&lt;/p&gt;
+&lt;p&gt;EX:梯形速度規畫&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://1.bp.blogspot.com/-0sE-adjlNH4/VJquqjygi-I/AAAAAAAAFWA/k6iB81WbMtk/s1600/1seg.png"&gt;&lt;/p&gt;
+&lt;p&gt;遇到圓角切削，如果按照剛剛看到的梯形會變成非常多小段進行控制，運轉會有問題&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://4.bp.blogspot.com/-Wo_9Km2DHME/VJquqgsWgfI/AAAAAAAAFWE/pTZYW4P2nrw/s1600/cur-seg-issue.png"&gt;&lt;/p&gt;
+&lt;p&gt;他的解法就變成了這樣Vjunction，主要是用在兩條線夾角趨近於180度，那就有可能是高密度曲線&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://2.bp.blogspot.com/-SYTIJ1CO0ws/VJquqshLc4I/AAAAAAAAFWM/XnbTXLagyAM/s1600/2block-jun.png"&gt;&lt;/p&gt;
+&lt;p&gt;可是一但遇到夾角為90度，那代表他會變成往反方向移動，那就要確實減速
+&lt;img src="http://2.bp.blogspot.com/-h6LGIQVnmAU/VJqsucN6dkI/AAAAAAAAFVY/W1cmgbbq4cA/s1600/eq1.png"&gt;&lt;/p&gt;
+&lt;p&gt;1.Ventry 是第一條線的速度向量&lt;/p&gt;
+&lt;p&gt;2.Vexit 是第二條線的速度向量&lt;/p&gt;
+&lt;p&gt;3.Ventry和Vexit的夾角 θ&lt;/p&gt;
+&lt;p&gt;4.綠色線 δ 為一常數&lt;/p&gt;
+&lt;p&gt;5.R 為圓的半徑&lt;/p&gt;
+&lt;p&gt;式子(1)：基本 sin 函數, θ, δ, Ventry 邊組成的三角形來計算&lt;/p&gt;
+&lt;p&gt;式子(2)(3)：把它左右搬移一下, 得到求 R 的算式&lt;/p&gt;
+&lt;p&gt;由於式子 (3) 可以用其下方的算式替換, 結果就是我們只要運用兩次開根號就求得解&lt;/p&gt;
+&lt;p&gt;雖然我們畫圖可以很清楚知道 θ 的角度, 但是 CNC 機器只收到該往哪裡移動&lt;/p&gt;
+&lt;p&gt;它並沒法知道夾角, 而求這夾角需要頭痛的 acos 來先找到 θ 值&lt;/p&gt;
+&lt;p&gt;但是對於8bit的 MCU這會是運算負擔，在Grbl裡面的planner.c 的 plan_buffer_line&lt;/p&gt;
+&lt;p&gt;他的韌體有許多可以用到的數學，值得一一解開看他的控制器，可惜的是目前的專業知識不夠讓我完全了解他的程式在訴說的事情，雖然都有註解可以查，可能會慢慢的解開一包包在寫的東西。&lt;/p&gt;</summary><category term="python-control"></category></entry><entry><title>Leo Editor 專案的 https 按鈕</title><link href="http://project.mde.tw/blog/leo-editor-zhuan-an-de-https-an-niu.html" rel="alternate"></link><published>2016-12-07T13:29:00+08:00</published><updated>2016-12-07T13:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-07:blog/leo-editor-zhuan-an-de-https-an-niu.html</id><summary type="html">&lt;p&gt;隨著機械設計專題在&lt;a href="yen-ji-jie-she-ji-zhuan-ti-de-jin-duan-yu-yuan-duan.html"&gt;近端與遠端分散式版次管理的需求&lt;/a&gt;, 我們增加在純 IPv6 模式下啟動近端 https 伺服器的按鈕.&lt;/p&gt;
+
+
+&lt;p&gt;IPv4 https 近端伺服器按鈕程式碼:&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+import os
+import subprocess
+import threading
+import http.server, ssl
+
+def domake():
+    # build directory
+    os.chdir("./../")
+    server_address = ('localhost', 5443)
+    httpd = http.server.HTTPServer(server_address, http.server.SimpleHTTPRequestHandler)
+    httpd.socket = ssl.wrap_socket(httpd.socket,
+                                   server_side=True,
+                                   certfile='localhost.crt',
+                                   keyfile='localhost.key',
+                                   ssl_version=ssl.PROTOCOL_TLSv1)
+    print("5443 https server started")
+    httpd.serve_forever()
+
+# 利用執行緒執行 https 伺服器
+make = threading.Thread(target=domake)
+make.start()
+&lt;/pre&gt;
+
+&lt;p&gt;IPv6 https 近端伺服器按鈕程式碼:&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+import os
+import subprocess
+import threading
+import socket
+import http.server, ssl
+
+class HTTPServerV6(http.server.HTTPServer):
+    address_family = socket.AF_INET6
+
+def domake():
+    # build directory
+    os.chdir("./../")
+    ipv6_address = '::1'
+    server_address = (ipv6_address, 6443)
+    #httpd = http.server.HTTPServer(server_address, http.server.SimpleHTTPRequestHandler)
+    httpd = HTTPServerV6(server_address, http.server.SimpleHTTPRequestHandler)
+    httpd.socket = ssl.wrap_socket(httpd.socket,
+                                   server_side=True,
+                                   certfile='localhost.crt',
+                                   keyfile='localhost.key',
+                                   ssl_version=ssl.PROTOCOL_TLSv1)
+    print("6443 https server started")
+    httpd.serve_forever()
+
+# 利用執行緒執行 https 伺服器
+make = threading.Thread(target=domake)
+make.start()
+&lt;/pre&gt;
+
+&lt;p&gt;另外, 為了配合近端與遠端全面支援雙網路協定伺服器, 所有 Pelican template 連結, 也都從 http 改為 https 連結.&lt;/p&gt;</summary><category term="Leo Editor"></category><category term="https"></category></entry><entry><title>何謂機械設計?</title><link href="http://project.mde.tw/blog/he-wei-ji-jie-she-ji.html" rel="alternate"></link><published>2016-12-07T11:29:00+08:00</published><updated>2016-12-07T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-07:blog/he-wei-ji-jie-she-ji.html</id><summary type="html">&lt;p&gt;所謂機械設計, 就是歷經詳細思慮考量, 完成互動元件間之精巧配置, 使其展現特定功能之具體規劃表達.&lt;/p&gt;
+&lt;p&gt;其中, 詳細思慮考量, 就是"計"的字義, 而精巧配置互動元件, 就是"機"的字義, 展現特定功能, 就是"械"的字義, 最後, 必須完成具體規劃表達則是"設"的字義.&lt;/p&gt;
+
+
+&lt;p&gt;因此機械設計共包含下列要件:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;經過詳細思慮考量過程 (計)&lt;/li&gt;
+&lt;li&gt;結果為互動元件間之精巧配置 (機)&lt;/li&gt;
+&lt;li&gt;配置可展現特定功能, 用於解決所面臨問題 (械)&lt;/li&gt;
+&lt;li&gt;必須明確表達結果之具體規劃 (設)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;而一般工程表達的方法, 包括口語表達, 文字表達, 2D 表達, 3D 表達, 理論解析(定性定量)表達, 實體表達等.&lt;/p&gt;
+&lt;p&gt;且上述各類表達, 會因時間、地點、參與者、團隊組織的遷流變化而衍生出各式版本, 機械產品的協同設計, 便在各式表達的版本中, 尋求各互動元件組成的可用性外, 也期望透過相同功能的不同供應者, 作為精巧配置的選項, 以降低風險.&lt;/p&gt;
+&lt;p&gt;至於機械設計的所謂互動元件, 包括固體、流體與軟體, 隨著全球化數位經濟的蓬勃發展, 直接利用雲端統合機械協同設計過程中的所有內容, 已然成為可行方案之一.&lt;/p&gt;
+&lt;p&gt;當然, 隨著 &lt;a href="https://www.onshape.com/"&gt;Onshape&lt;/a&gt; 雲端設計表達工具的出現, 各公司目前將所有資料集中在雲端, 統一由一組團隊控管的模式, 未來勢必要納入如 Git 分散式版次管理的模式, 讓資料擁有者可以在無網路支援的單機狀態也能改版, 畢竟, 雲端 CAD/CAE/CAM, 充其量, 只不過是機械設計工程表達的方式之一而已.&lt;/p&gt;</summary><category term="機械設計"></category><category term="導引"></category></entry><entry><title>40323230日誌 - 105/12/06</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051206.html" rel="alternate"></link><published>2016-12-06T21:00:00+08:00</published><updated>2016-12-06T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-06:blog/40323230ri-zhi-1051206.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Windows 環境&lt;/p&gt;
 &lt;/li&gt;
@@ -614,7 +723,7 @@ cv2.waitKey(0)
 &lt;/ol&gt;</summary><category term="機械設計"></category><category term="網路"></category><category term="導引"></category></entry><entry><title>機械設計工程系網路講座(二)</title><link href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-er.html" rel="alternate"></link><published>2016-11-06T11:29:00+08:00</published><updated>2016-11-06T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-11-06:blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-er.html</id><summary type="html">&lt;p&gt;因為 IPv4 與 IPv6 是兩種彼此不相容的網路協定, IPv4 採 32 位元定址, 而 IPv6 則為 128 位元定址. 因此, 採用純 IPv6 網路協定設置的連網裝置, 無法與純 IPv4 網路協定設置的連網裝置進行連線, 反之亦然, 也就是採用純 IPv4 網路協定設置的連網裝置, 無法與純 IPv6 網路協定設置的連網裝置進行連線.&lt;/p&gt;
 
 
-&lt;p&gt;假如您使用中華電信的光世代, 而且使用  VDSL2 P883 路由器, 根據 &lt;a href="http://chiamingyen.github.io/kmolab/blog/mechanical-designer-and-ipv6.html"&gt;http://chiamingyen.github.io/kmolab/blog/mechanical-designer-and-ipv6.html&lt;/a&gt; 流程設定後,  使用 sudo pon dsl-provider 進行撥號後, 出現 Plugin rp-pppoe.so loaded, 表示已經取得 IPv6 協定上網, 就可以透過瀏覽器連線到 &lt;a href="http://[2001:288:6004:17::17]"&gt;http://[2001:288:6004:17::17]&lt;/a&gt;, 其中 IPv6 位址與埠號結合的寫法為 [2001:288:6004:17::17]:3128, 假如要利用網路位址設定代理主機就必須採用 IPv6 的格式.&lt;/p&gt;
+&lt;p&gt;假如您使用中華電信的光世代, 而且使用  VDSL2 P883 路由器, 根據 &lt;a href="https://chiamingyen.github.io/kmolab/blog/mechanical-designer-and-ipv6.html"&gt;https://chiamingyen.github.io/kmolab/blog/mechanical-designer-and-ipv6.html&lt;/a&gt; 流程設定後,  使用 sudo pon dsl-provider 進行撥號後, 出現 Plugin rp-pppoe.so loaded, 表示已經取得 IPv6 協定上網, 就可以透過瀏覽器連線到 &lt;a href="http://[2001:288:6004:17::17]"&gt;http://[2001:288:6004:17::17]&lt;/a&gt;, 其中 IPv6 位址與埠號結合的寫法為 [2001:288:6004:17::17]:3128, 假如要利用網路位址設定代理主機就必須採用 IPv6 的格式.&lt;/p&gt;
 &lt;p&gt;因為機械設計工程系所分配到的 IPv6 網址為 2001:288:6004:17::/64, 表示前面 64 bits 的網址已經指定, 因此 subnet 設為 /64. 至於點對點的連線則建議設為 /127, 理由是可以避開子網路中許多未啟用的位址搜尋, 以免拖累路由器的速度.&lt;/p&gt;
 &lt;p&gt;在 IPv6 協定中, 每一個網路卡除了所設定使用的網路位址外, 還配置了一個所謂的 link-local address (本地連結位址). 而且 link-local addresses 一定位於 fe80::/10 區段. 至於在區域網路中各裝置的網路卡所使用的本地連結位址則會加上網卡代號存在路由表中. 例如, fe80::1:2:3:4%eth0&lt;/p&gt;
 &lt;p&gt;機械設計工程系區域網路中的電腦使用 IPv6 協定上網, 共有以下四種方法取得  IPv6 網路位址:&lt;/p&gt;
@@ -17776,7 +17885,7 @@ G指令
 &lt;p&gt;因應之道, 只能刪除原先不再更新的倉儲, 另外再建立一個對應的 Github Pages 倉儲, 重新進行各項設定.&lt;/p&gt;</summary><category term="Github Pages"></category></entry><entry><title>yen - 協同產品設計課程 Task0 延伸練習</title><link href="http://project.mde.tw/blog/yen-xie-tong-chan-pin-she-ji-ke-cheng-task0-yan-shen-lian-xi.html" rel="alternate"></link><published>2016-03-01T01:20:00+08:00</published><updated>2016-03-01T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-01:blog/yen-xie-tong-chan-pin-she-ji-ke-cheng-task0-yan-shen-lian-xi.html</id><summary type="html">&lt;p&gt;如何將電腦教室分組, 比序與排座位的流程網際自動化&lt;/p&gt;
 
 
-&lt;p&gt;在 &lt;a href="http://chiamingyen.github.io/kmolab/blog/2016-spring-cd-task0.html"&gt;http://chiamingyen.github.io/kmolab/blog/2016-spring-cd-task0.html&lt;/a&gt; 中, 說明了一個實際的電腦教室排座位的流程, 其中使用了網際即時試算表 &lt;a href="https://ethercalc.tw/"&gt;https://ethercalc.tw/&lt;/a&gt;, 以及幾個 Python3 的資料處理程式, 最後可以根據電腦教室的配置, 完成各組員的座位編排.&lt;/p&gt;
+&lt;p&gt;在 &lt;a href="https://chiamingyen.github.io/kmolab/blog/2016-spring-cd-task0.html"&gt;https://chiamingyen.github.io/kmolab/blog/2016-spring-cd-task0.html&lt;/a&gt; 中, 說明了一個實際的電腦教室排座位的流程, 其中使用了網際即時試算表 &lt;a href="https://ethercalc.tw/"&gt;https://ethercalc.tw/&lt;/a&gt;, 以及幾個 Python3 的資料處理程式, 最後可以根據電腦教室的配置, 完成各組員的座位編排.&lt;/p&gt;
 &lt;p&gt;座位編排流程如下:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;讓所有學員自行分組&lt;/li&gt;

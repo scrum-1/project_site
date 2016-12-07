@@ -1,5 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-06T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/12/06</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051206.html" rel="alternate"></link><published>2016-12-06T21:00:00+08:00</published><updated>2016-12-06T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-06:blog/40323230ri-zhi-1051206.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-07T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/12/07</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051207.html" rel="alternate"></link><published>2016-12-07T21:00:00+08:00</published><updated>2016-12-07T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-07:blog/40323230ri-zhi-1051207.html</id><summary type="html">&lt;p&gt;PyInstaller 編譯問題&lt;/p&gt;
+
+
+&lt;h1&gt;PyInstaller 編譯問題&lt;/h1&gt;
+&lt;p&gt;將目前原始碼轉為執行檔的測試。由於之前只有成功編譯小型的 PyQt5 介面，所以嘗試看看在比較大的架構下，所有分支模組中是否會有導入問題。&lt;/p&gt;
+&lt;h2&gt;Pyslvs 程式碼整理&lt;/h2&gt;
+&lt;p&gt;將程式碼整理了一下，避免發生一些狀況。&lt;/p&gt;
+&lt;p&gt;移除了讀取 git 資訊的功能，因為這個資訊會讀取 &lt;code&gt;.git&lt;/code&gt; 資料夾內的內容。&lt;/p&gt;
+&lt;p&gt;後來將 PyQt4 的導入去除，實際上也沒有用到 PyQt4 的框架。&lt;/p&gt;
+&lt;h2&gt;Solvespace 函式庫問題&lt;/h2&gt;
+&lt;p&gt;出現了一個重大的問題，在編譯後會找不到函式庫的名稱。&lt;/p&gt;
+&lt;pre&gt;
+ImportError: No module named 'core.kernel.py35w._slvs'
+...
+ImportError: DLL load failed: The specified module could not be found.
+&lt;pre&gt;
+
+參閱 PyInstaller 的技術文件後，瞭解到如果使用的 DLL 類函式庫名稱不在程式碼中的話，必須手動加入 Spec 文件中。
+
+[https://pyinstaller.readthedocs.io/en/stable/spec-files.html](https://pyinstaller.readthedocs.io/en/stable/spec-files.html#adding-binary-files"pyinstaller.readthedocs.io")
+
+Spec 文件是 PyInstaller 的執行腳本，若沒有指定的話會自己生產一個預設設定的 Spec 文件。
+
+Spec 文件的 Analysis 中包含四個項目：
+
+1. `scripts`：當作主程式啟動的腳本（就是指令中 input 的檔案，只有一個）。
+
+1. `pure`：所需的 Python 模組（通常會直接參照 import 的項目搜尋到，所以不用填）。
+
+1. `binaries`：所需的非 Python 模組。
+
+1. `datas`：其他所需的非二進制文件（如圖片或是音訊檔）。
+
+不過在 `binaries` 清單中的示範是填入函式庫中的連結名稱，不知道如果是 DLL 或 SO 的話要如何辨識名稱；直接寫上 `_slvs.pyd` 或是 `libslvs.so` 的位址也不能解決問題。
+
+Ubuntu 編譯成功
+---
+
+![](https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1207_01.jpg)
+
+在一台 16.04 的實體機中，使用 PyInstaller 直接用預設設定編譯，能成功編譯出 Pyslvs 的 Linux 版可執行檔。
+
+Linux 平台的 SO 函式庫似乎不用特別指定也能找到 `_slvs.so` 和 `libslvs.so` 的內容；Windows 的 DLL 就得看當初連結庫的名稱是什麼了。</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/12/06</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051206.html" rel="alternate"></link><published>2016-12-06T21:00:00+08:00</published><updated>2016-12-06T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-06:blog/40323230ri-zhi-1051206.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Windows 環境&lt;/p&gt;
 &lt;/li&gt;

@@ -91,7 +91,82 @@ setup(
 &lt;/pre&gt;
 
 &lt;p&gt;所產生的包裝程式位於 build 目錄中.&lt;/p&gt;
-&lt;p&gt;最後, 合併兩個套件所建立的包裝檔案, 並以 Pyinstaller 所產生的 .exe 為主體, 啟動 PyQt5 視窗程式.&lt;/p&gt;</summary><category term="Eric6"></category><category term="PyQt5"></category></entry><entry><title>Leo Editor 專案的 https 按鈕</title><link href="http://project.mde.tw/blog/leo-editor-zhuan-an-de-https-an-niu.html" rel="alternate"></link><published>2016-12-07T13:29:00+08:00</published><updated>2016-12-07T13:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-07:blog/leo-editor-zhuan-an-de-https-an-niu.html</id><summary type="html">&lt;p&gt;隨著機械設計專題在&lt;a href="yen-ji-jie-she-ji-zhuan-ti-de-jin-duan-yu-yuan-duan.html"&gt;近端與遠端分散式版次管理的需求&lt;/a&gt;, 我們增加在純 IPv6 模式下啟動近端 https 伺服器的按鈕.&lt;/p&gt;
+&lt;p&gt;最後, 合併兩個套件所建立的包裝檔案, 並以 Pyinstaller 所產生的 .exe 為主體, 啟動 PyQt5 視窗程式.&lt;/p&gt;</summary><category term="Eric6"></category><category term="PyQt5"></category></entry><entry><title>40323230日誌 - 105/12/07</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051207.html" rel="alternate"></link><published>2016-12-07T21:00:00+08:00</published><updated>2016-12-07T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-07:blog/40323230ri-zhi-1051207.html</id><summary type="html">&lt;p&gt;PyInstaller 編譯問題&lt;/p&gt;
+
+
+&lt;h1&gt;PyInstaller 編譯問題&lt;/h1&gt;
+&lt;p&gt;將目前原始碼轉為執行檔的測試。由於之前只有成功編譯小型的 PyQt5 介面，所以嘗試看看在比較大的架構下，所有分支模組中是否會有導入問題。&lt;/p&gt;
+&lt;h2&gt;Pyslvs 程式碼整理&lt;/h2&gt;
+&lt;p&gt;將程式碼整理了一下，避免發生一些狀況。&lt;/p&gt;
+&lt;p&gt;移除了讀取 git 資訊的功能，因為這個資訊會讀取 &lt;code&gt;.git&lt;/code&gt; 資料夾內的內容。&lt;/p&gt;
+&lt;p&gt;後來將 PyQt4 的導入去除，實際上也沒有用到 PyQt4 的框架。&lt;/p&gt;
+&lt;h2&gt;Solvespace 函式庫問題&lt;/h2&gt;
+&lt;p&gt;出現了一個重大的問題，在編譯後會找不到函式庫的名稱。&lt;/p&gt;
+&lt;pre&gt;
+ImportError: No module named 'core.kernel.py35w._slvs'
+...
+ImportError: DLL load failed: The specified module could not be found.
+&lt;/pre&gt;
+
+&lt;p&gt;參閱 PyInstaller 的技術文件後，瞭解到如果使用的 DLL 類函式庫名稱不在程式碼中的話，必須手動加入 Spec 文件中。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://pyinstaller.readthedocs.io/en/stable/spec-files.html#adding-binary-files" title="pyinstaller.readthedocs.io"&gt;https://pyinstaller.readthedocs.io/en/stable/spec-files.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Spec 文件是 PyInstaller 的執行腳本，若沒有指定的話會自己生產一個預設設定的 Spec 文件。&lt;/p&gt;
+&lt;p&gt;Spec 文件的 Analysis 中包含四個項目：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;scripts&lt;/code&gt;：當作主程式啟動的腳本（就是指令中 input 的檔案，只有一個）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;pure&lt;/code&gt;：所需的 Python 模組（通常會直接參照 import 的項目搜尋到，所以不用填）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;binaries&lt;/code&gt;：所需的非 Python 模組。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;code&gt;datas&lt;/code&gt;：其他所需的非二進制文件（如圖片或是音訊檔）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;不過在 &lt;code&gt;binaries&lt;/code&gt; 清單中的示範是填入函式庫中的連結名稱，不知道如果是 DLL 或 SO 的話要如何辨識名稱；直接寫上 &lt;code&gt;_slvs.pyd&lt;/code&gt; 或是 &lt;code&gt;libslvs.so&lt;/code&gt; 的位址也不能解決問題。&lt;/p&gt;
+&lt;h2&gt;Ubuntu 編譯成功&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1207_01.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;在一台 16.04 的實體機中，使用 PyInstaller 直接用預設設定編譯，能成功編譯出 Pyslvs 的 Linux 版可執行檔。&lt;/p&gt;
+&lt;p&gt;Linux 平台的 SO 函式庫似乎不用特別指定也能找到 &lt;code&gt;_slvs.so&lt;/code&gt; 和 &lt;code&gt;libslvs.so&lt;/code&gt; 的內容；Windows 的 DLL 就得看當初連結庫的名稱是什麼了。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>寫字機</title><link href="http://project.mde.tw/blog/xie-zi-ji.html" rel="alternate"></link><published>2016-12-07T20:00:00+08:00</published><updated>2016-12-07T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-07:blog/xie-zi-ji.html</id><summary type="html">&lt;p&gt;起源
+一般寫字機，都是用最基本的XYZ型式做的，因為在thingverse上面找到相關的機器，想說就來做做看。&lt;/p&gt;
+
+
+&lt;p&gt;&lt;a href="http://www.thingiverse.com/thing:1517211"&gt;thingverse&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://thingiverse-production-new.s3.amazonaws.com/renders/1a/c8/b9/18/eb/4d67f546ef9ffa51918d3309259fbfb4_preview_featured.jpg"&gt;&lt;/p&gt;
+&lt;p&gt;在機構方面看到許多相關資料，想試試看不一樣的機構製做這個平台，因此搜尋了CoreXY這種結構的皮帶運動，看他的介紹是可以在高速運動下使用的機構，因為手邊也有3D列印機，就把他列印出來試試看可不可行。&lt;/p&gt;
+&lt;h3&gt;電機相關&lt;/h3&gt;
+
+&lt;p&gt;在機構處理完就開始找電控的板子，因為這台機台和CNC的控制方式類似，同樣都擁有XY兩軸，在加上手邊只有arduino ，就嘗試性的google了一下:"Arduino CNC"，結果就找到了這塊版子&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://3.bp.blogspot.com/-ZKQO9V8WN5Y/VJqsswmk3uI/AAAAAAAAFVM/_g8BcOxZfsQ/s1600/DSC04958.JPG"&gt;&lt;/p&gt;
+&lt;p&gt;這塊版子在大量生產下的原因，價錢也非常的平價，加上也是開源系統，全部控制加一加，1000元以內有找，加上這塊板子也是用A4988這塊驅動晶片，和大部分3D列印機的驅動晶片相同，因為有四組，可以控制四顆馬達。&lt;/p&gt;
+&lt;p&gt;在晶片上面可以看到有個可以旋轉的螺絲頭，他是負責調電壓，扭力要大一點就把電壓開大一點(千萬不要開太大會超燙)，大約就調到0.37V就已經很夠了，因為不是重負荷，調整的方法就是，使用三用電錶，一端放在螺絲上，一端在地線，就可以測得他的電壓，切記小心，不小心短路就沒了。&lt;/p&gt;
+&lt;p&gt;接下來就開始往韌體方向尋找相關方法，還在想說可能要自己寫控制器，算數學的時候，發現到一套從以前就已經開源的CNC韌體Grbl，在裡面的程式碼可以學習相關的控制器撰寫，&lt;a href="http://bengler.no/grbl"&gt;grbl&lt;/a&gt;&lt;/p&gt;
+&lt;h3&gt;控制方面&lt;/h3&gt;
+
+&lt;p&gt;在一般傳統CNC，都會有sensor，知道目前刀軸現在的位置，程式會判斷是否要補正，但是這些感測器的價錢都不便宜，就我們學生而言，這已經不是負荷的起的價錢，Grbl利用一些方法來防止步數少的問題，&lt;/p&gt;
+&lt;p&gt;EX:梯形速度規畫&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://1.bp.blogspot.com/-0sE-adjlNH4/VJquqjygi-I/AAAAAAAAFWA/k6iB81WbMtk/s1600/1seg.png"&gt;&lt;/p&gt;
+&lt;p&gt;遇到圓角切削，如果按照剛剛看到的梯形會變成非常多小段進行控制，運轉會有問題&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://4.bp.blogspot.com/-Wo_9Km2DHME/VJquqgsWgfI/AAAAAAAAFWE/pTZYW4P2nrw/s1600/cur-seg-issue.png"&gt;&lt;/p&gt;
+&lt;p&gt;他的解法就變成了這樣Vjunction，主要是用在兩條線夾角趨近於180度，那就有可能是高密度曲線&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://2.bp.blogspot.com/-SYTIJ1CO0ws/VJquqshLc4I/AAAAAAAAFWM/XnbTXLagyAM/s1600/2block-jun.png"&gt;&lt;/p&gt;
+&lt;p&gt;可是一但遇到夾角為90度，那代表他會變成往反方向移動，那就要確實減速
+&lt;img src="http://2.bp.blogspot.com/-h6LGIQVnmAU/VJqsucN6dkI/AAAAAAAAFVY/W1cmgbbq4cA/s1600/eq1.png"&gt;&lt;/p&gt;
+&lt;p&gt;1.Ventry 是第一條線的速度向量&lt;/p&gt;
+&lt;p&gt;2.Vexit 是第二條線的速度向量&lt;/p&gt;
+&lt;p&gt;3.Ventry和Vexit的夾角 θ&lt;/p&gt;
+&lt;p&gt;4.綠色線 δ 為一常數&lt;/p&gt;
+&lt;p&gt;5.R 為圓的半徑&lt;/p&gt;
+&lt;p&gt;式子(1)：基本 sin 函數, θ, δ, Ventry 邊組成的三角形來計算&lt;/p&gt;
+&lt;p&gt;式子(2)(3)：把它左右搬移一下, 得到求 R 的算式&lt;/p&gt;
+&lt;p&gt;由於式子 (3) 可以用其下方的算式替換, 結果就是我們只要運用兩次開根號就求得解&lt;/p&gt;
+&lt;p&gt;雖然我們畫圖可以很清楚知道 θ 的角度, 但是 CNC 機器只收到該往哪裡移動&lt;/p&gt;
+&lt;p&gt;它並沒法知道夾角, 而求這夾角需要頭痛的 acos 來先找到 θ 值&lt;/p&gt;
+&lt;p&gt;但是對於8bit的 MCU這會是運算負擔，在Grbl裡面的planner.c 的 plan_buffer_line&lt;/p&gt;
+&lt;p&gt;他的韌體有許多可以用到的數學，值得一一解開看他的控制器，可惜的是目前的專業知識不夠讓我完全了解他的程式在訴說的事情，雖然都有註解可以查，可能會慢慢的解開一包包在寫的東西。&lt;/p&gt;</summary><category term="python-control"></category></entry><entry><title>Leo Editor 專案的 https 按鈕</title><link href="http://project.mde.tw/blog/leo-editor-zhuan-an-de-https-an-niu.html" rel="alternate"></link><published>2016-12-07T13:29:00+08:00</published><updated>2016-12-07T13:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-07:blog/leo-editor-zhuan-an-de-https-an-niu.html</id><summary type="html">&lt;p&gt;隨著機械設計專題在&lt;a href="yen-ji-jie-she-ji-zhuan-ti-de-jin-duan-yu-yuan-duan.html"&gt;近端與遠端分散式版次管理的需求&lt;/a&gt;, 我們增加在純 IPv6 模式下啟動近端 https 伺服器的按鈕.&lt;/p&gt;
 
 
 &lt;p&gt;IPv4 https 近端伺服器按鈕程式碼:&lt;/p&gt;

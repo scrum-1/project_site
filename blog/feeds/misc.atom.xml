@@ -1,5 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/misc.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-07T13:29:00+08:00</updated><entry><title>Leo Editor 專案的 https 按鈕</title><link href="http://project.mde.tw/blog/leo-editor-zhuan-an-de-https-an-niu.html" rel="alternate"></link><published>2016-12-07T13:29:00+08:00</published><updated>2016-12-07T13:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-07:blog/leo-editor-zhuan-an-de-https-an-niu.html</id><summary type="html">&lt;p&gt;隨著機械設計專題在&lt;a href="yen-ji-jie-she-ji-zhuan-ti-de-jin-duan-yu-yuan-duan.html"&gt;近端與遠端分散式版次管理的需求&lt;/a&gt;, 我們增加在純 IPv6 模式下啟動近端 https 伺服器的按鈕.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/misc.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-08T13:29:00+08:00</updated><entry><title>Windows 環境下的可攜 Eric6 IDE</title><link href="http://project.mde.tw/blog/windows-huan-jing-xia-de-ke-xi-eric6-ide.html" rel="alternate"></link><published>2016-12-08T13:29:00+08:00</published><updated>2016-12-08T13:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-08:blog/windows-huan-jing-xia-de-ke-xi-eric6-ide.html</id><summary type="html">&lt;p&gt;從 &lt;a href="yen-kmol-de-cheng-shi-kai-fa-huan-jing.html"&gt;KMOL 的程式開發環境&lt;/a&gt;, 可知在 2016 年是以 Ubuntu 16.04 操作系統為主, 但是為了在課程中推廣 Python3 與 PyQt5 的應用, 因此特別打造 64 位元 Windows 環境下的 Eric6 可攜程式開發環境.&lt;/p&gt;
+
+
+&lt;p&gt;先安裝 mingw 與 msys, 之後再安裝  sip-4.18.1 、PyQt5_gpl-5.7 與 QScintilla2, eric6, peewee, dxfwrite 等模組, 即可以 eric6 開啟 eric6 開發套件.&lt;/p&gt;
+&lt;p&gt;基本安裝步驟如下:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;從 https://sourceforge.net/projects/mingw-w64/files/latest/download?source=files 下載 mingw-w64-install.exe 安裝後 ,配合其擷取 gcc.exe 路徑, 設為可攜.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://sourceforge.net/projects/mingw/files/MSYS/Base/msys-core/msys-1.0.10/"&gt;msys&lt;/a&gt; 則取用先前可攜舊版本, 放至 y:\msys, 且 make.exe 位於 y:\msys\bin 目錄中.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;從 Anaconda3 目錄中複製 python35.dll 並使用 mingw32\bin 目錄中的 gendef.exe&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;以 gendef python35.dll 建立 python35.def&lt;/p&gt;
+&lt;p&gt;並以 dlltool --dllname python35.dll --def python35.def --output-lib libpython35.a&lt;/p&gt;
+&lt;p&gt;建立編譯 sip 所需的 libpython35.a&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;將 libpython35.a 複製到 Anaconda3\libs 目錄中&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下載 &lt;a href="https://www.riverbankcomputing.com/software/sip/download"&gt;sip-4.18.1 原始碼&lt;/a&gt;, 進入目錄中後以 &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;python configure.py --platform win32-g++&lt;/p&gt;
+&lt;p&gt;configure 後 ,以 make 完成 sip.exe 以及 sip.pyd 建立.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;將 sip.exe 複製到 y:\Anaconda3 目錄中&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;將 sip.pyd 複製到 y:\Anaconda3\Lib\site-packages\ 目錄中&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;將 siplib\sip.h 複製到 y:\Anaconda3\include\ 目錄中&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;將 sip.pyi , sipconfig.py, sipdistutils.py, siputils.py 等檔案, 複製到 y:\Anaconda3\Lib\site-packages\ 目錄中&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;利用 pip install PyQt5 安裝 &lt;a href="https://www.riverbankcomputing.com/software/pyqt/download5"&gt;PyQt5&lt;/a&gt;, 利用 pip install QScintilla 安裝 &lt;a href="https://www.riverbankcomputing.com/software/qscintilla/download"&gt;QScintilla2&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下載 &lt;a href="https://eric-ide.python-projects.org/eric-download.html"&gt;Eric6&lt;/a&gt; 原始碼, 進入目錄後利用&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;python install.py&lt;/p&gt;
+&lt;p&gt;完成 Eric6 安裝, 之後可使用 eric6 啟動&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;利用 conda 安裝 &lt;a href="https://anaconda.org/conda-forge/peewee"&gt;peewee ORM 模組&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;conda install -c conda-forge peewee=2.8.1&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;利用 pip install dxfwrite 安裝模組&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;上述步驟所完成的 Eric6 可攜整合程式開發環境位於 &lt;a href="https://service.mde.tw:8443/downloads/kmol/"&gt;https://service.mde.tw:8443/downloads/kmol/&lt;/a&gt;, 僅支援授權用戶下載.&lt;/p&gt;
+&lt;p&gt;接下來, 為了打包 Python3 與 PyQt5 所建立的程式套件, 利用  conda 安裝 pyinstaller.&lt;/p&gt;
+&lt;p&gt;conda install -c acellera pyinstaller=3.2.3&lt;/p&gt;
+&lt;p&gt;並且利用 pip install cx_freeze  安裝 cx_freeze.&lt;/p&gt;
+&lt;p&gt;打包過程共有兩個步驟:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;pyinstaller -w --onedir launch_pyslvs.py&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;-w 表示要建立 gui 程式套件.&lt;/p&gt;
+&lt;p&gt;所產生的包裝程式位於 dist 目錄中&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;python setup.py build&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;setup.py 內容:&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+from cx_Freeze import setup, Executable
+import sys
+
+build_exe_options = {"packages": ["os"], "includes": ["PyQt5"], "excludes": ["tkinter"]}
+
+base = None
+if sys.platform == "win32":
+    base = "Win32GUI"
+
+setup(
+    name = 'solvespack',
+    version = '1',
+    description = '.',
+    executables=[Executable('launch_pyslvs.py', base=base)],
+    options={"build_exe":build_exe_options},
+)
+&lt;/pre&gt;
+
+&lt;p&gt;所產生的包裝程式位於 build 目錄中.&lt;/p&gt;
+&lt;p&gt;最後, 合併兩個套件所建立的包裝檔案, 並以 Pyinstaller 所產生的 .exe 為主體, 啟動 PyQt5 視窗程式.&lt;/p&gt;</summary><category term="Eric6"></category><category term="PyQt5"></category></entry><entry><title>Leo Editor 專案的 https 按鈕</title><link href="http://project.mde.tw/blog/leo-editor-zhuan-an-de-https-an-niu.html" rel="alternate"></link><published>2016-12-07T13:29:00+08:00</published><updated>2016-12-07T13:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-07:blog/leo-editor-zhuan-an-de-https-an-niu.html</id><summary type="html">&lt;p&gt;隨著機械設計專題在&lt;a href="yen-ji-jie-she-ji-zhuan-ti-de-jin-duan-yu-yuan-duan.html"&gt;近端與遠端分散式版次管理的需求&lt;/a&gt;, 我們增加在純 IPv6 模式下啟動近端 https 伺服器的按鈕.&lt;/p&gt;
 
 
 &lt;p&gt;IPv4 https 近端伺服器按鈕程式碼:&lt;/p&gt;

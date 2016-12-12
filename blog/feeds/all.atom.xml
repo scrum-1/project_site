@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-12T20:00:00+08:00</updated><entry><title>四連桿合成編譯</title><link href="http://project.mde.tw/blog/si-lian-gan-he-cheng-bian-yi.html" rel="alternate"></link><updated>2016-12-12T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-12:blog/si-lian-gan-he-cheng-bian-yi.html</id><summary type="html">&lt;p&gt;平面四連桿尺寸合成研讀&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-12T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/12/12</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051212.html" rel="alternate"></link><updated>2016-12-12T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-12:blog/40323230ri-zhi-1051212.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;諸多錯誤修正&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;葛氏運動鍊：Kernel 校正&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;復原重做功能&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1&gt;Pyslvs 編譯進度&lt;/h1&gt;
+&lt;h2&gt;諸多錯誤修正&lt;/h2&gt;
+&lt;p&gt;之前留下一些大大小小的 Bug，會造成程式在讀取檔案或是新增資料時因錯誤而關閉。&lt;/p&gt;
+&lt;p&gt;花了一些時間測試功能，確定已完成的功能運作流暢。&lt;/p&gt;
+&lt;p&gt;另外還修整了一下界面，避免在 Windows 和 Ubuntu 切換之間發生 Layout 空間延展的問題。&lt;/p&gt;
+&lt;h2&gt;葛氏運動鍊：Kernel 校正&lt;/h2&gt;
+&lt;p&gt;Example 項目中多出了一個 "Grashof chain" 類別，預計加入所有葛氏運動鍊的四連桿範例。&lt;/p&gt;
+&lt;p&gt;也因為當時寫的校正座標指令是以原點為中心點，造成其他象限的中心軸轉動時，旋轉點出現怪異的運算結果。&lt;/p&gt;
+&lt;p&gt;校正繞行圓心時造成中心與旋轉點的位置差，目前座標位置如果比中心還高，基本運行就會流暢，不過如果初始低於圓心，還要加上其他判斷才能修正。&lt;/p&gt;
+&lt;p&gt;提前測試一下學長論文中的近似直線範例：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1212_01.png" /&gt;&lt;/p&gt;
+&lt;h2&gt;復原重做功能&lt;/h2&gt;
+&lt;p&gt;這個部份快要整備好了，但是不知道運作效能如何，也還沒部屬必須紀錄的步驟。&lt;/p&gt;
+&lt;p&gt;仿照 Qt 的方式寫了一個相似的類型（因為 Qt 必須部屬在所有指令上，而且還要另外寫反向命令），並在需要時存入重要資訊，一定的步驟內可還原上次的表格內容。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>四連桿合成編譯</title><link href="http://project.mde.tw/blog/si-lian-gan-he-cheng-bian-yi.html" rel="alternate"></link><updated>2016-12-12T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-12:blog/si-lian-gan-he-cheng-bian-yi.html</id><summary type="html">&lt;p&gt;平面四連桿尺寸合成研讀&lt;/p&gt;
 
 
 &lt;p&gt;已經將學長的code看完RGA(基因演算法)的部分&lt;/p&gt;

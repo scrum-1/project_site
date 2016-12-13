@@ -1,5 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-08T20:00:00+08:00</updated><entry><title>四連桿合成</title><link href="http://project.mde.tw/blog/si-lian-gan-he-cheng.html" rel="alternate"></link><published>2016-12-08T20:00:00+08:00</published><updated>2016-12-08T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-08:blog/si-lian-gan-he-cheng.html</id><summary type="html">&lt;p&gt;平面四連桿尺寸合成研讀&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-12T20:00:00+08:00</updated><entry><title>四連桿合成編譯</title><link href="http://project.mde.tw/blog/si-lian-gan-he-cheng-bian-yi.html" rel="alternate"></link><published>2016-12-12T20:00:00+08:00</published><updated>2016-12-12T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-12:blog/si-lian-gan-he-cheng-bian-yi.html</id><summary type="html">&lt;p&gt;平面四連桿尺寸合成研讀&lt;/p&gt;
+
+
+&lt;p&gt;已經將學長的code看完RGA(基因演算法)的部分&lt;/p&gt;
+&lt;p&gt;學長是使用cython來寫演算法的部分，python主要是程式架構而已，要啟動他必須藉著python找答案&lt;/p&gt;
+&lt;p&gt;GA演算法大致上的作法&lt;/p&gt;
+&lt;p&gt;1.Cp(複製)&lt;/p&gt;
+&lt;p&gt;2.crossower(交配)&lt;/p&gt;
+&lt;p&gt;3.mutate(突變)&lt;/p&gt;
+&lt;p&gt;4.fitness(適應值)&lt;/p&gt;
+&lt;p&gt;5.report(回報)&lt;/p&gt;
+&lt;p&gt;6.getParamValue&lt;/p&gt;
+&lt;p&gt;設定邊界(Ax,Ay) (Dx,Dy) 是兩個fix的座標點的上下界&lt;/p&gt;
+&lt;p&gt;Max upper AX AY DX DY L0 L1 L2 L3 L4&lt;/p&gt;
+&lt;p&gt;Min lower AX AY DX DY L0 L1 L2 L3 L4&lt;/p&gt;
+&lt;p&gt;目標點給的點數，學長的論文裡面是(0,0)到(10,10)的點&lt;/p&gt;
+&lt;p&gt;target path [(x,y)(x1,y1)()()()()()()]&lt;/p&gt;
+&lt;p&gt;all Expression 這項我不懂&lt;/p&gt;
+&lt;p&gt;A,L0,a0,D,B,B,L1,L2,D,C,B,L3,L4,C,E&lt;/p&gt;
+&lt;p&gt;Driving  A 驅動桿&lt;/p&gt;
+&lt;p&gt;Follower D 被動桿&lt;/p&gt;
+&lt;p&gt;Link L0 L1 L2 L3 L4 連接桿&lt;/p&gt;
+&lt;p&gt;connect  L1 連接桿&lt;/p&gt;
+&lt;p&gt;nParm 19 這樣不懂&lt;/p&gt;
+&lt;p&gt;nPop 250  這樣不懂&lt;/p&gt;
+&lt;p&gt;pCross 0.95 交配率&lt;/p&gt;
+&lt;p&gt;pMute 0.05 突變率&lt;/p&gt;
+&lt;p&gt;pWin 0.05  勝率&lt;/p&gt;
+&lt;p&gt;bDelta 5  突變參數&lt;/p&gt;
+&lt;p&gt;maxGen 1500  最大子代&lt;/p&gt;
+&lt;p&gt;report 100  回報週期&lt;/p&gt;
+&lt;p&gt;我目前是在linux上面做，先將cython編譯成so來做連接庫&lt;/p&gt;
+&lt;p&gt;python3 setup.py ext_build &lt;/p&gt;
+&lt;p&gt;做成連結庫，這部分有個問題，我有辦法做成在linux電腦上面都能用的連結庫嗎?
+底下是我的倉儲&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/smpss91341/pyslvs_generate/blob/master"&gt;pyslvs_generate&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;以及我解出來的答案，會有19組 ，我當時猜想會不會是取前9組答案就好，因為後面那些答案我不知道是要做什麼的
+-29.8262,26.5961,-36.8366,3.3764,4.2368,29.9217,9.2923,36.5820,39.4538,59.0497,4                                                                                                                     1.7408,50.1189,34.8905,30.3267,77.2301,85.4167,102.6586,68.3543,94.1729&lt;/p&gt;
+&lt;p&gt;這些答案排版起來就是(Ax,Ay) (Dx,Dy) L0 L1 L2 L3 L4&lt;/p&gt;
+&lt;p&gt;(Ax,Ay)  (-29.8262,26.5961)&lt;/p&gt;
+&lt;p&gt;(Dx,Dy)  (-36.8366,3.3764)&lt;/p&gt;
+&lt;p&gt;L0   4.2368&lt;/p&gt;
+&lt;p&gt;L1  29.9217&lt;/p&gt;
+&lt;p&gt;L2  9.2923&lt;/p&gt;
+&lt;p&gt;L3  36.5820&lt;/p&gt;
+&lt;p&gt;L4  39.4538&lt;/p&gt;
+&lt;p&gt;第10項以後我就不知道要做什麼了，回傳的答案給的，這個是通過
+(1 ,1),(2 ,2),(3 ,3),(4 ,4),(5 ,5),(6 ,6),(7 ,7),(8 ,8),(9 ,9),(10,10) 這些點座標的連桿&lt;/p&gt;</summary><category term="四連桿合成"></category></entry><entry><title>四連桿合成</title><link href="http://project.mde.tw/blog/si-lian-gan-he-cheng.html" rel="alternate"></link><published>2016-12-08T20:00:00+08:00</published><updated>2016-12-08T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-08:blog/si-lian-gan-he-cheng.html</id><summary type="html">&lt;p&gt;平面四連桿尺寸合成研讀&lt;/p&gt;
 
 
 &lt;p&gt;學長的論文裡面包含了許多範例和數學方程式，也有看到可以加到我們的Pyslvs裡面，說不定接下來就可以只靠路徑就把四連桿的樣子做出來。&lt;/p&gt;

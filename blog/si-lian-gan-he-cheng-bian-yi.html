@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>40323250日誌 - V-rep & 3D-Printer - 機械設計專題 (虎尾科大MDE)</title>
+    <title>四連桿合成編譯 - 機械設計專題 (虎尾科大MDE)</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -166,21 +166,21 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 
-<link rel="canonical" href="http://project.mde.tw/blog/40323250ri-zhi-v-rep-3d-printer.html">
+<link rel="canonical" href="http://project.mde.tw/blog/si-lian-gan-he-cheng-bian-yi.html">
 
-        <meta name="author" content="40323250" />
-        <meta name="keywords" content="v-rep&tkinter" />
-        <meta name="description" content="之後的 V-rep模擬Printer都整理於本文章中" />
+        <meta name="author" content="40323123" />
+        <meta name="keywords" content="四連桿合成" />
+        <meta name="description" content="平面四連桿尺寸合成研讀" />
 
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="40323250日誌 - V-rep &amp; 3D-Printer"/>
-        <meta property="og:url" content="http://project.mde.tw/blog/40323250ri-zhi-v-rep-3d-printer.html"/>
-        <meta property="og:description" content="之後的 V-rep模擬Printer都整理於本文章中"/>
-        <meta property="article:published_time" content="2016-07-30" />
-            <meta property="article:section" content="2016bg2" />
-            <meta property="article:tag" content="v-rep&tkinter" />
-            <meta property="article:author" content="40323250" />
+        <meta property="og:title" content="四連桿合成編譯"/>
+        <meta property="og:url" content="http://project.mde.tw/blog/si-lian-gan-he-cheng-bian-yi.html"/>
+        <meta property="og:description" content="平面四連桿尺寸合成研讀"/>
+        <meta property="article:published_time" content="2016-12-12" />
+            <meta property="article:section" content="2016g1" />
+            <meta property="article:tag" content="四連桿合成" />
+            <meta property="article:author" content="40323123" />
 
 
     <!-- Bootstrap -->
@@ -261,10 +261,10 @@ init_mathjax();
                          <li><a href="http://project.mde.tw/blog/pages/about/">
                              About
                           </a></li>
-                        <li class="active">
+                        <li >
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
-                        <li >
+                        <li class="active">
                             <a href="http://project.mde.tw/blog/category/2016g1.html">2016g1</a>
                         </li>
                         <li >
@@ -299,10 +299,10 @@ init_mathjax();
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="http://project.mde.tw/blog/40323250ri-zhi-v-rep-3d-printer.html"
+                    <a href="http://project.mde.tw/blog/si-lian-gan-he-cheng-bian-yi.html"
                        rel="bookmark"
-                       title="Permalink to 40323250日誌 - V-rep & 3D-Printer">
-                        40323250日誌 - V-rep & 3D-Printer
+                       title="Permalink to 四連桿合成編譯">
+                        四連桿合成編譯
                     </a>
                 </h1>
             </header>
@@ -312,175 +312,66 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-07-30T22:10:00+08:00"> 六 30 七月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-12-12T20:00:00+08:00"> 一 12 十二月 2016</time>
     </span>
             <span class="label label-default">By</span>
-            <a href="http://project.mde.tw/blog/author/40323250.html"><i class="fa fa-user"></i> 40323250</a>
+            <a href="http://project.mde.tw/blog/author/40323123.html"><i class="fa fa-user"></i> 40323123</a>
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://project.mde.tw/blog/tag/v-reptkinter.html">v-rep&tkinter</a>
+	<a href="http://project.mde.tw/blog/tag/si-lian-gan-he-cheng.html">四連桿合成</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>之後的 V-rep模擬Printer都整理於本文章中</p>
+                <p>平面四連桿尺寸合成研讀</p>
 
 
-<h3>透過Tkinter介面及remote api 控制printer參數</h3>
-
-<p></br>
-<h3>程式碼</h3></p>
-<pre class="brush: python">
-
-from tkinter import *
-import serial
-import sys
-import numpy as np
-from matplotlib import pyplot, rcParams
-import vrep
-import math
-
-
-
-class printer(Frame):
-    def __init__(self, master=None):
-        Frame.__init__(self, master)
-        self.grid()
-        self.createWidgets()
-
-    def createWidgets(self):
-
-
-
-        Label(pri, text="Axis").grid(column=0, row=0)
-        Label(pri, text="").grid(column=0, row=1)
-        Label(pri, text="X").grid(column=0, row=2)
-        Label(pri, text="").grid(column=0, row=3)
-        Label(pri, text="Y").grid(column=0, row=4)
-        Label(pri, text="").grid(column=0, row=5)
-        Label(pri, text="Z").grid(column=0, row=6)
-
-        Label(pri, text="Position").grid(column=1, row=0)
-        Label(pri, text="-125<=X<=125").grid(column=1, row=1)
-        Label(pri, text="-125<=Y<=125").grid(column=1, row=3)
-        Label(pri, text="0<=Z<=400").grid(column=1, row=5)
-
-        a = Entry(pri, width=12, justify=RIGHT)
-        b = Entry(pri, width=12, justify=RIGHT)
-        c = Entry(pri, width=12, justify=RIGHT)
-                #x.delete(0,END)
-                #y.delete(0,END)
-        a.grid(row=2, column=1)
-        b.grid(row=4, column=1)
-        c.grid(row=6, column=1)
-
-
-        def show_entry_fields():
-
-            deg = math.pi/180
-
-            x = a.get()
-            y = b.get()
-            z = c.get()
-
-            if x =='' or y==''or z =='':
-                x = 0
-                y = 0
-                z = 0
-                print("Error")
-
-            else:
-                x = float(a.get())
-                y = float(b.get())
-                z = float(c.get())
-
-
-                if float(x) >= 125:
-                    x = 125
-                    print("X_axis is out of range")
-                if float(y) >= 125:
-                    y = 125
-                    print("Y_axis is out of range")
-                if float(z) >= 400:
-                    z = 400     
-                    print("Z_axis is out of range")
-                if float(x) <= -125:
-                    x = -125
-                    print("X_axis is out of range")
-                if float(y) <= -125:
-                    y = -125
-                    print("Y_axis is out of range")
-                if float(z) < 0:
-                    z = 0
-                    print("Z_axis is out of range")
-
-                if (float(x) <= -125*math.sin(30*deg)) & (float(y) >= 125*math.cos(30*deg)):
-                    x = -125*math.sin(30*deg)
-                    y = 125*math.cos(30*deg)
-
-                if (float(x) <= -125*math.sin(30*deg)) & (float(y) <= -125*math.cos(30*deg)):
-                    x = -125*math.sin(30*deg)
-                    y = -125*math.cos(30*deg)
-
-                if (float(x) >= 125*math.sin(30*deg)) & (float(y) >= 125*math.cos(30*deg)):
-                    x = 125*math.sin(30*deg)
-                    y = 125*math.cos(30*deg)
-
-                if (float(x) >= -125*math.sin(30*deg)) & (float(y) <= -125*math.cos(30*deg)):
-                    x = 125*math.sin(30*deg)
-                    y = -125*math.cos(30*deg)
-
-
-                e=x/1000
-                r=y/1000
-                t=z/889
-                if t <= 0.11656:
-                    t = t+0.11656
-
-
-                vrep.simxFinish(-1)
-                clientID = vrep.simxStart('127.0.0.1', 19999, True, True, 5000, 5)
-                if clientID!= -1:
-                    print("Connected to remote server")
-                else:
-                    print('Connection not successful')
-                    sys.exit('Could not connect')
-                errorCode,plate=vrep.simxGetObjectHandle(clientID,'plate',vrep.simx_opmode_oneshot_wait)
-                if errorCode == -1:
-                    print('Can not find left or right motor')
-                    sys.exit()                
-                errorCode=vrep.simxSetObjectPosition(clientID,plate,-1,[e,r,t], vrep.simx_opmode_oneshot)
-                print(x,y,z)
-
-
-                #print("%s,%s,%s" % (x, y, z))
-
-
-        Button(pri, text='Quit', width=5, command=pri.quit).grid(row=8, column=2, sticky=W, pady=4)
-        Button(pri, text='Go', width=5, command=show_entry_fields).grid(row=8, column=0, sticky=W, pady=4)
-
-
-
-if __name__ == '__main__':
-    pri = Tk()
-    pri.title("Printer")
-    pri.geometry('180x220');  #設定視窗大小
-    pri.resizable(0, 0) #鎖定視窗大小
-    app = printer(master=pri)
-
-    app.mainloop()
-
-
-#print(x,y,z)
-
-</pre>
-
-<p></br>
-<p><a href="https://github.com/coursemdetw/project_site/blob/gh-pages/users/g2_files/printer_final.ttt?raw=true">printer_final.ttt</a></p>
-</br>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/UhC2eP_vbrA" frameborder="0" allowfullscreen></iframe>
-</br></p>
+<p>已經將學長的code看完RGA(基因演算法)的部分</p>
+<p>學長是使用cython來寫演算法的部分，python主要是程式架構而已，要啟動他必須藉著python找答案</p>
+<p>GA演算法大致上的作法</p>
+<p>1.Cp(複製)</p>
+<p>2.crossower(交配)</p>
+<p>3.mutate(突變)</p>
+<p>4.fitness(適應值)</p>
+<p>5.report(回報)</p>
+<p>6.getParamValue</p>
+<p>設定邊界(Ax,Ay) (Dx,Dy) 是兩個fix的座標點的上下界</p>
+<p>Max upper AX AY DX DY L0 L1 L2 L3 L4</p>
+<p>Min lower AX AY DX DY L0 L1 L2 L3 L4</p>
+<p>目標點給的點數，學長的論文裡面是(0,0)到(10,10)的點</p>
+<p>target path [(x,y)(x1,y1)()()()()()()]</p>
+<p>all Expression 這項我不懂</p>
+<p>A,L0,a0,D,B,B,L1,L2,D,C,B,L3,L4,C,E</p>
+<p>Driving  A 驅動桿</p>
+<p>Follower D 被動桿</p>
+<p>Link L0 L1 L2 L3 L4 連接桿</p>
+<p>connect  L1 連接桿</p>
+<p>nParm 19 這樣不懂</p>
+<p>nPop 250  這樣不懂</p>
+<p>pCross 0.95 交配率</p>
+<p>pMute 0.05 突變率</p>
+<p>pWin 0.05  勝率</p>
+<p>bDelta 5  突變參數</p>
+<p>maxGen 1500  最大子代</p>
+<p>report 100  回報週期</p>
+<p>我目前是在linux上面做，先將cython編譯成so來做連接庫</p>
+<p>python3 setup.py ext_build </p>
+<p>做成連結庫，這部分有個問題，我有辦法做成在linux電腦上面都能用的連結庫嗎?
+底下是我的倉儲</p>
+<p><a href="https://github.com/smpss91341/pyslvs_generate/blob/master">pyslvs_generate</a></p>
+<p>以及我解出來的答案，會有19組 ，我當時猜想會不會是取前9組答案就好，因為後面那些答案我不知道是要做什麼的
+-29.8262,26.5961,-36.8366,3.3764,4.2368,29.9217,9.2923,36.5820,39.4538,59.0497,4                                                                                                                     1.7408,50.1189,34.8905,30.3267,77.2301,85.4167,102.6586,68.3543,94.1729</p>
+<p>這些答案排版起來就是(Ax,Ay) (Dx,Dy) L0 L1 L2 L3 L4</p>
+<p>(Ax,Ay)  (-29.8262,26.5961)</p>
+<p>(Dx,Dy)  (-36.8366,3.3764)</p>
+<p>L0   4.2368</p>
+<p>L1  29.9217</p>
+<p>L2  9.2923</p>
+<p>L3  36.5820</p>
+<p>L4  39.4538</p>
+<p>第10項以後我就不知道要做什麼了，回傳的答案給的，這個是通過
+(1 ,1),(2 ,2),(3 ,3),(4 ,4),(5 ,5),(6 ,6),(7 ,7),(8 ,8),(9 ,9),(10,10) 這些點座標的連桿</p>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -492,8 +383,8 @@ if __name__ == '__main__':
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'projectmdetw'; // required: replace example with your forum shortname
 
-                    var disqus_identifier = '40323250ri-zhi-v-rep-3d-printer';
-                var disqus_url = 'http://project.mde.tw/blog/40323250ri-zhi-v-rep-3d-printer.html';
+                    var disqus_identifier = 'si-lian-gan-he-cheng-bian-yi';
+                var disqus_url = 'http://project.mde.tw/blog/si-lian-gan-he-cheng-bian-yi.html';
 
             var disqus_config = function () {
                 this.language = "en";

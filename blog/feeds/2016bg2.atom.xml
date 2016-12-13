@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-12T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/12/12</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051212.html" rel="alternate"></link><published>2016-12-12T21:00:00+08:00</published><updated>2016-12-12T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-12:blog/40323230ri-zhi-1051212.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-13T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/12/13</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051213.html" rel="alternate"></link><published>2016-12-13T21:00:00+08:00</published><updated>2016-12-13T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-13:blog/40323230ri-zhi-1051213.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;捷徑功能&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;驅動軸相關&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Kernel 其他修正&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1&gt;Pyslvs 編譯進度&lt;/h1&gt;
+&lt;h2&gt;捷徑功能&lt;/h2&gt;
+&lt;p&gt;現在所有表格在項目上雙擊滑鼠左鍵，可以編輯該項目內容。&lt;/p&gt;
+&lt;p&gt;而在衝突導致解題失敗時，DOF 的欄位會顯示 "Failed" 字樣，標籤也會改成粗體紅字。&lt;/p&gt;
+&lt;p&gt;之後會再審視不方便的操作方式以改進。&lt;/p&gt;
+&lt;h2&gt;驅動軸相關&lt;/h2&gt;
+&lt;p&gt;改善關於驅動軸相關的功能，並且改成只能驅動 DOF 為 1 的機構。&lt;/p&gt;
+&lt;p&gt;目前畫面上顯示的解為 Shaft0 的 Demo Angle 的解，而要切換驅動軸，可以右鍵選單中的上移與下移功能，移到 Shaft0 位置的就會套用 Demo Angle 的約束；目前只剩驅動軸和參數表格有上移與下移的選項。&lt;/p&gt;
+&lt;p&gt;另外驅動軸面板的切換選單可以暫時套用選定軸的 Demo Angle 約束，關閉面板後會切回 Shaft0 的約束。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1213_01.png" /&gt;&lt;/p&gt;
+&lt;p&gt;在 Path Track 功能中，用了一組選擇驅動軸的介面，不過還沒連接 function，在預設的選項中只有 Shaft0，調成 All 後將會解出所有驅動軸帶動的路徑。&lt;/p&gt;
+&lt;p&gt;設計好驅動軸的功能後，大致上就能解所有 DOF 為 1 的純連桿機構路徑了；而驅動滑塊的功能還待加入。&lt;/p&gt;
+&lt;h2&gt;Kernel 其他修正&lt;/h2&gt;
+&lt;p&gt;Grashof chain 範例已經全數加入，不過因為 Kernel 問題，某些範例的路徑追蹤點必須重新繪製。&lt;/p&gt;
+&lt;p&gt;與驅動軸旋轉點相依的其他點，初始值也必須做修正，不然在轉到 180 度之後，會造成其他點因為旋轉點初始位置修正，造成機構反折的狀況。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/12/12</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051212.html" rel="alternate"></link><published>2016-12-12T21:00:00+08:00</published><updated>2016-12-12T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-12:blog/40323230ri-zhi-1051212.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;諸多錯誤修正&lt;/p&gt;

@@ -1,5 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-13T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/12/13</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051213.html" rel="alternate"></link><published>2016-12-13T21:00:00+08:00</published><updated>2016-12-13T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-13:blog/40323230ri-zhi-1051213.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-14T21:00:00+08:00</updated><entry><title>40323230日誌 - 105/12/14</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051214.html" rel="alternate"></link><published>2016-12-14T21:00:00+08:00</published><updated>2016-12-14T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-14:blog/40323230ri-zhi-1051214.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;路徑追蹤 - 驅動軸&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;大二專題網站&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Pyslvs 編譯進度&lt;/h1&gt;
+&lt;h2&gt;路徑追蹤 - 驅動軸&lt;/h2&gt;
+&lt;p&gt;路徑追蹤功能已經可以將所有驅動軸旋轉的座標路徑一齊算出。&lt;/p&gt;
+&lt;p&gt;之後會再修正畫面的呈現，因為還沒有類似遮罩的功能，無法分辨對應的驅動軸。&lt;/p&gt;
+&lt;p&gt;預計將 Shaft0 的路徑彩色顯示（對應機構點的顏色），其他驅動的路徑以灰色顯示；而且外觀會隨著上移和下移驅動軸表格而變。&lt;/p&gt;
+&lt;p&gt;至於 QGraphicsView 畫布的測試仍須一段時間，找不太到可互動的畫布範例，PyQt 的範例也更少；而 Python CAD 的物件類型分滿細的，在繼承方面比較難找些。&lt;/p&gt;
+&lt;h1&gt;大二專題網站&lt;/h1&gt;
+&lt;p&gt;今天讓學弟建了倉儲來存放未來網誌的文章，並稍微講解 Python 程式常用規則，想請教老師下學期專題網站的建立。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/12/13</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051213.html" rel="alternate"></link><published>2016-12-13T21:00:00+08:00</published><updated>2016-12-13T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-13:blog/40323230ri-zhi-1051213.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;捷徑功能&lt;/p&gt;

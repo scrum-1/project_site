@@ -20,7 +20,11 @@
 &lt;p&gt;但是當我們操作 git merge --no-ff scrum-1-gh-pages 指令時, git 無法自動合並許多有差異的 html 檔案, 這時就必須再利用近端與遠端轉檔按鈕進行內容轉檔與查驗之後, 就可以:&lt;/p&gt;
 &lt;p&gt;git add -A&lt;/p&gt;
 &lt;p&gt;git commit -m "提交註記"&lt;/p&gt;
-&lt;p&gt;git push origin gh-pages&lt;/p&gt;</summary><category term="Leo Editor"></category><category term="Pull Requests"></category></entry><entry><title>以 Pull Requests 參與網誌編輯</title><link href="http://project.mde.tw/blog/yi-pull-requests-can-yu-wang-zhi-bian-ji.html" rel="alternate"></link><published>2016-12-15T09:00:00+08:00</published><updated>2016-12-15T09:00:00+08:00</updated><author><name>scrum1</name></author><id>tag:project.mde.tw,2016-12-15:blog/yi-pull-requests-can-yu-wang-zhi-bian-ji.html</id><summary type="html">&lt;p&gt;&lt;a href="https://help.github.com/articles/about-pull-requests/"&gt;Pull Requests&lt;/a&gt; 是一種間接 git 倉儲改版的模式. 在此展示如何利用 github 的拉回請求, 以及 Leo Editor 專案檔案的建立, 對機械設計專題網誌新增文章.&lt;/p&gt;
+&lt;p&gt;之後再執行:&lt;/p&gt;
+&lt;p&gt;git checkout gh-pages&lt;/p&gt;
+&lt;p&gt;git merge --no-ff scrum-1-gh-pages&lt;/p&gt;
+&lt;p&gt;表示要簽出 gh-pages 分支版本, 然後與 scrum-1-gh-pages 進行 no fast-forward 合併.&lt;/p&gt;
+&lt;p&gt;完成後, 再進行最後的近端轉檔查驗, 以及遠端的轉檔後, 就可將 gh-pages 分支版本提交推送.&lt;/p&gt;</summary><category term="Leo Editor"></category><category term="Pull Requests"></category></entry><entry><title>以 Pull Requests 參與網誌編輯</title><link href="http://project.mde.tw/blog/yi-pull-requests-can-yu-wang-zhi-bian-ji.html" rel="alternate"></link><published>2016-12-15T09:00:00+08:00</published><updated>2016-12-15T09:00:00+08:00</updated><author><name>scrum1</name></author><id>tag:project.mde.tw,2016-12-15:blog/yi-pull-requests-can-yu-wang-zhi-bian-ji.html</id><summary type="html">&lt;p&gt;&lt;a href="https://help.github.com/articles/about-pull-requests/"&gt;Pull Requests&lt;/a&gt; 是一種間接 git 倉儲改版的模式. 在此展示如何利用 github 的拉回請求, 以及 Leo Editor 專案檔案的建立, 對機械設計專題網誌新增文章.&lt;/p&gt;
 
 
 &lt;h3&gt;Fork 倉儲&lt;/h3&gt;

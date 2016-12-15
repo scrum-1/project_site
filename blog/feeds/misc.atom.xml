@@ -20,7 +20,11 @@
 &lt;p&gt;但是當我們操作 git merge --no-ff scrum-1-gh-pages 指令時, git 無法自動合並許多有差異的 html 檔案, 這時就必須再利用近端與遠端轉檔按鈕進行內容轉檔與查驗之後, 就可以:&lt;/p&gt;
 &lt;p&gt;git add -A&lt;/p&gt;
 &lt;p&gt;git commit -m "提交註記"&lt;/p&gt;
-&lt;p&gt;git push origin gh-pages&lt;/p&gt;</summary><category term="Leo Editor"></category><category term="Pull Requests"></category></entry><entry><title>Windows 環境下的可攜 Eric6 IDE</title><link href="http://project.mde.tw/blog/windows-huan-jing-xia-de-ke-xi-eric6-ide.html" rel="alternate"></link><published>2016-12-08T13:29:00+08:00</published><updated>2016-12-08T13:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-08:blog/windows-huan-jing-xia-de-ke-xi-eric6-ide.html</id><summary type="html">&lt;p&gt;從 &lt;a href="yen-kmol-de-cheng-shi-kai-fa-huan-jing.html"&gt;KMOL 的程式開發環境&lt;/a&gt;, 可知在 2016 年是以 Ubuntu 16.04 操作系統為主, 但是為了在課程中推廣 Python3 與 PyQt5 的應用, 因此特別打造 64 位元 Windows 環境下的 Eric6 可攜程式開發環境.&lt;/p&gt;
+&lt;p&gt;之後再執行:&lt;/p&gt;
+&lt;p&gt;git checkout gh-pages&lt;/p&gt;
+&lt;p&gt;git merge --no-ff scrum-1-gh-pages&lt;/p&gt;
+&lt;p&gt;表示要簽出 gh-pages 分支版本, 然後與 scrum-1-gh-pages 進行 no fast-forward 合併.&lt;/p&gt;
+&lt;p&gt;完成後, 再進行最後的近端轉檔查驗, 以及遠端的轉檔後, 就可將 gh-pages 分支版本提交推送.&lt;/p&gt;</summary><category term="Leo Editor"></category><category term="Pull Requests"></category></entry><entry><title>Windows 環境下的可攜 Eric6 IDE</title><link href="http://project.mde.tw/blog/windows-huan-jing-xia-de-ke-xi-eric6-ide.html" rel="alternate"></link><published>2016-12-08T13:29:00+08:00</published><updated>2016-12-08T13:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-08:blog/windows-huan-jing-xia-de-ke-xi-eric6-ide.html</id><summary type="html">&lt;p&gt;從 &lt;a href="yen-kmol-de-cheng-shi-kai-fa-huan-jing.html"&gt;KMOL 的程式開發環境&lt;/a&gt;, 可知在 2016 年是以 Ubuntu 16.04 操作系統為主, 但是為了在課程中推廣 Python3 與 PyQt5 的應用, 因此特別打造 64 位元 Windows 環境下的 Eric6 可攜程式開發環境.&lt;/p&gt;
 
 
 &lt;p&gt;先安裝 mingw 與 msys, 之後再安裝  sip-4.18.1 、PyQt5_gpl-5.7 與 QScintilla2, eric6, peewee, dxfwrite 等模組, 即可以 eric6 開啟 eric6 開發套件.&lt;/p&gt;

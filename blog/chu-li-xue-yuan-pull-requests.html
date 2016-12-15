@@ -177,8 +177,25 @@
                 <p>因為之前處理 scrum-1 pull requests 的合併, 直接在 github 網站上執行, 只是 scrum-1 所提交的版本為近端網誌版本, 因此這裡必須 git pull 後, 進行改版, 並且檢查無誤後, 改提交遠端版本.</p>
 
 
+<h3>直接合併</h3>
 <p>首先在近端新增目前這篇網誌 .md 檔案, 利用 local-pelican 與 https-server 在近端檢查網誌內容.</p>
 <p>檢查無誤後, 利用 gh-pages-pelican 按鈕轉為遠端網誌格式之後, 提交推送.</p>
+<h3>無法直接合併</h3>
+<p>當 scrum-1 所送出的 pull requests 無法直接在線上合併時, github 建議:</p>
+<p>git checkout -b scrum-1-gh-pages gh-pages</p>
+<p>git pull https://github.com/scrum-1/project_site.git gh-pages</p>
+<p>表示要將目前倉儲中的 gh-pages 簽出到 scrum-1-gh-pages 分支後, 拉回 scrum-1 目前的版本.</p>
+<p>接著則改版目前這篇網誌內容, 並且利用近端 local-pelican 按鈕轉檔後檢視.</p>
+<p>確定沒有問題之後, 改用 gh-pages-pelican 按鈕轉為遠端格式.</p>
+<p>至於版本的提交推送, github 建議:</p>
+<p>git checkout gh-pages</p>
+<p>git merge --no-ff scrum-1-gh-pages</p>
+<p>git push origin gh-pages</p>
+<p>表示要將近端倉儲的分支簽回 gh-pages, 然後合併 scrum-1-gh-pages 分支, 且以 no fast-forward 的方式進行合併. 最後再將近端 gh-pages 分支版本提交推送到遠端.</p>
+<p>但是當我們操作 git merge --no-ff scrum-1-gh-pages 指令時, git 無法自動合並許多有差異的 html 檔案, 這時就必須再利用近端與遠端轉檔按鈕進行內容轉檔與查驗之後, 就可以:</p>
+<p>git add -A</p>
+<p>git commit -m "提交註記"</p>
+<p>git push origin gh-pages</p>
             </div>
             <!-- /.entry-content -->
     <hr/>

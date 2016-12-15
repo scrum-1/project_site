@@ -3,7 +3,7 @@
 
 
 &lt;h3&gt;Fork 倉儲&lt;/h3&gt;
-&lt;p&gt;系望使用 Github 的 Pull Requests 功能, 必須在 github 系統中, 先登記用戶帳號, 啟用帳號後登入, 然後以瀏覽器連線到希望 Pull Requests 的倉儲網址, 利用 fork 功能, 將該倉儲"互刻"(所謂互刻, 就是一種互相具有連結關係的倉儲複刻) 到所登錄的 github 帳號下.&lt;/p&gt;
+&lt;p&gt;希望使用 Github 的 Pull Requests 功能, 必須在 github 系統中, 先登記用戶帳號, 啟用帳號後登入, 然後以瀏覽器連線到希望 Pull Requests 的倉儲網址, 利用 fork 功能, 將該倉儲"互刻"(所謂互刻, 就是一種互相具有連結關係的倉儲複刻) 到所登錄的 github 帳號下.&lt;/p&gt;
 &lt;p&gt;接下來則建議對於該 forked (互刻) 的倉儲, 儘量 git clone 到近端改版之外, 並且每間隔一段時間, 利用 github 所提供的"反向 pull requests", 保持與原始倉儲版本的同步, 避免因版本差異過大的情況下, 提出 Pull Requests, 而提高合併衝突的困難度.&lt;/p&gt;
 &lt;p&gt;如前所述, 這篇網誌是由 github 帳號 scrum-1 所建立, 截至目前, scrum-1 用戶已經完成 fork project_site 倉儲的動作, 而且以 git clone 將機械設計專題複製到近端改版. 而改版前的第一要務就是確認近端倉儲所在的分支.&lt;/p&gt;
 &lt;h3&gt;切換分支&lt;/h3&gt;

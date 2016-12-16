@@ -1,5 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/misc.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-15T11:29:00+08:00</updated><entry><title>處理學員 pull requests</title><link href="http://project.mde.tw/blog/chu-li-xue-yuan-pull-requests.html" rel="alternate"></link><published>2016-12-15T11:29:00+08:00</published><updated>2016-12-15T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-15:blog/chu-li-xue-yuan-pull-requests.html</id><summary type="html">&lt;p&gt;因為之前處理 scrum-1 pull requests 的合併, 直接在 github 網站上執行, 只是 scrum-1 所提交的版本為近端網誌版本, 因此這裡必須 git pull 後, 進行改版, 並且檢查無誤後, 改提交遠端版本.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/misc.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-17T11:29:00+08:00</updated><entry><title>CADLAB 舊電腦的處理</title><link href="http://project.mde.tw/blog/cadlab-jiu-dian-nao-de-chu-li.html" rel="alternate"></link><published>2016-12-17T11:29:00+08:00</published><updated>2016-12-17T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-17:blog/cadlab-jiu-dian-nao-de-chu-li.html</id><summary type="html">&lt;p&gt;2016 年暑假從 &lt;a href="http://cadlab.mde.tw"&gt;CADLAB&lt;/a&gt; 汰換下來的舊電腦, CPU 型號為 &lt;a href="http://ark.intel.com/zh-tw/products/37212/Intel-Pentium-Processor-E5200-2M-Cache-2_50-GHz-800-MHz-FSB"&gt;Intel E5200&lt;/a&gt;, 因為並不支援 Intel 虛擬化技術, 因此建議直接安裝 Ubuntu 16.04.1 + ubuntu-desktop, 當作實體的 Server 使用.&lt;/p&gt;
+
+
+&lt;h3&gt;安裝 LTS Server 與 ubuntu-desktop&lt;/h3&gt;
+&lt;p&gt;處理的步驟為:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;移除 PCI 插槽上的還原卡與主機版上的電池, 以便清除 BIOS 上原有的保護設定.&lt;/li&gt;
+&lt;li&gt;裝回電池後, 將記憶體從原先的 4GB 增為 8GB, 硬碟從原先 500 GB, 加掛至兩個 500 GB (RAM 與硬碟可以從其他舊電腦取用, 每兩台舊電腦拼成一台伺服器使用).&lt;/li&gt;
+&lt;li&gt;啟動時按下 del 鍵, 進入 BIOS 設定, 移除機殼開啟警示設定, 並確定斷電回復後電腦會主動開機.&lt;/li&gt;
+&lt;li&gt;利用其他電腦下載 Ubuntu 16.04.1 Server 程式, 燒錄成啟動光碟.&lt;/li&gt;
+&lt;li&gt;安裝過程無需上網, 安裝完成後依照&lt;a href="http://cadlab.mde.tw/post/ubuntu-1604-windows-7-yu-windows-10-xu-ni-ji-qi.html"&gt;參考說明&lt;/a&gt;、&lt;a href="http://cadlab.mde.tw/post/ji-jie-she-ji-gong-cheng-xi-ipv6-wang-zhi-fen-pei.html"&gt;IPV6 網址分配&lt;/a&gt;與&lt;a href="tag/wang-lu.html"&gt;網路導引&lt;/a&gt;設定 IPv6 網路, 並且安裝 ubuntu-desktop 套件.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;/etc/network/interfaces 參考設定:&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+auto lo
+iface lo inet loopback
+
+auto eth0
+
+iface eth0 inet6 static
+address 2001:288:6004:17::XX
+netmask 64
+gateway 2001:288:6004:17::254
+dns-nameservers 2001:288:6004:1::2 2001:b000:168::1
+&lt;/pre&gt;
+
+&lt;h3&gt;安裝 squid 代理主機伺服程式&lt;/h3&gt;
+&lt;p&gt;查驗電腦的記憶體, 確定至少有 8GB.&lt;/p&gt;
+&lt;p&gt;grep MemTotal /proc/meminfo to check Ram size&lt;/p&gt;
+&lt;p&gt;接著安裝設定 squid:&lt;/p&gt;
+&lt;p&gt;sudo apt install squid&lt;/p&gt;
+&lt;p&gt;sudo gedit /etc/squid/squid.conf&lt;/p&gt;
+&lt;p&gt;sudo service squid restart&lt;/p&gt;
+&lt;p&gt;squid.conf 參考設定:&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+acl cad_lab src 140.130.17.0/24
+acl cad_lab src 2001:288:6004:17::/64
+
+acl SSL_ports port 443
+acl Safe_ports port 80 # http
+acl Safe_ports port 88
+
+#acl Safe_ports port 21 # ftp
+acl SSL_ports port 8443
+acl Safe_ports port 8443
+
+acl SSL_ports port 9443
+acl Safe_ports port 9443
+
+acl SSL_ports port 22
+acl Safe_ports port 22
+
+acl Safe_ports port 443 # https
+acl Safe_ports port 1025-65535 # unregistered ports
+acl Safe_ports port 280 # http-mgmt
+acl Safe_ports port 488 # gss-http
+acl Safe_ports port 591 # filemaker
+acl Safe_ports port 777 # multiling http
+acl CONNECT method CONNECT
+
+# Deny requests to certain unsafe ports
+http_access deny !Safe_ports
+
+# Deny CONNECT to other than secure SSL ports
+http_access deny CONNECT !SSL_ports
+
+http_access allow cad_lab
+http_access deny all
+# Only allow cachemgr access from localhost
+http_access allow localhost manager
+http_access deny manager
+
+#http_access allow localnet
+http_access allow localhost
+
+# And finally deny all other access to this proxy
+http_access deny all
+
+# Squid normally listens to port 3128
+http_port 3128
+
+#cache_dir ufs /var/spool/squid 100 16 256
+icp_port 3130
+icp_access allow all
+
+cache_dir ufs /var/spool/squid 2000 16 256
+cache_peer 140.130.17.2 sibling 3128 3130
+
+#
+# Add any of your own refresh_pattern entries above these.
+#
+refresh_pattern ^ftp: 1440 20% 10080
+refresh_pattern ^gopher: 1440 0% 1440
+refresh_pattern -i (/cgi-bin/|\?) 0 0% 0
+refresh_pattern (Release|Packages(.gz)*)$ 0 20% 2880
+refresh_pattern . 0 20% 4320
+&lt;/pre&gt;
+
+&lt;h3&gt;配置 nginx 與 uwsgi 伺服環境&lt;/h3&gt;
+&lt;p&gt;接下來就可以安裝並配置 Python3 的網際程式伺服環境.&lt;/p&gt;
+&lt;p&gt;sudo apt install python3-pip&lt;/p&gt;
+&lt;p&gt;sudo pip3 install Flask&lt;/p&gt;
+&lt;p&gt;sudo apt install build-essential python3-dev&lt;/p&gt;
+&lt;p&gt;sudo pip3 install uwsgi&lt;/p&gt;
+&lt;p&gt;sudo apt install nginx uwsgi-plugin-python3&lt;/p&gt;
+&lt;p&gt;/etc/nginx/sites-availables/default 設定檔:&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+ server {
+    listen 80 default_server;
+    #listen [::]:80 default_server ipv6only=on;
+
+    listen 443 ssl;
+    #listen [::]:443 ssl ipv6only=on;
+
+    location /static {
+        alias /home/cadlab/cmsimfly/static/;
+    }
+
+    location / {
+        include uwsgi_params;
+        uwsgi_pass  127.0.0.1:8080;
+    }
+
+    server_name localhost;
+    #ssl on;
+    ssl_certificate /etc/nginx/ssl/nginx.crt;
+    ssl_certificate_key /etc/nginx/ssl/nginx.key;
+    ssl_session_timeout 5m;
+    ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers "HIGH:!aNULL:!MD5 or HIGH:!aNULL:!MD5:!3DES";
+    ssl_prefer_server_ciphers on;
+    try_files $uri $uri/ =404;
+}
+
+server {
+    listen 88 default_server;
+    #listen [::]:88 default_server ipv6only=on;
+
+    listen 8443 ssl;
+    #listen [::]:8443 ssl ipv6only=on;
+
+    location /static {
+        alias /home/cadlab/cmsimfly2/static/;
+    }
+
+    location / {
+        include uwsgi_params;
+        uwsgi_pass  127.0.0.1:8081;
+    }
+
+    server_name localhost;
+    #ssl on;
+    ssl_certificate /etc/nginx/ssl/nginx.crt;
+    ssl_certificate_key /etc/nginx/ssl/nginx.key;
+    ssl_session_timeout 5m;
+    ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers "HIGH:!aNULL:!MD5 or HIGH:!aNULL:!MD5:!3DES";
+    ssl_prefer_server_ciphers on;
+    try_files $uri $uri/ =404;
+}
+&lt;/pre&gt;
+
+&lt;p&gt;利用 /etc/rc.local 開機時啟動所有 uwsgi 程式:&lt;/p&gt;
+&lt;p&gt;exec uwsgi_python35 --uid cadlab --gid cadlab --emperor /home/cadlab/uwsgi_ini&lt;/p&gt;
+&lt;p&gt;/home/cadlab/uwsgi_ini/uwsgi.ini 設定檔案內容:&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+[uwsgi]
+socket = 127.0.0.1:8080 
+plugins-dir = /usr/lib/uwsgi/plugins/
+plugin = python3
+processes = 4
+threads = 2
+chdir = /home/cadlab/cmsimfly
+wsgi-file = /home/cadlab/cmsimfly/wsgi.py
+&lt;/pre&gt;
+
+&lt;p&gt;/home/cadlab/uwsgi_ini/uwsgi2.ini 設定檔案內容:&lt;/p&gt;
+&lt;pre class="brush:python"&gt;
+[uwsgi]
+socket = 127.0.0.1:8081 
+plugins-dir = /usr/lib/uwsgi/plugins/
+plugin = python3
+processes = 4
+threads = 2
+chdir = /home/cadlab/cmsimfly2
+wsgi-file = /home/cadlab/cmsimfly2/wsgi.py
+&lt;/pre&gt;</summary><category term="cadlab"></category><category term="pc"></category><category term="uwsgi"></category><category term="nginx"></category></entry><entry><title>處理學員 pull requests</title><link href="http://project.mde.tw/blog/chu-li-xue-yuan-pull-requests.html" rel="alternate"></link><published>2016-12-15T11:29:00+08:00</published><updated>2016-12-15T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-15:blog/chu-li-xue-yuan-pull-requests.html</id><summary type="html">&lt;p&gt;因為之前處理 scrum-1 pull requests 的合併, 直接在 github 網站上執行, 只是 scrum-1 所提交的版本為近端網誌版本, 因此這裡必須 git pull 後, 進行改版, 並且檢查無誤後, 改提交遠端版本.&lt;/p&gt;
 
 
 &lt;h3&gt;直接合併&lt;/h3&gt;

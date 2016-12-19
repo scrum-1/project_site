@@ -96,7 +96,7 @@ print(a) #[0, 1, 2, 3, [0, 1, 2]]
 &lt;p&gt;完全的複製資料，會透過紀錄位址盡可能的將目標值搜尋回來，建立在新的記憶區中，複製出來的項目已經和原本的資料完全不一樣了。&lt;/p&gt;
 &lt;h2&gt;自訂 class 的比較&lt;/h2&gt;
 &lt;pre class="brush: python"&gt;
-form copy import copy, deepcopy
+from copy import copy, deepcopy
 
 class foo():
     def __init__(self, mylist):

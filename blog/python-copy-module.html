@@ -229,7 +229,7 @@ print(a) #[0, 1, 2, 3, 4]
 a = [0, 1, 2, 3, [0, 1, 2]]
 b = a[:] #使用了分割器，但是不分割
 b[1] = 'x'
-b[4][1] = 'x'
+b[4][2] = 'x'
 print(b) #[0, 'x', 2, 3, [0, 1, 'x']]
 print(a) #[0, 1, 2, 3, [0, 1, 'x']]
 </pre>
@@ -251,7 +251,7 @@ deepCopy = copy.deepcopy(a)
 <h2>淺層複製</h2>
 <pre class="brush: python">
 shallowCopy[1] = 'x'
-shallowCopy[4][1] = 'x'
+shallowCopy[4][2] = 'x'
 print(shallowCopy) #[0, 'x', 2, 3, [0, 1, 'x']]
 print(a) #[0, 1, 2, 3, [0, 1, 'x']]
 </pre>
@@ -260,7 +260,7 @@ print(a) #[0, 1, 2, 3, [0, 1, 'x']]
 <h2>深層複製</h2>
 <pre class="brush: python">
 deepCopy[1] = 'x'
-deepCopy[4][1] = 'x'
+deepCopy[4][2] = 'x'
 print(deepCopy) #[0, 'x', 2, 3, [0, 1, 'x']]
 print(a) #[0, 1, 2, 3, [0, 1, 2]]
 </pre>

@@ -14,13 +14,13 @@
 
         <meta name="author" content="40323230" />
         <meta name="keywords" content="Python3" />
-        <meta name="description" content="Pyslvs v0.4 預計目標" />
+        <meta name="description" content="Pyslvs v0.4 預計目標 Pyslvs 緊急修正" />
 
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="40323230日誌 - 105/12/21"/>
         <meta property="og:url" content="http://project.mde.tw/blog/40323230ri-zhi-1051221.html"/>
-        <meta property="og:description" content="Pyslvs v0.4 預計目標"/>
+        <meta property="og:description" content="Pyslvs v0.4 預計目標 Pyslvs 緊急修正"/>
         <meta property="article:published_time" content="2016-12-21" />
             <meta property="article:section" content="2016bg2" />
             <meta property="article:tag" content="Python3" />
@@ -171,10 +171,18 @@
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>Pyslvs v0.4 預計目標</p>
+                <ol>
+<li>
+<p>Pyslvs v0.4 預計目標</p>
+</li>
+<li>
+<p>Pyslvs 緊急修正</p>
+</li>
+</ol>
 
 
 <h1>Pyslvs v0.4 預計目標</h1>
+<h1>於分支 dev0.4 中開發</h1>
 <p>釋出 version 0.3 後，整個軟體大致的雛型已經出現了，不過在範例和轉檔部分仍然需要改進。</p>
 <p>而另外需要進行的重大改進，包含以下目標：</p>
 <h2>可互動物件的畫布</h2>
@@ -218,6 +226,9 @@
 <p>這個部分使用之前學長的基因演算法，和 Solvespace 的 Kernel 一樣掛在軟體中。</p>
 <p>不過目前遇到的問題點是這個 Kernel 是在 Linux 開發的，要給 Windows 平台使用的話就要重新編譯。</p>
 <p>另外演算法的部分還要審查一下，以確定四連桿呆鍊的方向。</p>
+<h1>Pyslvs 緊急修正</h1>
+<p>由於之前將模組放在 <code>__init__.py</code> 檔的行為在 PyInstaller 和 cxFreeze 會被識別為掛在資料夾下，因此將模組修正到新的 <code>modules.py</code> 檔下修正。</p>
+<p>更新在分支 master 中。</p>
             </div>
             <!-- /.entry-content -->
     <hr/>

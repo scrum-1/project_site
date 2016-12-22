@@ -10,7 +10,9 @@
 
 
 &lt;h1&gt;Pyslvs v0.4 預計目標&lt;/h1&gt;
-&lt;h1&gt;於分支 dev0.4 中開發&lt;/h1&gt;
+&lt;ul&gt;
+&lt;li&gt;於分支 dev0.4 中開發&lt;/li&gt;
+&lt;/ul&gt;
 &lt;p&gt;釋出 version 0.3 後，整個軟體大致的雛型已經出現了，不過在範例和轉檔部分仍然需要改進。&lt;/p&gt;
 &lt;p&gt;而另外需要進行的重大改進，包含以下目標：&lt;/p&gt;
 &lt;h2&gt;可互動物件的畫布&lt;/h2&gt;

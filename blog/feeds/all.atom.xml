@@ -21,7 +21,7 @@
 &lt;h2&gt;雙平台編譯流程&lt;/h2&gt;
 &lt;p&gt;Version 0.4 在 Github 的 Readme 中，寫上了 Linux 和 Windows 平台編譯出 Pyslvs 可執行檔的說明。&lt;/p&gt;
 &lt;p&gt;Linux 可以用 PyInstaller 或 cxFreeze 的 CLI（cxFreeze 不支援 Windows）直接編譯（擇一即可）。&lt;/p&gt;
-&lt;p&gt;而 Windows 方面寫了一個批次檔，可以編好兩者檔案後合併，並已經指定好程式的圖示檔；有安裝必須工具的情況下能直接點兩下執行，在可攜環境必須用 command line 執行。&lt;/p&gt;
+&lt;p&gt;而 Windows 方面寫了一個批次檔（名為 &lt;code&gt;winBuild.bat&lt;/code&gt;），可以編好兩個工具生成的檔案後合併，並已經指定好程式的圖示檔；有安裝必須工具的情況下能直接點兩下執行，在可攜環境必須用 command line 執行。&lt;/p&gt;
 &lt;p&gt;不過 Windows 版執行檔無法觀看文字回應（不會有 print），不過可以用參數命令正常開啟檔案、使用 Fusion 介面。&lt;/p&gt;
 &lt;p&gt;有試過工具安裝本機的情況下編譯 Windows 版本，但是仍不能只用單一工具，可能是 PyInstaller 和 cxFreeze 互有優缺吧。&lt;/p&gt;</summary><category term="Python3"></category></entry><entry><title>40323230日誌 - 105/12/21</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051221.html" rel="alternate"></link><published>2016-12-21T21:00:00+08:00</published><updated>2016-12-21T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-21:blog/40323230ri-zhi-1051221.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;

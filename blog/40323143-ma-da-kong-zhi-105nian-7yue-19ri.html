@@ -210,7 +210,7 @@
 33
 34
 35
-36</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Servo.h&gt;</span><span class="cp"></span>
+36</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;Servo.h&gt;</span>
 
 <span class="n">Servo</span> <span class="n">myservo</span><span class="p">;</span>      <span class="c1">//第一顆馬達</span>
 <span class="n">Servo</span> <span class="n">myservo2</span><span class="p">;</span>    <span class="c1">//第二顆馬達</span>
@@ -257,7 +257,7 @@
 4
 5
 6
-7</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>int d;
+7</pre></div></td><td class="code"><div class="codehilite"><pre>int d;
 if(Serial.available()){           
 d = Serial.parseInt();    //定義輸入訊號值為d
 Serial.println(d);            
@@ -318,6 +318,11 @@ if(0 &lt;= d &amp;&amp; d &lt;= 2500){   //限制訊號範圍
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/rsa-mo-zu.html">
+                            RSA 模組
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1051222.html">
                             40323230日誌 - 105/12/22
                         </a>
@@ -330,11 +335,6 @@ if(0 &lt;= d &amp;&amp; d &lt;= 2500){   //限制訊號範圍
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/python-copy-module.html">
                             Python Copy Module
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/cadlab-jiu-dian-nao-de-chu-li.html">
-                            CADLAB 舊電腦的處理
                         </a>
                     </li>
                 </ul>

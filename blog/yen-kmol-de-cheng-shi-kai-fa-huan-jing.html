@@ -213,7 +213,7 @@ apt-get install libpng-dev libjson-c-dev libfreetype6-dev \
 <p>然後利用 gedit ~/.bashrc, 編輯 .bashrc, 加入:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>export QTDIR=/opt/Qt5.7.0/5.7/gcc_64/ 
+3</pre></div></td><td class="code"><div class="codehilite"><pre>export QTDIR=/opt/Qt5.7.0/5.7/gcc_64/ 
 export LD_LIBRARY_PATH=<span class="cp">${</span><span class="n">LD_LIBRARY_PATH</span><span class="cp">}</span>:<span class="cp">${</span><span class="n">QTDIR</span><span class="cp">}</span>/lib 
 export PATH=<span class="cp">${</span><span class="n">QTDIR</span><span class="cp">}</span>/bin:<span class="cp">${</span><span class="n">PATH</span><span class="cp">}</span>
 </pre></div>
@@ -225,7 +225,7 @@ export PATH=<span class="cp">${</span><span class="n">QTDIR</span><span class="c
 <p>接下來下載 <a href="http://www.riverbankcomputing.com/software/sip/download ">http://www.riverbankcomputing.com/software/sip/download </a>, 然後以下列指令安裝 sip 4.18.1:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>python3 configure.py 
+3</pre></div></td><td class="code"><div class="codehilite"><pre>python3 configure.py 
 make
 sudo make install
 </pre></div>
@@ -233,7 +233,7 @@ sudo make install
 
 <p>如同前面移除 sip 4.17.1 時相同, 利用  sip -V 確認系統中 sip 的版本, 假如要確認 Python3 導入時使用的 sip 版本, 利用下列程式碼檢查:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">sip</span>
+2</pre></div></td><td class="code"><div class="codehilite"><pre><span class="kn">import</span> <span class="nn">sip</span>
 <span class="k">print</span><span class="p">(</span><span class="n">sip</span><span class="p">,</span> <span class="n">sip</span><span class="o">.</span><span class="n">SIP_VERSION_STR</span><span class="p">)</span>
 </pre></div>
 </td></tr></table>
@@ -241,7 +241,7 @@ sudo make install
 <p>PyQt5 的安裝步驟與 sip 相同, 從 <a href="http://www.riverbankcomputing.com/software/pyqt/download5">http://www.riverbankcomputing.com/software/pyqt/download5</a> 下載原始碼之後:</p>
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>python3 configure.py 
+3</pre></div></td><td class="code"><div class="codehilite"><pre>python3 configure.py 
 make
 sudo make install
 </pre></div>
@@ -252,7 +252,7 @@ sudo make install
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cd Qt4Qt5
+4</pre></div></td><td class="code"><div class="codehilite"><pre>cd Qt4Qt5
 qmake qscintilla.pro
 make
 sudo make install
@@ -263,7 +263,7 @@ sudo make install
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cd ../designer-Qt4Qt5
+4</pre></div></td><td class="code"><div class="codehilite"><pre>cd ../designer-Qt4Qt5
 qmake designer.pro
 make
 sudo make install
@@ -274,7 +274,7 @@ sudo make install
 <table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
 3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cd ../Python
+4</pre></div></td><td class="code"><div class="codehilite"><pre>cd ../Python
 python3 configure.py --pyqt=PyQt5
 make
 sudo make install
@@ -340,6 +340,11 @@ sudo make install
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/rsa-mo-zu.html">
+                            RSA 模組
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1051222.html">
                             40323230日誌 - 105/12/22
                         </a>
@@ -352,11 +357,6 @@ sudo make install
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/python-copy-module.html">
                             Python Copy Module
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/cadlab-jiu-dian-nao-de-chu-li.html">
-                            CADLAB 舊電腦的處理
                         </a>
                     </li>
                 </ul>

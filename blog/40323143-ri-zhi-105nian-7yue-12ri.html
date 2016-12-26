@@ -201,7 +201,7 @@
 18
 19
 20
-21</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Servo.h&gt;</span><span class="cp"></span>
+21</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;Servo.h&gt;</span>
 
 <span class="n">Servo</span> <span class="n">myservo</span><span class="p">;</span>
 
@@ -256,7 +256,7 @@
 26
 27
 28
-29</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Servo.h&gt;</span><span class="cp"></span>
+29</pre></div></td><td class="code"><div class="codehilite"><pre><span class="cp">#include &lt;Servo.h&gt;</span>
 
 <span class="n">Servo</span> <span class="n">myservo</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
@@ -276,7 +276,7 @@
     <span class="n">Serial</span><span class="p">.</span><span class="n">println</span><span class="p">(</span><span class="n">d</span><span class="p">);</span>   
     <span class="k">if</span><span class="p">(</span><span class="mi">0</span> <span class="o">&lt;=</span> <span class="n">d</span> <span class="o">&amp;&amp;</span> <span class="n">d</span> <span class="o">&lt;=</span> <span class="mi">180</span><span class="p">){</span>
       <span class="n">myservo</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">180</span><span class="p">);</span>   <span class="err">#固定正轉</span>
-      <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="p">(</span><span class="n">acos</span><span class="p">(</span><span class="n">d</span><span class="o">/</span><span class="mi">150</span><span class="p">))</span><span class="o">/</span><span class="mf">2.5</span><span class="o">+</span><span class="mf">3.14</span><span class="p">);</span>  <span class="err">#將</span><span class="n">d變成所要移動的距離</span><span class="err">，再將其轉換為所需時間</span>
+      <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="o">*</span><span class="p">(</span><span class="n">acos</span><span class="p">(</span><span class="n">d</span><span class="o">/</span><span class="mi">150</span><span class="p">))</span><span class="o">/</span><span class="mf">2.5</span><span class="o">+</span><span class="mf">3.14</span><span class="p">);</span>  <span class="err">#將</span><span class="n">d</span><span class="err">變成所要移動的距離，再將其轉換為所需時間</span>
       <span class="n">myservo</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">90</span><span class="p">);</span>  <span class="err">#到定點固定</span>
       <span class="n">delay</span><span class="p">(</span><span class="mi">1000</span><span class="p">);</span>
       <span class="n">myservo</span><span class="p">.</span><span class="n">write</span><span class="p">(</span><span class="mi">0</span><span class="p">);</span>    <span class="err">#固定反轉</span>
@@ -340,6 +340,11 @@
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/rsa-mo-zu.html">
+                            RSA 模組
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1051222.html">
                             40323230日誌 - 105/12/22
                         </a>
@@ -352,11 +357,6 @@
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/python-copy-module.html">
                             Python Copy Module
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/cadlab-jiu-dian-nao-de-chu-li.html">
-                            CADLAB 舊電腦的處理
                         </a>
                     </li>
                 </ul>

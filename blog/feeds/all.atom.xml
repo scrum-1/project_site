@@ -38,6 +38,9 @@ except:
 &lt;p&gt;復原重做功能計畫構思&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
+&lt;p&gt;Solvespace 格式&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;Pyslvs 圖示&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
@@ -49,7 +52,11 @@ except:
 &lt;p&gt;Path Solving 這個面板是置頂的，會紀錄一個需要經過點的 list，關閉視窗後還在，除非重新啟動主程式；會考慮是否將「設計中」項目一起存進檔案中。&lt;/p&gt;
 &lt;p&gt;當面板開啟後，畫布的右鍵選單就能加入路徑點（不過還沒做出路徑點的顯示），或是自定座標。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1226_01.jpg" /&gt;&lt;/p&gt;
-&lt;p&gt;按下 Generate button 就會開始計算，並回傳機構數據，並預覽在畫布上。&lt;/p&gt;
+&lt;p&gt;按下 Generate button 就會開始計算，回傳機構數據，並預覽在畫布上。&lt;/p&gt;
+&lt;p&gt;合併的功能還需要想一下，畢竟 Solvespace 還需要初始座標，如果定的不好又會產生問題，所以必須稍微想一下。&lt;/p&gt;
+&lt;h1&gt;Solvespace 格式&lt;/h1&gt;
+&lt;p&gt;之前一直放置的原因就是因為 Qt 表格的字串沒有轉換格式，現在因為有分門別類的 list 儲存實體和約束，所以會比較好設計。&lt;/p&gt;
+&lt;p&gt;最近有空會試試看重寫一下 Solvespace 的格式，讓 Pyslvs 可以完美支援輸出回 Solvespace 做參照。&lt;/p&gt;
 &lt;h1&gt;復原重做功能計畫構思&lt;/h1&gt;
 &lt;p&gt;使用 Qt 的 undo 功能的話就得做多種「命令」格式，如果加入「命令」的時機太過底層，就會被非預期的命令呼叫到，例如讀檔和手動加入點座標是使用同一個 function。&lt;/p&gt;
 &lt;p&gt;所以盡量使用比較簡潔的命令。&lt;/p&gt;

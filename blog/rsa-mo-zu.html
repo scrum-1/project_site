@@ -13,7 +13,7 @@
 <link rel="canonical" href="http://project.mde.tw/blog/rsa-mo-zu.html">
 
         <meta name="author" content="40323123" />
-        <meta name="keywords" content="RSA" />
+        <meta name="keywords" content="ARS" />
         <meta name="description" content="再看完資料後就整理出來的部份" />
 
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
@@ -21,9 +21,9 @@
         <meta property="og:title" content="RSA 模組"/>
         <meta property="og:url" content="http://project.mde.tw/blog/rsa-mo-zu.html"/>
         <meta property="og:description" content="再看完資料後就整理出來的部份"/>
-        <meta property="article:published_time" content="2016-12-26" />
+        <meta property="article:published_time" content="2016-12-27" />
             <meta property="article:section" content="2016g1" />
-            <meta property="article:tag" content="RSA" />
+            <meta property="article:tag" content="ARS" />
             <meta property="article:author" content="40323123" />
 
 
@@ -159,7 +159,7 @@
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-12-26T20:00:00+08:00"> 一 26 十二月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-12-27T20:00:00+08:00"> 二 27 十二月 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323123.html"><i class="fa fa-user"></i> 40323123</a>
@@ -167,67 +167,41 @@
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://project.mde.tw/blog/tag/rsa.html">RSA</a>
+	<a href="http://project.mde.tw/blog/tag/ars.html">ARS</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
                 <p>再看完資料後就整理出來的部份</p>
 
 
-<p><a href="http://ars-project.readthedocs.io/en/latest/installation/prerequisites.html">官方技術手冊</a></p>
-<h2>使用方法(這邊先講python2的方法)</h2>
+<h3>16版本沒有python2的工具包 因此先不考慮使用16版本的ubuntu</h3>
 
-<p>第一步 先把四樣工具找齊</p>
-<ul>
-<li>Python-related packages
-<li>numpy  cython (這邊用到的模組python)
-<li>VTK  (GUI)
-<li>Open Dynamics Engine (ODE)  這一個要自己build出來
-</ul>
+<p>Ode--13版本的binding已經改成python3的版本了，改法如下</p>
+<p>setup.py裡面有一個解的地方再18行後面加上讓他去解碼的時候用utf8</p>
+<pre class="brush: python">
+try:
+    ode_cflags = [x.decode("utf-8") for x in ode_cflags]
 
-<p>以下式我測試成功的版本  明天會再用虛擬機跑看看不一樣版本的問題是否有衝突</p>
-<ol>
-<li>
-<p>apt-get install python python-dev python-support</p>
-</li>
-<li>
-<p>apt-get install python-numpy cython</p>
-</li>
-<li>
-<p>apt-get install libvtk5.8 python-vtk</p>
-</li>
-<li>
-<p>Download the ode-0.12.tar.gz and unpacking </p>
-</li>
-</ol>
-<p>cd ode-0.12</p>
-<p>./configure --enable-double-precision --with-trimesh=opcode --enable-new-trimesh --enable-shared</p>
-<p>make</p>
-<p>make install</p>
-<p>5.因為ODE裡面有python wrapper 要安裝他的binding到自己的python/distage</p>
-<p>cd bindings/python/</p>
-<p>python setup.py install</p>
-<p>安裝的部份就是這些工具了</p>
-<h2>可能要轉成python3的部份</h2>
+    ode_libs = [x.decode("utf-8") for x in ode_libs]
 
-<ul>
-<li>VTK(如果要沿用的話)
-<li>numpy  cython (這部份可以沿用)
-<li>VTK  (要看官方是否有更新或改成OpenGl)
-<li>Open Dynamics Engine (ODE)  C++那部份不用動，要動的部份會是在bindings/wrapper
-<li>還有RSA模組的python程式碼 
-</ul>
+except:
+    pass
 
-<h2>這部份是DEMO用的</h2>
+    </pre>
 
-<p><img src="http://i.imgur.com/879RXmX.png"></p>
-<p><img src="http://i.imgur.com/EVvOX8F.png"></p>
-<p><img src="http://i.imgur.com/pOZmIll.png"></p>
-<h2>要做的部份</h2>
-
-<p>接下來要做的部份就是把他改成python3</p>
-<p>我應該會優先改wrapper再改RSA模組，並且測試和新版的ODE-13符不符合使用上的問題，使用虛擬機測試。</p>
-<p>Wrapper可以優先測試import Ode，我會再測試。</p>
+<p>這樣就可以執行他的demo tutorial的範例程式碼
+不過這邊只包含open dynamic engine 的引擎部份已經改成python可以控控制他了
+這邊要補充一點，因為是compolier C++成so故只要串口做好，就不用在從新make 和install</p>
+<p><img src="http://i.imgur.com/4vMSxYC.png"></p>
+<p>接下來處理VTK的部份，這部份官網有相關的技術手冊，需要自己cmake所以相對麻煩
+中途需要安裝opengl以及ccmake來指定路徑
+(教學)[http://ghoshbishakh.github.io/blog/blogpost/2016/07/13/building-vtk-with-python3-wrappers.html]</p>
+<p>ARS模組的部份
+只需要把幾個模組的部份改成python3的版本就可以使用了，例如exception , e: 改成exception as e還有print的部份要加括號大致上就這樣，已經修改完成了。</p>
+<p><img src="http://i.imgur.com/c7F2ntS.png"></p>
+<p><img src="http://i.imgur.com/leaCRh9.png"></p>
+<p>今天卡在VTK的部份，最近幾天再把他解出來就可以使用了</p>
+<p>這次改這個open dynamic system改的很快，原因是因為許多問題都是以前已經碰過的，一下就知道如何解題目了，只剩下這個難搞的VTK部份，主要是作者把VTK綁在他自己的模組裡面，像from ars import app就可以呼叫他自己用的模組，這部份我可能再找時間把他做完，剩沒幾步路了。GO</p>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -273,13 +247,18 @@
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/rsa-mo-zu.html">
+                            RSA 模組
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1051226.html">
                             40323230日誌 - 105/12/26
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/rsa-mo-zu.html">
-                            RSA 模組
+                        <a href="http://project.mde.tw/blog/ars-mo-zu.html">
+                            ARS 模組
                         </a>
                     </li>
                     <li class="list-group-item">
@@ -290,11 +269,6 @@
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1051221.html">
                             40323230日誌 - 105/12/21
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/python-copy-module.html">
-                            Python Copy Module
                         </a>
                     </li>
                 </ul>

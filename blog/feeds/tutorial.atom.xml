@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/tutorial.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-07T11:29:00+08:00</updated><entry><title>何謂機械設計?</title><link href="http://project.mde.tw/blog/he-wei-ji-jie-she-ji.html" rel="alternate"></link><published>2016-12-07T11:29:00+08:00</published><updated>2016-12-07T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-07:blog/he-wei-ji-jie-she-ji.html</id><summary type="html">&lt;p&gt;所謂機械設計, 就是歷經詳細思慮考量, 完成互動元件間之精巧配置, 使其展現特定功能之具體規劃表達.&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/tutorial.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-28T11:29:00+08:00</updated><entry><title>機械設計工程系網路講座(四)</title><link href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-si.html" rel="alternate"></link><published>2016-12-28T11:29:00+08:00</published><updated>2016-12-28T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-28:blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-si.html</id><summary type="html">&lt;p&gt;在這個講座文章中, 我們將以機械設計專題室的純 IPv6 網路連線設定為例, 說明機械設計工程系中的任一用戶, 若想透過設定連線上網, 應該要如何做?&lt;/p&gt;
+
+
+&lt;p&gt;好了, 您作為機械設計工程系的一員, 電腦網路線接到系上的主幹, 而電腦的使用時機除了在實體電腦硬體之前上網之外, 也經常利用校外的光世代連線遠端登入此系上的電腦進行 remote 操作, 那麼該如何設定純 IPv6 協定上網, 無需耗用任何 IPv4 的固定位址?&lt;/p&gt;
+&lt;h3&gt;所有的電腦都直接連線到主幹&lt;/h3&gt;
+&lt;p&gt;首先, 必須要確定您的電腦確實直接連線到系上主幹, 假如您所處的研究室或實驗室, 是以 NAT 轉換位址連線到系上主幹, 這個時候, 應該是考慮拿掉 IPv4 的 NAT, 換成 Gigabit Switch, 讓所有 client 或 servers 直接連線到系上主幹, 而且只有必須充當 IPv4/IPv6 雙支援代理主機 (Proxy Server) 的電腦需要 IPv4 網址, 其他單純上網的電腦, 只需要設定為純 IPv6 協定, 並透過雙協定支援的代理主機上網即可.&lt;/p&gt;
+&lt;h3&gt;利用網卡 MAC 換算 IPv6 網址&lt;/h3&gt;
+&lt;p&gt;假如您使用 Windows 操作系統, 進入網路介面卡設定時, 在網路連線視窗中的"詳細資料", 可以查詢該網路卡的"實體位址"(也就是 MAC address), 然後利用 &lt;a href="http://service.mde.tw/static/address_calculator.html"&gt;MAC 轉 IPv6 位址服務&lt;/a&gt;, 將 48bit MAC 轉為 64bit Host ID (也就是所謂 EUI-64 Global identifier 位址), 然後再前置機械設計系的前段網址: 2001:288:6004:17, 就可得到該電腦的 IPv6 網址.&lt;/p&gt;
+&lt;p&gt;例如: MAC address 為 00-11-22-33-44-55 的網路卡, 其對應的 EUI-64 Global identifier 位址經過轉換, 得到 ::211:22ff:fe33:4455, 因此該網路卡就可以將 IPv6 網址設為: 2001:288:6004:17:211:22ff:fe33:4455, 並將子網路首碼長度設為 64, 預設閘道設為 2001:288:6004:17::254, DNS 伺服器則分別設為 2001:288:6004:1::2 (虎科大) 與 2001:b000:168::1 (中華電信), 並且不用勾選"網際網路通訊協定第 4 版" (也就是無需使用 IPv4 協定). 如下圖所示:&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016fall/net_talk4-1.png" width="800" /&gt;&lt;/p&gt;
+&lt;p&gt;設定完成後, 應該就可以直接連線到 Google 與 Youtube 等支援 IPv6 協定的網站, 但是若要連線到 IPv4 相容的網站, 則必須透過雙支援的 Proxy Server.&lt;/p&gt;
+&lt;h3&gt;建立 Proxy Server&lt;/h3&gt;
+&lt;p&gt;建立使用 Ubuntu 操作系統安裝 Squid proxy server, 請參考&lt;a href="cadlab-jiu-dian-nao-de-chu-li.html"&gt;安裝設定流程&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;從光世代遠端登入&lt;/h3&gt;
+&lt;p&gt;請參考 &lt;a href="https://chiamingyen.github.io/kmolab/blog/mechanical-designer-and-ipv6.html"&gt;Mechanical Designer and IPV6&lt;/a&gt; 中的說明, 若在 Ubuntu 則以 Remmina Remote Desktop Client, 以 RDP 協定進行連線, 前題是必須申請&lt;a href="http://www.ipv6.hinet.net/"&gt;光世代 IPV6 服務&lt;/a&gt;, 然後在主機中執行 sudo pon dsl-provider 進行 IPv6 撥號連線後執行遠端登入.&lt;/p&gt;</summary><category term="機械設計"></category><category term="網路"></category><category term="導引"></category></entry><entry><title>何謂機械設計?</title><link href="http://project.mde.tw/blog/he-wei-ji-jie-she-ji.html" rel="alternate"></link><published>2016-12-07T11:29:00+08:00</published><updated>2016-12-07T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-07:blog/he-wei-ji-jie-she-ji.html</id><summary type="html">&lt;p&gt;所謂機械設計, 就是歷經詳細思慮考量, 完成互動元件間之精巧配置, 使其展現特定功能之具體規劃表達.&lt;/p&gt;
 &lt;p&gt;其中, 詳細思慮考量, 就是"計"的字義, 而精巧配置互動元件, 就是"機"的字義, 展現特定功能, 就是"械"的字義, 最後, 必須完成具體規劃表達則是"設"的字義.&lt;/p&gt;
 
 

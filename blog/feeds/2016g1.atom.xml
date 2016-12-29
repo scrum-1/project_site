@@ -1,5 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-26T20:00:00+08:00</updated><entry><title>RSA 模組</title><link href="http://project.mde.tw/blog/rsa-mo-zu.html" rel="alternate"></link><published>2016-12-26T20:00:00+08:00</published><updated>2016-12-26T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-26:blog/rsa-mo-zu.html</id><summary type="html">&lt;p&gt;再看完資料後就整理出來的部份&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-27T20:00:00+08:00</updated><entry><title>RSA 模組</title><link href="http://project.mde.tw/blog/rsa-mo-zu.html" rel="alternate"></link><published>2016-12-27T20:00:00+08:00</published><updated>2016-12-27T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-27:blog/rsa-mo-zu.html</id><summary type="html">&lt;p&gt;再看完資料後就整理出來的部份&lt;/p&gt;
+
+
+&lt;h3&gt;16版本沒有python2的工具包 因此先不考慮使用16版本的ubuntu&lt;/h3&gt;
+
+&lt;p&gt;Ode--13版本的binding已經改成python3的版本了，改法如下&lt;/p&gt;
+&lt;p&gt;setup.py裡面有一個解的地方再18行後面加上讓他去解碼的時候用utf8&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+try:
+    ode_cflags = [x.decode("utf-8") for x in ode_cflags]
+
+    ode_libs = [x.decode("utf-8") for x in ode_libs]
+
+except:
+    pass
+
+    &lt;/pre&gt;
+
+&lt;p&gt;這樣就可以執行他的demo tutorial的範例程式碼
+不過這邊只包含open dynamic engine 的引擎部份已經改成python可以控控制他了
+這邊要補充一點，因為是compolier C++成so故只要串口做好，就不用在從新make 和install&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/4vMSxYC.png"&gt;&lt;/p&gt;
+&lt;p&gt;接下來處理VTK的部份，這部份官網有相關的技術手冊，需要自己cmake所以相對麻煩
+中途需要安裝opengl以及ccmake來指定路徑
+(教學)[http://ghoshbishakh.github.io/blog/blogpost/2016/07/13/building-vtk-with-python3-wrappers.html]&lt;/p&gt;
+&lt;p&gt;ARS模組的部份
+只需要把幾個模組的部份改成python3的版本就可以使用了，例如exception , e: 改成exception as e還有print的部份要加括號大致上就這樣，已經修改完成了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/c7F2ntS.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/leaCRh9.png"&gt;&lt;/p&gt;
+&lt;p&gt;今天卡在VTK的部份，最近幾天再把他解出來就可以使用了&lt;/p&gt;
+&lt;p&gt;這次改這個open dynamic system改的很快，原因是因為許多問題都是以前已經碰過的，一下就知道如何解題目了，只剩下這個難搞的VTK部份，主要是作者把VTK綁在他自己的模組裡面，像from ars import app就可以呼叫他自己用的模組，這部份我可能再找時間把他做完，剩沒幾步路了。GO&lt;/p&gt;</summary><category term="ARS"></category></entry><entry><title>ARS 模組</title><link href="http://project.mde.tw/blog/ars-mo-zu.html" rel="alternate"></link><published>2016-12-26T20:00:00+08:00</published><updated>2016-12-26T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-26:blog/ars-mo-zu.html</id><summary type="html">&lt;p&gt;再看完資料後就整理出來的部份&lt;/p&gt;
 
 
 &lt;p&gt;&lt;a href="http://ars-project.readthedocs.io/en/latest/installation/prerequisites.html"&gt;官方技術手冊&lt;/a&gt;&lt;/p&gt;
@@ -43,7 +73,7 @@
 &lt;li&gt;numpy  cython (這部份可以沿用)
 &lt;li&gt;VTK  (要看官方是否有更新或改成OpenGl)
 &lt;li&gt;Open Dynamics Engine (ODE)  C++那部份不用動，要動的部份會是在bindings/wrapper
-&lt;li&gt;還有RSA模組的python程式碼 
+&lt;li&gt;還有ARS模組的python程式碼 
 &lt;/ul&gt;
 
 &lt;h2&gt;這部份是DEMO用的&lt;/h2&gt;
@@ -55,7 +85,7 @@
 
 &lt;p&gt;接下來要做的部份就是把他改成python3&lt;/p&gt;
 &lt;p&gt;我應該會優先改wrapper再改RSA模組，並且測試和新版的ODE-13符不符合使用上的問題，使用虛擬機測試。&lt;/p&gt;
-&lt;p&gt;Wrapper可以優先測試import Ode，我會再測試。&lt;/p&gt;</summary><category term="RSA"></category></entry><entry><title>四連桿合成編譯</title><link href="http://project.mde.tw/blog/si-lian-gan-he-cheng-bian-yi.html" rel="alternate"></link><published>2016-12-12T20:00:00+08:00</published><updated>2016-12-12T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-12:blog/si-lian-gan-he-cheng-bian-yi.html</id><summary type="html">&lt;p&gt;平面四連桿尺寸合成研讀&lt;/p&gt;
+&lt;p&gt;Wrapper可以優先測試import Ode，我會再測試。&lt;/p&gt;</summary><category term="ARS"></category></entry><entry><title>四連桿合成編譯</title><link href="http://project.mde.tw/blog/si-lian-gan-he-cheng-bian-yi.html" rel="alternate"></link><published>2016-12-12T20:00:00+08:00</published><updated>2016-12-12T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-12:blog/si-lian-gan-he-cheng-bian-yi.html</id><summary type="html">&lt;p&gt;平面四連桿尺寸合成研讀&lt;/p&gt;
 
 
 &lt;p&gt;已經將學長的code看完RGA(基因演算法)的部分&lt;/p&gt;

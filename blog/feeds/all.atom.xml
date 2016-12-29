@@ -32,7 +32,51 @@ print(b)
 &lt;p&gt;在該目錄下會編譯出可用的動態連結庫，將其移出就能讓 Python 程式碼使用。&lt;/p&gt;
 &lt;p&gt;接著就要讓 Pyslvs 使用演算法解題。&lt;/p&gt;
 &lt;p&gt;目前測試解題速度平均 25 秒左右，舊電腦 35 秒左右。&lt;/p&gt;
-&lt;p&gt;會試圖研究 Windows 版的編譯方式，最後會像 Python Solvespace 的 kernel 一樣偵測平台和 Python 版本作切換。&lt;/p&gt;</summary><category term="Python3"></category></entry><entry><title>40323230日誌 - 105/12/26</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051226.html" rel="alternate"></link><published>2016-12-26T21:00:00+08:00</published><updated>2016-12-26T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-26:blog/40323230ri-zhi-1051226.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
+&lt;p&gt;會試圖研究 Windows 版的編譯方式，最後會像 Python Solvespace 的 kernel 一樣偵測平台和 Python 版本作切換。&lt;/p&gt;</summary><category term="Python3"></category></entry><entry><title>機械設計工程系網路講座(四)</title><link href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-si.html" rel="alternate"></link><published>2016-12-28T11:29:00+08:00</published><updated>2016-12-28T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-28:blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-si.html</id><summary type="html">&lt;p&gt;在這個講座文章中, 我們將以機械設計專題室的純 IPv6 網路連線設定為例, 說明機械設計工程系中的任一用戶, 若想透過設定連線上網, 應該要如何做?&lt;/p&gt;
+
+
+&lt;p&gt;好了, 您作為機械設計工程系的一員, 電腦網路線接到系上的主幹, 而電腦的使用時機除了在實體電腦硬體之前上網之外, 也經常利用校外的光世代連線遠端登入此系上的電腦進行 remote 操作, 那麼該如何設定純 IPv6 協定上網, 無需耗用任何 IPv4 的固定位址?&lt;/p&gt;
+&lt;h3&gt;所有的電腦都直接連線到主幹&lt;/h3&gt;
+&lt;p&gt;首先, 必須要確定您的電腦確實直接連線到系上主幹, 假如您所處的研究室或實驗室, 是以 NAT 轉換位址連線到系上主幹, 這個時候, 應該是考慮拿掉 IPv4 的 NAT, 換成 Gigabit Switch, 讓所有 client 或 servers 直接連線到系上主幹, 而且只有必須充當 IPv4/IPv6 雙支援代理主機 (Proxy Server) 的電腦需要 IPv4 網址, 其他單純上網的電腦, 只需要設定為純 IPv6 協定, 並透過雙協定支援的代理主機上網即可.&lt;/p&gt;
+&lt;h3&gt;利用網卡 MAC 換算 IPv6 網址&lt;/h3&gt;
+&lt;p&gt;假如您使用 Windows 操作系統, 進入網路介面卡設定時, 在網路連線視窗中的"詳細資料", 可以查詢該網路卡的"實體位址"(也就是 MAC address), 然後利用 &lt;a href="http://service.mde.tw/static/address_calculator.html"&gt;MAC 轉 IPv6 位址服務&lt;/a&gt;, 將 48bit MAC 轉為 64bit Host ID (也就是所謂 EUI-64 Global identifier 位址), 然後再前置機械設計系的前段網址: 2001:288:6004:17, 就可得到該電腦的 IPv6 網址.&lt;/p&gt;
+&lt;p&gt;例如: MAC address 為 00-11-22-33-44-55 的網路卡, 其對應的 EUI-64 Global identifier 位址經過轉換, 得到 ::211:22ff:fe33:4455, 因此該網路卡就可以將 IPv6 網址設為: 2001:288:6004:17:211:22ff:fe33:4455, 並將子網路首碼長度設為 64, 預設閘道設為 2001:288:6004:17::254, DNS 伺服器則分別設為 2001:288:6004:1::2 (虎科大) 與 2001:b000:168::1 (中華電信), 並且不用勾選"網際網路通訊協定第 4 版" (也就是無需使用 IPv4 協定). 如下圖所示:&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016fall/net_talk4-1.png" width="800" /&gt;&lt;/p&gt;
+&lt;p&gt;設定完成後, 應該就可以直接連線到 Google 與 Youtube 等支援 IPv6 協定的網站, 但是若要連線到 IPv4 相容的網站, 則必須透過雙支援的 Proxy Server.&lt;/p&gt;
+&lt;h3&gt;建立 Proxy Server&lt;/h3&gt;
+&lt;p&gt;建立使用 Ubuntu 操作系統安裝 Squid proxy server, 請參考&lt;a href="cadlab-jiu-dian-nao-de-chu-li.html"&gt;安裝設定流程&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;從光世代遠端登入&lt;/h3&gt;
+&lt;p&gt;請參考 &lt;a href="https://chiamingyen.github.io/kmolab/blog/mechanical-designer-and-ipv6.html"&gt;Mechanical Designer and IPV6&lt;/a&gt; 中的說明, 若在 Ubuntu 則以 Remmina Remote Desktop Client, 以 RDP 協定進行連線, 前題是必須申請&lt;a href="http://www.ipv6.hinet.net/"&gt;光世代 IPV6 服務&lt;/a&gt;, 然後在主機中執行 sudo pon dsl-provider 進行 IPv6 撥號連線後執行遠端登入.&lt;/p&gt;</summary><category term="機械設計"></category><category term="網路"></category><category term="導引"></category></entry><entry><title>RSA 模組</title><link href="http://project.mde.tw/blog/rsa-mo-zu.html" rel="alternate"></link><published>2016-12-27T20:00:00+08:00</published><updated>2016-12-27T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-27:blog/rsa-mo-zu.html</id><summary type="html">&lt;p&gt;再看完資料後就整理出來的部份&lt;/p&gt;
+
+
+&lt;h3&gt;16版本沒有python2的工具包 因此先不考慮使用16版本的ubuntu&lt;/h3&gt;
+
+&lt;p&gt;Ode--13版本的binding已經改成python3的版本了，改法如下&lt;/p&gt;
+&lt;p&gt;setup.py裡面有一個解的地方再18行後面加上讓他去解碼的時候用utf8&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+try:
+    ode_cflags = [x.decode("utf-8") for x in ode_cflags]
+
+    ode_libs = [x.decode("utf-8") for x in ode_libs]
+
+except:
+    pass
+
+    &lt;/pre&gt;
+
+&lt;p&gt;這樣就可以執行他的demo tutorial的範例程式碼
+不過這邊只包含open dynamic engine 的引擎部份已經改成python可以控控制他了
+這邊要補充一點，因為是compolier C++成so故只要串口做好，就不用在從新make 和install&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/4vMSxYC.png"&gt;&lt;/p&gt;
+&lt;p&gt;接下來處理VTK的部份，這部份官網有相關的技術手冊，需要自己cmake所以相對麻煩
+中途需要安裝opengl以及ccmake來指定路徑
+(教學)[http://ghoshbishakh.github.io/blog/blogpost/2016/07/13/building-vtk-with-python3-wrappers.html]&lt;/p&gt;
+&lt;p&gt;ARS模組的部份
+只需要把幾個模組的部份改成python3的版本就可以使用了，例如exception , e: 改成exception as e還有print的部份要加括號大致上就這樣，已經修改完成了。&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/c7F2ntS.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/leaCRh9.png"&gt;&lt;/p&gt;
+&lt;p&gt;今天卡在VTK的部份，最近幾天再把他解出來就可以使用了&lt;/p&gt;
+&lt;p&gt;這次改這個open dynamic system改的很快，原因是因為許多問題都是以前已經碰過的，一下就知道如何解題目了，只剩下這個難搞的VTK部份，主要是作者把VTK綁在他自己的模組裡面，像from ars import app就可以呼叫他自己用的模組，這部份我可能再找時間把他做完，剩沒幾步路了。GO&lt;/p&gt;</summary><category term="ARS"></category></entry><entry><title>40323230日誌 - 105/12/26</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051226.html" rel="alternate"></link><published>2016-12-26T21:00:00+08:00</published><updated>2016-12-26T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-26:blog/40323230ri-zhi-1051226.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;基因演算法 - 反解機構流程&lt;/p&gt;
@@ -75,7 +119,7 @@ print(b)
 &lt;h1&gt;Pyslvs 圖示&lt;/h1&gt;
 &lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1226_02.png" /&gt;&lt;/p&gt;
 &lt;p&gt;稍微設計了 Pyslvs 的圖示，對應 Python 的顏色風格。&lt;/p&gt;
-&lt;p&gt;Windows 方面有 256 x 256 大小的 ico 檔案可以使用。&lt;/p&gt;</summary><category term="Python3"></category></entry><entry><title>RSA 模組</title><link href="http://project.mde.tw/blog/rsa-mo-zu.html" rel="alternate"></link><published>2016-12-26T20:00:00+08:00</published><updated>2016-12-26T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-26:blog/rsa-mo-zu.html</id><summary type="html">&lt;p&gt;再看完資料後就整理出來的部份&lt;/p&gt;
+&lt;p&gt;Windows 方面有 256 x 256 大小的 ico 檔案可以使用。&lt;/p&gt;</summary><category term="Python3"></category></entry><entry><title>ARS 模組</title><link href="http://project.mde.tw/blog/ars-mo-zu.html" rel="alternate"></link><published>2016-12-26T20:00:00+08:00</published><updated>2016-12-26T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-26:blog/ars-mo-zu.html</id><summary type="html">&lt;p&gt;再看完資料後就整理出來的部份&lt;/p&gt;
 
 
 &lt;p&gt;&lt;a href="http://ars-project.readthedocs.io/en/latest/installation/prerequisites.html"&gt;官方技術手冊&lt;/a&gt;&lt;/p&gt;
@@ -119,7 +163,7 @@ print(b)
 &lt;li&gt;numpy  cython (這部份可以沿用)
 &lt;li&gt;VTK  (要看官方是否有更新或改成OpenGl)
 &lt;li&gt;Open Dynamics Engine (ODE)  C++那部份不用動，要動的部份會是在bindings/wrapper
-&lt;li&gt;還有RSA模組的python程式碼 
+&lt;li&gt;還有ARS模組的python程式碼 
 &lt;/ul&gt;
 
 &lt;h2&gt;這部份是DEMO用的&lt;/h2&gt;
@@ -131,7 +175,7 @@ print(b)
 
 &lt;p&gt;接下來要做的部份就是把他改成python3&lt;/p&gt;
 &lt;p&gt;我應該會優先改wrapper再改RSA模組，並且測試和新版的ODE-13符不符合使用上的問題，使用虛擬機測試。&lt;/p&gt;
-&lt;p&gt;Wrapper可以優先測試import Ode，我會再測試。&lt;/p&gt;</summary><category term="RSA"></category></entry><entry><title>40323230日誌 - 105/12/22</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051222.html" rel="alternate"></link><published>2016-12-22T21:00:00+08:00</published><updated>2016-12-22T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-22:blog/40323230ri-zhi-1051222.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
+&lt;p&gt;Wrapper可以優先測試import Ode，我會再測試。&lt;/p&gt;</summary><category term="ARS"></category></entry><entry><title>40323230日誌 - 105/12/22</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051222.html" rel="alternate"></link><published>2016-12-22T21:00:00+08:00</published><updated>2016-12-22T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-22:blog/40323230ri-zhi-1051222.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;移除需求提示視窗&lt;/p&gt;

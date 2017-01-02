@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>40323230日誌 - 105/07/05 - 機械設計專題 (虎尾科大MDE)</title>
+    <title>Articles by 40323230 - 機械設計專題 (虎尾科大MDE)</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,22 +10,15 @@
 
 
 
-<link rel="canonical" href="http://project.mde.tw/blog/40323230ri-zhi-1050705.html">
 
-        <meta name="author" content="40323230" />
-        <meta name="keywords" content="Kmol,Solvespace" />
-        <meta name="description" content="NetBeans的相關探索-2 註：發現目前最新的原始碼內好像很多錯誤，不知道該怎麼辦。" />
+        <meta name="author" content="KMOL" />
 
+    <!-- Open Graph tags -->
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
-        <meta property="og:type" content="article"/>
-        <meta property="og:title" content="40323230日誌 - 105/07/05"/>
-        <meta property="og:url" content="http://project.mde.tw/blog/40323230ri-zhi-1050705.html"/>
-        <meta property="og:description" content="NetBeans的相關探索-2 註：發現目前最新的原始碼內好像很多錯誤，不知道該怎麼辦。"/>
-        <meta property="article:published_time" content="2016-07-05" />
-            <meta property="article:section" content="2016bg2" />
-            <meta property="article:tag" content="Kmol" />
-            <meta property="article:tag" content="Solvespace" />
-            <meta property="article:author" content="40323230" />
+        <meta property="og:type" content="website"/>
+        <meta property="og:title" content="機械設計專題 (虎尾科大MDE)"/>
+        <meta property="og:url" content="http://project.mde.tw/blog"/>
+        <meta property="og:description" content="機械設計專題 (虎尾科大MDE)"/>
 
 
     <!-- Bootstrap -->
@@ -106,7 +99,7 @@
                          <li><a href="http://project.mde.tw/blog/pages/about/">
                              About
                           </a></li>
-                        <li class="active">
+                        <li >
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
                         <li >
@@ -143,137 +136,42 @@
     <div class="row">
         <div class="col-sm-9">
 
-    <section id="content">
-        <article>
-            <header class="page-header">
-                <h1>
-                    <a href="http://project.mde.tw/blog/40323230ri-zhi-1050705.html"
-                       rel="bookmark"
-                       title="Permalink to 40323230日誌 - 105/07/05">
-                        40323230日誌 - 105/07/05
-                    </a>
-                </h1>
-            </header>
-            <div class="entry-content">
-                <div class="panel">
-                    <div class="panel-body">
-<footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-07-05T19:00:00+08:00"> 二 05 七月 2016</time>
-    </span>
-            <span class="label label-default">By</span>
-            <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
+            <article>
+                <h2><a href="http://project.mde.tw/blog/40323230ji-lu.html">40323230紀錄</a></h2>
+                <div class="summary"><p>V-REP從範本學得的一些紀錄</p>
 
-
-
-<span class="label label-default">Tags</span>
-	<a href="http://project.mde.tw/blog/tag/kmol.html">Kmol</a>
-        /
-	<a href="http://project.mde.tw/blog/tag/solvespace.html">Solvespace</a>
-    
-</footer><!-- /.post-info -->                    </div>
+                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ji-lu.html">more ...</a>
                 </div>
-                <p>NetBeans的相關探索-2</p>
-<p>註：發現目前最新的原始碼內好像很多錯誤，不知道該怎麼辦。</p>
+            </article>
+            <hr/>
 
-
-<p>目前NetBeans的<a href="https://netbeans.org/kb/docs/intro-screencasts.html?utm_source=netbeans&amp;utm_campaign=welcomepage" title="netbeans.org">官方網站</a>並沒有很詳盡的介紹，只有放一些改版的導覽影片。</p>
-<p>基於如此就研究看看它跟其他編譯軟體有那些不一樣的地方。</p>
-<h2>NetBeans啟動 :</h2>
-
-<p>每次啟動可攜式環境，NetBeans portable都會保留之前的設定。</p>
-<p>只要上次編譯的專案沒有關閉或是刪除，NetBeans在啟動時都會自動載入，不需要重新導入專案。</p>
-<p>另外NetBeans需要連線的服務（ex.附加元件）也會在啟動時檢查更新。只要背景有程序執行，右下角的進度條就會提醒。</p>
-<p>不過NetBeans似乎有時載入太多東西或其他背景程式開太多，如果再對它下指令，會反應跟不上而閃退。也有可能是在可攜環境執行的關係，比較吃資源。</p>
-<p>設定start.bat在啟動後自動打開NetBeans。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0705_01.jpg" /></p>
-<p>NetBeans在啟動時載入專案的提示。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0705_02.jpg" /></p>
-<h2>NetBeans介面 :</h2>
-
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0705_03.jpg" /></p>
-<p>跟大部分的文字編譯軟體差不多的介面。</p>
-<p>在畫面中按住Ctrl鍵選取#include或import的檔案能直接在分頁中開啟它們；如果是物件，點擊後會移到宣告的地方；如果是副程式，會移到其開始位置。</p>
-<p>行號中會標記錯誤或警告提示，滑鼠移上去就會解說，並且按下Alt+Enter可以顯示更多提示。</p>
-<p>捲軸的旁邊會標記標籤，顯示整個檔案中哪些位置有警告或錯誤，直接點擊可以快速移到該處。</p>
-<p>NetBeans還有內建自動拼寫校正（註解處）。不過有時候讀取和偵錯反應比較慢。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0705_04.jpg" /></p>
-<p>主工具列比較簡單。新建獨立檔案／專案、讀取專案、全部儲存、復原／重做之類的基本功能。</p>
-<p>另外還有選取專案設定檔、Build／Clean than Build的功能、執行／除錯的功能。</p>
-<p>上方的選單比較特殊的是Team的功能，似乎能管理版次和執行git的指令，但是嘗試了一些似乎沒反應？</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0705_05.jpg" /></p>
-<p>Project的欄目可以快速選取開啟CMake的檔案，除此之外和File的檔案結構是一樣的。</p>
-<p>以下是File的檔案目錄和檔案總管顯示的比較。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0705_06.jpg" /></p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0705_07.jpg" /></p>
-<p>服務頁籤中會顯示一些工具，不過不知道怎麼使用。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0705_08.jpg" /></p>
-<p>讀取檔案後會顯示第4個欄位Class，是拆解程式後的物件樹，點擊兩下會開啟程式碼。</p>
-<p>在物件上點擊兩下會移到該物件所在的檔案位置。</p>
-<p>在物件上打關鍵字並使用上下鍵移動能夠搜尋檔案中的物件。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0705_09.jpg" /></p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0705_10.jpg" /></p>
-<p>工具列的功能說明：</p>
-<p>1：Source-切換至編輯原始碼模式。</p>
-<p>2：History-切換至編輯記錄模式。</p>
-<p>3：Last Edit-回到上次編輯（插入／刪除）過的位置。</p>
-<p>4：Go back to-上一個瀏覽過的檔案。</p>
-<p>5：Forward-下一個瀏覽過的檔案。</p>
-<p>6：Find Selection-在本檔案搜尋框選的文字。</p>
-<p>7：Find Previous Occurrence-尋找前一個關鍵字。</p>
-<p>8：Find Next Occurrence-尋找後一個關鍵字。</p>
-<p>9：Toggle Highlight Search-切換高亮度標示。</p>
-<p>10：Toggle Rectangular Selection-切換矩形框選模式。</p>
-<p>11：Previous Bookmark-前一個書籤。</p>
-<p>12：Next Bookmark-下一個書籤。</p>
-<p>13：Toggle Bookmark-切換書籤。</p>
-<p>14：Shift Line Left-往左縮排。</p>
-<p>15：Shift Line Right-往右縮排。</p>
-<p>16：Start Macro Recording-開始巨集（腳本）錄製。</p>
-<p>17：Stop Macro Recording-停止巨集錄製。</p>
-<p>18：Comment-註解。</p>
-<p>19：UNcomment-刪掉註解。</p>
-<p>20：Go to Header/Source-開啟源頭檔。</p>
-<hr>
-
-<p>使用一款未接觸過的軟體，都會先研究它的介面和基本操作方式還有額外的設定，不過有些專業用詞不知道影響的關聯性。</p>
-<p>以前只用過Visual Studio撰寫和測試一些簡單的程式，對這種大型的架構瞭解較少，應該會再找些相關資訊學習。</p>
-            </div>
-            <!-- /.entry-content -->
-    <hr/>
-    <section class="comments" id="comments">
-        <h2>Comments</h2>
-
-        <div id="disqus_thread"></div>
-        <script type="text/javascript">
-            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-            var disqus_shortname = 'projectmdetw'; // required: replace example with your forum shortname
-
-                    var disqus_identifier = '40323230ri-zhi-1050705';
-                var disqus_url = 'http://project.mde.tw/blog/40323230ri-zhi-1050705.html';
-
-            var disqus_config = function () {
-                this.language = "en";
-            };
-
-            /* * * DON'T EDIT BELOW THIS LINE * * */
-            (function () {
-                var dsq = document.createElement('script');
-                dsq.type = 'text/javascript';
-                dsq.async = true;
-                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
-                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-            })();
-        </script>
-        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
-            Disqus.</a></noscript>
-        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
-
-    </section>
-        </article>
-    </section>
-
+        <ul class="pagination">
+                <li class="prev"><a href="http://project.mde.tw/blog/author/4032323010.html">&laquo;</a>
+                </li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/author/40323230.html">1</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/author/403232302.html">2</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/author/403232303.html">3</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/author/403232304.html">4</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/author/403232305.html">5</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/author/403232306.html">6</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/author/403232307.html">7</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/author/403232308.html">8</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/author/403232309.html">9</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/author/4032323010.html">10</a></li>
+                    <li class="active"><a
+                            href="http://project.mde.tw/blog/author/4032323011.html">11</a></li>
+                <li class="next disabled"><a href="#">&raquo;</a></li>
+        </ul>
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>
@@ -299,13 +197,13 @@
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-si.html">
-                            機械設計工程系網路講座(四)
+                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1051226.html">
+                            40323230日誌 - 105/12/26
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/rsa-mo-zu.html">
-                            RSA 模組
+                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1051222.html">
+                            40323230日誌 - 105/12/22
                         </a>
                     </li>
                 </ul>

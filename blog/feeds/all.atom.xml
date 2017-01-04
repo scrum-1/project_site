@@ -1,5 +1,64 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-02T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/01/02</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060102.html" rel="alternate"></link><published>2017-01-02T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-02:blog/40323230ri-zhi-1060102.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度 - 演算法：&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-04T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/01/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060104.html" rel="alternate"></link><published>2017-01-04T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-04:blog/40323230ri-zhi-1060104.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度 - 演算法 - Widows 版編譯：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;演算法函式庫除錯&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;編譯方法&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1&gt;Pyslvs 編譯進度 - 演算法 - Widows 版編譯&lt;/h1&gt;
+&lt;h2&gt;演算法函式庫除錯&lt;/h2&gt;
+&lt;p&gt;之前嘗試過在 Widows 平台編譯學長的 Cython 函式庫，但是使用 MinGW 和 VS 都出錯，於是上網了解一下關鍵原因。&lt;/p&gt;
+&lt;p&gt;在官方說明中提到，目前尚未支援 Windows 的 64 位元 GNU，而使用 MinGW32 的話，會造成 64 位元的 Python 無法輸入或讀取任何資訊（進位制不同）。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/cython/cython/wiki/CythonExtensionsOnWindows#less-useful-information"&gt;https://github.com/cython/cython/wiki/CythonExtensionsOnWindows#less-useful-information&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;因此在 Windows 平台中只能使用微軟提供的 SDK 協助編譯了。&lt;/p&gt;
+&lt;p&gt;使用 Visual Studio Community 客戶端安裝 Windows SDK 即可，若是 Python 認不得 2012 以上的版本，必須編輯 Anaconda 的 Lib\distutils\ 資料夾中的 &lt;code&gt;cygwinccompiler.py&lt;/code&gt;，在大約 85 行的位置插入以下程式碼：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+elif msc_ver == '1700':
+    # Visual Studio 2012 / Visual C++ 11.0
+    return ['msvcr110']
+elif msc_ver == '1800':
+    # Visual Studio 2013 / Visual C++ 12.0
+    return ['msvcr120']
+elif msc_ver == '1900':
+    # Visual Studio 2015 / Visual C++ 14.0
+    return ['vcruntime140']
+&lt;/pre&gt;
+
+&lt;p&gt;Cython 在編譯時才會找到 SDK 的工具。&lt;/p&gt;
+&lt;p&gt;編譯後，執行 test.py 時出現了類似 &lt;code&gt;IndexError: index 250 is out of bounds for axis 0...&lt;/code&gt; 的訊息，顯示某個 List 超出可讀取範圍。&lt;/p&gt;
+&lt;p&gt;在不斷測試與檢查之後發現是 Cython 從 C 語言 import 的 random 函數有問題。&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+from libc.stdlib cimport rand, RAND_MAX, srand
+
+cdef double randV():
+    return rand()*1.0 / RAND_MAX
+&lt;/pre&gt;
+
+&lt;p&gt;這個是產生亂數用的 function，在 Windows 下，回傳值某些時候會大於 1，這就導致長度 250 的 list 出現 &lt;code&gt;[250]&lt;/code&gt; 的選項。&lt;/p&gt;
+&lt;p&gt;為了避免這個狀況發生，改寫上面的函式成下面的樣子：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+cdef double randV():
+    randomNum = rand()*1.0 / RAND_MAX
+    if randomNum&gt;=1: randomNum -= 0.1
+    return randomNum
+&lt;/pre&gt;
+
+&lt;p&gt;這裡使用迭代運算而非重新指定值，速度會比較快一點。&lt;/p&gt;
+&lt;p&gt;需要修改的檔案為 &lt;code&gt;rga.pyx&lt;/code&gt; 和 &lt;code&gt;de.pyx&lt;/code&gt;，其他函式庫都沒問題。&lt;/p&gt;
+&lt;p&gt;但是因為 Windows 平台多加了判斷式，還有其他因素，運算時間慢上 1 倍（中間的螢火蟲演算法完全相同）。以下是相同題目的運算結果：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0101_01.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0101_02.jpg" /&gt;&lt;/p&gt;
+&lt;h2&gt;編譯方法&lt;/h2&gt;
+&lt;p&gt;由於加入了 Cython 的程式庫，原本的編譯方式又沒辦法使用了，會出現「pythoncom」匯入的錯誤。&lt;/p&gt;
+&lt;p&gt;用兩種方式重新編譯後，發現在 PyInstaller 的資料夾（dist）中執行它的主程式，會顯示找不到 py35w 的核心。&lt;/p&gt;
+&lt;p&gt;於是就將 cxFreeze 的 core 資料夾複製到 PyInstaller 的資料夾中，再啟動主程式就可以使用了，也不會出現任何錯誤。&lt;/p&gt;
+&lt;p&gt;此方法已經套用到 winBuild.bat 中。&lt;/p&gt;
+&lt;p&gt;目前暫時將 PyInstaller 的 -w 參數拿掉，方便在 Windows 平台查看 console 資訊。&lt;/p&gt;</summary><category term="Python3"></category></entry><entry><title>40323230日誌 - 106/01/02</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060102.html" rel="alternate"></link><published>2017-01-02T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-02:blog/40323230ri-zhi-1060102.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度 - 演算法：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;介面&lt;/p&gt;

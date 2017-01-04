@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-04T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/01/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060104.html" rel="alternate"></link><published>2017-01-04T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-04:blog/40323230ri-zhi-1060104.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度 - 演算法 - Widows 版編譯：&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-04T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/01/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060104.html" rel="alternate"></link><published>2017-01-04T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-04:blog/40323230ri-zhi-1060104.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度 - 演算法 - Windows 版編譯：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;演算法函式庫除錯&lt;/p&gt;
@@ -10,7 +10,7 @@
 &lt;/ul&gt;
 
 
-&lt;h1&gt;Pyslvs 編譯進度 - 演算法 - Widows 版編譯&lt;/h1&gt;
+&lt;h1&gt;Pyslvs 編譯進度 - 演算法 - Windows 版編譯&lt;/h1&gt;
 &lt;h2&gt;演算法函式庫除錯&lt;/h2&gt;
 &lt;p&gt;之前嘗試過在 Widows 平台編譯學長的 Cython 函式庫，但是使用 MinGW 和 VS 都出錯，於是上網了解一下關鍵原因。&lt;/p&gt;
 &lt;p&gt;在官方說明中提到，目前尚未支援 Windows 的 64 位元 GNU，而使用 MinGW32 的話，會造成 64 位元的 Python 無法輸入或讀取任何資訊（進位制不同）。&lt;/p&gt;

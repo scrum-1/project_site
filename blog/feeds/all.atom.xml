@@ -51,8 +51,8 @@ cdef double randV():
 &lt;p&gt;這裡使用迭代運算而非重新指定值，速度會比較快一點。&lt;/p&gt;
 &lt;p&gt;需要修改的檔案為 &lt;code&gt;rga.pyx&lt;/code&gt; 和 &lt;code&gt;de.pyx&lt;/code&gt;，其他函式庫都沒問題。&lt;/p&gt;
 &lt;p&gt;但是因為 Windows 平台多加了判斷式，還有其他因素，運算時間慢上 1 倍（中間的螢火蟲演算法完全相同）。以下是相同題目的運算結果：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0101_01.png" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0101_02.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0104_01.png" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0104_02.jpg" /&gt;&lt;/p&gt;
 &lt;h2&gt;編譯方法&lt;/h2&gt;
 &lt;p&gt;由於加入了 Cython 的程式庫，原本的編譯方式又沒辦法使用了，會出現「pythoncom」匯入的錯誤。&lt;/p&gt;
 &lt;p&gt;用兩種方式重新編譯後，發現在 PyInstaller 的資料夾（dist）中執行它的主程式，會顯示找不到 py35w 的核心。&lt;/p&gt;

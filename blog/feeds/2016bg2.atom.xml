@@ -1,5 +1,31 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-04T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/01/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060104.html" rel="alternate"></link><published>2017-01-04T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-04:blog/40323230ri-zhi-1060104.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度 - 演算法 - Windows 版編譯：&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-05T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/01/05</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060105.html" rel="alternate"></link><published>2017-01-05T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-05:blog/40323230ri-zhi-1060105.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;界面調整 - 面板&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;編譯 - Makefile&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1&gt;Pyslvs 編譯進度&lt;/h1&gt;
+&lt;h2&gt;界面調整 - 面板&lt;/h2&gt;
+&lt;p&gt;當初構想的清單原本也是置頂的視窗，但是後來發現在 Windows 中開啟會導致清單視窗 crash，所以將一些額外的面板合併到點座標的分頁去。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0105_01.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;不過這些面板插入分頁後排版不太人性化，之後還會再修正。&lt;/p&gt;
+&lt;h2&gt;編譯 - Makefile&lt;/h2&gt;
+&lt;p&gt;最後還是統一兩個版本都使用 Makefile 來編譯，方便 Windows 可攜的版本下指令，只要使用下列語句即可分辨平台：&lt;/p&gt;
+&lt;pre&gt;
+ifeq ($(OS),Windows_NT)
+#執行 Windows 編譯
+else
+#執行 Linux 編譯
+endif
+&lt;/pre&gt;
+
+&lt;p&gt;另外在 Readme 上也有做修正。&lt;/p&gt;</summary><category term="Python3"></category></entry><entry><title>40323230日誌 - 106/01/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060104.html" rel="alternate"></link><published>2017-01-04T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-04:blog/40323230ri-zhi-1060104.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度 - 演算法 - Windows 版編譯：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;演算法函式庫除錯&lt;/p&gt;

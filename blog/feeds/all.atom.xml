@@ -1,5 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-05T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/01/05</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060105.html" rel="alternate"></link><published>2017-01-05T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-05:blog/40323230ri-zhi-1060105.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-14T22:00:00+08:00</updated><entry><title>自動控制(Record)</title><link href="http://project.mde.tw/blog/zi-dong-kong-zhi-record.html" rel="alternate"></link><published>2017-01-14T22:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2017-01-14:blog/zi-dong-kong-zhi-record.html</id><summary type="html">&lt;p&gt;關於這門課用到的技術
+&lt;/p&gt;
+&lt;h3&gt;選用的控制版子&lt;/h3&gt;
+
+&lt;p&gt;Arduino + Ramps 1.4 + power supply&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://github.com/coursemdetw/project_site_files/blob/gh-pages/files/autocontrol/IMG_0320.JPG?raw=true"&gt;&lt;/p&gt;
+&lt;h3&gt;pin mapping&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="http://www.reprap.org/mediawiki/images/c/ca/Arduinomega1-4connectors.png"&gt;&lt;/p&gt;
+&lt;h3&gt;Onshape 主體設計&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href="https://cad.onshape.com/documents/5879d8f6ba925016dc1480bf/w/fbd34089a333cf550a7792fc/e/39d0a4577f2e92dbd563b6d5"&gt;設計圖&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;這個再設計上有許多先天上的失誤，請不要直接使用，再傳動的部份需要額外思考，這一個月會再畫一個可以正常工作的三軸機器。&lt;/p&gt;
+&lt;h3&gt;程式碼設計的部份&lt;/h3&gt;
+
+&lt;p&gt;幾個要注意的地方&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;1.A4988控制晶片的方法
+&lt;li&gt;2.步進馬達的使用
+&lt;li&gt;3.對於控制版的腳位要查表
+&lt;li&gt;4.對於電路有基本的理解
+&lt;/ul&gt;
+
+&lt;h3&gt;A4988 &amp; 步進馬達&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src="https://a.pololu-files.com/picture/0J3360.1200.png?d94ef1356fab28463db67ff0619afadf"&gt;&lt;/p&gt;
+&lt;p&gt;會需要控制step以及dir的腳位，dir的腳位決定正轉反轉假設輸入high為正轉那low就是反轉。&lt;/p&gt;
+&lt;p&gt;step腳位決定這個馬達要走幾步，譬如說我配的皮帶輪齒數是20齒的，我步進馬達轉一圈假設是3200步，我的一齒可以帶動皮帶移動1mm，寫個簡單的數學式子就會變成底下這樣。&lt;/p&gt;
+&lt;p&gt;$$\theta_T = cos^{-1}(\frac{x^2+y^2-L1^2-L2^2}{2\times L1\times L2})$$&lt;/p&gt;
+&lt;p&gt;$$\frac{20}{3200}=\frac{1}{x}$$&lt;/p&gt;
+&lt;p&gt;$$x=\frac{3200}{20}\times 1mm$$&lt;/p&gt;
+&lt;p&gt;$$x=160step$$&lt;/p&gt;
+&lt;p&gt;我要移動1mm需要多少步數&lt;/p&gt;
+&lt;p&gt;這對後面機器的校正也會用到，假設說讓機器移動10mm可是卻只移動一半，表示step少一半，再補正回去就可以讓機器正常運轉。&lt;/p&gt;
+&lt;h3&gt;控制版腳位&lt;/h3&gt;
+
+&lt;p&gt;這塊版子再當初設計的時候加入了許多可以讓使用者字定義的部份，預留了analogread 以及digital output再aux的部份，讓使用者自行對他定義和使用，我們這次有使用到一顆Servo來夾取一枝筆，當作Z軸使用，再查詢腳位花了一些時間，直到後來才發現左下角，作者有預留給大家使用，分別式D4、D5、D6、D11這4個腳位使用，切忌物將地線和火線接相反。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/smpss91341/automaticcontrol/tree/master/final_control/arduino_autocontrol0113"&gt;程式碼的倉儲&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;腳位的部份我都已經定義好了，可以直接使用。&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://github.com/coursemdetw/project_site_files/blob/gh-pages/files/autocontrol/2.JPG?raw=true"&gt;&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/Xy_UETovoK0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h4&gt;後面想要加的東西&lt;/h4&gt;
+
+&lt;p&gt;想要做一個端口，將可以利用python做介面來進行裡面和外面同時可以控制，內部可以先模擬完外面再進行執行。機構再從新想一個，這個問題有點多沒有考慮到。&lt;/p&gt;</summary><category term="machine"></category></entry><entry><title>40323230日誌 - 106/01/14</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060114.html" rel="alternate"></link><published>2017-01-14T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-14:blog/40323230ri-zhi-1060114.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;程式 - 求解轉換函式&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;界面 - 演算法結果說明文字&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1&gt;Pyslvs 編譯進度&lt;/h1&gt;
+&lt;h2&gt;程式 - 求解轉換函式&lt;/h2&gt;
+&lt;p&gt;利用演算法得出的解需要經過 Solvespace kernel 的轉換才能得到點座標，不過之前的函式沒經過考慮，會重複許多流程，因此將函式合併，當提供相應值時會回傳需要的解。&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+pathTrackProcess = not angle==None
+staticProcess = not table_point==None
+generateConversionProcess = not generateResult==None
+...
+if pathTrackProcess:
+    try: return x, y
+    except: return 0, 0
+elif staticProcess:
+    try: return resultList, sys.dof, script
+    except: return list(), -1, str()
+elif generateConversionProcess:
+    try: return resultList
+    except: return list()
+&lt;/pre&gt;
+
+&lt;p&gt;另外編出 Python Script 的部份縮減很多，只會提供表格的點座標和約束讓使用者利用。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0114_01.jpg" /&gt;&lt;/p&gt;
+&lt;h2&gt;界面 - 演算法結果說明文字&lt;/h2&gt;
+&lt;p&gt;由於做出預覽會造成 QPaint 畫布需要處理很多項目，所以未來使用 QGraphicsView 畫布時再補回去。&lt;/p&gt;
+&lt;p&gt;當 Path Solving 面板算出結果後會將資料存入待審清單中，滑鼠移上去時可以看到使用演算法、AD點座標、運算時間等等數據。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0114_01.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;剩下上述的轉換函式、點擊 Merge 鈕加入表單的功能。&lt;/p&gt;
+&lt;p&gt;完成並驗證演算法流程後，即會發布 Version 0.4。&lt;/p&gt;</summary><category term="Python3"></category></entry><entry><title>Blue Workforce 併購 V-rep 公司</title><link href="http://project.mde.tw/blog/blue-workforce-bing-gou-v-rep-gong-si.html" rel="alternate"></link><published>2017-01-07T11:29:00+08:00</published><author><name>yen</name></author><id>tag:project.mde.tw,2017-01-07:blog/blue-workforce-bing-gou-v-rep-gong-si.html</id><summary type="html">&lt;p&gt;丹麥的 &lt;a href="http://blueworkforce.com/"&gt;Blue Workforce&lt;/a&gt;公司與瑞士的 &lt;a href="http://www.coppeliarobotics.com/"&gt;Coppelia Robotics&lt;/a&gt; 公司已經在 2016 年 12 月 28 日合併了. 主要目標在開發更普及 (Accessible), 合用 (Applicable) 與平價 (Affordable) 的機器人系統&lt;/p&gt;
+
+
+&lt;p&gt;&lt;a href="http://www.coppeliarobotics.com/"&gt;Coppelia Robotics&lt;/a&gt; 就是開發 V-REP (Virtual Robot Experimentation Platform, 虛擬機器人實驗平台) 的公司. 最早是在 2010 年 3 月以 V-REP V2.4.2 版本公開, 直到 2013 年 1 月起釋出 V-REP V3.0.0 版本的原始碼. 由於 V-REP 除了開放原始碼之外, 還提供俱備完整功能的免費教育版本. 因此非常適合在非營利的教育單位中納入課程教學.&lt;/p&gt;
+&lt;p&gt;在這項虛實機器人開發公司間的合併, 也能看到未來在各層級機器人自動化系統的整合, 將會是機電資 (InfoRmechAtronics) 三種機械、電機與資訊科技領域高度密合時代的來臨. 尤其在產品開發的前端大量使用異地同步串聯虛擬與實體即時整合的專案, 也將會日漸普及.&lt;/p&gt;
+&lt;p&gt;換言之, 未來機械產品設計最佳化的範圍, 除了必須將納入電機與資訊元件範疇之外, 各項容錯與更強健的製造管理系統規劃, 也將成為重點.&lt;/p&gt;
+&lt;iframe width="640" height="480" src="https://www.youtube.com/embed/ERD9QlouPLI" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="V-rep"></category><category term="機電資整合"></category></entry><entry><title>40323230日誌 - 106/01/05</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060105.html" rel="alternate"></link><published>2017-01-05T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-05:blog/40323230ri-zhi-1060105.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;界面調整 - 面板&lt;/p&gt;

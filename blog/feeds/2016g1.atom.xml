@@ -5,7 +5,7 @@
 
 &lt;p&gt;Arduino + Ramps 1.4 + power supply&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://github.com/coursemdetw/project_site_files/blob/gh-pages/files/autocontrol/IMG_0320.JPG?raw=true"&gt;&lt;/p&gt;
-&lt;h4&gt;pin mapping&lt;/h4&gt;
+&lt;h3&gt;pin mapping&lt;/h3&gt;
 
 &lt;p&gt;&lt;img src="http://www.reprap.org/mediawiki/images/c/ca/Arduinomega1-4connectors.png"&gt;&lt;/p&gt;
 &lt;h3&gt;Onshape 主體設計&lt;/h3&gt;
@@ -22,20 +22,18 @@
 &lt;li&gt;4.對於電路有基本的理解
 &lt;/ul&gt;
 
-&lt;h5&gt;A4988 &amp; 步進馬達&lt;/h5&gt;
+&lt;h3&gt;A4988 &amp; 步進馬達&lt;/h3&gt;
 
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&amp;lt;img src=&amp;quot;https://a.pololu-files.com/picture/0J3360.1200.png?d94ef1356fab28463db67ff0619afadf&amp;quot;&amp;gt;
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
+&lt;p&gt;&lt;img src="https://a.pololu-files.com/picture/0J3360.1200.png?d94ef1356fab28463db67ff0619afadf"&gt;&lt;/p&gt;
 &lt;p&gt;會需要控制step以及dir的腳位，dir的腳位決定正轉反轉假設輸入high為正轉那low就是反轉。&lt;/p&gt;
 &lt;p&gt;step腳位決定這個馬達要走幾步，譬如說我配的皮帶輪齒數是20齒的，我步進馬達轉一圈假設是3200步，我的一齒可以帶動皮帶移動1mm，寫個簡單的數學式子就會變成底下這樣。&lt;/p&gt;
+&lt;p&gt;$$\theta_T = cos^{-1}(\frac{x^2+y^2-L1^2-L2^2}{2\times L1\times L2})$$&lt;/p&gt;
 &lt;p&gt;$$\frac{20}{3200}=\frac{1}{x}$$&lt;/p&gt;
 &lt;p&gt;$$x=\frac{3200}{20}\times 1mm$$&lt;/p&gt;
 &lt;p&gt;$$x=160step$$&lt;/p&gt;
 &lt;p&gt;我要移動1mm需要多少步數&lt;/p&gt;
 &lt;p&gt;這對後面機器的校正也會用到，假設說讓機器移動10mm可是卻只移動一半，表示step少一半，再補正回去就可以讓機器正常運轉。&lt;/p&gt;
-&lt;h5&gt;控制版腳位&lt;/h5&gt;
+&lt;h3&gt;控制版腳位&lt;/h3&gt;
 
 &lt;p&gt;這塊版子再當初設計的時候加入了許多可以讓使用者字定義的部份，預留了analogread 以及digital output再aux的部份，讓使用者自行對他定義和使用，我們這次有使用到一顆Servo來夾取一枝筆，當作Z軸使用，再查詢腳位花了一些時間，直到後來才發現左下角，作者有預留給大家使用，分別式D4、D5、D6、D11這4個腳位使用，切忌物將地線和火線接相反。&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/smpss91341/automaticcontrol/tree/master/final_control/arduino_autocontrol0113"&gt;程式碼的倉儲&lt;/a&gt;&lt;/p&gt;

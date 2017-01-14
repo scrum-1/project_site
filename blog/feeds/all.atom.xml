@@ -78,7 +78,7 @@ elif generateConversionProcess:
 &lt;h2&gt;界面 - 演算法結果說明文字&lt;/h2&gt;
 &lt;p&gt;由於做出預覽會造成 QPaint 畫布需要處理很多項目，所以未來使用 QGraphicsView 畫布時再補回去。&lt;/p&gt;
 &lt;p&gt;當 Path Solving 面板算出結果後會將資料存入待審清單中，滑鼠移上去時可以看到使用演算法、AD點座標、運算時間等等數據。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0114_01.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0114_02.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;剩下上述的轉換函式、點擊 Merge 鈕加入表單的功能。&lt;/p&gt;
 &lt;p&gt;完成並驗證演算法流程後，即會發布 Version 0.4。&lt;/p&gt;</summary><category term="Python3"></category></entry><entry><title>Blue Workforce 併購 V-rep 公司</title><link href="http://project.mde.tw/blog/blue-workforce-bing-gou-v-rep-gong-si.html" rel="alternate"></link><published>2017-01-07T11:29:00+08:00</published><author><name>yen</name></author><id>tag:project.mde.tw,2017-01-07:blog/blue-workforce-bing-gou-v-rep-gong-si.html</id><summary type="html">&lt;p&gt;丹麥的 &lt;a href="http://blueworkforce.com/"&gt;Blue Workforce&lt;/a&gt;公司與瑞士的 &lt;a href="http://www.coppeliarobotics.com/"&gt;Coppelia Robotics&lt;/a&gt; 公司已經在 2016 年 12 月 28 日合併了. 主要目標在開發更普及 (Accessible), 合用 (Applicable) 與平價 (Affordable) 的機器人系統&lt;/p&gt;
 

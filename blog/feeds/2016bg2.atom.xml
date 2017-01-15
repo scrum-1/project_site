@@ -1,5 +1,22 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-14T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/01/14</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060114.html" rel="alternate"></link><published>2017-01-14T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-14:blog/40323230ri-zhi-1060114.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-15T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/01/15</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060115.html" rel="alternate"></link><published>2017-01-15T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-15:blog/40323230ri-zhi-1060115.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;路徑演算法功能&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1&gt;Pyslvs 編譯進度&lt;/h1&gt;
+&lt;h2&gt;路徑演算法功能&lt;/h2&gt;
+&lt;p&gt;Pyslvs 生成曲柄搖桿的步驟：&lt;/p&gt;
+&lt;iframe width="640" height="360" src="https://www.youtube.com/embed/wjdBAlF9u4Y" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;演算法算出的結果有兩種形式：&lt;/p&gt;
+&lt;p&gt;一個呆鍊的方向朝上，主動軸（短軸）在左方，為學長論文中的模型。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0115_01.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;另一個呆鍊的端點朝下，主動軸在右方，剛好跟上述的情況相反。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0115_02.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;雖在轉換式中做了些修正，但是有時仍然會發生 Solvespace kernel 解決失敗的情況。&lt;/p&gt;
+&lt;p&gt;大約原因應該是初始位置帶來的困擾。由於是讀取 C++ 程式庫的問題，若是學 C 語言直接，之後想在發布 Version 0.4 前做一個理想化初始位置的功能。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 106/01/14</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060114.html" rel="alternate"></link><published>2017-01-14T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-14:blog/40323230ri-zhi-1060114.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;程式 - 求解轉換函式&lt;/p&gt;
@@ -36,7 +53,7 @@ elif generateConversionProcess:
 &lt;p&gt;當 Path Solving 面板算出結果後會將資料存入待審清單中，滑鼠移上去時可以看到使用演算法、AD點座標、運算時間等等數據。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0114_02.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;剩下上述的轉換函式、點擊 Merge 鈕加入表單的功能。&lt;/p&gt;
-&lt;p&gt;完成並驗證演算法流程後，即會發布 Version 0.4。&lt;/p&gt;</summary><category term="Python3"></category></entry><entry><title>40323230日誌 - 106/01/05</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060105.html" rel="alternate"></link><published>2017-01-05T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-05:blog/40323230ri-zhi-1060105.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
+&lt;p&gt;完成並驗證演算法流程後，即會發布 Version 0.4。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 106/01/05</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060105.html" rel="alternate"></link><published>2017-01-05T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-05:blog/40323230ri-zhi-1060105.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;界面調整 - 面板&lt;/p&gt;
@@ -62,7 +79,7 @@ else
 endif
 &lt;/pre&gt;
 
-&lt;p&gt;另外在 Readme 上也有做修正。&lt;/p&gt;</summary><category term="Python3"></category></entry><entry><title>40323230日誌 - 106/01/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060104.html" rel="alternate"></link><published>2017-01-04T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-04:blog/40323230ri-zhi-1060104.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度 - 演算法 - Windows 版編譯：&lt;/p&gt;
+&lt;p&gt;另外在 Readme 上也有做修正。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 106/01/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060104.html" rel="alternate"></link><published>2017-01-04T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-04:blog/40323230ri-zhi-1060104.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度 - 演算法 - Windows 版編譯：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;演算法函式庫除錯&lt;/p&gt;
@@ -121,7 +138,7 @@ cdef double randV():
 &lt;p&gt;用兩種方式重新編譯後，發現在 PyInstaller 的資料夾（dist）中執行它的主程式，會顯示找不到 py35w 的核心。&lt;/p&gt;
 &lt;p&gt;於是就將 cxFreeze 的 core 資料夾複製到 PyInstaller 的資料夾中，再啟動主程式就可以使用了，也不會出現任何錯誤。&lt;/p&gt;
 &lt;p&gt;此方法已經套用到 winBuild.bat 中。&lt;/p&gt;
-&lt;p&gt;目前暫時將 PyInstaller 的 -w 參數拿掉，方便在 Windows 平台查看 console 資訊。&lt;/p&gt;</summary><category term="Python3"></category></entry><entry><title>40323230日誌 - 106/01/02</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060102.html" rel="alternate"></link><published>2017-01-02T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-02:blog/40323230ri-zhi-1060102.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度 - 演算法：&lt;/p&gt;
+&lt;p&gt;目前暫時將 PyInstaller 的 -w 參數拿掉，方便在 Windows 平台查看 console 資訊。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 106/01/02</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060102.html" rel="alternate"></link><published>2017-01-02T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-02:blog/40323230ri-zhi-1060102.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度 - 演算法：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;介面&lt;/p&gt;
@@ -153,7 +170,7 @@ Parm_num = p+9
 &lt;p&gt;Parm_num 會帶入三種演算法的 nParm、D 位置，必須等於 upperVal 和 lowerVal 的長度。&lt;/p&gt;
 &lt;p&gt;比較好奇的是最後回傳的 fitnessParameter 長度會剛好等於 Parm_num，而且前 9 項是 Ax、Ay、Dx、Dy、L0、L1、L2、L3、L4 的答案，後面都是超過範圍的 float 數值，不知道代表含意。&lt;/p&gt;
 &lt;p&gt;預覽的部份比較複雜，因為當前的 Solvespace 解題 function 是針對左邊的表單寫的，若是拿來運算 3 個未知點的圖形，必須改寫帶入參數。&lt;/p&gt;
-&lt;p&gt;單機演算法解題的部份預計寒假初完成，釋出 Version 0.4.0，寒假進行中會加入平行運算，並同時完成其他項目。&lt;/p&gt;</summary><category term="Python3"></category></entry><entry><title>40323230日誌 - 106/01/01</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060101.html" rel="alternate"></link><published>2017-01-01T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-01:blog/40323230ri-zhi-1060101.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度 - 演算法：&lt;/p&gt;
+&lt;p&gt;單機演算法解題的部份預計寒假初完成，釋出 Version 0.4.0，寒假進行中會加入平行運算，並同時完成其他項目。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 106/01/01</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060101.html" rel="alternate"></link><published>2017-01-01T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-01:blog/40323230ri-zhi-1060101.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度 - 演算法：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;程式&lt;/li&gt;
 &lt;/ul&gt;
@@ -185,7 +202,7 @@ if platform.system().lower()=="linux":
 &lt;p&gt;當使用 Path solving panel 後可以回傳數據，但是無法回傳進度，要有這個功能可能得改寫演算法。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0101_01.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;選擇演算方法的部份是切換式的，一次只能儲存一組解。如果空間允許，可能建一個清單儲存結果。&lt;/p&gt;
-&lt;p&gt;至於 Windows 方面則完全封鎖功能，編譯時會跳過整個 Path solving 的相關函式。&lt;/p&gt;</summary><category term="Python3"></category></entry><entry><title>40323230日誌 - 105/12/29</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051229.html" rel="alternate"></link><published>2016-12-29T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-29:blog/40323230ri-zhi-1051229.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度 - 演算法：&lt;/p&gt;
+&lt;p&gt;至於 Windows 方面則完全封鎖功能，編譯時會跳過整個 Path solving 的相關函式。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/12/29</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051229.html" rel="alternate"></link><published>2016-12-29T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-29:blog/40323230ri-zhi-1051229.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度 - 演算法：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;編譯&lt;/li&gt;
 &lt;/ul&gt;
@@ -218,7 +235,7 @@ print(b)
 &lt;p&gt;在該目錄下會編譯出可用的動態連結庫，將其移出就能讓 Python 程式碼使用。&lt;/p&gt;
 &lt;p&gt;接著就要讓 Pyslvs 使用演算法解題。&lt;/p&gt;
 &lt;p&gt;目前測試解題速度平均 25 秒左右，舊電腦 35 秒左右。&lt;/p&gt;
-&lt;p&gt;會試圖研究 Windows 版的編譯方式，最後會像 Python Solvespace 的 kernel 一樣偵測平台和 Python 版本作切換。&lt;/p&gt;</summary><category term="Python3"></category></entry><entry><title>40323230日誌 - 105/12/26</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051226.html" rel="alternate"></link><published>2016-12-26T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-26:blog/40323230ri-zhi-1051226.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
+&lt;p&gt;會試圖研究 Windows 版的編譯方式，最後會像 Python Solvespace 的 kernel 一樣偵測平台和 Python 版本作切換。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/12/26</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051226.html" rel="alternate"></link><published>2016-12-26T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-26:blog/40323230ri-zhi-1051226.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;基因演算法 - 反解機構流程&lt;/p&gt;
@@ -261,7 +278,7 @@ print(b)
 &lt;h1&gt;Pyslvs 圖示&lt;/h1&gt;
 &lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1226_02.png" /&gt;&lt;/p&gt;
 &lt;p&gt;稍微設計了 Pyslvs 的圖示，對應 Python 的顏色風格。&lt;/p&gt;
-&lt;p&gt;Windows 方面有 256 x 256 大小的 ico 檔案可以使用。&lt;/p&gt;</summary><category term="Python3"></category></entry><entry><title>40323230日誌 - 105/12/22</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051222.html" rel="alternate"></link><published>2016-12-22T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-22:blog/40323230ri-zhi-1051222.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
+&lt;p&gt;Windows 方面有 256 x 256 大小的 ico 檔案可以使用。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/12/22</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051222.html" rel="alternate"></link><published>2016-12-22T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-22:blog/40323230ri-zhi-1051222.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;移除需求提示視窗&lt;/p&gt;
@@ -285,7 +302,7 @@ print(b)
 &lt;p&gt;Linux 可以用 PyInstaller 或 cxFreeze 的 CLI（cxFreeze 不支援 Windows）直接編譯（擇一即可）。&lt;/p&gt;
 &lt;p&gt;而 Windows 方面寫了一個批次檔（名為 &lt;code&gt;winBuild.bat&lt;/code&gt;），可以編好兩個工具生成的檔案後合併，並已經指定好程式的圖示檔；有安裝必須工具的情況下能直接點兩下執行，在可攜環境必須用 command line 執行。&lt;/p&gt;
 &lt;p&gt;不過 Windows 版執行檔無法觀看文字回應（不會有 print），不過可以用參數命令正常開啟檔案、使用 Fusion 介面。&lt;/p&gt;
-&lt;p&gt;有試過工具安裝本機的情況下編譯 Windows 版本，但是仍不能只用單一工具，可能是 PyInstaller 和 cxFreeze 互有優缺吧。&lt;/p&gt;</summary><category term="Python3"></category></entry><entry><title>40323230日誌 - 105/12/21</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051221.html" rel="alternate"></link><published>2016-12-21T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-21:blog/40323230ri-zhi-1051221.html</id><summary type="html">&lt;ol&gt;
+&lt;p&gt;有試過工具安裝本機的情況下編譯 Windows 版本，但是仍不能只用單一工具，可能是 PyInstaller 和 cxFreeze 互有優缺吧。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 105/12/21</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1051221.html" rel="alternate"></link><published>2016-12-21T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-21:blog/40323230ri-zhi-1051221.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Pyslvs v0.4 預計目標&lt;/p&gt;
 &lt;/li&gt;
@@ -344,7 +361,7 @@ print(b)
 &lt;p&gt;另外演算法的部分還要審查一下，以確定四連桿呆鍊的方向。&lt;/p&gt;
 &lt;h1&gt;Pyslvs 緊急修正&lt;/h1&gt;
 &lt;p&gt;由於之前將模組放在 &lt;code&gt;__init__.py&lt;/code&gt; 檔的行為在 PyInstaller 和 cxFreeze 會被識別為掛在資料夾下，因此將模組修正到新的 &lt;code&gt;modules.py&lt;/code&gt; 檔下避免誤判。&lt;/p&gt;
-&lt;p&gt;更新在分支 master 中。&lt;/p&gt;</summary><category term="Python3"></category></entry><entry><title>Python Copy Module</title><link href="http://project.mde.tw/blog/python-copy-module.html" rel="alternate"></link><published>2016-12-19T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-19:blog/python-copy-module.html</id><summary type="html">&lt;ol&gt;
+&lt;p&gt;更新在分支 master 中。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>Python Copy Module</title><link href="http://project.mde.tw/blog/python-copy-module.html" rel="alternate"></link><published>2016-12-19T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2016-12-19:blog/python-copy-module.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Python 的記憶體管理&lt;/p&gt;
 &lt;/li&gt;

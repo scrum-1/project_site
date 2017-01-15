@@ -44,10 +44,10 @@
 &lt;p&gt;&lt;img src="https://a.pololu-files.com/picture/0J3360.1200.png?d94ef1356fab28463db67ff0619afadf"&gt;&lt;/p&gt;
 &lt;p&gt;會需要控制step以及dir的腳位，dir的腳位決定正轉反轉假設輸入high為正轉那low就是反轉。&lt;/p&gt;
 &lt;p&gt;step腳位決定這個馬達要走幾步，譬如說我配的皮帶輪齒數是20齒的，我步進馬達轉一圈假設是3200步，我的一齒可以帶動皮帶移動1mm，寫個簡單的數學式子就會變成底下這樣。&lt;/p&gt;
-&lt;p&gt;$$\theta_T = cos^{-1}(\frac{x^2+y^2-L1^2-L2^2}{2\times L1\times L2})$$&lt;/p&gt;
-&lt;p&gt;$$\frac{20}{3200}=\frac{1}{x}$$&lt;/p&gt;
-&lt;p&gt;$$x=\frac{3200}{20}\times 1mm$$&lt;/p&gt;
-&lt;p&gt;$$x=160step$$&lt;/p&gt;
+&lt;div class="math"&gt;$$\theta_T = cos^{-1}(\frac{x^2+y^2-L1^2-L2^2}{2\times L1\times L2})$$&lt;/div&gt;
+&lt;div class="math"&gt;$$\frac{20}{3200}=\frac{1}{x}$$&lt;/div&gt;
+&lt;div class="math"&gt;$$x=\frac{3200}{20}\times 1mm$$&lt;/div&gt;
+&lt;div class="math"&gt;$$x=160step$$&lt;/div&gt;
 &lt;p&gt;我要移動1mm需要多少步數&lt;/p&gt;
 &lt;p&gt;這對後面機器的校正也會用到，假設說讓機器移動10mm可是卻只移動一半，表示step少一半，再補正回去就可以讓機器正常運轉。&lt;/p&gt;
 &lt;h3&gt;控制版腳位&lt;/h3&gt;
@@ -60,7 +60,64 @@
 
 &lt;h4&gt;後面想要加的東西&lt;/h4&gt;
 
-&lt;p&gt;想要做一個端口，將可以利用python做介面來進行裡面和外面同時可以控制，內部可以先模擬完外面再進行執行。機構再從新想一個，這個問題有點多沒有考慮到。&lt;/p&gt;</summary><category term="machine"></category></entry><entry><title>40323230日誌 - 106/01/14</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060114.html" rel="alternate"></link><published>2017-01-14T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-14:blog/40323230ri-zhi-1060114.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
+&lt;p&gt;想要做一個端口，將可以利用python做介面來進行裡面和外面同時可以控制，內部可以先模擬完外面再進行執行。機構再從新想一個，這個問題有點多沒有考慮到。&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</summary><category term="machine"></category></entry><entry><title>40323230日誌 - 106/01/14</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060114.html" rel="alternate"></link><published>2017-01-14T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-14:blog/40323230ri-zhi-1060114.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;程式 - 求解轉換函式&lt;/p&gt;
@@ -1082,9 +1139,66 @@ wsgi-file = /home/cadlab/cmsimfly2/wsgi.py
 &lt;p&gt;FA(螢火蟲演算法)&lt;/p&gt;
 &lt;h2&gt;問題點&lt;/h2&gt;
 &lt;p&gt;學長裡面用到的方程式不太理解他的意思&lt;/p&gt;
-&lt;p&gt;$$Fit_{min} = \sum_{i=0}^{n}\sqrt{(O_{x,i}-N_{x,i})^2+(O_{y,i}-N_{y,i})^2}$$&lt;/p&gt;
+&lt;div class="math"&gt;$$Fit_{min} = \sum_{i=0}^{n}\sqrt{(O_{x,i}-N_{x,i})^2+(O_{y,i}-N_{y,i})^2}$$&lt;/div&gt;
 &lt;p&gt;這個式子不太理解他在求什麼東西&lt;/p&gt;
-&lt;p&gt;O和N的代表意義&lt;/p&gt;</summary><category term="四連桿合成"></category></entry><entry><title>Windows 環境下的可攜 Eric6 IDE</title><link href="http://project.mde.tw/blog/windows-huan-jing-xia-de-ke-xi-eric6-ide.html" rel="alternate"></link><published>2016-12-08T13:29:00+08:00</published><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-08:blog/windows-huan-jing-xia-de-ke-xi-eric6-ide.html</id><summary type="html">&lt;p&gt;從 &lt;a href="yen-kmol-de-cheng-shi-kai-fa-huan-jing.html"&gt;KMOL 的程式開發環境&lt;/a&gt;, 可知在 2016 年是以 Ubuntu 16.04 操作系統為主, 但是為了在課程中推廣 Python3 與 PyQt5 的應用, 因此特別打造 64 位元 Windows 環境下的 Eric6 可攜程式開發環境.&lt;/p&gt;
+&lt;p&gt;O和N的代表意義&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</summary><category term="四連桿合成"></category></entry><entry><title>Windows 環境下的可攜 Eric6 IDE</title><link href="http://project.mde.tw/blog/windows-huan-jing-xia-de-ke-xi-eric6-ide.html" rel="alternate"></link><published>2016-12-08T13:29:00+08:00</published><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-08:blog/windows-huan-jing-xia-de-ke-xi-eric6-ide.html</id><summary type="html">&lt;p&gt;從 &lt;a href="yen-kmol-de-cheng-shi-kai-fa-huan-jing.html"&gt;KMOL 的程式開發環境&lt;/a&gt;, 可知在 2016 年是以 Ubuntu 16.04 操作系統為主, 但是為了在課程中推廣 Python3 與 PyQt5 的應用, 因此特別打造 64 位元 Windows 環境下的 Eric6 可攜程式開發環境.&lt;/p&gt;
 
 
 &lt;p&gt;先安裝 mingw 與 msys, 之後再安裝  sip-4.18.1 、PyQt5_gpl-5.7 與 QScintilla2, eric6, peewee, dxfwrite 等模組, 即可以 eric6 開啟 eric6 開發套件.&lt;/p&gt;
@@ -6391,15 +6505,15 @@ show(plot)
 &lt;p&gt;由上一篇可以得知手臂的逆向推導公式，可是存在一個問題，並沒有將方程式列出來，最後證明出的面積是由順向方程式的角度去限制角度將每個角度所會經過的路徑會畫出來。&lt;/p&gt;
 &lt;p&gt;今天從新將方程式從新推導，因為不確定自己推導是否正確，我們幾個人將工具備齊，利用順向法確認算出來的角度是否有包含於在面積裡面，使用Vrep確定轉軸的角度是否正確，前面幾次因為設錯角度，造成轉軸的角度都不是正確的轉軸，後來利用餘弦定理的方法，終於推導出方程式。&lt;/p&gt;
 &lt;p&gt;接下知道點座標後，就可以利用點得到正確的角度，轉軸轉向正確的角度夾取物件，也可以同時控制V-rep和實體的部分，是否要配合影像辨識取點座標，目前還在考慮當中，還未執行，可能先用Vrep模擬取下列印件的方式為優先，手臂的控制介面目前進度到可以同時在兩個頁面控制printer和手臂。&lt;/p&gt;
-&lt;p&gt;$$\theta_T = cos^{-1}(\frac{x^2+y^2-L1^2-L2^2}{2\times L1\times L2})$$&lt;/p&gt;
-&lt;p&gt;$$\theta_n = cos^{-1}(\frac{x}{\sqrt{x^2+y^2}}))$$&lt;/p&gt;
-&lt;p&gt;$$\theta_\alpha = cos^{-1}(\frac{x^2+y^2+L1^2-L2^2}{2\times L1\times \sqrt{x^2+y^2}})$$&lt;/p&gt;
+&lt;div class="math"&gt;$$\theta_T = cos^{-1}(\frac{x^2+y^2-L1^2-L2^2}{2\times L1\times L2})$$&lt;/div&gt;
+&lt;div class="math"&gt;$$\theta_n = cos^{-1}(\frac{x}{\sqrt{x^2+y^2}}))$$&lt;/div&gt;
+&lt;div class="math"&gt;$$\theta_\alpha = cos^{-1}(\frac{x^2+y^2+L1^2-L2^2}{2\times L1\times \sqrt{x^2+y^2}})$$&lt;/div&gt;
 &lt;h6&gt;大軸旋轉的角度&lt;/h6&gt;
 
-&lt;p&gt;$$\theta_2 = 90 - (\theta_n + \theta_\alpha)$$&lt;/p&gt;
+&lt;div class="math"&gt;$$\theta_2 = 90 - (\theta_n + \theta_\alpha)$$&lt;/div&gt;
 &lt;h6&gt;小軸旋轉的角度&lt;/h6&gt;
 
-&lt;p&gt;$$\theta_3 = \theta_T - \theta_2$$&lt;/p&gt;
+&lt;div class="math"&gt;$$\theta_3 = \theta_T - \theta_2$$&lt;/div&gt;
 &lt;h3&gt;python 方程式推導&lt;/h3&gt;
 
 &lt;pre class="brush: python"&gt;
@@ -6449,7 +6563,65 @@ print("theata2",theata2)
 theata3 = tha - test
 print("theata3",theata3)
 
-&lt;/pre&gt;</summary><category term="machine Vrep"></category></entry><entry><title>40323214日誌-Opencv範例</title><link href="http://project.mde.tw/blog/40323214ri-zhi-opencvfan-li.html" rel="alternate"></link><published>2016-08-04T15:00:00+08:00</published><author><name>40323214</name></author><id>tag:project.mde.tw,2016-08-04:blog/40323214ri-zhi-opencvfan-li.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;/pre&gt;
+
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</summary><category term="machine Vrep"></category></entry><entry><title>40323214日誌-Opencv範例</title><link href="http://project.mde.tw/blog/40323214ri-zhi-opencvfan-li.html" rel="alternate"></link><published>2016-08-04T15:00:00+08:00</published><author><name>40323214</name></author><id>tag:project.mde.tw,2016-08-04:blog/40323214ri-zhi-opencvfan-li.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;h3&gt;一.Windows執行範例程式&lt;/h3&gt;
 
@@ -9780,7 +9952,7 @@ if(0 &amp;lt;= d &amp;amp;&amp;amp; d &amp;lt;= 2500){   //限制訊號範圍
 
 &lt;h2&gt;Netbeans的支援 :&lt;/h2&gt;
 
-&lt;p&gt;其實Netbeans與$GNU開發者工具包$周邊的軟體都有良好的相依性，因此在撰寫Makefile時方便不少。&lt;/p&gt;
+&lt;p&gt;其實Netbeans與&lt;span class="math"&gt;\(GNU開發者工具包\)&lt;/span&gt;周邊的軟體都有良好的相依性，因此在撰寫Makefile時方便不少。&lt;/p&gt;
 &lt;p&gt;在編寫完Makefile時，可以在個別的Makefile上點擊右鍵，選擇需要的命令讓make執行，諸如all、clean等等的功能可以選擇。&lt;/p&gt;
 &lt;p&gt;Makefile中可以撰寫功能讓工程師執行，連基本的clean功能也可以自訂要刪除哪些檔案。&lt;/p&gt;
 &lt;p&gt;當然利用這點，Makefile中也可以利用Echo做help的功能，Whitequark的Solvespace就有支援。&lt;/p&gt;
@@ -9797,12 +9969,12 @@ $(ADIR)/%.obj: $(BDIR)/%.cpp $(HEADERS)
 &lt;/pre&gt;
 
 &lt;p&gt;意思是ADIR中的obj檔都與BDIR的cpp檔、標頭檔有關聯，而每個obj檔是由每個cpp檔透過＄(CXX)命令式產生的。&lt;/p&gt;
-&lt;p&gt;$後面的＄＠表示每個目標項（包括其位置）$；同理，$＄＜亦代表每個參照項$，不過＄＜是只包含第一個條件的參照項，所以後面的多個標頭檔就不會帶入＄(CXX)命令中。&lt;/p&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(後面的＄＠表示每個目標項（包括其位置）\)&lt;/span&gt;；同理，&lt;span class="math"&gt;\(＄＜亦代表每個參照項\)&lt;/span&gt;，不過＄＜是只包含第一個條件的參照項，所以後面的多個標頭檔就不會帶入＄(CXX)命令中。&lt;/p&gt;
 &lt;p&gt;若要在命令式中使用所有條件的參照項，要使用＄+，但是更好的選擇是使用＄^，會自動排除重複名稱的參照項。&lt;/p&gt;
 &lt;p&gt;這樣寫固然簡單，但是每個檔案都在不同的資料夾中，要如何讓make搜尋？&lt;/p&gt;
 &lt;p&gt;所以必須加上VPath這個參數，讓尋找參照檔案時可以搜尋到所有符合的項目。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/wpUqKDX.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;make在找檔案時最大的特性就是$按邏輯去找$。&lt;/p&gt;
+&lt;p&gt;make在找檔案時最大的特性就是&lt;span class="math"&gt;\(按邏輯去找\)&lt;/span&gt;。&lt;/p&gt;
 &lt;p&gt;也因為這點，不用顧慮產生檔案的順序問題。只要"填寫"檔案是如何產生的，make就會根據需要的檔案來做順序調整。&lt;/p&gt;
 &lt;p&gt;make會先忽略還沒產生的參照檔案，尋找已經備齊參照檔案的項目先做，指令亦可使用外部程式來執行。&lt;/p&gt;
 &lt;hr&gt;
@@ -9868,7 +10040,7 @@ class STrimBy {
 
 &lt;p&gt;&lt;em&gt;Icons&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;首先是圖示(icon)的問題。&lt;/p&gt;
-&lt;p&gt;Python-Solvespace的作者使用另一個語言$Perl$的程式來做出"icons.h"這個檔案。&lt;/p&gt;
+&lt;p&gt;Python-Solvespace的作者使用另一個語言&lt;span class="math"&gt;\(Perl\)&lt;/span&gt;的程式來做出"icons.h"這個檔案。&lt;/p&gt;
 &lt;p&gt;Perl是一個高階語言，特點就是除了自己的寫法，還可以安裝大量模組來改變撰寫方式，甚至還繼承許多C語言的標準式。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/eXwWp0J.jpg" &gt;&lt;/p&gt;
 &lt;p&gt;安裝方式跟Python相同，複製檔案跟設定環境變數就能使用了。&lt;/p&gt;
@@ -9887,7 +10059,64 @@ class STrimBy {
 &lt;hr&gt;
 
 &lt;p&gt;這次學到了編譯程式重要的一環，雖然make的過程中很煩人，也要一直注意是否出錯，但是最後成功時滿有成就感的。&lt;/p&gt;
-&lt;p&gt;有些錯誤當下想不出來，不過換一種想法後就能克服許多障礙，訓練眼光放遠也是一件重要的事情。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category><category term="Python-Solvespace"></category></entry><entry><title>40323143 - 馬達控制 105年7月18日</title><link href="http://project.mde.tw/blog/40323143-ma-da-kong-zhi-105nian-7yue-18ri.html" rel="alternate"></link><published>2016-07-18T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-18:blog/40323143-ma-da-kong-zhi-105nian-7yue-18ri.html</id><summary type="html">&lt;p&gt;馬達控制
+&lt;p&gt;有些錯誤當下想不出來，不過換一種想法後就能克服許多障礙，訓練眼光放遠也是一件重要的事情。&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category><category term="Python-Solvespace"></category></entry><entry><title>40323143 - 馬達控制 105年7月18日</title><link href="http://project.mde.tw/blog/40323143-ma-da-kong-zhi-105nian-7yue-18ri.html" rel="alternate"></link><published>2016-07-18T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-18:blog/40323143-ma-da-kong-zhi-105nian-7yue-18ri.html</id><summary type="html">&lt;p&gt;馬達控制
 &lt;/p&gt;
 &lt;p&gt;本篇為伺服馬達控制的學習筆記，共分為兩部分，第一部分為直接控制角度，第二部分以脈衝寬度控制。&lt;/p&gt;
 &lt;p&gt;控制角度:&lt;/p&gt;

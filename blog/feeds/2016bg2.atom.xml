@@ -7041,7 +7041,7 @@ CFLAGS_SHARED = -fPIC -shared $(CFLAGS)
 
 &lt;h2&gt;Netbeans的支援 :&lt;/h2&gt;
 
-&lt;p&gt;其實Netbeans與$GNU開發者工具包$周邊的軟體都有良好的相依性，因此在撰寫Makefile時方便不少。&lt;/p&gt;
+&lt;p&gt;其實Netbeans與&lt;span class="math"&gt;\(GNU開發者工具包\)&lt;/span&gt;周邊的軟體都有良好的相依性，因此在撰寫Makefile時方便不少。&lt;/p&gt;
 &lt;p&gt;在編寫完Makefile時，可以在個別的Makefile上點擊右鍵，選擇需要的命令讓make執行，諸如all、clean等等的功能可以選擇。&lt;/p&gt;
 &lt;p&gt;Makefile中可以撰寫功能讓工程師執行，連基本的clean功能也可以自訂要刪除哪些檔案。&lt;/p&gt;
 &lt;p&gt;當然利用這點，Makefile中也可以利用Echo做help的功能，Whitequark的Solvespace就有支援。&lt;/p&gt;
@@ -7058,12 +7058,12 @@ $(ADIR)/%.obj: $(BDIR)/%.cpp $(HEADERS)
 &lt;/pre&gt;
 
 &lt;p&gt;意思是ADIR中的obj檔都與BDIR的cpp檔、標頭檔有關聯，而每個obj檔是由每個cpp檔透過＄(CXX)命令式產生的。&lt;/p&gt;
-&lt;p&gt;$後面的＄＠表示每個目標項（包括其位置）$；同理，$＄＜亦代表每個參照項$，不過＄＜是只包含第一個條件的參照項，所以後面的多個標頭檔就不會帶入＄(CXX)命令中。&lt;/p&gt;
+&lt;p&gt;&lt;span class="math"&gt;\(後面的＄＠表示每個目標項（包括其位置）\)&lt;/span&gt;；同理，&lt;span class="math"&gt;\(＄＜亦代表每個參照項\)&lt;/span&gt;，不過＄＜是只包含第一個條件的參照項，所以後面的多個標頭檔就不會帶入＄(CXX)命令中。&lt;/p&gt;
 &lt;p&gt;若要在命令式中使用所有條件的參照項，要使用＄+，但是更好的選擇是使用＄^，會自動排除重複名稱的參照項。&lt;/p&gt;
 &lt;p&gt;這樣寫固然簡單，但是每個檔案都在不同的資料夾中，要如何讓make搜尋？&lt;/p&gt;
 &lt;p&gt;所以必須加上VPath這個參數，讓尋找參照檔案時可以搜尋到所有符合的項目。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/wpUqKDX.jpg" &gt;&lt;/p&gt;
-&lt;p&gt;make在找檔案時最大的特性就是$按邏輯去找$。&lt;/p&gt;
+&lt;p&gt;make在找檔案時最大的特性就是&lt;span class="math"&gt;\(按邏輯去找\)&lt;/span&gt;。&lt;/p&gt;
 &lt;p&gt;也因為這點，不用顧慮產生檔案的順序問題。只要"填寫"檔案是如何產生的，make就會根據需要的檔案來做順序調整。&lt;/p&gt;
 &lt;p&gt;make會先忽略還沒產生的參照檔案，尋找已經備齊參照檔案的項目先做，指令亦可使用外部程式來執行。&lt;/p&gt;
 &lt;hr&gt;
@@ -7129,7 +7129,7 @@ class STrimBy {
 
 &lt;p&gt;&lt;em&gt;Icons&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;首先是圖示(icon)的問題。&lt;/p&gt;
-&lt;p&gt;Python-Solvespace的作者使用另一個語言$Perl$的程式來做出"icons.h"這個檔案。&lt;/p&gt;
+&lt;p&gt;Python-Solvespace的作者使用另一個語言&lt;span class="math"&gt;\(Perl\)&lt;/span&gt;的程式來做出"icons.h"這個檔案。&lt;/p&gt;
 &lt;p&gt;Perl是一個高階語言，特點就是除了自己的寫法，還可以安裝大量模組來改變撰寫方式，甚至還繼承許多C語言的標準式。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/eXwWp0J.jpg" &gt;&lt;/p&gt;
 &lt;p&gt;安裝方式跟Python相同，複製檔案跟設定環境變數就能使用了。&lt;/p&gt;
@@ -7148,7 +7148,64 @@ class STrimBy {
 &lt;hr&gt;
 
 &lt;p&gt;這次學到了編譯程式重要的一環，雖然make的過程中很煩人，也要一直注意是否出錯，但是最後成功時滿有成就感的。&lt;/p&gt;
-&lt;p&gt;有些錯誤當下想不出來，不過換一種想法後就能克服許多障礙，訓練眼光放遠也是一件重要的事情。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category><category term="Python-Solvespace"></category></entry><entry><title>40323218日誌 - 105/07/17</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050717.html" rel="alternate"></link><published>2016-07-17T20:37:00+08:00</published><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-17:blog/40323218ri-zhi-1050717.html</id><summary type="html">&lt;p&gt;V-rep_solvespace_linkages&lt;/p&gt;
+&lt;p&gt;有些錯誤當下想不出來，不過換一種想法後就能克服許多障礙，訓練眼光放遠也是一件重要的事情。&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</summary><category term="Kmol"></category><category term="Solvespace"></category><category term="Python-Solvespace"></category></entry><entry><title>40323218日誌 - 105/07/17</title><link href="http://project.mde.tw/blog/40323218ri-zhi-1050717.html" rel="alternate"></link><published>2016-07-17T20:37:00+08:00</published><author><name>40323218</name></author><id>tag:project.mde.tw,2016-07-17:blog/40323218ri-zhi-1050717.html</id><summary type="html">&lt;p&gt;V-rep_solvespace_linkages&lt;/p&gt;
 
 
 &lt;h2&gt;嘗試 vrep_solvespace_linkages&lt;/h2&gt;

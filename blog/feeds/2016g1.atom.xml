@@ -27,10 +27,10 @@
 &lt;p&gt;&lt;img src="https://a.pololu-files.com/picture/0J3360.1200.png?d94ef1356fab28463db67ff0619afadf"&gt;&lt;/p&gt;
 &lt;p&gt;會需要控制step以及dir的腳位，dir的腳位決定正轉反轉假設輸入high為正轉那low就是反轉。&lt;/p&gt;
 &lt;p&gt;step腳位決定這個馬達要走幾步，譬如說我配的皮帶輪齒數是20齒的，我步進馬達轉一圈假設是3200步，我的一齒可以帶動皮帶移動1mm，寫個簡單的數學式子就會變成底下這樣。&lt;/p&gt;
-&lt;p&gt;$$\theta_T = cos^{-1}(\frac{x^2+y^2-L1^2-L2^2}{2\times L1\times L2})$$&lt;/p&gt;
-&lt;p&gt;$$\frac{20}{3200}=\frac{1}{x}$$&lt;/p&gt;
-&lt;p&gt;$$x=\frac{3200}{20}\times 1mm$$&lt;/p&gt;
-&lt;p&gt;$$x=160step$$&lt;/p&gt;
+&lt;div class="math"&gt;$$\theta_T = cos^{-1}(\frac{x^2+y^2-L1^2-L2^2}{2\times L1\times L2})$$&lt;/div&gt;
+&lt;div class="math"&gt;$$\frac{20}{3200}=\frac{1}{x}$$&lt;/div&gt;
+&lt;div class="math"&gt;$$x=\frac{3200}{20}\times 1mm$$&lt;/div&gt;
+&lt;div class="math"&gt;$$x=160step$$&lt;/div&gt;
 &lt;p&gt;我要移動1mm需要多少步數&lt;/p&gt;
 &lt;p&gt;這對後面機器的校正也會用到，假設說讓機器移動10mm可是卻只移動一半，表示step少一半，再補正回去就可以讓機器正常運轉。&lt;/p&gt;
 &lt;h3&gt;控制版腳位&lt;/h3&gt;
@@ -43,7 +43,64 @@
 
 &lt;h4&gt;後面想要加的東西&lt;/h4&gt;
 
-&lt;p&gt;想要做一個端口，將可以利用python做介面來進行裡面和外面同時可以控制，內部可以先模擬完外面再進行執行。機構再從新想一個，這個問題有點多沒有考慮到。&lt;/p&gt;</summary><category term="machine"></category></entry><entry><title>RSA 模組</title><link href="http://project.mde.tw/blog/rsa-mo-zu.html" rel="alternate"></link><published>2016-12-27T20:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-27:blog/rsa-mo-zu.html</id><summary type="html">&lt;p&gt;再看完資料後就整理出來的部份&lt;/p&gt;
+&lt;p&gt;想要做一個端口，將可以利用python做介面來進行裡面和外面同時可以控制，內部可以先模擬完外面再進行執行。機構再從新想一個，這個問題有點多沒有考慮到。&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</summary><category term="machine"></category></entry><entry><title>RSA 模組</title><link href="http://project.mde.tw/blog/rsa-mo-zu.html" rel="alternate"></link><published>2016-12-27T20:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-27:blog/rsa-mo-zu.html</id><summary type="html">&lt;p&gt;再看完資料後就整理出來的部份&lt;/p&gt;
 
 
 &lt;h3&gt;16版本沒有python2的工具包 因此先不考慮使用16版本的ubuntu&lt;/h3&gt;
@@ -193,9 +250,66 @@ except:
 &lt;p&gt;FA(螢火蟲演算法)&lt;/p&gt;
 &lt;h2&gt;問題點&lt;/h2&gt;
 &lt;p&gt;學長裡面用到的方程式不太理解他的意思&lt;/p&gt;
-&lt;p&gt;$$Fit_{min} = \sum_{i=0}^{n}\sqrt{(O_{x,i}-N_{x,i})^2+(O_{y,i}-N_{y,i})^2}$$&lt;/p&gt;
+&lt;div class="math"&gt;$$Fit_{min} = \sum_{i=0}^{n}\sqrt{(O_{x,i}-N_{x,i})^2+(O_{y,i}-N_{y,i})^2}$$&lt;/div&gt;
 &lt;p&gt;這個式子不太理解他在求什麼東西&lt;/p&gt;
-&lt;p&gt;O和N的代表意義&lt;/p&gt;</summary><category term="四連桿合成"></category></entry><entry><title>寫字機</title><link href="http://project.mde.tw/blog/xie-zi-ji.html" rel="alternate"></link><published>2016-12-07T20:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-07:blog/xie-zi-ji.html</id><summary type="html">&lt;p&gt;起源
+&lt;p&gt;O和N的代表意義&lt;/p&gt;
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</summary><category term="四連桿合成"></category></entry><entry><title>寫字機</title><link href="http://project.mde.tw/blog/xie-zi-ji.html" rel="alternate"></link><published>2016-12-07T20:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-07:blog/xie-zi-ji.html</id><summary type="html">&lt;p&gt;起源
 一般寫字機，都是用最基本的XYZ型式做的，因為在thingverse上面找到相關的機器，想說就來做做看。&lt;/p&gt;
 
 
@@ -421,15 +535,15 @@ Error: /opt/Qt/5.3/gcc_64/lib/libQt5Gui.so.5: undefined symbol:             z_de
 &lt;p&gt;由上一篇可以得知手臂的逆向推導公式，可是存在一個問題，並沒有將方程式列出來，最後證明出的面積是由順向方程式的角度去限制角度將每個角度所會經過的路徑會畫出來。&lt;/p&gt;
 &lt;p&gt;今天從新將方程式從新推導，因為不確定自己推導是否正確，我們幾個人將工具備齊，利用順向法確認算出來的角度是否有包含於在面積裡面，使用Vrep確定轉軸的角度是否正確，前面幾次因為設錯角度，造成轉軸的角度都不是正確的轉軸，後來利用餘弦定理的方法，終於推導出方程式。&lt;/p&gt;
 &lt;p&gt;接下知道點座標後，就可以利用點得到正確的角度，轉軸轉向正確的角度夾取物件，也可以同時控制V-rep和實體的部分，是否要配合影像辨識取點座標，目前還在考慮當中，還未執行，可能先用Vrep模擬取下列印件的方式為優先，手臂的控制介面目前進度到可以同時在兩個頁面控制printer和手臂。&lt;/p&gt;
-&lt;p&gt;$$\theta_T = cos^{-1}(\frac{x^2+y^2-L1^2-L2^2}{2\times L1\times L2})$$&lt;/p&gt;
-&lt;p&gt;$$\theta_n = cos^{-1}(\frac{x}{\sqrt{x^2+y^2}}))$$&lt;/p&gt;
-&lt;p&gt;$$\theta_\alpha = cos^{-1}(\frac{x^2+y^2+L1^2-L2^2}{2\times L1\times \sqrt{x^2+y^2}})$$&lt;/p&gt;
+&lt;div class="math"&gt;$$\theta_T = cos^{-1}(\frac{x^2+y^2-L1^2-L2^2}{2\times L1\times L2})$$&lt;/div&gt;
+&lt;div class="math"&gt;$$\theta_n = cos^{-1}(\frac{x}{\sqrt{x^2+y^2}}))$$&lt;/div&gt;
+&lt;div class="math"&gt;$$\theta_\alpha = cos^{-1}(\frac{x^2+y^2+L1^2-L2^2}{2\times L1\times \sqrt{x^2+y^2}})$$&lt;/div&gt;
 &lt;h6&gt;大軸旋轉的角度&lt;/h6&gt;
 
-&lt;p&gt;$$\theta_2 = 90 - (\theta_n + \theta_\alpha)$$&lt;/p&gt;
+&lt;div class="math"&gt;$$\theta_2 = 90 - (\theta_n + \theta_\alpha)$$&lt;/div&gt;
 &lt;h6&gt;小軸旋轉的角度&lt;/h6&gt;
 
-&lt;p&gt;$$\theta_3 = \theta_T - \theta_2$$&lt;/p&gt;
+&lt;div class="math"&gt;$$\theta_3 = \theta_T - \theta_2$$&lt;/div&gt;
 &lt;h3&gt;python 方程式推導&lt;/h3&gt;
 
 &lt;pre class="brush: python"&gt;
@@ -479,7 +593,65 @@ print("theata2",theata2)
 theata3 = tha - test
 print("theata3",theata3)
 
-&lt;/pre&gt;</summary><category term="machine Vrep"></category></entry><entry><title>40323131日誌 105/07/31</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050731.html" rel="alternate"></link><published>2016-07-31T22:51:00+08:00</published><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-31:blog/40323131ri-zhi-1050731.html</id><summary type="html">&lt;p&gt;手臂的推導角度公式
+&lt;/pre&gt;
+
+&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width &lt; 768) ? "left" : align;
+        indent = (screen.width &lt; 768) ? "0em" : indent;
+        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+&lt;/script&gt;</summary><category term="machine Vrep"></category></entry><entry><title>40323131日誌 105/07/31</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050731.html" rel="alternate"></link><published>2016-07-31T22:51:00+08:00</published><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-31:blog/40323131ri-zhi-1050731.html</id><summary type="html">&lt;p&gt;手臂的推導角度公式
 &lt;/p&gt;
 &lt;h3&gt;角度推導公式&lt;/h3&gt;
 

@@ -55,6 +55,7 @@
 <v t="amd.20151215154950.4"><vh>@edit search.html</vh></v>
 <v t="amd.20151215162536.1" a="E"><vh>@path includes</vh>
 <v t="amd.20151215162510.1"><vh>@edit sidebar.html</vh></v>
+<v t="yen.20170114233207.1"><vh>@edit liquid_tags_nb_header.html</vh></v>
 </v>
 <v t="amd.20151215154950.5"><vh>@edit tags.html</vh></v>
 </v>

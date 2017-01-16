@@ -1,5 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-15T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/01/15</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060115.html" rel="alternate"></link><published>2017-01-15T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-15:blog/40323230ri-zhi-1060115.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-16T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/01/16</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060116.html" rel="alternate"></link><published>2017-01-16T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-16:blog/40323230ri-zhi-1060116.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;拖放檔案開啟功能&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;反轉 Y 軸初始位置功能&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1&gt;Pyslvs 編譯進度&lt;/h1&gt;
+&lt;h2&gt;拖放檔案開啟功能&lt;/h2&gt;
+&lt;p&gt;參考資料：&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://doc.qt.io/qt-5/dnd.html"&gt;http://doc.qt.io/qt-5/dnd.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;可以透過 Qt 的拉入事件「dragEnterEvent」和拖放事件「dropEvent」達成。&lt;/p&gt;
+&lt;p&gt;這次只有讓外部資訊拖入，若要讓內部資訊脫出需要其他設置，不過這個功能或許會應用到其他部份，所以先作筆記。&lt;/p&gt;
+&lt;p&gt;當 QWidget 設定允許拖放動作 &lt;code&gt;setAcceptDrops(true)&lt;/code&gt; 後，就能使用滑鼠攜帶資訊，滑鼠游標會變成拖放樣式而非禁止符號。&lt;/p&gt;
+&lt;p&gt;透過拉入事件「dragEnterEvent」可以允許「哪些資訊」可以被拖入，如字串、圖片、網址和檔案位址。&lt;/p&gt;
+&lt;p&gt;拖放事件「dropEvent」可以設定拖入後要執行的動作。&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+def dragEnterEvent(self, event):
+    mimeData = event.mimeData()
+    if mimeData.hasUrls():
+        for url in mimeData.urls():
+            FilePath = url.toLocalFile()
+            if QFileInfo(FilePath).suffix()=="csv": event.acceptProposedAction()
+
+def dropEvent(self, event):
+    FilePath = event.mimeData().urls()[-1].toLocalFile()
+    self.checkChange(FilePath, [], "Loaded drag-in file:\n"+FilePath)
+    event.acceptProposedAction()
+&lt;/pre&gt;
+
+&lt;p&gt;上面的 dragEnterEvent 先判斷 QEvent 的攜帶資訊 mimeData 是否為副檔名「csv」的 URL，接著才會通過檢查（&lt;code&gt;acceptProposedAction()&lt;/code&gt;）。&lt;/p&gt;
+&lt;p&gt;後面的 dropEvent 則是取出想要的檔案位址並開啟，若是一次選取多個檔案則只開啟最後一個。&lt;/p&gt;
+&lt;h2&gt;反轉 Y 軸初始位置功能&lt;/h2&gt;
+&lt;p&gt;在選定的連桿上按下滑鼠右鍵可以根據固定軸反轉 Y 軸座標的初始位置，若是沒有固定軸，就反轉終點的。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0116_01.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;以下是反轉之後重繪的路徑圖。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0116_02.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;透過這個功能能夠手動修正初始位置，不過若是能夠自動檢查並修正會比較好。&lt;/p&gt;
+&lt;p&gt;過幾天應該能開始寫開發手冊。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 106/01/15</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060115.html" rel="alternate"></link><published>2017-01-15T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-15:blog/40323230ri-zhi-1060115.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;路徑演算法功能&lt;/li&gt;
 &lt;/ul&gt;

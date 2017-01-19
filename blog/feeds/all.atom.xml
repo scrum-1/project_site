@@ -1,5 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-16T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/01/16</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060116.html" rel="alternate"></link><published>2017-01-16T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-16:blog/40323230ri-zhi-1060116.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-19T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/01/19</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060119.html" rel="alternate"></link><published>2017-01-19T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-19:blog/40323230ri-zhi-1060119.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;平行軸 Bug&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1&gt;Pyslvs 編譯進度&lt;/h1&gt;
+&lt;h2&gt;平行軸 Bug&lt;/h2&gt;
+&lt;p&gt;Version 0.4 準備收工，最近陸陸續續修正了一些界面的合理性問題，並且測試了一下目前的範本運作情形。&lt;/p&gt;
+&lt;p&gt;除了之前提到演算法可能出現結果錯誤之外，在葛式四連桿的範例中找到一直沒解決的問題。&lt;/p&gt;
+&lt;p&gt;「平行四邊形」的連桿範例為機架、三根連桿長皆相等的模型，如下圖：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0119_01.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;在理想狀況下，兩個從動節點的路徑應為兩個半徑相等的正圓。&lt;/p&gt;
+&lt;p&gt;不過 Solvespace 的 kernel 卻會造成下面的情況（單純用滑鼠繞行）：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0119_02.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;花了一些時間，寫了一小串校正函式，但是會造成其他範例出現不應該出現的反轉。&lt;/p&gt;
+&lt;p&gt;下圖是 Pyslvs 出現相同的狀況：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0119_03.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;預計在 Shaft 加入最後一個功能，「平行機件」的選項，可以讓對稱的範例順利執行。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 106/01/16</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060116.html" rel="alternate"></link><published>2017-01-16T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-16:blog/40323230ri-zhi-1060116.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;拖放檔案開啟功能&lt;/p&gt;

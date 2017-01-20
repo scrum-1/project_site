@@ -1,5 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-19T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/01/19</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060119.html" rel="alternate"></link><published>2017-01-19T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-19:blog/40323230ri-zhi-1060119.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-20T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/01/20</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060120.html" rel="alternate"></link><published>2017-01-20T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-20:blog/40323230ri-zhi-1060120.html</id><summary type="html">&lt;p&gt;Pyslvs version 0.4 Relese&lt;/p&gt;
+
+
+&lt;h1&gt;Pyslvs version 0.4 Relese&lt;/h1&gt;
+&lt;p&gt;最終在轉動軸的設定中加入修正選項，並優化 csv 的儲存格式。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0120_01.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;v0.4 版的功能如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;包含完整編譯流程的 Makefile。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;加入演算法，讓使用者可以依據路徑需求生成四連桿的結果。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;之後會開始完成技術文件和在 v0.5 版中補完之前的目標。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 106/01/19</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060119.html" rel="alternate"></link><published>2017-01-19T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-19:blog/40323230ri-zhi-1060119.html</id><summary type="html">&lt;p&gt;Pyslvs 編譯進度：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;平行軸 Bug&lt;/li&gt;
 &lt;/ul&gt;

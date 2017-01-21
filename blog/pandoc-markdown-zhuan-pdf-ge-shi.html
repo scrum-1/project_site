@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>機械設計專題 (虎尾科大MDE)</title>
+    <title>Pandoc - Markdown 轉 PDF 格式 - 機械設計專題 (虎尾科大MDE)</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -166,15 +166,21 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 
-<link rel="canonical" href="http://project.mde.tw/blog">
-        <meta name="author" content="KMOL" />
+<link rel="canonical" href="http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html">
 
-    <!-- Open Graph tags -->
+        <meta name="author" content="40323230" />
+        <meta name="keywords" content="pandoc" />
+        <meta name="description" content="Ubuntu 安裝方式 使用範例" />
+
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="機械設計專題 (虎尾科大MDE)"/>
-        <meta property="og:url" content="http://project.mde.tw/blog"/>
-        <meta property="og:description" content="機械設計專題 (虎尾科大MDE)"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Pandoc - Markdown 轉 PDF 格式"/>
+        <meta property="og:url" content="http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html"/>
+        <meta property="og:description" content="Ubuntu 安裝方式 使用範例"/>
+        <meta property="article:published_time" content="2017-01-21" />
+            <meta property="article:section" content="2016bg2" />
+            <meta property="article:tag" content="pandoc" />
+            <meta property="article:author" content="40323230" />
 
 
     <!-- Bootstrap -->
@@ -255,7 +261,7 @@ init_mathjax();
                          <li><a href="http://project.mde.tw/blog/pages/about/">
                              About
                           </a></li>
-                        <li >
+                        <li class="active">
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
                         <li >
@@ -292,211 +298,120 @@ init_mathjax();
     <div class="row">
         <div class="col-sm-9">
 
-            <article>
-                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1050906.html">40323230日誌 - 105/09/06</a></h2>
-                <div class="summary"><ol>
-<li>
-<p>表格管理與程式碼</p>
-</li>
-<li>
-<p>路徑計算問題</p>
-</li>
-</ol>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html"
+                       rel="bookmark"
+                       title="Permalink to Pandoc - Markdown 轉 PDF 格式">
+                        Pandoc - Markdown 轉 PDF 格式
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-01-21T21:00:00+08:00"> 六 21 一月 2017</time>
+    </span>
+            <span class="label label-default">By</span>
+            <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1050906.html">more ...</a>
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://project.mde.tw/blog/tag/pandoc.html">pandoc</a>
+    
+</footer><!-- /.post-info -->                    </div>
                 </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1050905.html">40323230日誌 - 105/09/05</a></h2>
-                <div class="summary"><ol>
+                <ul>
 <li>
-<p>小細節修正</p>
+<p>Ubuntu 安裝方式</p>
 </li>
 <li>
-<p>程式碼顯示功能</p>
+<p>使用範例</p>
 </li>
-<li>
-<p>路徑計算問題</p>
-</li>
-</ol>
+</ul>
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1050905.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1050903.html">40323230日誌 - 105/09/03</a></h2>
-                <div class="summary"><ol>
-<li>
-<p>QPaint 繪圖</p>
-</li>
-<li>
-<p>模擬功能-目標</p>
-</li>
-</ol>
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1050903.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1050902.html">40323230日誌 - 105/09/02</a></h2>
-                <div class="summary"><ol>
-<li>
-<p>改換 Qt 5.7 與 PyQt 5.7</p>
-</li>
-<li>
-<p>一些操作重點</p>
-</li>
-</ol>
+<h1>Ubuntu 安裝方式</h1>
+<p>首先安裝 Pandoc、texLive、texLive-xetex。</p>
+<p>到 Pandoc 的 Github 倉儲下載 debian 安裝檔，用 software center 安裝。</p>
+<p><a href="https://github.com/jgm/pandoc/releases/">https://github.com/jgm/pandoc/releases/</a></p>
+<p>接著用 apt 安裝 texLive。</p>
+<pre>
+$sudo apt install texlive texlive-xetex
+</pre>
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1050902.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://project.mde.tw/blog/yen-anaconda-on-windows-10.html">yen - Anaconda on Windows 10</a></h2>
-                <div class="summary"><p>在 Windows 10 中的 Anaconda 使用 Python 3.5.2 以及 Pelican, 測試將 .md 檔案轉為 html.</p>
+<p>若直接轉檔，可能會缺少所需的轉換範本，出現下面的警告：</p>
+<pre>
+! LaTeX Error: File `etoolbox.sty' not found.
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/yen-anaconda-on-windows-10.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1050901.html">40323230日誌 - 105/09/01</a></h2>
-                <div class="summary"><ol>
-<li>
-<p>Pyslvs 編譯進度</p>
-</li>
-<li>
-<p>一些 QPainter 及 OpenGL 的資料連結</p>
-</li>
-</ol>
+Type X to quit or RETURN to proceed,
+or enter new name. (Default extension: sty)
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1050901.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1050831.html">40323230日誌 - 105/08/31</a></h2>
-                <div class="summary"><ol>
-<li>
-<p>Pyslvs 編譯進度 - 繪圖功能</p>
-</li>
-<li>
-<p>倉儲<a href="https://github.com/40323230/python-solvespace" title="github.com">python-solvespace</a>已更新</p>
-</li>
-</ol>
+Enter file name:
+! Emergency stop.
+read *
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1050831.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1050830.html">40323230日誌 - 105/08/30</a></h2>
-                <div class="summary"><ol>
-<li>
-<p>Pyslvs 編譯進度</p>
-</li>
-<li>
-<p>倉儲<a href="https://github.com/40323230/python-solvespace" title="github.com">python-solvespace</a>已更新</p>
-</li>
-</ol>
+l.8 \RequirePackage
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1050830.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1050829.html">40323230日誌 - 105/08/29</a></h2>
-                <div class="summary"><ol>
-<li>
-<p>Pyslvs 編譯進度</p>
-</li>
-<li>
-<p>SQLite 資料</p>
-</li>
-</ol>
+pandoc: Error producing PDF
+</pre>
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1050829.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1050828.html">40323230日誌 - 105/08/28</a></h2>
-                <div class="summary"><ol>
-<li>
-<p>Pyslvs 編譯進度</p>
-</li>
-<li>
-<p>測試程式庫能否支援 Python 的 list 型態</p>
-</li>
-</ol>
+<p>到 etoolbox 下載 缺少的檔案，放到 pandoc 目錄中，或是轉換檔的同層目錄下。</p>
+<p><a href="http://www.ctan.org/tex-archive/macros/latex/contrib/etoolbox/">http://www.ctan.org/tex-archive/macros/latex/contrib/etoolbox/</a></p>
+<h1>使用範例</h1>
+<p><a href="http://pandoc.org/demos.html">http://pandoc.org/demos.html</a></p>
+<p>參照 pandoc 的 demo，下載 MANUAL.txt 這個 Markdown 檔案來測試。</p>
+<p>使用以下指令：</p>
+<pre>
+$pandoc MANUAL.txt --latex-engine=xelatex -o MANUAL.pdf
+</pre>
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1050828.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
+<p>轉換後不會有任何提示，會直接輸出檔案。</p>
+<p>平常使用 pandoc 指令，可以如同 Python 直譯器直接輸入 Markdown 語法，輸入後按下 <kbd>Ctrl</kbd> + <kbd>D</kbd> 來轉換並顯示 html 語法（Windows 是 <kbd>Ctrl</kbd> + <kbd>Z</kbd>）。</p>
+<p>若是結合 <code>--latex-engine=xelatex</code> 或是 <code>-o</code> 參數，更可以直接輸出成 pdf 檔案。</p>
+<p>而輸出的 pdf 檔案會自動分頁、排版、標記頁碼。demo 網頁上還有其他範例，可以轉換成不同格式的文件。</p>
+<p>手冊方面全局使用 Leo editor 管理，並整合轉檔的工作，圖片則使用另一個倉儲儲存，不過這些 Markdown 樣板的語法跟網誌的語法不太相同，可能要稍微測試並習慣其用法。</p>
+            </div>
+            <!-- /.entry-content -->
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
 
-        <ul class="pagination">
-                <li class="prev"><a href="http://project.mde.tw/blog/index9.html">&laquo;</a>
-                </li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index.html">1</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index2.html">2</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index3.html">3</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index4.html">4</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index5.html">5</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index6.html">6</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index7.html">7</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index8.html">8</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index9.html">9</a></li>
-                    <li class="active"><a
-                            href="http://project.mde.tw/blog/index10.html">10</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index11.html">11</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index12.html">12</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index13.html">13</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index14.html">14</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index15.html">15</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index16.html">16</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index17.html">17</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index18.html">18</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index19.html">19</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index20.html">20</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index21.html">21</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index22.html">22</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index23.html">23</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index24.html">24</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index25.html">25</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index26.html">26</a></li>
-                <li class="next"><a
-                        href="http://project.mde.tw/blog/index11.html">&raquo;</a></li>
-        </ul>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'projectmdetw'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = 'pandoc-markdown-zhuan-pdf-ge-shi';
+                var disqus_url = 'http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html';
+
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
+
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>

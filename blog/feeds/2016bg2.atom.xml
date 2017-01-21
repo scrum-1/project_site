@@ -1,5 +1,54 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-20T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/01/20</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060120.html" rel="alternate"></link><published>2017-01-20T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-20:blog/40323230ri-zhi-1060120.html</id><summary type="html">&lt;p&gt;Pyslvs version 0.4 Relese&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-21T21:00:00+08:00</updated><entry><title>Pandoc - Markdown 轉 PDF 格式</title><link href="http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html" rel="alternate"></link><published>2017-01-21T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-21:blog/pandoc-markdown-zhuan-pdf-ge-shi.html</id><summary type="html">&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Ubuntu 安裝方式&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用範例&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1&gt;Ubuntu 安裝方式&lt;/h1&gt;
+&lt;p&gt;首先安裝 Pandoc、texLive、texLive-xetex。&lt;/p&gt;
+&lt;p&gt;到 Pandoc 的 Github 倉儲下載 debian 安裝檔，用 software center 安裝。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/jgm/pandoc/releases/"&gt;https://github.com/jgm/pandoc/releases/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;接著用 apt 安裝 texLive。&lt;/p&gt;
+&lt;pre&gt;
+$sudo apt install texlive texlive-xetex
+&lt;/pre&gt;
+
+&lt;p&gt;若直接轉檔，可能會缺少所需的轉換範本，出現下面的警告：&lt;/p&gt;
+&lt;pre&gt;
+! LaTeX Error: File `etoolbox.sty' not found.
+
+Type X to quit or RETURN to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name:
+! Emergency stop.
+read *
+
+l.8 \RequirePackage
+
+pandoc: Error producing PDF
+&lt;/pre&gt;
+
+&lt;p&gt;到 etoolbox 下載 缺少的檔案，放到 pandoc 目錄中，或是轉換檔的同層目錄下。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.ctan.org/tex-archive/macros/latex/contrib/etoolbox/"&gt;http://www.ctan.org/tex-archive/macros/latex/contrib/etoolbox/&lt;/a&gt;&lt;/p&gt;
+&lt;h1&gt;使用範例&lt;/h1&gt;
+&lt;p&gt;&lt;a href="http://pandoc.org/demos.html"&gt;http://pandoc.org/demos.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;參照 pandoc 的 demo，下載 MANUAL.txt 這個 Markdown 檔案來測試。&lt;/p&gt;
+&lt;p&gt;使用以下指令：&lt;/p&gt;
+&lt;pre&gt;
+$pandoc MANUAL.txt --latex-engine=xelatex -o MANUAL.pdf
+&lt;/pre&gt;
+
+&lt;p&gt;轉換後不會有任何提示，會直接輸出檔案。&lt;/p&gt;
+&lt;p&gt;平常使用 pandoc 指令，可以如同 Python 直譯器直接輸入 Markdown 語法，輸入後按下 &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;D&lt;/kbd&gt; 來轉換並顯示 html 語法（Windows 是 &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;Z&lt;/kbd&gt;）。&lt;/p&gt;
+&lt;p&gt;若是結合 &lt;code&gt;--latex-engine=xelatex&lt;/code&gt; 或是 &lt;code&gt;-o&lt;/code&gt; 參數，更可以直接輸出成 pdf 檔案。&lt;/p&gt;
+&lt;p&gt;而輸出的 pdf 檔案會自動分頁、排版、標記頁碼。demo 網頁上還有其他範例，可以轉換成不同格式的文件。&lt;/p&gt;
+&lt;p&gt;手冊方面全局使用 Leo editor 管理，並整合轉檔的工作，圖片則使用另一個倉儲儲存，不過這些 Markdown 樣板的語法跟網誌的語法不太相同，可能要稍微測試並習慣其用法。&lt;/p&gt;</summary><category term="pandoc"></category></entry><entry><title>40323230日誌 - 106/01/20</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060120.html" rel="alternate"></link><published>2017-01-20T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-20:blog/40323230ri-zhi-1060120.html</id><summary type="html">&lt;p&gt;Pyslvs version 0.4 Relese&lt;/p&gt;
 
 
 &lt;h1&gt;Pyslvs version 0.4 Relese&lt;/h1&gt;

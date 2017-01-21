@@ -1,5 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-20T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/01/20</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060120.html" rel="alternate"></link><published>2017-01-20T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-20:blog/40323230ri-zhi-1060120.html</id><summary type="html">&lt;p&gt;Pyslvs version 0.4 Relese&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-20T21:00:00+08:00</updated><entry><title>40323214日誌- Install Scipy on windows</title><link href="http://project.mde.tw/blog/40323214ri-zhi-install-scipy-on-windows.html" rel="alternate"></link><published>2017-01-20T21:00:00+08:00</published><author><name>40323214</name></author><id>tag:project.mde.tw,2017-01-20:blog/40323214ri-zhi-install-scipy-on-windows.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+
+&lt;h3&gt;一.Scipy基本介紹&lt;/h3&gt;
+
+&lt;h4&gt;SciPy是一個開源的Python演算法庫和數學工具包。
+&lt;/br&gt;
+SciPy包含的模組有最佳化、線性代數、積分、插值、特殊函式、快速傅立葉變換、訊號處理和圖像處理、常微分方程求解和其他科學與工程中常用的計算。與其功能相類似的軟體還有MATLAB、GNU Octave和Scilab。
+&lt;/h4&gt;
+
+&lt;p&gt;&lt;/br&gt;
+&lt;h3&gt;二.安裝過程&lt;/h3&gt;
+&lt;h4&gt;1.首先到http://www.lfd.uci.edu/~gohlke/pythonlibs/#scipy 網址中下載對應python(3.4.4)版本的whl檔案。Numpy這個函式庫也可以在這邊下載http://www.lfd.uci.edu/~gohlke/pythonlibs/#numpy。
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/lmr28o6.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/4gJaBxP.png"&gt;
+&lt;/br&gt;
+2.接著利用系統管理員找到載好檔案的路徑。
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/jpFKDDm.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+3.再來打上對應python版本資料夾的路徑，進到scripts中，打上pip install "載好檔案的名稱前兩個英文字再按tab鍵"也就是"sc然後按tab或是nu再按tab"按下enter後就會開始下載了。
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/YOZfiTb.png"&gt;
+&lt;/br&gt;
+&lt;/br&gt;
+4.最後在python的互動端中，使用Import測試是否有安裝成功。
+&lt;/br&gt;
+&lt;/br&gt;
+&lt;img src="http://i.imgur.com/UmOR6zH.png"&gt;
+&lt;/h4&gt;
+&lt;h3&gt;三.安裝原因&lt;/h3&gt;
+&lt;h4&gt;
+1.在Opencv執行範例時需要使用。
+&lt;/br&gt;
+&lt;/br&gt;
+2.由於直接使用pip install scipy無法正常下載，所以上網找了其他的安裝方法。
+&lt;/h4&gt;
+&lt;/br&gt;
+&lt;h3&gt;四.參考的網頁資料&lt;/h3&gt;
+&lt;/br&gt;
+&lt;h4&gt;
+1.維基百科:https://zh.wikipedia.org/zh-tw/SciPy
+&lt;/br&gt;
+&lt;/br&gt;
+2.whl檔載點:http://www.lfd.uci.edu/~gohlke/pythonlibs/#scipy
+&lt;/br&gt;
+&lt;/br&gt;
+3.下載步驟參考影片:https://www.youtube.com/watch?v=jnpC_Ib_lbc
+&lt;/h4&gt;&lt;/p&gt;</summary><category term="OpenCv"></category></entry><entry><title>40323230日誌 - 106/01/20</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060120.html" rel="alternate"></link><published>2017-01-20T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-20:blog/40323230ri-zhi-1060120.html</id><summary type="html">&lt;p&gt;Pyslvs version 0.4 Relese&lt;/p&gt;
 
 
 &lt;h1&gt;Pyslvs version 0.4 Relese&lt;/h1&gt;

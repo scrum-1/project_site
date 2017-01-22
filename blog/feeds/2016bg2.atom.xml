@@ -27,7 +27,7 @@ time.strftime('%a')
 &lt;p&gt;Python Rise 了相同的錯誤如下：&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0122_01.jpg" /&gt;&lt;/p&gt;
 &lt;p&gt;解決方式就是重新設定 local 的設定。&lt;/p&gt;
-&lt;p&gt;到 Anaconda 的資料夾中找到 pelican，編輯其 utils.py 檔案。&lt;/p&gt;
+&lt;p&gt;到 Anaconda 的資料夾中找到 pelican，編輯其 utils.py 檔案（如：&lt;code&gt;Anaconda3\Lib\site-packages\pelican&lt;/code&gt;）。&lt;/p&gt;
 &lt;p&gt;搜尋 &lt;code&gt;def strftime(date, date_format)&lt;/code&gt; 這個函式。&lt;/p&gt;
 &lt;p&gt;在函式這片註解後加入 &lt;code&gt;locale.setlocale(locale.LC_ALL, 'en')&lt;/code&gt; 指令，如下：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;

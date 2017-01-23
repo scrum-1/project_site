@@ -41,7 +41,7 @@ pandoc: Error producing PDF
 &lt;p&gt;&lt;a href="http://www.ctan.org/tex-archive/macros/latex/contrib/etoolbox/"&gt;http://www.ctan.org/tex-archive/macros/latex/contrib/etoolbox/&lt;/a&gt;&lt;/p&gt;
 &lt;h1&gt;Windows 安裝方式&lt;/h1&gt;
 &lt;p&gt;Windows 只需安裝 Pandoc 與 MikTex。&lt;/p&gt;
-&lt;p&gt;到 Pandoc 的 Github 倉儲下載 debian 安裝檔，用 software center 安裝。&lt;/p&gt;
+&lt;p&gt;到 Pandoc 的 Github 倉儲下載 msi 安裝檔。&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/jgm/pandoc/releases/"&gt;https://github.com/jgm/pandoc/releases/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;然後根據 XeLaTex 的說明安裝 MikTex，並執行 MikTex Update 更新 xetex 的檔案。&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.texts.io/support/0002/"&gt;http://www.texts.io/support/0002/&lt;/a&gt;&lt;/p&gt;

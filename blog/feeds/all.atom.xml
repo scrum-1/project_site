@@ -1,5 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-22T21:00:00+08:00</updated><entry><title>Pelican - Windows Python Error</title><link href="http://project.mde.tw/blog/pelican-windows-python-error.html" rel="alternate"></link><published>2017-01-22T21:00:00+08:00</published><updated>2017-01-22T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-22:blog/pelican-windows-python-error.html</id><summary type="html">&lt;ul&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-23T21:00:00+08:00</updated><entry><title>Pandoc - Markdown 轉 PDF 格式</title><link href="http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html" rel="alternate"></link><published>2017-01-23T21:00:00+08:00</published><updated>2017-01-23T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-23:blog/pandoc-markdown-zhuan-pdf-ge-shi.html</id><summary type="html">&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Ubuntu 安裝方式&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Windows 安裝方式&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用範例&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1&gt;Ubuntu 安裝方式&lt;/h1&gt;
+&lt;p&gt;首先安裝 Pandoc、texLive、texLive-xetex。&lt;/p&gt;
+&lt;p&gt;到 Pandoc 的 Github 倉儲下載 debian 安裝檔，用 software center 安裝。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/jgm/pandoc/releases/"&gt;https://github.com/jgm/pandoc/releases/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;接著用 apt 安裝 texLive。&lt;/p&gt;
+&lt;pre&gt;
+$sudo apt install texlive texlive-xetex
+&lt;/pre&gt;
+
+&lt;p&gt;若直接轉檔，可能會缺少所需的轉換範本，出現下面的警告：&lt;/p&gt;
+&lt;pre&gt;
+! LaTeX Error: File `etoolbox.sty' not found.
+
+Type X to quit or RETURN to proceed,
+or enter new name. (Default extension: sty)
+
+Enter file name:
+! Emergency stop.
+read *
+
+l.8 \RequirePackage
+
+pandoc: Error producing PDF
+&lt;/pre&gt;
+
+&lt;p&gt;到 etoolbox 下載 缺少的檔案，放到 pandoc 目錄中，或是轉換檔的同層目錄下。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.ctan.org/tex-archive/macros/latex/contrib/etoolbox/"&gt;http://www.ctan.org/tex-archive/macros/latex/contrib/etoolbox/&lt;/a&gt;&lt;/p&gt;
+&lt;h1&gt;Windows 安裝方式&lt;/h1&gt;
+&lt;p&gt;Windows 只需安裝 Pandoc 與 MikTex。&lt;/p&gt;
+&lt;p&gt;到 Pandoc 的 Github 倉儲下載 debian 安裝檔，用 software center 安裝。&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/jgm/pandoc/releases/"&gt;https://github.com/jgm/pandoc/releases/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;然後根據 XeLaTex 的說明安裝 MikTex，並執行 MikTex Update 更新 xetex 的檔案。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.texts.io/support/0002/"&gt;http://www.texts.io/support/0002/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Windows 同樣也需要 etoolbox 的樣板，不過可以使用 MikTex Package Manager 來安裝，在過濾器中打上 etoolbox 搜尋安裝即可。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0121_01.jpg" /&gt;&lt;/p&gt;
+&lt;h1&gt;使用範例&lt;/h1&gt;
+&lt;p&gt;&lt;a href="http://pandoc.org/demos.html"&gt;http://pandoc.org/demos.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;參照 pandoc 的 demo，下載 MANUAL.txt 這個 Markdown 檔案來測試。&lt;/p&gt;
+&lt;p&gt;使用以下指令：&lt;/p&gt;
+&lt;pre&gt;
+$pandoc MANUAL.txt --latex-engine=xelatex -o MANUAL.pdf
+&lt;/pre&gt;
+
+&lt;p&gt;轉換後不會有任何提示，會直接輸出檔案。&lt;/p&gt;
+&lt;p&gt;平常使用 pandoc 指令，可以如同 Python 直譯器直接輸入 Markdown 語法，輸入後按下 &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;D&lt;/kbd&gt; 來轉換並顯示 html 語法（Windows 是 &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;C&lt;/kbd&gt;）。&lt;/p&gt;
+&lt;p&gt;若是結合 &lt;code&gt;--latex-engine=xelatex&lt;/code&gt; 或是 &lt;code&gt;-o&lt;/code&gt; 參數，更可以直接輸出成 pdf 檔案。&lt;/p&gt;
+&lt;p&gt;而輸出的 pdf 檔案會自動分頁、排版、標記頁碼。demo 網頁上還有其他範例，可以轉換成不同格式的文件。&lt;/p&gt;
+&lt;p&gt;手冊方面全局使用 Leo editor 管理，並整合轉檔的工作，圖片則使用另一個倉儲儲存，不過這些 Markdown 樣板的語法跟網誌的語法不太相同，可能要稍微測試並習慣其用法。&lt;/p&gt;</summary><category term="pandoc"></category></entry><entry><title>Pelican - Windows Python Error</title><link href="http://project.mde.tw/blog/pelican-windows-python-error.html" rel="alternate"></link><published>2017-01-22T21:00:00+08:00</published><updated>2017-01-22T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-22:blog/pelican-windows-python-error.html</id><summary type="html">&lt;ul&gt;
 &lt;li&gt;解決 ValueError: embedded null byte 錯誤&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -45,56 +105,7 @@ def strftime(date, date_format):
 &lt;/pre&gt;
 
 &lt;p&gt;之後存檔關閉即可。&lt;/p&gt;
-&lt;p&gt;接著就能使用 Pelican 的功能了。&lt;/p&gt;</summary><category term="Pelican"></category></entry><entry><title>Pandoc - Markdown 轉 PDF 格式</title><link href="http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html" rel="alternate"></link><published>2017-01-21T21:00:00+08:00</published><updated>2017-01-21T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-21:blog/pandoc-markdown-zhuan-pdf-ge-shi.html</id><summary type="html">&lt;ul&gt;
-&lt;li&gt;
-&lt;p&gt;Ubuntu 安裝方式&lt;/p&gt;
-&lt;/li&gt;
-&lt;li&gt;
-&lt;p&gt;使用範例&lt;/p&gt;
-&lt;/li&gt;
-&lt;/ul&gt;
-
-
-&lt;h1&gt;Ubuntu 安裝方式&lt;/h1&gt;
-&lt;p&gt;首先安裝 Pandoc、texLive、texLive-xetex。&lt;/p&gt;
-&lt;p&gt;到 Pandoc 的 Github 倉儲下載 debian 安裝檔，用 software center 安裝。&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://github.com/jgm/pandoc/releases/"&gt;https://github.com/jgm/pandoc/releases/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;接著用 apt 安裝 texLive。&lt;/p&gt;
-&lt;pre&gt;
-$sudo apt install texlive texlive-xetex
-&lt;/pre&gt;
-
-&lt;p&gt;若直接轉檔，可能會缺少所需的轉換範本，出現下面的警告：&lt;/p&gt;
-&lt;pre&gt;
-! LaTeX Error: File `etoolbox.sty' not found.
-
-Type X to quit or RETURN to proceed,
-or enter new name. (Default extension: sty)
-
-Enter file name:
-! Emergency stop.
-read *
-
-l.8 \RequirePackage
-
-pandoc: Error producing PDF
-&lt;/pre&gt;
-
-&lt;p&gt;到 etoolbox 下載 缺少的檔案，放到 pandoc 目錄中，或是轉換檔的同層目錄下。&lt;/p&gt;
-&lt;p&gt;&lt;a href="http://www.ctan.org/tex-archive/macros/latex/contrib/etoolbox/"&gt;http://www.ctan.org/tex-archive/macros/latex/contrib/etoolbox/&lt;/a&gt;&lt;/p&gt;
-&lt;h1&gt;使用範例&lt;/h1&gt;
-&lt;p&gt;&lt;a href="http://pandoc.org/demos.html"&gt;http://pandoc.org/demos.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;參照 pandoc 的 demo，下載 MANUAL.txt 這個 Markdown 檔案來測試。&lt;/p&gt;
-&lt;p&gt;使用以下指令：&lt;/p&gt;
-&lt;pre&gt;
-$pandoc MANUAL.txt --latex-engine=xelatex -o MANUAL.pdf
-&lt;/pre&gt;
-
-&lt;p&gt;轉換後不會有任何提示，會直接輸出檔案。&lt;/p&gt;
-&lt;p&gt;平常使用 pandoc 指令，可以如同 Python 直譯器直接輸入 Markdown 語法，輸入後按下 &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;D&lt;/kbd&gt; 來轉換並顯示 html 語法（Windows 是 &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;Z&lt;/kbd&gt;）。&lt;/p&gt;
-&lt;p&gt;若是結合 &lt;code&gt;--latex-engine=xelatex&lt;/code&gt; 或是 &lt;code&gt;-o&lt;/code&gt; 參數，更可以直接輸出成 pdf 檔案。&lt;/p&gt;
-&lt;p&gt;而輸出的 pdf 檔案會自動分頁、排版、標記頁碼。demo 網頁上還有其他範例，可以轉換成不同格式的文件。&lt;/p&gt;
-&lt;p&gt;手冊方面全局使用 Leo editor 管理，並整合轉檔的工作，圖片則使用另一個倉儲儲存，不過這些 Markdown 樣板的語法跟網誌的語法不太相同，可能要稍微測試並習慣其用法。&lt;/p&gt;</summary><category term="pandoc"></category></entry><entry><title>40323214日誌- Install Scipy on windows</title><link href="http://project.mde.tw/blog/40323214ri-zhi-install-scipy-on-windows.html" rel="alternate"></link><published>2017-01-20T21:00:00+08:00</published><updated>2017-01-20T21:00:00+08:00</updated><author><name>40323214</name></author><id>tag:project.mde.tw,2017-01-20:blog/40323214ri-zhi-install-scipy-on-windows.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;接著就能使用 Pelican 的功能了。&lt;/p&gt;</summary><category term="Pelican"></category></entry><entry><title>40323214日誌- Install Scipy on windows</title><link href="http://project.mde.tw/blog/40323214ri-zhi-install-scipy-on-windows.html" rel="alternate"></link><published>2017-01-20T21:00:00+08:00</published><updated>2017-01-20T21:00:00+08:00</updated><author><name>40323214</name></author><id>tag:project.mde.tw,2017-01-20:blog/40323214ri-zhi-install-scipy-on-windows.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;h3&gt;一.Scipy基本介紹&lt;/h3&gt;
 

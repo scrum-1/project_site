@@ -170,14 +170,14 @@ init_mathjax();
 
         <meta name="author" content="40323230" />
         <meta name="keywords" content="pandoc" />
-        <meta name="description" content="Ubuntu 安裝方式 使用範例" />
+        <meta name="description" content="Ubuntu 安裝方式 Windows 安裝方式 使用範例" />
 
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Pandoc - Markdown 轉 PDF 格式"/>
         <meta property="og:url" content="http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html"/>
-        <meta property="og:description" content="Ubuntu 安裝方式 使用範例"/>
-        <meta property="article:published_time" content="2017-01-21" />
+        <meta property="og:description" content="Ubuntu 安裝方式 Windows 安裝方式 使用範例"/>
+        <meta property="article:published_time" content="2017-01-23" />
             <meta property="article:section" content="2016bg2" />
             <meta property="article:tag" content="pandoc" />
             <meta property="article:author" content="40323230" />
@@ -315,7 +315,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-01-21T21:00:00+08:00"> Sat 21 January 2017</time>
+        <i class="fa fa-calendar"></i><time datetime="2017-01-23T21:00:00+08:00"> Mon 23 January 2017</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -330,6 +330,9 @@ init_mathjax();
                 <ul>
 <li>
 <p>Ubuntu 安裝方式</p>
+</li>
+<li>
+<p>Windows 安裝方式</p>
 </li>
 <li>
 <p>使用範例</p>
@@ -364,6 +367,14 @@ pandoc: Error producing PDF
 
 <p>到 etoolbox 下載 缺少的檔案，放到 pandoc 目錄中，或是轉換檔的同層目錄下。</p>
 <p><a href="http://www.ctan.org/tex-archive/macros/latex/contrib/etoolbox/">http://www.ctan.org/tex-archive/macros/latex/contrib/etoolbox/</a></p>
+<h1>Windows 安裝方式</h1>
+<p>Windows 只需安裝 Pandoc 與 MikTex。</p>
+<p>到 Pandoc 的 Github 倉儲下載 debian 安裝檔，用 software center 安裝。</p>
+<p><a href="https://github.com/jgm/pandoc/releases/">https://github.com/jgm/pandoc/releases/</a></p>
+<p>然後根據 XeLaTex 的說明安裝 MikTex，並執行 MikTex Update 更新 xetex 的檔案。</p>
+<p><a href="http://www.texts.io/support/0002/">http://www.texts.io/support/0002/</a></p>
+<p>Windows 同樣也需要 etoolbox 的樣板，不過可以使用 MikTex Package Manager 來安裝，在過濾器中打上 etoolbox 搜尋安裝即可。</p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0121_01.jpg" /></p>
 <h1>使用範例</h1>
 <p><a href="http://pandoc.org/demos.html">http://pandoc.org/demos.html</a></p>
 <p>參照 pandoc 的 demo，下載 MANUAL.txt 這個 Markdown 檔案來測試。</p>
@@ -373,7 +384,7 @@ $pandoc MANUAL.txt --latex-engine=xelatex -o MANUAL.pdf
 </pre>
 
 <p>轉換後不會有任何提示，會直接輸出檔案。</p>
-<p>平常使用 pandoc 指令，可以如同 Python 直譯器直接輸入 Markdown 語法，輸入後按下 <kbd>Ctrl</kbd> + <kbd>D</kbd> 來轉換並顯示 html 語法（Windows 是 <kbd>Ctrl</kbd> + <kbd>Z</kbd>）。</p>
+<p>平常使用 pandoc 指令，可以如同 Python 直譯器直接輸入 Markdown 語法，輸入後按下 <kbd>Ctrl</kbd> + <kbd>D</kbd> 來轉換並顯示 html 語法（Windows 是 <kbd>Ctrl</kbd> + <kbd>C</kbd>）。</p>
 <p>若是結合 <code>--latex-engine=xelatex</code> 或是 <code>-o</code> 參數，更可以直接輸出成 pdf 檔案。</p>
 <p>而輸出的 pdf 檔案會自動分頁、排版、標記頁碼。demo 網頁上還有其他範例，可以轉換成不同格式的文件。</p>
 <p>手冊方面全局使用 Leo editor 管理，並整合轉檔的工作，圖片則使用另一個倉儲儲存，不過這些 Markdown 樣板的語法跟網誌的語法不太相同，可能要稍微測試並習慣其用法。</p>
@@ -422,13 +433,13 @@ $pandoc MANUAL.txt --latex-engine=xelatex -o MANUAL.pdf
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/pelican-windows-python-error.html">
-                            Pelican - Windows Python Error
+                        <a href="http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html">
+                            Pandoc - Markdown 轉 PDF 格式
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html">
-                            Pandoc - Markdown 轉 PDF 格式
+                        <a href="http://project.mde.tw/blog/pelican-windows-python-error.html">
+                            Pelican - Windows Python Error
                         </a>
                     </li>
                     <li class="list-group-item">

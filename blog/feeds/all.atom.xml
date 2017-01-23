@@ -9,6 +9,9 @@
 &lt;li&gt;
 &lt;p&gt;使用範例&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;轉換中文字型說明&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
 
 
@@ -59,7 +62,24 @@ $pandoc MANUAL.txt --latex-engine=xelatex -o MANUAL.pdf
 &lt;p&gt;平常使用 pandoc 指令，可以如同 Python 直譯器直接輸入 Markdown 語法，輸入後按下 &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;D&lt;/kbd&gt; 來轉換並顯示 html 語法（Windows 是 &lt;kbd&gt;Ctrl&lt;/kbd&gt; + &lt;kbd&gt;C&lt;/kbd&gt;）。&lt;/p&gt;
 &lt;p&gt;若是結合 &lt;code&gt;--latex-engine=xelatex&lt;/code&gt; 或是 &lt;code&gt;-o&lt;/code&gt; 參數，更可以直接輸出成 pdf 檔案。&lt;/p&gt;
 &lt;p&gt;而輸出的 pdf 檔案會自動分頁、排版、標記頁碼。demo 網頁上還有其他範例，可以轉換成不同格式的文件。&lt;/p&gt;
-&lt;p&gt;手冊方面全局使用 Leo editor 管理，並整合轉檔的工作，圖片則使用另一個倉儲儲存，不過這些 Markdown 樣板的語法跟網誌的語法不太相同，可能要稍微測試並習慣其用法。&lt;/p&gt;</summary><category term="pandoc"></category></entry><entry><title>Pelican - Windows Python Error</title><link href="http://project.mde.tw/blog/pelican-windows-python-error.html" rel="alternate"></link><published>2017-01-22T21:00:00+08:00</published><updated>2017-01-22T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-22:blog/pelican-windows-python-error.html</id><summary type="html">&lt;ul&gt;
+&lt;p&gt;手冊方面全局使用 Leo editor 管理，並整合轉檔的工作，圖片則使用另一個倉儲儲存，不過這些 Markdown 樣板的語法跟網誌的語法不太相同，可能要稍微測試並習慣其用法。&lt;/p&gt;
+&lt;h1&gt;轉換中文字型說明&lt;/h1&gt;
+&lt;p&gt;若是只使用以上指令，英文以外的字元會無法順利轉換而變成空白文字。&lt;/p&gt;
+&lt;p&gt;這時使用以下指令即可：&lt;/p&gt;
+&lt;pre&gt;
+$pandoc MANUAL.txt --latex-engine=xelatex -V mainfont="中文字型" -o MANUAL.pdf
+&lt;/pre&gt;
+
+&lt;p&gt;在 leo editor 文件中，使用參數替換，以套用到不同檔案中：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+import os
+filename = "developer_manual"
+font = "標楷體"
+os.system("pandoc "+filename+".md --latex-engine=xelatex -V mainfont=\""+font+"\" -o "+filename+".pdf")
+g.es("Developer pdf 轉換完畢")
+&lt;/pre&gt;
+
+&lt;p&gt;之後會依據平台選擇字型輸出。&lt;/p&gt;</summary><category term="pandoc"></category></entry><entry><title>Pelican - Windows Python Error</title><link href="http://project.mde.tw/blog/pelican-windows-python-error.html" rel="alternate"></link><published>2017-01-22T21:00:00+08:00</published><updated>2017-01-22T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-22:blog/pelican-windows-python-error.html</id><summary type="html">&lt;ul&gt;
 &lt;li&gt;解決 ValueError: embedded null byte 錯誤&lt;/li&gt;
 &lt;/ul&gt;
 

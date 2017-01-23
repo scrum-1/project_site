@@ -170,13 +170,13 @@ init_mathjax();
 
         <meta name="author" content="40323230" />
         <meta name="keywords" content="pandoc" />
-        <meta name="description" content="Ubuntu 安裝方式 Windows 安裝方式 使用範例" />
+        <meta name="description" content="Ubuntu 安裝方式 Windows 安裝方式 使用範例 轉換中文字型說明" />
 
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Pandoc - Markdown 轉 PDF 格式"/>
         <meta property="og:url" content="http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html"/>
-        <meta property="og:description" content="Ubuntu 安裝方式 Windows 安裝方式 使用範例"/>
+        <meta property="og:description" content="Ubuntu 安裝方式 Windows 安裝方式 使用範例 轉換中文字型說明"/>
         <meta property="article:published_time" content="2017-01-23" />
             <meta property="article:section" content="2016bg2" />
             <meta property="article:tag" content="pandoc" />
@@ -337,6 +337,9 @@ init_mathjax();
 <li>
 <p>使用範例</p>
 </li>
+<li>
+<p>轉換中文字型說明</p>
+</li>
 </ul>
 
 
@@ -388,6 +391,23 @@ $pandoc MANUAL.txt --latex-engine=xelatex -o MANUAL.pdf
 <p>若是結合 <code>--latex-engine=xelatex</code> 或是 <code>-o</code> 參數，更可以直接輸出成 pdf 檔案。</p>
 <p>而輸出的 pdf 檔案會自動分頁、排版、標記頁碼。demo 網頁上還有其他範例，可以轉換成不同格式的文件。</p>
 <p>手冊方面全局使用 Leo editor 管理，並整合轉檔的工作，圖片則使用另一個倉儲儲存，不過這些 Markdown 樣板的語法跟網誌的語法不太相同，可能要稍微測試並習慣其用法。</p>
+<h1>轉換中文字型說明</h1>
+<p>若是只使用以上指令，英文以外的字元會無法順利轉換而變成空白文字。</p>
+<p>這時使用以下指令即可：</p>
+<pre>
+$pandoc MANUAL.txt --latex-engine=xelatex -V mainfont="中文字型" -o MANUAL.pdf
+</pre>
+
+<p>在 leo editor 文件中，使用參數替換，以套用到不同檔案中：</p>
+<pre class="brush: python">
+import os
+filename = "developer_manual"
+font = "標楷體"
+os.system("pandoc "+filename+".md --latex-engine=xelatex -V mainfont=\""+font+"\" -o "+filename+".pdf")
+g.es("Developer pdf 轉換完畢")
+</pre>
+
+<p>之後會依據平台選擇字型輸出。</p>
             </div>
             <!-- /.entry-content -->
     <hr/>

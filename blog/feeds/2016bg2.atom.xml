@@ -1,5 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-23T21:00:00+08:00</updated><entry><title>Pandoc - Markdown 轉 PDF 格式</title><link href="http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html" rel="alternate"></link><published>2017-01-23T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-23:blog/pandoc-markdown-zhuan-pdf-ge-shi.html</id><summary type="html">&lt;ul&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-24T21:00:00+08:00</updated><entry><title>Qt5 - Ubuntu switch Fcitx input method</title><link href="http://project.mde.tw/blog/qt5-ubuntu-switch-fcitx-input-method.html" rel="alternate"></link><published>2017-01-24T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-24:blog/qt5-ubuntu-switch-fcitx-input-method.html</id><summary type="html">&lt;ul&gt;
+&lt;li&gt;解決 Ubuntu 平台無法在 Qt5 切換 Fcitx 輸入法的問題&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1&gt;解決 Ubuntu 平台無法在 Qt5 切換 Fcitx 輸入法的問題&lt;/h1&gt;
+&lt;p&gt;使用 Python 3 啟動 Leo editor、QtCreator，甚至是自己的 PyQt 專案時，會發生無法在視窗內使用英文以外的輸入法。&lt;/p&gt;
+&lt;p&gt;在 Qt4 時，這個功能可以直接在 Qt Setting 中選擇。Qt5 則是依賴「fcitx-qt5」這個套件，使用 apt 檢查時，會顯示已經安裝並為最新版。&lt;/p&gt;
+&lt;p&gt;但是安裝 Qt 時的 fcitx-qt5 套件沒有對應到作業系統的 Fcitx 版本時，就要手動 make 了。&lt;/p&gt;
+&lt;p&gt;在編譯 fcitx-qt5 前，先確認已經安裝最新的 CMake。&lt;/p&gt;
+&lt;p&gt;示範的 Qt 安裝位置為 &lt;code&gt;/opt/Qt/&lt;/code&gt;，版本為 5.6，請根據自身版本做調整。&lt;/p&gt;
+&lt;p&gt;這些流程在 14.04 和 16.04 中是大同小異的，並沒有太大差異。&lt;/p&gt;
+&lt;h1&gt;編譯 fcitx-qt5&lt;/h1&gt;
+&lt;p&gt;從官方倉儲下載 fcitx-qt5，進入該資料夾中：&lt;/p&gt;
+&lt;pre&gt;
+$git clone https://github.com/fcitx/fcitx-qt5
+$cd fcitx-qt5
+&lt;/pre&gt;
+
+&lt;p&gt;接著準備編譯 fcitx-qt5。&lt;/p&gt;
+&lt;pre&gt;
+$cmake .
+$make
+$sudo make install
+&lt;/pre&gt;
+
+&lt;p&gt;在使用 CMake 時會發生如下問題。&lt;/p&gt;
+&lt;h2&gt;extra-cmake-modules&lt;/h2&gt;
+&lt;p&gt;錯誤訊息：&lt;/p&gt;
+&lt;pre&gt;
+CMake Error at CMakeLists.txt:8 (find_package):
+Could not find a package configuration file provided by "ECM" (requested
+  version 1.4.0) with any of the following names:
+ECMConfig.cmake
+ecm-config.cmake
+  Add the installation prefix of "ECM" to CMAKE_PREFIX_PATH or set "ECM_DIR"
+  to a directory containing one of the above files.  If "ECM" provides a
+  separate development package or SDK, be sure it has been installed.
+-- Configuring incomplete, errors occurred!
+&lt;/pre&gt;
+
+&lt;p&gt;到下面網址下載 CMake 額外模組：&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://launchpad.net/ubuntu/+source/extra-cmake-modules/1.4.0-0ubuntu1"&gt;https://launchpad.net/ubuntu/+source/extra-cmake-modules/1.4.0-0ubuntu1&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;解壓縮進入，編譯並安裝模組。編譯前必須指定 CMAKE_PREFIX_PATH 位置到 Qt GCC 的 CMake 上。&lt;/p&gt;
+&lt;pre&gt;
+$export CMAKE_PREFIX_PATH="/opt/Qt/5.6/gcc_64/lib/cmake/"
+$cmake .
+$make
+$sudo make install
+&lt;/pre&gt;
+
+&lt;h2&gt;xkbcommon&lt;/h2&gt;
+&lt;p&gt;錯誤訊息：&lt;/p&gt;
+&lt;pre&gt;
+-- Found PkgConfig: /usr/bin/pkg-config (found version "0.26") 
+-- Could NOT find XKBCommon_XKBCommon (missing:  XKBCommon_XKBCommon_LIBRARY XKBCommon_XKBCommon_INCLUDE_DIR) 
+CMake Error at /usr/share/cmake-2.8/Modules/FindPackageHandleStandardArgs.cmake:108 (message):
+  Could NOT find XKBCommon (missing: XKBCommon_LIBRARIES XKBCommon) (Required is at least version "0.5.0")
+&lt;/pre&gt;
+
+&lt;p&gt;到 &lt;a href="http://xkbcommon.org/"&gt;http://xkbcommon.org/&lt;/a&gt; 下載最新的穩定版本。&lt;/p&gt;
+&lt;p&gt;解壓縮後進入資料夾，安裝時需要用到 bison 套件。&lt;/p&gt;
+&lt;pre&gt;
+$sudo apt-get install bison
+$./configure --prefix=/usr --libdir=/usr/lib/x86_64-linux-gnu --disable-x11
+$make
+$sudo install
+&lt;/pre&gt;
+
+&lt;h1&gt;安裝 fcitx-qt5&lt;/h1&gt;
+&lt;p&gt;若順利執行 CMake 並成功編譯，會在 &lt;code&gt;platforminputcontext&lt;/code&gt; 出現 fcitx-qt5 的程式庫，名為 &lt;code&gt;libfcitxplatforminputcontextplugin.so&lt;/code&gt;。&lt;/p&gt;
+&lt;p&gt;接著刪除 Qt 內的 fcitx-qt5 套件：&lt;/p&gt;
+&lt;pre&gt;
+$sudo rm -f /opt/Qt/5.6/gcc_64/plugins/platforminputcontexts/libfcitxplatforminputcontextplugin.so
+$sudo rm -f /opt/Qt/Tools/QtCreator/lib/Qt/plugins/platforminputcontexts/libfcitxplatforminputcontextplugin.so
+&lt;/pre&gt;
+
+&lt;p&gt;然後進入 &lt;code&gt;platforminputcontext&lt;/code&gt; 資料夾，先讓該程式庫「可執行化」後再複製。&lt;/p&gt;
+&lt;pre&gt;
+$sudo chmod +x libfcitxplatforminputcontextplugin.so
+$sudo cp libfcitxplatforminputcontextplugin.so /opt/Qt/5.6/gcc_64/plugins/platforminputcontexts/
+$sudo cp libfcitxplatforminputcontextplugin.so /opt/Qt/Tools/QtCreator/lib/Qt/plugins/platforminputcontexts/
+&lt;/pre&gt;
+
+&lt;p&gt;然後設定 Qt5 的預設輸入法為 Fcitx。&lt;/p&gt;
+&lt;p&gt;直接執行下面這兩個命令，若是登出或重新開機失效，則要到 .bashrc 文件中加入。&lt;/p&gt;
+&lt;pre&gt;
+$export XMODIFIERS=@im=fcitx
+$export QT_IM_MODULE=fcitx
+&lt;/pre&gt;
+
+&lt;p&gt;重新啟動 Qt 相關的程式，便能使用 Fcitx 切換其他輸入法了。&lt;/p&gt;</summary><category term="PyQt5"></category><category term="Leo Editor"></category></entry><entry><title>Pandoc - Markdown 轉 PDF 格式</title><link href="http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html" rel="alternate"></link><published>2017-01-23T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-23:blog/pandoc-markdown-zhuan-pdf-ge-shi.html</id><summary type="html">&lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Ubuntu 安裝方式&lt;/p&gt;
 &lt;/li&gt;
@@ -24,7 +115,7 @@
 $sudo apt install texlive texlive-xetex etoolbox
 &lt;/pre&gt;
 
-&lt;p&gt;若直接轉檔，可能會缺少所需的轉換範本，出現下面的警告：&lt;/p&gt;
+&lt;p&gt;若是有檔案缺損，直接轉檔，可能會缺少所需的轉換範本，出現下面的警告：  &lt;/p&gt;
 &lt;pre&gt;
 ! LaTeX Error: File `etoolbox.sty' not found.
 

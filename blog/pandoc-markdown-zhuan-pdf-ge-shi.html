@@ -315,7 +315,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-01-23T21:00:00+08:00"> Mon 23 January 2017</time>
+        <i class="fa fa-calendar"></i><time datetime="2017-01-23T21:00:00+08:00"> 一 23 一月 2017</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -344,12 +344,12 @@ init_mathjax();
 
 
 <h1>Ubuntu 安裝方式</h1>
-<p>首先安裝 Pandoc、texLive、texLive-xetex。</p>
+<p>首先安裝 Pandoc、texLive、texLive-xetex、etoolbox。</p>
 <p>到 Pandoc 的 Github 倉儲下載 debian 安裝檔，用 software center 安裝。</p>
 <p><a href="https://github.com/jgm/pandoc/releases/">https://github.com/jgm/pandoc/releases/</a></p>
 <p>接著用 apt 安裝 texLive。</p>
 <pre>
-$sudo apt install texlive texlive-xetex
+$sudo apt install texlive texlive-xetex etoolbox
 </pre>
 
 <p>若直接轉檔，可能會缺少所需的轉換範本，出現下面的警告：</p>
@@ -368,8 +368,6 @@ l.8 \RequirePackage
 pandoc: Error producing PDF
 </pre>
 
-<p>到 etoolbox 下載 缺少的檔案，放到 pandoc 目錄中，或是轉換檔的同層目錄下。</p>
-<p><a href="http://www.ctan.org/tex-archive/macros/latex/contrib/etoolbox/">http://www.ctan.org/tex-archive/macros/latex/contrib/etoolbox/</a></p>
 <h1>Windows 安裝方式</h1>
 <p>Windows 只需安裝 Pandoc 與 MikTex。</p>
 <p>到 Pandoc 的 Github 倉儲下載 msi 安裝檔。</p>

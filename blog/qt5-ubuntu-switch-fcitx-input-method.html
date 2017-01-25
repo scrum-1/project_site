@@ -343,7 +343,7 @@ init_mathjax();
 <p>但是安裝 Qt 時的 fcitx-qt5 套件沒有對應到作業系統的 Fcitx 版本時，就要手動 make 了。</p>
 <p>在編譯 fcitx-qt5 前，先確認已經安裝最新的 CMake。</p>
 <p>示範的 Qt 安裝位置為 <code>/opt/Qt/</code>，版本為 5.6，請根據自身版本做調整。</p>
-<p>這些流程在 14.04 和 16.04 中是大同小異的，並沒有太大差異。</p>
+<p>這些流程在 14.04 和 16.04 中是大同小異的，並沒有太大分別。</p>
 <h1>編譯 fcitx-qt5</h1>
 <p>從官方倉儲下載 fcitx-qt5，進入該資料夾中：</p>
 <pre>
@@ -398,7 +398,7 @@ CMake Error at /usr/share/cmake-2.8/Modules/FindPackageHandleStandardArgs.cmake:
 $sudo apt-get install bison
 $./configure --prefix=/usr --libdir=/usr/lib/x86_64-linux-gnu --disable-x11
 $make
-$sudo install
+$sudo make install
 </pre>
 
 <h1>安裝 fcitx-qt5</h1>

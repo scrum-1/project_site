@@ -262,9 +262,6 @@ init_mathjax();
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="http://project.mde.tw/blog/pages/about/">
-                             About
-                          </a></li>
                         <li class="active">
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
@@ -319,7 +316,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-08-17T12:00:00+08:00"> 三 17 八月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-08-17T12:00:00+08:00"> 週三 17 八月 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -467,27 +464,15 @@ sys.get_param(0).val
 </ol>
 <p>According to these relations, in the constraint must determine its classification to fill.</p>
 <p>When function input "<code>, sys</code>" after value, it can record into <code>sys</code> (There maybe exist <code>sys2</code> or <code>sys3</code>). It can also use <code>sys.add_</code> to input to current system.</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>add_param( )
+<div class="highlight"><pre><span></span>add_param( )
 add_point2d( )
 add_point3d( )
 add_entity( )
 </pre></div>
-</td></tr></table>
+
 
 <p>As same as take them out (Add the specified number).</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>get_Point2d( )
+<div class="highlight"><pre><span></span>get_Point2d( )
 get_Point3d( )
 get_LineSegment2d( )
 get_LineSegment3d( )
@@ -498,7 +483,7 @@ get_Cubic( )
 get_Circle( )
 get_ArcOfCircle( )
 </pre></div>
-</td></tr></table>
+
 
 <h2><a name="Point"></a>Point</h2>
 <p><code>SLVS_E_POINT_IN_3D</code></p>
@@ -536,18 +521,16 @@ Normal3d(Workplane wrkpl)
 <p>Representative of a normal line perpendicular to the work plane.</p>
 <p>In SolveSpace, "normals" represent a 3x3 rotation matrix from our base coordinate system to a new frame. Defined by the unit quaternion w, x, y, z.</p>
 <p>It is useful to think of this quaternion as representing a plane through the origin. This plane has three associated vectors: basis vectors U, V that lie within the plane, and normal N that is perpendicular to it. This means that</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>    [ U V N ]&#39;
+<div class="highlight"><pre><span></span>    [ U V N ]&#39;
 </pre></div>
-</td></tr></table>
+
 
 <p>defines a 3x3 rotation matrix. So U, V, and N all have unit length, and are orthogonal so that</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>U cross V = N
+<div class="highlight"><pre><span></span>U cross V = N
 V cross N = U
 N cross U = V
 </pre></div>
-</td></tr></table>
+
 
 <p>Convenience functions <code>Slvs_Quaternion</code> are provided to convert between this representation as vectors U, V, N and the unit quaternion.</p>
 <p>A unit quaternion has only 3 degrees of freedom, but is specified in terms of 4 parameters. An extra constraint is therefore generatedimplicitly, that</p>
@@ -569,14 +552,7 @@ plane = Workplane(c, normal)
 
 <p>When creating 2D plane, using this formula is very convenient.</p>
 <p>The following are the different planes reference:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>XY plane: [1 0 0], [0 1 0]
+<div class="highlight"><pre><span></span>XY plane: [1 0 0], [0 1 0]
 MakeQuaternion(1, 0, 0, 0, 1, 0)
 
 YZ plane: [0 1 0], [0 0 1]
@@ -585,7 +561,7 @@ MakeQuaternion(0, 1, 0, 0, 0, 1)
 XZ plane: [1 0 0], [0 0 1]
 MakeQuaternion(1, 0, 0, 0, 0, 1)
 </pre></div>
-</td></tr></table>
+
 
 <h2><a name="Distance"></a>Distance</h2>
 <p><code>SLVS_E_DISTANCE</code></p>
@@ -1034,6 +1010,11 @@ sys.set_dragged(Point p)
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/fix-qt5-desogner.html">
+                            fix qt5 desogner
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/qt5-ubuntu-switch-fcitx-input-method.html">
                             Qt5 - Ubuntu switch Fcitx input method
                         </a>
@@ -1051,11 +1032,6 @@ sys.set_dragged(Point p)
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323214ri-zhi-install-scipy-on-windows.html">
                             40323214日誌- Install Scipy  on windows
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060120.html">
-                            40323230日誌 - 106/01/20
                         </a>
                     </li>
                 </ul>

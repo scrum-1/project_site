@@ -259,9 +259,6 @@ init_mathjax();
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="http://project.mde.tw/blog/pages/about/">
-                             About
-                          </a></li>
                         <li class="active">
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
@@ -316,7 +313,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-10-17T21:00:00+08:00"> 一 17 十月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-10-17T21:00:00+08:00"> 週一 17 十月 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -342,7 +339,7 @@ init_mathjax();
 
 <h1>Kernel 編譯</h1>
 <p>位於 python-solvespace 倉儲的程式庫文件因應 Pyslvs 的自動切換功能，編譯後不會放在 Ubuntu 或是 Windows 資料夾中了，而是採用 Pyslvs 的顯示方式。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1017_01.jpg" /></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1017_01.jpg"></p>
 <p>這個改變儲存在 configure.py 文件中，生成後的 Makefile 將會鎖定在一個編譯者的 Python 版本上，使用其他 Python 編譯的話，要重新用 configure.py 生成。</p>
 <p>而這個 configure.py 的功能之後可能會變成 Leo Editor 的按鈕。</p>
 <p>目前為止還沒測試 Windows 的編譯，也許試過之後會嘗試改用 MinGW，讓 Ubuntu 平台的協同者能為 Windows 編譯。</p>
@@ -353,7 +350,7 @@ $python3 launch_pyslvs.py [arg1] [arg2] ...
 </pre>
 
 <p>可能包裝成執行檔後用終端機呼叫才會出現。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1017_02.jpg" /></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1017_02.jpg"></p>
 <p>目前大約做了如下幾個基本的參數。</p>
 <h2>Git 資訊 <code>-g / --git</code></h2>
 <p>使用後啟動時的標題會讀取目前版次的代碼，不過軟體若是沒帶有 Git 的資訊就會無法顯示。</p>
@@ -410,6 +407,11 @@ $python3 launch_pyslvs.py [arg1] [arg2] ...
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/fix-qt5-desogner.html">
+                            fix qt5 desogner
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/qt5-ubuntu-switch-fcitx-input-method.html">
                             Qt5 - Ubuntu switch Fcitx input method
                         </a>
@@ -427,11 +429,6 @@ $python3 launch_pyslvs.py [arg1] [arg2] ...
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323214ri-zhi-install-scipy-on-windows.html">
                             40323214日誌- Install Scipy  on windows
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060120.html">
-                            40323230日誌 - 106/01/20
                         </a>
                     </li>
                 </ul>

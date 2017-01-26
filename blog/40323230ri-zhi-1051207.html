@@ -259,9 +259,6 @@ init_mathjax();
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="http://project.mde.tw/blog/pages/about/">
-                             About
-                          </a></li>
                         <li class="active">
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
@@ -316,7 +313,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-12-07T21:00:00+08:00"> 三 07 十二月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-12-07T21:00:00+08:00"> 週三 07 十二月 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -367,7 +364,7 @@ ImportError: DLL load failed: The specified module could not be found.
 </ol>
 <p>不過在 <code>binaries</code> 清單中的示範是填入函式庫中的連結名稱，不知道如果是 DLL 或 SO 的話要如何辨識名稱；直接寫上 <code>_slvs.pyd</code> 或是 <code>libslvs.so</code> 的位址也不能解決問題。</p>
 <h2>Ubuntu 編譯成功</h2>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1207_01.jpg" /></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1207_01.jpg"></p>
 <p>在一台 16.04 的實體機中，使用 PyInstaller 直接用預設設定編譯，能成功編譯出 Pyslvs 的 Linux 版可執行檔。</p>
 <p>Linux 平台的 SO 函式庫似乎不用特別指定也能找到 <code>_slvs.so</code> 和 <code>libslvs.so</code> 的內容；Windows 的 DLL 就得看當初連結庫的名稱是什麼了。</p>
             </div>
@@ -415,6 +412,11 @@ ImportError: DLL load failed: The specified module could not be found.
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/fix-qt5-desogner.html">
+                            fix qt5 desogner
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/qt5-ubuntu-switch-fcitx-input-method.html">
                             Qt5 - Ubuntu switch Fcitx input method
                         </a>
@@ -432,11 +434,6 @@ ImportError: DLL load failed: The specified module could not be found.
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323214ri-zhi-install-scipy-on-windows.html">
                             40323214日誌- Install Scipy  on windows
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060120.html">
-                            40323230日誌 - 106/01/20
                         </a>
                     </li>
                 </ul>

@@ -1,5 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-14T22:00:00+08:00</updated><entry><title>自動控制(Record)</title><link href="http://project.mde.tw/blog/zi-dong-kong-zhi-record.html" rel="alternate"></link><published>2017-01-14T22:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2017-01-14:blog/zi-dong-kong-zhi-record.html</id><summary type="html">&lt;p&gt;關於這門課用到的技術
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE) - 2016g1</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-26T12:00:00+08:00</updated><entry><title>fix qt5 desogner</title><link href="http://project.mde.tw/blog/fix-qt5-desogner.html" rel="alternate"></link><published>2017-01-26T12:00:00+08:00</published><updated>2017-01-26T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2017-01-26:/blog/fix-qt5-desogner.html</id><summary type="html">&lt;p&gt;無法啟動qtdesigner的問題
+</summary><content type="html">&lt;p&gt;無法啟動qtdesigner的問題
+&lt;/p&gt;
+&lt;p&gt;要做圖形化設計的時候，除了憑空想像物件的形狀和位置，也可以利用一些輔助工具，像是QT designer，進行先調整繪畫的地方和使用方法。&lt;/p&gt;
+&lt;p&gt;底下為老師ana2017_lite的win的部分&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;在cmd裡面更新pip&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;接著安裝pip install pyqt5-tools&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安裝完成後可以在dist-package裡面看到QT designer了&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;打開eric6裡面的 QT tools設定檔裡面加上位置就可以了&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Y:\Anaconda3\Lib\site-packages\pyqt5-tools\designer&lt;/p&gt;
+&lt;p&gt;圖片後面補上(家裡網路太慢了)&lt;/p&gt;</content><category term="ana2017"></category></entry><entry><title>自動控制(Record)</title><link href="http://project.mde.tw/blog/zi-dong-kong-zhi-record.html" rel="alternate"></link><published>2017-01-14T22:00:00+08:00</published><updated>2017-01-14T22:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2017-01-14:/blog/zi-dong-kong-zhi-record.html</id><summary type="html">&lt;p&gt;關於這門課用到的技術
+</summary><content type="html">&lt;p&gt;關於這門課用到的技術
 &lt;/p&gt;
 &lt;h3&gt;選用的控制版子&lt;/h3&gt;
 
@@ -27,10 +48,10 @@
 &lt;p&gt;&lt;img src="https://a.pololu-files.com/picture/0J3360.1200.png?d94ef1356fab28463db67ff0619afadf"&gt;&lt;/p&gt;
 &lt;p&gt;會需要控制step以及dir的腳位，dir的腳位決定正轉反轉假設輸入high為正轉那low就是反轉。&lt;/p&gt;
 &lt;p&gt;step腳位決定這個馬達要走幾步，譬如說我配的皮帶輪齒數是20齒的，我步進馬達轉一圈假設是3200步，我的一齒可以帶動皮帶移動1mm，寫個簡單的數學式子就會變成底下這樣。&lt;/p&gt;
-&lt;div class="math"&gt;$$\theta_T = cos^{-1}(\frac{x^2+y^2-L1^2-L2^2}{2\times L1\times L2})$$&lt;/div&gt;
-&lt;div class="math"&gt;$$\frac{20}{3200}=\frac{1}{x}$$&lt;/div&gt;
-&lt;div class="math"&gt;$$x=\frac{3200}{20}\times 1mm$$&lt;/div&gt;
-&lt;div class="math"&gt;$$x=160step$$&lt;/div&gt;
+&lt;p&gt;$$\theta_T = cos^{-1}(\frac{x^2+y^2-L1^2-L2^2}{2\times L1\times L2})$$&lt;/p&gt;
+&lt;p&gt;$$\frac{20}{3200}=\frac{1}{x}$$&lt;/p&gt;
+&lt;p&gt;$$x=\frac{3200}{20}\times 1mm$$&lt;/p&gt;
+&lt;p&gt;$$x=160step$$&lt;/p&gt;
 &lt;p&gt;我要移動1mm需要多少步數&lt;/p&gt;
 &lt;p&gt;這對後面機器的校正也會用到，假設說讓機器移動10mm可是卻只移動一半，表示step少一半，再補正回去就可以讓機器正常運轉。&lt;/p&gt;
 &lt;h3&gt;控制版腳位&lt;/h3&gt;
@@ -43,64 +64,8 @@
 
 &lt;h4&gt;後面想要加的東西&lt;/h4&gt;
 
-&lt;p&gt;想要做一個端口，將可以利用python做介面來進行裡面和外面同時可以控制，內部可以先模擬完外面再進行執行。機構再從新想一個，這個問題有點多沒有考慮到。&lt;/p&gt;
-&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width &lt; 768) ? "left" : align;
-        indent = (screen.width &lt; 768) ? "0em" : indent;
-        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-&lt;/script&gt;</summary><category term="machine"></category></entry><entry><title>RSA 模組</title><link href="http://project.mde.tw/blog/rsa-mo-zu.html" rel="alternate"></link><published>2016-12-27T20:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-27:blog/rsa-mo-zu.html</id><summary type="html">&lt;p&gt;再看完資料後就整理出來的部份&lt;/p&gt;
+&lt;p&gt;想要做一個端口，將可以利用python做介面來進行裡面和外面同時可以控制，內部可以先模擬完外面再進行執行。機構再從新想一個，這個問題有點多沒有考慮到。&lt;/p&gt;</content><category term="machine"></category></entry><entry><title>RSA 模組</title><link href="http://project.mde.tw/blog/rsa-mo-zu.html" rel="alternate"></link><published>2016-12-27T20:00:00+08:00</published><updated>2016-12-27T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-27:/blog/rsa-mo-zu.html</id><summary type="html">&lt;p&gt;再看完資料後就整理出來的部份&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;再看完資料後就整理出來的部份&lt;/p&gt;
 
 
 &lt;h3&gt;16版本沒有python2的工具包 因此先不考慮使用16版本的ubuntu&lt;/h3&gt;
@@ -130,7 +95,8 @@ except:
 &lt;p&gt;&lt;img src="http://i.imgur.com/c7F2ntS.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/leaCRh9.png"&gt;&lt;/p&gt;
 &lt;p&gt;今天卡在VTK的部份，最近幾天再把他解出來就可以使用了&lt;/p&gt;
-&lt;p&gt;這次改這個open dynamic system改的很快，原因是因為許多問題都是以前已經碰過的，一下就知道如何解題目了，只剩下這個難搞的VTK部份，主要是作者把VTK綁在他自己的模組裡面，像from ars import app就可以呼叫他自己用的模組，這部份我可能再找時間把他做完，剩沒幾步路了。GO&lt;/p&gt;</summary><category term="ARS"></category></entry><entry><title>ARS 模組</title><link href="http://project.mde.tw/blog/ars-mo-zu.html" rel="alternate"></link><published>2016-12-26T20:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-26:blog/ars-mo-zu.html</id><summary type="html">&lt;p&gt;再看完資料後就整理出來的部份&lt;/p&gt;
+&lt;p&gt;這次改這個open dynamic system改的很快，原因是因為許多問題都是以前已經碰過的，一下就知道如何解題目了，只剩下這個難搞的VTK部份，主要是作者把VTK綁在他自己的模組裡面，像from ars import app就可以呼叫他自己用的模組，這部份我可能再找時間把他做完，剩沒幾步路了。GO&lt;/p&gt;</content><category term="ARS"></category></entry><entry><title>ARS 模組</title><link href="http://project.mde.tw/blog/ars-mo-zu.html" rel="alternate"></link><published>2016-12-26T20:00:00+08:00</published><updated>2016-12-26T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-26:/blog/ars-mo-zu.html</id><summary type="html">&lt;p&gt;再看完資料後就整理出來的部份&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;再看完資料後就整理出來的部份&lt;/p&gt;
 
 
 &lt;p&gt;&lt;a href="http://ars-project.readthedocs.io/en/latest/installation/prerequisites.html"&gt;官方技術手冊&lt;/a&gt;&lt;/p&gt;
@@ -186,7 +152,8 @@ except:
 
 &lt;p&gt;接下來要做的部份就是把他改成python3&lt;/p&gt;
 &lt;p&gt;我應該會優先改wrapper再改RSA模組，並且測試和新版的ODE-13符不符合使用上的問題，使用虛擬機測試。&lt;/p&gt;
-&lt;p&gt;Wrapper可以優先測試import Ode，我會再測試。&lt;/p&gt;</summary><category term="ARS"></category></entry><entry><title>四連桿合成編譯</title><link href="http://project.mde.tw/blog/si-lian-gan-he-cheng-bian-yi.html" rel="alternate"></link><published>2016-12-12T20:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-12:blog/si-lian-gan-he-cheng-bian-yi.html</id><summary type="html">&lt;p&gt;平面四連桿尺寸合成研讀&lt;/p&gt;
+&lt;p&gt;Wrapper可以優先測試import Ode，我會再測試。&lt;/p&gt;</content><category term="ARS"></category></entry><entry><title>四連桿合成編譯</title><link href="http://project.mde.tw/blog/si-lian-gan-he-cheng-bian-yi.html" rel="alternate"></link><published>2016-12-12T20:00:00+08:00</published><updated>2016-12-12T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-12:/blog/si-lian-gan-he-cheng-bian-yi.html</id><summary type="html">&lt;p&gt;平面四連桿尺寸合成研讀&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;平面四連桿尺寸合成研讀&lt;/p&gt;
 
 
 &lt;p&gt;已經將學長的code看完RGA(基因演算法)的部分&lt;/p&gt;
@@ -233,7 +200,8 @@ except:
 &lt;p&gt;L3  36.5820&lt;/p&gt;
 &lt;p&gt;L4  39.4538&lt;/p&gt;
 &lt;p&gt;第10項以後我就不知道要做什麼了，回傳的答案給的，這個是通過
-(1 ,1),(2 ,2),(3 ,3),(4 ,4),(5 ,5),(6 ,6),(7 ,7),(8 ,8),(9 ,9),(10,10) 這些點座標的連桿&lt;/p&gt;</summary><category term="四連桿合成"></category></entry><entry><title>四連桿合成</title><link href="http://project.mde.tw/blog/si-lian-gan-he-cheng.html" rel="alternate"></link><published>2016-12-08T20:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-08:blog/si-lian-gan-he-cheng.html</id><summary type="html">&lt;p&gt;平面四連桿尺寸合成研讀&lt;/p&gt;
+(1 ,1),(2 ,2),(3 ,3),(4 ,4),(5 ,5),(6 ,6),(7 ,7),(8 ,8),(9 ,9),(10,10) 這些點座標的連桿&lt;/p&gt;</content><category term="四連桿合成"></category></entry><entry><title>四連桿合成</title><link href="http://project.mde.tw/blog/si-lian-gan-he-cheng.html" rel="alternate"></link><published>2016-12-08T20:00:00+08:00</published><updated>2016-12-08T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-08:/blog/si-lian-gan-he-cheng.html</id><summary type="html">&lt;p&gt;平面四連桿尺寸合成研讀&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;平面四連桿尺寸合成研讀&lt;/p&gt;
 
 
 &lt;p&gt;學長的論文裡面包含了許多範例和數學方程式，也有看到可以加到我們的Pyslvs裡面，說不定接下來就可以只靠路徑就把四連桿的樣子做出來。&lt;/p&gt;
@@ -250,66 +218,11 @@ except:
 &lt;p&gt;FA(螢火蟲演算法)&lt;/p&gt;
 &lt;h2&gt;問題點&lt;/h2&gt;
 &lt;p&gt;學長裡面用到的方程式不太理解他的意思&lt;/p&gt;
-&lt;div class="math"&gt;$$Fit_{min} = \sum_{i=0}^{n}\sqrt{(O_{x,i}-N_{x,i})^2+(O_{y,i}-N_{y,i})^2}$$&lt;/div&gt;
+&lt;p&gt;$$Fit_{min} = \sum_{i=0}^{n}\sqrt{(O_{x,i}-N_{x,i})^2+(O_{y,i}-N_{y,i})^2}$$&lt;/p&gt;
 &lt;p&gt;這個式子不太理解他在求什麼東西&lt;/p&gt;
-&lt;p&gt;O和N的代表意義&lt;/p&gt;
-&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width &lt; 768) ? "left" : align;
-        indent = (screen.width &lt; 768) ? "0em" : indent;
-        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-&lt;/script&gt;</summary><category term="四連桿合成"></category></entry><entry><title>寫字機</title><link href="http://project.mde.tw/blog/xie-zi-ji.html" rel="alternate"></link><published>2016-12-07T20:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-07:blog/xie-zi-ji.html</id><summary type="html">&lt;p&gt;起源
+&lt;p&gt;O和N的代表意義&lt;/p&gt;</content><category term="四連桿合成"></category></entry><entry><title>寫字機</title><link href="http://project.mde.tw/blog/xie-zi-ji.html" rel="alternate"></link><published>2016-12-07T20:00:00+08:00</published><updated>2016-12-07T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-07:/blog/xie-zi-ji.html</id><summary type="html">&lt;p&gt;起源
+一般寫字機，都是用最基本的XYZ型式做的，因為在thingverse上面找到相關的機器，想說就來做做看。&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;起源
 一般寫字機，都是用最基本的XYZ型式做的，因為在thingverse上面找到相關的機器，想說就來做做看。&lt;/p&gt;
 
 
@@ -345,10 +258,11 @@ except:
 &lt;p&gt;雖然我們畫圖可以很清楚知道 θ 的角度, 但是 CNC 機器只收到該往哪裡移動&lt;/p&gt;
 &lt;p&gt;它並沒法知道夾角, 而求這夾角需要頭痛的 acos 來先找到 θ 值&lt;/p&gt;
 &lt;p&gt;但是對於8bit的 MCU這會是運算負擔，在Grbl裡面的planner.c 的 plan_buffer_line&lt;/p&gt;
-&lt;p&gt;他的韌體有許多可以用到的數學，值得一一解開看他的控制器，可惜的是目前的專業知識不夠讓我完全了解他的程式在訴說的事情，雖然都有註解可以查，可能會慢慢的解開一包包在寫的東西。&lt;/p&gt;</summary><category term="python-control"></category></entry><entry><title>機台控制</title><link href="http://project.mde.tw/blog/ji-tai-kong-zhi.html" rel="alternate"></link><published>2016-12-02T20:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-02:blog/ji-tai-kong-zhi.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;他的韌體有許多可以用到的數學，值得一一解開看他的控制器，可惜的是目前的專業知識不夠讓我完全了解他的程式在訴說的事情，雖然都有註解可以查，可能會慢慢的解開一包包在寫的東西。&lt;/p&gt;</content><category term="python-control"></category></entry><entry><title>機台控制</title><link href="http://project.mde.tw/blog/ji-tai-kong-zhi.html" rel="alternate"></link><published>2016-12-02T20:00:00+08:00</published><updated>2016-12-02T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-12-02:/blog/ji-tai-kong-zhi.html</id><summary type="html"></summary><content type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;p&gt;已經可以使用python進行控制了,只是目前gui還在實做當中,或許再一陣子就可以做出gui了,目前單獨用讀檔案的方式在送值到機器裡面。&lt;/p&gt;
-&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/bo7XS4TGyNs" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="python-control"></category></entry><entry><title>automatic control</title><link href="http://project.mde.tw/blog/automatic-control.html" rel="alternate"></link><published>2016-10-01T20:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-10-01:blog/automatic-control.html</id><summary type="html">&lt;p&gt;自動控制系統中理解的部份筆記&lt;/p&gt;
+&lt;iframe width="560" height="315" src="https://www.youtube.com/embed/bo7XS4TGyNs" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</content><category term="python-control"></category></entry><entry><title>automatic control</title><link href="http://project.mde.tw/blog/automatic-control.html" rel="alternate"></link><published>2016-10-01T20:00:00+08:00</published><updated>2016-10-01T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-10-01:/blog/automatic-control.html</id><summary type="html">&lt;p&gt;自動控制系統中理解的部份筆記&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;自動控制系統中理解的部份筆記&lt;/p&gt;
 
 
 &lt;p&gt;相關名詞：&lt;/p&gt;
@@ -360,7 +274,8 @@ except:
 &lt;p&gt;6.拉普拉斯變換&lt;/p&gt;
 &lt;p&gt;7.回授(sensor)&lt;/p&gt;
 &lt;p&gt;大致上是這些相關名詞真的要使用的話看是要用現代的理論(數值的方法讓他學習),或者利用古典的方式推出數學方程式,利用laplace的方法,將T domain 轉到S domain將解解出來後,再進行調值和使用讓(kp ki kd )利用pid的方式進行控制相關的物理量。
-才看一部分的自動控制,感覺還有一大部分會不了解,光是這樣我就決的自動控制在機械裡面是不可或缺的,只要他要動,就可以設計一套控制器來控制他,無論是在簡單的馬達控制或者是大型的機台控制,這些理論一定會實際的應用在這些控制器裡面。&lt;/p&gt;</summary><category term="python-control"></category></entry><entry><title>python3 control</title><link href="http://project.mde.tw/blog/python3-control.html" rel="alternate"></link><published>2016-09-29T20:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-09-29:blog/python3-control.html</id><summary type="html">&lt;p&gt;安裝與使用教學&lt;/p&gt;
+才看一部分的自動控制,感覺還有一大部分會不了解,光是這樣我就決的自動控制在機械裡面是不可或缺的,只要他要動,就可以設計一套控制器來控制他,無論是在簡單的馬達控制或者是大型的機台控制,這些理論一定會實際的應用在這些控制器裡面。&lt;/p&gt;</content><category term="python-control"></category></entry><entry><title>python3 control</title><link href="http://project.mde.tw/blog/python3-control.html" rel="alternate"></link><published>2016-09-29T20:00:00+08:00</published><updated>2016-09-29T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-09-29:/blog/python3-control.html</id><summary type="html">&lt;p&gt;安裝與使用教學&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;安裝與使用教學&lt;/p&gt;
 
 
 &lt;p&gt;可以使用pip3 install的方式進行安裝&lt;/p&gt;
@@ -374,7 +289,8 @@ except:
 &lt;p&gt;pip install control&lt;/p&gt;
 &lt;p&gt;如果是python3版本的話,他有相對應的版本,會自動選擇,前提是要使用pip3&lt;/p&gt;
 &lt;p&gt;安裝完以後就可以跑模擬和使用他的模組了&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g1/python_control.png"&gt;&lt;/p&gt;</summary><category term="python-control"></category></entry><entry><title>dynamic engine with python3</title><link href="http://project.mde.tw/blog/dynamic-engine-with-python3.html" rel="alternate"></link><published>2016-09-25T20:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-09-25:blog/dynamic-engine-with-python3.html</id><summary type="html">&lt;p&gt;今天在找相關開源的運算引擎找到的資料&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g1/python_control.png"&gt;&lt;/p&gt;</content><category term="python-control"></category></entry><entry><title>dynamic engine with python3</title><link href="http://project.mde.tw/blog/dynamic-engine-with-python3.html" rel="alternate"></link><published>2016-09-25T20:00:00+08:00</published><updated>2016-09-25T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-09-25:/blog/dynamic-engine-with-python3.html</id><summary type="html">&lt;p&gt;今天在找相關開源的運算引擎找到的資料&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;今天在找相關開源的運算引擎找到的資料&lt;/p&gt;
 
 
 &lt;p&gt;&lt;a href="https://github.com/pybox2d/pybox2d"&gt;pybox2d&lt;/a&gt;&lt;/p&gt;
@@ -382,7 +298,8 @@ except:
 &lt;p&gt;open dynamic engine 還沒真的深入下去看資料和相關python的部份,昨天作的bullet再python2的部份,確定真的可以使用,有一個範例是作自由落體的部份看值大致上是差不多相等的。&lt;/p&gt;
 &lt;p&gt;這次使用的pybox2d我也有作一個自由落體的範例程式,利用pygame呈現結果,詳細要使用還要看參考說明書來使用函式庫。&lt;/p&gt;
 &lt;p&gt;&lt;img src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g1/so.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g1/%E8%87%AA%E7%94%B1%E8%90%BD%E9%AB%94.png"&gt;&lt;/p&gt;</summary><category term="dynamic"></category></entry><entry><title>bullet dynamic engine</title><link href="http://project.mde.tw/blog/bullet-dynamic-engine.html" rel="alternate"></link><published>2016-09-24T20:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-09-24:blog/bullet-dynamic-engine.html</id><summary type="html">&lt;p&gt;目前唯一可惜的部份是只能用在python2.7上面&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g1/%E8%87%AA%E7%94%B1%E8%90%BD%E9%AB%94.png"&gt;&lt;/p&gt;</content><category term="dynamic"></category></entry><entry><title>bullet dynamic engine</title><link href="http://project.mde.tw/blog/bullet-dynamic-engine.html" rel="alternate"></link><published>2016-09-24T20:00:00+08:00</published><updated>2016-09-24T20:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-09-24:/blog/bullet-dynamic-engine.html</id><summary type="html">&lt;p&gt;目前唯一可惜的部份是只能用在python2.7上面&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;目前唯一可惜的部份是只能用在python2.7上面&lt;/p&gt;
 
 
 &lt;p&gt;今天將v-rep裡面的運動引擎,找了許多資料其中有&lt;/p&gt;
@@ -394,7 +311,8 @@ except:
 
 &lt;p&gt;再找了許多資料後,發現現在這些引擎都幾乎和python掛不著邊,資料相當稀少,目前已經將bullet的部份轉成可以用python去調度裡面的運算模擬,例如碰撞 慣性等,但是目前有個極大的問題,swap的部份部是我寫的,當時他是使用python2.7,已經沒有開發成python3以上的版本,但是我不知道如何去撰寫關於這個swap的部份,可能要請老師教我們如何撰寫。&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://github.com/20tab/pybulletphysics.git"&gt;https://github.com/20tab/pybulletphysics.git&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="https://github.com/coursemdetw/project_site_files/blob/gh-pages/files/2016spring/g1/dynamic.png?raw=true" /&gt;&lt;/p&gt;</summary><category term="dynamic"></category></entry><entry><title>Pyslvs 學習</title><link href="http://project.mde.tw/blog/pyslvs-xue-xi.html" rel="alternate"></link><published>2016-09-24T12:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-09-24:blog/pyslvs-xue-xi.html</id><summary type="html">&lt;p&gt;本篇關於開發的分配
+&lt;p&gt;&lt;img alt="" src="https://github.com/coursemdetw/project_site_files/blob/gh-pages/files/2016spring/g1/dynamic.png?raw=true"&gt;&lt;/p&gt;</content><category term="dynamic"></category></entry><entry><title>Pyslvs 學習</title><link href="http://project.mde.tw/blog/pyslvs-xue-xi.html" rel="alternate"></link><published>2016-09-24T12:00:00+08:00</published><updated>2016-09-24T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-09-24:/blog/pyslvs-xue-xi.html</id><summary type="html">&lt;p&gt;本篇關於開發的分配
+</summary><content type="html">&lt;p&gt;本篇關於開發的分配
 &lt;/p&gt;
 &lt;h5&gt; 參考範例所延伸的心得&lt;/h5&gt;
 
@@ -423,9 +341,10 @@ except:
 &lt;/ul&gt;
 
 &lt;p&gt;Q:
-目前遇到的問題是來自於這些物理引擎不知道可以如何作接口到python上&lt;/p&gt;</summary><category term="Pyslvs"></category></entry><entry><title>40323143 - 機械腳構想</title><link href="http://project.mde.tw/blog/40323143-ji-jie-jiao-gou-xiang.html" rel="alternate"></link><published>2016-08-22T11:29:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-08-22:blog/40323143-ji-jie-jiao-gou-xiang.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+目前遇到的問題是來自於這些物理引擎不知道可以如何作接口到python上&lt;/p&gt;</content><category term="Pyslvs"></category></entry><entry><title>40323143 - 機械腳構想</title><link href="http://project.mde.tw/blog/40323143-ji-jie-jiao-gou-xiang.html" rel="alternate"></link><published>2016-08-22T11:29:00+08:00</published><updated>2016-08-22T11:29:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-08-22:/blog/40323143-ji-jie-jiao-gou-xiang.html</id><summary type="html"></summary><content type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
-&lt;p&gt;&lt;img src="http://i.imgur.com/c3jBcx7.jpg"&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>QT GUI</title><link href="http://project.mde.tw/blog/qt-gui.html" rel="alternate"></link><published>2016-08-21T22:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-21:blog/qt-gui.html</id><summary type="html">&lt;p&gt;change the the way to control the arm
+&lt;p&gt;&lt;img src="http://i.imgur.com/c3jBcx7.jpg"&gt;&lt;/p&gt;</content><category term="範例"></category></entry><entry><title>QT GUI</title><link href="http://project.mde.tw/blog/qt-gui.html" rel="alternate"></link><published>2016-08-21T22:00:00+08:00</published><updated>2016-08-21T22:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-21:/blog/qt-gui.html</id><summary type="html">&lt;p&gt;change the the way to control the arm
+</summary><content type="html">&lt;p&gt;change the the way to control the arm
 &lt;/p&gt;
 &lt;p&gt;今天使用了QT做了介面，接下來會用點座標，將實體所走出去的曲線，再程式裡面也可以畫出相同的曲線，也可以同時把Vrep裡面的模擬出來的曲線，一起畫出來，以此驗證我下的點是正確的曲線，接下來會做新的一頁，畫方程式曲線圖，左邊會變成輸入方程式，右邊就會生成他的圖形。&lt;/p&gt;
 &lt;h3&gt;2Axis&lt;/h3&gt;
@@ -433,42 +352,20 @@ except:
 &lt;p&gt;&lt;img src="http://i.imgur.com/35SShog.png"&gt;&lt;/p&gt;
 &lt;h3&gt;3Axis&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src="http://i.imgur.com/UvnJMrC.png"&gt;&lt;/p&gt;</summary><category term="machine Vrep"></category></entry><entry><title>Vrep machine arm</title><link href="http://project.mde.tw/blog/vrep-machine-arm.html" rel="alternate"></link><published>2016-08-20T22:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-20:blog/vrep-machine-arm.html</id><summary type="html">&lt;p&gt;change the the way to control the arm
+&lt;p&gt;&lt;img src="http://i.imgur.com/UvnJMrC.png"&gt;&lt;/p&gt;</content><category term="machine Vrep"></category></entry><entry><title>Vrep machine arm</title><link href="http://project.mde.tw/blog/vrep-machine-arm.html" rel="alternate"></link><published>2016-08-20T22:00:00+08:00</published><updated>2016-08-20T22:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-20:/blog/vrep-machine-arm.html</id><summary type="html">&lt;p&gt;change the the way to control the arm
+</summary><content type="html">&lt;p&gt;change the the way to control the arm
 &lt;/p&gt;
 &lt;p&gt;I use the Inverse equation to compute the machine arm need to turn angle of rotation. After we use is to give the angel to control the arm, we can give the (x,y,z)point to control rotate correct angle and catch the bottle. And we will to develope the auto control by use OpenCv to judge when will to catch the printer components.
 Today had install the PyQt5, we will study the QT tutorial, and develope beautiful interface to control our machine.
 Vrep in Linux version need to makefile by youself, it have in remoteAPI in the folder, I can control Vrep in my ubuntu computer.
 The code have update on my Vrep_python3_control repository/mixer_test&lt;/p&gt;
 &lt;p&gt;https://github.com/smpss91341/Vrep_python3_control&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/5PpDI3A.png"&gt;&lt;/p&gt;</summary><category term="machine Vrep"></category></entry><entry><title>PyQt5 install</title><link href="http://project.mde.tw/blog/pyqt5-install.html" rel="alternate"></link><published>2016-08-19T12:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-19:blog/pyqt5-install.html</id><summary type="html">&lt;p&gt;install Question&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/5PpDI3A.png"&gt;&lt;/p&gt;</content><category term="machine Vrep"></category></entry><entry><title>PyQt5 install</title><link href="http://project.mde.tw/blog/pyqt5-install.html" rel="alternate"></link><published>2016-08-19T12:00:00+08:00</published><updated>2016-08-19T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-19:/blog/pyqt5-install.html</id><summary type="html">&lt;p&gt;install Question&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;install Question&lt;/p&gt;
 
 
 &lt;p&gt;問題：&lt;/p&gt;
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;作法：http://blog.csdn.net/idber/article/details/40076821
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;作法：http://blog.csdn.net/idber/article/details/40076821
 
 安裝PyQt的圖形化介面的問題
 
@@ -493,17 +390,17 @@ Sorry, please install QScintilla2 and
 its PyQt5/PyQt4 wrapper.
 
 Error: /opt/Qt/5.3/gcc_64/lib/libQt5Gui.so.5: undefined symbol:             z_deflateReset
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><category term="machine Vrep"></category></entry><entry><title>Vrep Bug in Linux</title><link href="http://project.mde.tw/blog/vrep-bug-in-linux.html" rel="alternate"></link><published>2016-08-19T12:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-19:blog/vrep-bug-in-linux.html</id><summary type="html">&lt;p&gt;無法執行windows的動態連結庫，remoteAPI.dll&lt;/p&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="machine Vrep"></category></entry><entry><title>Vrep Bug in Linux</title><link href="http://project.mde.tw/blog/vrep-bug-in-linux.html" rel="alternate"></link><published>2016-08-19T12:00:00+08:00</published><updated>2016-08-19T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-19:/blog/vrep-bug-in-linux.html</id><summary type="html">&lt;p&gt;無法執行windows的動態連結庫，remoteAPI.dll&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;無法執行windows的動態連結庫，remoteAPI.dll&lt;/p&gt;
 
 
 &lt;p&gt;Vrep haved install in Ubuntu and when we want to use our project control panel,because the RemoteAPI.dll isn't match with the Linux system, so how can we do for the remoteAPI.dll.&lt;/p&gt;
 &lt;p&gt;And why I use the English to write the blog,because my Ubuntu chinese input program didn't work on leo-editor, it can use everywhere but can't use in leo.&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/7gP3Zpy.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/JiU0H1f.png"&gt;&lt;/p&gt;</summary><category term="machine Vrep"></category></entry><entry><title>40323143 - 滾珠螺桿減速機構想</title><link href="http://project.mde.tw/blog/40323143-gun-zhu-luo-gan-jian-su-ji-gou-xiang.html" rel="alternate"></link><published>2016-08-16T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-08-16:blog/40323143-gun-zhu-luo-gan-jian-su-ji-gou-xiang.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/JiU0H1f.png"&gt;&lt;/p&gt;</content><category term="machine Vrep"></category></entry><entry><title>40323143 - 滾珠螺桿減速機構想</title><link href="http://project.mde.tw/blog/40323143-gun-zhu-luo-gan-jian-su-ji-gou-xiang.html" rel="alternate"></link><published>2016-08-16T12:00:00+08:00</published><updated>2016-08-16T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-08-16:/blog/40323143-gun-zhu-luo-gan-jian-su-ji-gou-xiang.html</id><summary type="html"></summary><content type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;p&gt;利用滾珠作為媒介，在兩個不同節距螺桿間傳遞動力，達到增減速效果。&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/vo3Va99.jpg"&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 手臂設計流程</title><link href="http://project.mde.tw/blog/40323143-shou-bi-she-ji-liu-cheng.html" rel="alternate"></link><published>2016-08-12T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-08-12:blog/40323143-shou-bi-she-ji-liu-cheng.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/vo3Va99.jpg"&gt;&lt;/p&gt;</content><category term="範例"></category></entry><entry><title>40323143 - 手臂設計流程</title><link href="http://project.mde.tw/blog/40323143-shou-bi-she-ji-liu-cheng.html" rel="alternate"></link><published>2016-08-12T12:00:00+08:00</published><updated>2016-08-12T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-08-12:/blog/40323143-shou-bi-she-ji-liu-cheng.html</id><summary type="html"></summary><content type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;p&gt;1.定義客觀值&lt;/p&gt;
 &lt;p&gt;將手臂外既有的空間以數值表現&lt;/p&gt;
@@ -518,7 +415,8 @@ Error: /opt/Qt/5.3/gcc_64/lib/libQt5Gui.so.5: undefined symbol:             z_de
 &lt;p&gt;依旋轉軸數個三角函數組合成一套路徑方程式&lt;/p&gt;
 &lt;p&gt;5.決定旋轉軸動力安排&lt;/p&gt;
 &lt;p&gt;決定旋轉軸動力輸入方式，直接輸入或以連桿等任何方式輸入旋轉軸&lt;/p&gt;
-&lt;p&gt;6.決定手臂連接桿及組裝配合尺寸&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>Vrep手臂逆向</title><link href="http://project.mde.tw/blog/vrepshou-bi-ni-xiang.html" rel="alternate"></link><published>2016-08-12T12:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-12:blog/vrepshou-bi-ni-xiang.html</id><summary type="html">&lt;p&gt;利用tkinter連接給最後的點座標，算出轉軸的角度&lt;/p&gt;
+&lt;p&gt;6.決定手臂連接桿及組裝配合尺寸&lt;/p&gt;</content><category term="範例"></category></entry><entry><title>Vrep手臂逆向</title><link href="http://project.mde.tw/blog/vrepshou-bi-ni-xiang.html" rel="alternate"></link><published>2016-08-12T12:00:00+08:00</published><updated>2016-08-12T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-12:/blog/vrepshou-bi-ni-xiang.html</id><summary type="html">&lt;p&gt;利用tkinter連接給最後的點座標，算出轉軸的角度&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;利用tkinter連接給最後的點座標，算出轉軸的角度&lt;/p&gt;
 
 
 &lt;p&gt;因為目前是使用class的方法去繼承function，因此可以用兩個頁面進行控制3DP和手臂的地方，因為把逆向的方程式帶進去了，可以直接給他要到的座標，就可以算出兩個角度的大小，以及範圍。&lt;/p&gt;
@@ -527,7 +425,8 @@ Error: /opt/Qt/5.3/gcc_64/lib/libQt5Gui.so.5: undefined symbol:             z_de
 
 &lt;p&gt;目前第三組已有部分組員回歸團隊，並著手進行OpenCv的開發，以及讀相關的資料和論文，而另外兩組目前都在著手報告的部分，以及Latex等設定檔和撰寫內容，目前大家進度都卡住，可能最近會有一陣子停頓期，大家的開發能力在七月也用的差不多，像是從0開始的V-rep到現在可以控制整合，動態模擬，Solvespace也改成python3的版本，大家的東西也串流再一起，像是我們手臂的部分，從模擬，推出數學方程式，到solvespace算點座標劃出曲線方程式以及路徑，最後一路的推導方程式，到現在只要給點就可以控制移動的路徑。&lt;/p&gt;
 &lt;p&gt;下學期的學弟妹應該會有不錯的收穫，除了有老師搬上flask的pygroup，還有新版的solvespace for python3，和最新的Vrep控制、組裝、模擬，這些都可以向下交接了，這些東西都可以結合我們的cad能力，應該是不錯的工具以及多元整合。&lt;/p&gt;
-&lt;p&gt;可能是我進度壓的緊了點，大家呈現疲倦的樣子，想說讓大家休息一兩周，好好恢復精神，讓大家可以動力繼續往更高的層次邁進，可能這一兩周，進度會比較少，讓大家輕鬆一周。&lt;/p&gt;</summary><category term="machine Vrep"></category></entry><entry><title>手臂逆向控制推導</title><link href="http://project.mde.tw/blog/shou-bi-ni-xiang-kong-zhi-tui-dao.html" rel="alternate"></link><published>2016-08-05T12:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-05:blog/shou-bi-ni-xiang-kong-zhi-tui-dao.html</id><summary type="html">&lt;p&gt;此篇為使用python3給末端點座標，求轉軸的兩個角度&lt;/p&gt;
+&lt;p&gt;可能是我進度壓的緊了點，大家呈現疲倦的樣子，想說讓大家休息一兩周，好好恢復精神，讓大家可以動力繼續往更高的層次邁進，可能這一兩周，進度會比較少，讓大家輕鬆一周。&lt;/p&gt;</content><category term="machine Vrep"></category></entry><entry><title>手臂逆向控制推導</title><link href="http://project.mde.tw/blog/shou-bi-ni-xiang-kong-zhi-tui-dao.html" rel="alternate"></link><published>2016-08-05T12:00:00+08:00</published><updated>2016-08-05T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-08-05:/blog/shou-bi-ni-xiang-kong-zhi-tui-dao.html</id><summary type="html">&lt;p&gt;此篇為使用python3給末端點座標，求轉軸的兩個角度&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;此篇為使用python3給末端點座標，求轉軸的兩個角度&lt;/p&gt;
 
 
 &lt;h3&gt;上一篇推導的補充&lt;/h3&gt;
@@ -535,15 +434,15 @@ Error: /opt/Qt/5.3/gcc_64/lib/libQt5Gui.so.5: undefined symbol:             z_de
 &lt;p&gt;由上一篇可以得知手臂的逆向推導公式，可是存在一個問題，並沒有將方程式列出來，最後證明出的面積是由順向方程式的角度去限制角度將每個角度所會經過的路徑會畫出來。&lt;/p&gt;
 &lt;p&gt;今天從新將方程式從新推導，因為不確定自己推導是否正確，我們幾個人將工具備齊，利用順向法確認算出來的角度是否有包含於在面積裡面，使用Vrep確定轉軸的角度是否正確，前面幾次因為設錯角度，造成轉軸的角度都不是正確的轉軸，後來利用餘弦定理的方法，終於推導出方程式。&lt;/p&gt;
 &lt;p&gt;接下知道點座標後，就可以利用點得到正確的角度，轉軸轉向正確的角度夾取物件，也可以同時控制V-rep和實體的部分，是否要配合影像辨識取點座標，目前還在考慮當中，還未執行，可能先用Vrep模擬取下列印件的方式為優先，手臂的控制介面目前進度到可以同時在兩個頁面控制printer和手臂。&lt;/p&gt;
-&lt;div class="math"&gt;$$\theta_T = cos^{-1}(\frac{x^2+y^2-L1^2-L2^2}{2\times L1\times L2})$$&lt;/div&gt;
-&lt;div class="math"&gt;$$\theta_n = cos^{-1}(\frac{x}{\sqrt{x^2+y^2}}))$$&lt;/div&gt;
-&lt;div class="math"&gt;$$\theta_\alpha = cos^{-1}(\frac{x^2+y^2+L1^2-L2^2}{2\times L1\times \sqrt{x^2+y^2}})$$&lt;/div&gt;
+&lt;p&gt;$$\theta_T = cos^{-1}(\frac{x^2+y^2-L1^2-L2^2}{2\times L1\times L2})$$&lt;/p&gt;
+&lt;p&gt;$$\theta_n = cos^{-1}(\frac{x}{\sqrt{x^2+y^2}}))$$&lt;/p&gt;
+&lt;p&gt;$$\theta_\alpha = cos^{-1}(\frac{x^2+y^2+L1^2-L2^2}{2\times L1\times \sqrt{x^2+y^2}})$$&lt;/p&gt;
 &lt;h6&gt;大軸旋轉的角度&lt;/h6&gt;
 
-&lt;div class="math"&gt;$$\theta_2 = 90 - (\theta_n + \theta_\alpha)$$&lt;/div&gt;
+&lt;p&gt;$$\theta_2 = 90 - (\theta_n + \theta_\alpha)$$&lt;/p&gt;
 &lt;h6&gt;小軸旋轉的角度&lt;/h6&gt;
 
-&lt;div class="math"&gt;$$\theta_3 = \theta_T - \theta_2$$&lt;/div&gt;
+&lt;p&gt;$$\theta_3 = \theta_T - \theta_2$$&lt;/p&gt;
 &lt;h3&gt;python 方程式推導&lt;/h3&gt;
 
 &lt;pre class="brush: python"&gt;
@@ -593,65 +492,8 @@ print("theata2",theata2)
 theata3 = tha - test
 print("theata3",theata3)
 
-&lt;/pre&gt;
-
-&lt;script type="text/javascript"&gt;if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width &lt; 768) ? "left" : align;
-        indent = (screen.width &lt; 768) ? "0em" : indent;
-        linebreak = (screen.width &lt; 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' &amp;&amp; location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-&lt;/script&gt;</summary><category term="machine Vrep"></category></entry><entry><title>40323131日誌 105/07/31</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050731.html" rel="alternate"></link><published>2016-07-31T22:51:00+08:00</published><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-31:blog/40323131ri-zhi-1050731.html</id><summary type="html">&lt;p&gt;手臂的推導角度公式
+&lt;/pre&gt;</content><category term="machine Vrep"></category></entry><entry><title>40323131日誌 105/07/31</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050731.html" rel="alternate"></link><published>2016-07-31T22:51:00+08:00</published><updated>2016-07-31T22:51:00+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-31:/blog/40323131ri-zhi-1050731.html</id><summary type="html">&lt;p&gt;手臂的推導角度公式
+</summary><content type="html">&lt;p&gt;手臂的推導角度公式
 &lt;/p&gt;
 &lt;h3&gt;角度推導公式&lt;/h3&gt;
 
@@ -772,7 +614,8 @@ for i in range(90, 151):
 &lt;/br&gt;
 &lt;img src="http://i.imgur.com/eGc8LQL.png"&gt;
 &lt;/br&gt;
-&lt;h3&gt;可以從限制範圍的角度裡，去求出點坐標，然後再跑迴圈將所有的點結果列出，然後用matplotlip將路徑畫出來，所以可以求得路徑方程式，然後我是用已知點的坐標，然後去算出 θ2的角度，然後就可以用三角形的關係去求出θ1、θ3。&lt;/h3&gt;&lt;/p&gt;</summary><category term="g1project"></category></entry><entry><title>python3 Vrep control</title><link href="http://project.mde.tw/blog/python3-vrep-control.html" rel="alternate"></link><published>2016-07-31T12:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-31:blog/python3-vrep-control.html</id><summary type="html">&lt;p&gt;製作控制介面，控制虛擬端的Vrep&lt;/p&gt;
+&lt;h3&gt;可以從限制範圍的角度裡，去求出點坐標，然後再跑迴圈將所有的點結果列出，然後用matplotlip將路徑畫出來，所以可以求得路徑方程式，然後我是用已知點的坐標，然後去算出 θ2的角度，然後就可以用三角形的關係去求出θ1、θ3。&lt;/h3&gt;&lt;/p&gt;</content><category term="g1project"></category></entry><entry><title>python3 Vrep control</title><link href="http://project.mde.tw/blog/python3-vrep-control.html" rel="alternate"></link><published>2016-07-31T12:00:00+08:00</published><updated>2016-07-31T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-31:/blog/python3-vrep-control.html</id><summary type="html">&lt;p&gt;製作控制介面，控制虛擬端的Vrep&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;製作控制介面，控制虛擬端的Vrep&lt;/p&gt;
 
 
 &lt;h3&gt;使用Tkinter&lt;/h3&gt;
@@ -1023,7 +866,8 @@ app.mainloop()
 
 &lt;p&gt;&lt;img src="http://i.imgur.com/fk51PNt.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/JWU4kA7.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/ZYbb7EL.png"&gt;&lt;/p&gt;</summary><category term="machine Vrep"></category></entry><entry><title>手臂的順向推導</title><link href="http://project.mde.tw/blog/shou-bi-de-shun-xiang-tui-dao.html" rel="alternate"></link><published>2016-07-30T12:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-30:blog/shou-bi-de-shun-xiang-tui-dao.html</id><summary type="html">&lt;p&gt;推導機械手臂的座標方程式&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/ZYbb7EL.png"&gt;&lt;/p&gt;</content><category term="machine Vrep"></category></entry><entry><title>手臂的順向推導</title><link href="http://project.mde.tw/blog/shou-bi-de-shun-xiang-tui-dao.html" rel="alternate"></link><published>2016-07-30T12:00:00+08:00</published><updated>2016-07-30T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-30:/blog/shou-bi-de-shun-xiang-tui-dao.html</id><summary type="html">&lt;p&gt;推導機械手臂的座標方程式&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;推導機械手臂的座標方程式&lt;/p&gt;
 
 
 &lt;h3&gt;手臂順向方程式&lt;/h3&gt;
@@ -1053,7 +897,7 @@ app.mainloop()
 &lt;p&gt;6.另一台控制器影像辨識&lt;/p&gt;
 &lt;p&gt;7.當判斷成功後，計算出位置，輸入相對應的值控制手臂&lt;/p&gt;
 &lt;p&gt;8.夾取後，退出機台平台，將料放置指定的盒子&lt;/p&gt;
-&lt;p&gt;9.發送訊息到客戶端顯示列印完成&lt;/p&gt;</summary><category term="machine Arm"></category></entry><entry><title>machine Arm</title><link href="http://project.mde.tw/blog/machine-arm.html" rel="alternate"></link><published>2016-07-29T12:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-29:blog/machine-arm.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;9.發送訊息到客戶端顯示列印完成&lt;/p&gt;</content><category term="machine Arm"></category></entry><entry><title>machine Arm</title><link href="http://project.mde.tw/blog/machine-arm.html" rel="alternate"></link><published>2016-07-29T12:00:00+08:00</published><updated>2016-07-29T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-29:/blog/machine-arm.html</id><summary type="html"></summary><content type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;p&gt;今天製作的手臂用到樹莓派加上一塊台灣沒有賣的擴充板，走兩個I2C控制16個PWM訊號，走額外的電源供應器，利用這樣的系統可以使用Raspberry pi 的GPIO控制，控制機械手臂，目前用I2C的方式控制&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/FujdPML.jpg"&gt;&lt;/p&gt;
@@ -1099,7 +943,8 @@ while (True):
   time.sleep(1)
   pwm.setPWM(0, 0, servoMax)
   time.sleep(1)
-&lt;/pre&gt;</summary><category term="raspberrypi"></category></entry><entry><title>40323143 - 日誌 105年7月25日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-25ri.html" rel="alternate"></link><published>2016-07-25T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-25:blog/40323143-ri-zhi-105nian-7yue-25ri.html</id><summary type="html">&lt;p&gt;手臂資料
+&lt;/pre&gt;</content><category term="raspberrypi"></category></entry><entry><title>40323143 - 日誌 105年7月25日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-25ri.html" rel="alternate"></link><published>2016-07-25T12:00:00+08:00</published><updated>2016-07-25T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-25:/blog/40323143-ri-zhi-105nian-7yue-25ri.html</id><summary type="html">&lt;p&gt;手臂資料
+</summary><content type="html">&lt;p&gt;手臂資料
 &lt;/p&gt;
 &lt;p&gt;總重量約為0.6kg&lt;/p&gt;
 &lt;p&gt;夾取重量約為0.15kg&lt;/p&gt;
@@ -1108,62 +953,7 @@ while (True):
 &lt;p&gt;最長夾取距離的序列埠輸入值為2060。&lt;/p&gt;
 &lt;p&gt;最終程式
     #include &lt;Servo.h&gt; &lt;/p&gt;
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Servo myservo;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;Servo myservo;
 Servo myservo2;
 Servo myservo3;
 Servo myservo4;
@@ -1219,8 +1009,7 @@ void loop()
     }
   }
 }
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 日誌 105年7月22日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-22ri.html" rel="alternate"></link><published>2016-07-22T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-22:blog/40323143-ri-zhi-105nian-7yue-22ri.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;/pre&gt;&lt;/div&gt;</content><category term="範例"></category></entry><entry><title>40323143 - 日誌 105年7月22日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-22ri.html" rel="alternate"></link><published>2016-07-22T12:00:00+08:00</published><updated>2016-07-22T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-22:/blog/40323143-ri-zhi-105nian-7yue-22ri.html</id><summary type="html"></summary><content type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;p&gt;變更夾爪形狀，並在夾頭下方新增連桿，加大夾持穩定度，開了槽可安裝極限開關，安裝點還沒畫，夾持面向內凹了1mm，夾持件不至於在夾持過程中由夾口脫落。&lt;/p&gt;
 &lt;p&gt;新增夾頭馬達的控制程式，暫時固定正轉90度，或許會改。&lt;/p&gt;
@@ -1229,62 +1018,7 @@ void loop()
 &lt;p&gt;整體圖&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/E5e6i5z.png"&gt;&lt;/p&gt;
 &lt;p&gt;加上底座馬達控制程式&lt;/p&gt;
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;Servo.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;Servo.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 
 &lt;span class="n"&gt;Servo&lt;/span&gt; &lt;span class="n"&gt;myservo&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="n"&gt;Servo&lt;/span&gt; &lt;span class="n"&gt;myservo2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -1341,10 +1075,11 @@ void loop()
     &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 
 &lt;p&gt;結語:&lt;/p&gt;
-&lt;p&gt;手臂剩下列印組裝就可以完成，但以目前馬達的力量沒有熱床八成沒辦法下料。&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>報告的內容3</title><link href="http://project.mde.tw/blog/bao-gao-de-nei-rong-3.html" rel="alternate"></link><published>2016-07-21T11:29:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-21:blog/bao-gao-de-nei-rong-3.html</id><summary type="html">&lt;p&gt;介紹硬體相關訊息(純文字還沒補照片)&lt;/p&gt;
+&lt;p&gt;手臂剩下列印組裝就可以完成，但以目前馬達的力量沒有熱床八成沒辦法下料。&lt;/p&gt;</content><category term="範例"></category></entry><entry><title>報告的內容3</title><link href="http://project.mde.tw/blog/bao-gao-de-nei-rong-3.html" rel="alternate"></link><published>2016-07-21T11:29:00+08:00</published><updated>2016-07-21T11:29:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-21:/blog/bao-gao-de-nei-rong-3.html</id><summary type="html">&lt;p&gt;介紹硬體相關訊息(純文字還沒補照片)&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;介紹硬體相關訊息(純文字還沒補照片)&lt;/p&gt;
 
 
 &lt;h3&gt;3d printing&lt;/h3&gt;
@@ -1367,7 +1102,8 @@ void loop()
 &lt;p&gt;我們的3D列印機是利用RS232的USB通訊傳送G-code指令到3D列印機中進行控制，利用切片軟體計算三角網格曲面(STL)，分出每一層所需要走的路徑，產生出相對應的G指令，接下來利用RS232通訊到控制板中，控制機台的作動。&lt;/p&gt;
 &lt;h3&gt;註一&lt;/h3&gt;
 
-&lt;p&gt;Ramps 1.4 為目前主要支援3D列印機的擴充版，目的是把腳位從原本的Arduino Mega2560中，變得針對相應的馬達控制以及感測，讓使用者可以輕鬆的安裝以及佈線，不需要額外再拉麵包版，或者控制晶片的腳位，也將額外的12V電源，拉到板子做整合，避免走線導致短路。&lt;/p&gt;</summary><category term="g1project"></category></entry><entry><title>40323131日誌 105/07/20</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050720.html" rel="alternate"></link><published>2016-07-20T16:37:00+08:00</published><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-20:blog/40323131ri-zhi-1050720.html</id><summary type="html">&lt;p&gt;將Kmolprint改成在純IPV6底下 也可連線
+&lt;p&gt;Ramps 1.4 為目前主要支援3D列印機的擴充版，目的是把腳位從原本的Arduino Mega2560中，變得針對相應的馬達控制以及感測，讓使用者可以輕鬆的安裝以及佈線，不需要額外再拉麵包版，或者控制晶片的腳位，也將額外的12V電源，拉到板子做整合，避免走線導致短路。&lt;/p&gt;</content><category term="g1project"></category></entry><entry><title>40323131日誌 105/07/20</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050720.html" rel="alternate"></link><published>2016-07-20T16:37:00+08:00</published><updated>2016-07-20T16:37:00+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-20:/blog/40323131ri-zhi-1050720.html</id><summary type="html">&lt;p&gt;將Kmolprint改成在純IPV6底下 也可連線
+</summary><content type="html">&lt;p&gt;將Kmolprint改成在純IPV6底下 也可連線
 &lt;/p&gt;
 &lt;h3&gt;先來放張圖片&lt;/h3&gt;
 
@@ -1401,7 +1137,8 @@ void loop()
 &lt;/br&gt;
 &lt;h4&gt;做到這邊完成 ipv6的連線，不過還沒加上認證，目前還是 http://  要改成 有https:// 認證的&lt;/h4&gt;
 &lt;/br&gt;
-&lt;h3&gt;這兩三天，將一台樹梅派 + OctoPrint + Webcam 從零開始，架設讓 ipv4 跟 ipv6都可以連線進來，這當中也參考了很多資料，還有最奇怪的是，每次做，每次的問題都不一樣，真是見鬼了...，還有要裝 nginx 時，出現錯誤的訊息，要用其他方式安裝，然後自己眼花刪錯檔案，刪到內建的系統檔，於是又從頭開始，然後裝完之後，發現沒有代理過來，然後卡了很久，於是決定先出去吃晚餐，吃完回來，重新整理網站，就看到 nginx 代理過來了，當下覺得自己剛才鬼打牆了，由於自動開啟 Webcam 的指令出錯無法成功，所以就直接加在介面的system裡，所以現在 login 之後直接按就開啟Webcam了，不用在 putty 進裡頭 下指令了，蠻方便的，總之這兩天事情還蠻多的，所以本來要改17.107那台的，沒什麼時間於是直接把目前在裝的這台，直接加上 ipv6 ，然後把 SD 卡換過去，所以現在17.107的網站是用我這兩天裝的，直接換過去，是說本來的那台好像把自動更新關掉了還是怎樣，所以無法進行 update 跟 upgrade，也剛好熟練一下安裝做完感覺蠻有成就感的。&lt;/h3&gt;&lt;/p&gt;</summary><category term="g1project"></category></entry><entry><title>40323143 - 夾頭變更 105年7月20日</title><link href="http://project.mde.tw/blog/40323143-jia-tou-bian-geng-105nian-7yue-20ri.html" rel="alternate"></link><published>2016-07-20T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-20:blog/40323143-jia-tou-bian-geng-105nian-7yue-20ri.html</id><summary type="html">&lt;p&gt;變更夾頭座及夾爪
+&lt;h3&gt;這兩三天，將一台樹梅派 + OctoPrint + Webcam 從零開始，架設讓 ipv4 跟 ipv6都可以連線進來，這當中也參考了很多資料，還有最奇怪的是，每次做，每次的問題都不一樣，真是見鬼了...，還有要裝 nginx 時，出現錯誤的訊息，要用其他方式安裝，然後自己眼花刪錯檔案，刪到內建的系統檔，於是又從頭開始，然後裝完之後，發現沒有代理過來，然後卡了很久，於是決定先出去吃晚餐，吃完回來，重新整理網站，就看到 nginx 代理過來了，當下覺得自己剛才鬼打牆了，由於自動開啟 Webcam 的指令出錯無法成功，所以就直接加在介面的system裡，所以現在 login 之後直接按就開啟Webcam了，不用在 putty 進裡頭 下指令了，蠻方便的，總之這兩天事情還蠻多的，所以本來要改17.107那台的，沒什麼時間於是直接把目前在裝的這台，直接加上 ipv6 ，然後把 SD 卡換過去，所以現在17.107的網站是用我這兩天裝的，直接換過去，是說本來的那台好像把自動更新關掉了還是怎樣，所以無法進行 update 跟 upgrade，也剛好熟練一下安裝做完感覺蠻有成就感的。&lt;/h3&gt;&lt;/p&gt;</content><category term="g1project"></category></entry><entry><title>40323143 - 夾頭變更 105年7月20日</title><link href="http://project.mde.tw/blog/40323143-jia-tou-bian-geng-105nian-7yue-20ri.html" rel="alternate"></link><published>2016-07-20T12:00:00+08:00</published><updated>2016-07-20T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-20:/blog/40323143-jia-tou-bian-geng-105nian-7yue-20ri.html</id><summary type="html">&lt;p&gt;變更夾頭座及夾爪
+</summary><content type="html">&lt;p&gt;變更夾頭座及夾爪
 &lt;/p&gt;
 &lt;p&gt;因為程式設定使原先得設計變得多餘，於是將原本的上承臂與夾頭座結合成夾頭臂。&lt;/p&gt;
 &lt;p&gt;變更夾爪連桿形狀及厚度，厚度由2mm變更為4mm。&lt;/p&gt;
@@ -1413,48 +1150,7 @@ void loop()
 &lt;p&gt;整體圖&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/aVhFNfe.png"&gt;&lt;/p&gt;
 &lt;p&gt;加上底座馬達控制程式&lt;/p&gt;
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;Servo.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;Servo.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 
 &lt;span class="n"&gt;Servo&lt;/span&gt; &lt;span class="n"&gt;myservo&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="n"&gt;Servo&lt;/span&gt; &lt;span class="n"&gt;myservo2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -1497,49 +1193,15 @@ void loop()
     &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 
 &lt;p&gt;結語:&lt;/p&gt;
-&lt;p&gt;測試用的手臂可以直接用，剩下夾頭等零件列印組裝還有夾爪控制程式。&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 馬達控制 105年7月19日</title><link href="http://project.mde.tw/blog/40323143-ma-da-kong-zhi-105nian-7yue-19ri.html" rel="alternate"></link><published>2016-07-19T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-19:blog/40323143-ma-da-kong-zhi-105nian-7yue-19ri.html</id><summary type="html">&lt;p&gt;讀取訊號控制兩顆馬達
+&lt;p&gt;測試用的手臂可以直接用，剩下夾頭等零件列印組裝還有夾爪控制程式。&lt;/p&gt;</content><category term="範例"></category></entry><entry><title>40323143 - 馬達控制 105年7月19日</title><link href="http://project.mde.tw/blog/40323143-ma-da-kong-zhi-105nian-7yue-19ri.html" rel="alternate"></link><published>2016-07-19T12:00:00+08:00</published><updated>2016-07-19T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-19:/blog/40323143-ma-da-kong-zhi-105nian-7yue-19ri.html</id><summary type="html">&lt;p&gt;讀取訊號控制兩顆馬達
+</summary><content type="html">&lt;p&gt;讀取訊號控制兩顆馬達
 &lt;/p&gt;
 &lt;p&gt;本篇接續7/18的文章，使用輸入脈衝寬度控制的方法控制，並將序列埠輸入的程式寫進來，完成由序列埠輸入最終角度的脈衝寬度來控制馬達的程式。&lt;/p&gt;
 &lt;p&gt;MG996R馬達角度由0度到180度相對的脈衝寬度為500到2500，1個脈衝寬度相對的角度值為0.09度。&lt;/p&gt;
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;Servo.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;Servo.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 
 &lt;span class="n"&gt;Servo&lt;/span&gt; &lt;span class="n"&gt;myservo&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;      &lt;span class="c1"&gt;//第一顆馬達&lt;/span&gt;
 &lt;span class="n"&gt;Servo&lt;/span&gt; &lt;span class="n"&gt;myservo2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;    &lt;span class="c1"&gt;//第二顆馬達&lt;/span&gt;
@@ -1576,17 +1238,11 @@ void loop()
     &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 
 &lt;p&gt;結語:&lt;/p&gt;
 &lt;p&gt;以下方的程式可以將序列埠輸入的數值輸入程式中使用。&lt;/p&gt;
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2
-3
-4
-5
-6
-7&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int d;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;int d;
 if(Serial.available()){           
 d = Serial.parseInt();    //定義輸入訊號值為d
 Serial.println(d);            
@@ -1594,9 +1250,10 @@ if(0 &amp;lt;= d &amp;amp;&amp;amp; d &amp;lt;= 2500){   //限制訊號範圍
    }
 }
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 
-&lt;p&gt;且包在其中的for迴圈可以同使對兩個馬達輸入訊號，達成控制兩個馬達的目的。   &lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323131日誌 105/07/18</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050718.html" rel="alternate"></link><published>2016-07-18T19:37:00+08:00</published><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-18:blog/40323131ri-zhi-1050718.html</id><summary type="html">&lt;p&gt;增加一些專題書面的資料及安裝Octoprint跟Webcam的練習
+
+&lt;p&gt;且包在其中的for迴圈可以同使對兩個馬達輸入訊號，達成控制兩個馬達的目的。   &lt;/p&gt;</content><category term="範例"></category></entry><entry><title>40323131日誌 105/07/18</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050718.html" rel="alternate"></link><published>2016-07-18T19:37:00+08:00</published><updated>2016-07-18T19:37:00+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-18:/blog/40323131ri-zhi-1050718.html</id><summary type="html">&lt;p&gt;增加一些專題書面的資料及安裝Octoprint跟Webcam的練習
+</summary><content type="html">&lt;p&gt;增加一些專題書面的資料及安裝Octoprint跟Webcam的練習
 &lt;/p&gt;
 &lt;h3&gt;介面系統介紹及架構&lt;/h3&gt;
 
@@ -1622,34 +1279,12 @@ if(0 &amp;lt;= d &amp;amp;&amp;amp; d &amp;lt;= 2500){   //限制訊號範圍
 &lt;h4&gt;在第一次登入系統時，會有配置指南，允許創建 root 管理員，如果其他用戶想要註冊使用的話，須經由root 管理員審核確認之後，才算註冊成功，採用這種審核機制，是為了避免嵌入式電腦，因接收過多的連線而當機&lt;/h4&gt;
 &lt;/br&gt;
 &lt;h3&gt;練習安裝Octoprint及架設Webcam&lt;/h3&gt;
-&lt;h4&gt;今天主要在熟悉對於Octoprint及Webcam的安裝及設定，不過情況是時好時壞，在一開始安裝Octoprint的時候，就先卡了，結果問題是出在所在的目錄不對，所以找不到檔案，再來安裝Webcam的時候，因為延遲的時間太長了，好像延遲將近20秒，這邊是去設定檔裡頭調整解析度及 fps ，然後調整成大約延遲1~2秒左右，再來是將Octoprint及Webcam設定成開機之後會自動開啟，不過這邊也卡了一下，因為都卡在要調整成自動開機的指令時出現錯誤，不過這邊花了些時間，最後Octoprint的自動開機成功了，不過Webcam的失敗了，這邊可能還要再找原因，然後Octoprint的代理伺服器也改成用 nginx 了，不過為了找問題點在哪，忘記拍照了，可能要等熟練安裝步驟之後，在一步步說明加拍照，是說網路上的步驟都講的蠻簡單的，不過實際遇到的問題好像跟網路上不太一樣，這點讓我很納悶&lt;/h4&gt;&lt;/p&gt;</summary><category term="g1project"></category></entry><entry><title>40323143 - 馬達控制 105年7月18日</title><link href="http://project.mde.tw/blog/40323143-ma-da-kong-zhi-105nian-7yue-18ri.html" rel="alternate"></link><published>2016-07-18T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-18:blog/40323143-ma-da-kong-zhi-105nian-7yue-18ri.html</id><summary type="html">&lt;p&gt;馬達控制
+&lt;h4&gt;今天主要在熟悉對於Octoprint及Webcam的安裝及設定，不過情況是時好時壞，在一開始安裝Octoprint的時候，就先卡了，結果問題是出在所在的目錄不對，所以找不到檔案，再來安裝Webcam的時候，因為延遲的時間太長了，好像延遲將近20秒，這邊是去設定檔裡頭調整解析度及 fps ，然後調整成大約延遲1~2秒左右，再來是將Octoprint及Webcam設定成開機之後會自動開啟，不過這邊也卡了一下，因為都卡在要調整成自動開機的指令時出現錯誤，不過這邊花了些時間，最後Octoprint的自動開機成功了，不過Webcam的失敗了，這邊可能還要再找原因，然後Octoprint的代理伺服器也改成用 nginx 了，不過為了找問題點在哪，忘記拍照了，可能要等熟練安裝步驟之後，在一步步說明加拍照，是說網路上的步驟都講的蠻簡單的，不過實際遇到的問題好像跟網路上不太一樣，這點讓我很納悶&lt;/h4&gt;&lt;/p&gt;</content><category term="g1project"></category></entry><entry><title>40323143 - 馬達控制 105年7月18日</title><link href="http://project.mde.tw/blog/40323143-ma-da-kong-zhi-105nian-7yue-18ri.html" rel="alternate"></link><published>2016-07-18T12:00:00+08:00</published><updated>2016-07-18T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-18:/blog/40323143-ma-da-kong-zhi-105nian-7yue-18ri.html</id><summary type="html">&lt;p&gt;馬達控制
+</summary><content type="html">&lt;p&gt;馬達控制
 &lt;/p&gt;
 &lt;p&gt;本篇為伺服馬達控制的學習筆記，共分為兩部分，第一部分為直接控制角度，第二部分以脈衝寬度控制。&lt;/p&gt;
 &lt;p&gt;控制角度:&lt;/p&gt;
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;Servo.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;Servo.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 
 &lt;span class="n"&gt;Servo&lt;/span&gt; &lt;span class="n"&gt;myservo&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;// 建立Servo物件，控制伺服馬達&lt;/span&gt;
 
@@ -1674,40 +1309,11 @@ if(0 &amp;lt;= d &amp;amp;&amp;amp; d &amp;lt;= 2500){   //限制訊號範圍
   &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 
 &lt;p&gt;以脈衝寬度控制 :&lt;/p&gt;
 &lt;p&gt;馬達脈寬信號為500-1500-2500，對應的角度是-90度~+90度&lt;/p&gt;
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;Servo.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;Servo.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 
 &lt;span class="n"&gt;Servo&lt;/span&gt; &lt;span class="n"&gt;myservo&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
@@ -1738,13 +1344,14 @@ if(0 &amp;lt;= d &amp;amp;&amp;amp; d &amp;lt;= 2500){   //限制訊號範圍
   &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 
 &lt;p&gt;來源:&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://yehnan.blogspot.tw/2013/09/arduinotower-pro-sg90.html"&gt;葉難: Arduino練習：伺服馬達以Tower Pro SG90為例&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;結語:&lt;/p&gt;
 &lt;p&gt;以控制角度的方法可修改i的數值控制馬達轉角，並可透過修改i+、i-與 delay的值控制馬達旋轉的速度。&lt;/p&gt;
-&lt;p&gt;以脈衝寬度控制的方法與控制角度的方法很相似，但每一個馬達的脈衝訊號寬度不一樣，還需要以馬達的條件來設定轉角及轉速。&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>報告的內容2</title><link href="http://project.mde.tw/blog/bao-gao-de-nei-rong-2.html" rel="alternate"></link><published>2016-07-17T12:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-17:blog/bao-gao-de-nei-rong-2.html</id><summary type="html">&lt;p&gt;實作部分&lt;/p&gt;
+&lt;p&gt;以脈衝寬度控制的方法與控制角度的方法很相似，但每一個馬達的脈衝訊號寬度不一樣，還需要以馬達的條件來設定轉角及轉速。&lt;/p&gt;</content><category term="範例"></category></entry><entry><title>報告的內容2</title><link href="http://project.mde.tw/blog/bao-gao-de-nei-rong-2.html" rel="alternate"></link><published>2016-07-17T12:00:00+08:00</published><updated>2016-07-17T12:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-17:/blog/bao-gao-de-nei-rong-2.html</id><summary type="html">&lt;p&gt;實作部分&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;實作部分&lt;/p&gt;
 
 
 &lt;h3&gt;pyserial&lt;/h3&gt;
@@ -1934,7 +1541,8 @@ if __name__ == '__main__':
 &lt;p&gt;&lt;img src="http://i.imgur.com/tdwh26A.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/zcIeIBl.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/P7r3lQb.jpg"&gt;&lt;/p&gt;
-&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/4sK0pn37HAQ" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="g1project"></category></entry><entry><title>報告的內容</title><link href="http://project.mde.tw/blog/bao-gao-de-nei-rong.html" rel="alternate"></link><published>2016-07-17T11:29:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-17:blog/bao-gao-de-nei-rong.html</id><summary type="html">&lt;p&gt;動機與目的&lt;/p&gt;
+&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/4sK0pn37HAQ" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</content><category term="g1project"></category></entry><entry><title>報告的內容</title><link href="http://project.mde.tw/blog/bao-gao-de-nei-rong.html" rel="alternate"></link><published>2016-07-17T11:29:00+08:00</published><updated>2016-07-17T11:29:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-17:/blog/bao-gao-de-nei-rong.html</id><summary type="html">&lt;p&gt;動機與目的&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;動機與目的&lt;/p&gt;
 
 
 &lt;h3&gt;研究動機與目的&lt;/h3&gt;
@@ -1943,7 +1551,7 @@ if __name__ == '__main__':
 &lt;img src="http://i.imgur.com/4yruSRL.png"&gt;  &lt;/p&gt;
 &lt;p&gt;在使用3D列印機時，常常會需要長久的等待，例如:製作一個大型的物件，或者有很多複雜的小零件參雜，往往需要大量的時間去製作，途中列印完成的時間點，幾乎都落在凌晨，沒辦法讓機台持續列印下去，因為工件會附著在平台上，並沒有辦法直接操控電腦讓他進行列印動作，目前需仰賴人力，將其剷除，才可繼續進行列印動作。
    隨著3D列印機日漸普及，人們開始設計、構思，裝載更多新功能的3D列印機，像是wifi版本、server版本、自動校正、判斷材料種類、自動參數…..等，但是相對於價格上，有越來越貴的趨勢，也沒有版本的觀念，一台機台可以設定的參數，會根據你所使用的切片軟體，有些廠商會開發屬於他們自家的切片軟體，以至於在我們的電腦上可能會有多套的軟體安裝。
-  近年來，物聯網(IOT)的觀念蓬勃發展，Raspberry pi 以及Arduino的發展漸漸邁向世界主流，人們得以結合平板、手機利用網路串連起這些嵌入式系統，直接在網路端，下達控制指令或者偵測，讓網際世界變得無遠弗屆。&lt;br /&gt;
+  近年來，物聯網(IOT)的觀念蓬勃發展，Raspberry pi 以及Arduino的發展漸漸邁向世界主流，人們得以結合平板、手機利用網路串連起這些嵌入式系統，直接在網路端，下達控制指令或者偵測，讓網際世界變得無遠弗屆。&lt;br&gt;
   若能在嵌入式系統中開發一套網際平台，讓所有可以連上網際平台的裝置，只需要登入系統，就能夠控制3D列印機，上傳、下載、列印、目前的列印狀態…等，針對目前需要人力在旁監控列印的狀態，利用嵌入式系統達到節省人力的目標，例如說:可以使用手機上傳客戶交代給你列印的檔案，利用網路上傳到嵌入式系統中，可以讓你在任何時間、地點，不受時間、空間的侷限，來控制你的3Dprinter，再配合自動下料系統，可以連續列印，節省人在機器旁邊等待的時刻，再利用自動校正加上下料系統，能夠讓機器24小時運作，並且可以在網頁上看到目前的列印狀態以及縮時攝影。因此本專題使用樹梅派(Raspberry pi)加上python製作一套可針對大部分開源的機台所使用的網際控制介面。&lt;/p&gt;
 &lt;h3&gt;使用語言Python&lt;/h3&gt;
 
@@ -1970,7 +1578,8 @@ if __name__ == '__main__':
 &lt;tr&gt;
 &lt;td&gt;記憶卡&lt;/td&gt;
 &lt;td&gt;32 GB&lt;/td&gt;
-&lt;/table&gt;</summary><category term="g1project"></category></entry><entry><title>KmolPrint 0716</title><link href="http://project.mde.tw/blog/kmolprint-0716.html" rel="alternate"></link><published>2016-07-16T11:29:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-16:blog/kmolprint-0716.html</id><summary type="html">&lt;p&gt;關於目前設計3dprinter clouds&lt;/p&gt;
+&lt;/table&gt;</content><category term="g1project"></category></entry><entry><title>KmolPrint 0716</title><link href="http://project.mde.tw/blog/kmolprint-0716.html" rel="alternate"></link><published>2016-07-16T11:29:00+08:00</published><updated>2016-07-16T11:29:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-16:/blog/kmolprint-0716.html</id><summary type="html">&lt;p&gt;關於目前設計3dprinter clouds&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;關於目前設計3dprinter clouds&lt;/p&gt;
 
 
 &lt;p&gt;domain name可能想要的名子(IPV6還沒弄)
@@ -1980,7 +1589,8 @@ if __name__ == '__main__':
 &lt;p&gt;今天將攝影機的模組mjpg串流做好了&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/G9KfFT4.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/P7r3lQb.jpg"&gt;&lt;/p&gt;
-&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/4sK0pn37HAQ" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="3dprint server"></category></entry><entry><title>40323131日誌 105/07/15</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050715.html" rel="alternate"></link><published>2016-07-15T19:00:00+08:00</published><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323131ri-zhi-1050715.html</id><summary type="html">&lt;p&gt;將OctoPrint標題替換成KMOL
+&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/4sK0pn37HAQ" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</content><category term="3dprint server"></category></entry><entry><title>40323131日誌 105/07/15</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050715.html" rel="alternate"></link><published>2016-07-15T19:00:00+08:00</published><updated>2016-07-15T19:00:00+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-15:/blog/40323131ri-zhi-1050715.html</id><summary type="html">&lt;p&gt;將OctoPrint標題替換成KMOL
+</summary><content type="html">&lt;p&gt;將OctoPrint標題替換成KMOL
 &lt;/p&gt;
 &lt;h3&gt;先來看關於下圖的框框處，是如何更動的&lt;/h3&gt;
 
@@ -2011,7 +1621,8 @@ if __name__ == '__main__':
 &lt;/br&gt;
 &lt;img src="http://i.imgur.com/uEfRgiA.png"&gt;
 &lt;/br&gt;
-&lt;h3&gt;關於要修改裡的設定檔，跟我原本預期的不太一樣，要進到蠻底層的，才能修改到，不過也多虧了grepwin這個工具，幫了我蠻多忙，因為有進行大約一個多禮拜的python課程惡補一下，對於裡頭的程式碼大概都看得懂七八成了，所以覺得還ok，對於我的組員們，我感謝他們通融我這一個多禮拜沒什麼做事情，另外老師說的同時控制10個馬達的東西，我找過櫃子了，沒有找到，另外在櫃子裡也發現到有蠻多學長留下來的論文可以參考，所以拿給模擬作動的組別參考用了，裡頭有關平面四連桿、史都華平台機構、逆向運動學等等......&lt;/h3&gt;&lt;/p&gt;</summary><category term="g1project"></category></entry><entry><title>40323143 - 日誌 105年7月15日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-15ri.html" rel="alternate"></link><published>2016-07-15T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-15:blog/40323143-ri-zhi-105nian-7yue-15ri.html</id><summary type="html">&lt;p&gt;解決手臂動力問題
+&lt;h3&gt;關於要修改裡的設定檔，跟我原本預期的不太一樣，要進到蠻底層的，才能修改到，不過也多虧了grepwin這個工具，幫了我蠻多忙，因為有進行大約一個多禮拜的python課程惡補一下，對於裡頭的程式碼大概都看得懂七八成了，所以覺得還ok，對於我的組員們，我感謝他們通融我這一個多禮拜沒什麼做事情，另外老師說的同時控制10個馬達的東西，我找過櫃子了，沒有找到，另外在櫃子裡也發現到有蠻多學長留下來的論文可以參考，所以拿給模擬作動的組別參考用了，裡頭有關平面四連桿、史都華平台機構、逆向運動學等等......&lt;/h3&gt;&lt;/p&gt;</content><category term="g1project"></category></entry><entry><title>40323143 - 日誌 105年7月15日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-15ri.html" rel="alternate"></link><published>2016-07-15T12:00:00+08:00</published><updated>2016-07-15T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-15:/blog/40323143-ri-zhi-105nian-7yue-15ri.html</id><summary type="html">&lt;p&gt;解決手臂動力問題
+</summary><content type="html">&lt;p&gt;解決手臂動力問題
 &lt;/p&gt;
 &lt;p&gt;日記:&lt;/p&gt;
 &lt;p&gt;今天決定了動力不足的解決方案，選擇的方案是更換馬達，原因是因為可以迅速的解決問題。於是便將除了驅動旋盤的馬達外全部換成一般型的伺服馬達。控制程式找了別人寫的馬達控制程式修改，還沒有改完。&lt;/p&gt;
@@ -2026,44 +1637,7 @@ if __name__ == '__main__':
 &lt;p&gt;備註:&lt;/p&gt;
 &lt;p&gt;1.伺服馬達是在虎尾的無名電子買的。&lt;/p&gt;
 &lt;p&gt;別人寫的馬達控制程式&lt;/p&gt;
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;Servo.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;Servo.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 
 &lt;span class="n"&gt;Servo&lt;/span&gt; &lt;span class="n"&gt;servoLeft&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;          &lt;span class="c1"&gt;// 宣告左邊伺服馬達&lt;/span&gt;
 &lt;span class="n"&gt;Servo&lt;/span&gt; &lt;span class="n"&gt;servoRight&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;         &lt;span class="c1"&gt;// 宣告右邊伺服馬達&lt;/span&gt;
@@ -2102,53 +1676,12 @@ if __name__ == '__main__':
   &lt;span class="n"&gt;servoRight&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;150&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 
 &lt;p&gt;來源:&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.robofun.net/forum/redirect.php?goto=findpost&amp;ptid=7154&amp;pid=29129"&gt;&lt;/p&gt;
 &lt;p&gt;修改後的程式:&lt;/p&gt;
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;Servo.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;Servo.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 
 &lt;span class="n"&gt;Servo&lt;/span&gt; &lt;span class="n"&gt;servo1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;          
 &lt;span class="n"&gt;Servo&lt;/span&gt; &lt;span class="n"&gt;servo2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;         
@@ -2191,10 +1724,11 @@ if __name__ == '__main__':
   &lt;span class="n"&gt;servo3&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="n"&gt;write&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="mi"&gt;90&lt;/span&gt;&lt;span class="p"&gt;);&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 
 &lt;p&gt;結語:&lt;/p&gt;
-&lt;p&gt;發現自己的思考有很多問題，有點混亂、挫折，想整理整理，看看書。&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>KmolPrint 0715</title><link href="http://project.mde.tw/blog/kmolprint-0715.html" rel="alternate"></link><published>2016-07-15T11:29:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-15:blog/kmolprint-0715.html</id><summary type="html">&lt;p&gt;關於目前設計3dprinter clouds&lt;/p&gt;
+&lt;p&gt;發現自己的思考有很多問題，有點混亂、挫折，想整理整理，看看書。&lt;/p&gt;</content><category term="範例"></category></entry><entry><title>KmolPrint 0715</title><link href="http://project.mde.tw/blog/kmolprint-0715.html" rel="alternate"></link><published>2016-07-15T11:29:00+08:00</published><updated>2016-07-15T11:29:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-15:/blog/kmolprint-0715.html</id><summary type="html">&lt;p&gt;關於目前設計3dprinter clouds&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;關於目前設計3dprinter clouds&lt;/p&gt;
 
 
 &lt;h3&gt;目前我們的網站&lt;/h3&gt;
@@ -2203,7 +1737,8 @@ if __name__ == '__main__':
 &lt;p&gt;將原本的網站做一次更新，並且讓設定檔做好，接下來會把setting中再加入指令檔，就可以啟動攝影機和server的從新啟動以及開關server。&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/zcIeIBl.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;網址位置在:140.130.17.107&lt;/p&gt;
-&lt;p&gt;未來是想要加damain name 讓140.130改成自己的網址，好讓自己的網站發展，以及學習如何加入自己的網址。&lt;/p&gt;</summary><category term="3dprint server"></category></entry><entry><title>40323143 - 日誌 105年7月14日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-14ri.html" rel="alternate"></link><published>2016-07-14T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-14:blog/40323143-ri-zhi-105nian-7yue-14ri.html</id><summary type="html">&lt;p&gt;寫Arduino控制程式 3
+&lt;p&gt;未來是想要加damain name 讓140.130改成自己的網址，好讓自己的網站發展，以及學習如何加入自己的網址。&lt;/p&gt;</content><category term="3dprint server"></category></entry><entry><title>40323143 - 日誌 105年7月14日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-14ri.html" rel="alternate"></link><published>2016-07-14T12:00:00+08:00</published><updated>2016-07-14T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-14:/blog/40323143-ri-zhi-105nian-7yue-14ri.html</id><summary type="html">&lt;p&gt;寫Arduino控制程式 3
+</summary><content type="html">&lt;p&gt;寫Arduino控制程式 3
 &lt;/p&gt;
 &lt;p&gt;日記:&lt;/p&gt;
 &lt;p&gt;今天知道Arduino不能夠同時使兩個馬達作動，於是今天將馬達的控制程式改成有順序的動作，達成利用Arduino控制兩個馬達，但在測試的過程發現懸盤上的馬達在手臂伸出去後沒辦法收回來，原因可能是馬達的力量不夠，目前有兩個方案:(1).減速機 (2)馬達變更為可控制角度的馬達。&lt;/p&gt;
@@ -2222,71 +1757,7 @@ if __name__ == '__main__':
 &lt;p&gt;1.今天將控制兩個馬達的程式完成 ( 程式1 )，若採用減速機來解決馬達輸出力不足的問題，這套就接上旋盤旋轉的程式完成。&lt;/p&gt;
 &lt;p&gt;2.若採用更換馬達來解決馬達輸出力不足的問題，會在新增角度控制的程式到程式中，還沒有寫出來。&lt;/p&gt;
 &lt;p&gt;程式1:&lt;/p&gt;
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42
-43
-44
-45
-46
-47
-48
-49
-50
-51
-52
-53
-54
-55
-56
-57
-58
-59
-60
-61
-62
-63
-64
-65&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;Servo.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;Servo.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 
 &lt;span class="n"&gt;Servo&lt;/span&gt; &lt;span class="n"&gt;myservo1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; 
 &lt;span class="n"&gt;Servo&lt;/span&gt; &lt;span class="n"&gt;myservo2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -2352,10 +1823,11 @@ if __name__ == '__main__':
   &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 
 &lt;p&gt;結語:&lt;/p&gt;
-&lt;p&gt;手臂總算有一個能夠控制的程式出來了，等到輸出力不足的問題解決後測試的手臂就算完成了，接下來就可以依使用尺寸做一個實際使用的手臂。&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 日誌 105年7月13日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-13ri.html" rel="alternate"></link><published>2016-07-13T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-13:blog/40323143-ri-zhi-105nian-7yue-13ri.html</id><summary type="html">&lt;p&gt;寫Arduino控制程式 2
+&lt;p&gt;手臂總算有一個能夠控制的程式出來了，等到輸出力不足的問題解決後測試的手臂就算完成了，接下來就可以依使用尺寸做一個實際使用的手臂。&lt;/p&gt;</content><category term="範例"></category></entry><entry><title>40323143 - 日誌 105年7月13日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-13ri.html" rel="alternate"></link><published>2016-07-13T12:00:00+08:00</published><updated>2016-07-13T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-13:/blog/40323143-ri-zhi-105nian-7yue-13ri.html</id><summary type="html">&lt;p&gt;寫Arduino控制程式 2
+</summary><content type="html">&lt;p&gt;寫Arduino控制程式 2
 &lt;/p&gt;
 &lt;p&gt;日記:&lt;/p&gt;
 &lt;p&gt;今天對控制程式做了一些修改，程式新增了抵抗地心引力的補正，以及抵抗慣性的補正。&lt;/p&gt;
@@ -2368,46 +1840,7 @@ if __name__ == '__main__':
 &lt;p&gt;5.新增補正的原因是因為我們的馬達是連續旋轉型的，沒辦法讓他固定，所以用補正解決。&lt;/p&gt;
 &lt;p&gt;程式:&lt;/p&gt;
 &lt;p&gt;加了補正的程式&lt;/p&gt;
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;Servo.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;Servo.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 
 &lt;span class="n"&gt;Servo&lt;/span&gt; &lt;span class="n"&gt;myservo&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt; &lt;span class="c1"&gt;//旋盤上&lt;/span&gt;
 
@@ -2448,51 +1881,10 @@ if __name__ == '__main__':
   &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 
 &lt;p&gt;嘗試控制兩個馬達的程式(一個忘了存)&lt;/p&gt;
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;Servo.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;Servo.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 &lt;span class="n"&gt;Servo&lt;/span&gt; &lt;span class="n"&gt;myservo1&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="n"&gt;Servo&lt;/span&gt; &lt;span class="n"&gt;myservo2&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -2535,12 +1927,14 @@ if __name__ == '__main__':
  &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 
 &lt;p&gt;問題:&lt;/p&gt;
 &lt;p&gt;每次程式跑到 1000*(acos(d/150)/144) 這一行馬達就會像失去動力般一小段時間，然後直接回到原點，將這段數學式改成常數後就沒有問題，想請問是什麼原因?&lt;/p&gt;
 &lt;p&gt;結語:&lt;/p&gt;
-&lt;p&gt;今天原本想說能至少把單個馬達的控制程式完成，看來有點高估自己了。&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>Python通訊 0713</title><link href="http://project.mde.tw/blog/pythontong-xun-0713.html" rel="alternate"></link><published>2016-07-13T11:29:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-13:blog/pythontong-xun-0713.html</id><summary type="html">&lt;p&gt;今日讀的進度，以及筆記
+&lt;p&gt;今天原本想說能至少把單個馬達的控制程式完成，看來有點高估自己了。&lt;/p&gt;</content><category term="範例"></category></entry><entry><title>Python通訊 0713</title><link href="http://project.mde.tw/blog/pythontong-xun-0713.html" rel="alternate"></link><published>2016-07-13T11:29:00+08:00</published><updated>2016-07-13T11:29:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-13:/blog/pythontong-xun-0713.html</id><summary type="html">&lt;p&gt;今日讀的進度，以及筆記
+For python3的部分&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;今日讀的進度，以及筆記
 For python3的部分&lt;/p&gt;
 
 
@@ -2717,7 +2111,8 @@ top.mainloop()
 &lt;img src="http://i.imgur.com/UscP5Jg.jpg"&gt;
 &lt;img src="http://i.imgur.com/g6WOmDP.jpg"&gt;
 &lt;h3&gt;底下為實際接線圖&lt;/h3&gt;
-&lt;img src="http://i.imgur.com/caZ1nEV.jpg"&gt;&lt;/p&gt;</summary><category term="串列通訊"></category></entry><entry><title>40323143 - 日誌 105年7月12日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-12ri.html" rel="alternate"></link><published>2016-07-12T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-12:blog/40323143-ri-zhi-105nian-7yue-12ri.html</id><summary type="html">&lt;p&gt;寫Arduino控制程式
+&lt;img src="http://i.imgur.com/caZ1nEV.jpg"&gt;&lt;/p&gt;</content><category term="串列通訊"></category></entry><entry><title>40323143 - 日誌 105年7月12日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-12ri.html" rel="alternate"></link><published>2016-07-12T12:00:00+08:00</published><updated>2016-07-12T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-12:/blog/40323143-ri-zhi-105nian-7yue-12ri.html</id><summary type="html">&lt;p&gt;寫Arduino控制程式
+</summary><content type="html">&lt;p&gt;寫Arduino控制程式
 &lt;/p&gt;
 &lt;p&gt;日記:&lt;/p&gt;
 &lt;p&gt;今日找了3套別人寫的Arduino控制程式來常是控制馬達，其中兩套完全不能用，因為使用的馬達為連續旋轉型的伺服馬達，與兩套程式控制的伺服馬達不同，一套是用可變電阻來控制馬達旋轉角度，一套是直接指定馬達旋轉角度直接控制。在用第三套程式控制馬達時發現沒有產生預期的效果，後來發現原因是因為在使用前馬達必須通電調整馬達上的可變電阻校正，經過校正馬達變如程式所寫的運動，後來這套程式用來校正馬達。&lt;/p&gt;
@@ -2727,27 +2122,7 @@ top.mainloop()
 &lt;p&gt;3.程式中距離轉換成徑度是因為我有印象有老師說過機器讀的是徑度不是角度。&lt;/p&gt;
 &lt;p&gt;程式:&lt;/p&gt;
 &lt;p&gt;第三套程式(前兩套因為用不到，所以沒有放上來)&lt;/p&gt;
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;Servo.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;Servo.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 
 &lt;span class="n"&gt;Servo&lt;/span&gt; &lt;span class="n"&gt;myservo&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 
@@ -2769,40 +2144,12 @@ top.mainloop()
   &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 
 &lt;p&gt;來源:&lt;/p&gt;
 &lt;p&gt;&lt;a href="https://www.google.com.tw/url?sa=t&amp;rct=j&amp;q=&amp;esrc=s&amp;source=web&amp;cd=2&amp;cad=rja&amp;uact=8&amp;ved=0ahUKEwjzn9HYku3NAhWHGZQKHXSlCowQFggjMAE&amp;url=http%3A%2F%2Fyehnan.blogspot.com%2F2013%2F09%2Farduinogws-s35.html&amp;usg=AFQjCNEtOQUFXThuLR7BD9VFBm4xK_tsOQ&amp;sig2=LE97WxvBrBv6QLZY8zVpgA"&gt;葉難: Arduino練習：連續旋轉伺服馬達GWS S35&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;因應測試需要修改後的程式&lt;/p&gt;
-&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt; 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;Servo.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="cp"&gt;#include&lt;/span&gt; &lt;span class="cpf"&gt;&amp;lt;Servo.h&amp;gt;&lt;/span&gt;&lt;span class="cp"&gt;&lt;/span&gt;
 
 &lt;span class="n"&gt;Servo&lt;/span&gt; &lt;span class="n"&gt;myservo&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
 &lt;span class="kt"&gt;int&lt;/span&gt; &lt;span class="n"&gt;x&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="mi"&gt;100&lt;/span&gt;&lt;span class="p"&gt;;&lt;/span&gt;
@@ -2832,10 +2179,10 @@ top.mainloop()
   &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;span class="p"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 
 &lt;p&gt;結語:&lt;/p&gt;
-&lt;p&gt;以目前自己的能力沒辦法寫一套控制程式出來，連參考別人的程式也很吃力，今天修改出來的程式只能夠控制一個馬達，而且我只知道他能動能固定了，旋轉角度是否正確我就不知道了，還有極限開關也還沒寫進去，還得再努力。&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323131日誌 105/07/11 Python 數值型別</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050711-python-shu-zhi-xing-bie.html" rel="alternate"></link><published>2016-07-11T19:00:00+08:00</published><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323131ri-zhi-1050711-python-shu-zhi-xing-bie.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;以目前自己的能力沒辦法寫一套控制程式出來，連參考別人的程式也很吃力，今天修改出來的程式只能夠控制一個馬達，而且我只知道他能動能固定了，旋轉角度是否正確我就不知道了，還有極限開關也還沒寫進去，還得再努力。&lt;/p&gt;</content><category term="範例"></category></entry><entry><title>40323131日誌 105/07/11 Python 數值型別</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050711-python-shu-zhi-xing-bie.html" rel="alternate"></link><published>2016-07-11T19:00:00+08:00</published><updated>2016-07-11T19:00:00+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-11:/blog/40323131ri-zhi-1050711-python-shu-zhi-xing-bie.html</id><summary type="html"></summary><content type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;h3&gt;整數(int)與浮點數(float)&lt;/h3&gt;
 
@@ -2927,7 +2274,8 @@ top.mainloop()
 &lt;h4&gt;位元運算: 不把數字當做(一個數值)，而是把數字當做"一連串的位元(bit)"，以位元為單位進行運算。運算元只能是整數，因為浮點數的位元運算並無意義&lt;/h4&gt;
 &lt;/br&gt;
 &lt;h3&gt;結語&lt;/h3&gt;
-&lt;h4&gt;主要重心在於了解型別int跟 float ，以及新概念:方法跟屬性項，對於型別跟物件的了解有更進一步&lt;/h4&gt;&lt;/p&gt;</summary><category term="g1project"></category></entry><entry><title>40323143 - 日誌 105年7月11日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-11ri.html" rel="alternate"></link><published>2016-07-11T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-11:blog/40323143-ri-zhi-105nian-7yue-11ri.html</id><summary type="html">&lt;p&gt;發現極限開關繪製的重大錯誤 測試的手臂組裝完成 控制程式未完成
+&lt;h4&gt;主要重心在於了解型別int跟 float ，以及新概念:方法跟屬性項，對於型別跟物件的了解有更進一步&lt;/h4&gt;&lt;/p&gt;</content><category term="g1project"></category></entry><entry><title>40323143 - 日誌 105年7月11日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-11ri.html" rel="alternate"></link><published>2016-07-11T12:00:00+08:00</published><updated>2016-07-11T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-11:/blog/40323143-ri-zhi-105nian-7yue-11ri.html</id><summary type="html">&lt;p&gt;發現極限開關繪製的重大錯誤 測試的手臂組裝完成 控制程式未完成
+</summary><content type="html">&lt;p&gt;發現極限開關繪製的重大錯誤 測試的手臂組裝完成 控制程式未完成
 &lt;/p&gt;
 &lt;p&gt;日記:&lt;/p&gt;
 &lt;p&gt;今天發現了第二種極限開關及底座裝配的問題，原因是因為在繪製第二種極限開關的固定孔時出錯，圖上的孔與實際的孔位置是相反的，導致底座列印出來時裝配出問題，己決方法是變更極限開關方向及電路配置，補救醒的讓極限開關及底座配合。&lt;/p&gt;
@@ -2955,7 +2303,9 @@ top.mainloop()
 &lt;p&gt;手臂組合完成圖&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/M28o1N4.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;提問:&lt;/p&gt;
-&lt;p&gt;請問實際上在設計時常使用什麼方法來檢查特徵錯誤，或是特定的機制?&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>PyFirmata 通訊</title><link href="http://project.mde.tw/blog/pyfirmata-tong-xun.html" rel="alternate"></link><published>2016-07-11T11:29:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-11:blog/pyfirmata-tong-xun.html</id><summary type="html">&lt;p&gt;今日讀的進度，以及筆記
+&lt;p&gt;請問實際上在設計時常使用什麼方法來檢查特徵錯誤，或是特定的機制?&lt;/p&gt;</content><category term="範例"></category></entry><entry><title>PyFirmata 通訊</title><link href="http://project.mde.tw/blog/pyfirmata-tong-xun.html" rel="alternate"></link><published>2016-07-11T11:29:00+08:00</published><updated>2016-07-11T11:29:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-11:/blog/pyfirmata-tong-xun.html</id><summary type="html">&lt;p&gt;今日讀的進度，以及筆記
+For python3的部分&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;今日讀的進度，以及筆記
 For python3的部分&lt;/p&gt;
 
 
@@ -2996,7 +2346,8 @@ pyplot.show()
 &lt;p&gt;&lt;img src="http://i.imgur.com/AYep4Fj.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;接下來就可以導入CSV或者數學方程式畫出我們想要的圖形
 &lt;img src="http://i.imgur.com/frDZjMz.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;以及將範例code的部分放到data裡面了&lt;/p&gt;</summary><category term="串列通訊"></category></entry><entry><title>40323143 - 日誌 105年7月8日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-8ri.html" rel="alternate"></link><published>2016-07-08T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-08:blog/40323143-ri-zhi-105nian-7yue-8ri.html</id><summary type="html">&lt;p&gt;發現極限開關繪製的重大錯誤 測試的手臂組裝完成 控制程式未完成
+&lt;p&gt;以及將範例code的部分放到data裡面了&lt;/p&gt;</content><category term="串列通訊"></category></entry><entry><title>40323143 - 日誌 105年7月8日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-8ri.html" rel="alternate"></link><published>2016-07-08T12:00:00+08:00</published><updated>2016-07-08T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-08:/blog/40323143-ri-zhi-105nian-7yue-8ri.html</id><summary type="html">&lt;p&gt;發現極限開關繪製的重大錯誤 測試的手臂組裝完成 控制程式未完成
+</summary><content type="html">&lt;p&gt;發現極限開關繪製的重大錯誤 測試的手臂組裝完成 控制程式未完成
 &lt;/p&gt;
 &lt;p&gt;今天發現了第二種極限開關及底座裝配的問題，原因是因為在繪製第二種極限開關的固定孔時出錯，圖上的孔與實際的孔位置是相反的，導致底座列印出來時裝配出問題，己決方法是變更極限開關方向及電路配置，補救醒的讓極限開關及底座配合。&lt;/p&gt;
 &lt;p&gt;今天列印底座後發現底座中安裝馬達的槽的長度尺寸小0.3mm，使馬達安裝有問題，原因可能是因為列印的些微誤差，解決方法是用銼刀將槽挫大，以及修改繪圖尺寸。&lt;/p&gt;
@@ -3023,7 +2374,7 @@ pyplot.show()
 &lt;p&gt;手臂組合完成圖&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/M28o1N4.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;提問:&lt;/p&gt;
-&lt;p&gt;請問實際上在設計時常使用什麼方法來檢查特徵錯誤，或是特定的機制?&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323131日誌 105/07/07</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050707.html" rel="alternate"></link><published>2016-07-07T19:00:00+08:00</published><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-07:blog/40323131ri-zhi-1050707.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;請問實際上在設計時常使用什麼方法來檢查特徵錯誤，或是特定的機制?&lt;/p&gt;</content><category term="範例"></category></entry><entry><title>40323131日誌 105/07/07</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050707.html" rel="alternate"></link><published>2016-07-07T19:00:00+08:00</published><updated>2016-07-07T19:00:00+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-07:/blog/40323131ri-zhi-1050707.html</id><summary type="html"></summary><content type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;h3&gt;學習python&lt;/h3&gt;
 
@@ -3198,7 +2549,8 @@ pyplot.show()
 &lt;/br&gt;
 &lt;h3&gt;結論&lt;/h3&gt;
 &lt;h4&gt;最重要的重點，是搞懂名稱(name)與物件(object)的概念，以及相關的型別(type)、指派(assignment)、綁定(binding)，了解基本知識，並明白在 "Python"裡任何東西都是物件&lt;/h4&gt;
-&lt;/br&gt;&lt;/p&gt;</summary><category term="g1project"></category></entry><entry><title>40323143 - 日誌 105年7月7日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-7ri.html" rel="alternate"></link><published>2016-07-07T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-07:blog/40323143-ri-zhi-105nian-7yue-7ri.html</id><summary type="html">&lt;p&gt;承臂和馬達組裝完成 發現極限開關固定桿問題 新增旋盤外接件 電路配置構想
+&lt;/br&gt;&lt;/p&gt;</content><category term="g1project"></category></entry><entry><title>40323143 - 日誌 105年7月7日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-7ri.html" rel="alternate"></link><published>2016-07-07T12:00:00+08:00</published><updated>2016-07-07T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-07:/blog/40323143-ri-zhi-105nian-7yue-7ri.html</id><summary type="html">&lt;p&gt;承臂和馬達組裝完成 發現極限開關固定桿問題 新增旋盤外接件 電路配置構想
+</summary><content type="html">&lt;p&gt;承臂和馬達組裝完成 發現極限開關固定桿問題 新增旋盤外接件 電路配置構想
 &lt;/p&gt;
 &lt;p&gt;日記:&lt;/p&gt;
 &lt;p&gt;今天將兩個承臂與馬達和極限開關組裝固定 ，馬達固定是利用單心線的線芯穿過馬達與承臂上的固定孔鎖緊，因為昨天新增的凹槽可以承受馬達扭轉的力量，只需要讓他不會脫落即可。另外今天還發現固定設計在承臂上極限開關的固定桿強度不足，原因可能是因為列印的方向為桿件的徑向，導致桿在承受外力時列印接合面沒有足夠的強度支撐而產生破壞，解決方法是買5分的自攻螺釘將其鎖固。&lt;/p&gt;
@@ -3225,7 +2577,8 @@ pyplot.show()
 &lt;p&gt;新增的零件&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/YBxVUiq.png"&gt;&lt;/p&gt;
 &lt;p&gt;提問:&lt;/p&gt;
-&lt;p&gt;實際上在設計機構，機構上的電路配置有什麼重點需要注意?有沒有固定的配置方式?&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 日誌 105年7月6日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-6ri.html" rel="alternate"></link><published>2016-07-06T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-06:blog/40323143-ri-zhi-105nian-7yue-6ri.html</id><summary type="html">&lt;p&gt;第二種極限開關的繪圖及安裝設計 第一種極限開關的安裝測試 承臂和馬達的安裝問題
+&lt;p&gt;實際上在設計機構，機構上的電路配置有什麼重點需要注意?有沒有固定的配置方式?&lt;/p&gt;</content><category term="範例"></category></entry><entry><title>40323143 - 日誌 105年7月6日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-6ri.html" rel="alternate"></link><published>2016-07-06T12:00:00+08:00</published><updated>2016-07-06T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-06:/blog/40323143-ri-zhi-105nian-7yue-6ri.html</id><summary type="html">&lt;p&gt;第二種極限開關的繪圖及安裝設計 第一種極限開關的安裝測試 承臂和馬達的安裝問題
+</summary><content type="html">&lt;p&gt;第二種極限開關的繪圖及安裝設計 第一種極限開關的安裝測試 承臂和馬達的安裝問題
 &lt;/p&gt;
 &lt;p&gt;日記:&lt;/p&gt;
 &lt;p&gt;今天將第二種極限開關新增到零件庫中，並在底座上依其尺寸新增了一個安裝位置，以及在懸盤上新增了一個用來安裝觸發極限開關突出物的安裝孔，和觸發極限開關的圓桿。&lt;/p&gt;
@@ -3245,7 +2598,8 @@ pyplot.show()
 &lt;p&gt;承臂與馬達組裝位置實際測試結果&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/eoxikJN.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;舊的承臂上安裝馬達極極限開關&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/603pE3d.jpg"&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 日誌 105年7月5日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-5ri.html" rel="alternate"></link><published>2016-07-05T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-05:blog/40323143-ri-zhi-105nian-7yue-5ri.html</id><summary type="html">&lt;p&gt;第一種極限開關的繪圖及安裝設計以及夾頭極限開關安裝問題
+&lt;p&gt;&lt;img src="http://i.imgur.com/603pE3d.jpg"&gt;&lt;/p&gt;</content><category term="範例"></category></entry><entry><title>40323143 - 日誌 105年7月5日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-5ri.html" rel="alternate"></link><published>2016-07-05T12:00:00+08:00</published><updated>2016-07-05T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-05:/blog/40323143-ri-zhi-105nian-7yue-5ri.html</id><summary type="html">&lt;p&gt;第一種極限開關的繪圖及安裝設計以及夾頭極限開關安裝問題
+</summary><content type="html">&lt;p&gt;第一種極限開關的繪圖及安裝設計以及夾頭極限開關安裝問題
 &lt;/p&gt;
 &lt;p&gt;日記:&lt;/p&gt;
 &lt;p&gt;今天將買了三種不同接觸點種類的極限開關，並將其中一種新增進入零件庫，且由其尺寸在承臂上新增其安裝位置，在Onshape上目測沒有和其他零件有接觸，承臂上的極限開關配置應該已經確定了，但夾頭座的極限開關配置找不到適合的位置，可能需要變更夾頭座的外型，或是在畫外接的零件，底座的極限開關配置還沒有畫出來，但應該會是在底座配置極限開關，在旋盤上設置接觸點觸發極限開關。&lt;/p&gt;
@@ -3263,7 +2617,8 @@ pyplot.show()
 &lt;p&gt;極限開關組合完-1&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/gykOTCW.png"&gt;&lt;/p&gt;
 &lt;p&gt;極限開關組合完-2&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/te6PT6l.png"&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 日誌 105年7月4日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-4ri.html" rel="alternate"></link><published>2016-07-04T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-04:blog/40323143-ri-zhi-105nian-7yue-4ri.html</id><summary type="html">&lt;p&gt;針對承臂的設計及修改以及夾頭的不成功構想
+&lt;p&gt;&lt;img src="http://i.imgur.com/te6PT6l.png"&gt;&lt;/p&gt;</content><category term="範例"></category></entry><entry><title>40323143 - 日誌 105年7月4日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-7yue-4ri.html" rel="alternate"></link><published>2016-07-04T12:00:00+08:00</published><updated>2016-07-04T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-07-04:/blog/40323143-ri-zhi-105nian-7yue-4ri.html</id><summary type="html">&lt;p&gt;針對承臂的設計及修改以及夾頭的不成功構想
+</summary><content type="html">&lt;p&gt;針對承臂的設計及修改以及夾頭的不成功構想
 &lt;/p&gt;
 &lt;p&gt;日記:&lt;/p&gt;
 &lt;p&gt;今天將Onshape平台上的因馬達尺寸測量錯誤導致機械手臂零件與馬達不能配合的錯誤修正，並增加馬達的外部特徵(電線接頭)及新增參數。以及因應手臂上馬達線路的配置改變設計，目前修改的有承臂末端新增一個槽及一個孔。還有嘗試一個夾頭的連桿構想，但是沒有成功。&lt;/p&gt;
@@ -3279,7 +2634,7 @@ pyplot.show()
 &lt;p&gt;夾頭構想圖&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/JdPYWaP.png"&gt;&lt;/p&gt;
 &lt;p&gt;提問:&lt;/p&gt;
-&lt;p&gt;請問有沒有機構能讓有連接線的物體作360度旋轉，卻不會讓線纏住的機構？  &lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323131日誌 105/07/03</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050703.html" rel="alternate"></link><published>2016-07-03T19:00:00+08:00</published><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-03:blog/40323131ri-zhi-1050703.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;請問有沒有機構能讓有連接線的物體作360度旋轉，卻不會讓線纏住的機構？  &lt;/p&gt;</content><category term="範例"></category></entry><entry><title>40323131日誌 105/07/03</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050703.html" rel="alternate"></link><published>2016-07-03T19:00:00+08:00</published><updated>2016-07-03T19:00:00+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-03:/blog/40323131ri-zhi-1050703.html</id><summary type="html"></summary><content type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;h3&gt;學習python3 物件導向&lt;/h3&gt;
 
@@ -3300,7 +2655,8 @@ pyplot.show()
 &lt;/br&gt;
 &lt;/br&gt;
 &lt;img src="http://i.imgur.com/j4TRMp2.png"&gt;
-&lt;/br&gt;&lt;/p&gt;</summary><category term="g1project"></category></entry><entry><title>PySerial 問題0703</title><link href="http://project.mde.tw/blog/pyserial-wen-ti-0703.html" rel="alternate"></link><published>2016-07-03T11:29:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-03:blog/pyserial-wen-ti-0703.html</id><summary type="html">&lt;p&gt;今日讀的進度，以及筆記&lt;/p&gt;
+&lt;/br&gt;&lt;/p&gt;</content><category term="g1project"></category></entry><entry><title>PySerial 問題0703</title><link href="http://project.mde.tw/blog/pyserial-wen-ti-0703.html" rel="alternate"></link><published>2016-07-03T11:29:00+08:00</published><updated>2016-07-03T11:29:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-03:/blog/pyserial-wen-ti-0703.html</id><summary type="html">&lt;p&gt;今日讀的進度，以及筆記&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;今日讀的進度，以及筆記&lt;/p&gt;
 
 
 &lt;h3&gt;改成執行緒的方式收值&lt;/h3&gt;
@@ -3353,7 +2709,8 @@ if __name__ == "__main__":
 &lt;/pre&gt;
 
 &lt;p&gt;&lt;img src="http://i.imgur.com/9MkMv7u.png"&gt;&lt;/p&gt;
-&lt;p&gt;有關執行緒的部分有多種方式可以使用，上面只是其中一個，還有別種方法是利用class的方法，不過在python3中用的方法都比較嚴謹，沒辦法隨意使用，以及他使用的語法和C其實差蠻多的，有可能後面做法做看看，利用python控制C的程式，說不定會簡單一點，但是不一定，也要實作才知道，最主要python2和python3的差別來自於他們對於編碼的方式不同，而且相對於他們使用的嚴謹，for example (encode . decode)部分的可能要需要再研讀一陣子。&lt;/p&gt;</summary><category term="python串列傳輸實作"></category></entry><entry><title>PySerial 問題</title><link href="http://project.mde.tw/blog/pyserial-wen-ti.html" rel="alternate"></link><published>2016-07-02T11:29:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-02:blog/pyserial-wen-ti.html</id><summary type="html">&lt;p&gt;今日讀的進度，以及筆記&lt;/p&gt;
+&lt;p&gt;有關執行緒的部分有多種方式可以使用，上面只是其中一個，還有別種方法是利用class的方法，不過在python3中用的方法都比較嚴謹，沒辦法隨意使用，以及他使用的語法和C其實差蠻多的，有可能後面做法做看看，利用python控制C的程式，說不定會簡單一點，但是不一定，也要實作才知道，最主要python2和python3的差別來自於他們對於編碼的方式不同，而且相對於他們使用的嚴謹，for example (encode . decode)部分的可能要需要再研讀一陣子。&lt;/p&gt;</content><category term="python串列傳輸實作"></category></entry><entry><title>PySerial 問題</title><link href="http://project.mde.tw/blog/pyserial-wen-ti.html" rel="alternate"></link><published>2016-07-02T11:29:00+08:00</published><updated>2016-07-02T11:29:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-02:/blog/pyserial-wen-ti.html</id><summary type="html">&lt;p&gt;今日讀的進度，以及筆記&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;今日讀的進度，以及筆記&lt;/p&gt;
 
 
 &lt;h2&gt;發現到的問題&lt;/h2&gt;
@@ -3393,7 +2750,7 @@ with serial.Serial() as ser:
 &lt;p&gt;&lt;img src="http://i.imgur.com/aEOnq9R.png"&gt;&lt;/p&gt;
 &lt;h3&gt;最後補上  認真==鑽牛角尖的第二組  量螺絲&lt;/h3&gt;
 
-&lt;p&gt;&lt;img src="http://i.imgur.com/UlaIizY.jpg"&gt;&lt;/p&gt;</summary><category term="wxpython"></category></entry><entry><title>40323131日誌 105/07/01</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050701.html" rel="alternate"></link><published>2016-07-01T19:00:00+08:00</published><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-01:blog/40323131ri-zhi-1050701.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/UlaIizY.jpg"&gt;&lt;/p&gt;</content><category term="wxpython"></category></entry><entry><title>40323131日誌 105/07/01</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050701.html" rel="alternate"></link><published>2016-07-01T19:00:00+08:00</published><updated>2016-07-01T19:00:00+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-07-01:/blog/40323131ri-zhi-1050701.html</id><summary type="html"></summary><content type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;h3&gt;python2語法 修改成python3語法&lt;/h3&gt;
 
@@ -3424,7 +2781,8 @@ sys.setdefaultencoding('utf-8') ，在這裡我是將後面的sys.setdefaultenco
 &lt;img src="http://i.imgur.com/k3SVgXL.png"&gt;
 &lt;/br&gt;
 &lt;h3&gt;由於自己對於python的物件導向沒什麼概念，class跟__init__這些都不是很熟，感覺整天修改下來根本沒改什麼東西，所以感覺蠻有挫折感的...，另外用python3裡頭內建的2to3.py檔下去修改python2轉成python3語法的錯誤，感覺方便許多，我用的指令是python y:\Python34\Tools\Scipts\2to3.py -w 要修改的py檔，y:\Python34\Tools\Scipts\2to3.py 這裡是給定2to3.py檔的位置給它，-w是write的意思，然後才是要修改的py檔案&lt;/h3&gt;
-&lt;/br&gt;&lt;/p&gt;</summary><category term="g1project"></category></entry><entry><title>PySerial進度</title><link href="http://project.mde.tw/blog/pyserialjin-du.html" rel="alternate"></link><published>2016-07-01T11:29:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-01:blog/pyserialjin-du.html</id><summary type="html">&lt;p&gt;今日讀的進度，以及筆記&lt;/p&gt;
+&lt;/br&gt;&lt;/p&gt;</content><category term="g1project"></category></entry><entry><title>PySerial進度</title><link href="http://project.mde.tw/blog/pyserialjin-du.html" rel="alternate"></link><published>2016-07-01T11:29:00+08:00</published><updated>2016-07-01T11:29:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-07-01:/blog/pyserialjin-du.html</id><summary type="html">&lt;p&gt;今日讀的進度，以及筆記&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;今日讀的進度，以及筆記&lt;/p&gt;
 
 
 &lt;h3&gt;三個要件&lt;/h3&gt;
@@ -4116,7 +3474,8 @@ if __name__ == "__main__":
     app = MyApp(0)
     app.MainLoop()
 
-&lt;/pre&gt;</summary><category term="wxpython"></category></entry><entry><title>40323131日誌 105/06/30</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050630.html" rel="alternate"></link><published>2016-06-30T19:00:00+08:00</published><author><name>40323131</name></author><id>tag:project.mde.tw,2016-06-30:blog/40323131ri-zhi-1050630.html</id><summary type="html">&lt;p&gt;安裝wxpython 與 將control_3dprinter 從原本python2語法 修改成python3語法
+&lt;/pre&gt;</content><category term="wxpython"></category></entry><entry><title>40323131日誌 105/06/30</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050630.html" rel="alternate"></link><published>2016-06-30T19:00:00+08:00</published><updated>2016-06-30T19:00:00+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-06-30:/blog/40323131ri-zhi-1050630.html</id><summary type="html">&lt;p&gt;安裝wxpython 與 將control_3dprinter 從原本python2語法 修改成python3語法
+</summary><content type="html">&lt;p&gt;安裝wxpython 與 將control_3dprinter 從原本python2語法 修改成python3語法
 &lt;/p&gt;
 &lt;h3&gt;python2語法 修改成python3語法&lt;/h3&gt;
 
@@ -4153,7 +3512,8 @@ if __name__ == "__main__":
 &lt;img src="http://i.imgur.com/UmwpPJd.png"&gt;
 &lt;/br&gt;
 &lt;/br&gt;
-&lt;h4&gt;目前卡在這邊，無法想通為什麼會變成這樣&lt;/h4&gt;&lt;/p&gt;</summary><category term="g1project"></category></entry><entry><title>PySerial</title><link href="http://project.mde.tw/blog/pyserial.html" rel="alternate"></link><published>2016-06-30T11:29:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-30:blog/pyserial.html</id><summary type="html">&lt;p&gt;更新資料Wxpython for python3&lt;/p&gt;
+&lt;h4&gt;目前卡在這邊，無法想通為什麼會變成這樣&lt;/h4&gt;&lt;/p&gt;</content><category term="g1project"></category></entry><entry><title>PySerial</title><link href="http://project.mde.tw/blog/pyserial.html" rel="alternate"></link><published>2016-06-30T11:29:00+08:00</published><updated>2016-06-30T11:29:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-30:/blog/pyserial.html</id><summary type="html">&lt;p&gt;更新資料Wxpython for python3&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;更新資料Wxpython for python3&lt;/p&gt;
 
 
 &lt;p&gt;安裝方法
@@ -4851,7 +4211,7 @@ if __name__ == "__main__":
 
 &lt;/pre&gt;
 
-&lt;p&gt;&lt;img src="http://i.imgur.com/ciQDIeh.png"&gt;&lt;/p&gt;</summary><category term="wxpython"></category></entry><entry><title>40323131日誌 105/06/28</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050628.html" rel="alternate"></link><published>2016-06-28T19:00:00+08:00</published><author><name>40323131</name></author><id>tag:project.mde.tw,2016-06-28:blog/40323131ri-zhi-1050628.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/ciQDIeh.png"&gt;&lt;/p&gt;</content><category term="wxpython"></category></entry><entry><title>40323131日誌 105/06/28</title><link href="http://project.mde.tw/blog/40323131ri-zhi-1050628.html" rel="alternate"></link><published>2016-06-28T19:00:00+08:00</published><updated>2016-06-28T19:00:00+08:00</updated><author><name>40323131</name></author><id>tag:project.mde.tw,2016-06-28:/blog/40323131ri-zhi-1050628.html</id><summary type="html"></summary><content type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;h3&gt;研讀Octopi的設定檔&lt;/h3&gt;
 
@@ -4873,7 +4233,8 @@ if __name__ == "__main__":
 
 &lt;p&gt;&lt;/br&gt;
 &lt;img src="http://i.imgur.com/9sqNCk1.png"&gt;
-&lt;/br&gt;&lt;/p&gt;</summary><category term="g1project"></category></entry><entry><title>40323143 - 日誌 105年6月28日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-6yue-28ri.html" rel="alternate"></link><published>2016-06-28T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-06-28:blog/40323143-ri-zhi-105nian-6yue-28ri.html</id><summary type="html">&lt;p&gt;在Onshape上充實零件庫
+&lt;/br&gt;&lt;/p&gt;</content><category term="g1project"></category></entry><entry><title>40323143 - 日誌 105年6月28日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-6yue-28ri.html" rel="alternate"></link><published>2016-06-28T12:00:00+08:00</published><updated>2016-06-28T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-06-28:/blog/40323143-ri-zhi-105nian-6yue-28ri.html</id><summary type="html">&lt;p&gt;在Onshape上充實零件庫
+</summary><content type="html">&lt;p&gt;在Onshape上充實零件庫
 &lt;/p&gt;
 &lt;p&gt;日記:&lt;/p&gt;
 &lt;p&gt;今天將所有機械手臂零件全部合進零件庫，並用零件庫的零件再組合出一個組圖。今天沒有設定新的變數，未來將會新增有關手臂長度的零件參數，並由實際使用需求及感測器尺寸調整參數。&lt;/p&gt;
@@ -4882,7 +4243,8 @@ if __name__ == "__main__":
 &lt;p&gt;6/28零件庫&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/wrPCKrc.png"&gt;&lt;/p&gt;
 &lt;p&gt;組合圖&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/GrrtDHo.png"&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>Octopi測試與實作</title><link href="http://project.mde.tw/blog/octopice-shi-yu-shi-zuo.html" rel="alternate"></link><published>2016-06-28T11:30:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-28:blog/octopice-shi-yu-shi-zuo.html</id><summary type="html">&lt;p&gt;設定使用octopi與實作&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/GrrtDHo.png"&gt;&lt;/p&gt;</content><category term="範例"></category></entry><entry><title>Octopi測試與實作</title><link href="http://project.mde.tw/blog/octopice-shi-yu-shi-zuo.html" rel="alternate"></link><published>2016-06-28T11:30:00+08:00</published><updated>2016-06-28T11:30:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-28:/blog/octopice-shi-yu-shi-zuo.html</id><summary type="html">&lt;p&gt;設定使用octopi與實作&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;設定使用octopi與實作&lt;/p&gt;
 
 
 &lt;p&gt;octopi走乙太網路線進行控制以及連線&lt;/p&gt;
@@ -4890,7 +4252,8 @@ if __name__ == "__main__":
 &lt;p&gt;&lt;img src="http://i.imgur.com/Umf1J3w.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/zMUAcXs.jpg"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/Sqh1bWP.jpg"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/PzFmXoH.jpg"&gt;&lt;/p&gt;</summary><category term="Octopi"></category></entry><entry><title>ubuntu IPV4 IPV6 使用教學</title><link href="http://project.mde.tw/blog/ubuntu-ipv4-ipv6-shi-yong-jiao-xue.html" rel="alternate"></link><published>2016-06-28T11:29:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-28:blog/ubuntu-ipv4-ipv6-shi-yong-jiao-xue.html</id><summary type="html">&lt;p&gt;關於IPV4  IPV6設定&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/PzFmXoH.jpg"&gt;&lt;/p&gt;</content><category term="Octopi"></category></entry><entry><title>ubuntu IPV4 IPV6 使用教學</title><link href="http://project.mde.tw/blog/ubuntu-ipv4-ipv6-shi-yong-jiao-xue.html" rel="alternate"></link><published>2016-06-28T11:29:00+08:00</published><updated>2016-06-28T11:29:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-28:/blog/ubuntu-ipv4-ipv6-shi-yong-jiao-xue.html</id><summary type="html">&lt;p&gt;關於IPV4  IPV6設定&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;關於IPV4  IPV6設定&lt;/p&gt;
 
 
 &lt;pre class="brush: python"&gt;
@@ -4921,14 +4284,16 @@ dns-search mde.nfu.edu.tw
 
 &lt;/pre&gt;
 
-&lt;p&gt;試用ubuntu系統改成IPV6和IPV4使用，並測試速度的使用上的問題，主要是在沒有IPV6的網站沒辦法連上去，這部份可能需要依靠proxy進行代理伺服器&lt;/p&gt;</summary><category term="ubuntu 網路設定"></category></entry><entry><title>40323143 - 日誌 105年6月27日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-6yue-27ri.html" rel="alternate"></link><published>2016-06-27T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-06-27:blog/40323143-ri-zhi-105nian-6yue-27ri.html</id><summary type="html">&lt;p&gt;在Onshape上建立零件庫
+&lt;p&gt;試用ubuntu系統改成IPV6和IPV4使用，並測試速度的使用上的問題，主要是在沒有IPV6的網站沒辦法連上去，這部份可能需要依靠proxy進行代理伺服器&lt;/p&gt;</content><category term="ubuntu 網路設定"></category></entry><entry><title>40323143 - 日誌 105年6月27日</title><link href="http://project.mde.tw/blog/40323143-ri-zhi-105nian-6yue-27ri.html" rel="alternate"></link><published>2016-06-27T12:00:00+08:00</published><updated>2016-06-27T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-06-27:/blog/40323143-ri-zhi-105nian-6yue-27ri.html</id><summary type="html">&lt;p&gt;在Onshape上建立零件庫
+</summary><content type="html">&lt;p&gt;在Onshape上建立零件庫
 &lt;/p&gt;
 &lt;p&gt;日記:&lt;/p&gt;
 &lt;p&gt;今天將個人Onshape上的機械手臂部分零件合進零件庫，設定六個參數，分別是motor_fixhole , motor_x , motor_y , motor_z , suan_pan , degore 六個參數，motor_fixhole為設定馬達固定孔大小，motor_x , motor_y , motor_z為設定馬達的長寬高， suan_pan為設定旋盤的大小，大小為motor_y的1.7倍，degore為設定底座的直徑，大小為3倍的suan_pan。&lt;/p&gt;
 &lt;p&gt;合進零件庫的零件&lt;/p&gt;
 &lt;p&gt;&lt;img src="http://i.imgur.com/VoMTC8g.png"&gt;&lt;/p&gt;
 &lt;p&gt;參數設定&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://i.imgur.com/AsRWjtd.png"&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>樹梅派指令表和使用</title><link href="http://project.mde.tw/blog/shu-mei-pai-zhi-ling-biao-he-shi-yong.html" rel="alternate"></link><published>2016-06-27T11:29:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-27:blog/shu-mei-pai-zhi-ling-biao-he-shi-yong.html</id><summary type="html">&lt;p&gt;找到的些許文章和探討&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://i.imgur.com/AsRWjtd.png"&gt;&lt;/p&gt;</content><category term="範例"></category></entry><entry><title>樹梅派指令表和使用</title><link href="http://project.mde.tw/blog/shu-mei-pai-zhi-ling-biao-he-shi-yong.html" rel="alternate"></link><published>2016-06-27T11:29:00+08:00</published><updated>2016-06-27T11:29:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-06-27:/blog/shu-mei-pai-zhi-ling-biao-he-shi-yong.html</id><summary type="html">&lt;p&gt;找到的些許文章和探討&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;找到的些許文章和探討&lt;/p&gt;
 
 
 &lt;p&gt;在Octoprint底下有個資料夾&lt;/p&gt;
@@ -4966,14 +4331,16 @@ $ sudo umount /media/usbstick
 &lt;p&gt;待完成部分:&lt;/p&gt;
 &lt;p&gt;1.javascript&lt;/p&gt;
 &lt;p&gt;2.往後寫出一套for our flask.py&lt;/p&gt;
-&lt;p&gt;3.plugin部分&lt;/p&gt;</summary><category term="octopi"></category></entry><entry><title>R2C2的資料</title><link href="http://project.mde.tw/blog/r2c2de-zi-liao.html" rel="alternate"></link><published>2016-05-15T11:29:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-05-15:blog/r2c2de-zi-liao.html</id><summary type="html">&lt;p&gt;新的R2C2資料&lt;/p&gt;
+&lt;p&gt;3.plugin部分&lt;/p&gt;</content><category term="octopi"></category></entry><entry><title>R2C2的資料</title><link href="http://project.mde.tw/blog/r2c2de-zi-liao.html" rel="alternate"></link><published>2016-05-15T11:29:00+08:00</published><updated>2016-05-15T11:29:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-05-15:/blog/r2c2de-zi-liao.html</id><summary type="html">&lt;p&gt;新的R2C2資料&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;新的R2C2資料&lt;/p&gt;
 
 
 &lt;p&gt;中間有新的資料for raspberrypi
 是使用node.js啟動server
 client端可以看到的
 https://github.com/nneves/Raspberrypi_NodeJS&lt;/p&gt;
-&lt;p&gt;&lt;a href = "https://github.com/nneves/R2C2_WebInterface/blob/master/README.md"&gt;RaspberryPi R2C2&lt;/a&gt;&lt;/p&gt;</summary><category term="client control"></category></entry><entry><title>OpenCv實作</title><link href="http://project.mde.tw/blog/opencvshi-zuo.html" rel="alternate"></link><published>2016-05-14T11:29:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-05-14:blog/opencvshi-zuo.html</id><summary type="html">&lt;p&gt;OpenCv in python and use&lt;/p&gt;
+&lt;p&gt;&lt;a href = "https://github.com/nneves/R2C2_WebInterface/blob/master/README.md"&gt;RaspberryPi R2C2&lt;/a&gt;&lt;/p&gt;</content><category term="client control"></category></entry><entry><title>OpenCv實作</title><link href="http://project.mde.tw/blog/opencvshi-zuo.html" rel="alternate"></link><published>2016-05-14T11:29:00+08:00</published><updated>2016-05-14T11:29:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-05-14:/blog/opencvshi-zuo.html</id><summary type="html">&lt;p&gt;OpenCv in python and use&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;OpenCv in python and use&lt;/p&gt;
 
 
 &lt;p&gt;實作系統Ubuntu 14.04&lt;/p&gt;
@@ -5056,7 +4423,8 @@ $ sudo ldconfig
 否則無法執行
 0是預設的第1台攝影機
 1是第2台
-以此類推&lt;/p&gt;</summary><category term="OpenCv"></category></entry><entry><title>40323123 - 專題參考資料</title><link href="http://project.mde.tw/blog/40323123-zhuan-ti-can-kao-zi-liao.html" rel="alternate"></link><published>2016-05-13T11:29:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-05-13:blog/40323123-zhuan-ti-can-kao-zi-liao.html</id><summary type="html">&lt;p&gt;raspberry pi  connect 3d printer to control the 3d printer &lt;/p&gt;
+以此類推&lt;/p&gt;</content><category term="OpenCv"></category></entry><entry><title>40323123 - 專題參考資料</title><link href="http://project.mde.tw/blog/40323123-zhuan-ti-can-kao-zi-liao.html" rel="alternate"></link><published>2016-05-13T11:29:00+08:00</published><updated>2016-05-13T11:29:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-05-13:/blog/40323123-zhuan-ti-can-kao-zi-liao.html</id><summary type="html">&lt;p&gt;raspberry pi  connect 3d printer to control the 3d printer &lt;/p&gt;
+</summary><content type="html">&lt;p&gt;raspberry pi  connect 3d printer to control the 3d printer &lt;/p&gt;
 
 
 &lt;p&gt;1.回報目前專題進度:
@@ -5077,7 +4445,8 @@ $ sudo ldconfig
 &lt;p&gt;4.flux 3d printer中的底板樣式以及掃描方式
 &lt;iframe width="560" height="315" src="https://www.youtube.com/embed/l9ZISxSo2X0" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;&lt;/p&gt;
 &lt;p&gt;5.OpenCv 3d nodule
-&lt;a href="http://www.opencv.org.cn/"&gt;OpenCv可參考&lt;/a&gt;&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>保養3D列印機</title><link href="http://project.mde.tw/blog/bao-yang-3dlie-yin-ji.html" rel="alternate"></link><published>2016-05-13T11:29:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-05-13:blog/bao-yang-3dlie-yin-ji.html</id><summary type="html">&lt;p&gt;Control 3D printer and some Question&lt;/p&gt;
+&lt;a href="http://www.opencv.org.cn/"&gt;OpenCv可參考&lt;/a&gt;&lt;/p&gt;</content><category term="3d printer"></category></entry><entry><title>保養3D列印機</title><link href="http://project.mde.tw/blog/bao-yang-3dlie-yin-ji.html" rel="alternate"></link><published>2016-05-13T11:29:00+08:00</published><updated>2016-05-13T11:29:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-05-13:/blog/bao-yang-3dlie-yin-ji.html</id><summary type="html">&lt;p&gt;Control 3D printer and some Question&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;Control 3D printer and some Question&lt;/p&gt;
 
 
 &lt;p&gt;1.第一步清理平台&lt;/p&gt;
@@ -5086,7 +4455,8 @@ $ sudo ldconfig
 &lt;p&gt;4.清理機台外觀&lt;/p&gt;
 &lt;p&gt;5.確保滑軌滑動順利&lt;/p&gt;
 &lt;p&gt;約兩個禮拜做一次，自動校正，不要太長使用，會導致買新的噴頭。
-詳細注意事項，在另行公告&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>40323143 - 3D printer 列印完下料後的倉儲機構設計理念及繪圖</title><link href="http://project.mde.tw/blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html" rel="alternate"></link><published>2016-03-19T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-03-19:blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
+詳細注意事項，在另行公告&lt;/p&gt;</content><category term="3d printer"></category></entry><entry><title>40323143 - 3D printer 列印完下料後的倉儲機構設計理念及繪圖</title><link href="http://project.mde.tw/blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html" rel="alternate"></link><published>2016-03-19T12:00:00+08:00</published><updated>2016-03-19T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-03-19:/blog/40323143-3d-printer-lie-yin-wan-xia-liao-hou-de-cang-chu-ji-gou-she-ji-li-nian-ji-hui-tu.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
 
 
 &lt;p&gt;這裡為 40323130 所寫的文章主要內容&lt;/p&gt;
@@ -5109,7 +4479,8 @@ $ sudo ldconfig
 &lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/6-3.stl"&gt;&lt;/script&gt;
 &lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/46-2.stl"&gt;&lt;/script&gt;
 &lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/a.stl"&gt;&lt;/script&gt;
-&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/b.stl"&gt;&lt;/script&gt;&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>40323143 - 說明如何參與協同機械設計專題網誌編寫</title><link href="http://project.mde.tw/blog/40323143-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html" rel="alternate"></link><published>2016-03-09T12:00:00+08:00</published><author><name>40323143</name></author><id>tag:project.mde.tw,2016-03-09:blog/40323143-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/b.stl"&gt;&lt;/script&gt;&lt;/p&gt;</content><category term="範例"></category></entry><entry><title>40323143 - 說明如何參與協同機械設計專題網誌編寫</title><link href="http://project.mde.tw/blog/40323143-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html" rel="alternate"></link><published>2016-03-09T12:00:00+08:00</published><updated>2016-03-09T12:00:00+08:00</updated><author><name>40323143</name></author><id>tag:project.mde.tw,2016-03-09:/blog/40323143-shuo-ming-ru-he-can-yu-xie-tong-ji-jie-she-ji-zhuan-ti-wang-zhi-bian-xie.html</id><summary type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;只要是具備協同權限的用戶, 都可以在機械設計專題網誌中貢獻內容&lt;/p&gt;
 
 
 &lt;p&gt;這裡為 40323130 所寫的文章主要內容&lt;/p&gt;
@@ -5129,7 +4500,8 @@ $ sudo ldconfig
 &lt;p&gt;&lt;a href="https://vimeo.com/157247703"&gt;2016project_1&lt;/a&gt; from &lt;a href="https://vimeo.com/user24079973"&gt;虎尾科大機械設計工程&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
 
 &lt;p&gt;Youtube:&lt;/p&gt;
-&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/hQR1wxALifU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</summary><category term="範例"></category></entry><entry><title>40323123 - 3d printer</title><link href="http://project.mde.tw/blog/40323123-3d-printer.html" rel="alternate"></link><published>2016-03-06T11:29:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-03-06:blog/40323123-3d-printer.html</id><summary type="html">&lt;p&gt;raspberry pi  connect 3d printer to control the 3d printer &lt;/p&gt;
+&lt;iframe width="420" height="315" src="https://www.youtube.com/embed/hQR1wxALifU" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</content><category term="範例"></category></entry><entry><title>40323123 - 3d printer</title><link href="http://project.mde.tw/blog/40323123-3d-printer.html" rel="alternate"></link><published>2016-03-06T11:29:00+08:00</published><updated>2016-03-06T11:29:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-03-06:/blog/40323123-3d-printer.html</id><summary type="html">&lt;p&gt;raspberry pi  connect 3d printer to control the 3d printer &lt;/p&gt;
+</summary><content type="html">&lt;p&gt;raspberry pi  connect 3d printer to control the 3d printer &lt;/p&gt;
 
 
 &lt;p&gt;遠端控制3D列印
@@ -5145,7 +4517,8 @@ $ sudo ldconfig
 G指令
 &lt;a href="http://reprap.org/wiki/G-code"&gt;Gcoce 大全&lt;/a&gt;
 &lt;a href="http://www.slideshare.net/roboard/3d-printer-marlin"&gt;控制系統的code解析&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;這兩套系統，都有開放原始碼，不過因為解析程式有巨大的阻礙，因為對python和樹梅派不熟悉，導致只會安裝不會自己編譯。&lt;/p&gt;</summary><category term="3d printer"></category></entry><entry><title>40323123 - 專題組員的範例文章標題</title><link href="http://project.mde.tw/blog/40323123-zhuan-ti-zu-yuan-de-fan-li-wen-zhang-biao-ti.html" rel="alternate"></link><published>2016-03-01T11:29:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2016-03-01:blog/40323123-zhuan-ti-zu-yuan-de-fan-li-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 40323123 所寫的文章摘要&lt;/p&gt;
+&lt;p&gt;這兩套系統，都有開放原始碼，不過因為解析程式有巨大的阻礙，因為對python和樹梅派不熟悉，導致只會安裝不會自己編譯。&lt;/p&gt;</content><category term="3d printer"></category></entry><entry><title>40323123 - 專題組員的範例文章標題</title><link href="http://project.mde.tw/blog/40323123-zhuan-ti-zu-yuan-de-fan-li-wen-zhang-biao-ti.html" rel="alternate"></link><published>2016-03-01T11:29:00+08:00</published><updated>2016-03-01T11:29:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2016-03-01:/blog/40323123-zhuan-ti-zu-yuan-de-fan-li-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 40323123 所寫的文章摘要&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;這裡放入 40323123 所寫的文章摘要&lt;/p&gt;
 
 
-&lt;p&gt;這裡為 40323123 所寫的文章主要內容&lt;/p&gt;</summary><category term="範例"></category></entry></feed>
+&lt;p&gt;這裡為 40323123 所寫的文章主要內容&lt;/p&gt;</content><category term="範例"></category></entry></feed>

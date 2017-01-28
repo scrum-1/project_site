@@ -1,5 +1,167 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-24T21:00:00+08:00</updated><entry><title>Qt5 - Ubuntu switch Fcitx input method</title><link href="http://project.mde.tw/blog/qt5-ubuntu-switch-fcitx-input-method.html" rel="alternate"></link><published>2017-01-24T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-24:blog/qt5-ubuntu-switch-fcitx-input-method.html</id><summary type="html">&lt;ul&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-28T21:00:00+08:00</updated><entry><title>Pandoc - Markdown 基本語法介紹</title><link href="http://project.mde.tw/blog/pandoc-markdown-ji-ben-yu-fa-jie-shao.html" rel="alternate"></link><published>2017-01-28T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-28:blog/pandoc-markdown-ji-ben-yu-fa-jie-shao.html</id><summary type="html">&lt;p&gt;一些 Pandoc 常用的 Markdown 語法及注意事項&lt;/p&gt;
+
+
+&lt;h1&gt;一些 Pandoc 常用的 Markdown 語法及注意事項&lt;/h1&gt;
+&lt;p&gt;參考資料：&lt;a href="https://pandoc.org/README.pdf"&gt;https://pandoc.org/README.pdf&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;基礎須知：Markdown 相對於其他文書格式，並非「易撰寫」，而是「易閱讀」，因此在語法上有很多種表達方式，擇一即可。&lt;/p&gt;
+&lt;p&gt;在需要特殊排版要求時才會加入 html 語法，而 html 語法中的任何 Markdown 記號都會視為通常字元。&lt;/p&gt;
+&lt;p&gt;這裡介紹的為 Pandoc 支援的語法，Pelican 轉換網誌時可能無法支援。&lt;/p&gt;
+&lt;p&gt;為編輯方便，這篇文章使用 Leo Editor 的 &lt;code&gt;@others&lt;/code&gt; 和 &lt;code&gt;@clean&lt;/code&gt; 語法編輯文件。&lt;/p&gt;
+&lt;h2&gt;目錄&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="#書目與換頁"&gt;書目與換頁&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="#換行記號"&gt;換行記號&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="#標題"&gt;標題&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="#分隔線"&gt;分隔線&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="#粗體與斜體"&gt;粗體與斜體&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="#清單"&gt;清單&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;&lt;a name="書目與換頁"&gt;&lt;/a&gt;書目與換頁 &lt;em&gt;Pandoc only&lt;/em&gt;&lt;/h2&gt;
+&lt;h3&gt;書目&lt;/h3&gt;
+&lt;p&gt;使用百分比符號隔著 1 到 4 格空白，插入置中封面文字。&lt;/p&gt;
+&lt;pre&gt;
+% 這是封面標題
+% 我是作者
+% 28, January, 2017
+
+---
+
+內文不能再使用
+&lt;/pre&gt;
+
+&lt;h3&gt;換頁&lt;/h3&gt;
+&lt;p&gt;換頁記號使用後不用再換行。&lt;/p&gt;
+&lt;pre&gt;
+\newpage
+&lt;/pre&gt;
+
+&lt;h2&gt;&lt;a name="換行記號"&gt;&lt;/a&gt;換行記號&lt;/h2&gt;
+&lt;p&gt;使用&lt;strong&gt;空行&lt;/strong&gt;的方式來作換行，如下：&lt;/p&gt;
+&lt;table class="codehilitetable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="codehilite"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;第一段文字
+
+第二段文字
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;「看起來像」空行也會被視作空行，如該行只有空白或 tab 字元。&lt;/p&gt;
+&lt;h2&gt;&lt;a name="標題"&gt;&lt;/a&gt;標題&lt;/h2&gt;
+&lt;p&gt;每個標題中都內建錨點，相當於 html 的 h1, h2, h3。&lt;/p&gt;
+&lt;p&gt;分成 Setext 和 Atx 兩種形式，而這兩種形式是可以混用的。&lt;/p&gt;
+&lt;p&gt;在 Pandoc 中，每個標題都會轉為 PDF 的目錄書籤。&lt;/p&gt;
+&lt;h3&gt;Setext 形式&lt;/h3&gt;
+&lt;p&gt;使用 3 個或以上的「等於」與「減號」代表 h1 和 h2。&lt;/p&gt;
+&lt;pre&gt;
+This is an H1
+===
+
+This is an H2
+-------------
+&lt;/pre&gt;
+
+&lt;h3&gt;Atx 形式&lt;/h3&gt;
+&lt;p&gt;井字號的數量決定層級。&lt;/p&gt;
+&lt;pre&gt;
+# This is an H1
+
+## This is an H2
+
+###### This is an H6
+&lt;/pre&gt;
+
+&lt;h2&gt;&lt;a name="分隔線"&gt;&lt;/a&gt;分隔線&lt;/h2&gt;
+&lt;p&gt;使用 3 個或以上的「星號」、「減號」、「下底線」來畫出水平分隔線。&lt;/p&gt;
+&lt;pre&gt;
+---
+
+*    *    *    *
+
+_____
+&lt;/pre&gt;
+
+&lt;h2&gt;&lt;a name="粗體與斜體"&gt;&lt;/a&gt;粗體與斜體&lt;/h2&gt;
+&lt;p&gt;在內文中標記粗體與斜體，兩者可以混用，但是開頭與結尾必須一致。&lt;/p&gt;
+&lt;h3&gt;斜體&lt;/h3&gt;
+&lt;p&gt;使用「星號」或「下底線」代表斜體。&lt;/p&gt;
+&lt;pre&gt;
+*斜體文字*
+
+_斜體文字_
+&lt;/pre&gt;
+
+&lt;h3&gt;粗體&lt;/h3&gt;
+&lt;p&gt;使用雙「星號」或「下底線」代表粗體。&lt;/p&gt;
+&lt;pre&gt;
+**粗體文字**
+
+__粗體文字__
+&lt;/pre&gt;
+
+&lt;h2&gt;&lt;a name="清單"&gt;&lt;/a&gt;清單&lt;/h2&gt;
+&lt;p&gt;清單分為無序和有序，都可以使用降階不間段放入內容。&lt;/p&gt;
+&lt;h3&gt;無序清單&lt;/h3&gt;
+&lt;p&gt;使用「星號」、「減號」、「加號」隔著 1 到 4 格空白來代表無序清單。&lt;/p&gt;
+&lt;pre&gt;
+* 其中一項
+
+    + 還有一項
+
+    + 還有一項
+
+        - 還有一項
+
+* 其中一項
+
+* 其中一項
+&lt;/pre&gt;
+
+&lt;h3&gt;有序清單&lt;/h3&gt;
+&lt;p&gt;使用「普通數字」與「英文句號」隔著 1 到 4 格空白放入內容，可以完全不照順序排版，在最終會自動轉換成順序排列。&lt;/p&gt;
+&lt;pre&gt;
+1. 永遠的第一項
+
+1. 永遠的第二項
+
+6. 永遠的第三項
+&lt;/pre&gt;
+
+&lt;h3&gt;擴充有序清單 &lt;em&gt;Pandoc only&lt;/em&gt;&lt;/h3&gt;
+&lt;p&gt;其他有序清單的選擇，讓需要多種清單的場合能快速分別。&lt;/p&gt;
+&lt;pre&gt;
+a. 小寫英文字母
+
+B.  大寫英文字母必須 2 個空格以上
+
+ii. 羅馬字母
+
+#. 自動排列
+
+1) 使用單邊括弧
+
+(1) 使雙邊括弧
+
+(C\) 避免排序
+&lt;/pre&gt;
+
+&lt;h2&gt;&lt;a name="注意事項"&gt;&lt;/a&gt;注意事項&lt;/h2&gt;
+&lt;p&gt;不像其他語言，在 Leo Editor 中使用 &lt;code&gt;@others&lt;/code&gt; 與 &lt;code&gt;@clean&lt;/code&gt; 編輯 Markdown 論文或技術手冊時，&lt;strong&gt;子節點必須多留一個換行&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;否則 Leo Editor 在儲存時會把下一個子節點的第一行對齊到前個節點的最後一行，導致&lt;strong&gt;沒有換行標記&lt;/strong&gt;，會誤認這兩行的內容為同一行而沒做換行處理。&lt;/p&gt;
+&lt;hr /&gt;
+&lt;p&gt;&lt;strong&gt;&lt;strong&gt;未完待續&lt;/strong&gt;&lt;/strong&gt;&lt;/p&gt;</summary><category term="pandoc"></category><category term="Leo Editor"></category></entry><entry><title>Qt5 - Ubuntu switch Fcitx input method</title><link href="http://project.mde.tw/blog/qt5-ubuntu-switch-fcitx-input-method.html" rel="alternate"></link><published>2017-01-24T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-24:blog/qt5-ubuntu-switch-fcitx-input-method.html</id><summary type="html">&lt;ul&gt;
 &lt;li&gt;解決 Ubuntu 平台無法在 Qt5 切換 Fcitx 輸入法的問題&lt;/li&gt;
 &lt;/ul&gt;
 
@@ -216,7 +378,7 @@ def strftime(date, date_format):
 &lt;/pre&gt;
 
 &lt;p&gt;之後存檔關閉即可。&lt;/p&gt;
-&lt;p&gt;接著就能使用 Pelican 的功能了。&lt;/p&gt;</summary><category term="Pelican"></category></entry><entry><title>40323214日誌- Install Scipy on windows</title><link href="http://project.mde.tw/blog/40323214ri-zhi-install-scipy-on-windows.html" rel="alternate"></link><published>2017-01-20T21:00:00+08:00</published><author><name>40323214</name></author><id>tag:project.mde.tw,2017-01-20:blog/40323214ri-zhi-install-scipy-on-windows.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;p&gt;接著就能使用 Pelican 的功能了。&lt;/p&gt;</summary><category term="Pelican"></category><category term="Leo Editor"></category></entry><entry><title>40323214日誌- Install Scipy on windows</title><link href="http://project.mde.tw/blog/40323214ri-zhi-install-scipy-on-windows.html" rel="alternate"></link><published>2017-01-20T21:00:00+08:00</published><author><name>40323214</name></author><id>tag:project.mde.tw,2017-01-20:blog/40323214ri-zhi-install-scipy-on-windows.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;h3&gt;一.Scipy基本介紹&lt;/h3&gt;
 

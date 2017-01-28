@@ -161,7 +161,26 @@ ii. 羅馬字母
 &lt;p&gt;不像其他語言，在 Leo Editor 中使用 &lt;code&gt;@others&lt;/code&gt; 與 &lt;code&gt;@clean&lt;/code&gt; 編輯 Markdown 論文或技術手冊時，&lt;strong&gt;子節點必須多留一個換行&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;否則 Leo Editor 在儲存時會把下一個子節點的第一行對齊到前個節點的最後一行，導致&lt;strong&gt;沒有換行標記&lt;/strong&gt;，會誤認這兩行的內容為同一行而沒做換行處理。&lt;/p&gt;
 &lt;hr /&gt;
-&lt;p&gt;&lt;strong&gt;&lt;strong&gt;未完待續&lt;/strong&gt;&lt;/strong&gt;&lt;/p&gt;</summary><category term="pandoc"></category><category term="Leo Editor"></category></entry><entry><title>Qt5 - Ubuntu switch Fcitx input method</title><link href="http://project.mde.tw/blog/qt5-ubuntu-switch-fcitx-input-method.html" rel="alternate"></link><published>2017-01-24T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-24:blog/qt5-ubuntu-switch-fcitx-input-method.html</id><summary type="html">&lt;ul&gt;
+&lt;p&gt;&lt;strong&gt;&lt;strong&gt;未完待續&lt;/strong&gt;&lt;/strong&gt;&lt;/p&gt;</summary><category term="pandoc"></category><category term="Leo Editor"></category></entry><entry><title>fix qt5 designer</title><link href="http://project.mde.tw/blog/fix-qt5-designer.html" rel="alternate"></link><published>2017-01-26T12:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2017-01-26:blog/fix-qt5-designer.html</id><summary type="html">&lt;p&gt;無法啟動qtdesigner的問題
+&lt;/p&gt;
+&lt;p&gt;要做圖形化設計的時候，除了憑空想像物件的形狀和位置，也可以利用一些輔助工具，像是QT designer，進行先調整繪畫的地方和使用方法。&lt;/p&gt;
+&lt;p&gt;底下為老師ana2017_lite的win的部分&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;在cmd裡面更新pip&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;接著安裝pip install pyqt5-tools&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;安裝完成後可以在dist-package裡面看到QT designer了&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;打開eric6裡面的 QT tools設定檔裡面加上位置就可以了&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;Y:\Anaconda3\Lib\site-packages\pyqt5-tools\designer&lt;/p&gt;
+&lt;p&gt;圖片後面補上(家裡網路太慢了)&lt;/p&gt;</summary><category term="ana2017"></category></entry><entry><title>Qt5 - Ubuntu switch Fcitx input method</title><link href="http://project.mde.tw/blog/qt5-ubuntu-switch-fcitx-input-method.html" rel="alternate"></link><published>2017-01-24T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-24:blog/qt5-ubuntu-switch-fcitx-input-method.html</id><summary type="html">&lt;ul&gt;
 &lt;li&gt;解決 Ubuntu 平台無法在 Qt5 切換 Fcitx 輸入法的問題&lt;/li&gt;
 &lt;/ul&gt;
 

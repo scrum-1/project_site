@@ -12,7 +12,14 @@
 &lt;li&gt;
 &lt;p&gt;轉換中文字型與換行說明&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;圖片參照&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;生成目錄&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
+&lt;p&gt;Pyslvs 手冊倉儲：&lt;a href="https://github.com/KmolYuan/Pyslvs-manual"&gt;https://github.com/KmolYuan/Pyslvs-manual&lt;/a&gt;&lt;/p&gt;
 
 
 &lt;h1&gt;Ubuntu 安裝方式&lt;/h1&gt;
@@ -64,11 +71,7 @@ $pandoc MANUAL.txt --latex-engine=xelatex -o MANUAL.pdf
 &lt;h1&gt;轉換中文字型說明&lt;/h1&gt;
 &lt;p&gt;若是只使用以上指令，英文以外的字元會無法順利轉換而變成空白文字。&lt;/p&gt;
 &lt;h2&gt;中文字型&lt;/h2&gt;
-&lt;p&gt;這時使用以下指令即可：&lt;/p&gt;
-&lt;pre&gt;
-$pandoc MANUAL.txt --latex-engine=xelatex -V mainfont="中文字型" -o MANUAL.pdf
-&lt;/pre&gt;
-
+&lt;p&gt;使用 &lt;code&gt;-V mainfont="中文字型"&lt;/code&gt; 指令即可。&lt;/p&gt;
 &lt;p&gt;在 leo editor 文件中，使用參數替換，以套用到不同檔案中：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
 import os, platform
@@ -100,7 +103,43 @@ $endif$
 &lt;/pre&gt;
 
 &lt;p&gt;在 &lt;code&gt;$if(mathfont)$&lt;/code&gt; 上方插入 &lt;code&gt;\XeTeXlinebreaklocale "zh"&lt;/code&gt;。&lt;/p&gt;
-&lt;p&gt;接著指令中加入 &lt;code&gt;--template=template.tex&lt;/code&gt; 來使用自訂模板。&lt;/p&gt;</summary><category term="pandoc"></category></entry><entry><title>Pandoc - Markdown 基本語法介紹</title><link href="http://project.mde.tw/blog/pandoc-markdown-ji-ben-yu-fa-jie-shao.html" rel="alternate"></link><published>2017-01-29T21:00:00+08:00</published><updated>2017-01-29T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-29:blog/pandoc-markdown-ji-ben-yu-fa-jie-shao.html</id><summary type="html">&lt;p&gt;一些 Pandoc 常用的 Markdown 語法及注意事項&lt;/p&gt;
+&lt;p&gt;接著指令中加入 &lt;code&gt;--template=template.tex&lt;/code&gt; 來使用自訂模板。&lt;/p&gt;
+&lt;h1&gt;圖片參照&lt;/h1&gt;
+&lt;p&gt;為了達成下列效果，必須使用圖片參照：&lt;/p&gt;
+&lt;pre&gt;
+![圖片名稱](圖片連結)
+
+請參考 [圖片名稱] 中的內容。
+&lt;/pre&gt;
+
+&lt;p&gt;不過 Pandoc 沒有內建這個功能，所以必須安裝 pandoc-fignos。&lt;/p&gt;
+&lt;p&gt;pandoc-fignos 是 Python 套件，使用 pip 安裝。&lt;/p&gt;
+&lt;pre&gt;
+$sudo pip3 install pandoc-fignos
+&lt;/pre&gt;
+
+&lt;p&gt;之後在 pandoc 參數中增加 &lt;code&gt;--filter pandoc-fignos&lt;/code&gt; 來啟用這個語法。&lt;/p&gt;
+&lt;p&gt;語法雖然很多樣，但是使用下列方式呈現較佳。&lt;/p&gt;
+&lt;pre&gt;
+![圖片名稱]
+
+請參考 *fig:圖片代稱 中的內容。
+
+[圖片名稱]: 圖片連結 {@fig:圖片代稱}
+&lt;/pre&gt;
+
+&lt;p&gt;會變成：&lt;/p&gt;
+&lt;pre&gt;
+[圖片]
+Figure 1: 圖片名稱
+
+請參考 Figure 1 中的內容。
+&lt;/pre&gt;
+
+&lt;h1&gt;生成目錄&lt;/h1&gt;
+&lt;p&gt;加入 &lt;code&gt;--toc&lt;/code&gt; 參數自動生成目錄，為 table of contents 的縮寫。&lt;/p&gt;
+&lt;p&gt;生成的目錄如下的形式，並會自動加上連結。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0121_02.png" /&gt;&lt;/p&gt;</summary><category term="pandoc"></category></entry><entry><title>Pandoc - Markdown 基本語法介紹</title><link href="http://project.mde.tw/blog/pandoc-markdown-ji-ben-yu-fa-jie-shao.html" rel="alternate"></link><published>2017-01-29T21:00:00+08:00</published><updated>2017-01-29T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-01-29:blog/pandoc-markdown-ji-ben-yu-fa-jie-shao.html</id><summary type="html">&lt;p&gt;一些 Pandoc 常用的 Markdown 語法及注意事項&lt;/p&gt;
 
 
 &lt;h1&gt;一些 Pandoc 常用的 Markdown 語法及注意事項&lt;/h1&gt;

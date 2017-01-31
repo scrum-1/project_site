@@ -170,13 +170,13 @@ init_mathjax();
 
         <meta name="author" content="40323230" />
         <meta name="keywords" content="pandoc" />
-        <meta name="description" content="Ubuntu 安裝方式 Windows 安裝方式 使用範例 轉換中文字型與換行說明" />
+        <meta name="description" content="Ubuntu 安裝方式 Windows 安裝方式 使用範例 轉換中文字型與換行說明 圖片參照 生成目錄 Pyslvs 手冊倉儲：https://github.com/KmolYuan/Pyslvs-manual" />
 
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Pandoc - Markdown 轉 PDF 格式"/>
         <meta property="og:url" content="http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html"/>
-        <meta property="og:description" content="Ubuntu 安裝方式 Windows 安裝方式 使用範例 轉換中文字型與換行說明"/>
+        <meta property="og:description" content="Ubuntu 安裝方式 Windows 安裝方式 使用範例 轉換中文字型與換行說明 圖片參照 生成目錄 Pyslvs 手冊倉儲：https://github.com/KmolYuan/Pyslvs-manual"/>
         <meta property="article:published_time" content="2017-01-30" />
             <meta property="article:section" content="2016bg2" />
             <meta property="article:tag" content="pandoc" />
@@ -340,7 +340,14 @@ init_mathjax();
 <li>
 <p>轉換中文字型與換行說明</p>
 </li>
+<li>
+<p>圖片參照</p>
+</li>
+<li>
+<p>生成目錄</p>
+</li>
 </ul>
+<p>Pyslvs 手冊倉儲：<a href="https://github.com/KmolYuan/Pyslvs-manual">https://github.com/KmolYuan/Pyslvs-manual</a></p>
 
 
 <h1>Ubuntu 安裝方式</h1>
@@ -392,11 +399,7 @@ $pandoc MANUAL.txt --latex-engine=xelatex -o MANUAL.pdf
 <h1>轉換中文字型說明</h1>
 <p>若是只使用以上指令，英文以外的字元會無法順利轉換而變成空白文字。</p>
 <h2>中文字型</h2>
-<p>這時使用以下指令即可：</p>
-<pre>
-$pandoc MANUAL.txt --latex-engine=xelatex -V mainfont="中文字型" -o MANUAL.pdf
-</pre>
-
+<p>使用 <code>-V mainfont="中文字型"</code> 指令即可。</p>
 <p>在 leo editor 文件中，使用參數替換，以套用到不同檔案中：</p>
 <pre class="brush: python">
 import os, platform
@@ -429,6 +432,42 @@ $endif$
 
 <p>在 <code>$if(mathfont)$</code> 上方插入 <code>\XeTeXlinebreaklocale "zh"</code>。</p>
 <p>接著指令中加入 <code>--template=template.tex</code> 來使用自訂模板。</p>
+<h1>圖片參照</h1>
+<p>為了達成下列效果，必須使用圖片參照：</p>
+<pre>
+![圖片名稱](圖片連結)
+
+請參考 [圖片名稱] 中的內容。
+</pre>
+
+<p>不過 Pandoc 沒有內建這個功能，所以必須安裝 pandoc-fignos。</p>
+<p>pandoc-fignos 是 Python 套件，使用 pip 安裝。</p>
+<pre>
+$sudo pip3 install pandoc-fignos
+</pre>
+
+<p>之後在 pandoc 參數中增加 <code>--filter pandoc-fignos</code> 來啟用這個語法。</p>
+<p>語法雖然很多樣，但是使用下列方式呈現較佳。</p>
+<pre>
+![圖片名稱]
+
+請參考 *fig:圖片代稱 中的內容。
+
+[圖片名稱]: 圖片連結 {@fig:圖片代稱}
+</pre>
+
+<p>會變成：</p>
+<pre>
+[圖片]
+Figure 1: 圖片名稱
+
+請參考 Figure 1 中的內容。
+</pre>
+
+<h1>生成目錄</h1>
+<p>加入 <code>--toc</code> 參數自動生成目錄，為 table of contents 的縮寫。</p>
+<p>生成的目錄如下的形式，並會自動加上連結。</p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0121_02.png" /></p>
             </div>
             <!-- /.entry-content -->
     <hr/>

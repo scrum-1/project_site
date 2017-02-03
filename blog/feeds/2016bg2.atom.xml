@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-03T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/02/03</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060203.html" rel="alternate"></link><published>2017-02-03T21:00:00+08:00</published><updated>2017-02-03T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-03:blog/40323230ri-zhi-1060203.html</id><summary type="html">&lt;p&gt;Leo Editor - Pyslvs 手冊 - Reveal.js&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-03T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/02/03</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060203.html" rel="alternate"></link><published>2017-02-03T21:00:00+08:00</published><updated>2017-02-03T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-03:blog/40323230ri-zhi-1060203.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Leo Editor - Pyslvs 手冊 - Reveal.js&lt;/p&gt;
 &lt;p&gt;兩種方式轉成 Reveal.js 樣板：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
@@ -9,6 +11,11 @@
 &lt;p&gt;Pandoc - Template&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Pelican 的 Pandoc Plugin&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
 
 
 &lt;h1&gt;Leo Editor - Pyslvs 手冊 - Reveal.js&lt;/h1&gt;
@@ -35,7 +42,11 @@ $pandoc -t html5 --template=template-revealjs.html \
 &lt;p&gt;主要使用 &lt;code&gt;--section-divs&lt;/code&gt; 配上 &lt;code&gt;-t html5&lt;/code&gt; 並套用 Reveal.js 的套件轉出。&lt;/p&gt;
 &lt;p&gt;轉出來的樣式如下：&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0203_03.png" /&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;缺點&lt;/strong&gt;明顯就是「小節」會依附在「章」中，每一頁都會有「章」的開頭文字擋住。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 106/02/02</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060202.html" rel="alternate"></link><published>2017-02-02T21:00:00+08:00</published><updated>2017-02-02T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-02:blog/40323230ri-zhi-1060202.html</id><summary type="html">&lt;p&gt;Leo Editor - Pyslvs 手冊&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;缺點&lt;/strong&gt;明顯就是「小節」會依附在「章」中，每一頁都會有「章」的開頭文字擋住。&lt;/p&gt;
+&lt;h1&gt;Pelican 的 Pandoc Plugin&lt;/h1&gt;
+&lt;p&gt;Pelican 部分有找到相關的擴充套件 pandoc_reader。&lt;/p&gt;
+&lt;p&gt;倉儲位址：&lt;a href="https://github.com/liob/pandoc_reader"&gt;https://github.com/liob/pandoc_reader&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;還沒測試過效果，不過會使用到 command line 的 Pandoc，應該能套用原本的 Markdown 文件。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 106/02/02</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060202.html" rel="alternate"></link><published>2017-02-02T21:00:00+08:00</published><updated>2017-02-02T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-02:blog/40323230ri-zhi-1060202.html</id><summary type="html">&lt;p&gt;Leo Editor - Pyslvs 手冊&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;Pandoc - PDF&lt;/p&gt;

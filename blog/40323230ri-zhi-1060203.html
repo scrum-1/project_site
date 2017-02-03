@@ -170,13 +170,13 @@ init_mathjax();
 
         <meta name="author" content="40323230" />
         <meta name="keywords" content="Kmol,Pyslvs" />
-        <meta name="description" content="Leo Editor - Pyslvs 手冊 - Reveal.js 兩種方式轉成 Reveal.js 樣板： Leo Editor Cloned Node Pandoc - Template" />
+        <meta name="description" content="Leo Editor - Pyslvs 手冊 - Reveal.js 兩種方式轉成 Reveal.js 樣板： Leo Editor Cloned Node Pandoc - Template Pelican 的 Pandoc Plugin" />
 
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="40323230日誌 - 106/02/03"/>
         <meta property="og:url" content="http://project.mde.tw/blog/40323230ri-zhi-1060203.html"/>
-        <meta property="og:description" content="Leo Editor - Pyslvs 手冊 - Reveal.js 兩種方式轉成 Reveal.js 樣板： Leo Editor Cloned Node Pandoc - Template"/>
+        <meta property="og:description" content="Leo Editor - Pyslvs 手冊 - Reveal.js 兩種方式轉成 Reveal.js 樣板： Leo Editor Cloned Node Pandoc - Template Pelican 的 Pandoc Plugin"/>
         <meta property="article:published_time" content="2017-02-03" />
             <meta property="article:section" content="2016bg2" />
             <meta property="article:tag" content="Kmol" />
@@ -330,7 +330,9 @@ init_mathjax();
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>Leo Editor - Pyslvs 手冊 - Reveal.js</p>
+                <ol>
+<li>
+<p>Leo Editor - Pyslvs 手冊 - Reveal.js</p>
 <p>兩種方式轉成 Reveal.js 樣板：</p>
 <ul>
 <li>
@@ -340,6 +342,11 @@ init_mathjax();
 <p>Pandoc - Template</p>
 </li>
 </ul>
+</li>
+<li>
+<p>Pelican 的 Pandoc Plugin</p>
+</li>
+</ol>
 
 
 <h1>Leo Editor - Pyslvs 手冊 - Reveal.js</h1>
@@ -367,6 +374,10 @@ $pandoc -t html5 --template=template-revealjs.html \
 <p>轉出來的樣式如下：</p>
 <p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0203_03.png" /></p>
 <p><strong>缺點</strong>明顯就是「小節」會依附在「章」中，每一頁都會有「章」的開頭文字擋住。</p>
+<h1>Pelican 的 Pandoc Plugin</h1>
+<p>Pelican 部分有找到相關的擴充套件 pandoc_reader。</p>
+<p>倉儲位址：<a href="https://github.com/liob/pandoc_reader">https://github.com/liob/pandoc_reader</a></p>
+<p>還沒測試過效果，不過會使用到 command line 的 Pandoc，應該能套用原本的 Markdown 文件。</p>
             </div>
             <!-- /.entry-content -->
     <hr/>

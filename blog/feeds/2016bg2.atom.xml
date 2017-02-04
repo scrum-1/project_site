@@ -1,5 +1,172 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-03T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/02/03</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060203.html" rel="alternate"></link><published>2017-02-03T21:00:00+08:00</published><updated>2017-02-03T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-03:blog/40323230ri-zhi-1060203.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-04T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/02/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060204.html" rel="alternate"></link><published>2017-02-04T21:00:00+08:00</published><updated>2017-02-04T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-04:blog/40323230ri-zhi-1060204.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Leo Editor - 簡單的節點控制&lt;/p&gt;
+&lt;p&gt;簡述 Leo Editor 的 @button 節點運用。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;預先定義名稱：c、g、p&lt;/li&gt;
+&lt;li&gt;Vnode&lt;/li&gt;
+&lt;li&gt;Position&lt;/li&gt;
+&lt;li&gt;Generator&lt;/li&gt;
+&lt;li&gt;使用 @button 複製節點正文&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Pyslvs 手冊應用&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Leo Editor - 簡單的節點控制&lt;/h1&gt;
+&lt;p&gt;參考資料：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://leoeditor.com/tutorial-scripting.html#predefined-symbols-c-g-and-p"&gt;http://leoeditor.com/tutorial-scripting.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://leoeditor.com/tutorial-scripting.html#predefined-symbols-c-g-and-p"&gt;http://leoeditor.com/scripting.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;預先定義名稱：c、g 和 p&lt;/h2&gt;
+&lt;p&gt;在可執行腳本中預先定義的符號 c、g 和 p。&lt;/p&gt;
+&lt;p&gt;c 為包含腳本大綱的 &lt;strong&gt;commander&lt;/strong&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Commander 為指令類別的實體（instance），在 &lt;code&gt;leoCommands.py&lt;/code&gt; 文件中定義。&lt;/li&gt;
+&lt;li&gt;Commander 提供了所有大綱資料與 Leo 原始碼的權限。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;g 為 Leo 的 leo.core.leoGlobals 模組。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;這個模組包含許多實用的函式，如 &lt;code&gt;g.es&lt;/code&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;p 是當前選擇節點的 &lt;strong&gt;position&lt;/strong&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;position 為位置類別的實體，在 &lt;code&gt;leoNodes.py&lt;/code&gt; 文件中定義。&lt;/li&gt;
+&lt;li&gt;位置類型提供安全、方便的方式來存取與修改大綱節點。&lt;/li&gt;
+&lt;li&gt;對於任何位置的 &lt;code&gt;p&lt;/code&gt;，&lt;code&gt;p.v&lt;/code&gt; 是一個 &lt;strong&gt;vnode&lt;/strong&gt; 物件。&lt;/li&gt;
+&lt;li&gt;vnode 包含所有在 Leo 大綱的永久資料。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Vnode&lt;/h2&gt;
+&lt;p&gt;vnode 為 vnode 類別的實體，在 &lt;code&gt;leoNodes.py&lt;/code&gt; 文件中定義。每個 vnode 代表關聯著一個大綱節點的&lt;em&gt;所有&lt;/em&gt;資訊，包含著&lt;em&gt;專用&lt;/em&gt;數據帶有它的大鋼結構。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;v.b 是（大綱）節點的正文（body text）。&lt;/li&gt;
+&lt;li&gt;v.h 是節點的標題（headline）。&lt;/li&gt;
+&lt;li&gt;v.u 是節點的&lt;strong&gt;使用者資訊&lt;/strong&gt;。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;所有分身節點共用同一個 vnode。&lt;/strong&gt;反之，每個 vnode 表示出所有分身相應的節點。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0204_01.png" /&gt;&lt;/p&gt;
+&lt;p&gt;由於&lt;em&gt;單一個&lt;/em&gt; vnode 可以代表&lt;em&gt;多個&lt;/em&gt;大綱節點，直接使用 vnode 會變得較尷尬。這就是為何出現 position：&lt;strong&gt;position 簡化對 vnode 的存取。&lt;/strong&gt;&lt;/p&gt;
+&lt;h2&gt;Position&lt;/h2&gt;
+&lt;p&gt;一個 position 代表一個具體的大綱節點在大綱一個精確的位置上，position 為位置類別的實體，在 &lt;code&gt;leoNodes.py&lt;/code&gt; 文件中定義。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;在位置 &lt;code&gt;p&lt;/code&gt; 上的 vnode 就是 &lt;code&gt;p.v&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;由於所有分身共用一樣的 vnode，多個 position 可能會擁有一樣的 &lt;code&gt;p.v&lt;/code&gt; 內容。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;p.b&lt;/code&gt;、&lt;code&gt;p.h&lt;/code&gt;、&lt;code&gt;p.u&lt;/code&gt; 代表著 &lt;code&gt;p.v.b&lt;/code&gt;、&lt;code&gt;p.v.h&lt;/code&gt;、&lt;code&gt;p.v.u&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;對於任何一個 Commander &lt;code&gt;c&lt;/code&gt;，&lt;code&gt;c.p&lt;/code&gt; 為當前選擇的節點。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;position 常因為大綱結構改變而變成無效。&lt;/strong&gt;腳本應當只在確保大綱結構不會發生任何改變時儲存位置以供稍後使用。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;c.positionExists(p)&lt;/code&gt; 會在 &lt;code&gt;c.p&lt;/code&gt; 仍為有效值時回傳 True。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0204_02.png" /&gt;&lt;/p&gt;
+&lt;h2&gt;Generator&lt;/h2&gt;
+&lt;p&gt;Leo 的 Generator 即為 Python generator，這些 generator 追蹤（逐漸地）Leo 大綱的一個個節點：&lt;strong&gt;Leo generators yield 出一個位置序列。&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;命令（commander）和位置類別定義了數個 generator，&lt;code&gt;c.all_positions()&lt;/code&gt; 隨著大綱順序追蹤大綱。下面的程式 print 出正確縮排的標題清單。&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+for p in c.all_positions():
+    print(' '*p.level()+p.h)
+&lt;/pre&gt;
+
+&lt;p&gt;Leo generator &lt;strong&gt;yield&lt;/strong&gt;（回傳一個環節）出 position。它們&lt;em&gt;不會&lt;/em&gt;回傳一個實際的 list；這為大型的大綱節省了不少空間。事實上，這個位置序列其實是一個&lt;strong&gt;單一&lt;/strong&gt;、&lt;strong&gt;不斷變化位置&lt;/strong&gt;的序列。這是一個非常重要的空間優化。&lt;/p&gt;
+&lt;p&gt;當一個 generator 已經回傳完成，這個單一位置變成了一個&lt;strong&gt;空的 position&lt;/strong&gt;。&lt;code&gt;p.v&lt;/code&gt; 會在空的 position 為 None。這裡有正確及錯誤的方式測試空的 position。&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+if not p:       # Right
+if not p.v:     # Right
+if p is None:   # Wrong!
+&lt;/pre&gt;
+
+&lt;h2&gt;使用 @button 複製節點正文&lt;/h2&gt;
+&lt;p&gt;自己做了一個按鈕程式來應用 Leo editor 的腳本功能。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;目標&lt;/strong&gt;：將 I 節點下的 Hellow World! 文章改名複製到 J 節點下。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0204_03.png" /&gt;&lt;/p&gt;
+&lt;p&gt;由於還不太熟悉 Leo 的 generator，先用比較生疏的方式指定目標。&lt;/p&gt;
+&lt;p&gt;複製節點文章程式：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+pList = [e for e in c.all_positions()]
+nList = [e.h for e in c.all_nodes()]
+bList = [e.b for e in c.all_nodes()]
+Istart = nList.index("I")+1
+Iend = nList.index("i-c")+1
+Jstart = nList.index("J")+1
+Jend = nList.index("j-c")+1
+B = bList[Istart:Iend]
+P = pList[Jstart:Jend]
+B = [e.replace('i', 'j') for e in B]
+for e in range(len(P)): P[e].b = B[e]
+g.es('Copied!')
+&lt;/pre&gt;
+
+&lt;p&gt;清空節點文章程式：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+pList = [e for e in c.all_positions()]
+nList = [e.h for e in c.all_nodes()]
+Jstart = nList.index("J")+1
+Jend = nList.index("j-c")+1
+P = pList[Jstart:Jend]
+for e in range(len(P)): P[e].b = ''
+g.es('Cleaned!')
+&lt;/pre&gt;
+
+&lt;p&gt;列出 position 和 vnode 程式：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+pList = [str(e) for e in c.all_positions()]
+nList = [str(e) for e in c.all_nodes()]
+g.es('\n'.join(pList))
+g.es('\n'.join(nList))
+&lt;/pre&gt;
+
+&lt;h1&gt;Pyslvs 手冊應用&lt;/h1&gt;
+&lt;p&gt;使用 Leo editor 的腳本功能達成轉換 Pandoc 特殊語法。&lt;/p&gt;
+&lt;p&gt;目前功能：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;及時裁切處理 Markdown 文件，輸出 Reveal.js 的 Markdown + html 語法到指定節點（Target node）。&lt;/li&gt;
+&lt;li&gt;切開 &lt;code&gt;\newpage&lt;/code&gt; 記號成水平投影片。&lt;/li&gt;
+&lt;li&gt;圖片參照記號移除，但是內文的還未解決。&lt;/li&gt;
+&lt;li&gt;其他皆按照 data-markdown 的功能排版。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;程式還有些雜亂，之後會整修一下。&lt;/p&gt;
+&lt;p&gt;轉換程式：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+pList = [e for e in c.all_positions()]
+nList = [e.h for e in c.all_nodes()]
+bList = [e.b for e in c.all_nodes()]
+Istart = nList.index("@clean {}.md".format(filename))
+Iend = nList.index("@clean reveal.js/{}.html".format(filename))
+pos = nList.index("{} Target node".format(filename))
+B = bList[Istart:Iend]
+P = pList[pos]
+B[0] = B[0].replace("%", "##")+"\n\\newpage"
+B = ''.join(B).replace("\n@language md", '').replace("\n@others", '').split("\n\n\\newpage")
+head = """&lt;section&gt;
+&lt;section data-markdown data-separator="^\\n&lt;!--===--&gt;\\n"&gt;
+&lt;script type="text/template"&gt;"""
+tail = """
+&lt;/script&gt;
+&lt;/section&gt;
+&lt;/section&gt;
+"""
+B = [head+e+tail for e in B]
+P.b = removeParentheses("@language html\n"+'\n'.join(B))
+g.es("{} HTML 簡報轉換完畢".format(filename))
+&lt;/pre&gt;
+
+&lt;p&gt;移除圖片參照專用函式 &lt;code&gt;removeParentheses()&lt;/code&gt;：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+def removeParentheses(content):
+    while content.find("{")!=-1:
+        start = content.find("{")
+        end = content.find("}")+1
+        result = content[start:end]
+        content = content.replace(result, '')
+    return content
+&lt;/pre&gt;
+
+&lt;p&gt;轉換過程不會用到外部程式，三份 html 文件都是共用同一份 js 檔案。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 106/02/03</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060203.html" rel="alternate"></link><published>2017-02-03T21:00:00+08:00</published><updated>2017-02-03T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-03:blog/40323230ri-zhi-1060203.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Leo Editor - Pyslvs 手冊 - Reveal.js&lt;/p&gt;
 &lt;p&gt;兩種方式轉成 Reveal.js 樣板：&lt;/p&gt;

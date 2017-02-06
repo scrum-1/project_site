@@ -259,9 +259,6 @@ init_mathjax();
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="http://project.mde.tw/blog/pages/about/">
-                             About
-                          </a></li>
                         <li class="active">
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
@@ -316,7 +313,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-02-04T21:00:00+08:00"> Sat 04 February 2017</time>
+        <i class="fa fa-calendar"></i><time datetime="2017-02-04T21:00:00+08:00"> 週六 04 二月 2017</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -390,7 +387,7 @@ init_mathjax();
 <li>v.u 是節點的<strong>使用者資訊</strong>。</li>
 </ul>
 <p><strong>所有分身節點共用同一個 vnode。</strong>反之，每個 vnode 表示出所有分身相應的節點。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0204_01.png" /></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0204_01.png"></p>
 <p>由於<em>單一個</em> vnode 可以代表<em>多個</em>大綱節點，直接使用 vnode 會變得較尷尬。這就是為何出現 position：<strong>position 簡化對 vnode 的存取。</strong></p>
 <h2>Position</h2>
 <p>一個 position 代表一個具體的大綱節點在大綱一個精確的位置上，position 為位置類別的實體，在 <code>leoNodes.py</code> 文件中定義。</p>
@@ -404,7 +401,7 @@ init_mathjax();
 <ul>
 <li><code>c.positionExists(p)</code> 會在 <code>c.p</code> 仍為有效值時回傳 True。</li>
 </ul>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0204_02.png" /></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0204_02.png"></p>
 <h2>Generator</h2>
 <p>Leo 的 Generator 即為 Python generator，這些 generator 追蹤（逐漸地）Leo 大綱的一個個節點：<strong>Leo generators yield 出一個位置序列。</strong></p>
 <p>命令（commander）和位置類別定義了數個 generator，<code>c.all_positions()</code> 隨著大綱順序追蹤大綱。下面的程式 print 出正確縮排的標題清單。</p>
@@ -424,7 +421,7 @@ if p is None:   # Wrong!
 <h2>使用 @button 複製節點正文</h2>
 <p>自己做了一個按鈕程式來應用 Leo editor 的腳本功能。</p>
 <p><strong>目標</strong>：將 I 節點下的 Hellow World! 文章改名複製到 J 節點下。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0204_03.png" /></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0204_03.png"></p>
 <p>由於還不太熟悉 Leo 的 generator，先用比較生疏的方式指定目標。</p>
 <p>複製節點文章程式：</p>
 <pre class="brush: python">
@@ -553,6 +550,11 @@ def removeParentheses(content):
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/pyqt5-serial-port.html">
+                            PyQt5 serial port
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1060204.html">
                             40323230日誌 - 106/02/04
                         </a>
@@ -570,11 +572,6 @@ def removeParentheses(content):
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html">
                             Pandoc - Markdown 轉 PDF 格式
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/pandoc-markdown-ji-ben-yu-fa-jie-shao.html">
-                            Pandoc - Markdown 基本語法介紹
                         </a>
                     </li>
                 </ul>

@@ -258,9 +258,6 @@ init_mathjax();
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="http://project.mde.tw/blog/pages/about/">
-                             About
-                          </a></li>
                         <li >
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
@@ -315,7 +312,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-07-13T12:00:00+08:00"> Wed 13 July 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-07-13T12:00:00+08:00"> 週三 13 七月 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323143.html"><i class="fa fa-user"></i> 40323143</a>
@@ -340,46 +337,7 @@ init_mathjax();
 <p>5.新增補正的原因是因為我們的馬達是連續旋轉型的，沒辦法讓他固定，所以用補正解決。</p>
 <p>程式:</p>
 <p>加了補正的程式</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Servo.h&gt;</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Servo.h&gt;</span><span class="cp"></span>
 
 <span class="n">Servo</span> <span class="n">myservo</span><span class="p">;</span> <span class="c1">//旋盤上</span>
 
@@ -420,51 +378,10 @@ init_mathjax();
   <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
-</td></tr></table>
+
 
 <p>嘗試控制兩個馬達的程式(一個忘了存)</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
- 2
- 3
- 4
- 5
- 6
- 7
- 8
- 9
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32
-33
-34
-35
-36
-37
-38
-39
-40
-41
-42</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Servo.h&gt;</span><span class="cp"></span>
+<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Servo.h&gt;</span><span class="cp"></span>
 <span class="n">Servo</span> <span class="n">myservo1</span><span class="p">;</span>
 <span class="n">Servo</span> <span class="n">myservo2</span><span class="p">;</span>
 <span class="kt">int</span> <span class="n">x</span><span class="o">=</span><span class="mi">100</span><span class="p">;</span>
@@ -507,7 +424,7 @@ init_mathjax();
  <span class="p">}</span>
 <span class="p">}</span>
 </pre></div>
-</td></tr></table>
+
 
 <p>問題:</p>
 <p>每次程式跑到 1000*(acos(d/150)/144) 這一行馬達就會像失去動力般一小段時間，然後直接回到原點，將這段數學式改成常數後就沒有問題，想請問是什麼原因?</p>
@@ -558,6 +475,11 @@ init_mathjax();
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/pyqt5-serial-port.html">
+                            PyQt5 serial port
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1060204.html">
                             40323230日誌 - 106/02/04
                         </a>
@@ -575,11 +497,6 @@ init_mathjax();
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html">
                             Pandoc - Markdown 轉 PDF 格式
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/pandoc-markdown-ji-ben-yu-fa-jie-shao.html">
-                            Pandoc - Markdown 基本語法介紹
                         </a>
                     </li>
                 </ul>

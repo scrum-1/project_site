@@ -259,9 +259,6 @@ init_mathjax();
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="http://project.mde.tw/blog/pages/about/">
-                             About
-                          </a></li>
                         <li class="active">
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
@@ -316,7 +313,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-01-22T21:00:00+08:00"> Sun 22 January 2017</time>
+        <i class="fa fa-calendar"></i><time datetime="2017-01-22T21:00:00+08:00"> 週日 22 一月 2017</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -356,7 +353,7 @@ time.strftime('%a')
 </pre>
 
 <p>Python Rise 了相同的錯誤如下：</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0122_01.jpg" /></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0122_01.jpg"></p>
 <p>解決方式就是重新設定 local 的設定。</p>
 <p>到 Anaconda 的資料夾中找到 pelican，編輯其 utils.py 檔案（如：<code>Anaconda3\Lib\site-packages\pelican</code>）。</p>
 <p>搜尋 <code>def strftime(date, date_format)</code> 這個函式。</p>
@@ -422,6 +419,11 @@ def strftime(date, date_format):
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/pyqt5-serial-port.html">
+                            PyQt5 serial port
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1060204.html">
                             40323230日誌 - 106/02/04
                         </a>
@@ -439,11 +441,6 @@ def strftime(date, date_format):
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html">
                             Pandoc - Markdown 轉 PDF 格式
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/pandoc-markdown-ji-ben-yu-fa-jie-shao.html">
-                            Pandoc - Markdown 基本語法介紹
                         </a>
                     </li>
                 </ul>

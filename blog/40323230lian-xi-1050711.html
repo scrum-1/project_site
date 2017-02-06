@@ -259,6 +259,9 @@ init_mathjax();
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
+                         <li><a href="http://project.mde.tw/blog/pages/about/">
+                             About
+                          </a></li>
                         <li class="active">
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
@@ -313,7 +316,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-07-11T19:00:00+08:00"> 週一 11 七月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-07-11T19:00:00+08:00"> 一 11 七月 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -333,10 +336,10 @@ init_mathjax();
 <h2>編譯出Python的動態連結庫 :</h2>
 
 <p>從<a href="https://github.com/coursemdetw/2015cp" title="coursemdetw/2015cp">https://github.com/coursemdetw/2015cp</a>下載老師的範本練習。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0710_01.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0710_01.jpg" /></p>
 <p>C程式的部分分成pymod和pyfun。</p>
 <p>這兩組底下都有3個Node，分別是編譯Python動態連結庫用的button、呼叫用的Python程式和一個C++編成的函式。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0710_02.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0710_02.jpg" /></p>
 <p>button裡的內容如下：</p>
 <pre class="brush: python">
 ...
@@ -359,7 +362,7 @@ g.es("pymod done")
 
 <p>而另一邊的pyfun同理。</p>
 <p>接著就能在\dist資料夾中編譯出sum.pyd和pyfun.pyd了。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0710_03.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0710_03.jpg" /></p>
 <hr>
 
 <h2>使用mypy.py :</h2>
@@ -402,7 +405,7 @@ static struct PyMethodDef Mod_Methods[] = {
 </pre>
 
 <p>sum2()函式回傳的是兩個輸入值（pyd內部名為a和b），所以mypy.py收到後會顯示在畫面上。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0710_04.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0710_04.jpg" /></p>
 <p>另一邊的mypy2.py是使用pyfun.pyd，不過有兩個檔案太麻煩了，乾脆讓mypy.py導入兩個pyd就好了。</p>
 <p>這次是加入一段字串。</p>
 <pre class="brush: python">
@@ -422,7 +425,7 @@ pyfun(PyObject *self,PyObject *args)
 </pre>
 
 <p>執行後的結果：</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0710_05.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0710_05.jpg" /></p>
 <p>不過這兩個pyd的結尾不太一樣。</p>
 <p><em>sum.pyd</em></p>
 <pre class="brush: c">
@@ -455,7 +458,7 @@ PyInit_pyfun(void)
 
 <p>只使用既定的範本實在是太簡略了，所以試著在pyd中加一些自己寫的函式。</p>
 <p>在sum中加入新的函式sum3，並讓它的傳回值設定為a和b相加後開平方根，再乘上10。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0710_06.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0710_06.jpg" /></p>
 <p>添加了下列指令：</p>
 <pre class="brush: c">
 //導入

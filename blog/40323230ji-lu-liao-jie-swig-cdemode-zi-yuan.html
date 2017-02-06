@@ -261,6 +261,9 @@ init_mathjax();
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
+                         <li><a href="http://project.mde.tw/blog/pages/about/">
+                             About
+                          </a></li>
                         <li class="active">
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
@@ -315,7 +318,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-07-09T19:00:00+08:00"> 週六 09 七月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-07-09T19:00:00+08:00"> 六 09 七月 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -351,13 +354,13 @@ init_mathjax();
 <p>接著從<a href="http://www.swig.org/download.html" title="swig.org">swig.org</a>下載最新版的SWIG 3.0.10，將壓縮包解至W:內。</p>
 <p>SWIG能夠給Windows/Unix/MacOSX三個平台使用，所以壓縮檔的附檔名是三個平台都共通的".tar.gz"。</p>
 <p>解壓縮後，在Windows環境中有很多檔案是打不開的，不過說明檔是沒有附檔名的，隨便用任何一款文字編輯軟體都能查看。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709-2_01.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709-2_01.jpg" /></p>
 <p>如果該步驟需要完整的流程，\Doc\Manual中有寫好的html網頁手冊，用網頁瀏覽器就能開啟。</p>
 <p>在閱讀\Doc\Manual\Windows.html的說明之後，手冊解釋SWIG並不是使用通常的Windows類型安裝程式。</p>
 <p>只要在編譯器中（手冊的範例是Visual Studio）設置環境變數就能使用其範例檔。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709-2_02.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709-2_02.jpg" /></p>
 <p>手冊上也有說明能夠用MinGW和MSYS，Build出SWIG的可執行檔swig.exe。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709-2_03.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709-2_03.jpg" /></p>
 <hr>
 
 <h2>CDemo.exe :</h2>
@@ -365,17 +368,17 @@ init_mathjax();
 <p>CDemo.exe是由CDemo.c編譯出來的可執行檔，取用libslvs.dll的動態連結庫運作。</p>
 <p>在原本的\exposed資料夾中還有工程師留下的VbDemo.vb，Visual Basic或是Visual C#的專案文件，不過不使用這兩個編譯器的話就用不到。</p>
 <p>為此特別將CDemo.exe和libslvs.dll拿出來放在獨立的資料夾中。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709-2_04.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709-2_04.jpg" /></p>
 <p>由CMD進入資料夾中執行CDemo.exe，會發現CDemo是直接顯示了結果。</p>
 <p>顯然CDemo.exe原先已經設定好題目，於是打開CDemo.c看看工程師的註解怎麼說。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709-2_05.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709-2_05.jpg" /></p>
 <hr>
 
 <h2>CDemo.c :</h2>
 
 <p>由於NetBeans和Windows的截圖程式似乎有衝突，會常常截完圖後自動閃退，所以改用簡便的SciTE。</p>
 <p>用SciTE開啟CDemo.c，可以發現CDemo的原始碼。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709-2_06.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709-2_06.jpg" /></p>
 <p>而為了方便，將它部分的原始碼貼在下面：</p>
 <pre class="brush: c">
 /*---------------------------

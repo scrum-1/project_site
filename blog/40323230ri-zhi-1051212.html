@@ -259,6 +259,9 @@ init_mathjax();
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
+                         <li><a href="http://project.mde.tw/blog/pages/about/">
+                             About
+                          </a></li>
                         <li class="active">
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
@@ -313,7 +316,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-12-12T21:00:00+08:00"> 週一 12 十二月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-12-12T21:00:00+08:00"> 一 12 十二月 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -351,7 +354,7 @@ init_mathjax();
 <p>也因為當時寫的校正座標指令是以原點為中心點，造成其他象限的中心軸轉動時，旋轉點出現怪異的運算結果。</p>
 <p>校正繞行圓心時造成中心與旋轉點的位置差，目前座標位置如果比中心還高，基本運行就會流暢，不過如果初始低於圓心，還要加上其他判斷才能修正。</p>
 <p>提前測試一下學長論文中的近似直線範例：</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1212_01.png"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1212_01.png" /></p>
 <h2>復原重做功能</h2>
 <p>這個部份快要整備好了，但是不知道運作效能如何，也還沒部屬必須紀錄的步驟。</p>
 <p>仿照 Qt 的方式寫了一個相似的類型（因為 Qt 必須部屬在所有指令上，而且還要另外寫反向命令），並在需要時存入重要資訊，一定的步驟內可還原上次的表格內容。</p>

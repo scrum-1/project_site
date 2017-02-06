@@ -259,6 +259,9 @@ init_mathjax();
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
+                         <li><a href="http://project.mde.tw/blog/pages/about/">
+                             About
+                          </a></li>
                         <li class="active">
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
@@ -313,7 +316,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-11-20T21:00:00+08:00"> 週日 20 十一月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-11-20T21:00:00+08:00"> 日 20 十一月 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -340,14 +343,19 @@ init_mathjax();
 <p><strong>處理表格及算點的程式都放到 calculation 資料夾中。</strong></p>
 <p>原本都是讀取 Qt 的 Table Widget 來取得點座標，但是這樣處理太過混亂（因為回傳值是字串而非數字），也會降低執行效率，所以打算更改。</p>
 <p>原先處理表格的 <code>list_process.py</code> 劃分出不同表格的 class，它們的函式也重新命名過，更能知道用途。</p>
-<div class="highlight"><pre><span></span>Points (style)
+<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>Points (style)
 Lines
 Chains
 Shafts
 Sliders
 Rods
 </pre></div>
-
+</td></tr></table>
 
 <p>下一步是在 <strong>init</strong> 初始化函式中建立空的 list（每筆資料型態都是鍵值），和 Qt 的 Table Widget 同時紀錄資料（格式對應），取資料時不再於 Table Widget 抓資料，而是呼叫所屬 class 的 list，不用轉換格式。</p>
 <p>至於還有一些名稱太冗長的程式碼，可能會用 class 歸類，更容易瞭解用途。</p>

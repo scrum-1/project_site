@@ -1,5 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-06T16:00:00+08:00</updated><entry><title>PyQt5 serial port</title><link href="http://project.mde.tw/blog/pyqt5-serial-port.html" rel="alternate"></link><published>2017-02-06T16:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2017-02-06:blog/pyqt5-serial-port.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-07T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/02/07</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060207.html" rel="alternate"></link><published>2017-02-07T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-07:blog/40323230ri-zhi-1060207.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Leo Editor - 簡單的節點控制&lt;/p&gt;
+&lt;p&gt;簡述 Leo Editor 的 @button 節點運用。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Generators&lt;/li&gt;
+&lt;li&gt;Position Getters&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Pyslvs 手冊應用&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Pyslvs 目標 - 模型銜接 V-rep&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Leo Editor - 簡單的節點控制&lt;/h1&gt;
+&lt;p&gt;參考資料：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="http://leoeditor.com/cheatsheet.html#scripting"&gt;http://leoeditor.com/cheatsheet.html&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;注：一些方法（method）可以利用 Leo 的自動完成功能（&lt;kbd&gt;Alt&lt;/kbd&gt; + &lt;kbd&gt;1&lt;/kbd&gt;）尋找。&lt;/p&gt;
+&lt;h2&gt;Generators&lt;/h2&gt;
+&lt;p&gt;一些常用的 generator。&lt;/p&gt;
+&lt;p&gt;Python 的 generator 使用方式：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+pList = [e.copy() for e in c.all_positions()]
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;a href="http://project.mde.tw/blog/40323230ri-zhi-1060204.html"&gt;上一篇文章&lt;/a&gt; 提到了不要直接使用 generator 來下指令，否則會出現 &lt;code&gt;&amp;lt;pos 139770197424392 [0] None&amp;gt;&lt;/code&gt; 回傳值為 None 的情形。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;在一般情形下，@button 中的 &lt;code&gt;p&lt;/code&gt; 為「當前節點」而非「該 @button 節點」的 position，應當特別注意。&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;c.all_positions()
+    依序回傳大綱所有節點的 position，包含的子項目會跟在父節點之後。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;c.all_unique_positions()
+    依序回傳大綱所有節點的 position，包含的子項目會跟在父節點之後，但是分身節點只會回傳一次。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;p.children()
+    依序回傳該 position 子節點的 position。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;p.parents()
+    依序（由底開始）回傳該 position 父節點的 position。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;p.self_and_parents()
+    依序（由底開始）回傳該 position 父節點的 position，第一次會回傳自身。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;p.self_and_siblings()
+    依序回傳該 position 同層級節點的 position。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;p.following_siblings()
+    依序回傳該 position 下方同層級節點的 position。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;p.subtree()
+    依序回傳該 position 子孫節點的 position，包含的子孫項目會跟在父節點之後。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;p.self_and_subtree()
+    依序回傳該 position 子孫節點的 position，包含的子孫項目會跟在父節點之後，第一次會回傳自身。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;Position Getters&lt;/h2&gt;
+&lt;p&gt;一些常用的 Getter。&lt;/p&gt;
+&lt;p&gt;這些方法回傳 position 的週邊資訊，上面提過的 Generator 將不再說明 。&lt;/p&gt;
+&lt;p&gt;Python 的方法可以使用多層（只要確定非空值）：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+B = p.next().firstChild().b
+&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;p.back()
+    回傳該 position 上方一個節點的 position。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;p.next()
+    回傳該 position 下方一個節點的 position。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;p.firstChild()
+    回傳該 position 第一個子節點的 position。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;p.lastChild()
+    回傳該 position 最後一個子節點的 position。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;p.parent()
+    回傳該 position 第一個父節點的 position。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;p.level()
+    回傳該 position 的層級整數（int）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;至於 position 的新增、移動、刪除方法使用後會如同修改 vnode，發生大綱樹不會即時更新的情形（無法選擇更新後節點、不會提醒儲存以及存檔後不會編輯檔案節點），必須重新存檔才能更新大綱樹。也因為如此不符合 @button 的功能需求，因此就不介紹了。&lt;/p&gt;
+&lt;h1&gt;Pyslvs 手冊應用&lt;/h1&gt;
+&lt;p&gt;縮減了原先的語法，使用 Leo 提供的 generator，變得更易懂。&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+pList = [e.copy() for e in c.all_positions()] #節點參照
+hList = [e.h for e in c.all_positions()] #索引
+MD = pList[hList.index("@clean {}.md".format(filename))] #找到 Markdown file
+pos = hList.index("{} Target node".format(filename)) #目標
+B = [e.b for e in MD.self_and_subtree()]
+B = ''.join(B).replace("%", "##").replace("\n@language md", '').replace("\n@others", '').replace("*@fig:", '').split("\n\n\\newpage")
+head = """&lt;section&gt;
+&lt;section data-markdown data-separator="^\\n&lt;!--===--&gt;\\n"&gt;
+&lt;script type="text/template"&gt;"""
+tail = """
+&lt;/script&gt;
+&lt;/section&gt;
+&lt;/section&gt;
+"""
+B = [head+e+tail for e in B]
+pList[pos].b = removeParentheses("@language html\n"+'\n'.join(B))
+g.es("{} HTML 簡報轉換完畢".format(filename))
+&lt;/pre&gt;
+
+&lt;h1&gt;Pyslvs 目標 - 模型銜接 V-rep&lt;/h1&gt;
+&lt;p&gt;為了達成 Pyslvs 的「2D 線條」轉成 V-rep 能用的「3D 支架」（或是連桿之類的），要在接下來的版本做出這個功能。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0207_01.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;由於 STL 是三角形接合的立體物件，要憑空畫出 3D 支架的組合圖，想知道這方面的資料。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>PyQt5 serial port</title><link href="http://project.mde.tw/blog/pyqt5-serial-port.html" rel="alternate"></link><published>2017-02-06T16:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2017-02-06:blog/pyqt5-serial-port.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Serial tools develope&lt;/p&gt;
 &lt;p&gt;tools開發&lt;/p&gt;

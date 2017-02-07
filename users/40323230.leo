@@ -12,18 +12,9 @@
 <v t="leo.20151212173315.1"><vh>@settings</vh>
 <v t="leo.20151212173315.2"><vh>@data qt-gui-plugin-style-sheet</vh></v>
 <v t="leo.20151212173315.3"><vh>@string initial_split_orientation = horizontal</vh></v>
-</v>
-<v t="amd.20160106095324.1" a="E"><vh>@path ..</vh>
-<v t="leo.20151213173811.1" a="E"><vh>假如要送到 gh-pages 分支, 使用下列按鈕</vh>
-<v t="leo.20151212173658.1"><vh>@button gh-pages pelican</vh></v>
-</v>
-<v t="leo.20151213173830.1" a="E"><vh>假如要在近端檢視, 使用下列按鈕</vh>
-<v t="leo.20151213085727.1"><vh>@button local pelican</vh></v>
-</v>
-</v>
-<v t="amd.20151215170350.1"><vh>以下為 content 目錄中的 md 檔案</vh></v>
 <v t="amd.20160106093610.1"><vh>協同網誌編寫規範</vh></v>
 <v t="amd.20151216001126.1"><vh>md 檔案範例</vh></v>
+</v>
 <v t="amd.20151215170031.1" a="E"><vh>@path ../content</vh>
 <v t="amd.20160106093454.1" a="E"><vh>40323230 網誌文章</vh>
 <v t="leo.20160729110330.1"><vh>重要文章</vh>
@@ -218,9 +209,14 @@
 <v t="ahshoe.20170202134035.1"><vh>@edit 40323230_20170202.md</vh></v>
 <v t="40323230.20170203152348.1"><vh>@edit 40323230_20170203.md</vh></v>
 <v t="40323230.20170204201710.1"><vh>@edit 40323230_20170204.md</vh></v>
+<v t="ahshoe.20170207110121.1"><vh>@edit 40323230_20170207.md</vh></v>
 </v>
 </v>
 </v>
+</v>
+<v t="ahshoe.20170207113643.1" a="E"><vh>@path ..</vh>
+<v t="leo.20151212173658.1"><vh>@button gh-pages pelican</vh></v>
+<v t="leo.20151213085727.1"><vh>@button local pelican</vh></v>
 </v>
 </vnodes>
 <tnodes>
@@ -467,8 +463,8 @@ __粗體文字__
 
 </t>
 <t tx="ahshoe.20170202134018.1"></t>
+<t tx="ahshoe.20170207113643.1"></t>
 <t tx="amd.20151215170031.1"></t>
-<t tx="amd.20151215170350.1"></t>
 <t tx="amd.20151216001126.1">@language md
 Title: 文章標題
 Category: 類別
@@ -501,7 +497,6 @@ pages 文章
     寫在 content/pages 目錄中的 .md 檔案, 將會被轉為網誌 pages 內容
 
 </t>
-<t tx="amd.20160106095324.1"></t>
 <t tx="kmol.20161011165313.1"></t>
 <t tx="kmol.20161206235321.1"></t>
 <t tx="kmol.20161212224725.1"></t>
@@ -593,8 +588,6 @@ import os
 #os.system("pelican content -o output -s local_publishconf.py -t theme/pelican-bootstrap3")
 os.system("pelican content -o blog -s local_publishconf.py")
 g.es("admin pelican 近端執行完畢")</t>
-<t tx="leo.20151213173811.1"></t>
-<t tx="leo.20151213173830.1"></t>
 <t tx="leo.20160703102920.1"></t>
 <t tx="leo.20160710183629.1"></t>
 <t tx="leo.20160718211848.1"></t>

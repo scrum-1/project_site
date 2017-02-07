@@ -129,7 +129,7 @@ g.es("{} HTML 簡報轉換完畢".format(filename))
 
 &lt;h1&gt;Pyslvs 目標 - 模型銜接 V-rep&lt;/h1&gt;
 &lt;p&gt;為了達成 Pyslvs 的「2D 線條」轉成 V-rep 能用的「3D 支架」（或是連桿之類的），要在接下來的版本做出這個功能。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0207_01.jpg" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0207_01.png" /&gt;&lt;/p&gt;
 &lt;p&gt;由於 STL 是三角形接合的立體物件，要憑空畫出 3D 支架的組合圖，想知道這方面的資料。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 106/02/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060204.html" rel="alternate"></link><published>2017-02-04T21:00:00+08:00</published><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-04:blog/40323230ri-zhi-1060204.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Leo Editor - 簡單的節點控制&lt;/p&gt;

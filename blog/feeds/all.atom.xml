@@ -1,5 +1,73 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-07T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/02/07</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060207.html" rel="alternate"></link><published>2017-02-07T21:00:00+08:00</published><updated>2017-02-07T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-07:/blog/40323230ri-zhi-1060207.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-08T21:00:00+08:00</updated><entry><title>Pyquino 日誌 - 106/02/08</title><link href="http://project.mde.tw/blog/pyquino-ri-zhi-1060208.html" rel="alternate"></link><published>2017-02-08T21:00:00+08:00</published><updated>2017-02-08T21:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2017-02-08:/blog/pyquino-ri-zhi-1060208.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;開發日誌&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Digital Lcd&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Move locate&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可以選擇步數移動&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Menu bar更新Help&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;測試部分&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</summary><content type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;開發日誌&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Digital Lcd&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Move locate&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;可以選擇步數移動&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;Menu bar更新Help&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;測試部分&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;開發日誌&lt;/h1&gt;
+&lt;h2&gt;Digital Lcd&lt;/h2&gt;
+&lt;p&gt;-使用者可以知道目前機器的位置和點座標，會根據使用者下的指令來更新點座標，也可以讓使用者決定要移動多少mm&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+# step is mm
+#step由使用者決定
+serial.send(str('G90'+'x'+step))
+&lt;/pre&gt;
+
+&lt;h2&gt;Move locate&lt;/h2&gt;
+&lt;p&gt;-根據&lt;a href="http://www.shapeoko.com/wiki/index.php/G-Code"&gt;Grbl Gcode&lt;/a&gt; 的protocol設定，有增量移動這個指令，單純想依靠這G90來跟機器溝通，不去記憶相關位置，而是直接藉著增量位置的值來確定目前機器移動的位置並顯示到LCD上面。&lt;/p&gt;
+&lt;h2&gt;step步數決定&lt;/h2&gt;
+&lt;p&gt;-製作了讓人決定每按一次按鈕要走幾步的選項，可以根據使用者需求自行增加或減少步數設定&lt;/p&gt;
+&lt;h2&gt;Menu bar更新Help&lt;/h2&gt;
+&lt;p&gt;-目前help裡面尚未新增資料，未來會參考其他應用程式放入使用教學、關於等相關資料。&lt;/p&gt;
+&lt;h2&gt;測試影片&lt;/h2&gt;
+&lt;iframe width="640" height="360" src="https://www.youtube.com/embed/XUkCgKuf0AE" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;h3&gt;OpenGL&lt;/h3&gt;
+
+&lt;p&gt;目前偏向這個倉儲所展示的Gcode viewer&lt;/p&gt;
+&lt;p&gt;+&lt;a href="https://github.com/jonathanwin/yagv"&gt;yagv&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://thingiverse-production-new.s3.amazonaws.com/renders/ca/cf/bd/b0/86/yagv-0.3b-3_preview_featured.jpg"&gt;&lt;/p&gt;</content><category term="Pyquino"></category></entry><entry><title>40323230日誌 - 106/02/07</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060207.html" rel="alternate"></link><published>2017-02-07T21:00:00+08:00</published><updated>2017-02-07T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-07:/blog/40323230ri-zhi-1060207.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Leo Editor - 簡單的節點控制&lt;/p&gt;
 &lt;p&gt;簡述 Leo Editor 的 @button 節點運用。&lt;/p&gt;

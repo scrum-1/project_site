@@ -260,9 +260,6 @@ init_mathjax();
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="http://project.mde.tw/blog/pages/about/">
-                             About
-                          </a></li>
                         <li class="active">
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
@@ -317,7 +314,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-07-18T19:00:00+08:00"> 一 18 七月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-07-18T19:00:00+08:00"> 週一 18 七月 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -347,7 +344,7 @@ init_mathjax();
 
 <h2>Netbeans的支援 :</h2>
 
-<p>其實Netbeans與<span class="math">\(GNU開發者工具包\)</span>周邊的軟體都有良好的相依性，因此在撰寫Makefile時方便不少。</p>
+<p>其實Netbeans與$GNU開發者工具包$周邊的軟體都有良好的相依性，因此在撰寫Makefile時方便不少。</p>
 <p>在編寫完Makefile時，可以在個別的Makefile上點擊右鍵，選擇需要的命令讓make執行，諸如all、clean等等的功能可以選擇。</p>
 <p>Makefile中可以撰寫功能讓工程師執行，連基本的clean功能也可以自訂要刪除哪些檔案。</p>
 <p>當然利用這點，Makefile中也可以利用Echo做help的功能，Whitequark的Solvespace就有支援。</p>
@@ -364,12 +361,12 @@ $(ADIR)/%.obj: $(BDIR)/%.cpp $(HEADERS)
 </pre>
 
 <p>意思是ADIR中的obj檔都與BDIR的cpp檔、標頭檔有關聯，而每個obj檔是由每個cpp檔透過＄(CXX)命令式產生的。</p>
-<p><span class="math">\(後面的＄＠表示每個目標項（包括其位置）\)</span>；同理，<span class="math">\(＄＜亦代表每個參照項\)</span>，不過＄＜是只包含第一個條件的參照項，所以後面的多個標頭檔就不會帶入＄(CXX)命令中。</p>
+<p>$後面的＄＠表示每個目標項（包括其位置）$；同理，$＄＜亦代表每個參照項$，不過＄＜是只包含第一個條件的參照項，所以後面的多個標頭檔就不會帶入＄(CXX)命令中。</p>
 <p>若要在命令式中使用所有條件的參照項，要使用＄+，但是更好的選擇是使用＄^，會自動排除重複名稱的參照項。</p>
 <p>這樣寫固然簡單，但是每個檔案都在不同的資料夾中，要如何讓make搜尋？</p>
 <p>所以必須加上VPath這個參數，讓尋找參照檔案時可以搜尋到所有符合的項目。</p>
 <p><img src="http://i.imgur.com/wpUqKDX.jpg" ></p>
-<p>make在找檔案時最大的特性就是<span class="math">\(按邏輯去找\)</span>。</p>
+<p>make在找檔案時最大的特性就是$按邏輯去找$。</p>
 <p>也因為這點，不用顧慮產生檔案的順序問題。只要"填寫"檔案是如何產生的，make就會根據需要的檔案來做順序調整。</p>
 <p>make會先忽略還沒產生的參照檔案，尋找已經備齊參照檔案的項目先做，指令亦可使用外部程式來執行。</p>
 <hr>
@@ -435,7 +432,7 @@ class STrimBy {
 
 <p><em>Icons</em></p>
 <p>首先是圖示(icon)的問題。</p>
-<p>Python-Solvespace的作者使用另一個語言<span class="math">\(Perl\)</span>的程式來做出"icons.h"這個檔案。</p>
+<p>Python-Solvespace的作者使用另一個語言$Perl$的程式來做出"icons.h"這個檔案。</p>
 <p>Perl是一個高階語言，特點就是除了自己的寫法，還可以安裝大量模組來改變撰寫方式，甚至還繼承許多C語言的標準式。</p>
 <p><img src="http://i.imgur.com/eXwWp0J.jpg" ></p>
 <p>安裝方式跟Python相同，複製檔案跟設定環境變數就能使用了。</p>
@@ -455,63 +452,6 @@ class STrimBy {
 
 <p>這次學到了編譯程式重要的一環，雖然make的過程中很煩人，也要一直注意是否出錯，但是最後成功時滿有成就感的。</p>
 <p>有些錯誤當下想不出來，不過換一種想法後就能克服許多障礙，訓練眼光放遠也是一件重要的事情。</p>
-<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
-    var align = "center",
-        indent = "0em",
-        linebreak = "false";
-
-    if (false) {
-        align = (screen.width < 768) ? "left" : align;
-        indent = (screen.width < 768) ? "0em" : indent;
-        linebreak = (screen.width < 768) ? 'true' : linebreak;
-    }
-
-    var mathjaxscript = document.createElement('script');
-    var location_protocol = (false) ? 'https' : document.location.protocol;
-    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
-    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
-    mathjaxscript.type = 'text/javascript';
-    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
-    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({" +
-        "    config: ['MMLorHTML.js']," +
-        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
-        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
-        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
-        "    displayAlign: '"+ align +"'," +
-        "    displayIndent: '"+ indent +"'," +
-        "    showMathMenu: true," +
-        "    messageStyle: 'normal'," +
-        "    tex2jax: { " +
-        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
-        "        displayMath: [ ['$$','$$'] ]," +
-        "        processEscapes: true," +
-        "        preview: 'TeX'," +
-        "    }, " +
-        "    'HTML-CSS': { " +
-        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
-        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
-        "    }, " +
-        "}); " +
-        "if ('default' !== 'default') {" +
-            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
-                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
-                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
-                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
-                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
-                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
-            "});" +
-        "}";
-    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
-}
-</script>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -562,6 +502,11 @@ class STrimBy {
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060209.html">
+                            Pyquino 日誌 - 106/02/09
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060208.html">
                             Pyquino 日誌 - 106/02/08
                         </a>
@@ -574,11 +519,6 @@ class STrimBy {
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060207.html">
                             Pyquino 日誌 - 106/02/07
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/pyqt5-serial-port.html">
-                            PyQt5 serial port
                         </a>
                     </li>
                 </ul>

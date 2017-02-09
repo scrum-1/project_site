@@ -20,7 +20,9 @@
 &lt;p&gt;Python-solvespace 的模組沒有加入 Surface 的相關功能，所以沒辦法求出結果。&lt;/p&gt;
 &lt;p&gt;目前的進度為可以透過 GUI 用迴圈導出 &lt;code&gt;*.slvs&lt;/code&gt; 的零件檔案，但是因為上述問題，無法做成組合圖。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0209_04.png" /&gt;&lt;/p&gt;
-&lt;p&gt;不知是否需要加入 Solvespace Surface 的相關功能還是找其他格式（如 OBJ file）解決。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>Pyquino 日誌 - 106/02/08</title><link href="http://project.mde.tw/blog/pyquino-ri-zhi-1060208.html" rel="alternate"></link><published>2017-02-08T21:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2017-02-08:blog/pyquino-ri-zhi-1060208.html</id><summary type="html">&lt;ol&gt;
+&lt;p&gt;不知是否需要加入 Solvespace Surface 的相關功能還是找其他格式（如 OBJ file）解決。&lt;/p&gt;
+&lt;p&gt;已測試可以在 V-rep 中使用 blender 匯出的模型。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0209_05.png" /&gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>Pyquino 日誌 - 106/02/08</title><link href="http://project.mde.tw/blog/pyquino-ri-zhi-1060208.html" rel="alternate"></link><published>2017-02-08T21:00:00+08:00</published><author><name>40323123</name></author><id>tag:project.mde.tw,2017-02-08:blog/pyquino-ri-zhi-1060208.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;開發日誌&lt;/p&gt;
 &lt;ul&gt;

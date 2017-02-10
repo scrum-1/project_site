@@ -1,28 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-09T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/02/09</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060209.html" rel="alternate"></link><published>2017-02-09T21:00:00+08:00</published><updated>2017-02-09T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-09:blog/40323230ri-zhi-1060209.html</id><summary type="html">&lt;p&gt;關於 Solvespace 的 3D 格式&lt;/p&gt;
-
-
-&lt;h1&gt;關於 Solvespace 的 3D 格式&lt;/h1&gt;
-&lt;p&gt;這幾天研究了 fourbarlinkage 和 jasen_8link 的檔案。&lt;/p&gt;
-&lt;p&gt;使用純「拉伸」群組的檔案結構如下：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0209_02.png" /&gt;&lt;/p&gt;
-&lt;p&gt;「組合圖」的檔案結構如下：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0209_03.png" /&gt;&lt;/p&gt;
-&lt;p&gt;這兩個 project 的組立都是將零件匯入，並約束到「組合圖」的草圖中。&lt;/p&gt;
-&lt;p&gt;若是只改動連桿的長度，該零件 &lt;code&gt;.slvs&lt;/code&gt; 格式的變動如下：&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0209_01.png" /&gt;&lt;/p&gt;
-&lt;p&gt;雖然其中包含一些 20 位小數造成的誤差，但是主要的內容都是紀錄運算結果。&lt;/p&gt;
-&lt;p&gt;也因為如此，就算其中有缺損，Solvespace 仍能依據主要實體重新算好結果，存檔時重新存入檔案中。&lt;/p&gt;
-&lt;p&gt;這些運算結果也包含拉伸出的表面，尤其是弧線的分段計算，每個 1/2 圓弧都會分為 4 等分計算，所以一個完整圓會有 8 段 Curve（平面的 4 等分座標都在一直線上），這些數據就是分段點的當前座標。&lt;/p&gt;
-&lt;p&gt;不過這些算好的數據並不是給當前檔案看的，而是拿來&lt;strong&gt;匯入&lt;/strong&gt;用的，倘若缺少這些數據，使用它們的「組合圖」就會發生缺損，而且回溯結構時會變紅字。&lt;/p&gt;
-&lt;p&gt;而「組合圖」也會將子項目的數據複製一份存起來，給更大的「組合圖」使用。&lt;/p&gt;
-&lt;p&gt;然而，「組合圖」要讀取的這些數據不能有錯誤的答案（因為本身沒有該實體），否則該曲線關聯的 Surface 會消失變成破面。&lt;/p&gt;
-&lt;p&gt;Python-solvespace 的模組沒有加入 Surface 的相關功能，所以沒辦法求出結果。&lt;/p&gt;
-&lt;p&gt;目前的進度為可以透過 GUI 用迴圈導出 &lt;code&gt;*.slvs&lt;/code&gt; 的零件檔案，但是因為上述問題，無法做成組合圖。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0209_04.png" /&gt;&lt;/p&gt;
-&lt;p&gt;不知是否需要加入 Solvespace Surface 的相關功能還是找其他格式（如 OBJ file）解決。&lt;/p&gt;
-&lt;p&gt;已測試可以在 V-rep 中使用 blender 匯出的模型。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0209_05.png" /&gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 106/02/10</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060210.html" rel="alternate"></link><published>2017-02-09T21:00:00+08:00</published><updated>2017-02-09T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-09:blog/40323230ri-zhi-1060210.html</id><summary type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-10T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/02/10</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060210.html" rel="alternate"></link><published>2017-02-10T21:00:00+08:00</published><updated>2017-02-10T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-10:blog/40323230ri-zhi-1060210.html</id><summary type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Slider 功能修正&lt;/li&gt;
 &lt;li&gt;容量縮減&lt;/li&gt;
@@ -48,7 +25,30 @@
 &lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0210_04.png" /&gt;&lt;/p&gt;
 &lt;h2&gt;轉出 3D 模型&lt;/h2&gt;
 &lt;p&gt;由於目前暫時沒有 Solvespace Surface 功能的程式庫，最近會先嘗試做出 OBJ 的轉檔功能。&lt;/p&gt;
-&lt;p&gt;Solvespace 格式 import 只支援自己的 *.slvs 檔比較可惜，必要的話得看一下原始碼的內容作編譯。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 106/02/07</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060207.html" rel="alternate"></link><published>2017-02-07T21:00:00+08:00</published><updated>2017-02-07T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-07:blog/40323230ri-zhi-1060207.html</id><summary type="html">&lt;ol&gt;
+&lt;p&gt;Solvespace 格式 import 只支援自己的 *.slvs 檔比較可惜，必要的話得看一下原始碼的內容作編譯。&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 106/02/09</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060209.html" rel="alternate"></link><published>2017-02-09T21:00:00+08:00</published><updated>2017-02-09T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-09:blog/40323230ri-zhi-1060209.html</id><summary type="html">&lt;p&gt;關於 Solvespace 的 3D 格式&lt;/p&gt;
+
+
+&lt;h1&gt;關於 Solvespace 的 3D 格式&lt;/h1&gt;
+&lt;p&gt;這幾天研究了 fourbarlinkage 和 jasen_8link 的檔案。&lt;/p&gt;
+&lt;p&gt;使用純「拉伸」群組的檔案結構如下：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0209_02.png" /&gt;&lt;/p&gt;
+&lt;p&gt;「組合圖」的檔案結構如下：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0209_03.png" /&gt;&lt;/p&gt;
+&lt;p&gt;這兩個 project 的組立都是將零件匯入，並約束到「組合圖」的草圖中。&lt;/p&gt;
+&lt;p&gt;若是只改動連桿的長度，該零件 &lt;code&gt;.slvs&lt;/code&gt; 格式的變動如下：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0209_01.png" /&gt;&lt;/p&gt;
+&lt;p&gt;雖然其中包含一些 20 位小數造成的誤差，但是主要的內容都是紀錄運算結果。&lt;/p&gt;
+&lt;p&gt;也因為如此，就算其中有缺損，Solvespace 仍能依據主要實體重新算好結果，存檔時重新存入檔案中。&lt;/p&gt;
+&lt;p&gt;這些運算結果也包含拉伸出的表面，尤其是弧線的分段計算，每個 1/2 圓弧都會分為 4 等分計算，所以一個完整圓會有 8 段 Curve（平面的 4 等分座標都在一直線上），這些數據就是分段點的當前座標。&lt;/p&gt;
+&lt;p&gt;不過這些算好的數據並不是給當前檔案看的，而是拿來&lt;strong&gt;匯入&lt;/strong&gt;用的，倘若缺少這些數據，使用它們的「組合圖」就會發生缺損，而且回溯結構時會變紅字。&lt;/p&gt;
+&lt;p&gt;而「組合圖」也會將子項目的數據複製一份存起來，給更大的「組合圖」使用。&lt;/p&gt;
+&lt;p&gt;然而，「組合圖」要讀取的這些數據不能有錯誤的答案（因為本身沒有該實體），否則該曲線關聯的 Surface 會消失變成破面。&lt;/p&gt;
+&lt;p&gt;Python-solvespace 的模組沒有加入 Surface 的相關功能，所以沒辦法求出結果。&lt;/p&gt;
+&lt;p&gt;目前的進度為可以透過 GUI 用迴圈導出 &lt;code&gt;*.slvs&lt;/code&gt; 的零件檔案，但是因為上述問題，無法做成組合圖。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0209_04.png" /&gt;&lt;/p&gt;
+&lt;p&gt;不知是否需要加入 Solvespace Surface 的相關功能還是找其他格式（如 OBJ file）解決。&lt;/p&gt;
+&lt;p&gt;已測試可以在 V-rep 中使用 blender 匯出的模型。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0209_05.png" /&gt;&lt;/p&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 106/02/07</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060207.html" rel="alternate"></link><published>2017-02-07T21:00:00+08:00</published><updated>2017-02-07T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-07:blog/40323230ri-zhi-1060207.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Leo Editor - 簡單的節點控制&lt;/p&gt;
 &lt;p&gt;簡述 Leo Editor 的 @button 節點運用。&lt;/p&gt;

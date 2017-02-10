@@ -259,6 +259,9 @@ init_mathjax();
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
+                         <li><a href="http://project.mde.tw/blog/pages/about/">
+                             About
+                          </a></li>
                         <li class="active">
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
@@ -313,7 +316,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-07-12T19:00:00+08:00"> 週二 12 七月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-07-12T19:00:00+08:00"> Tue 12 July 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -335,14 +338,14 @@ init_mathjax();
 <p><em>NetBeans</em></p>
 <p>為NetBeans安裝python的附加元件，使其可以編譯python文件。</p>
 <p>這些附加元件還包含了jython2.7.0。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0712_01.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0712_01.jpg" /></p>
 <p><em>SWIG</em></p>
 <p>上次載的版本沒有Windows使用的可執行檔，需要從原始code編譯太麻煩了，所以從以下網址下載了Windows使用的版本。</p>
 <p><a href="https://sourceforge.net/projects/swig/files/swigwin/" title="sourceforge.net">https://sourceforge.net/projects/swig/files/swigwin/</a></p>
 <p>解壓縮後就有可執行檔了，再把它的所在目錄加入start.bat的環境參數中。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0712_02.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0712_02.jpg" /></p>
 <p>接著就能用它下參數了。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0712_03.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0712_03.jpg" /></p>
 <hr>
 
 <h2>SWIG簡介 :</h2>
@@ -350,7 +353,7 @@ init_mathjax();
 <p>SWIG的功能就是利用自己的Interface檔案".i"，產生出一個"_wrap.c"檔，如果DLL專案一起將這個".c"編譯的話，就可以讓其他高階語言呼叫了。</p>
 <p>SWIG內有個\Examples資料夾，裡面有所有支援語言的轉換函式，參照它們的格式來撰寫自己的Interface，放在專案中。</p>
 <p>諸如：D語言、java、javascript、lua、php、python、ruby。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0712_04.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0712_04.jpg" /></p>
 <hr>
 
 <h2>練習應用 :</h2>
@@ -392,10 +395,10 @@ extern double Foo;
 swig -python example.i
 </pre>
 
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0712_05.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0712_05.jpg" /></p>
 <p>然後simple資料夾中就會產生example_wrap.c與example_wrap.py檔，再拿進編譯器Build。</p>
 <p>但是Netbeans卻無法編譯檔案，照常來說最新的SWIG已經支援到Python 3.5，還是說有參數需要調整。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0712_06.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0712_06.jpg" /></p>
 <p>而且在動態連結庫的專案中，不知道怎麼調Build的參數成為pyd檔。</p>
 <hr>
 
@@ -456,6 +459,11 @@ swig -python example.i
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060210.html">
+                            40323230日誌 - 106/02/10
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060209.html">
                             Pyquino 日誌 - 106/02/09
                         </a>
@@ -468,11 +476,6 @@ swig -python example.i
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1060207.html">
                             40323230日誌 - 106/02/07
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060207.html">
-                            Pyquino 日誌 - 106/02/07
                         </a>
                     </li>
                 </ul>

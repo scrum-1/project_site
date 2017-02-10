@@ -261,6 +261,9 @@ init_mathjax();
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
+                         <li><a href="http://project.mde.tw/blog/pages/about/">
+                             About
+                          </a></li>
                         <li class="active">
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
@@ -315,7 +318,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-07-16T19:00:00+08:00"> 週六 16 七月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-07-16T19:00:00+08:00"> Sat 16 July 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -364,17 +367,17 @@ init_mathjax();
 <p>3.<em>變量</em>：自訂參數的功能，能自由更改位置或目標名稱、使用工具和參數等等。</p>
 <p>4.<em>文件指示</em>：Makefile之間是可以互相溝通的，也可以透過情況作出判斷。</p>
 <p>5.<em>註解</em>：Makefile的註解符號是"#"，如果要使用井字符號，必須使用反斜線"#"。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0716_01.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0716_01.jpg" /></p>
 <p>特別注意，在Makefile中，命令項的起始一定要使用Tab縮排，不可使用空白字元。</p>
 <p>一般撰寫程式的編譯器都能檢視空白字元的類型。</p>
 <p><em>SciTE</em>：View -&gt; Whitespace</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0716_02.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0716_02.jpg" /></p>
 <p><em>Netbeams</em>：View -&gt; Show Non-printable Characters</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0716_03.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0716_03.jpg" /></p>
 <p>在此會發現Tab（→）和空白字元（.）的差異。</p>
 <p>不過某些像是SciTE的編譯器，在按下Tab鍵時，會幫使用者轉換成四個空白字元，甚至會用空白字元補齊縮排，所以使用上需要注意。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0716_04.jpg"></p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0716_05.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0716_04.jpg" /></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0716_05.jpg" /></p>
 <p>Makefile中的目錄分隔號是斜線"/"，換行閱讀符號是反斜線"\"。</p>
 <p>GNU-Make在執行途中遇到錯誤就會停止並跳出，所以必須要整個Makefile和編譯過程都沒有干擾執行問題，才會編譯完畢。</p>
 <hr>
@@ -385,28 +388,28 @@ init_mathjax();
 <p>第二行是寫下如何產生目標文件的命令。</p>
 <p>一個項目中有多個檔案時會用一個空白字元分隔。換行時如果想縮排以便閱讀，必須使用空白字元縮排，不然Tab起始的項目都會視為命令。</p>
 <p>而如果命令不能執行時就會中斷操作。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0716_06.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0716_06.jpg" /></p>
 <p>Makefile中的參數定義和大部分的語言雷同。不過為了明顯標示，大部分使用者習慣大寫字母。</p>
 <p>定義項目後，使用"＄( )"符號括住來使用變數。變數可以是目錄位置、命令名稱、參數名稱，亦有如"＄＄(basename ＄＄(notdir ＄＄@))"內定的用法。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0716_07.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0716_07.jpg" /></p>
 <hr>
 
 <h2>編譯結果 :</h2>
 
 <p>途中用Netbeams作輔助檢查檔案關聯性和編寫文件，並make專案。</p>
 <p>不過用cmd下指令也是可行。只是直接打make會用到MinGW的make，必須先指定MSYS的make。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0716_08.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0716_08.jpg" /></p>
 <p>Python-Solvespace中的Makefile編寫有一些小缺漏，是Tab和空白字元的問題，後來改正就沒問題了。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0716_09.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0716_09.jpg" /></p>
 <p>不過後來在Netbeams編譯外層"Solvespace"時出現了一些問題：</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0716_10.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0716_10.jpg" /></p>
 <p>檢查了一下，似乎中間的檔案"＄(SRFOBJS)"找不到？而"＄(SRFOBJS)"的檔案是從"srf\＄(@B).cpp"和"＄(HEADERS)"產生的。</p>
 <p>其中"srf\＄(@B).cpp"應該就是取下所有\srf資料夾的cpp檔案，配上標頭檔後生成obj檔。途中不知道什麼原因obj檔沒有產生，所以才會無法找到？</p>
 <p>但是只編譯exposed資料夾的Makefile時又有這個問題：</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0716_11.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0716_11.jpg" /></p>
 <p>上網檢查了一下這段的用途是編碼對應，可是語法照常來講應該沒錯才是。</p>
 <p>而且後面對應的檔案導入時都出錯，所以就停止了。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0716_12.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0716_12.jpg" /></p>
 <hr>
 
 <p>Makefile和cmake的CMakelist.txt一樣都是工程師自己要創建的，所以又是一項工程，不過除了一些內定代號，其他都滿好理解的。</p>
@@ -461,6 +464,11 @@ init_mathjax();
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060210.html">
+                            40323230日誌 - 106/02/10
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060209.html">
                             Pyquino 日誌 - 106/02/09
                         </a>
@@ -473,11 +481,6 @@ init_mathjax();
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1060207.html">
                             40323230日誌 - 106/02/07
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060207.html">
-                            Pyquino 日誌 - 106/02/07
                         </a>
                     </li>
                 </ul>

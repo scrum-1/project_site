@@ -258,6 +258,9 @@ init_mathjax();
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
+                         <li><a href="http://project.mde.tw/blog/pages/about/">
+                             About
+                          </a></li>
                         <li >
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
@@ -312,7 +315,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-08-05T12:00:00+08:00"> 週五 05 八月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-08-05T12:00:00+08:00"> Fri 05 August 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323123.html"><i class="fa fa-user"></i> 40323123</a>
@@ -332,15 +335,15 @@ init_mathjax();
 <p>由上一篇可以得知手臂的逆向推導公式，可是存在一個問題，並沒有將方程式列出來，最後證明出的面積是由順向方程式的角度去限制角度將每個角度所會經過的路徑會畫出來。</p>
 <p>今天從新將方程式從新推導，因為不確定自己推導是否正確，我們幾個人將工具備齊，利用順向法確認算出來的角度是否有包含於在面積裡面，使用Vrep確定轉軸的角度是否正確，前面幾次因為設錯角度，造成轉軸的角度都不是正確的轉軸，後來利用餘弦定理的方法，終於推導出方程式。</p>
 <p>接下知道點座標後，就可以利用點得到正確的角度，轉軸轉向正確的角度夾取物件，也可以同時控制V-rep和實體的部分，是否要配合影像辨識取點座標，目前還在考慮當中，還未執行，可能先用Vrep模擬取下列印件的方式為優先，手臂的控制介面目前進度到可以同時在兩個頁面控制printer和手臂。</p>
-<p>$$\theta_T = cos^{-1}(\frac{x^2+y^2-L1^2-L2^2}{2\times L1\times L2})$$</p>
-<p>$$\theta_n = cos^{-1}(\frac{x}{\sqrt{x^2+y^2}}))$$</p>
-<p>$$\theta_\alpha = cos^{-1}(\frac{x^2+y^2+L1^2-L2^2}{2\times L1\times \sqrt{x^2+y^2}})$$</p>
+<div class="math">$$\theta_T = cos^{-1}(\frac{x^2+y^2-L1^2-L2^2}{2\times L1\times L2})$$</div>
+<div class="math">$$\theta_n = cos^{-1}(\frac{x}{\sqrt{x^2+y^2}}))$$</div>
+<div class="math">$$\theta_\alpha = cos^{-1}(\frac{x^2+y^2+L1^2-L2^2}{2\times L1\times \sqrt{x^2+y^2}})$$</div>
 <h6>大軸旋轉的角度</h6>
 
-<p>$$\theta_2 = 90 - (\theta_n + \theta_\alpha)$$</p>
+<div class="math">$$\theta_2 = 90 - (\theta_n + \theta_\alpha)$$</div>
 <h6>小軸旋轉的角度</h6>
 
-<p>$$\theta_3 = \theta_T - \theta_2$$</p>
+<div class="math">$$\theta_3 = \theta_T - \theta_2$$</div>
 <h3>python 方程式推導</h3>
 
 <pre class="brush: python">
@@ -391,6 +394,64 @@ theata3 = tha - test
 print("theata3",theata3)
 
 </pre>
+
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -441,6 +502,11 @@ print("theata3",theata3)
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060210.html">
+                            40323230日誌 - 106/02/10
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060209.html">
                             Pyquino 日誌 - 106/02/09
                         </a>
@@ -453,11 +519,6 @@ print("theata3",theata3)
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1060207.html">
                             40323230日誌 - 106/02/07
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060207.html">
-                            Pyquino 日誌 - 106/02/07
                         </a>
                     </li>
                 </ul>

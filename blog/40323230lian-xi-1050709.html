@@ -259,6 +259,9 @@ init_mathjax();
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
+                         <li><a href="http://project.mde.tw/blog/pages/about/">
+                             About
+                          </a></li>
                         <li class="active">
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
@@ -313,7 +316,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-07-09T12:00:00+08:00"> 週六 09 七月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-07-09T12:00:00+08:00"> Sat 09 July 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -333,25 +336,25 @@ init_mathjax();
 <h2>BUG fix :</h2>
 
 <p>W:槽的SciTE有點小問題，因為設定檔是從Y:複製來的，所以需要重新定義TinyC的位置。</p>
-<p><img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709_01.jpg"></p>
+<p><img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709_01.jpg" /></p>
 <p>只要修改cpp.properties的路徑就可以了。</p>
-<p><img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709_02.jpg"></p>
+<p><img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709_02.jpg" /></p>
 <hr>
 
 <h2>Nutcracker Solution :</h2>
 
 <p>上學期的<a href="http://chiamingyen.github.io/kmolab/blog/2015-fall-cadp-w16.html" title="github.io">Nutcracker網誌內容</a>。</p>
-<p><img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709_03.jpg"></p>
+<p><img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709_03.jpg" /></p>
 <p>之前的python題目，稍微研究一下後轉成C語言。</p>
 <p>不過如果直接運行會跑很久。但是這裡可以練習一下小型演算法的模式。</p>
-<p><img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709_04.jpg"></p>
+<p><img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709_04.jpg" /></p>
 <p>先做了兩個程式，不過第一是介面而已，第二個才是主要架構。</p>
 <p>撰寫的途中使用Solvespace研究，由於數學邏輯不太好，很多幾何的東西沒那麼直觀。</p>
 <p>有時候會偷吃步測試一些解法。</p>
-<p><img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709_05.jpg"></p>
+<p><img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709_05.jpg" /></p>
 <p>第二支程式是從python的範例改來的，不過後來做了很多變化，只有解最小路徑最大角度。</p>
 <p>演算法概念：</p>
-<p><img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709_06.jpg"></p>
+<p><img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709_06.jpg" /></p>
 <p>途中查了很多數學公式，無奈常常打錯又不知道正確性，重複試了很多次才成功。</p>
 <pre class="brush: c">
 #include <stdio.h>
@@ -388,7 +391,7 @@ int main()
 
 <p>第二支程式的最後成果。</p>
 <p>最後精確度還是沒有很高，不知道問題出在哪裡。</p>
-<p><img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709_07.jpg"></p>
+<p><img alt="" src="(https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709_07.jpg" /></p>
 <p>第一支程式是剛開始寫輸入端介面，供使用者輸入自訂參數，後來再把第二支程式的模型搬回來用，並另外寫一個解最大路徑和最小角度的程式，所有例外狀況也是在這裡排除。</p>
 <p>後來還不知道怎麼讓副程式傳回double或其他浮點數，查一下才知道要在開始前宣告一次。</p>
 <pre class="brush: c">
@@ -527,7 +530,7 @@ double solve_minangle(int lim, int a, int b, int r)
 </pre>
 
 <p>最後執行的結果：</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709_08.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0709_08.jpg" /></p>
 <hr>
 
 <p>剛開始還以為是用公式推導座標點的結果，後來回去看網誌才知道用演算法計算。電腦演算時如果一邊列出結果，會拖慢速度，所以在最後的程式碼中只留檢查用的結果。</p>
@@ -582,6 +585,11 @@ double solve_minangle(int lim, int a, int b, int r)
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060210.html">
+                            40323230日誌 - 106/02/10
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060209.html">
                             Pyquino 日誌 - 106/02/09
                         </a>
@@ -594,11 +602,6 @@ double solve_minangle(int lim, int a, int b, int r)
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1060207.html">
                             40323230日誌 - 106/02/07
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060207.html">
-                            Pyquino 日誌 - 106/02/07
                         </a>
                     </li>
                 </ul>

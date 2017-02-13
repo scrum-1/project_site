@@ -83,7 +83,7 @@ class commandWindow(QDialog):
 &lt;h2&gt;QUndoStack 巨集&lt;/h2&gt;
 &lt;p&gt;QUndoStack 的巨集功能幫開發者可以錄製多個 QUndoCommand 組成的指令。&lt;/p&gt;
 &lt;p&gt;原理就是建立一個空的 QUndoCommand，再將輸入的 QUndoCommand 建到這個指令下，在使用 count() 方法回傳命令數時，這種巨集只算 1 個指令。&lt;/p&gt;
-&lt;p&gt;使用 beginMacro() 方法時，所有項目都會凍結，包含 undo() 都會無法使用，直到使用 endMacro()。&lt;/p&gt;
+&lt;p&gt;使用 beginMacro() 方法時，該 QUndoStack 所有項目都會凍結，包含 undo() 都會無法使用，直到使用 endMacro()。&lt;/p&gt;
 &lt;p&gt;使用方式：&lt;/p&gt;
 &lt;pre class="brush: python"&gt;
 stack.beginMacro("複合指令") #開始錄製

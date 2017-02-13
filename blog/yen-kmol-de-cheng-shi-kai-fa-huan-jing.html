@@ -259,9 +259,6 @@ init_mathjax();
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="http://project.mde.tw/blog/pages/about/">
-                             About
-                          </a></li>
                         <li >
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
@@ -316,7 +313,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-10-10T11:29:00+08:00"> Mon 10 October 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-10-10T11:29:00+08:00"> 一 10 十月 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/yen.html"><i class="fa fa-user"></i> yen</a>
@@ -367,75 +364,59 @@ apt-get install libpng-dev libjson-c-dev libfreetype6-dev \
 <p>sudo pip3 install peewee pelican Markdown</p>
 <p>接著下載 <a href="http://download.qt.io/official_releases/qt/5.7/5.7.0/qt-opensource-linux-x64-5.7.0.run">http://download.qt.io/official_releases/qt/5.7/5.7.0/qt-opensource-linux-x64-5.7.0.run</a>, 安裝 Qt5.7:</p>
 <p>然後利用 gedit ~/.bashrc, 編輯 .bashrc, 加入:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>export QTDIR=/opt/Qt5.7.0/5.7/gcc_64/ 
+<div class="highlight"><pre><span></span>export QTDIR=/opt/Qt5.7.0/5.7/gcc_64/ 
 export LD_LIBRARY_PATH=<span class="cp">${</span><span class="n">LD_LIBRARY_PATH</span><span class="cp">}</span>:<span class="cp">${</span><span class="n">QTDIR</span><span class="cp">}</span>/lib 
 export PATH=<span class="cp">${</span><span class="n">QTDIR</span><span class="cp">}</span>/bin:<span class="cp">${</span><span class="n">PATH</span><span class="cp">}</span>
 </pre></div>
-</td></tr></table>
+
 
 <p>然後以 source ~/.bashrc 讓設定生效.</p>
 <p>要確認 Qt 版次, 使用:</p>
 <p>qmake -v</p>
 <p>接下來下載 <a href="http://www.riverbankcomputing.com/software/sip/download ">http://www.riverbankcomputing.com/software/sip/download </a>, 然後以下列指令安裝 sip 4.18.1:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>python3 configure.py 
+<div class="highlight"><pre><span></span>python3 configure.py 
 make
 sudo make install
 </pre></div>
-</td></tr></table>
+
 
 <p>如同前面移除 sip 4.17.1 時相同, 利用  sip -V 確認系統中 sip 的版本, 假如要確認 Python3 導入時使用的 sip 版本, 利用下列程式碼檢查:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">sip</span>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sip</span>
 <span class="k">print</span><span class="p">(</span><span class="n">sip</span><span class="p">,</span> <span class="n">sip</span><span class="o">.</span><span class="n">SIP_VERSION_STR</span><span class="p">)</span>
 </pre></div>
-</td></tr></table>
+
 
 <p>PyQt5 的安裝步驟與 sip 相同, 從 <a href="http://www.riverbankcomputing.com/software/pyqt/download5">http://www.riverbankcomputing.com/software/pyqt/download5</a> 下載原始碼之後:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>python3 configure.py 
+<div class="highlight"><pre><span></span>python3 configure.py 
 make
 sudo make install
 </pre></div>
-</td></tr></table>
+
 
 <p>至於 qscintilla 的安裝, 牽涉3個步驟, 首先從 <a href="http://www.riverbankcomputing.com/software/qscintilla/download">http://www.riverbankcomputing.com/software/qscintilla/download</a> 下載原始碼:</p>
 <p>步驟一:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cd Qt4Qt5
+<div class="highlight"><pre><span></span>cd Qt4Qt5
 qmake qscintilla.pro
 make
 sudo make install
 </pre></div>
-</td></tr></table>
+
 
 <p>步驟二:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cd ../designer-Qt4Qt5
+<div class="highlight"><pre><span></span>cd ../designer-Qt4Qt5
 qmake designer.pro
 make
 sudo make install
 </pre></div>
-</td></tr></table>
+
 
 <p>步驟三:</p>
-<table class="codehilitetable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="codehilite"><pre><span></span>cd ../Python
+<div class="highlight"><pre><span></span>cd ../Python
 python3 configure.py --pyqt=PyQt5
 make
 sudo make install
 </pre></div>
-</td></tr></table>
+
 
 <p>接下來則安裝 eric6, 從 <a href="http://eric-ide.python-projects.org/eric-download.html">http://eric-ide.python-projects.org/eric-download.html</a> 下載原始碼後, 以 sudo python3 install.py 進行安裝, 並以 eric6 開啟.</p>
 <h3>安裝 Leo Editor</h3>
@@ -491,6 +472,11 @@ sudo make install
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060213.html">
+                            40323230日誌 - 106/02/13
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1060210.html">
                             40323230日誌 - 106/02/10
                         </a>
@@ -508,11 +494,6 @@ sudo make install
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060208.html">
                             Pyquino 日誌 - 106/02/08
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060207.html">
-                            40323230日誌 - 106/02/07
                         </a>
                     </li>
                 </ul>

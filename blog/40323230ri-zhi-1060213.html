@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>3d printer - 機械設計專題 (虎尾科大MDE)</title>
+    <title>40323230日誌 - 106/02/13 - 機械設計專題 (虎尾科大MDE)</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -166,16 +166,22 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 
+<link rel="canonical" href="http://project.mde.tw/blog/40323230ri-zhi-1060213.html">
 
-    <meta name="author" content="KMOL" />
-    <meta name="keywords" content="3d printer" />
+        <meta name="author" content="40323230" />
+        <meta name="keywords" content="Kmol,Pyslvs" />
+        <meta name="description" content="Qt 的復原與重做功能： 基本功能 QUndoStack 巨集 Pyslvs 開發進度： 復原與重做功能" />
 
-    <!-- Open Graph tags -->
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="機械設計專題 (虎尾科大MDE)"/>
-        <meta property="og:url" content="http://project.mde.tw/blog"/>
-        <meta property="og:description" content="機械設計專題 (虎尾科大MDE)"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="40323230日誌 - 106/02/13"/>
+        <meta property="og:url" content="http://project.mde.tw/blog/40323230ri-zhi-1060213.html"/>
+        <meta property="og:description" content="Qt 的復原與重做功能： 基本功能 QUndoStack 巨集 Pyslvs 開發進度： 復原與重做功能"/>
+        <meta property="article:published_time" content="2017-02-13" />
+            <meta property="article:section" content="2016bg2" />
+            <meta property="article:tag" content="Kmol" />
+            <meta property="article:tag" content="Pyslvs" />
+            <meta property="article:author" content="40323230" />
 
 
     <!-- Bootstrap -->
@@ -253,7 +259,7 @@ init_mathjax();
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                        <li >
+                        <li class="active">
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
                         <li >
@@ -290,30 +296,165 @@ init_mathjax();
     <div class="row">
         <div class="col-sm-9">
 
-            <article>
-                <h2><a href="http://project.mde.tw/blog/40323123-zhuan-ti-can-kao-zi-liao.html">40323123 - 專題參考資料</a></h2>
-                <div class="summary"><p>raspberry pi  connect 3d printer to control the 3d printer </p>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://project.mde.tw/blog/40323230ri-zhi-1060213.html"
+                       rel="bookmark"
+                       title="Permalink to 40323230日誌 - 106/02/13">
+                        40323230日誌 - 106/02/13
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-02-13T21:00:00+08:00"> 一 13 二月 2017</time>
+    </span>
+            <span class="label label-default">By</span>
+            <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323123-zhuan-ti-can-kao-zi-liao.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://project.mde.tw/blog/bao-yang-3dlie-yin-ji.html">保養3D列印機</a></h2>
-                <div class="summary"><p>Control 3D printer and some Question</p>
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/bao-yang-3dlie-yin-ji.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://project.mde.tw/blog/40323123-3d-printer.html">40323123 - 3d printer</a></h2>
-                <div class="summary"><p>raspberry pi  connect 3d printer to control the 3d printer </p>
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323123-3d-printer.html">more ...</a>
+<span class="label label-default">Tags</span>
+	<a href="http://project.mde.tw/blog/tag/kmol.html">Kmol</a>
+        /
+	<a href="http://project.mde.tw/blog/tag/pyslvs.html">Pyslvs</a>
+    
+</footer><!-- /.post-info -->                    </div>
                 </div>
-            </article>
-            <hr/>
+                <p>Qt 的復原與重做功能：</p>
+<ul>
+<li>基本功能</li>
+<li>QUndoStack 巨集</li>
+</ul>
+<p>Pyslvs 開發進度：</p>
+<ul>
+<li>復原與重做功能</li>
+</ul>
+
+
+<h1>Qt 的復原與重做功能</h1>
+<p>由於之前 Ubuntu 14.04 更新了 LiberOffice，沒想到 LiberOffice 的 Python 3.5 程式庫被 PyInstaller 錯認，導致在 Ubuntu 14.04 無法編譯出執行檔。</p>
+<p>於是最近幾天裝了第三個系統 Ubuntu 16.04 來編譯，並且整理合併了原本雜亂的 Table Widget 管理用函式，為復原與重做功能。</p>
+<p>參考資料：</p>
+<ul>
+<li><a href="http://doc.qt.io/qt-5/qundostack.html#beginMacro">http://doc.qt.io/qt-5/qundostack.html</a></li>
+</ul>
+<h2>基本功能</h2>
+<p>在 Qt 的程式中，使用下列類型管理指令以供復原。</p>
+<ul>
+<li>
+<p>QUndoGroup</p>
+<p>統整不同區域，如個別視窗、Widget。每個區域用 QUndoStack 紀錄。</p>
+</li>
+<li>
+<p>QUndoStack</p>
+<p>統整不同的指令紀錄，如新增、刪除、編輯。每個指令用 QUndoCommand 紀錄。</p>
+</li>
+<li>
+<p>QUndoCommand</p>
+<p>代表想要復原的指令，指令中可以包含其他 QUndoCommand。每個指令都要有下列方法。</p>
+<ul>
+<li>
+<p>Redo - <code>QUndoCommand.redo()</code></p>
+<p>重做，可視為正指令，第一次呼叫會執行。</p>
+</li>
+<li>
+<p>Undo - <code>QUndoCommand.undo()</code></p>
+<p>復原，做出動作達成與 Redo 相反的狀態。</p>
+</li>
+</ul>
+</li>
+</ul>
+<p><strong>由於 QUndoCommand 在 QUndoStack 必須順序執行，因此在指定位置上用當前的位置考慮就好。</strong>如新增「最後一項」，Undo 時刪掉最後一項就好，不用擔心之後的指令造成這個項目不再是最後一項。</p>
+<p>至於編輯和刪除，<strong>要先紀錄刪除前的狀態（儲存到子項目），才能在 Undo 時加回來。</strong>寫在 <code>self.__init__()</code> 即可，會比 Redo 早執行。</p>
+<ul>
+<li>
+<p>呼叫 QUndoStack.push(<code>QUndoCommand()</code>) 方法來執行 QUndoCommand 的 Redo 項目，同時將 QUndoCommand 加入紀錄中。</p>
+</li>
+<li>
+<p>呼叫 QUndoStack.redo() 和 QUndoStack.undo() 方法來操作 QUndoCommand 的復原與重做。</p>
+</li>
+</ul>
+<p>要用 GUI 的方式查看並控制 QUndoStack，可以使用 QUndoView 這個 Widget。下面是一個只有 QUndoView 的 QDialog 懸浮窗，輸入對應的 stack 後，直接用滑鼠點擊可以馬上回到該階段。</p>
+<pre class="brush: python">
+class commandWindow(QDialog):
+    def __init__(self, stack, parent=None):
+        super(commandWindow, self).__init__(parent)
+        undoView = QUndoView(stack)
+        undoView.setEmptyLabel("Start.")
+        undoView.setAttribute(Qt.WA_QuitOnClose, False)
+        layout = QVBoxLayout(self)
+        layout.setContentsMargins(0, 0, 0, 0)
+        layout.addWidget(undoView)
+        self.setWindowTitle("Command List")
+        self.setSizeGripEnabled(False)
+        size = QSize(250, 200)
+        self.setMinimumSize(size)
+        self.setMaximumSize(size)
+</pre>
+
+<h2>QUndoStack 巨集</h2>
+<p>QUndoStack 的巨集功能幫開發者可以錄製多個 QUndoCommand 組成的指令。</p>
+<p>原理就是建立一個空的 QUndoCommand，再將輸入的 QUndoCommand 建到這個指令下，在使用 count() 方法回傳命令數時，這種巨集只算 1 個指令。</p>
+<p>使用 beginMacro() 方法時，所有項目都會凍結，包含 undo() 都會無法使用，直到使用 endMacro()。</p>
+<p>使用方式：</p>
+<pre class="brush: python">
+stack.beginMacro("複合指令") #開始錄製
+stack.push(AFunction()) #紀錄第一個 QUndoCommand
+print("複合指令執行中") #一般程式不會影響
+stack.push(BFunction()) #紀錄第二個 QUndoCommand
+stack.endMacro() #結束錄製
+</pre>
+
+<p>這樣下 undo() 方法就會一次倒敘 AFunction() 和 BFunction() 回去。</p>
+<h1>Pyslvs 開發進度</h1>
+<h2>復原與重做功能</h2>
+<p>參照一些簡單的範例達成了復原功能，並且在 Command line 上的 print 字樣也有所標示。</p>
+<p>不過還沒把一些更新功能轉成 QUndoCommand，所以暫時無法使用懸浮窗控制，全都加入後會預設啟用懸浮窗。</p>
+<p>下圖是載入檔案後編輯連桿的長度。</p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0213_01.png"></p>
+<p>使用 <kbd>Ctrl</kbd> + <kbd>Z</kbd> 復原。</p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0213_02.png"></p>
+            </div>
+            <!-- /.entry-content -->
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
+
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'projectmdetw'; // required: replace example with your forum shortname
+
+                    var disqus_identifier = '40323230ri-zhi-1060213';
+                var disqus_url = 'http://project.mde.tw/blog/40323230ri-zhi-1060213.html';
+
+            var disqus_config = function () {
+                this.language = "en";
+            };
+
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+    </section>
+        </article>
+    </section>
 
         </div>
         <div class="col-sm-3" id="sidebar">
@@ -325,18 +466,28 @@ init_mathjax();
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323123-zhuan-ti-can-kao-zi-liao.html">
-                            40323123 - 專題參考資料
+                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060213.html">
+                            40323230日誌 - 106/02/13
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/bao-yang-3dlie-yin-ji.html">
-                            保養3D列印機
+                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060210.html">
+                            40323230日誌 - 106/02/10
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323123-3d-printer.html">
-                            40323123 - 3d printer
+                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060209.html">
+                            40323230日誌 - 106/02/09
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060209.html">
+                            Pyquino 日誌 - 106/02/09
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060208.html">
+                            Pyquino 日誌 - 106/02/08
                         </a>
                     </li>
                 </ul>
@@ -415,7 +566,7 @@ init_mathjax();
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2016 KMOL
+         <div class="col-xs-10">&copy; 2017 KMOL
             &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>

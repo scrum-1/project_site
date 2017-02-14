@@ -46,13 +46,13 @@
 &lt;p&gt;我先設計了一台小三軸來進行輔助控制和設計，如果直接動到真正3D列印機上面可能會有非預期的整合問題出現，打算先用自己設計的機器和韌體進行控制。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="https://github.com/coursemdetw/project_site_files/blob/gh-pages/files/pyquino/machine.PNG?raw=true"&gt;&lt;/p&gt;
 &lt;h2&gt;規劃&lt;/h2&gt;
-&lt;p&gt;-使用控制板Arduino Mega2560 + ramps1.4(擴充版) 
--馬達(42步進馬達)
--皮帶(GT2)
--部分零組件(3D列印)
--板件設計(雷射切割)
--power supply使用12V輸出
--上銀滑軌(MGW9C)&lt;/p&gt;
+&lt;p&gt;-使用控制板Arduino Mega2560 + ramps1.4(擴充版) &lt;/p&gt;
+&lt;p&gt;-馬達(42步進馬達)&lt;/p&gt;
+&lt;p&gt;-皮帶(GT2)&lt;/p&gt;
+&lt;p&gt;-部分零組件(3D列印)&lt;/p&gt;
+&lt;p&gt;-板件設計(雷射切割)&lt;/p&gt;
+&lt;p&gt;-power supply使用12V輸出&lt;/p&gt;
+&lt;p&gt;-上銀滑軌(MGW9C)&lt;/p&gt;
 &lt;p&gt;採取工具機的控制方式G碼來進行控制，使用Arduino EEPROM的方式把文件存取到Arduinio的記憶體裡，這部分韌體我再來進行開發和控制，要先把成品做完才有辦法寫控制，除非利用Vrep等模擬軟體，輔助開發韌體，我想要同時兩邊一起跑來驗證，設計出來的機台在運作上沒有問題，也可以當個範本來輔助機台設計上使用。&lt;/p&gt;
 &lt;p&gt;二年級協同的部分可以使用我們開發出來的工具，來進行機器的設計，像是仿生獸的範例是非常不錯的，可以先引導他們使用Pyslvs的部分來繪製連桿機構，在使用Vrep來進行模擬，實體可能會做不到，他們在使用Pyslvs應該會花上許多時間可能兩週可能三週，模擬組裝就可以花上到期中的時間，在操作Vrep中remote_API一定會花上更多的時間，Pyqtuino的Vrep部分可能會趕不上讓學員使用，那邊開發需要花上一點時間研究API的部分，可能先請他們可以用Scite啟動python程式讓機器運動，並控制馬達的轉速，利用command line輸入的方式進行控制，將會提升他們對於程式語言的設計能力。&lt;/p&gt;
 &lt;p&gt;4042的學員，已經有交代他們先研究我們之前所做的教學以及Pyslvs的使用，實際上讀取到多少，我也不確定，要等開學再看看每個學員讀到多少。&lt;/p&gt;</content><category term="Pyquino"></category></entry><entry><title>Pyquino 日誌 - 106/02/09</title><link href="http://project.mde.tw/blog/pyquino-ri-zhi-1060209.html" rel="alternate"></link><published>2017-02-09T21:00:00+08:00</published><updated>2017-02-09T21:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2017-02-09:/blog/pyquino-ri-zhi-1060209.html</id><summary type="html">&lt;ol&gt;

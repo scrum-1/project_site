@@ -259,6 +259,9 @@ init_mathjax();
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
+                         <li><a href="http://project.mde.tw/blog/pages/about/">
+                             About
+                          </a></li>
                         <li class="active">
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
@@ -313,7 +316,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-02-03T21:00:00+08:00"> 五 03 二月 2017</time>
+        <i class="fa fa-calendar"></i><time datetime="2017-02-03T21:00:00+08:00"> Fri 03 February 2017</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -351,9 +354,9 @@ init_mathjax();
 <h2>Leo Editor Cloned Node</h2>
 <p>使用 Leo Editor 的分身節點套用相同的內容，並用 data-markdown 讀取；原始碼中會包含為轉換的 Markdown 語法。</p>
 <p>不過這種方式無法分章節（水平投影片），因此每個章節都需要分身，否則會讀取到 LaTex 的換頁標記。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0203_01.png"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0203_01.png" /></p>
 <p><strong>優點</strong>是可以自由裁切投影片長度（使用自訂記號），而且完全不會影響 Pandoc 的讀取。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0203_02.png"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0203_02.png" /></p>
 <p><strong>缺點</strong>是不能使用使用圖片參照，可能還要另外想辦法或是捨棄這種用法。</p>
 <p>還有一個較小的<strong>缺點</strong>是使用記號裁切後，分開的超連結內容會被脫離，必須在裁切前補上註釋，而 Pandoc 可能也會警告重複轉換的內容。</p>
 <h2>Pandoc - Template</h2>
@@ -369,7 +372,7 @@ $pandoc -t html5 --template=template-revealjs.html \
 
 <p>主要使用 <code>--section-divs</code> 配上 <code>-t html5</code> 並套用 Reveal.js 的套件轉出。</p>
 <p>轉出來的樣式如下：</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0203_03.png"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0203_03.png" /></p>
 <p><strong>缺點</strong>明顯就是「小節」會依附在「章」中，每一頁都會有「章」的開頭文字擋住。</p>
 <h1>Pelican 的 Pandoc Plugin</h1>
 <p>Pelican 部分有找到相關的擴充套件 pandoc_reader。</p>

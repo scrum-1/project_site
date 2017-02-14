@@ -115,7 +115,7 @@ AFunction(0, u=10, y=20, *[30, 40], **{'z':50, 'w':60})
 &lt;/pre&gt;
 
 &lt;p&gt;以上錯誤就是因為第一個 0 和 [30, 40] 的 list 已經帶入 x 和 y，並且多出一個 40，而之後又追加一個 y 的名稱所致。&lt;/p&gt;
-&lt;p&gt;善用這個功能，可以創造多變的輸入函式，應用到迴圈處理（如新增許多不同欄數的表格內容），不用再個別撰寫類似的函式流程。&lt;/p&gt;</content><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 106/02/13</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060213.html" rel="alternate"></link><published>2017-02-13T21:00:00+08:00</published><updated>2017-02-13T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-13:/blog/40323230ri-zhi-1060213.html</id><summary type="html">&lt;p&gt;Qt 的復原與重做功能：&lt;/p&gt;
+&lt;p&gt;善用這個功能，可以創造多變的輸入函式，應用到迴圈處理（如新增許多不同欄數的表格內容），不用再個別撰寫類似的函式流程。&lt;/p&gt;</content><category term="Python3"></category></entry><entry><title>40323230日誌 - 106/02/13</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060213.html" rel="alternate"></link><published>2017-02-13T21:00:00+08:00</published><updated>2017-02-13T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-13:/blog/40323230ri-zhi-1060213.html</id><summary type="html">&lt;p&gt;Qt 的復原與重做功能：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;基本功能&lt;/li&gt;
 &lt;li&gt;QUndoStack 巨集&lt;/li&gt;

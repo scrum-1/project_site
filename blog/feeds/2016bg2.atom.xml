@@ -1,5 +1,121 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE) - 2016bg2</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-13T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/02/13</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060213.html" rel="alternate"></link><published>2017-02-13T21:00:00+08:00</published><updated>2017-02-13T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-13:/blog/40323230ri-zhi-1060213.html</id><summary type="html">&lt;p&gt;Qt 的復原與重做功能：&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE) - 2016bg2</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-14T21:00:00+08:00</updated><entry><title>Arguments and Keywords in Python Function</title><link href="http://project.mde.tw/blog/arguments-and-keywords-in-python-function.html" rel="alternate"></link><published>2017-02-14T21:00:00+08:00</published><updated>2017-02-14T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-14:/blog/arguments-and-keywords-in-python-function.html</id><summary type="html">&lt;p&gt;Python 函式的引數與關鍵字&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;函式基本用法&lt;/li&gt;
+&lt;li&gt;引數與關鍵字&lt;/li&gt;
+&lt;/ul&gt;
+</summary><content type="html">&lt;p&gt;Python 函式的引數與關鍵字&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;函式基本用法&lt;/li&gt;
+&lt;li&gt;引數與關鍵字&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1&gt;Python 函式的引數與關鍵字&lt;/h1&gt;
+&lt;h2&gt;函式基本用法&lt;/h2&gt;
+&lt;p&gt;一般的 Python 函式如下：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+def AFunction(x, y, z):
+    print(x, y, z)
+
+a = 10
+b = 20
+c = 30
+AFunction(a, b, c)
+#10 20 30
+&lt;/pre&gt;
+
+&lt;p&gt;函式接收名稱（name），以在函式中利用之。&lt;/p&gt;
+&lt;p&gt;另一種指定 name 的用法如下：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+def AFunction(x=0, y=0, z=0):
+    print(x, y, z)
+
+a = 10
+b = 20
+AFunction(a, z=b)
+#10  0  20
+&lt;/pre&gt;
+
+&lt;p&gt;規則：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;指定預設數值的項目必須置於尾端。&lt;/li&gt;
+&lt;li&gt;未指定的項目會依順序代入。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;若是接收數目與輸入不同，會 Raise 出 TypeError。&lt;/p&gt;
+&lt;h2&gt;引數與關鍵字&lt;/h2&gt;
+&lt;p&gt;Python 提供了使用 tuple、list、dict 來輸入函式，樣式和使用上與 C 語言類似，不過並不是代表指標（Pointer）的意思。&lt;/p&gt;
+&lt;p&gt;有序排列的 tuple 和 list 使用星號 * 代表，稱為「引數（Arguments, args）」，會依序輸入或接收進函式。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;純輸入&lt;/strong&gt;：接收端數量不對等會回傳錯誤。&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+def AFunction(x, y, z):
+    print(x, y, z)
+
+aList = [10, 20, 30]
+AFunction(*aList)
+#10  20  30
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;純接收&lt;/strong&gt;：型態為 tuple。&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+def AFunction(*aList):
+    print(aList)
+
+AFunction(10, 20, 30)
+#(10, 20, 30)
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;輸入 + 接收&lt;/strong&gt;：數量必須調整與對應適當。&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+def AFunction(a, b, c, *aList):
+    print(aList) #前三項不會顯示
+
+AFunction(10, 20, *[30, 40, 50, 60])
+#(40, 50, 60)
+&lt;/pre&gt;
+
+&lt;p&gt;使用索引的 dict 使用雙星號 ** 代表，稱為「關鍵字（Keywords, kwargs）」，會依名稱填入函式。名稱的部份&lt;strong&gt;規定必須使用 string 表示&lt;/strong&gt;。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;純輸入&lt;/strong&gt;：接收端名稱不同、未指定預設值的項目沒輸入，皆會回傳錯誤。&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+def AFunction(x, y, z):
+    print(x)
+
+aList = {'x':10, 'y':20, 'z':30}
+AFunction(**aList)
+#10
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;純接收&lt;/strong&gt;：型態為 dict。注意&lt;strong&gt;輸入端都需要給名稱&lt;/strong&gt;。&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+def AFunction(**aList):
+    print(aList)
+
+AFunction(c=10, a=20, b=30)
+#{'a': 20, 'c': 10, 'b': 30}
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;strong&gt;輸入 + 接收&lt;/strong&gt;：名稱必須調整與對應適當。&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+def AFunction(missed, **aList):
+    print(aList) #不會列出 missed
+
+AFunction(a=10, b=20, **{'c':30, 'missed':40, 'd':50})
+#{'a': 10, 'c': 30, 'b': 20, 'd': 50}
+&lt;/pre&gt;
+
+&lt;p&gt;引數與關鍵字是可以混合用的，不過兩者必須擺在接收端和輸入端的最後項。&lt;/p&gt;
+&lt;p&gt;此時函式會照位置依序對應，再照引數依序對應，有名稱的項目最後才根據關鍵字對應。&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+def AFunction(x, y, *aList, **bList):
+    print(aList)
+    print(bList)
+
+AFunction(0, u=10, y=20, *[30, 40], **{'z':50, 'w':60})
+#TypeError: AFunction() got multiple values for argument 'y'
+&lt;/pre&gt;
+
+&lt;p&gt;以上錯誤就是因為第一個 0 和 [30, 40] 的 list 已經帶入 x 和 y，並且多出一個 40，而之後又追加一個 y 的名稱所致。&lt;/p&gt;
+&lt;p&gt;善用這個功能，可以創造多變的輸入函式，應用到迴圈處理（如新增許多不同欄數的表格內容），不用再個別撰寫類似的函式流程。&lt;/p&gt;</content><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 106/02/13</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060213.html" rel="alternate"></link><published>2017-02-13T21:00:00+08:00</published><updated>2017-02-13T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-13:/blog/40323230ri-zhi-1060213.html</id><summary type="html">&lt;p&gt;Qt 的復原與重做功能：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;基本功能&lt;/li&gt;
 &lt;li&gt;QUndoStack 巨集&lt;/li&gt;

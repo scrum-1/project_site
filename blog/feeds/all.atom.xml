@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-14T21:00:00+08:00</updated><entry><title>Arguments and Keywords in Python Function</title><link href="http://project.mde.tw/blog/arguments-and-keywords-in-python-function.html" rel="alternate"></link><published>2017-02-14T21:00:00+08:00</published><updated>2017-02-14T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-14:/blog/arguments-and-keywords-in-python-function.html</id><summary type="html">&lt;p&gt;Python 函式的引數與關鍵字&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-15T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/02/15</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060215.html" rel="alternate"></link><published>2017-02-15T21:00:00+08:00</published><updated>2017-02-15T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-15:/blog/40323230ri-zhi-1060215.html</id><summary type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;復原與重做功能 - 支援項目&lt;/li&gt;
+&lt;li&gt;新增「歷史紀錄」分頁&lt;/li&gt;
+&lt;/ul&gt;
+</summary><content type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;復原與重做功能 - 支援項目&lt;/li&gt;
+&lt;li&gt;新增「歷史紀錄」分頁&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1&gt;Pyslvs 開發進度&lt;/h1&gt;
+&lt;h2&gt;復原與重做功能 - 支援項目&lt;/h2&gt;
+&lt;p&gt;現在 Pyslvs 支援復原的命令如下：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;全部表格的新增、編輯、刪除功能&lt;/li&gt;
+&lt;li&gt;驅動軸的切換功能&lt;/li&gt;
+&lt;li&gt;路徑追蹤的更新、清除功能&lt;/li&gt;
+&lt;li&gt;路徑解題會以逐項添加實體的方式呈現&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;另外還有一些較細節的命令在製作中。&lt;/p&gt;
+&lt;h2&gt;新增「歷史紀錄」分頁&lt;/h2&gt;
+&lt;p&gt;這個分頁中有命令紀錄的表單，包含開啟檔案時讀取的動作。&lt;/p&gt;
+&lt;p&gt;使用滑鼠點擊清單上的命令即可回溯，對開發設計很有幫助。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0215_01.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;影片展示&lt;/strong&gt;：&lt;/p&gt;
+&lt;iframe width="640" height="360" src="https://www.youtube.com/embed/RJU0OUPQotk" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</content><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>Arguments and Keywords in Python Function</title><link href="http://project.mde.tw/blog/arguments-and-keywords-in-python-function.html" rel="alternate"></link><published>2017-02-14T21:00:00+08:00</published><updated>2017-02-14T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-14:/blog/arguments-and-keywords-in-python-function.html</id><summary type="html">&lt;p&gt;Python 函式的引數與關鍵字&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;函式基本用法&lt;/li&gt;
 &lt;li&gt;引數與關鍵字&lt;/li&gt;

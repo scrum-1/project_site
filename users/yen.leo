@@ -213,13 +213,14 @@
 </v>
 </v>
 </v>
-<v t="amd.20160106094754.1" a="E"><vh>@path ./../content/pages</vh>
+<v t="amd.20160106094754.1"><vh>@path ./../content/pages</vh>
 <v t="amd.20160106094829.1" a="E"><vh>yen 所寫的 pages 文章</vh>
 <v t="amd.20160106094844.1"><vh>@edit yen_pages_1.md</vh></v>
 </v>
 </v>
 <v t="yen.20161207105111.1"><vh>@button https server</vh></v>
 <v t="yen.20161207105124.1"><vh>@button ipv6 https server</vh></v>
+<v t="yen.20170215004706.1"><vh>20170215 改版</vh></v>
 </vnodes>
 <tnodes>
 <t tx="amd.20151215121740.1"></t>
@@ -1483,5 +1484,6 @@ def domake():
 # 利用執行緒執行 https 伺服器
 make = threading.Thread(target=domake)
 make.start()</t>
+<t tx="yen.20170215004706.1">目的在救回 About</t>
 </tnodes>
 </leo_file>

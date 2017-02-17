@@ -70,3 +70,5 @@ MENUITEMS = [('About', '/blog/pages/about/')]
 #SHOW_ARTICLE_AUTHOR = True
 
 #MENUITEMS = [('Home', '/'), ('Archives', '/archives.html'), ('Search', '/search.html')]
+
+DISPLAY_PAGES_ON_MENU = False

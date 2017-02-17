@@ -1,5 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE) - 2016bg2</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-16T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/02/16</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060216.html" rel="alternate"></link><published>2017-02-16T21:00:00+08:00</published><updated>2017-02-16T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-16:/blog/40323230ri-zhi-1060216.html</id><summary type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE) - 2016bg2</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-17T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/02/17</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060217.html" rel="alternate"></link><published>2017-02-17T21:00:00+08:00</published><updated>2017-02-17T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-17:/blog/40323230ri-zhi-1060217.html</id><summary type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;批次移動&lt;/li&gt;
+&lt;/ul&gt;
+</summary><content type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;批次移動&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1&gt;Pyslvs 開發進度&lt;/h1&gt;
+&lt;h2&gt;批次移動&lt;/h2&gt;
+&lt;p&gt;將所選的節點群平移（原點不可選）。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0217_01.png"&gt;&lt;/p&gt;
+&lt;p&gt;移動後採用「批次移動」命令包裝，內含這些點的修改指令。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0217_02.png"&gt;&lt;/p&gt;
+&lt;p&gt;命令文字提示如下：&lt;/p&gt;
+&lt;pre&gt;
+Batch move {Point1, Point2, Point3, Point4, Point5}
+- Moved (+0.00, -50.00)
+&lt;/pre&gt;
+
+&lt;p&gt;有了移動功能後，管理點座標會更為容易。&lt;/p&gt;</content><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 106/02/16</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060216.html" rel="alternate"></link><published>2017-02-16T21:00:00+08:00</published><updated>2017-02-16T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-16:/blog/40323230ri-zhi-1060216.html</id><summary type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;節點關聯查詢&lt;/li&gt;
 &lt;li&gt;取代點&lt;/li&gt;

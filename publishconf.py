@@ -40,8 +40,18 @@ DISQUS_SITENAME = "projectmdetw"
 # 設定網誌以 md 檔案建立的 file system date 為準, 無需自行設定
 DEFAULT_DATE = 'fs'
 
-# 遠端的 code hightlight
-MD_EXTENSIONS = ['fenced_code', 'extra', 'codehilite(linenums=True)']
+# 近端的 code hightlight
+# MD_EXTENSIONS is deprecated
+#MD_EXTENSIONS = ['fenced_code', 'extra', 'codehilite(linenums=True)']
+MARKDOWN = {
+    'extension_configs': {
+        'markdown.extensions.fenced_code': {},
+        'markdown.extensions.codehilite(linenums=True)': {'css_class': 'highlight'},
+        'markdown.extensions.extra': {},
+        'markdown.extensions.meta': {},
+    },
+    'output_format': 'html5',
+}
 
 # 若要依照日期存檔呼叫
 #ARTICLE_URL = 'posts/{date:%Y}/{date:%m}/{date:%d}/{slug}/'

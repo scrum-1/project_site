@@ -119,7 +119,7 @@
 </v>
 <v t="amd.20160309123311.1" a="E"><vh>處理錯誤</vh>
 <v t="amd.20160309123318.1" a="E"><vh>@path content</vh>
-<v t="amd.20160309123402.1"><vh>@edit 40323130_20160301.md</vh></v>
+<v t="amd.20160309123402.1"><vh>@@edit 40323130_20160301.md</vh></v>
 <v t="amd.20160309123451.1"><vh>@edit 40323143_20160309.md</vh></v>
 </v>
 </v>
@@ -210,6 +210,7 @@
 <v t="yen.20161217063133.1"><vh>@edit yen_20161217.md</vh></v>
 <v t="yen.20161228103910.1"><vh>@edit yen_20161228.md</vh></v>
 <v t="yen.20170107071836.1"><vh>@edit yen_20170107.md</vh></v>
+<v t="yen.20170215071407.1"><vh>@edit yen_20170215.md</vh></v>
 </v>
 </v>
 </v>
@@ -939,6 +940,7 @@ Tags:
 </t>
 <t tx="amd.20160309123311.1"></t>
 <t tx="amd.20160309123318.1"></t>
+<t tx="amd.20160309123402.1"></t>
 <t tx="amd.20160309141114.1">execute-script predefines:
 
 c: The commander of the present outline.

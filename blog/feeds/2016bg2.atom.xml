@@ -1,5 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-17T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/02/17</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060217.html" rel="alternate"></link><published>2017-02-17T21:00:00+08:00</published><updated>2017-02-17T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-17:blog/40323230ri-zhi-1060217.html</id><summary type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-18T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/02/18</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060218.html" rel="alternate"></link><published>2017-02-18T21:00:00+08:00</published><updated>2017-02-18T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-18:blog/40323230ri-zhi-1060218.html</id><summary type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;介面小改進&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1&gt;Pyslvs 開發進度&lt;/h1&gt;
+&lt;p&gt;由於今天剛回學校，忙準備一些事，所以做的比較少。&lt;/p&gt;
+&lt;h2&gt;介面小改進&lt;/h2&gt;
+&lt;p&gt;一些介面上的小更動。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;右鍵選單歸類。&lt;/li&gt;
+&lt;li&gt;編輯任何表格後都會關閉面板分頁，以免誤觸失去條件的面板。&lt;/li&gt;
+&lt;li&gt;表格在新增後會自動捲到底，捲動方式從&lt;strong&gt;每格(ScrollPerItem)&lt;/strong&gt;改成&lt;strong&gt;每像素(ScrollPerPixel)&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;批次移動和路徑追蹤的表單新增「加入全部」和「移除全部」鈕，樣式為雙箭頭 &lt;code&gt;&amp;gt;&amp;gt;&lt;/code&gt;。&lt;/li&gt;
+&lt;li&gt;範例選單的狀態列會顯示範例編號。&lt;/li&gt;
+&lt;/ul&gt;</summary><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 106/02/17</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060217.html" rel="alternate"></link><published>2017-02-17T21:00:00+08:00</published><updated>2017-02-17T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-17:blog/40323230ri-zhi-1060217.html</id><summary type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;批次移動&lt;/li&gt;
 &lt;/ul&gt;

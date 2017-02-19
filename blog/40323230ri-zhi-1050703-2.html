@@ -314,7 +314,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-07-03T19:00:00+08:00"> Sun 03 July 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-07-03T19:00:00+08:00"> 日 03 七月 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -338,20 +338,20 @@ init_mathjax();
 <p>下載了放在140.130.17.17/public/Netbeans/的可攜式環境git2016，該環境使用的是W:磁碟機，不會和撰寫網誌的Y:環境衝突，可以同時開啟；但是其一關閉時會把所有cmd關掉。之後放入了Netbeans套件，不過還尚未使用。</p>
 <p>在新的可攜式環境中存入了從GitHub下載的Solvespace的原始碼，並依照其Readme的方式，用git submodule update --init指令更新模組，並存了一個備份檔。</p>
 <p>CMake的方面使用可攜版的Zip檔，而非Msi安裝。將CMake放在W:的根目錄下。相較於使用指令，因為可攜式環境沒辦法呼叫外部程式支援，所以用cmake-gui.exe圖形介面來設定相關環境。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0703-2_01.jpg" /></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0703-2_01.jpg"></p>
 <p>一開始對cmake-gui.exe的兩個位置指向不太清楚，所以嘗試了很多次。</p>
 <p>要在Solvespace的目錄中建立一個/build資料夾，以存放binaries。</p>
 <p>Source code的部分是填程式專案的目錄，binaries的地方填/build資料夾，再按Configure鈕設定編譯器，完成後會設置CMake的檔案。</p>
 <p>雖然之前的目錄已經有檔案了，但是如果binaries直接設目錄內，貌似會衝突產生問題，也無法復原設定檔，幸好有先備份資料能復原。</p>
 <p>Configure的部分嘗試選擇MinGW的選項。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0703-2_02.jpg" /></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0703-2_02.jpg"></p>
 <p>下面則選Specify native compilers來自訂編譯器位置，這時執行出現一個錯誤，無法執行MinGW。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0703-2_03.jpg" /></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0703-2_03.jpg"></p>
 <p>上網尋找似乎要修改系統環境參數到MinGW的bin資料夾才找的到原本就存在的libgmp-10.dll，不知道可攜式環境有沒有其他解法。</p>
 <hr>
 
 <p>暫時用Visual Studio的設定，但是結果似乎不理想。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0703-2_04.jpg" /></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0703-2_04.jpg"></p>
 <hr>
 
 <p>參考資料：</p>
@@ -403,6 +403,11 @@ init_mathjax();
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060219.html">
+                            Pyquino 日誌 - 106/02/19
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1060218.html">
                             40323230日誌 - 106/02/18
                         </a>
@@ -420,11 +425,6 @@ init_mathjax();
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1060215.html">
                             40323230日誌 - 106/02/15
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/arguments-and-keywords-in-python-function.html">
-                            Arguments and Keywords in Python Function
                         </a>
                     </li>
                 </ul>

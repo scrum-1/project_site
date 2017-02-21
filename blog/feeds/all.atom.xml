@@ -1,5 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-19T21:00:00+08:00</updated><entry><title>Pyquino 日誌 - 106/02/19</title><link href="http://project.mde.tw/blog/pyquino-ri-zhi-1060219.html" rel="alternate"></link><published>2017-02-19T21:00:00+08:00</published><updated>2017-02-19T21:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2017-02-19:/blog/pyquino-ri-zhi-1060219.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-21T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/02/21</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060221.html" rel="alternate"></link><published>2017-02-21T21:00:00+08:00</published><updated>2017-02-21T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-21:/blog/40323230ri-zhi-1060221.html</id><summary type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;面板調整&lt;/li&gt;
+&lt;li&gt;伸縮桿面板&lt;/li&gt;
+&lt;/ul&gt;
+</summary><content type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;面板調整&lt;/li&gt;
+&lt;li&gt;伸縮桿面板&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1&gt;Pyslvs 開發進度&lt;/h1&gt;
+&lt;h2&gt;面板調整&lt;/h2&gt;
+&lt;p&gt;所有面板做了以下調整：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;由於一次只啟用 1個驅動軸 Shaft0，所以驅動軸面板將只支援控制 Shaft0 而已。&lt;/li&gt;
+&lt;li&gt;所有面板改成當修改或刪除任何表格時強制關閉，新增則不受影響。&lt;/li&gt;
+&lt;li&gt;使用者拉動滑桿調整展示角度或位置時，每改變一次位置，就會設置一個復原點。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;伸縮桿面板&lt;/h2&gt;
+&lt;p&gt;類似活塞的功能（滑塊加上距離約束），通過這個面板可以調整滑動的位置。&lt;/p&gt;
+&lt;p&gt;另外還有自訂距離範圍的功能，按下旁邊的 Reset 鈕可以重置上限和當前位置。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0221_01.png"&gt;&lt;/p&gt;
+&lt;p&gt;顯示方面也做了一些改變，當有啟用「顯示標註」功能時，驅動軸和伸縮桿會顯示當前距離或角度。&lt;/p&gt;</content><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>Pyquino 日誌 - 106/02/19</title><link href="http://project.mde.tw/blog/pyquino-ri-zhi-1060219.html" rel="alternate"></link><published>2017-02-19T21:00:00+08:00</published><updated>2017-02-19T21:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2017-02-19:/blog/pyquino-ri-zhi-1060219.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;開發日誌&lt;/p&gt;
 &lt;ul&gt;

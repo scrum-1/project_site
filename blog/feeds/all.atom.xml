@@ -1,5 +1,42 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-25T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/02/25</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060225.html" rel="alternate"></link><published>2017-02-25T21:00:00+08:00</published><updated>2017-02-25T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-25:/blog/40323230ri-zhi-1060225.html</id><summary type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-25T23:00:00+08:00</updated><entry><title>Pyquino 日誌 - 106/02/25</title><link href="http://project.mde.tw/blog/pyquino-ri-zhi-1060225.html" rel="alternate"></link><published>2017-02-25T23:00:00+08:00</published><updated>2017-02-25T23:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2017-02-25:/blog/pyquino-ri-zhi-1060225.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;開發日誌&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;機器繪製完成&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;匯入Vrep內部&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</summary><content type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;開發日誌&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;機器繪製完成&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;匯入Vrep內部&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;利用熟悉的繪圖軟體先將圖趕出來了，也已經匯入到Vrep內部，內部控制我可能先做單純讓兩顆馬達旋轉，先不設定這個複雜的仿生機構，先將控制介面包到Pyquino的分支裡面使用，依靠之前使用RemoAPI來控制Vrep馬達。&lt;/p&gt;
+&lt;p&gt;實體部分規畫&lt;/p&gt;
+&lt;p&gt;-馬達 MG996R(360度連續型)&lt;/p&gt;
+&lt;p&gt;-板件，使用雷射切割壓克力來製做&lt;/p&gt;
+&lt;p&gt;-連接件 螺絲，最長桿還在思考&lt;/p&gt;
+&lt;p&gt;-控制板 Arduino uno&lt;/p&gt;
+&lt;p&gt;-電源供應，電池盒&lt;/p&gt;
+&lt;p&gt;可以的話先設計好介面進行控制真的Arduino和內部的馬達，都先不要進行機構上的運行。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/coursemdetw/project_site_files/blob/gh-pages/files/pyquino/machine/vrep_import.PNG?raw=true"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/coursemdetw/project_site_files/blob/gh-pages/files/pyquino/machine/setting.PNG?raw=true"&gt;&lt;/p&gt;</content><category term="Pyquino"></category></entry><entry><title>40323230日誌 - 106/02/25</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060225.html" rel="alternate"></link><published>2017-02-25T21:00:00+08:00</published><updated>2017-02-25T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-25:/blog/40323230ri-zhi-1060225.html</id><summary type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;slvs 格式&lt;/li&gt;
 &lt;/ul&gt;

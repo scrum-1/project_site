@@ -34,7 +34,7 @@
 &lt;p&gt;另外可能還有一些問題待處理，會再檢查一下。&lt;/p&gt;
 &lt;h2&gt;新增一些範例&lt;/h2&gt;
 &lt;p&gt;新增了一個滑塊的範例。&lt;/p&gt;
-&lt;p&gt;另外還把葛式似連桿的路徑重 load 過，參考 PMKS 的範例。&lt;/p&gt;</content><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 106/02/25</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060225.html" rel="alternate"></link><published>2017-02-25T21:00:00+08:00</published><updated>2017-02-25T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-25:/blog/40323230ri-zhi-1060225.html</id><summary type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
+&lt;p&gt;另外還把葛式四連桿的路徑重 load 過，參考 PMKS 的範例。&lt;/p&gt;</content><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 106/02/25</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060225.html" rel="alternate"></link><published>2017-02-25T21:00:00+08:00</published><updated>2017-02-25T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-25:/blog/40323230ri-zhi-1060225.html</id><summary type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;slvs 格式&lt;/li&gt;
 &lt;/ul&gt;

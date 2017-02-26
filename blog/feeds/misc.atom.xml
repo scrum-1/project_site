@@ -1,0 +1,1377 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE) - Misc</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/misc.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-01-07T11:29:00+08:00</updated><entry><title>Blue Workforce 併購 V-rep 公司</title><link href="http://project.mde.tw/blog/blue-workforce-bing-gou-v-rep-gong-si.html" rel="alternate"></link><published>2017-01-07T11:29:00+08:00</published><updated>2017-01-07T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2017-01-07:/blog/blue-workforce-bing-gou-v-rep-gong-si.html</id><summary type="html">&lt;p&gt;丹麥的 &lt;a href="http://blueworkforce.com/"&gt;Blue Workforce&lt;/a&gt;公司與瑞士的 &lt;a href="http://www.coppeliarobotics.com/"&gt;Coppelia Robotics&lt;/a&gt; 公司已經在 2016 年 12 月 28 日合併了. 主要目標在開發更普及 (Accessible), 合用 (Applicable) 與平價 (Affordable) 的機器人系統&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;丹麥的 &lt;a href="http://blueworkforce.com/"&gt;Blue Workforce&lt;/a&gt;公司與瑞士的 &lt;a href="http://www.coppeliarobotics.com/"&gt;Coppelia Robotics&lt;/a&gt; 公司已經在 2016 年 12 月 28 日合併了. 主要目標在開發更普及 (Accessible), 合用 (Applicable) 與平價 (Affordable) 的機器人系統&lt;/p&gt;
+
+
+&lt;p&gt;&lt;a href="http://www.coppeliarobotics.com/"&gt;Coppelia Robotics&lt;/a&gt; 就是開發 V-REP (Virtual Robot Experimentation Platform, 虛擬機器人實驗平台) 的公司. 最早是在 2010 年 3 月以 V-REP V2.4.2 版本公開, 直到 2013 年 1 月起釋出 V-REP V3.0.0 版本的原始碼. 由於 V-REP 除了開放原始碼之外, 還提供俱備完整功能的免費教育版本. 因此非常適合在非營利的教育單位中納入課程教學.&lt;/p&gt;
+&lt;p&gt;在這項虛實機器人開發公司間的合併, 也能看到未來在各層級機器人自動化系統的整合, 將會是機電資 (InfoRmechAtronics) 三種機械、電機與資訊科技領域高度密合時代的來臨. 尤其在產品開發的前端大量使用異地同步串聯虛擬與實體即時整合的專案, 也將會日漸普及.&lt;/p&gt;
+&lt;p&gt;換言之, 未來機械產品設計最佳化的範圍, 除了必須將納入電機與資訊元件範疇之外, 各項容錯與更強健的製造管理系統規劃, 也將成為重點.&lt;/p&gt;
+&lt;iframe width="640" height="480" src="https://www.youtube.com/embed/ERD9QlouPLI" frameborder="0" allowfullscreen&gt;&lt;/iframe&gt;</content><category term="V-rep"></category><category term="機電資整合"></category></entry><entry><title>CADLAB 舊電腦的處理</title><link href="http://project.mde.tw/blog/cadlab-jiu-dian-nao-de-chu-li.html" rel="alternate"></link><published>2016-12-17T11:29:00+08:00</published><updated>2016-12-17T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-17:/blog/cadlab-jiu-dian-nao-de-chu-li.html</id><summary type="html">&lt;p&gt;2016 年暑假從 &lt;a href="http://cadlab.mde.tw"&gt;CADLAB&lt;/a&gt; 汰換下來的舊電腦, CPU 型號為 &lt;a href="http://ark.intel.com/zh-tw/products/37212/Intel-Pentium-Processor-E5200-2M-Cache-2_50-GHz-800-MHz-FSB"&gt;Intel E5200&lt;/a&gt;, 因為並不支援 Intel 虛擬化技術, 因此建議直接安裝 Ubuntu 16.04.1 + ubuntu-desktop, 當作實體的 Server 使用.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;2016 年暑假從 &lt;a href="http://cadlab.mde.tw"&gt;CADLAB&lt;/a&gt; 汰換下來的舊電腦, CPU 型號為 &lt;a href="http://ark.intel.com/zh-tw/products/37212/Intel-Pentium-Processor-E5200-2M-Cache-2_50-GHz-800-MHz-FSB"&gt;Intel E5200&lt;/a&gt;, 因為並不支援 Intel 虛擬化技術, 因此建議直接安裝 Ubuntu 16.04.1 + ubuntu-desktop, 當作實體的 Server 使用.&lt;/p&gt;
+
+
+&lt;h3&gt;安裝 LTS Server 與 ubuntu-desktop&lt;/h3&gt;
+&lt;p&gt;處理的步驟為:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;移除 PCI 插槽上的還原卡與主機版上的電池, 以便清除 BIOS 上原有的保護設定.&lt;/li&gt;
+&lt;li&gt;裝回電池後, 將記憶體從原先的 4GB 增為 8GB, 硬碟從原先 500 GB, 加掛至兩個 500 GB (RAM 與硬碟可以從其他舊電腦取用, 每兩台舊電腦拼成一台伺服器使用).&lt;/li&gt;
+&lt;li&gt;啟動時按下 del 鍵, 進入 BIOS 設定, 移除機殼開啟警示設定, 並確定斷電回復後電腦會主動開機.&lt;/li&gt;
+&lt;li&gt;利用其他電腦下載 Ubuntu 16.04.1 Server 程式, 燒錄成啟動光碟.&lt;/li&gt;
+&lt;li&gt;安裝過程無需上網, 安裝完成後依照&lt;a href="http://cadlab.mde.tw/post/ubuntu-1604-windows-7-yu-windows-10-xu-ni-ji-qi.html"&gt;參考說明&lt;/a&gt;、&lt;a href="http://cadlab.mde.tw/post/ji-jie-she-ji-gong-cheng-xi-ipv6-wang-zhi-fen-pei.html"&gt;IPV6 網址分配&lt;/a&gt;與&lt;a href="tag/wang-lu.html"&gt;網路導引&lt;/a&gt;設定 IPv6 網路, 並且安裝 ubuntu-desktop 套件.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;/etc/network/interfaces 參考設定:&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+auto lo
+iface lo inet loopback
+
+auto eth0
+
+iface eth0 inet6 static
+address 2001:288:6004:17::XX
+netmask 64
+gateway 2001:288:6004:17::254
+dns-nameservers 2001:288:6004:1::2 2001:b000:168::1
+&lt;/pre&gt;
+
+&lt;h3&gt;安裝 squid 代理主機伺服程式&lt;/h3&gt;
+&lt;p&gt;查驗電腦的記憶體, 確定至少有 8GB.&lt;/p&gt;
+&lt;p&gt;grep MemTotal /proc/meminfo to check Ram size&lt;/p&gt;
+&lt;p&gt;接著安裝設定 squid:&lt;/p&gt;
+&lt;p&gt;sudo apt install squid&lt;/p&gt;
+&lt;p&gt;sudo gedit /etc/squid/squid.conf&lt;/p&gt;
+&lt;p&gt;sudo service squid restart&lt;/p&gt;
+&lt;p&gt;squid.conf 參考設定:&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+acl cad_lab src 140.130.17.0/24
+acl cad_lab src 2001:288:6004:17::/64
+
+acl SSL_ports port 443
+acl Safe_ports port 80 # http
+acl Safe_ports port 88
+
+#acl Safe_ports port 21 # ftp
+acl SSL_ports port 8443
+acl Safe_ports port 8443
+
+acl SSL_ports port 9443
+acl Safe_ports port 9443
+
+acl SSL_ports port 22
+acl Safe_ports port 22
+
+acl Safe_ports port 443 # https
+acl Safe_ports port 1025-65535 # unregistered ports
+acl Safe_ports port 280 # http-mgmt
+acl Safe_ports port 488 # gss-http
+acl Safe_ports port 591 # filemaker
+acl Safe_ports port 777 # multiling http
+acl CONNECT method CONNECT
+
+# Deny requests to certain unsafe ports
+http_access deny !Safe_ports
+
+# Deny CONNECT to other than secure SSL ports
+http_access deny CONNECT !SSL_ports
+
+http_access allow cad_lab
+http_access deny all
+# Only allow cachemgr access from localhost
+http_access allow localhost manager
+http_access deny manager
+
+#http_access allow localnet
+http_access allow localhost
+
+# And finally deny all other access to this proxy
+http_access deny all
+
+# Squid normally listens to port 3128
+http_port 3128
+
+#cache_dir ufs /var/spool/squid 100 16 256
+icp_port 3130
+icp_access allow all
+
+cache_dir ufs /var/spool/squid 2000 16 256
+cache_peer 140.130.17.2 sibling 3128 3130
+
+#
+# Add any of your own refresh_pattern entries above these.
+#
+refresh_pattern ^ftp: 1440 20% 10080
+refresh_pattern ^gopher: 1440 0% 1440
+refresh_pattern -i (/cgi-bin/|\?) 0 0% 0
+refresh_pattern (Release|Packages(.gz)*)$ 0 20% 2880
+refresh_pattern . 0 20% 4320
+&lt;/pre&gt;
+
+&lt;h3&gt;配置 nginx 與 uwsgi 伺服環境&lt;/h3&gt;
+&lt;p&gt;接下來就可以安裝並配置 Python3 的網際程式伺服環境.&lt;/p&gt;
+&lt;p&gt;sudo apt install python3-pip&lt;/p&gt;
+&lt;p&gt;sudo pip3 install Flask&lt;/p&gt;
+&lt;p&gt;sudo apt install build-essential python3-dev&lt;/p&gt;
+&lt;p&gt;sudo pip3 install uwsgi&lt;/p&gt;
+&lt;p&gt;sudo apt install nginx uwsgi-plugin-python3&lt;/p&gt;
+&lt;p&gt;/etc/nginx/sites-availables/default 設定檔:&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+ server {
+    listen 80 default_server;
+    #listen [::]:80 default_server ipv6only=on;
+
+    listen 443 ssl;
+    #listen [::]:443 ssl ipv6only=on;
+
+    location /static {
+        alias /home/cadlab/cmsimfly/static/;
+    }
+
+    location / {
+        include uwsgi_params;
+        uwsgi_pass  127.0.0.1:8080;
+    }
+
+    server_name localhost;
+    #ssl on;
+    ssl_certificate /etc/nginx/ssl/nginx.crt;
+    ssl_certificate_key /etc/nginx/ssl/nginx.key;
+    ssl_session_timeout 5m;
+    ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers "HIGH:!aNULL:!MD5 or HIGH:!aNULL:!MD5:!3DES";
+    ssl_prefer_server_ciphers on;
+    try_files $uri $uri/ =404;
+}
+
+server {
+    listen 88 default_server;
+    #listen [::]:88 default_server ipv6only=on;
+
+    listen 8443 ssl;
+    #listen [::]:8443 ssl ipv6only=on;
+
+    location /static {
+        alias /home/cadlab/cmsimfly2/static/;
+    }
+
+    location / {
+        include uwsgi_params;
+        uwsgi_pass  127.0.0.1:8081;
+    }
+
+    server_name localhost;
+    #ssl on;
+    ssl_certificate /etc/nginx/ssl/nginx.crt;
+    ssl_certificate_key /etc/nginx/ssl/nginx.key;
+    ssl_session_timeout 5m;
+    ssl_protocols SSLv3 TLSv1 TLSv1.1 TLSv1.2;
+    ssl_ciphers "HIGH:!aNULL:!MD5 or HIGH:!aNULL:!MD5:!3DES";
+    ssl_prefer_server_ciphers on;
+    try_files $uri $uri/ =404;
+}
+&lt;/pre&gt;
+
+&lt;p&gt;利用 /etc/rc.local 開機時啟動所有 uwsgi 程式:&lt;/p&gt;
+&lt;p&gt;exec uwsgi_python35 --uid cadlab --gid cadlab --emperor /home/cadlab/uwsgi_ini&lt;/p&gt;
+&lt;p&gt;/home/cadlab/uwsgi_ini/uwsgi.ini 設定檔案內容:&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+[uwsgi]
+socket = 127.0.0.1:8080 
+plugins-dir = /usr/lib/uwsgi/plugins/
+plugin = python3
+processes = 4
+threads = 2
+chdir = /home/cadlab/cmsimfly
+wsgi-file = /home/cadlab/cmsimfly/wsgi.py
+&lt;/pre&gt;
+
+&lt;p&gt;/home/cadlab/uwsgi_ini/uwsgi2.ini 設定檔案內容:&lt;/p&gt;
+&lt;pre class="brush:python"&gt;
+[uwsgi]
+socket = 127.0.0.1:8081 
+plugins-dir = /usr/lib/uwsgi/plugins/
+plugin = python3
+processes = 4
+threads = 2
+chdir = /home/cadlab/cmsimfly2
+wsgi-file = /home/cadlab/cmsimfly2/wsgi.py
+&lt;/pre&gt;</content><category term="cadlab"></category><category term="pc"></category><category term="uwsgi"></category><category term="nginx"></category></entry><entry><title>處理學員 pull requests</title><link href="http://project.mde.tw/blog/chu-li-xue-yuan-pull-requests.html" rel="alternate"></link><published>2016-12-15T11:29:00+08:00</published><updated>2016-12-15T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-15:/blog/chu-li-xue-yuan-pull-requests.html</id><summary type="html">&lt;p&gt;因為之前處理 scrum-1 pull requests 的合併, 直接在 github 網站上執行, 只是 scrum-1 所提交的版本為近端網誌版本, 因此這裡必須 git pull 後, 進行改版, 並且檢查無誤後, 改提交遠端版本.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;因為之前處理 scrum-1 pull requests 的合併, 直接在 github 網站上執行, 只是 scrum-1 所提交的版本為近端網誌版本, 因此這裡必須 git pull 後, 進行改版, 並且檢查無誤後, 改提交遠端版本.&lt;/p&gt;
+
+
+&lt;h3&gt;直接合併&lt;/h3&gt;
+&lt;p&gt;首先在近端新增目前這篇網誌 .md 檔案, 利用 local-pelican 與 https-server 在近端檢查網誌內容.&lt;/p&gt;
+&lt;p&gt;檢查無誤後, 利用 gh-pages-pelican 按鈕轉為遠端網誌格式之後, 提交推送.&lt;/p&gt;
+&lt;h3&gt;無法直接合併&lt;/h3&gt;
+&lt;p&gt;當 scrum-1 所送出的 pull requests 無法直接在線上合併時, github 建議:&lt;/p&gt;
+&lt;p&gt;git checkout -b scrum-1-gh-pages gh-pages&lt;/p&gt;
+&lt;p&gt;git pull https://github.com/scrum-1/project_site.git gh-pages&lt;/p&gt;
+&lt;p&gt;表示要將目前倉儲中的 gh-pages 簽出到 scrum-1-gh-pages 分支後, 拉回 scrum-1 目前的版本.&lt;/p&gt;
+&lt;p&gt;接著則改版目前這篇網誌內容, 並且利用近端 local-pelican 按鈕轉檔後檢視.&lt;/p&gt;
+&lt;p&gt;確定沒有問題之後, 改用 gh-pages-pelican 按鈕轉為遠端格式.&lt;/p&gt;
+&lt;p&gt;至於版本的提交推送, github 建議:&lt;/p&gt;
+&lt;p&gt;git checkout gh-pages&lt;/p&gt;
+&lt;p&gt;git merge --no-ff scrum-1-gh-pages&lt;/p&gt;
+&lt;p&gt;git push origin gh-pages&lt;/p&gt;
+&lt;p&gt;表示要將近端倉儲的分支簽回 gh-pages, 然後合併 scrum-1-gh-pages 分支, 且以 no fast-forward 的方式進行合併. 最後再將近端 gh-pages 分支版本提交推送到遠端.&lt;/p&gt;
+&lt;p&gt;但是當我們操作 git merge --no-ff scrum-1-gh-pages 指令時, git 無法自動合併許多有差異的 html 檔案, 這時就必須再利用近端與遠端轉檔按鈕進行內容轉檔與查驗之後, 就可以:&lt;/p&gt;
+&lt;p&gt;git add -A&lt;/p&gt;
+&lt;p&gt;git commit -m "try to add all changes on scrum-1-gh-pages branch"&lt;/p&gt;
+&lt;p&gt;請注意, 這時的分支仍位於 scrum-1-gh-pages, 之後再執行:&lt;/p&gt;
+&lt;p&gt;git checkout gh-pages&lt;/p&gt;
+&lt;p&gt;git merge --no-ff scrum-1-gh-pages&lt;/p&gt;
+&lt;p&gt;表示要簽出 gh-pages 分支版本, 然後與 scrum-1-gh-pages 分支版本進行 no fast-forward 合併.&lt;/p&gt;
+&lt;p&gt;完成後, 再進行最後的近端轉檔查驗, 以及遠端的轉檔後, 就可將 gh-pages 分支版本提交推送.&lt;/p&gt;</content><category term="Leo Editor"></category><category term="Pull Requests"></category></entry><entry><title>Windows 環境下的可攜 Eric6 IDE</title><link href="http://project.mde.tw/blog/windows-huan-jing-xia-de-ke-xi-eric6-ide.html" rel="alternate"></link><published>2016-12-08T13:29:00+08:00</published><updated>2016-12-08T13:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-08:/blog/windows-huan-jing-xia-de-ke-xi-eric6-ide.html</id><summary type="html">&lt;p&gt;從 &lt;a href="yen-kmol-de-cheng-shi-kai-fa-huan-jing.html"&gt;KMOL 的程式開發環境&lt;/a&gt;, 可知在 2016 年是以 Ubuntu 16.04 操作系統為主, 但是為了在課程中推廣 Python3 與 PyQt5 的應用, 因此特別打造 64 位元 Windows 環境下的 Eric6 可攜程式開發環境.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;從 &lt;a href="yen-kmol-de-cheng-shi-kai-fa-huan-jing.html"&gt;KMOL 的程式開發環境&lt;/a&gt;, 可知在 2016 年是以 Ubuntu 16.04 操作系統為主, 但是為了在課程中推廣 Python3 與 PyQt5 的應用, 因此特別打造 64 位元 Windows 環境下的 Eric6 可攜程式開發環境.&lt;/p&gt;
+
+
+&lt;p&gt;先安裝 mingw 與 msys, 之後再安裝  sip-4.18.1 、PyQt5_gpl-5.7 與 QScintilla2, eric6, peewee, dxfwrite 等模組, 即可以 eric6 開啟 eric6 開發套件.&lt;/p&gt;
+&lt;p&gt;基本安裝步驟如下:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;從 https://sourceforge.net/projects/mingw-w64/files/latest/download?source=files 下載 mingw-w64-install.exe 安裝後 ,配合其擷取 gcc.exe 路徑, 設為可攜.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="https://sourceforge.net/projects/mingw/files/MSYS/Base/msys-core/msys-1.0.10/"&gt;msys&lt;/a&gt; 則取用先前可攜舊版本, 放至 y:\msys, 且 make.exe 位於 y:\msys\bin 目錄中.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;從 Anaconda3 目錄中複製 python35.dll 並使用 mingw32\bin 目錄中的 gendef.exe&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;以 gendef python35.dll 建立 python35.def&lt;/p&gt;
+&lt;p&gt;並以 dlltool --dllname python35.dll --def python35.def --output-lib libpython35.a&lt;/p&gt;
+&lt;p&gt;建立編譯 sip 所需的 libpython35.a&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;將 libpython35.a 複製到 Anaconda3\libs 目錄中&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下載 &lt;a href="https://www.riverbankcomputing.com/software/sip/download"&gt;sip-4.18.1 原始碼&lt;/a&gt;, 進入目錄中後以 &lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;python configure.py --platform win32-g++&lt;/p&gt;
+&lt;p&gt;configure 後 ,以 make 完成 sip.exe 以及 sip.pyd 建立.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;將 sip.exe 複製到 y:\Anaconda3 目錄中&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;將 sip.pyd 複製到 y:\Anaconda3\Lib\site-packages\ 目錄中&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;將 siplib\sip.h 複製到 y:\Anaconda3\include\ 目錄中&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;將 sip.pyi , sipconfig.py, sipdistutils.py, siputils.py 等檔案, 複製到 y:\Anaconda3\Lib\site-packages\ 目錄中&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;利用 pip install PyQt5 安裝 &lt;a href="https://www.riverbankcomputing.com/software/pyqt/download5"&gt;PyQt5&lt;/a&gt;, 利用 pip install QScintilla 安裝 &lt;a href="https://www.riverbankcomputing.com/software/qscintilla/download"&gt;QScintilla2&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下載 &lt;a href="https://eric-ide.python-projects.org/eric-download.html"&gt;Eric6&lt;/a&gt; 原始碼, 進入目錄後利用&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;python install.py&lt;/p&gt;
+&lt;p&gt;完成 Eric6 安裝, 之後可使用 eric6 啟動&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;利用 conda 安裝 &lt;a href="https://anaconda.org/conda-forge/peewee"&gt;peewee ORM 模組&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;conda install -c conda-forge peewee=2.8.1&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;利用 pip install dxfwrite 安裝模組&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;上述步驟所完成的 Eric6 可攜整合程式開發環境位於 &lt;a href="https://service.mde.tw:8443/downloads/kmol/"&gt;https://service.mde.tw:8443/downloads/kmol/&lt;/a&gt;, 僅支援授權用戶下載.&lt;/p&gt;
+&lt;p&gt;接下來, 為了打包 Python3 與 PyQt5 所建立的程式套件, 利用  conda 安裝 pyinstaller.&lt;/p&gt;
+&lt;p&gt;conda install -c acellera pyinstaller=3.2.3&lt;/p&gt;
+&lt;p&gt;並且利用 pip install cx_freeze  安裝 cx_freeze.&lt;/p&gt;
+&lt;p&gt;打包過程共有兩個步驟:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;pyinstaller -w --onedir launch_pyslvs.py&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;-w 表示要建立 gui 程式套件.&lt;/p&gt;
+&lt;p&gt;所產生的包裝程式位於 dist 目錄中&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;python setup.py build&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;setup.py 內容:&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+from cx_Freeze import setup, Executable
+import sys
+
+build_exe_options = {"packages": ["os"], "includes": ["PyQt5"], "excludes": ["tkinter"]}
+
+base = None
+if sys.platform == "win32":
+    base = "Win32GUI"
+
+setup(
+    name = 'solvespack',
+    version = '1',
+    description = '.',
+    executables=[Executable('launch_pyslvs.py', base=base)],
+    options={"build_exe":build_exe_options},
+)
+&lt;/pre&gt;
+
+&lt;p&gt;所產生的包裝程式位於 build 目錄中.&lt;/p&gt;
+&lt;p&gt;最後, 合併兩個套件所建立的包裝檔案, 並以 Pyinstaller 所產生的 .exe 為主體, 啟動 PyQt5 視窗程式.&lt;/p&gt;</content><category term="Eric6"></category><category term="PyQt5"></category></entry><entry><title>Leo Editor 專案的 https 按鈕</title><link href="http://project.mde.tw/blog/leo-editor-zhuan-an-de-https-an-niu.html" rel="alternate"></link><published>2016-12-07T13:29:00+08:00</published><updated>2016-12-07T13:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-07:/blog/leo-editor-zhuan-an-de-https-an-niu.html</id><summary type="html">&lt;p&gt;隨著機械設計專題在&lt;a href="yen-ji-jie-she-ji-zhuan-ti-de-jin-duan-yu-yuan-duan.html"&gt;近端與遠端分散式版次管理的需求&lt;/a&gt;, 我們增加在純 IPv6 模式下啟動近端 https 伺服器的按鈕.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;隨著機械設計專題在&lt;a href="yen-ji-jie-she-ji-zhuan-ti-de-jin-duan-yu-yuan-duan.html"&gt;近端與遠端分散式版次管理的需求&lt;/a&gt;, 我們增加在純 IPv6 模式下啟動近端 https 伺服器的按鈕.&lt;/p&gt;
+
+
+&lt;p&gt;IPv4 https 近端伺服器按鈕程式碼:&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+import os
+import subprocess
+import threading
+import http.server, ssl
+
+def domake():
+    # build directory
+    os.chdir("./../")
+    server_address = ('localhost', 5443)
+    httpd = http.server.HTTPServer(server_address, http.server.SimpleHTTPRequestHandler)
+    httpd.socket = ssl.wrap_socket(httpd.socket,
+                                   server_side=True,
+                                   certfile='localhost.crt',
+                                   keyfile='localhost.key',
+                                   ssl_version=ssl.PROTOCOL_TLSv1)
+    print("5443 https server started")
+    httpd.serve_forever()
+
+# 利用執行緒執行 https 伺服器
+make = threading.Thread(target=domake)
+make.start()
+&lt;/pre&gt;
+
+&lt;p&gt;IPv6 https 近端伺服器按鈕程式碼:&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+import os
+import subprocess
+import threading
+import socket
+import http.server, ssl
+
+class HTTPServerV6(http.server.HTTPServer):
+    address_family = socket.AF_INET6
+
+def domake():
+    # build directory
+    os.chdir("./../")
+    ipv6_address = '::1'
+    server_address = (ipv6_address, 6443)
+    #httpd = http.server.HTTPServer(server_address, http.server.SimpleHTTPRequestHandler)
+    httpd = HTTPServerV6(server_address, http.server.SimpleHTTPRequestHandler)
+    httpd.socket = ssl.wrap_socket(httpd.socket,
+                                   server_side=True,
+                                   certfile='localhost.crt',
+                                   keyfile='localhost.key',
+                                   ssl_version=ssl.PROTOCOL_TLSv1)
+    print("6443 https server started")
+    httpd.serve_forever()
+
+# 利用執行緒執行 https 伺服器
+make = threading.Thread(target=domake)
+make.start()
+&lt;/pre&gt;
+
+&lt;p&gt;另外, 為了配合近端與遠端全面支援雙網路協定伺服器, 所有 Pelican template 連結, 也都從 http 改為 https 連結.&lt;/p&gt;</content><category term="Leo Editor"></category><category term="https"></category></entry><entry><title>現代機器人學-力學、規劃與控制</title><link href="http://project.mde.tw/blog/xian-dai-ji-qi-ren-xue-li-xue-gui-hua-yu-kong-zhi.html" rel="alternate"></link><published>2016-11-01T11:29:00+08:00</published><updated>2016-11-01T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-11-01:/blog/xian-dai-ji-qi-ren-xue-li-xue-gui-hua-yu-kong-zhi.html</id><summary type="html">&lt;p&gt;身為現代機械設計專題成員, 只要有網路連線, 俱備英文閱讀能力, 就能夠同步檢視美國電腦系排名第1的 Carnegie Mellon University, 2016 年秋季班 &lt;a href="http://www.cs.cmu.edu/afs/cs/academic/class/16741-s07/www/"&gt;Mechanics of Manipulation&lt;/a&gt; 課程內容. 從中還能得知, 目前編寫接近完成, 用於韓國首爾大學與美國西北大學相關課程的&lt;a href="http://hades.mech.northwestern.edu/images/7/7f/MR.pdf"&gt;教材 pdf&lt;/a&gt;與&lt;a href="https://github.com/NxRLab/ModernRobotics"&gt;軟體&lt;/a&gt;, 也已經同步&lt;a href="http://hades.mech.northwestern.edu/index.php/LynchAndPark"&gt;釋出&lt;/a&gt;.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;身為現代機械設計專題成員, 只要有網路連線, 俱備英文閱讀能力, 就能夠同步檢視美國電腦系排名第1的 Carnegie Mellon University, 2016 年秋季班 &lt;a href="http://www.cs.cmu.edu/afs/cs/academic/class/16741-s07/www/"&gt;Mechanics of Manipulation&lt;/a&gt; 課程內容. 從中還能得知, 目前編寫接近完成, 用於韓國首爾大學與美國西北大學相關課程的&lt;a href="http://hades.mech.northwestern.edu/images/7/7f/MR.pdf"&gt;教材 pdf&lt;/a&gt;與&lt;a href="https://github.com/NxRLab/ModernRobotics"&gt;軟體&lt;/a&gt;, 也已經同步&lt;a href="http://hades.mech.northwestern.edu/index.php/LynchAndPark"&gt;釋出&lt;/a&gt;.&lt;/p&gt;
+
+
+&lt;p&gt;這本&lt;a href="http://hades.mech.northwestern.edu/images/7/7f/MR.pdf"&gt;電子書&lt;/a&gt;, 標題是: INTRODUCTION TO MODERN
+ROBOTICS - MECHANICS, PLANNING, AND CONTROL, 主題是現代機器人學有關的力學、規劃與控制. 而課程中的&lt;a href="https://github.com/NxRLab/ModernRobotics"&gt;軟體&lt;/a&gt;,  分別採用 Matlab、Mathematica 與 Python 編寫, 其中只有 Python 是泛用型開放源程式語言, 可見 Python 在機器人學課程的教學中已經逐步深化, 且是學生可以自由帶出學校進入業界使用的重要工具之一.&lt;/p&gt;
+&lt;p&gt;我們相信, 接下來與類似課程相關的軟體應用, 一定會逐步搬到 &lt;a href="https://github.com/jupyterhub/jupyterhub"&gt;Jupyterhub&lt;/a&gt; 相關的網際平台上, 屆時若能再將分析結果與 &lt;a href="https://threejs.org/"&gt;three.js&lt;/a&gt; 作動的各式機械手臂及機構模擬結合, 並且將分析完成的各式零組件以 &lt;a href="https://www.onshape.com/"&gt;OnShape&lt;/a&gt; 完成, 那就真的太棒了.&lt;/p&gt;</content><category term="機械設計"></category><category term="專題"></category><category term="導引"></category></entry><entry><title>yen - 雲端上的機械設計專題</title><link href="http://project.mde.tw/blog/yen-yun-duan-shang-de-ji-jie-she-ji-zhuan-ti.html" rel="alternate"></link><published>2016-10-25T11:29:00+08:00</published><updated>2016-10-25T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-10-25:/blog/yen-yun-duan-shang-de-ji-jie-she-ji-zhuan-ti.html</id><summary type="html">&lt;p&gt;OnShape 正式推出全面的免費帳號還不滿一年, 在 Google 搜尋結果已經突破百萬, 在這段期間, Windows 10 大小更新不斷, 從推出至今一直給系統管理人員帶來困擾, 面對無需使用 SolidWorks 的機械設計專題, Windows 10 的可有可無, 已經確定.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;OnShape 正式推出全面的免費帳號還不滿一年, 在 Google 搜尋結果已經突破百萬, 在這段期間, Windows 10 大小更新不斷, 從推出至今一直給系統管理人員帶來困擾, 面對無需使用 SolidWorks 的機械設計專題, Windows 10 的可有可無, 已經確定.&lt;/p&gt;
+
+
+&lt;p&gt;儘管趨勢如此, 雲端上的機械設計專題團隊, 仍然必須正視目前多數課程仍然使用 Windows 操作系統的現況, 推廣將 Windows 10 塞進虛擬環境, 並且儘量用可攜的程式環境, 以便有朝一日能在真正自由開放的環境中, 執行新產品設計.&lt;/p&gt;
+&lt;p&gt;推廣脫離 Windows 10 約束困擾的第一步, 就是設法讓正版 CAD/CAE/CAM 套件容易使用, 讓系統管理者與用戶能夠在虛擬環境中執行約束最高的 Windows 10, 讓使用者可以在多套, 不同安裝內容的虛擬 Windows 10 環境中執行各式套件.&lt;/p&gt;
+&lt;p&gt;為了驗證並推廣此一構想, 接下來就是利用一台電腦輔助設計室的&lt;a href="yen-dian-nao-fu-zhu-she-ji-shi-dian-nao-pei-zhi.html"&gt;電腦&lt;/a&gt;, 移除硬碟保護卡, 在實體安裝 Ubuntu 16.04 Server + ubuntu-desktop, 之後再用另外一套虛擬的 Ubuntu 16.04 充當網際伺服主機, 以 uwsgi 執行 nginx 與內容管理程式, 完成 &lt;a href="http://service.mde.tw"&gt;http://service.mde.tw&lt;/a&gt; 服務網站的建構, 而此一網站不僅有開放的 Debian 核心, 有方便的 uwsgi 多緒多工執行環境, 而且整體服務只用到 Python3 與 C 程式套件模組, 並且以 Virtualbox 的 vdi 檔案存在實體 Ubuntu 16.04 操作系統中, 任何團隊都可以直接以下載 vdi 檔案 (約  13GB) 後, 自行搭建相同的服務, 沒有約束, 無需認証, 使用者可以全盤掌握流程中的所有細節.&lt;/p&gt;
+&lt;p&gt;之後, 在虛擬的 Ubuntu 16.04 或 Windows 10 環境中, 機械設計專題人員可以大膽地測試各種程式開發環境, 可以按照自己的需求重新編譯 Ubuntu 系統核心碼, 自行客製化所使用的工具, 也能從中開發出自己的工具套件.&lt;/p&gt;
+&lt;p&gt;機械設計專題成員利用虛擬的 Ubuntu 16.04 伺服器搭建出來的網際內容管理服務系統, &lt;a href="http://service.mde.tw"&gt;http://service.mde.tw&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016fall/mde_project_server1.png" width="800" /&gt;&lt;/p&gt;
+&lt;p&gt;機械設計專題成員可以直接在虛擬的 Ubuntu 操作系統中, 利用 g++, CMake 編譯 Linux 與 Windows 64 位元都能執行的 Solvespace 參數繪圖程式:&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016fall/mde_project_server2.png" width="800" /&gt;&lt;/p&gt;
+&lt;p&gt;機械設計專題成員也可以延續 Python2 中使用 SWIG 整合 Solvespace 程式庫的&lt;a href="https://github.com/BBBSnowball/python-solvespace"&gt;舊專案&lt;/a&gt;, 擴充為 &lt;a href="https://github.com/40323230/python-solvespace"&gt;Python3 Solvespace 應用程式庫&lt;/a&gt;外, 並完成以 PyQt5+Python3 編寫的的&lt;a href="https://github.com/40323230/Pyslvs-PyQt5"&gt;平面機構模擬套件&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016fall/mde_project_server3.png" width="800" /&gt;&lt;/p&gt;
+&lt;p&gt;最後, 假如要測試上述各項跨平台的工具在 Windows 10 執行的情形, 也是可以:&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016fall/mde_project_server4.png" width="800" /&gt;&lt;/p&gt;</content><category term="機械設計"></category><category term="專題"></category><category term="協同"></category></entry><entry><title>yen - 機械設計專題的近端與遠端</title><link href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-de-jin-duan-yu-yuan-duan.html" rel="alternate"></link><published>2016-10-22T11:29:00+08:00</published><updated>2016-10-22T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-10-22:/blog/yen-ji-jie-she-ji-zhuan-ti-de-jin-duan-yu-yuan-duan.html</id><summary type="html">&lt;p&gt;機械設計專門研究如何利用機巧的配置來解決問題, 所謂機巧的配置不限固體、流體或是軟體, 隨著網路數位科技的不斷精進, 機械設計工程師也必須熟練網際協同環境中近端與遠端的搭配使用.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;機械設計專門研究如何利用機巧的配置來解決問題, 所謂機巧的配置不限固體、流體或是軟體, 隨著網路數位科技的不斷精進, 機械設計工程師也必須熟練網際協同環境中近端與遠端的搭配使用.&lt;/p&gt;
+
+
+&lt;p&gt;以下有一個例子, 可以用來展示機械設計專題如何在近端與遠端中執行設計工作.&lt;/p&gt;
+&lt;p&gt;所謂近端, 指的是機械設計工程師身旁所使用的電腦, 可以是在實體操作系統或者是虛擬操作系統, 可以連上廣域網路, 也可以暫時從網路連線中斷線, 以便專心在近端的工作目錄中工作.&lt;/p&gt;
+&lt;p&gt;所謂遠端, 指的是位於廣域網路上的電腦, 通常是雲端伺服器, 至少提供全球資訊網伺服與 Git 伺服. 遠端主機的功能主要讓身處各地的工程師, 可以透過網路連線, 以  Git 分散式版次管理系統進行產品設計協同.&lt;/p&gt;
+&lt;p&gt;前面提到機械設計事涉機巧的配置, 因此我們在近端工作時, 會希望能夠得到與遠端伺服器相同的結果, 其中若以網際協同的架構來說, 代表在近端的文字資料, 當使用者在編寫時, 能夠採用 Markdown 格式, 然後再經由程式方法轉換為 html, 至於關鍵字的搜尋也希望兩端相同, 都採 Javascript 完成.&lt;/p&gt;
+&lt;p&gt;這時, 假如近端有廣域網路連線, 則協同資料中可以使用 &lt;a href="https://en.wikipedia.org/wiki/Content_delivery_network"&gt;cdn&lt;/a&gt; 來簡化工作, 否則一律採用相對目錄擷取所需要的 Javascript 程式庫.&lt;/p&gt;
+&lt;p&gt;剩下的工作就是在近端, 啟動一個專門測試用的 https 伺服器, 讓之後在遠端工作時欲呈現的結果, 預先在近端進行 Debug.&lt;/p&gt;
+&lt;p&gt;因為整個 KMOL 團隊都是採用 Leo Editor 進行協同工作, 並且所有遠端的資料伺服都採用 https, 因此只要使用下列的多執行緒按鈕, 就可以在近端啟動一個或多個 https 伺服器.&lt;/p&gt;
+&lt;p&gt;首先, 利用:&lt;/p&gt;
+&lt;p&gt;sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout localhost.key -out localhost.crt&lt;/p&gt;
+&lt;p&gt;建立所需的 localhost.key 與 localhost.crt&lt;/p&gt;
+&lt;p&gt;然後配合更動各 https 伺服器的埠號, 每按下一次按鈕, 就會配合各 .leo 專案, 產生對應 https 伺服.&lt;/p&gt;
+&lt;pre class="brush: python"&gt; 
+import os
+import subprocess
+import threading
+import http.server, ssl
+
+def domake():
+    # build directory
+    os.chdir("./../")
+    server_address = ('localhost', 9443)
+    httpd = http.server.HTTPServer(server_address, http.server.SimpleHTTPRequestHandler)
+    httpd.socket = ssl.wrap_socket(httpd.socket,
+                                   server_side=True,
+                                   certfile='localhost.crt',
+                                   keyfile='localhost.key',
+                                   ssl_version=ssl.PROTOCOL_TLSv1)
+    print("9443 https server started")
+    httpd.serve_forever()
+
+# 利用執行緒執行 https 伺服器
+make = threading.Thread(target=domake)
+make.start()
+&lt;/pre&gt;
+
+&lt;p&gt;這個按鈕的實際應用請參考:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://mdecourse.github.io/2016fallcadpa/blog/2016fall-cheng-shi-lian-xi-ti.html"&gt;2016fall 電腦輔助設計實習課程分班網誌&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;與&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://mdecourse.github.io/2016fallcpa/blog/2016fall-ji-jie-she-ji-zhu-ti-jiao-xue.html"&gt;2016fall 計算機程式分班課程網誌&lt;/a&gt;&lt;/p&gt;</content><category term="機械設計"></category><category term="專題"></category><category term="協同"></category></entry><entry><title>yen - 電腦輔助設計室電腦配置</title><link href="http://project.mde.tw/blog/yen-dian-nao-fu-zhu-she-ji-shi-dian-nao-pei-zhi.html" rel="alternate"></link><published>2016-10-16T11:29:00+08:00</published><updated>2016-10-16T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-10-16:/blog/yen-dian-nao-fu-zhu-she-ji-shi-dian-nao-pei-zhi.html</id><summary type="html">&lt;p&gt;2016 年暑假機械設計工程系八樓的電腦輔助設計室更換了 54 台四年保固的華碩 Skylake MD790/I7-6700, 這一批 Intel 第六代 Core i7/3.4GHz/8M 電腦, 採用 Intel Q170 晶片組, 搭載 16GB DDR4/2133/288 Pin 記憶體 (8 GBx2), 2 TB-SATA3 硬碟, Asus MINI-GTX950-2G 顯示卡 (支援 PCIE 3.0, OpenGL 4.5, 768 個CUDA 核心數), 500瓦電源供應器, USB 3.1x2 (10GB/s) , USB 3.0x6 (5GB/s), USB 2.0x2 (480MB/s), 以及 &lt;a href="http://www.teamsoftex.com"&gt;群準&lt;/a&gt;的 EVOsys PRO/SATA 還原卡, 可同時支援 D-sub、HDMI 及 DisplayPort 三台獨立顯示器多工作業.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;2016 年暑假機械設計工程系八樓的電腦輔助設計室更換了 54 台四年保固的華碩 Skylake MD790/I7-6700, 這一批 Intel 第六代 Core i7/3.4GHz/8M 電腦, 採用 Intel Q170 晶片組, 搭載 16GB DDR4/2133/288 Pin 記憶體 (8 GBx2), 2 TB-SATA3 硬碟, Asus MINI-GTX950-2G 顯示卡 (支援 PCIE 3.0, OpenGL 4.5, 768 個CUDA 核心數), 500瓦電源供應器, USB 3.1x2 (10GB/s) , USB 3.0x6 (5GB/s), USB 2.0x2 (480MB/s), 以及 &lt;a href="http://www.teamsoftex.com"&gt;群準&lt;/a&gt;的 EVOsys PRO/SATA 還原卡, 可同時支援 D-sub、HDMI 及 DisplayPort 三台獨立顯示器多工作業.&lt;/p&gt;
+
+
+&lt;p&gt;當我們為了機械設計專題, 在這台電腦實體安裝 Ubuntu 16.04 LTS Server 加上 ubuntu-desktop 之後, 發現 UEFI secure boot 必須要關閉, 才能配合 VT-x 功能的啟用, 避開無法載入 Kernel Module 的&lt;a href="https://forums.virtualbox.org/viewtopic.php?f=7&amp;t=77363"&gt;錯誤&lt;/a&gt;, 正確安裝 64 位元的 Virtualbox 套件. 要關閉華碩 Skylake MD790/I7-6700 UEFI secure boot 功能, 共有&lt;a href="https://www.asus.com/tw/support/faq/1004383/"&gt;兩個步驟&lt;/a&gt;, 先將 Secure Boot 裡的 OS Type 設為 Other OS 之後, 然後將 CSM 中的 Launch CSM 設為 Enabled 即可.&lt;/p&gt;
+&lt;p&gt;之所以選擇在電腦實體安裝 Ubuntu 16.04 LTS 操作系統, 加上 Ubuntu Desktop 的原因是, 其生命週期長達 5 年, 能夠涵蓋電腦硬體四年保固的範圍, 也能利用虛擬的 Windows 10 64位元操作系統, 進行最有效率的配置使用.&lt;/p&gt;
+&lt;p&gt;此外, 這台華碩 Skylake MD790/I7-6700 電腦主機板, 內建 &lt;a href="http://www.intel.com/content/www/us/en/embedded/products/networking/ethernet-connection-i219-datasheet.html"&gt;Intel I219LM&lt;/a&gt; 與 &lt;a href="http://www.intel.com/content/www/us/en/embedded/products/networking/i211-ethernet-controller-datasheet.html"&gt;Intel I211&lt;/a&gt; Gigabit 網卡外, 另外又加裝了一片 
+Realtech Gigabit 網卡, 可以利用三條 Cat. 6 網路線, 透過三台虛擬 Ubuntu 16.04 LTS 中的 &lt;a href="http://www.squid-cache.org/"&gt;Squid&lt;/a&gt;, 作為 IPV4/IPV6 雙支援代理伺服器. 並且配合不同課程的需求, 配置各式套件組合的 Windows 10 Pro 虛擬主機群, 而無需將所有的 CAD/CAE/CAM、自動控制與各式程式開發環境, 混雜在同一個開機磁區.&lt;/p&gt;
+&lt;p&gt;MD790 電腦機殼:&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/cadlab_pc/asus_md790.jpeg" width="400" /&gt;&lt;/p&gt;
+&lt;p&gt;電腦正面支援兩個 USB 3.0 與兩個 USB 2.0 插槽:&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/cadlab_pc/asus_md790_1.jpeg" width="400" /&gt;&lt;/p&gt;
+&lt;p&gt;電腦正面支援兩個 USB 3.1 與兩個 USB 3.0 插槽:&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/cadlab_pc/asus_md790_2.jpeg" width="400" /&gt;&lt;/p&gt;
+&lt;p&gt;用來取代傳統 BIOS 的 &lt;a href="https://zh.wikipedia.org/wiki/%E7%B5%B1%E4%B8%80%E5%8F%AF%E5%BB%B6%E4%BC%B8%E9%9F%8C%E9%AB%94%E4%BB%8B%E9%9D%A2"&gt;UEFI&lt;/a&gt;, 目前只能先關閉 ,等待各種軟體套件的支援:&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/cadlab_pc/asus_md790_3.jpeg" width="400" /&gt;&lt;/p&gt;
+&lt;p&gt;Asus MINI-GTX950-2G 顯示卡:&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/cadlab_pc/GTX950-M-2GD5_2D_500.png" width="400" /&gt;&lt;/p&gt;</content><category term="機械設計"></category><category term="專題"></category><category term="課程"></category></entry><entry><title>yen - Anaconda on Windows 10</title><link href="http://project.mde.tw/blog/yen-anaconda-on-windows-10.html" rel="alternate"></link><published>2016-09-02T11:29:00+08:00</published><updated>2016-09-02T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-09-02:/blog/yen-anaconda-on-windows-10.html</id><summary type="html">&lt;p&gt;在 Windows 10 中的 Anaconda 使用 Python 3.5.2 以及 Pelican, 測試將 .md 檔案轉為 html.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;在 Windows 10 中的 Anaconda 使用 Python 3.5.2 以及 Pelican, 測試將 .md 檔案轉為 html.&lt;/p&gt;
+
+
+&lt;p&gt;目前所使用的 Python 3.5.2 與 Leo Editor 5.4-devel 配合 Pelican, 以舊有的倉儲架構進行測試.&lt;/p&gt;
+&lt;p&gt;首先, 因為 Anaconda 中的 Python 沒有 Pelican 模組, 因此利用 &lt;/p&gt;
+&lt;p&gt;conda install pelican&lt;/p&gt;
+&lt;p&gt;進行安裝&lt;/p&gt;
+&lt;p&gt;沒有成功, 改用&lt;/p&gt;
+&lt;p&gt;conda install -c conda-forge pelican=3.6.3&lt;/p&gt;
+&lt;p&gt;進行安裝&lt;/p&gt;
+&lt;p&gt;完成後利用按鈕建立 Pelican 網誌.&lt;/p&gt;
+&lt;p&gt;系統抱怨 no module named markdown, 而且 Pelican 模組沒有 liquid_tags_notebook&lt;/p&gt;
+&lt;p&gt;先用 conda install markdown 安裝 markdown 模組, 再來處理 Pelican liquid_tags plugin.&lt;/p&gt;
+&lt;p&gt;安裝 markdown 之後, 發現專案中已經有 liquid_tag plugin, 因此直接利用按鈕, 先在近端產生 html, 沒有問題.&lt;/p&gt;
+&lt;p&gt;接著利用遠端按鈕產生 html 後將 gh-pages 分支資料提交推送回倉儲.&lt;/p&gt;</content><category term="測試"></category></entry><entry><title>yen - 我們為何要全盤托出研究成果?</title><link href="http://project.mde.tw/blog/yen-wo-men-wei-he-yao-quan-pan-tuo-chu-yan-jiu-cheng-guo.html" rel="alternate"></link><published>2016-07-28T11:29:00+08:00</published><updated>2016-07-28T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-28:/blog/yen-wo-men-wei-he-yao-quan-pan-tuo-chu-yan-jiu-cheng-guo.html</id><summary type="html">&lt;p&gt;不知道您有沒有發現, 您可以在 &lt;a href="https://github.com/coursemdetw/project_site"&gt;https://github.com/coursemdetw/project_site&lt;/a&gt;下載本機械設計專題網誌相關的所有資料, 其中包括許多我們竭盡全力悟出的知識與技巧. 我們為何要這樣做?&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;不知道您有沒有發現, 您可以在 &lt;a href="https://github.com/coursemdetw/project_site"&gt;https://github.com/coursemdetw/project_site&lt;/a&gt;下載本機械設計專題網誌相關的所有資料, 其中包括許多我們竭盡全力悟出的知識與技巧. 我們為何要這樣做?&lt;/p&gt;
+
+
+&lt;p&gt;這種自由開放的研究理念, 源自我們在機械設計工程系開設的課程 (包括計算機程式、網際內容管理、電腦輔助設計實習與協同產品設計實習等) 中所使用的工具, 這些工具包括 Python3, Anaconda, Leo Editor, Pelican, OnShape, Solvespace, V-rep, Jupyter, Ubuntu, Virtualbox, Github, Bitbucket 與 OpenShift 等.&lt;/p&gt;
+&lt;p&gt;其中 Python3, Leo Editor, Pelican, Solvespace, V-rep, Jupyter 與 Virtualbox 都是自由開放源套件 (註: V-rep 雖然開放源, 但只限非營利教育單位免費使用, 營利單位必須購買後才能使用), 其餘則可以在教育界免費使用.&lt;/p&gt;
+&lt;p&gt;尤其當 OnShape 將 FeatureScript 整體程式碼開放出來之後, 我們終於發現, 假如連全球的機械設計菁英們, 都願意將價值性如此高的系統給開放出來, 那麼我們這種小團隊, 在受益於這些巨人所推出的系統應用中, 所領悟理解出的一點點小小心得, 就更沒有隱藏與故步自封的必要了.&lt;/p&gt;</content><category term="研究理念"></category></entry><entry><title>yen - 上課專用網際程式規劃</title><link href="http://project.mde.tw/blog/yen-shang-ke-zhuan-yong-wang-ji-cheng-shi-gui-hua.html" rel="alternate"></link><published>2016-07-08T01:20:00+08:00</published><updated>2016-07-08T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-08:/blog/yen-shang-ke-zhuan-yong-wang-ji-cheng-shi-gui-hua.html</id><summary type="html">&lt;p&gt;RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.&lt;/p&gt;
+</content><category term="上課專用"></category><category term="網際程式"></category></entry><entry><title>yen - 機械設計專題的表達、技術領域與考量層面</title><link href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-de-biao-da-ji-shu-ling-yu-yu-kao-liang-ceng-mian.html" rel="alternate"></link><published>2016-04-01T01:20:00+08:00</published><updated>2016-04-01T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-04-01:/blog/yen-ji-jie-she-ji-zhuan-ti-de-biao-da-ji-shu-ling-yu-yu-kao-liang-ceng-mian.html</id><summary type="html">&lt;p&gt;這是一個利用 Python3 的模組 blockdiag: &lt;a href="http://blockdiag.com/en/"&gt;http://blockdiag.com/en/&lt;/a&gt;, 將文字敘述轉為 2D 流程圖的範例.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;這是一個利用 Python3 的模組 blockdiag: &lt;a href="http://blockdiag.com/en/"&gt;http://blockdiag.com/en/&lt;/a&gt;, 將文字敘述轉為 2D 流程圖的範例.&lt;/p&gt;
+
+
+&lt;p&gt;機械設計專題內容流程圖：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/mde_project.png" width="800"/&gt;&lt;/p&gt;
+&lt;p&gt;機械設計專題&lt;a href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-sui-shen-kai-fa-dian-nao.html"&gt;隨身卡片電腦規劃&lt;/a&gt;流程圖：&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/rpi_shopping_flow.png" width="800"/&gt;&lt;/p&gt;
+&lt;p&gt;機械設計專題內容流程圖的文字敘述:&lt;/p&gt;
+&lt;pre class="brush: bash"&gt;
+blockdiag {
+    default_shape = roundedbox;
+    // 內定寬度為 128
+    node_width = 140;
+    // 內定高度為 40
+    node_height = 50;
+    default_fontsize = 15;
+    default_node_color = "lightyellow";
+    edge_layout = flowchart;
+    // 表達方式
+    表達 [label = "六種表達方式"];
+    1 [label = "口語表達(聲音)"];
+    2 [label = "文字表達"];
+    3 [label = "2D表達(靜態影像)"];
+    4 [label = "3D表達(動態影像)"];
+    5 [label = "理論表達(定量分析)"];
+    6 [label = "實體表達"];
+    表達 -&gt; 1;
+    表達 -&gt; 2;
+    表達 -&gt; 3;
+    表達 -&gt; 4;
+    表達 -&gt; 5;
+    表達 -&gt; 6;
+    // 學門
+    學門 [label = "四種技術領域"];
+    學門1 [label = "熱流力學"];
+    學門2 [label = "固體力學"];
+    學門3 [label = "電機電子"];
+    學門4 [label = "資訊通信"];
+    學門 -&gt; 學門1;
+    學門 -&gt; 學門2;
+    學門 -&gt; 學門3;
+    學門 -&gt; 學門4;
+    // 流程
+    流程 [label = "四個層面"];
+    流程1 [label = "設計"];
+    流程2 [label = "製造"];
+    流程3 [label = "控制"];
+    流程4 [label = "管理"];
+    流程 -&gt; 流程1;
+    流程 -&gt; 流程2;
+    流程 -&gt; 流程3;
+    流程 -&gt; 流程4;
+    //專題
+    專題 [label = "機械設計專題", stacked];
+    專題 -&gt; 表達;
+    專題 -&gt; 流程;
+    專題 -&gt; 學門;
+}
+&lt;/pre&gt;
+
+&lt;p&gt;機械設計專題&lt;a href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-sui-shen-kai-fa-dian-nao.html"&gt;隨身卡片電腦規劃&lt;/a&gt;流程圖的文字敘述:&lt;/p&gt;
+&lt;pre class="brush: bash"&gt;
+blockdiag {
+    default_shape = roundedbox;
+    // 內定寬度為 128
+    node_width = 140;
+    // 內定高度為 40
+    node_height = 50;
+    default_fontsize = 15;
+    default_node_color = "lightyellow";
+    edge_layout = flowchart;
+    // 表達方式
+    表達 [label = "六種表達方式"];
+    1 [label = "口語表達(聲音)"];
+    2 [label = "文字表達", color="#99ff33"];
+    3 [label = "2D表達(靜態影像)"];
+    4 [label = "3D表達(動態影像)"];
+    5 [label = "理論表達(定量分析)"];
+    6 [label = "實體表達", color="#99ff33"];
+    表達 -&gt; 1;
+    表達 -&gt; 2;
+    表達 -&gt; 3;
+    表達 -&gt; 4;
+    表達 -&gt; 5;
+    表達 -&gt; 6;
+    // 學門
+    學門 [label = "四種技術領域"];
+    學門1 [label = "熱流力學"];
+    學門2 [label = "固體力學"];
+    學門3 [label = "電機電子"];
+    學門4 [label = "資訊通信", color="#99ff33"];
+    學門 -&gt; 學門1;
+    學門 -&gt; 學門2;
+    學門 -&gt; 學門3;
+    學門 -&gt; 學門4;
+    // 流程
+    流程 [label = "四個層面"];
+    流程1 [label = "設計", color="#99ff33"];
+    流程2 [label = "製造"];
+    流程3 [label = "控制"];
+    流程4 [label = "管理", color="#99ff33"];
+    流程 -&gt; 流程1;
+    流程 -&gt; 流程2;
+    流程 -&gt; 流程3;
+    流程 -&gt; 流程4;
+    //專題
+    //專題 [label = "機械設計專題", stacked];
+    專題 [label = "隨身卡片電腦選購", stacked, color="#ff5050"];
+    專題 -&gt; 表達;
+    專題 -&gt; 流程;
+    專題 -&gt; 學門;
+}
+&lt;/pre&gt;</content><category term="專題分類"></category></entry><entry><title>yen - 機械設計專題學員的隨身 Jupyter hub</title><link href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-xue-yuan-de-sui-shen-jupyter-hub.html" rel="alternate"></link><published>2016-03-24T01:20:00+08:00</published><updated>2016-03-24T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-24:/blog/yen-ji-jie-she-ji-zhuan-ti-xue-yuan-de-sui-shen-jupyter-hub.html</id><summary type="html">&lt;p&gt;我們知道自從 2013 年底開始, 與 Raspberry Pi 搭配的 Raspbian 操作系統, 就已經免費放入 Mathematica 相關的套件系統, 但是只允許非營利使用, 相較之下, 以 Python3 為主打造的 &lt;a href="http://jupyter.org/"&gt;Jupyter&lt;/a&gt; 就比較自由, 而且全部開源, 因此更值得推廣.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;我們知道自從 2013 年底開始, 與 Raspberry Pi 搭配的 Raspbian 操作系統, 就已經免費放入 Mathematica 相關的套件系統, 但是只允許非營利使用, 相較之下, 以 Python3 為主打造的 &lt;a href="http://jupyter.org/"&gt;Jupyter&lt;/a&gt; 就比較自由, 而且全部開源, 因此更值得推廣.&lt;/p&gt;
+
+
+&lt;p&gt;這裡就以 Raspberry Pi 3 卡片電腦上的 &lt;a href="https://github.com/jupyter/jupyterhub"&gt;Jupyter hub&lt;/a&gt; 安裝與啟動為例, 希望作為機械設計專題學員隨身的網際工程運算系統.&lt;/p&gt;
+&lt;p&gt;最新的 Raspbian 操作系統已經內建 Python3 以及 node.js, 因此當基本的操作系統配置完成, 而且啟動 SSH 之後, 就可以透過下列步驟安裝 &lt;a href="https://github.com/jupyter/jupyterhub"&gt;Jupyter hub&lt;/a&gt;.&lt;/p&gt;
+&lt;h2&gt;jupyterhub 安裝&lt;/h2&gt;
+&lt;p&gt;sudo apt-get install npm nodejs-legacy&lt;/p&gt;
+&lt;p&gt;sudo npm install -g configurable-http-proxy&lt;/p&gt;
+&lt;p&gt;sudo pip3 install jupyterhub&lt;/p&gt;
+&lt;p&gt;sudo pip3 install IPython&lt;/p&gt;
+&lt;p&gt;sudo pip3 install jupyter&lt;/p&gt;
+&lt;h2&gt;以 SSL 啟動:&lt;/h2&gt;
+&lt;p&gt;先建立 key 與 certificate: sudo openssl req -x509 -nodes -days 365 -newkey rsa:2048 -keyout jupyterhub.key -out jupyterhub.crt&lt;/p&gt;
+&lt;p&gt;以指定的 IP 啟動:&lt;/p&gt;
+&lt;p&gt;jupyterhub --ip 192.168.1.1 --port 443 --ssl-key jupyterhub.key --ssl-cert jupyterhub.crt&lt;/p&gt;
+&lt;p&gt;或不指定 IP:&lt;/p&gt;
+&lt;p&gt;jupyterhub  --port 9443 --ssl-key jupyterhub.key --ssl-cert jupyterhub.crt&lt;/p&gt;
+&lt;p&gt;之後則可以 http://jupyterIP:9443 或 https://jupyterIP:9443 連線 &lt;/p&gt;</content><category term="Jupyter"></category><category term="Jupyterhub"></category><category term="Python3"></category></entry><entry><title>yen - Raspberry Pi 3 基本設定</title><link href="http://project.mde.tw/blog/yen-raspberry-pi-3-ji-ben-she-ding.html" rel="alternate"></link><published>2016-03-22T01:20:00+08:00</published><updated>2016-03-22T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-22:/blog/yen-raspberry-pi-3-ji-ben-she-ding.html</id><summary type="html">&lt;p&gt;&lt;a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b/"&gt;Raspberry Pi 3 Model B&lt;/a&gt; 終於在 2016 年 2 月推出了, 這片採用 1.2GHz 64位元四核心 CPU ARMv8 晶片的卡片電腦, 將帶給機械設計專題更多應用的題目.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;&lt;a href="https://www.raspberrypi.org/products/raspberry-pi-3-model-b/"&gt;Raspberry Pi 3 Model B&lt;/a&gt; 終於在 2016 年 2 月推出了, 這片採用 1.2GHz 64位元四核心 CPU ARMv8 晶片的卡片電腦, 將帶給機械設計專題更多應用的題目.&lt;/p&gt;
+
+
+&lt;h2&gt;raspbian 安裝&lt;/h2&gt;
+&lt;p&gt;首先, 為了簡化新的 Raspberry Pi 3 安裝 &lt;a href="https://www.raspberrypi.org/downloads/noobs/"&gt;https://www.raspberrypi.org/downloads/noobs/&lt;/a&gt; 多重開機系統的過程, &lt;a href="http://cadlab.mde.tw"&gt;http://cadlab.mde.tw&lt;/a&gt; 特別採購一批支援 &lt;a href="https://zh.wikipedia.org/zh-tw/HDMI"&gt;HDMI&lt;/a&gt; 介面的電腦螢幕.&lt;/p&gt;
+&lt;p&gt;由於 noobs 內含的 &lt;a href="https://www.raspberrypi.org/downloads/raspbian/"&gt;https://www.raspberrypi.org/downloads/raspbian/&lt;/a&gt; 與 Ubuntu 操作系統都屬於 Debian 系列, 因此未來幾年, 本地端與區域網路上的伺服器, 都將安裝 Ubuntu 16.04 LTS, 而希望學生人手一塊的 Raspberry Pi 3, 就以安裝 noobs 為主.&lt;/p&gt;
+&lt;p&gt;完成操作系統安裝後, 必須 enable SSH, 並且參考&lt;a href="http://www.kenming.idv.tw/raspberry-pi_post-installation_and_zh-tw-locale_building"&gt;這裡&lt;/a&gt;的說明, 安裝並設定中文系統.&lt;/p&gt;
+&lt;p&gt;基本過程為:&lt;/p&gt;
+&lt;p&gt;安裝繁體中文語系:&lt;/p&gt;
+&lt;p&gt;$ sudo locale-gen zh_TW.UTF-8&lt;/p&gt;
+&lt;p&gt;將 /etc/locale.gen 檔案內 # zh_TW.UTF-8 UTF-8 的註解# 拿掉:&lt;/p&gt;
+&lt;p&gt;$ sudo vi /etc/locale.gen&lt;/p&gt;
+&lt;p&gt;產生繁體中文語系:&lt;/p&gt;
+&lt;p&gt;$ sudo locale-gen&lt;/p&gt;
+&lt;p&gt;更改預設語系為 zh_TW.UTF-8:&lt;/p&gt;
+&lt;p&gt;$ sudo vi /etc/default/locale
+LANG=zh_TW.UTF-8&lt;/p&gt;
+&lt;p&gt;安裝繁體中文字型:&lt;/p&gt;
+&lt;p&gt;$ sudo apt-get install ttf-wqy-microhei ttf-wqy-zenhei xfonts-wqy&lt;/p&gt;
+&lt;p&gt;安裝 scim 注音輸入:&lt;/p&gt;
+&lt;p&gt;$ sudo apt-get install scim scim-tables-zh scim-chewing&lt;/p&gt;
+&lt;h2&gt;PYQt5 與 Leo Editor 安裝&lt;/h2&gt;
+&lt;p&gt;因為 Raspberry Pi 3 在機械設計專題流程中仍以機電控制為主, 而且 raspbian 已經內建 Python3 與 pip3, 因此只要利用 sudo apt-get install python3-pyqt5 安裝 PyQt5 即可.&lt;/p&gt;
+&lt;p&gt;只是在實際操作 sudo pip3 install https://github.com/leo-editor/leo-editor/archive/master.zip 時, 發現 Leo Editor 無法正確完成安裝, 最後只好下載 Leo Editor 原始碼, 並且將 leo 模組目錄, 直接放到 /usr/local/lib/python3.4/dist-packages 目錄下, 然後再利用 python3 launchLeo.py 啟動 Leo Editor.&lt;/p&gt;
+&lt;p&gt;launchLeo.py 程式碼:&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+#!/usr/bin/env python
+
+""" Leo launcher script
+A minimal script to launch leo.
+"""
+
+import leo.core.runLeo
+leo.core.runLeo.run()
+&lt;/pre&gt;
+
+&lt;h2&gt;Raspberry Pi 無線網路設定&lt;/h2&gt;
+&lt;p&gt;利用 sudo vi 編輯 /etc/wpa_supplicant/wpa_supplicant.conf, 並且採用下列格式, 將周遭卡片電腦移動時可能擷取的無線網路, 以並列的方式進行設定登記.&lt;/p&gt;
+&lt;p&gt;格式:&lt;/p&gt;
+&lt;pre class="brush: bash"&gt;
+network={
+    ssid="net1"
+    psk="net1_wifi_password"
+    key_mgmt=WPA-PSK
+}
+
+network={
+    ssid="net2"
+    psk="net2_wifi_password"
+    key_mgmt=WPA-PSK
+}
+&lt;/pre&gt;
+
+&lt;p&gt;相關指令:&lt;/p&gt;
+&lt;p&gt;sudo ifdown wlan0 (關閉無線網路)&lt;/p&gt;
+&lt;p&gt;sudo ifup wlan0 (啟動無線網路)&lt;/p&gt;
+&lt;p&gt;ifconfig (察看網路設定)&lt;/p&gt;
+&lt;h2&gt;Webcam 拍照&lt;/h2&gt;
+&lt;p&gt;請參考 &lt;a href="https://www.raspberrypi.org/documentation/usage/webcams/"&gt;https://www.raspberrypi.org/documentation/usage/webcams/&lt;/a&gt;, 讓 Raspberry Pi 可以帶著 Webcam, 以 Python3 程式控制拍照流程.&lt;/p&gt;
+&lt;p&gt;至於安裝 OpenCV 與 Python3 的過程與 &lt;a href="http://project.mde.tw/blog/yen-dao-ru-opencv-yu-python3.html"&gt;http://project.mde.tw/blog/yen-dao-ru-opencv-yu-python3.html&lt;/a&gt; 中的說明完全相同, 一旦完成, Raspberry Pi 就可以與其他機構結合, 進行基本的影像辨識應用.&lt;/p&gt;</content><category term="Python3"></category><category term="Raspberry Pi"></category></entry><entry><title>yen - 如何在 Pelican 網誌中加入 Github stl 檢視</title><link href="http://project.mde.tw/blog/yen-ru-he-zai-pelican-wang-zhi-zhong-jia-ru-github-stl-jian-shi.html" rel="alternate"></link><published>2016-03-22T01:20:00+08:00</published><updated>2016-03-22T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-22:/blog/yen-ru-he-zai-pelican-wang-zhi-zhong-jia-ru-github-stl-jian-shi.html</id><summary type="html">&lt;p&gt;因為這個網誌系統分為本地端與 Github 端的資料搜尋 ,因此一般並不建議直接將要展示的 stl 帶進倉儲, 否則就必須要分別在近端與遠端的 template 目錄中, 各放置一份檔案.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;因為這個網誌系統分為本地端與 Github 端的資料搜尋 ,因此一般並不建議直接將要展示的 stl 帶進倉儲, 否則就必須要分別在近端與遠端的 template 目錄中, 各放置一份檔案.&lt;/p&gt;
+
+
+&lt;p&gt;也就是說, 就這個機械設計專題的協同倉儲網誌來說, 各組員可以分別在自己的個人帳號下建立具有 gh-pages 分支的倉儲, 然後再將 STL 零組件檔案的檢式, 以 Github 特有的標註, 放到文章中, 因為 STL 檔案已經是終端檔案, 比較不會有協同編輯改版的需求, 因此可以放在個人所屬的倉儲中, 只需要透過連結可以檢視即可.&lt;/p&gt;
+&lt;p&gt;但是若這些檔案真要放到機械設計專題所屬的倉儲中, 也是可以, 但是就必須在近端的 theme/pelican-bootstrap3_local/static 目錄, 以及&lt;/p&gt;
+&lt;p&gt;theme/pelican-bootstrap3/static 目錄中, 各放一份, 例如, 現在已經在這兩個目錄中各放入 files 目錄, 而且其中還有 40323143 目錄, 並將所有的 STL 零組件檔全部放入. 這時若利用 local-pelican 或 gh-pages-pelican 按鈕建立 blog 中的資料, Pelican 就會將前面提到的 files 目錄, 複製到 blog/theme 目錄中, 因此隨後在 gh-pages 的網頁中, 就是到 blog/theme/files/40323143 目錄來擷取這些零組件檔案.&lt;/p&gt;
+&lt;p&gt;例如: blog/theme/files/40323143/1long.stl 檔案, 就可以疊上 https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/, 並用 script 標註圈住, 讓使用者可以在瀏覽器中檢視.&lt;/p&gt;
+&lt;script src="https://embed.github.com/view/3d/coursemdetw/project_site/gh-pages/blog/theme/files/40323143/1long.stl"&gt;&lt;/script&gt;</content><category term="Github"></category><category term="stl viewer"></category></entry><entry><title>yen - Python 數位運算與較有未來的技術</title><link href="http://project.mde.tw/blog/yen-python-shu-wei-yun-suan-yu-jiao-you-wei-lai-de-ji-shu.html" rel="alternate"></link><published>2016-03-15T01:20:00+08:00</published><updated>2016-03-15T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-15:/blog/yen-python-shu-wei-yun-suan-yu-jiao-you-wei-lai-de-ji-shu.html</id><summary type="html">&lt;p&gt;身為一位機械設計工程專長學員, 該如何看待數位運算, 那些技術較有未來?&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;身為一位機械設計工程專長學員, 該如何看待數位運算, 那些技術較有未來?&lt;/p&gt;
+
+
+&lt;p&gt;機械設計專題是一項資訊密集的動態流程, 資訊之所以密集, 肇因於後續的許多控制、製造與管理, 都以設計的發動起始, 因此機械設計者憑藉著口語, 文字, 2D/3D, 理論與實體, 來紀錄並驗證概念與規格的可行性, 即便產品交付客戶手中, 各種後續服務、回收與處理再利用的相關細節規劃, 所涉及的許多資訊與數據處理, 就產品生命週期的概念而言, 都是設計者該盡力思量的範疇.&lt;/p&gt;
+&lt;p&gt;現在對於手握 Python3 作為數位運算的機械設計專題推動者, 有了福音, 因為 &lt;a href="https://software.intel.com/en-us/python-distribution"&gt;https://software.intel.com/en-us/python-distribution&lt;/a&gt; 的推出, 將可讓 Jupyter hub 上的各種機械設計純 Python3 最佳化運算速度提升幾十倍.&lt;/p&gt;
+&lt;p&gt;並且, 從 &lt;a href="http://www.infoworld.com/article/3039935/application-development/21-hot-programming-trends-and-21-going-cold.html"&gt;http://www.infoworld.com/article/3039935/application-development/21-hot-programming-trends-and-21-going-cold.html&lt;/a&gt; 的提醒, 也可以讓即將參與機械設計專題的學員了解, 應該如何取捨工具與技術, 畢竟數位運算科技的快速發展, 應該是機械設計者的絕對利多, 假如大家真能妥善發揮這些較有未來科技功能於工作的每一個流程.&lt;/p&gt;</content><category term="Python3"></category></entry><entry><title>yen - 導入 OpenCV 與 Python3</title><link href="http://project.mde.tw/blog/yen-dao-ru-opencv-yu-python3.html" rel="alternate"></link><published>2016-03-13T01:20:00+08:00</published><updated>2016-03-13T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-13:/blog/yen-dao-ru-opencv-yu-python3.html</id><summary type="html">&lt;p&gt;OpenCV (Open Source Computer Vision) 是一套實時影像程式庫, 這裡希望利用 Python3 來進行應用程式開發.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;OpenCV (Open Source Computer Vision) 是一套實時影像程式庫, 這裡希望利用 Python3 來進行應用程式開發.&lt;/p&gt;
+
+
+&lt;h2&gt;安裝&lt;/h2&gt;
+&lt;h3&gt;Windows&lt;/h3&gt;
+&lt;p&gt;可以直接從 &lt;a href="https://github.com/chiamingyen/kmol2016"&gt;https://github.com/chiamingyen/kmol2016&lt;/a&gt; git clone 可攜系統.&lt;/p&gt;
+&lt;p&gt;測試程式:&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+import numpy as np
+import cv2
+
+# 建立一個黑色背景
+img = np.zeros((512,512,3), np.uint8)
+
+# 以寬度 5 px 畫一條藍色的對角線
+img = cv2.line(img,(0,0),(511,511),(255,0,0),5)
+# 呈現此影像
+cv2.imshow('image',img)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+
+'''
+# 載入 jpg 圖檔
+image = cv2.imread("mario.jpg", flags=cv2.IMREAD_COLOR)
+
+# 然後呈現此影像
+cv2.imshow('image',image)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+'''
+&lt;/pre&gt;
+
+&lt;p&gt;在 Windows 環境執行結果:&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/opencv_python3_windows.png" width="800" /&gt;&lt;/p&gt;
+&lt;h2&gt;Ubuntu 14.04&lt;/h2&gt;
+&lt;p&gt;在 Ubuntu 操作系統中 for Python2 與 Python3 的 OpenCV 程式庫編譯流程如下:&lt;/p&gt;
+&lt;pre class="brush: bash"&gt;
+# apt-get 更新
+$ sudo apt-get update
+# apt-get 升級
+$ sudo apt-get upgrade
+# 安裝所需的開發套件
+$ sudo apt-get install build-essential cmake git pkg-config
+# 安裝編譯過程所需的程式庫
+$ sudo apt-get install libjpeg8-dev libtiff4-dev libjasper-dev libpng12-dev
+# 安裝編譯過程所需的程式庫
+$ sudo apt-get install libavcodec-dev libavformat-dev libswscale-dev libv4l-dev
+# 安裝編譯過程所需的程式庫
+$ sudo apt-get install libgtk2.0-dev
+# 安裝編譯過程所需的 fortran 編譯器
+$ sudo apt-get install libatlas-base-dev gfortran
+# 安裝編譯過程所需的原始碼
+$ sudo apt-get install python3.4-dev
+# 本台機器的 python 為 2.7 版, 而 python3 則為 python 3.4, 這裡安裝 numpy  模組
+$ pip3 install numpy
+# 希望在帳號目錄下的 tmp 進行編譯工作
+$ cd
+# 更換目錄到 tmp
+$ cd tmp
+# 利用 git clone 取得原始碼
+$ git clone https://github.com/Itseez/opencv.git
+# 準備進入倉儲切換分支
+$ cd opencv
+# 採用 3.1.0 版
+$ git checkout 3.1.0
+# 回到用戶目錄
+$ cd ..
+# 再利用 git clone 下載原始碼
+$ git clone https://github.com/Itseez/opencv_contrib.git
+# 準備進入倉儲切換分支
+$ cd opencv_contrib
+# 與 opencv 配合, 採用 3.1.0 版
+$ git checkout 3.1.0
+
+$ cd ..
+# 準備開始建立程式庫
+$ cd opencv
+
+$ mkdir build
+
+$ cd build
+
+# 這裡會同時建立 Python2 與 Python3 的 OpenCV 程式庫檔案
+$ cmake -D CMAKE_BUILD_TYPE=RELEASE \
+    -D CMAKE_INSTALL_PREFIX=/usr/local \
+    -D INSTALL_C_EXAMPLES=OFF \
+    -D INSTALL_PYTHON_EXAMPLES=ON \
+    -D PYTHON_EXECUTABLE=$(which python3) \
+    -D OPENCV_EXTRA_MODULES_PATH= ./../../opencv_contrib/modules \
+    -D BUILD_EXAMPLES=ON ..
+
+$ make -j4
+
+$ sudo make install
+
+$ sudo ldconfig
+&lt;/pre&gt;
+
+&lt;p&gt;完成安裝後, 執行上一個測試程式結果:&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/opencv_python3_ubuntu.png" width="800" /&gt;&lt;/p&gt;
+&lt;p&gt;以下則為人臉變識程式:&lt;a href="https://github.com/shantnu/FaceDetect/"&gt;https://github.com/shantnu/FaceDetect/&lt;/a&gt;:&lt;/p&gt;
+&lt;p&gt;執行需要取得 &lt;a href="http://coursemdetw.github.io/project_site_files/files/2016spring/haarcascade_frontalface_default.xml"&gt;haarcascade_frontalface_default.xml&lt;/a&gt;&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+import cv2
+import sys
+
+cascPath = "haarcascade_frontalface_default.xml"
+faceCascade = cv2.CascadeClassifier(cascPath)
+
+video_capture = cv2.VideoCapture(0)
+
+while True:
+    # 逐一以影格取像
+    ret, frame = video_capture.read()
+
+    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
+
+    faces = faceCascade.detectMultiScale(
+        gray,
+        scaleFactor=1.1,
+        minNeighbors=5,
+        minSize=(30, 30),
+        flags=cv2.CASCADE_SCALE_IMAGE
+    )
+
+    # 在辨識的臉形外圍畫一個矩形
+    for (x, y, w, h) in faces:
+        cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+
+    # 呈現影像
+    cv2.imshow('Video', frame)
+
+    if cv2.waitKey(1) &amp; 0xFF == ord('q'):
+        break
+
+# 停止執行
+video_capture.release()
+cv2.destroyAllWindows()
+&lt;/pre&gt;
+
+&lt;p&gt;人臉辨識程式執行結果:&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/opencv_python3_face_detect1.png" width="800" /&gt;&lt;/p&gt;</content><category term="OpenCV"></category><category term="Python3"></category></entry><entry><title>yen - 機械設計專題隨身開發電腦</title><link href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-sui-shen-kai-fa-dian-nao.html" rel="alternate"></link><published>2016-03-12T01:20:00+08:00</published><updated>2016-03-12T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-12:/blog/yen-ji-jie-she-ji-zhuan-ti-sui-shen-kai-fa-dian-nao.html</id><summary type="html">&lt;p&gt;此項測試目的在利用樹莓派卡片電腦, 以無線網路取得區域網路 IP, 然後從電腦教室中的 Windows 10, 以 X-Windows Server 連線到 Raspberry Pi 電腦系統, 嘗試讓機械設計工程學員評估, 能否在 Windows 10 與隨身的 Ubuntu 電腦系統間, 搭建合用的協同產品開發環境.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;此項測試目的在利用樹莓派卡片電腦, 以無線網路取得區域網路 IP, 然後從電腦教室中的 Windows 10, 以 X-Windows Server 連線到 Raspberry Pi 電腦系統, 嘗試讓機械設計工程學員評估, 能否在 Windows 10 與隨身的 Ubuntu 電腦系統間, 搭建合用的協同產品開發環境.&lt;/p&gt;
+
+
+&lt;p&gt;Windows 10 環境中擬採用的 X-Windows Server: &lt;a href="https://sourceforge.net/projects/xming/"&gt;https://sourceforge.net/projects/xming/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Raspberry Pi 擬安裝操作系統: Ubuntu Server + sudo apt-get install ubuntu-desktop&lt;/p&gt;
+&lt;p&gt;樹莓派採購清單: &lt;br /&gt;&lt;br /&gt;
+&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/raspberry_pi_3_64bit.png" width="800" /&gt;&lt;/p&gt;
+&lt;p&gt;操作步驟:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;完成清單中的樹莓派硬體採購&lt;/li&gt;
+&lt;li&gt;在樹莓派中安裝即將推出的 Ubuntu 16.04 LTS Server 版本, 加上 ubuntu-desktop.&lt;/li&gt;
+&lt;li&gt;測試如何在 &lt;a href="http://cadlab.mde.tw"&gt;http://cadlab.mde.tw&lt;/a&gt; 電腦輔助設計室中利用樹莓派的內建 Wifi 取得固定 IP&lt;/li&gt;
+&lt;li&gt;測試如何在樹莓派系統中以 IPV6 環境上網, 或在樹莓派系統中植入 IPV6 與 IPV4 雙支援, 並安裝 squid Proxy Server, 測試樹莓派在純 IPV6 環境中, 擔任區域網路代理伺服器的效能.&lt;/li&gt;
+&lt;li&gt;利用本地端的 Windows 10 Professional, 啟動 xming 伺服器後, 以 putty 加上 X11 forwarding 設定, 從 Windows 10 連線到樹莓派, 然後在 Ubuntu 中安裝 Leo Editor, Jupyter, Flask 與 Weppy 等相關機械設計專題工具, 並利用 Firefox 連線到 Onshape, 測試各項工具的使用效能.&lt;/li&gt;
+&lt;li&gt;完成上述各項任務後, 將流程與心得留在各組對應的機械設計專題倉儲中, 若過程中有些資料不適合在第1時間公開, 則另在 bitbucket 建 private 倉儲, 以五名協同者的編制進行管理.&lt;/li&gt;
+&lt;li&gt;上述流程中, 各學員同時考量該如何將心得整理為論文或專題報告 pdf 發表格式.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;在 KMOL 知識地圖中的屬性:&lt;/p&gt;
+&lt;p&gt;四種主要的學門領域: &lt;strike&gt;熱流、固力、電子電機&lt;/strike&gt;、資通.&lt;/p&gt;
+&lt;p&gt;六種表達方式: &lt;strike&gt;口語&lt;/strike&gt;、文字、&lt;strike&gt;2D、3D、理論分析&lt;/strike&gt;、實體&lt;/p&gt;
+&lt;p&gt;四種流程階段: 設計、&lt;strike&gt;製造、控制&lt;/strike&gt;、管理&lt;/p&gt;
+&lt;p&gt;機械設計專題倉儲: &lt;a href="https://github.com/2015fallproject"&gt;https://github.com/2015fallproject&lt;/a&gt;&lt;/p&gt;</content><category term="Raspberry Pi"></category><category term="可攜電腦"></category></entry><entry><title>yen - 機械設計專題倉儲</title><link href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-cang-chu.html" rel="alternate"></link><published>2016-03-11T01:20:00+08:00</published><updated>2016-03-11T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-11:/blog/yen-ji-jie-she-ji-zhuan-ti-cang-chu.html</id><summary type="html">&lt;p&gt;機械設計工程師在面對四種主要的學門領域, 六種表達方式, 以及四種開發流程階段的交互串聯下, 能否在分散式版次管理系統的協助中, 勇往直前?&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;機械設計工程師在面對四種主要的學門領域, 六種表達方式, 以及四種開發流程階段的交互串聯下, 能否在分散式版次管理系統的協助中, 勇往直前?&lt;/p&gt;
+
+
+&lt;p&gt;四種主要的學門領域: 熱流、固力、電子電機、資通.&lt;/p&gt;
+&lt;p&gt;六種表達方式: 口語、文字、2D、3D、理論分析、實體&lt;/p&gt;
+&lt;p&gt;四種流程階段: 設計、製造、控制、管理&lt;/p&gt;
+&lt;p&gt;機械設計專題倉儲: &lt;a href="https://github.com/2015fallproject"&gt;https://github.com/2015fallproject&lt;/a&gt;&lt;/p&gt;</content><category term="2016g1"></category><category term="2016g2"></category><category term="2016g3"></category></entry><entry><title>yen - Pelican 靜態網頁與 Wordpress 的整合</title><link href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he.html" rel="alternate"></link><published>2016-03-09T01:20:00+08:00</published><updated>2016-03-09T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-09:/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he.html</id><summary type="html">&lt;p&gt;許多網路上的文章都只說明如何從動態的網誌系統轉到靜態網誌架構, 但當我們認定動靜之間各有優劣時, 能否兩者整合並存?&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;許多網路上的文章都只說明如何從動態的網誌系統轉到靜態網誌架構, 但當我們認定動靜之間各有優劣時, 能否兩者整合並存?&lt;/p&gt;
+
+
+&lt;p&gt;Worpress 是一套全世界最廣為使用的動態網誌系統, 採用 PHP 編寫, 一般使用 MySQL 資料庫存放資料, 由於 Wordpress 的安裝與使用都非常直覺, 從許多角度來看, 是一套接近完美的動態網誌系統.&lt;/p&gt;
+&lt;p&gt;但是, PHP 加上 MySQL 的架構仍然需要在伺服器中運行全球資訊網加上 PHP 解譯器, 同時還要 MySQL 資料庫的支援才能啟動運作, 假如管理者沒有跟上 Wordpress 程式碼或 plugin 的漏洞更新, 或者 MySQL 資料庫未能正常提供資料, 這個用 Wordpress 架構的網誌就會出現危機或者無法使用.&lt;/p&gt;
+&lt;p&gt;雖然 Wordpress 網誌中的動態程式與資料庫具有潛在缺點, 但是動態性也同時展現優點, 因為使用者一般可以透過瀏覽器, 隨時更改網誌系統的設定, 可以即時更新所有內容.&lt;/p&gt;
+&lt;p&gt;至於 Pellican 靜態網誌系統, 則針對 Wordpress 動態的問題, 將網誌的編寫格式定調在資料提供者能夠閱讀的 Markdown 或其他類似格式, 然後在近端用各種編輯器完成初步 Markdown 文章的存檔後, 再執行 Pelican 的轉檔指令, 讓 Python 程式將一堆設定與一堆 Markdown 資料中, 轉換成一整套所有內容之間互相串連的 html 檔案, 之後再將這批純 html 格式的文檔加上一些 css 與 Javascript 檔案, 送到全球資訊網伺服器中運行.&lt;/p&gt;
+&lt;p&gt;Pelican 的網誌內容, 因為不需要動態的程式編譯執行, 而只在全球資訊網伺服器中存有 html 與 Javascript, 因此沒有動態程式碼漏洞更新的問題, 也不會有線上的網誌管理系統被入侵的問題, 唯一會產生問題的只有全球資訊網伺服器, 運作或不運作, Javascript 有沒有正確存取的問題, 相較於 Wordpress 的動態程式與資料庫互動, 性質單純許多.&lt;/p&gt;
+&lt;p&gt;但是 Pelican 的靜態性也同時存在問題, 因為大多數的用戶通常採用文字編輯器來準備或管理 Markdown 檔案, 而且是採用命令列的方式來執行 Pelican 轉檔指令, 因此對於電腦程式操作較不熟悉的使用者來說, 導入 Pelican 靜態網誌的距離仍然遙遠, 況且靜態網誌也有不夠動態與直覺的問題, 許多在 Wordpress 線上能夠直接預覽的功能, 在 Pellican 就沒有那麼方便, 而且有很多的 html 與 css 的特定格式, Pelican 的 Markdown 語法根本就不支援.&lt;/p&gt;
+&lt;p&gt;可是 Pelican 純文本的 Markdown 與 html, 還有一個最大的好處, 就是可以透過 Github Pages 的網頁架構系統, 讓每一個版本的靜態網誌都以分散式版本系統管理, 這是 Wordpress 現存的版次管理 Plugin 所無法做到的功能, 因此一份內容, 同時呈現在 Wordpress 與 Pelican 網誌是最理想的情況, 但是該如何完成?&lt;/p&gt;
+&lt;p&gt;由於要整合 Pelican 靜態網誌與 Wordpress 動態網誌, 需要透過程式方法來進行, 這裡只先提供可行的初步技術, 驗證魚與熊掌可以兼得, 我們所採用的管理系統為 Leo Editor: &lt;a href="https://github.com/leo-editor/leo-editor"&gt;https://github.com/leo-editor/leo-editor&lt;/a&gt;, 所有的資料處理流程都是依靠 Python3 程式完成.&lt;/p&gt;
+&lt;p&gt;首先, 看看 Leo Editor 如何透過 Python3 的程式方法與 Wordpress 網誌互動, 這裡所使用的是 XMLRPC 協定 &lt;a href="https://en.wikipedia.org/wiki/XML-RPC"&gt;https://en.wikipedia.org/wiki/XML-RPC&lt;/a&gt;, 基本上, 從 Leo Editor 節點, 將新資料送到 Wordpress 系統的按鈕程式.&lt;/p&gt;
+&lt;pre class="brush: python;"&gt;
+# new_to_wp 按鍵
+#coding: utf-8
+import xmlrpc.client
+import datetime
+import os
+
+def get_cat_tag_content(data):
+    data_list = data.split("\n")
+    # 只有一項資料的 category 型別為字串
+    category = data_list[0]
+    # 只有一項資料的 tags 型別為字串
+    tags = data_list[1]
+    # 有多項資料的 content 型別為數列
+    # 再將第3行之後的資料數列串回成以跳行隔開的資料
+    content = "\n".join(data_list[2:])
+    return category, tags, content
+
+os.environ['TZ'] = 'Asia/Taipei'
+
+#################################
+# Open a file, 這裡將存取 Wordpress 網誌的對應帳號與密碼, 存在操作系統中
+# 路徑則從資料節點上層根節點的 body 內文取得
+fo = open(p.parent().b, "r+")
+data = []
+for line in fo.readlines():
+    data.append(line)
+    #print(line)
+#print(data[0])
+
+# Close opend file
+fo.close()
+
+# 從網誌節點的 parent().h 取得 wp_url
+# 從網誌節點的 parent().b 取得帳號與密碼對應的文字檔案路徑
+wp_url = "https://"+p.parent().h+"/xmlrpc.php"
+wp_username = data[0]
+wp_password = data[1]
+#################################
+wp_blogid = "0"
+
+status_draft = 0
+status_published = 1
+
+server = xmlrpc.client.ServerProxy(wp_url)
+
+title = p.h
+#content = p.b
+category_str, tags_str, content = get_cat_tag_content(p.b)
+# 指定時間出版
+'''
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime("2013-01-01 00:00",
+"%Y-%m-%d %H:%M"))
+'''
+# 以現在時間出版, 考慮與 Server 時間差八個小時 (480 分鐘), 因此要在 8 個小時前發表 (因為伺服主機與操作端時差而定)
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime((datetime.datetime.now()- \
+datetime.timedelta(minutes=480)).strftime('%Y-%m-%d %H:%M'),"%Y-%m-%d %H:%M"))
+#categories = ["Uncategorized"]
+#tags = ["python", "測試"]
+categories = [category_str.split(":")[1]]
+# 請注意, 因為 tags 用逗點隔開, 因此必須透過 split() 再分開成為 list 資料
+tags = tags_str.split(":")[1].split(",")
+data = {'title': title, 'description': content, 'dateCreated': date_created, 'categories': categories, 'mt_keywords': tags}
+
+post_id = server.metaWeblog.newPost(wp_blogid, wp_username, wp_password, data, status_published)
+# 利用最後的 child 節點來儲存 post_id
+to_save_post_id = p.insertAsLastChild()    
+to_save_post_id.b = post_id
+to_save_post_id.h = "文章 id"
+# 因為新增節點, commander 必須 redraw
+c.redraw() 
+
+g.es("post_id 為", post_id)
+g.es("已經送出資料!")
+'''
+其他 metaWeblog 的用法:
+metaWeblog.newPost (blogid, username, password, struct, publish) returns string(postid)
+metaWeblog.editPost (postid, username, password, struct, publish) returns true
+metaWeblog.getPost (postid, username, password) returns struct(blog content)
+'''
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;至於在 Leo Editor 系統中, 用來編輯既有的 Wordpress 文章的按鈕節點程式碼, 則為:&lt;/p&gt;
+&lt;pre class="brush: python;"&gt;
+#edit_to_wp
+#coding: utf-8
+import xmlrpc.client
+import datetime
+import os
+
+def get_cat_tag_content(data):
+    data_list = data.split("\n")
+    # 只有一項資料的 category 型別為字串
+    category = data_list[0]
+    # 只有一項資料的 tags 型別為字串
+    tags = data_list[1]
+    # 有多項資料的 content 型別為數列
+    # 再將第3行之後的資料數列串回成以跳行隔開的資料
+    content = "\n".join(data_list[2:])
+    return category, tags, content
+
+os.environ['TZ'] = 'Asia/Taipei'
+
+#################################
+# Open a file
+fo = open(p.parent().b, "r+")
+data = []
+for line in fo.readlines():
+    data.append(line)
+    #print(line)
+#print(data[0])
+
+# Close opend file
+fo.close()
+
+# 從網誌節點的 parent().h 取得 wp_url
+# 從網誌節點的 parent().b 取得帳號與密碼對應的文字檔案路徑
+wp_url = "https://"+p.parent().h+"/xmlrpc.php"
+wp_username = data[0]
+wp_password = data[1]
+#################################
+wp_blogid = "0"
+
+status_draft = 0
+status_published = 1
+
+server = xmlrpc.client.ServerProxy(wp_url)
+
+title = p.h
+#content = p.b
+category_str, tags_str, content = get_cat_tag_content(p.b)
+# 指定時間出版
+'''
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime("2013-01-01 00:00",
+"%Y-%m-%d %H:%M"))
+'''
+# 以現在時間出版, 考慮與 Server 時間差八個小時 (480 分鐘), 因此要在 8 個小時前發表 (因為伺服主機與操作端時差而定)
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime((datetime.datetime.now()- \
+datetime.timedelta(minutes=480)).strftime('%Y-%m-%d %H:%M'),"%Y-%m-%d %H:%M"))
+#categories = ["Uncategorized"]
+#tags = ["python", "測試"]
+categories = [category_str.split(":")[1]]
+# 請注意, 因為 tags 用逗點隔開, 因此必須透過 split() 再分開成為 list 資料
+tags = tags_str.split(":")[1].split(",")
+data = {'title': title, 'description': content, 'dateCreated': date_created, 'categories': categories, 'mt_keywords': tags}
+
+# 設法取得原 post 的 id
+origin_post = p.getLastChild()
+post_id = origin_post.b
+status = server.metaWeblog.editPost(post_id, wp_username, wp_password, data, status_published)
+
+if status:
+    g.es("資料已經更新!")
+else:
+    g.es("有問題, 資料沒有更新!")
+'''
+其他 metaWeblog 的用法:
+metaWeblog.newPost (blogid, username, password, struct, publish) returns string(postid)
+metaWeblog.editPost (postid, username, password, struct, publish) returns true
+metaWeblog.getPost (postid, username, password) returns struct(blog content)
+'''
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;最後若要經由 Leo Editor 的節點按鈕, 取回既有的 Wordpress 網誌文章, 則可以使用 get_from_wp 按鈕節點:&lt;/p&gt;
+&lt;pre class="brush: python;"&gt;
+#get_from_wp
+#coding: utf-8
+import xmlrpc.client
+# 導入 html 模組, 使用 html.unescape 轉換 html 特殊符號
+import html
+
+#################################
+# Open a file
+fo = open(p.parent().b, "r+")
+data = []
+for line in fo.readlines():
+    data.append(line)
+fo.close()
+
+# 從網誌節點的 parent().h 取得 wp_url
+# 從網誌節點的 parent().b 取得帳號與密碼對應的文字檔案路徑
+wp_url = "https://"+p.parent().h+"/xmlrpc.php"
+wp_username = data[0]
+wp_password = data[1]
+#################################
+
+server = xmlrpc.client.ServerProxy(wp_url)
+
+# 設法透過上述網誌網址, 帳號與密碼, 以及文章 id, 取回 categories, tags, 文章標題, 文章內容等資
+
+# 從最後的 child 節點來取 post_id
+origin_post = p.getLastChild()
+post_id = origin_post.b
+# 取回與 post_id 對應的網誌文章內容
+blog_content = server.metaWeblog.getPost (post_id, wp_username, wp_password)
+title = blog_content["title"]
+# 這裡要利用 html.unescape 轉回特殊符號
+description = html.unescape(blog_content["description"])
+mt_text_more = html.unescape(blog_content["mt_text_more"])
+if mt_text_more != "":
+    post_content = description + "\n&lt;!--more--&gt;\n"+mt_text_more
+else:
+    post_content = description
+# 所取回的 categories 為 list
+categories = blog_content["categories"]
+# 索取回的 tags 為以逗點隔開的字串
+mt_keywords = blog_content["mt_keywords"]
+p.h = title
+categories_str = ""
+for category in categories:
+    # 假如不是最後一個
+    if category != categories[len(categories)-1]:
+        categories_str += category + ", "
+    else:
+        # 這是最後一個
+        categories_str += category
+p.b = "categories:"+categories_str+"\ntags:"+mt_keywords+"\n"+post_content
+# 因為節點資料更新, commander 必須 redraw
+c.redraw() 
+g.es("資料已經取回")
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;好了, 上面的3個 Leo Editor 的按鈕節點程式, 只是從操作系統的特定路徑取出能夠管理遠端 Wordpress 網誌系統的帳號密碼, 然後再透過 XML-RPC 協定, 進行 Wordpress 網誌文章的新增、編輯與取回, 表示使用者可以在一個 Leo Editor 專案檔中完成這些事, 接下來則需要讓 Pelican 轉出的 html 檔案, 能夠同步送到對應的 Wordpress 動態網誌系統, 並且可以做到即時的內容同步, 既可保有靜態網誌的版次管理與單純伺服架構, 而且又可以將 Wordpress 視為 Pelican 的另外一個出口 (意思就是說, Wordpress 中只有特定的內容由 Pelican 端提供, 其他的使用者則仍然透過瀏覽器的方法對 Wordpress 網誌提供內容), 至於後續的處理與可行性驗證, 將在隨後的文章中進行討論.&lt;/p&gt;</content><category term="Pelican"></category><category term="Wordpress"></category></entry><entry><title>yen - Pelican 靜態網頁與 Wordpress 的整合方案</title><link href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html" rel="alternate"></link><published>2016-03-09T01:20:00+08:00</published><updated>2016-03-09T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-09:/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html</id><summary type="html">&lt;p&gt;利用 Leo Editor 的節點資料程式方法, 可以讓 Pelican 靜態網誌的內容與 Wordpress 動態網誌保持同步.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;利用 Leo Editor 的節點資料程式方法, 可以讓 Pelican 靜態網誌的內容與 Wordpress 動態網誌保持同步.&lt;/p&gt;
+
+
+&lt;p&gt;因為 Pelican 靜態網頁結合 Github Pages 網站, 可以完整保留各版本的所有差異資料 ,而 Wordpress 的動態特性也具有即時更新的優點, 因此本機械設計專題網站, 就利用 Leo Editor 建立了3個按鈕, 可以在靜態與動態網誌之間雙向交換內容.&lt;/p&gt;
+&lt;p&gt;首先是先編寫 Pelican 網誌的文章, 然後再經由下列 Leo Editor 的按鈕, 以 XML-RPC 協定, 將文章送到對應的 Wordpress 網誌.&lt;/p&gt;
+&lt;pre class="brush: python;"&gt;
+＃new-to-wp button
+#coding: utf-8
+import xmlrpc.client
+import datetime
+import os
+
+def get_cat_tag_content(data):
+    # 請注意, 因為 data 來自 .md 的 body pan 內容, 第1行為 @language python
+    # 用跳行符號分割
+    data_list = data.split("\n")
+    #第2行為 title
+    title= data_list[1]
+    #第3行為 category
+    category = data_list[2]
+    #第4行為 tags
+    tags = data_list[3]
+    # 有多項資料的 content 型別為數列
+    # 再將第7行之後的資料數列串回成以跳行隔開的資料
+    content = "\n".join(data_list[6:])
+    # 先將截斷摘要與內文的 pelican md 檔按符號, 換成 Wordpress 的 &lt;!-more-&gt;
+    content = content.replace('&lt;!-- PELICAN_END_SUMMARY --&gt;', '&lt;!--more--&gt;')
+    # 接著若內容有 ~~~python 與 ~~~ 則換成 Wordpress 格式
+    content = content.replace('~~~python', '[code lang="python"]')
+    content = content.replace('~~~', '[/code]')
+    return title, category, tags, content
+
+os.environ['TZ'] = 'Asia/Taipei'
+
+#################################
+filepath = "/your/wordpress/username/and/passwrod.txt"
+wordpress = "your.wordpress.site.domain"
+fo = open(filepath, "r+")
+data = []
+for line in fo.readlines():
+    data.append(line)
+fo.close()
+
+# 從網誌節點的 parent().h 取得 wp_url
+# 從網誌節點的 parent().b 取得帳號與密碼對應的文字檔案路徑
+wp_url = "https://"+wordpress+"/xmlrpc.php"
+wp_username = data[0]
+wp_password = data[1]
+#################################
+wp_blogid = "0"
+
+status_draft = 0
+status_published = 1
+
+server = xmlrpc.client.ServerProxy(wp_url)
+
+# 從目前所在節點的 body pan 中取出類別, tags 以及文章內容
+title_str, category_str, tags_str, content = get_cat_tag_content(p.b)
+# title 是一個單獨的字串
+title = title_str.split(":")[1]
+# 指定時間出版
+'''
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime("2013-01-01 00:00",
+"%Y-%m-%d %H:%M"))
+'''
+# 以現在時間出版, 考慮與 Server 時間差八個小時 (480 分鐘), 因此要在 8 個小時前發表
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime((datetime.datetime.now()- \
+datetime.timedelta(minutes=480)).strftime('%Y-%m-%d %H:%M'),"%Y-%m-%d %H:%M"))
+categories = [category_str.split(":")[1]]
+# 請注意, 因為 tags 用逗點隔開, 因此必須透過 split() 再分開成為 list 資料
+# 先用 : 斷開標投頭的 Tags:, 然後再透過逗點隔開, 將標註轉為數列資料
+tags = tags_str.split(":")[1].split(",")
+data = {'title': title, 'description': content, 'dateCreated': date_created, 'categories': categories, 'mt_keywords': tags}
+
+post_id = server.metaWeblog.newPost(wp_blogid, wp_username, wp_password, data, status_published)
+# 利用最後的 child 節點來儲存 post_id
+to_save_post_id = p.insertAsLastChild()   
+# 改為內文為空的節點, id 直接標在 head 標題 
+to_save_post_id.b = ""
+to_save_post_id.h = post_id
+# 因為新增節點, commander 必須 redraw
+c.redraw() 
+
+g.es("post_id 為", post_id)
+g.es("已經送出資料!")
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;其中 filepath 是存放 Wordpress 網誌管理帳號與密碼的存文字檔案路徑 (例如: "/home/user/file.txt"), 而 wordpress 則宣告希望對應連結的網址 (例如: "www.yoursite.blog").&lt;/p&gt;
+&lt;p&gt;當 Wordpress 的網誌文章新增後, 若 Pelican 端的文章改版, 則可以透過下列 edit-to-wp 按鈕進行更新:&lt;/p&gt;
+&lt;pre class="brush: python;"&gt;
+# edit-to-wp
+#coding: utf-8
+import xmlrpc.client
+import datetime
+import os
+
+def get_cat_tag_content(data):
+    # 請注意, 因為 data 來自 .md 的 body pan 內容, 第1行為 @language python
+    # 用跳行符號分割
+    data_list = data.split("\n")
+    #第2行為 title
+    title= data_list[1]
+    #第3行為 category
+    category = data_list[2]
+    #第4行為 tags
+    tags = data_list[3]
+    # 有多項資料的 content 型別為數列
+    # 再將第7行之後的資料數列串回成以跳行隔開的資料
+    content = "\n".join(data_list[6:])
+    # 先將截斷摘要與內文的 pelican md 檔按符號, 換成 Wordpress 的 &lt;!-more-&gt;
+    content = content.replace('&lt;!-- PELICAN_END_SUMMARY --&gt;', '&lt;!--more--&gt;')
+    # 接著若內容有 ~~~python 與 ~~~ 則換成 Wordpress 格式
+    content = content.replace('~~~python', '[code lang="python"]')
+    content = content.replace('~~~', '[/code]')
+    return title, category, tags, content
+
+os.environ['TZ'] = 'Asia/Taipei'
+
+#################################
+filepath = "/your/wordpress/username/and/passwrod.txt"
+wordpress = "your.wordpress.site.domain"
+fo = open(filepath, "r+")
+data = []
+for line in fo.readlines():
+    data.append(line)
+fo.close()
+
+wp_url = "https://"+wordpress+"/xmlrpc.php"
+wp_username = data[0]
+wp_password = data[1]
+#################################
+wp_blogid = "0"
+
+status_draft = 0
+status_published = 1
+
+server = xmlrpc.client.ServerProxy(wp_url)
+
+# 從目前所在節點的 body pan 中取出類別, tags 以及文章內容
+title_str, category_str, tags_str, content = get_cat_tag_content(p.b)
+# title 是一個單獨的字串
+title = title_str.split(":")[1]
+# 指定時間出版
+'''
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime("2013-01-01 00:00",
+"%Y-%m-%d %H:%M"))
+'''
+# 以現在時間出版, 考慮與 Server 時間差八個小時 (480 分鐘), 因此要在 8 個小時前發表
+date_created = xmlrpc.client.DateTime(datetime.datetime.strptime((datetime.datetime.now()- \
+datetime.timedelta(minutes=480)).strftime('%Y-%m-%d %H:%M'),"%Y-%m-%d %H:%M"))
+categories = [category_str.split(":")[1]]
+# 請注意, 因為 tags 用逗點隔開, 因此必須透過 split() 再分開成為 list 資料
+tags = tags_str.split(":")[1].split(",")
+data = {'title': title, 'description': content, 'dateCreated': date_created, 'categories': categories, 'mt_keywords': tags}
+
+# 設法取得原 post 的 id
+origin_post = p.getLastChild()
+# 直接從標題取得 post 的 id 號碼
+post_id = origin_post.h
+status = server.metaWeblog.editPost(post_id, wp_username, wp_password, data, status_published)
+
+if status:
+    g.es("資料已經更新!")
+else:
+    g.es("有問題, 資料沒有更新!")
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;最後, 假如使用者透過 Wordpress 的瀏覽器介面新增文章, Pelican 端也可以準備一個空白節點, 並將文章的 id 號碼作為該空白節點的子節點, 且將該子節點的 header, 設為文章的 id 數, 接下來再用滑鼠停在父空白節點上, 然後以滑鼠點按下列的 get-from-wp 按鈕, 就可以將 Wordpress 端的文章取回, 且節點標題會被填入該文章的標題, 之後 Pelican 端的使用者再依據規劃, 以 @clean 存檔的標題命名該節點.&lt;/p&gt;
+&lt;pre class="brush: python;"&gt;
+# get-from-wp
+#coding: utf-8
+import xmlrpc.client
+# 導入 html 模組, 使用 html.unescape 轉換 html 特殊符號
+import html
+
+#################################
+filepath = "/your/wordpress/username/and/passwrod.txt"
+wordpress = "your.wordpress.site.domain"
+fo = open(filepath, "r+")
+data = []
+for line in fo.readlines():
+    data.append(line)
+fo.close()
+
+# 從網誌節點的 parent().h 取得 wp_url
+# 從網誌節點的 parent().b 取得帳號與密碼對應的文字檔案路徑
+wp_url = "https://"+wordpress+"/xmlrpc.php"
+wp_username = data[0]
+wp_password = data[1]
+#################################
+
+server = xmlrpc.client.ServerProxy(wp_url)
+
+# 設法透過上述網誌網址, 帳號與密碼, 以及文章 id, 取回 categories, tags, 文章標題, 文章內容等資
+
+# 從最後的 child 節點來取 post_id
+origin_post = p.getLastChild()
+post_id = origin_post.h
+# 取回與 post_id 對應的網誌文章內容
+blog_content = server.metaWeblog.getPost(post_id, wp_username, wp_password)
+title = blog_content["title"]
+# 這裡要利用 html.unescape 轉回特殊符號
+description = html.unescape(blog_content["description"])
+mt_text_more = html.unescape(blog_content["mt_text_more"])
+if mt_text_more != "":
+    post_content = description + "\n&lt;!--more--&gt;\n"+mt_text_more
+else:
+    post_content = description
+# 所取回的 categories 為 list
+categories = blog_content["categories"]
+# 所取回的 tags 為以逗點隔開的字串
+mt_keywords = blog_content["mt_keywords"]
+# 取回文章作者
+author = blog_content["wp_author_display_name"]
+p.h = title
+categories_str = ""
+for category in categories:
+    # 假如不是最後一個
+    if category != categories[len(categories)-1]:
+        categories_str += category + ", "
+    else:
+        # 這是最後一個
+        categories_str += category
+line1 = "@language md\n"
+line2 = "Title: " +title + "\n"
+line3 = "Category: " + categories_str + "\n"
+line4 = "Tags: " + mt_keywords + "\n"
+line5 = "Author: " + author + "\n@others\n"
+post_content = post_content.replace('&lt;!--more--&gt;', '\n&lt;!-- PELICAN_END_SUMMARY --&gt;\n')
+post_content = post_content.replace('[code lang="python"]', '~~~python')
+post_content = post_content.replace('[/code]', '~~~')
+p.b = line1 + line2 + line3 + line4 + line5 + post_content + "\n"
+# 因為節點資料更新, commander 必須 redraw
+c.redraw() 
+g.es("資料已經取回")
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;</content><category term="Pelican"></category><category term="Wordpress"></category></entry><entry><title>yen - 機械設計專題分類</title><link href="http://project.mde.tw/blog/yen-ji-jie-she-ji-zhuan-ti-fen-lei.html" rel="alternate"></link><published>2016-03-02T01:20:00+08:00</published><updated>2016-03-02T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-02:/blog/yen-ji-jie-she-ji-zhuan-ti-fen-lei.html</id><summary type="html">&lt;p&gt;機械設計專題題目的分類, 一般就學門領域的組合, 可視為熱流體力學, 固體力學, 電子電機與資訊科技的綜合體.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;機械設計專題題目的分類, 一般就學門領域的組合, 可視為熱流體力學, 固體力學, 電子電機與資訊科技的綜合體.&lt;/p&gt;
+
+
+&lt;p&gt;雖然機械設計專題, 以設計流程為主, 但是通常離不開製造、控制與管理的範疇. 也就是說, 機械設計流程必須納入製造、控制與管理的層面, 才能得到更大的價值.&lt;/p&gt;
+&lt;p&gt;機械指的是機巧的配置, 而配置的內容, 來自熱流體力學, 固體力學, 電子電機與資訊科技的內涵, 其中更因不同的設計、製造、控制與管理流程, 而產生不同的功用.&lt;/p&gt;
+&lt;p&gt;至於設計則隱含內容的表達與驗證, 其表達的方式通常指口語表達, 文字表達, 2D 圖形表達, 3D 影像表達, 理論分析表達與實體原型的表達等六大類.&lt;/p&gt;
+&lt;p&gt;因此機械設計專題, 就可以從熱流體力學, 固體力學, 電子電機與資訊科技的組合搭配中, 納入各種設計、製造、控制與管理工具的運用, 最後用表達方式加以呈現的差異, 進行分類.&lt;/p&gt;
+&lt;p&gt;換言之, 機械設計專題的題目與施行內容的分類, 可以從3個大軸向切入:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;所包含的學門領域軸向, 也就是熱流體力學, 固體力學, 電子電機與資訊科技等.&lt;/li&gt;
+&lt;li&gt;所牽涉的流程層面, 也就是設計、製造、控制與管理流程等.&lt;/li&gt;
+&lt;li&gt;所使用的表達方式, 也就是口語表達, 文字表達, 2D 圖形表達, 3D 影像表達, 理論分析表達與實體原型的表達等.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;其中隸屬於設計的工程設計面, 又可細分為:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;選用設計, 也就是從現有的零件或配件群中選用的設計.&lt;/li&gt;
+&lt;li&gt;配置設計, 也就是根據所選擇的零配件加以組合, 以決定設計的組合順序或組合方式.&lt;/li&gt;
+&lt;li&gt;參數設計, 也就是決定內容所需的數據或尺寸.&lt;/li&gt;
+&lt;li&gt;原創設計, 也就是前所未見的配置參數設計或前所未見的整體設計.&lt;/li&gt;
+&lt;li&gt;重新設計, 也就是根據的新的需求、新的材料與元件發明, 所進行的設計.&lt;/li&gt;
+&lt;li&gt;客製化設計, 又稱為多選項設計, 也就是設計中的每一個功能, 都提供客戶不同等級的元件選擇所牽涉的設計.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;總之, 這裡針對機械設計專題題目分類的目的, 在讓選擇專題題目與製作內容的成員能有些初步概念, 儘管機械設計的範圍很廣, 能夠採用的方式與納入的內容也很多, 但是只要關注機械設計所牽涉的領域、流程與表達方法, 使專題題目具有代表性與功能性, 就能讓最後交付的內容更具價值.&lt;/p&gt;</content><category term="專題"></category><category term="機械設計"></category></entry><entry><title>yen - Github Pages 網頁資料更新問題</title><link href="http://project.mde.tw/blog/yen-github-pages-wang-ye-zi-liao-geng-xin-wen-ti.html" rel="alternate"></link><published>2016-03-01T01:20:00+08:00</published><updated>2016-03-01T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-01:/blog/yen-github-pages-wang-ye-zi-liao-geng-xin-wen-ti.html</id><summary type="html">&lt;p&gt;突然間, Github Pages 的網頁轉換機制不再更新&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;突然間, Github Pages 的網頁轉換機制不再更新&lt;/p&gt;
+
+
+&lt;p&gt;使用 Github Pages 建立網頁最大的問題就是, 在完全沒有任何錯誤訊息提醒的情況下, 送到 Github Pages 對應分支倉儲的資料不再成功轉為網頁資料.&lt;/p&gt;
+&lt;p&gt;因應之道, 只能刪除原先不再更新的倉儲, 另外再建立一個對應的 Github Pages 倉儲, 重新進行各項設定.&lt;/p&gt;</content><category term="Github Pages"></category></entry><entry><title>yen - 協同產品設計課程 Task0 延伸練習</title><link href="http://project.mde.tw/blog/yen-xie-tong-chan-pin-she-ji-ke-cheng-task0-yan-shen-lian-xi.html" rel="alternate"></link><published>2016-03-01T01:20:00+08:00</published><updated>2016-03-01T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-01:/blog/yen-xie-tong-chan-pin-she-ji-ke-cheng-task0-yan-shen-lian-xi.html</id><summary type="html">&lt;p&gt;如何將電腦教室分組, 比序與排座位的流程網際自動化&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;如何將電腦教室分組, 比序與排座位的流程網際自動化&lt;/p&gt;
+
+
+&lt;p&gt;在 &lt;a href="https://chiamingyen.github.io/kmolab/blog/2016-spring-cd-task0.html"&gt;https://chiamingyen.github.io/kmolab/blog/2016-spring-cd-task0.html&lt;/a&gt; 中, 說明了一個實際的電腦教室排座位的流程, 其中使用了網際即時試算表 &lt;a href="https://ethercalc.tw/"&gt;https://ethercalc.tw/&lt;/a&gt;, 以及幾個 Python3 的資料處理程式, 最後可以根據電腦教室的配置, 完成各組員的座位編排.&lt;/p&gt;
+&lt;p&gt;座位編排流程如下:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;讓所有學員自行分組&lt;/li&gt;
+&lt;li&gt;分組確定後, 根據學號比序, 產生各組組長&lt;/li&gt;
+&lt;li&gt;再根據各組組長學號, 再進行組長學號比序, 以決定各組的組序&lt;/li&gt;
+&lt;li&gt;完成各組序與各組內的組員順序後, 再根據座位編排規定, 最後列出學員座位表, 讓學員依序入座&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;本機械設計專題製作練習, 希望能夠利用網際程式方法, 以  &lt;a href="https://github.com/mitsuhiko/flask"&gt;https://github.com/mitsuhiko/flask&lt;/a&gt;, &lt;a href="https://www.sqlite.org/"&gt;https://www.sqlite.org/&lt;/a&gt; 將流程自動化, 當操作者從網際即時試算表中取得各組分組資料後, 可以輸入本練習所完成的網站表單中, 然後操作者可以根據頁面中的選項, 選擇各組選出組長的方式, 依據學號增量排序, 學號最小者為組長, 或遞減排序, 學號大者為組長, 或者亂數排序後, 排序第一組為組長等三種選擇.&lt;/p&gt;
+&lt;p&gt;接著操作者可以在頁面選擇組序排列的選項, 也是學號遞增排序, 學號遞減排序或學號亂數排序, 以便訂出各組的組序.&lt;/p&gt;
+&lt;p&gt;當操作者決定各組內與組外的排序選項後, 按下"排電腦教室座位" (也可加入排座位的選項, 列先排, 行先排或者全部按亂數排.&lt;/p&gt;
+&lt;p&gt;完成座位安排後, 必須將各組組員名單與分組名單分別存入資料庫, 以便後續讓使用者查詢各組座位與分組資訊, 並且在隨後
+加入各組員回報電腦使用情形與各組員自評登錄成績之應用.&lt;/p&gt;
+&lt;p&gt;原始倉儲資料: &lt;a href="https://github.com/2015fallhw/2016springcd/tree/gh-pages"&gt;https://github.com/2015fallhw/2016springcd/tree/gh-pages&lt;/a&gt;&lt;/p&gt;</content><category term="Flask"></category><category term="Brython"></category><category term="Python"></category><category term="練習"></category><category term="流程自動化"></category></entry></feed>

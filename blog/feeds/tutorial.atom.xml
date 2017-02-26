@@ -1,0 +1,3174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE) - Tutorial</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/tutorial.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-28T11:29:00+08:00</updated><entry><title>機械設計工程系網路講座(四)</title><link href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-si.html" rel="alternate"></link><published>2016-12-28T11:29:00+08:00</published><updated>2016-12-28T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-28:/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-si.html</id><summary type="html">&lt;p&gt;在這個講座文章中, 我們將以機械設計專題室的純 IPv6 網路連線設定為例, 說明機械設計工程系中的任一用戶, 若想透過設定連線上網, 應該要如何做?&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;在這個講座文章中, 我們將以機械設計專題室的純 IPv6 網路連線設定為例, 說明機械設計工程系中的任一用戶, 若想透過設定連線上網, 應該要如何做?&lt;/p&gt;
+
+
+&lt;p&gt;好了, 您作為機械設計工程系的一員, 電腦網路線接到系上的主幹, 而電腦的使用時機除了在實體電腦硬體之前上網之外, 也經常利用校外的光世代連線遠端登入此系上的電腦進行 remote 操作, 那麼該如何設定純 IPv6 協定上網, 無需耗用任何 IPv4 的固定位址?&lt;/p&gt;
+&lt;h3&gt;所有的電腦都直接連線到主幹&lt;/h3&gt;
+&lt;p&gt;首先, 必須要確定您的電腦確實直接連線到系上主幹, 假如您所處的研究室或實驗室, 是以 NAT 轉換位址連線到系上主幹, 這個時候, 應該是考慮拿掉 IPv4 的 NAT, 換成 Gigabit Switch, 讓所有 client 或 servers 直接連線到系上主幹, 而且只有必須充當 IPv4/IPv6 雙支援代理主機 (Proxy Server) 的電腦需要 IPv4 網址, 其他單純上網的電腦, 只需要設定為純 IPv6 協定, 並透過雙協定支援的代理主機上網即可.&lt;/p&gt;
+&lt;h3&gt;利用網卡 MAC 換算 IPv6 網址&lt;/h3&gt;
+&lt;p&gt;假如您使用 Windows 操作系統, 進入網路介面卡設定時, 在網路連線視窗中的"詳細資料", 可以查詢該網路卡的"實體位址"(也就是 MAC address), 然後利用 &lt;a href="http://service.mde.tw/static/address_calculator.html"&gt;MAC 轉 IPv6 位址服務&lt;/a&gt;, 將 48bit MAC 轉為 64bit Host ID (也就是所謂 EUI-64 Global identifier 位址), 然後再前置機械設計系的前段網址: 2001:288:6004:17, 就可得到該電腦的 IPv6 網址.&lt;/p&gt;
+&lt;p&gt;例如: MAC address 為 00-11-22-33-44-55 的網路卡, 其對應的 EUI-64 Global identifier 位址經過轉換, 得到 ::211:22ff:fe33:4455, 因此該網路卡就可以將 IPv6 網址設為: 2001:288:6004:17:211:22ff:fe33:4455, 並將子網路首碼長度設為 64, 預設閘道設為 2001:288:6004:17::254, DNS 伺服器則分別設為 2001:288:6004:1::2 (虎科大) 與 2001:b000:168::1 (中華電信), 並且不用勾選"網際網路通訊協定第 4 版" (也就是無需使用 IPv4 協定). 如下圖所示:&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016fall/net_talk4-1.png" width="800" /&gt;&lt;/p&gt;
+&lt;p&gt;設定完成後, 應該就可以直接連線到 Google 與 Youtube 等支援 IPv6 協定的網站, 但是若要連線到 IPv4 相容的網站, 則必須透過雙支援的 Proxy Server.&lt;/p&gt;
+&lt;h3&gt;建立 Proxy Server&lt;/h3&gt;
+&lt;p&gt;建立使用 Ubuntu 操作系統安裝 Squid proxy server, 請參考&lt;a href="cadlab-jiu-dian-nao-de-chu-li.html"&gt;安裝設定流程&lt;/a&gt;.&lt;/p&gt;
+&lt;h3&gt;從光世代遠端登入&lt;/h3&gt;
+&lt;p&gt;請參考 &lt;a href="https://chiamingyen.github.io/kmolab/blog/mechanical-designer-and-ipv6.html"&gt;Mechanical Designer and IPV6&lt;/a&gt; 中的說明, 若在 Ubuntu 則以 Remmina Remote Desktop Client, 以 RDP 協定進行連線, 前題是必須申請&lt;a href="http://www.ipv6.hinet.net/"&gt;光世代 IPV6 服務&lt;/a&gt;, 然後在主機中執行 sudo pon dsl-provider 進行 IPv6 撥號連線後執行遠端登入.&lt;/p&gt;</content><category term="機械設計"></category><category term="網路"></category><category term="導引"></category></entry><entry><title>何謂機械設計?</title><link href="http://project.mde.tw/blog/he-wei-ji-jie-she-ji.html" rel="alternate"></link><published>2016-12-07T11:29:00+08:00</published><updated>2016-12-07T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-07:/blog/he-wei-ji-jie-she-ji.html</id><summary type="html">&lt;p&gt;所謂機械設計, 就是歷經詳細思慮考量, 完成互動元件間之精巧配置, 使其展現特定功能之具體規劃表達.&lt;/p&gt;
+&lt;p&gt;其中, 詳細思慮考量, 就是"計"的字義, 而精巧配置互動元件, 就是"機"的字義, 展現特定功能, 就是"械"的字義, 最後, 必須完成具體規劃表達則是"設"的字義.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;所謂機械設計, 就是歷經詳細思慮考量, 完成互動元件間之精巧配置, 使其展現特定功能之具體規劃表達.&lt;/p&gt;
+&lt;p&gt;其中, 詳細思慮考量, 就是"計"的字義, 而精巧配置互動元件, 就是"機"的字義, 展現特定功能, 就是"械"的字義, 最後, 必須完成具體規劃表達則是"設"的字義.&lt;/p&gt;
+
+
+&lt;p&gt;因此機械設計共包含下列要件:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;經過詳細思慮考量過程 (計)&lt;/li&gt;
+&lt;li&gt;結果為互動元件間之精巧配置 (機)&lt;/li&gt;
+&lt;li&gt;配置可展現特定功能, 用於解決所面臨問題 (械)&lt;/li&gt;
+&lt;li&gt;必須明確表達結果之具體規劃 (設)&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;而一般工程表達的方法, 包括口語表達, 文字表達, 2D 表達, 3D 表達, 理論解析(定性定量)表達, 實體表達等.&lt;/p&gt;
+&lt;p&gt;且上述各類表達, 會因時間、地點、參與者、團隊組織的遷流變化而衍生出各式版本, 機械產品的協同設計, 便在各式表達的版本中, 尋求各互動元件組成的可用性外, 也期望透過相同功能的不同供應者, 作為精巧配置的選項, 以降低風險.&lt;/p&gt;
+&lt;p&gt;至於機械設計的所謂互動元件, 包括固體、流體與軟體, 隨著全球化數位經濟的蓬勃發展, 直接利用雲端統合機械協同設計過程中的所有內容, 已然成為可行方案之一.&lt;/p&gt;
+&lt;p&gt;當然, 隨著 &lt;a href="https://www.onshape.com/"&gt;Onshape&lt;/a&gt; 雲端設計表達工具的出現, 各公司目前將所有資料集中在雲端, 統一由一組團隊控管的模式, 未來勢必要納入如 Git 分散式版次管理的模式, 讓資料擁有者可以在無網路支援的單機狀態也能改版, 畢竟, 雲端 CAD/CAE/CAM, 充其量, 只不過是機械設計工程表達的方式之一而已.&lt;/p&gt;</content><category term="機械設計"></category><category term="導引"></category></entry><entry><title>數學有何用?</title><link href="http://project.mde.tw/blog/shu-xue-you-he-yong.html" rel="alternate"></link><published>2016-11-14T11:29:00+08:00</published><updated>2016-11-14T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-11-14:/blog/shu-xue-you-he-yong.html</id><summary type="html">&lt;p&gt;簡單的算術, 在日常生活購物流程, 隨時都會用到. 至於各種數學範疇的研究, 也都與工程應用的發展息息相關, 數學有何用? 請參考以下的說明.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;簡單的算術, 在日常生活購物流程, 隨時都會用到. 至於各種數學範疇的研究, 也都與工程應用的發展息息相關, 數學有何用? 請參考以下的說明.&lt;/p&gt;
+
+
+&lt;h2&gt;微積分的用途&lt;/h2&gt;
+&lt;p&gt;微積分起源於 17 世紀, 是用來研究特定內容"變化"的數學. 當機構運動時, 各零件的位置與速度, 都將發生"變化". 因此研究機構的運動, 需要運用微積分. 當熱量傳遞時, 不同位置的溫度與材料特性, 都將發生"變化".  因此研究熱量與流體的運動特性時, 需要運用微積分. 再者, 當材料加工時, 不同的施作方式, 也會讓不同部位的組成, 發生"變化".  因此研究材料加工過程時的各項性質, 需要運用微積分.&lt;/p&gt;
+&lt;p&gt;如眾所週知, 工程是一門運用自然科學與數學知識, 進行特定項目的研究、累積經驗, 並期以最佳方式解決人所面臨問題的科學.  而所謂的最佳方式, 可能是最省成本、最省時間、最輕量化、達到最長生命週期或全面最佳解決方式.&lt;/p&gt;
+&lt;p&gt;而工程師通常直接或間接在工作流程中使用數學. 以直接套用微積分解題而言, 工程師可以利用微積分計算平面特殊造型材料的面積, 用來決定零件的摩擦力. 也可以利用微積分計算三度空間特殊造型材料的表面積與體積, 算出表面積後, 可用來計算塗層所需用料多寡, 至於體積則可以用來計算材料密度, 或配合其他材料特性, 計算零件施力後可達到的運動速度,  或經由摩擦力與流體阻力大小, 估算達到一定操作速度時, 所需施力大小.&lt;/p&gt;
+&lt;p&gt;工程師間接套用微積分解題, 則通常使用電腦軟體作為工具解決問題,  而這些軟體的解題流程套用微積分, 例如: 利用系統模擬過程中的系統方程式微分來求取極值, 以最佳化該系統特定值.&lt;/p&gt;
+&lt;h2&gt;為何數學對工程師非常重要?&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;數學是讓人理解設計的表達工具 - 因為許多自然界的規律已經被發現, 且能用數學模式加以表達, 意即數學是物理科學與工程的重要表達工具 (另外五種表達工具分別為: 口語、文字、2D、3D 與實體, 並且各表達工具彼此互相組成配合, 以完成設計或製造流程之充分表達) , 自然規律以數學模式表達者, 例如: 牛頓運動定律、熱力學定律、電磁學的麥斯威爾方程式、電路分析的克希荷夫規則等.&lt;/li&gt;
+&lt;li&gt;數學可用來作為培育人才的訓練工具 - 數學除了可以用來表達設計理念之外,  還能用來訓練工程師的邏輯與數值分析能力.&lt;/li&gt;
+&lt;li&gt;數學有實際解題的應用功能 - 電腦的發展主要從數位邏輯出發,  結合各種數值分析與數學演算法, 發展出各式應用, 工程師為了更進一步應用電腦解題, 就必須熟悉各種數值分析方法與數學演算法.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;而機械工程需要用到的數學, 通常包括代數 (Algebra)、幾何 (Geometry)、三角函數 (Trigonometry)、微積分 (Calculus)、微分方程 (Differential Equations) 與統計 (Statistics) 等.&lt;/p&gt;</content><category term="機械設計"></category><category term="數學"></category><category term="導引"></category></entry><entry><title>機械設計工程系網路講座(三)</title><link href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-san.html" rel="alternate"></link><published>2016-11-12T11:29:00+08:00</published><updated>2016-11-12T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-11-12:/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-san.html</id><summary type="html">&lt;p&gt;執行機械設計專題的過程, 經常需要在不同操作系統與網路位置使用不同的軟硬體, 以 &lt;a href="http://project.mde.tw/blog/yen-dian-nao-fu-zhu-she-ji-shi-dian-nao-pei-zhi.html"&gt;CADLab 電腦硬體&lt;/a&gt; 為例, 連同實體操作系統, 總共可以開啟三台虛擬主機, 其中實體操作系統安裝 Ubuntu 16.04 伺服器加上 ubuntu-desktop, 而虛擬主機則分別安裝 Ubuntu 16.04 伺服器加上 ubuntu-desktop, Windows 10 64 位元 Professional 與 Windows 7 64 位元 Professional 版本.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;執行機械設計專題的過程, 經常需要在不同操作系統與網路位置使用不同的軟硬體, 以 &lt;a href="http://project.mde.tw/blog/yen-dian-nao-fu-zhu-she-ji-shi-dian-nao-pei-zhi.html"&gt;CADLab 電腦硬體&lt;/a&gt; 為例, 連同實體操作系統, 總共可以開啟三台虛擬主機, 其中實體操作系統安裝 Ubuntu 16.04 伺服器加上 ubuntu-desktop, 而虛擬主機則分別安裝 Ubuntu 16.04 伺服器加上 ubuntu-desktop, Windows 10 64 位元 Professional 與 Windows 7 64 位元 Professional 版本.&lt;/p&gt;
+
+
+&lt;p&gt;除了當作 Squid Proxy 主機的 Ubuntu 16.04 虛擬主機需要使用 IPv4 與 IPv6 網路協定位址外, 其餘的 Windows 10 與 Windows 7 虛擬主機都僅使用 IPv6 網路協定, 然後透過 Proxy Server 使用各種網路服務.&lt;/p&gt;
+&lt;p&gt;這樣的配置有幾項好處:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;四台主機只需要使用一個 IPv4 網路位址, 也就是負責支援 Proxy 伺服的 Ubuntu 16.04 虛擬機, 且此一固定的 IPv4 網路位址, 可以在 Windows 10 與 Windows 7 操作系統執行授權認證時, 臨時派上用場, 因為目前多數的微軟認證主機只支援 IPv4 網路協定.&lt;/li&gt;
+&lt;li&gt;實體主機無需認証, 且生命週期可達五年, Ubuntu 16.04 虛擬主機上的 Squid Proxy Server 使用靈活, 可以隨時配合需要更動設定.&lt;/li&gt;
+&lt;li&gt;Windows 10 與 Windows 7 虛擬主機可以在跨操作系統的 Virtualbox 應用程式架構下, 跨主機配置, 且可隨時在一定的軟硬體配置下增減各項設定或軟體套件, 使用限制較低.&lt;/li&gt;
+&lt;li&gt;從其他主機連線到實體主機, 可以使用純 IPv6 網路協定, 比較不會受到 IPv4 網路協定的干擾.&lt;/li&gt;
+&lt;li&gt;跨網域管理實體主機, 可以採用 Putty 加上 X-Windows, 若在 Windows 環境則使用 &lt;a href="https://sourceforge.net/projects/xming/"&gt;Xming&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;跨網域管理 Windows 10 與 Windows 7 則使用 Remote Desktop 協定, 若在 Ubuntu 環境則使用內建的 &lt;a href="https://apps.ubuntu.com/cat/applications/oneiric/remmina/"&gt;Remmina&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;自 Virtualbox 5.0 之後, 可以在虛擬主機中, 再配置 32 位元的虛擬主機, 當作測試使用.&lt;/li&gt;
+&lt;/ol&gt;</content><category term="機械設計"></category><category term="網路"></category><category term="導引"></category></entry><entry><title>機械設計工程網站的短網址</title><link href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-wang-zhan-de-duan-wang-zhi.html" rel="alternate"></link><published>2016-11-07T11:29:00+08:00</published><updated>2016-11-07T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-11-07:/blog/ji-jie-she-ji-gong-cheng-wang-zhan-de-duan-wang-zhi.html</id><summary type="html">&lt;p&gt;機械設計工程的英文為 Mechanical Design Engineering, 簡稱為 MDE, 有很長一段時間, 機械設計工程系的網路符號名稱為 mde.nfu.edu.tw, 但是在 DNS 上下綁定經常出現問題之後, 權宜之計採用 mde.tw 作為  domain name, 現在可以透過 &lt;a href="http://mde.tw"&gt;http://mde.tw&lt;/a&gt;, 連結到相關網站.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;機械設計工程的英文為 Mechanical Design Engineering, 簡稱為 MDE, 有很長一段時間, 機械設計工程系的網路符號名稱為 mde.nfu.edu.tw, 但是在 DNS 上下綁定經常出現問題之後, 權宜之計採用 mde.tw 作為  domain name, 現在可以透過 &lt;a href="http://mde.tw"&gt;http://mde.tw&lt;/a&gt;, 連結到相關網站.&lt;/p&gt;
+
+
+&lt;p&gt;簡短有意義的網路符號名稱在 Google 搜索引擎撲天蓋地提供完善服務之後, 好像變得不很重要, 但是隨著 IPv6 網址的逐漸普及, 若覺得每一種伺服器都帶著長位址, 使用非常不方便時, 透過雙協定支援的 DNS 伺服器, 所完成的簡短網站符號名稱就會愈來愈重要.&lt;/p&gt;
+&lt;p&gt;要設定位於 Github Pages 的 &lt;a href="http://mdecourse.github.io"&gt;http://mdecourse.github.io&lt;/a&gt; 成為 &lt;a href="http://mde.tw"&gt;http://mde.tw&lt;/a&gt;, 共有兩個步驟:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;登入 mdecourse.github.io 對應的倉儲, 設定 domain name 為 mde.tw&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;進入 mde.tw DNS 管理設定, 根據 &lt;a href="https://help.github.com/articles/setting-up-an-apex-domain/"&gt;https://help.github.com/articles/setting-up-an-apex-domain/&lt;/a&gt; 中的說明, 建立兩筆 A 設定 (也就是 mde.tw Internet Address 的綁定), 分別指向 192.30.252.153 與 192.30.252.154 就算完成.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</content><category term="機械設計"></category><category term="網路"></category><category term="導引"></category></entry><entry><title>機械設計工程系網路講座(二)</title><link href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-er.html" rel="alternate"></link><published>2016-11-06T11:29:00+08:00</published><updated>2016-11-06T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-11-06:/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-er.html</id><summary type="html">&lt;p&gt;因為 IPv4 與 IPv6 是兩種彼此不相容的網路協定, IPv4 採 32 位元定址, 而 IPv6 則為 128 位元定址. 因此, 採用純 IPv6 網路協定設置的連網裝置, 無法與純 IPv4 網路協定設置的連網裝置進行連線, 反之亦然, 也就是採用純 IPv4 網路協定設置的連網裝置, 無法與純 IPv6 網路協定設置的連網裝置進行連線.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;因為 IPv4 與 IPv6 是兩種彼此不相容的網路協定, IPv4 採 32 位元定址, 而 IPv6 則為 128 位元定址. 因此, 採用純 IPv6 網路協定設置的連網裝置, 無法與純 IPv4 網路協定設置的連網裝置進行連線, 反之亦然, 也就是採用純 IPv4 網路協定設置的連網裝置, 無法與純 IPv6 網路協定設置的連網裝置進行連線.&lt;/p&gt;
+
+
+&lt;p&gt;假如您使用中華電信的光世代, 而且使用  VDSL2 P883 路由器, 根據 &lt;a href="https://chiamingyen.github.io/kmolab/blog/mechanical-designer-and-ipv6.html"&gt;https://chiamingyen.github.io/kmolab/blog/mechanical-designer-and-ipv6.html&lt;/a&gt; 流程設定後,  使用 sudo pon dsl-provider 進行撥號後, 出現 Plugin rp-pppoe.so loaded, 表示已經取得 IPv6 協定上網, 就可以透過瀏覽器連線到 &lt;a href="http://[2001:288:6004:17::17]"&gt;http://[2001:288:6004:17::17]&lt;/a&gt;, 其中 IPv6 位址與埠號結合的寫法為 [2001:288:6004:17::17]:3128, 假如要利用網路位址設定代理主機就必須採用 IPv6 的格式.&lt;/p&gt;
+&lt;p&gt;因為機械設計工程系所分配到的 IPv6 網址為 2001:288:6004:17::/64, 表示前面 64 bits 的網址已經指定, 因此 subnet 設為 /64. 至於點對點的連線則建議設為 /127, 理由是可以避開子網路中許多未啟用的位址搜尋, 以免拖累路由器的速度.&lt;/p&gt;
+&lt;p&gt;在 IPv6 協定中, 每一個網路卡除了所設定使用的網路位址外, 還配置了一個所謂的 link-local address (本地連結位址). 而且 link-local addresses 一定位於 fe80::/10 區段. 至於在區域網路中各裝置的網路卡所使用的本地連結位址則會加上網卡代號存在路由表中. 例如, fe80::1:2:3:4%eth0&lt;/p&gt;
+&lt;p&gt;機械設計工程系區域網路中的電腦使用 IPv6 協定上網, 共有以下四種方法取得  IPv6 網路位址:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;採用 EUI-64 Global identifier 位址, 利用網路卡的 MAC address 進行&lt;a href="http://service.mde.tw/static/address_calculator.html"&gt;換算&lt;/a&gt;. 例如, 若 MAC 網路編號為 00-11-22-33-44-55, 則換算後使用 2001:288:6004:17:211:22FF:FE33:4455 作為 IPv6 網路位址.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;個別伺服器則設定固定 IPv6 網址, 並且將設定登錄到 DNS 伺服器中, 由於單一網路卡可以與多個 IPv6 位址綁定, 因此可以就個別服務設定不同的 IPv6 位址. 如此就可以在不同的伺服器硬體中搬遷各種不同服務. 以機械設計工程系網段中, 必須固定設置 IPv6 網址的建議是由目前所使用的 140.130.17.XXX 自行轉換為 2001:288:6004: 17::XXX, 至於採用網路卡 MAC 位址運算得到的 EUI-64 網址, 則不可任意搬遷.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;在 Windows 7 或 10 操作系統中直接關閉 IPv4 協定, 採用純 IPv6 協定, 並且透過 DHCPv6 取得 IPv6 網路位址, 只要設定 DNS 為 2001:288:6004:1::2 與 2001:b000:168::1, 並採用 [2001:288:6004:17::17]:3128 或 proxy.mde.tw:3128 作為 proxy, 就可以連線上網.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;使用電腦自行亂數設定位於 fe80::/10 區段的 IPv6 本地連結網址上網, 假如要連結到廣域網路, 則使用橫跨內外網段的代理主機上網.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</content><category term="機械設計"></category><category term="網路"></category><category term="導引"></category></entry><entry><title>機械設計工程系網路講座(一)</title><link href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-yi.html" rel="alternate"></link><published>2016-10-27T11:29:00+08:00</published><updated>2016-10-27T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-10-27:/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-yi.html</id><summary type="html">&lt;p&gt;過去在 IPV4 的網路環境中, 經常需要利用各種網路管理軟硬體, 進行用戶對於網路頻寬使用的限制或者綁定, 轉換到 IPV6 網路環境之後, 儘管可能無法直接擷取目前仍使用純 IPV4 協定的網路服務, 但是透過代理主機, 不但不會影響各用戶的權益, 反而因為 IPV6 協定的寬廣位址, 而過得海闊天空, 自由自在.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;過去在 IPV4 的網路環境中, 經常需要利用各種網路管理軟硬體, 進行用戶對於網路頻寬使用的限制或者綁定, 轉換到 IPV6 網路環境之後, 儘管可能無法直接擷取目前仍使用純 IPV4 協定的網路服務, 但是透過代理主機, 不但不會影響各用戶的權益, 反而因為 IPV6 協定的寬廣位址, 而過得海闊天空, 自由自在.&lt;/p&gt;
+
+
+&lt;h2&gt;數量眾多的 IPV6 網址&lt;/h2&gt;
+&lt;p&gt;從 &lt;a href="http://cadlab.mde.tw/post/ji-jie-she-ji-gong-cheng-xi-ipv6-wang-zhi-fen-pei.html"&gt;機械設計工程系 IPV6 網址分配&lt;/a&gt; 文章中, 大家就可以了解,  IPV6 網路位址雖然不是無限, 但是數量眾多, 絕對可以滿足多元使用的需求.&lt;/p&gt;
+&lt;p&gt;因此各機械設計工程系的教學與研究團隊, 在決定使用 IPV6 網路協定之後, 第1件事就是要確定各用戶是否透過 gigabit switch, 讓所有電腦都直接連線到系上的廣域網路.&lt;/p&gt;
+&lt;p&gt;假如您之前只是使用電腦的瀏覽器上網, 而且使用系上分配的 IPV4 固定網址, 那麼您可以準備將這個 IPV4 的固定網址交回管理室, 因為在從 IPV4 網路環境轉進到 IPV6 的過程中, 只有雙支援需求的 Proxy Server 需要使用 IPV4 固定網址, 一般用戶只要使用各自所在樓層與所分配的 IPV6 固定網址, 就可以上網.&lt;/p&gt;
+&lt;h2&gt;使用固定 IPV4 網址的轉換&lt;/h2&gt;
+&lt;p&gt;在此以綜一館八樓實驗室編號尾碼為 8768 的用戶為例, 因為所分配的 IPV6 網址範圍為2001:288:6004:17:8F:8768:0000:0000 ~
+2001:288:6004:17:8F:8768:FFFF:FFFF, 意思就是這個實驗室有 16 的 8 次方個 IPV6 網路位址可以使用, 其下可以再透過使用者的身分證字號最後四碼 (例如為 1234), 使用 2001:288:6004:17:8F:8768:1234:0000 ~ 2001:288:6004:17:8F:8768:1234:FFFF 的網段.&lt;/p&gt;
+&lt;p&gt;假如該名用戶採用 Windows 操作系統, 只要進入控制台的網路卡設定, 將 IPV4 協定勾選去除, 只留下 IPV6 網路協定, 然後自行設定網路位址為 2001:288:6004:17:8F:8768:1234:1, 子網路首碼長度設為 64, 預設閘道設為 2001:288:6004:17::254 (請注意, 因為 17 到 254 中間有三個位址段皆為 0000 而省略, 因此要使用 "::"), DNS 伺服器設為 2001:288:6004:1::2 (學校 DNS) 與 2001:b000:168::1 (中華電信 DNS) 即可.&lt;/p&gt;
+&lt;p&gt;接下來只要將瀏覽器的代理主機設為 proxy.mde.tw:3128 即可連線上網.&lt;/p&gt;
+&lt;h2&gt;使用 NAT 轉址的用戶轉換&lt;/h2&gt;
+&lt;p&gt;假如您目前是透過 NAT 從 IPV4 的內部網路轉換為外部網路上網, 只需要將 NAT 移除, 換成 Gigabit 交換器, 就可以利用上一節中的說明, 轉換到固定的 IPV6 網址設定上網.&lt;/p&gt;
+&lt;p&gt;也就是說, 只要使用該電腦所分配到的 IPV6 網址, 並去除 IPV4 網路協定, 就可以透過代理主機 proxy.mde.tw:3128 連線上網.&lt;/p&gt;
+&lt;h2&gt;網路認証授權主機的轉換&lt;/h2&gt;
+&lt;p&gt;當各用戶從 IPV4 網路協定轉而使用純 IPV6 協定上網之後, 若先前使用 SolidWorks、Matlab、Creo Parametric、Ansys 與 Comsol 等套件的網路授權, 也必須確定各授權主機啟用 IPV6 的協定, 有關這點, 我們極力推廣各系要自行管理各自的 DNS 伺服器, 如此一來, 無論使用者採用 IPV4 或 IPV6 協定要求認証 ,都只要將認証主機設為 solidworks.mde.nfu.edu.tw:埠號, mat.mde.nfu.edu.tw:埠號, creo.mde.nfu.edu.tw:埠號, ansys.mde.nfu.edu.tw:埠號與 comsol.mde.nfu.edu.tw:埠號即可, 無需使用 IPV6 或 IPV4 的網址要求認証, 因為這些主機可能因為各種原因進行硬體搬遷或固定網址而變換, 各管理者只要從各系的 DNS 伺服器中因應調整, 完全不需要更動認証客戶端的伺服器 IP 設定.&lt;/p&gt;
+&lt;h2&gt;結論&lt;/h2&gt;
+&lt;p&gt;從上述說明可以了解, IPV6 的網路架構就在我們的身旁, 只要各用戶依據&lt;a href="http://cadlab.mde.tw/post/ji-jie-she-ji-gong-cheng-xi-ipv6-wang-zhi-fen-pei.html"&gt;機械設計工程系 IPV6 網址分配&lt;/a&gt;使用, 就可以全面改善目前爭搶 IPV4 網路位址的情形, 也無需將個人電腦的 MAC 卡號交由電算中心綁定, 或者區分教師與學生網段, 只要讓管理室可以回收部份 IPV4 網址, 增加雙網路協定支援的代理主機, 並且推廣伺服主機也採用純 IPV6 設定, 就能逐步從舊 IPV4 進入新 IPV6 世代, 享受新協定所帶來的便利.&lt;/p&gt;</content><category term="機械設計"></category><category term="網路"></category><category term="導引"></category></entry><entry><title>yen - 機械設計課程對應網頁</title><link href="http://project.mde.tw/blog/yen-ji-jie-she-ji-ke-cheng-dui-ying-wang-ye.html" rel="alternate"></link><published>2016-10-13T11:29:00+08:00</published><updated>2016-10-13T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-10-13:/blog/yen-ji-jie-she-ji-ke-cheng-dui-ying-wang-ye.html</id><summary type="html">&lt;p&gt;今年機械設計專題的任務之一, 就是希望每一位學員都能各自維護一份自己的網頁, 修課的網頁以及分組的網頁, 過去我們選擇在 OpenShift 進行, 現在 Github Pages 應該是最佳選擇.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;今年機械設計專題的任務之一, 就是希望每一位學員都能各自維護一份自己的網頁, 修課的網頁以及分組的網頁, 過去我們選擇在 OpenShift 進行, 現在 Github Pages 應該是最佳選擇.&lt;/p&gt;
+
+
+&lt;p&gt;首先, 必須要知道 Github 帳號啟用後, 可以 &lt;a href="https://help.github.com/articles/changing-your-primary-email-address/"&gt;更改對應的 email&lt;/a&gt;, 必須在學校 email 面臨被取消之前, 轉換到其他生命週期較長的電子郵箱.&lt;/p&gt;
+&lt;p&gt;根據課程的規劃, 2016Fall 的計算機程式對應網站位於 &lt;a href="https://mdecourse.github.io/2016fallcpa"&gt;https://mdecourse.github.io/2016fallcpa&lt;/a&gt;, 而 2016Fall 的電腦輔助設計實習課程則位於 &lt;a href="https://mdecourse.github.io/2016fallcadpa"&gt;https://mdecourse.github.io/2016fallcadpa&lt;/a&gt;, 在課程進行期間, 兩班將使用相同的 reveal.js 投影片, 但各自擁有一份 pelican 靜態網誌, 等到課程結束, 將會合併到年度的課程投影片與網誌中.&lt;/p&gt;
+&lt;p&gt;上述課程網頁的基本架構與過去幾年所使用的大致相同, 最大的區別在於, 各倉儲都只關注 gh-pages 分支, 且從班上的網頁到各組的網頁, 一直下達各學員的網際內容, 都透過 git submodule 綁定與時間對應的版本, 各組與各學員在規定檢核內容的時限之後, 仍可持續改版, 不致影響自評與互評的版本內容.&lt;/p&gt;
+&lt;p&gt;此外, 各倉儲中除了影片檔案, 必須放在 Vimeo 與 Youtube 外, 其他的相關檔案都建議存在各自對應的倉儲中, 並且以相對目錄設定, 如此, 一旦課程結束後, 班級課程倉儲就可以被 git clone 到近端繼續使用, 唯一必須處理的就是將各頁面所使用的 cdn 或統一的 Github Pages 對應 Javascripts, 以近端的程式庫取代, 並且使用各學年規劃下的版本.&lt;/p&gt;</content><category term="機械設計"></category><category term="課程"></category></entry><entry><title>yen - KMOL 的程式開發環境</title><link href="http://project.mde.tw/blog/yen-kmol-de-cheng-shi-kai-fa-huan-jing.html" rel="alternate"></link><published>2016-10-10T11:29:00+08:00</published><updated>2016-10-10T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-10-10:/blog/yen-kmol-de-cheng-shi-kai-fa-huan-jing.html</id><summary type="html">&lt;p&gt;當 Ubuntu 在年初推出 16.04 版本時, 因為許多舊型的 AMD 電腦顯示卡無法內建支援, 因此仍然停留在 Ubuntu 14.04 LTS 的使用, 但是隨著 Solvespace 與 PyQt5 相關應用程式的開發需要, Python 3.4 與 PyQt4 已經不敷使用, 因此從今天開始, 利用實體或虛擬安裝的方式, 將 KMOL 機械設計專題的主要程式開發系統, 定調採用 Ubuntu 16.04 版本.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;當 Ubuntu 在年初推出 16.04 版本時, 因為許多舊型的 AMD 電腦顯示卡無法內建支援, 因此仍然停留在 Ubuntu 14.04 LTS 的使用, 但是隨著 Solvespace 與 PyQt5 相關應用程式的開發需要, Python 3.4 與 PyQt4 已經不敷使用, 因此從今天開始, 利用實體或虛擬安裝的方式, 將 KMOL 機械設計專題的主要程式開發系統, 定調採用 Ubuntu 16.04 版本.&lt;/p&gt;
+
+
+&lt;h2&gt;基本程式開發策略&lt;/h2&gt;
+&lt;p&gt;在 &lt;a href="https://www.onshape.com/"&gt;OnShape&lt;/a&gt; 推出之前, KMOL 機械設計專題為了在 &lt;a href="http://www.freecadweb.org/"&gt;FreeCAD&lt;/a&gt; 與 &lt;a href="http://solvespace.com"&gt;Solvespace&lt;/a&gt; 之外, 能夠採用 PTC Creo 與 Solidworks, 因此除了在 Ubuntu 建構程式開發系統之外, 還利用 NetBeans 與 MinGW, 在 Windows 7 與 Windows 10 64 位元環境中建立可攜的程式開發系統, 但是隨著 Windows 10 越發強勢地主導自動更新, KMOL 機械設計專題決定要在 Ubuntu 環境中, 以 cmake 及 mingw-w64 開發 Windows 10 適用的套件, 換言之, 從今以後, Windows 操作系統只是 KMOL 機械設計專題的執行平台而非開發平台.&lt;/p&gt;
+&lt;h2&gt;理想的程式開發環境&lt;/h2&gt;
+&lt;p&gt;假如實體主機無法直接安裝 Ubuntu 16.04, 建議仍安裝 Ubuntu 14.04 與 Virtualbox, 並且在 Virtualbox 中配置 64 位元的虛擬 Ubuntu 16.04 或 Windows 10 執行環境.&lt;/p&gt;
+&lt;p&gt;有鑑於一台實體主機將經常要開啟一個實體的 Ubuntu 14.04 與兩個虛擬操作系統, 因此除了要俱備 Vti 相關虛擬技術的支援外, 記憶體必須 12GB 以上, 而硬碟則是 1TB 以上較佳.&lt;/p&gt;
+&lt;p&gt;當然, 因為這一台主機仍必須執行至少一套虛擬 Windows 10 64 位元操作系統, 因此必須購買相應合法的 Windows 操作系統使用授權.&lt;/p&gt;
+&lt;h3&gt;Ubuntu 14.04 主機的安裝&lt;/h3&gt;
+&lt;p&gt;當實體主機進行 Ubuntu 14.04 Server 操作系統安裝時, 僅需選擇安裝 OpenSSH server 加上 ubuntu-desktop 即可, 之後可以安裝 gcin 中文輸入系統、git、pip3、PyQt4、pelican、Markdown 以及 Leo Editor 等模組, 目的在於可以處理與 Github 相關倉儲的資料更新.&lt;/p&gt;
+&lt;p&gt;基本步驟如下:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;sudo apt-get install gcin git python3-pip python-pyqt4&lt;/li&gt;
+&lt;li&gt;git clone https://github.com/leo-editor/leo-editor.git&lt;/li&gt;
+&lt;li&gt;將 leo-editor 目錄下的 leo 檔案複製到 /usr/local/lib/python3.4/dist-packages 目錄下&lt;/li&gt;
+&lt;li&gt;利用 python3 launchLeo.py 啟動 Leo Editor&lt;/li&gt;
+&lt;li&gt;sudo pip3 install pelican Markdown&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;因為 gcin 在 Ubuntu 14.04 操作系統環境下, 可以直接支援 PyQt4 程式的中文輸入, 因此只要選用 gcin 後重新開機即可.&lt;/p&gt;
+&lt;h3&gt;Ubuntu 16.04 實體或虛擬主機安裝&lt;/h3&gt;
+&lt;p&gt;Ubuntu 16.04 Server 操作系統的安裝, 雖然步驟與 14.04 大致相同, 但是因為要作為 CMake 與 PyQt5 程式開發之用, 因此除了必要的程式模組採 apt 安裝外, 其他的 Qt5、sip、PyQt5、qscintilla2 與 eric6 等, 都直接從原始碼編譯連結後進行安裝.&lt;/p&gt;
+&lt;p&gt;首先, 利用 apt purge 徹底移除 Ubuntu 16.04 內建的 sip 4.17.1 舊版本:&lt;/p&gt;
+&lt;p&gt;sudo apt purge python3-sip python3-sip-dev&lt;/p&gt;
+&lt;p&gt;移除 sip 前後, 可以利用 sip -V 確認版次.&lt;/p&gt;
+&lt;p&gt;接著安裝, Solvespace 與程式庫開發所需的各種套件:&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+apt-get install libpng-dev libjson-c-dev libfreetype6-dev \
+                libfontconfig1-dev libgtkmm-2.4-dev libpangomm-1.4-dev \
+                libcairo2-dev libgl-dev libglu-dev cmake swig \
+                python3-dev python3-pip pyqt5-dev mingw-w64
+&lt;/pre&gt;
+
+&lt;p&gt;然後安裝 Pyslvs-PyQt5 所需要的 peewee ORM 模組, 以及產生靜態網誌所需的 pelican 與 Markdown:&lt;/p&gt;
+&lt;p&gt;sudo pip3 install peewee pelican Markdown&lt;/p&gt;
+&lt;p&gt;接著下載 &lt;a href="http://download.qt.io/official_releases/qt/5.7/5.7.0/qt-opensource-linux-x64-5.7.0.run"&gt;http://download.qt.io/official_releases/qt/5.7/5.7.0/qt-opensource-linux-x64-5.7.0.run&lt;/a&gt;, 安裝 Qt5.7:&lt;/p&gt;
+&lt;p&gt;然後利用 gedit ~/.bashrc, 編輯 .bashrc, 加入:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;export QTDIR=/opt/Qt5.7.0/5.7/gcc_64/ 
+export LD_LIBRARY_PATH=&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;:&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;QTDIR&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;/lib 
+export PATH=&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;QTDIR&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;/bin:&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;然後以 source ~/.bashrc 讓設定生效.&lt;/p&gt;
+&lt;p&gt;要確認 Qt 版次, 使用:&lt;/p&gt;
+&lt;p&gt;qmake -v&lt;/p&gt;
+&lt;p&gt;接下來下載 &lt;a href="http://www.riverbankcomputing.com/software/sip/download "&gt;http://www.riverbankcomputing.com/software/sip/download &lt;/a&gt;, 然後以下列指令安裝 sip 4.18.1:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python3 configure.py 
+make
+sudo make install
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;如同前面移除 sip 4.17.1 時相同, 利用  sip -V 確認系統中 sip 的版本, 假如要確認 Python3 導入時使用的 sip 版本, 利用下列程式碼檢查:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sip&lt;/span&gt;
+&lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sip&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sip&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SIP_VERSION_STR&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;PyQt5 的安裝步驟與 sip 相同, 從 &lt;a href="http://www.riverbankcomputing.com/software/pyqt/download5"&gt;http://www.riverbankcomputing.com/software/pyqt/download5&lt;/a&gt; 下載原始碼之後:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python3 configure.py 
+make
+sudo make install
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;至於 qscintilla 的安裝, 牽涉3個步驟, 首先從 &lt;a href="http://www.riverbankcomputing.com/software/qscintilla/download"&gt;http://www.riverbankcomputing.com/software/qscintilla/download&lt;/a&gt; 下載原始碼:&lt;/p&gt;
+&lt;p&gt;步驟一:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd Qt4Qt5
+qmake qscintilla.pro
+make
+sudo make install
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;步驟二:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd ../designer-Qt4Qt5
+qmake designer.pro
+make
+sudo make install
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;步驟三:&lt;/p&gt;
+&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
+2
+3
+4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd ../Python
+python3 configure.py --pyqt=PyQt5
+make
+sudo make install
+&lt;/pre&gt;&lt;/div&gt;
+&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
+&lt;p&gt;接下來則安裝 eric6, 從 &lt;a href="http://eric-ide.python-projects.org/eric-download.html"&gt;http://eric-ide.python-projects.org/eric-download.html&lt;/a&gt; 下載原始碼後, 以 sudo python3 install.py 進行安裝, 並以 eric6 開啟.&lt;/p&gt;
+&lt;h3&gt;安裝 Leo Editor&lt;/h3&gt;
+&lt;p&gt;因為前面已經安裝 PyQt5, 因此只要從 &lt;a href="https://github.com/leo-editor/leo-editor.git"&gt;https://github.com/leo-editor/leo-editor.git&lt;/a&gt; 取得 Leo Editor 的原始碼, 並將 leo 目錄複製到 /usr/local/lib/python3.5/dist-packages 目錄中即完成安裝, 啟動 Leo Editor, 則以 python3 launchLeo.py, 或者將 python3 launchLeo.py 放入可執行的 leo 檔案中, 以 ./leo&amp;amp; 啟動.&lt;/p&gt;
+&lt;h3&gt;安裝 fcitx 中文輸入&lt;/h3&gt;
+&lt;p&gt;由於目前 gcin 對於 PyQt5 的支援較不完全, 因此在 Ubuntu 16.04 操作系統中, 採用 fcitx 作為中文輸入的套件:&lt;/p&gt;
+&lt;p&gt;sudo apt install fcitx fcitx-chewing&lt;/p&gt;
+&lt;p&gt;表示將採用 fcitx 中文輸入法中的酷音輸入套件.&lt;/p&gt;
+&lt;p&gt;酷音輸入法的使用牽涉3個步驟, 第1步驟就是上方的套件安裝, 而第2步驟就是進入系統設定中的 language support, 將原先內建的 ibus 改為 fcitx, 而第3步驟則是在輸入 configure 時, 加入 chewing 中文輸入法, 並且將原先的切換鍵 space 改為 ctrl+space.&lt;/p&gt;
+&lt;p&gt;完成上述步驟的安裝與設定後, 就可以利用 Leo Editor 及 eric6 來開發 Solvespace 與 api 應用, 包含所有相關系統原始碼的倉儲位於 &lt;a href="https://github.com/mdecourse/solvespack"&gt;https://github.com/mdecourse/solvespack&lt;/a&gt;, 以 submodule  設定的相同倉儲則位於: &lt;a href="https://github.com/mdecourse/solvk"&gt;https://github.com/mdecourse/solvk&lt;/a&gt;.&lt;/p&gt;</content><category term="機械設計"></category><category term="專題"></category></entry><entry><title>yen - 有關機械設計專題網站內容</title><link href="http://project.mde.tw/blog/yen-you-guan-ji-jie-she-ji-zhuan-ti-wang-zhan-nei-rong.html" rel="alternate"></link><published>2016-07-30T11:29:00+08:00</published><updated>2016-07-30T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-30:/blog/yen-you-guan-ji-jie-she-ji-zhuan-ti-wang-zhan-nei-rong.html</id><summary type="html">&lt;p&gt;本機械設計專題網誌採用 Leo Editor 管理文章內容與設定, 並且透過 Pelican 靜態網誌系統程式, 將各參與協同人員所分別建立的 .md 檔案, 轉為一系列的 html 檔案, 其中包括全文內容的搜尋, 以及網誌分類的架構.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;本機械設計專題網誌採用 Leo Editor 管理文章內容與設定, 並且透過 Pelican 靜態網誌系統程式, 將各參與協同人員所分別建立的 .md 檔案, 轉為一系列的 html 檔案, 其中包括全文內容的搜尋, 以及網誌分類的架構.&lt;/p&gt;
+
+
+&lt;p&gt;假如您檢視現在這篇文章的 .md 檔案, 在文章最前頭的內容為:&lt;/p&gt;
+&lt;pre class="brush: jscript"&gt;
+Title: yen - 有關機械設計專題網站內容
+Date: 2016-07-27 11:29
+Category: Tutorial
+Tags: Pelican, 文章日期
+Author: yen
+&lt;/pre&gt;
+
+&lt;p&gt;表示這篇文章的標題, 建立日期, 類別, 標籤與作者名稱, 因為我們先前採用的 Pelican 近端與遠端的 DEFAULT_DATE 設定, 將原先的 None, 改為 'fs', 表示若使用者所提供的 Markdown 文章中, 沒有 Date: 時間註記, 那麼系統就會直接採用 file system 的檔案存檔時間作為文章的 Date.&lt;/p&gt;
+&lt;p&gt;但是就實務應用的觀點, 各用戶一旦 git clone 本倉儲內容, 或者在操作系統中搬動或複製倉儲檔案, 而沒能利用像 cp -p 這種可以保留原始檔案建立時間的指令, 整個倉儲的 .md 檔案就會隨著不同操作流程, 而讓網誌的文章順序變來變去, 從讀者的角度來看, 我們應該要加以解決這個問題.&lt;/p&gt;
+&lt;p&gt;解決的方法很簡單, 我們仍然保留原先近端與遠端 DEFAULT_DATE = 'fs' 的設定, 也就是若使用者的文章沒有 Date: 註記, 就仍舊採用該 .md 檔案的建立時間作為文章登錄的時間 ,但是若使用者的 .md 檔案提供了 Date: 註記, 那麼就以註記的時間作為文章建立時間.&lt;/p&gt;
+&lt;p&gt;好了, 接下來就是要求所有參與協同的作者, 在各自的文章標題後面, 加上 Date:, 而格式則是 Date: 2016-07-27 11:29, 一旦所有的文章都各自標註建立的確切時間, 之後所產生的機械設計專題網誌文章順序, 應該就不會再變來變去了.&lt;/p&gt;
+&lt;p&gt;當然, 我們為了要讓現在這篇文章能夠放在網誌的最上頭幾天, 我們把它註記為三天後的時間.&lt;/p&gt;</content><category term="Pelican"></category><category term="文章日期"></category></entry><entry><title>yen - RGA 基因演算法</title><link href="http://project.mde.tw/blog/yen-rga-ji-yin-yan-suan-fa.html" rel="alternate"></link><published>2016-05-21T01:20:00+08:00</published><updated>2016-05-21T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-05-21:/blog/yen-rga-ji-yin-yan-suan-fa.html</id><summary type="html">&lt;p&gt;RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.&lt;/p&gt;
+
+
+&lt;pre class="brush: python"&gt;
+# https://github.com/flukeskywalker/PyRGA
+# 原始程式為 Python2 修改為 Python3 格式
+# 除了原先的最大化適應值外, 增加最小化方法設定
+import numpy as np
+import random
+from math import *
+
+# 請注意各代族群數必須為 4 的倍數
+class GA: # popsize must be multiple of 4
+    def __init__(self, obj, dim, popsize, ngen, pc, pm, etac, etam, min):
+        self.EPSILON = 10e-6
+        self.INFINITY = 10e6
+        self.pop = []
+        self.fits = []
+        self.obj = obj
+        self.dim = dim
+        self.popsize = popsize
+        self.ngen = ngen
+        self.pc = pc
+        self.pm = pm
+        self.etac = etac
+        self.etam = etam
+        # min = 1 表最小化, min = -1 表最大化
+        self.min = min
+        self.RIGID = 0
+        self.lowb = -self.INFINITY*np.ones(self.dim)
+        self.highb = self.INFINITY*np.ones(self.dim)
+        self.tourneylist = range(0, self.popsize)
+        self.tourneysize = 2 # works for 2 for now
+        self.bestmemyet = np.zeros(self.dim)
+        # 若是求最大值
+        if self.min == -1:
+            self.bestfityet = -np.inf
+        else:
+        # 若是求最小值
+            self.bestfityet = np.inf
+        self.pop_init()
+
+    def pop_init(self):
+        self.pop = [np.random.rand(self.dim) for _ in range(self.popsize)]
+        for member in self.pop:
+            for i in range(self.dim):
+                member[i] = self.lowb[i] + member[i]*(self.highb[i]-self.lowb[i])
+        self.fits = [self.obj(member) for member in self.pop]
+        #self.pop_print()
+        return
+
+    def setbounds(self, lows, highs):
+        for i in range(self.dim):
+            self.lowb[i] = lows[i]
+            self.highb[i] = highs[i]
+        self.pop_init()
+        return
+
+    def run(self):
+        for gen in range(self.ngen):
+            print("Generation ", gen)
+            self.pop = self.getnewpop()
+            self.eval_pop()
+            #self.pop_print()
+        return [self.bestmemyet, self.bestfityet]
+
+    def getnewpop(self):
+        newpop = []
+        #self.tourneylist = range(0, self.popsize)
+        random.shuffle(list(self.tourneylist))
+        self.tourneypos = 0
+        for i in range(0, self.popsize, 2):
+            [p1, p2] = self.getparents() #return parents, not just indices
+            [c1, c2] = self.xover(p1, p2) #return children, not just indices
+            c1 = self.mutate(c1)
+            c2 = self.mutate(c2)
+            newpop.append(c1)
+            newpop.append(c2)
+        return newpop
+
+    def getparents(self):
+        if (self.popsize - self.tourneypos) &lt; self.tourneysize:
+            random.shuffle(list(self.tourneylist))
+            self.tourneypos = 0
+        if self.min == -1:
+            if (self.fits[self.tourneylist[self.tourneypos]]&gt;self.fits[self.tourneylist[self.tourneypos+1]]):
+                p1 = self.pop[self.tourneylist[self.tourneypos]]
+            else:
+                p1 = self.pop[self.tourneylist[self.tourneypos+1]]
+        else:
+            if (self.fits[self.tourneylist[self.tourneypos]]&lt;self.fits[self.tourneylist[self.tourneypos+1]]):
+                p1 = self.pop[self.tourneylist[self.tourneypos]]
+            else:
+                p1 = self.pop[self.tourneylist[self.tourneypos+1]]
+        self.tourneypos += self.tourneysize
+
+        if self.min == -1:
+            if (self.fits[self.tourneylist[self.tourneypos]]&gt;self.fits[self.tourneylist[self.tourneypos+1]]):
+                p2 = self.pop[self.tourneylist[self.tourneypos]]
+            else:
+                p2 = self.pop[self.tourneylist[self.tourneypos+1]]
+        else:
+            if (self.fits[self.tourneylist[self.tourneypos]]&lt;self.fits[self.tourneylist[self.tourneypos+1]]):
+                p2 = self.pop[self.tourneylist[self.tourneypos]]
+            else:
+                p2 = self.pop[self.tourneylist[self.tourneypos+1]]
+        self.tourneypos += self.tourneysize
+        return [p1, p2]
+
+    def xover(self, p1, p2): # Here p1 and p2 are pop members
+        c1 = np.zeros_like(p1)
+        c2 = np.zeros_like(p2)
+        if random.random()&lt;=self.pc: # do crossover
+            for i in range(p1.size):
+                if random.random()&lt;0.5: # 50% variables crossover
+                    [c1[i], c2[i]] = self.crossvars(p1[i], p2[i], self.lowb[i], self.highb[i])
+                else:
+                    [c1[i], c2[i]] = [p1[i], p2[i]]
+        else:
+            c1 = p1
+            c2 = p2
+        return [c1, c2]
+
+    def crossvars(self, p1, p2, low, high): # Here p1 and p2 are variables
+        if p1&gt;p2:
+            p1, p2 = p2, p1 # p1 must be smaller
+        mean = (p1+p2)*0.5
+        diff = (p2-p1)
+        dist = max(min(p1-low, high-p2), 0)
+        if (self.RIGID and diff &gt; self.EPSILON):
+            alpha = 1.0 + (2.0*dist/diff)
+            umax = 1.0 - (0.5/pow(alpha, (self.etac+1.0)))
+            seed = umax*random.random()
+        else:
+            seed = random.random()
+        beta = self.getbeta(seed)
+        if (abs(diff*beta) &gt; self.INFINITY):
+            beta = self.INFINITY/diff
+        c2 = mean + beta*0.5*diff
+        c1 = mean - beta*0.5*diff
+        c1 = max(low, min(c1, high))
+        c2 = max(low, min(c2, high))
+        return [c1, c2]
+
+    def getbeta(self, seed):
+        if (1 - seed) &lt; self.EPSILON:
+            seed = 1 - self.EPSILON
+        seed = max(0.0, seed)
+        if seed &lt; 0.5:
+            beta = pow(2.0*seed, (1.0/(self.etac+1.0)))
+        else:
+            beta = pow((0.5/(1.0-seed)), (1.0/(self.etac+1.0)))
+        return beta
+
+    def getdelta(self, seed, delta_low, delta_high):
+        if seed &gt;= 1.0 - (self.EPSILON/1e3):
+            return delta_high
+        if seed &lt;= (self.EPSILON/1e3):
+            return delta_low
+        if seed &lt;= 0.5:
+            dummy = 2.0*seed + (1.0 - 2.0*seed)*pow((1+delta_low), (self.etam+1.0))
+            delta = pow(dummy, (1.0/(self.etam+1.0))) - 1.0
+        else:
+            dummy = 2.0*(1.0 - seed) + 2.0*(seed - 0.5)*pow((1-delta_high), (self.etam+1.0))
+            delta = 1.0 - pow(dummy, (1.0/(self.etam+1.0)))
+        return delta
+
+    def mutate(self, member):
+        mut_member = np.zeros_like(member)
+        for i in range(member.size):
+            low = self.lowb[i]
+            high = self.highb[i]
+            if random.random() &lt;= self.pm: # pm is simply the prob of a variable to mutate
+                if self.RIGID:
+                    value = member[i]
+                    delta_low = max((low-value)/(high-low), -1.0)
+                    delta_high = min((high-value)/(high-low), 1.0)
+                    if abs(delta_low)&lt;abs(delta_high):
+                        delta_high = -delta_low
+                    else:
+                        delta_low = -delta_high
+                else:
+                    delta_low = -1.0
+                    delta_high = 1.0
+                seed = random.random()
+                delta = self.getdelta(seed, delta_low, delta_high)*(high-low)
+                mut_member[i] = max(low, min(member[i] + delta, high))
+            else:
+                mut_member[i] = member[i]
+        return mut_member
+
+    def eval_pop(self):
+        self.fits = [self.obj(member) for member in self.pop]
+        # 若是最大化適應值題目者
+        if self.min == -1:
+            # 將所有適應值中最大者, 指向 bestindex
+            bestindex = np.argmax(self.fits)
+        else:
+            # 將所有適應值中最大者, 指向 bestindex
+            bestindex = np.argmin(self.fits)
+        bestmember = self.pop[bestindex]
+        bestfitness = self.fits[bestindex]
+        # self.min = -1 for maximization, self.min = 1 for minimization
+        if self.min == -1:
+            # 若是在族群中的最佳適應值大於目前為止最佳的適應值
+            if bestfitness &gt; self.bestfityet:
+                # 則將此最大適應值指為目前為止最佳適應值
+                self.bestfityet = bestfitness
+                # 並且將最佳族群成員指向目前最佳成員
+                self.bestmemyet = bestmember
+        else:
+            if bestfitness &lt; self.bestfityet:
+                self.bestfityet = bestfitness
+                self.bestmemyet = bestmember
+        print("Current best: ", bestfitness, "Best yet: ", self.bestfityet)
+
+    def pop_print(self):
+        for i in range(self.popsize):
+            print(self.pop[i], self.fits[i])
+        return
+
+# 若單獨存在則需導入 GA 所有方法
+#import GA
+#from GA import *
+import numpy as np
+
+def square(x):
+    term1 = (x[0]*x[0]+x[1]-11.0)*(x[0]*x[0]+x[1]-11.0)
+    term2 = (x[0]+x[1]*x[1]- 7.0)*(x[0]+x[1]*x[1]- 7.0)
+    term3 = term1+term2
+    return term3
+
+# 最大化體積題目
+def volume(x):
+    surface = 80.0
+    z = (surface-x[0]*x[1])/(2.0*(x[0]+x[1]))
+    volume = x[0]*x[1]*z
+    return volume
+
+
+def miniex1(x):
+    '''Minimizing Beale's function (optimal value f(3, 0.5) = 0):
+    ga=GA(miniex1, dim=2, popsize=400, ngen=500, pc=0.9, pm=0.3, etac=2, etam=100, min=1)
+    ga.setbounds(np.zeros(10), 10*np.ones(10))
+    '''
+    term1 = 1.5 - x[0] + x[0]*x[1]
+    term2 = 2.25 - x[0] + x[0]*x[1]*x[1]
+    term3 = 2.625 - x[0] + x[0]*x[1]*x[1]*x[1]
+    return term1*term1 + term2*term2 + term3*term3
+
+def miniex2(x):
+    '''Schaffer function #2. Minimium at (0,0), equal to 0
+    ga=GA(miniex2, dim=2, popsize=100, ngen=50, pc=0.9, pm=0.1, etac=2, etam=100, min=1)
+    ga.setbounds(np.zeros(10), 10*np.ones(10))
+    '''
+    return 0.5 + (pow(sin(x[0]*x[0]-x[1]*x[1]), 2) - 0.5)/pow(1+0.001*(x[0]*x[0]+x[1]*x[1]), 2)
+
+''' 開始四連桿運算
+'''
+class Point(object):
+    '''Creates a point on a coordinate plane with values x and y.'''
+    def __init__(self, x, y):
+        '''Defines x and y variables'''
+        self.x = x
+        self.y = y
+
+def triangletip_coord(x0, y0, R0, R1, x1, y1, localt):
+    mech_loop = -1
+    tip_coord = Point(0,0)
+    if (localt &gt;= 0 and localt &lt; pi):
+        # 計算 tip 點的 x 座標
+        tip_coord.x = pow(sqrt(pow(y1-y0,2)+pow(x1-x0,2)),-1)*(mech_loop*(y1-y0)*sqrt(fabs(pow(R0,2)-pow(pow(y1-y0,2)+pow(x1-x0,2),-1)*pow(-pow(R1,2)+pow(R0,2)+pow(y1-y0,2)+pow(x1-x0,2),2)/4))+(x1-x0)*pow(sqrt(pow(y1-y0,2)+pow(x1-x0,2)),-1)*(-pow(R1,2)+pow(R0,2)+pow(y1-y0,2)+pow(x1-x0,2))/2)+x0
+        # 計算 tip 點的 y 座標
+        tip_coord.y = pow(sqrt(pow(y1-y0,2)+pow(x1-x0,2)),-1)*((y1-y0)*pow(sqrt(pow(y1-y0,2)+pow(x1-x0,2)),-1)*(-pow(R1,2)+pow(R0,2)+pow(y1-y0,2)+pow(x1-x0,2))/2-mech_loop*(x1-x0)*sqrt(fabs(pow(R0,2)-pow(pow(y1-y0,2)+pow(x1-x0,2),-1)*pow(-pow(R1,2)+pow(R0,2)+pow(y1-y0,2)+pow(x1-x0,2),2)/4)))+y0
+    else:
+        # 計算 tip 點的 x 座標
+        tip_coord.x = pow(sqrt(pow(y1-y0,2)+pow(x1-x0,2)),-1)*(-mech_loop*(y1-y0)*sqrt(fabs(pow(R0,2)-pow(pow(y1-y0,2)+pow(x1-x0,2),-1)*pow(-pow(R1,2)+pow(R0,2)+pow(y1-y0,2)+pow(x1-x0,2),2)/4))+(x1-x0)*pow(sqrt(pow(y1-y0,2)+pow(x1-x0,2)),-1)*(-pow(R1,2)+pow(R0,2)+pow(y1-y0,2)+pow(x1-x0,2))/2)+x0
+        # 計算 tip 點的 y 座標
+        tip_coord.y = pow(sqrt(pow(y1-y0,2)+pow(x1-x0,2)),-1)*((y1-y0)*pow(sqrt(pow(y1-y0,2)+pow(x1-x0,2)),-1)*(-pow(R1,2)+pow(R0,2)+pow(y1-y0,2)+pow(x1-x0,2))/2+mech_loop*(x1-x0)*sqrt(fabs(pow(R0,2)-pow(pow(y1-y0,2)+pow(x1-x0,2),-1)*pow(-pow(R1,2)+pow(R0,2)+pow(y1-y0,2)+pow(x1-x0,2),2)/4)))+y0
+    return tip_coord
+
+def distance(x0, y0, x1, y1):
+    return sqrt(pow((x1-x0),2) + pow((y1-y0),2))
+
+def rr(L1, dd, theta):
+    return sqrt(L1*L1+dd*dd-2*L1*dd*cos(theta))
+
+# input_angles  = [] 也就是必須為 list 且各樹為 NUM_OF_POINTS
+def mechanism(x0, y0, x1, y1, L1, L2, L3, L5, L6, input_angles):
+    '''
+    mechanism(0,0,10,0,5,20,10,10,10,input_angles)
+    x0 = 0.0;
+    y0 = 0.0;
+    x1 = 10.0;
+    y1 = 0.0;
+    L1 = 5.0;
+    L2 = 10;
+    L3 = 10;
+    L5 = 10;
+    L6 = 10;
+    '''
+    link1_tip = Point(0,0)
+    link2_tip = Point(0,0)
+    output_points = list()
+    degree = pi/180.
+    NUM_OF_POINTS = 5
+    dd_length = distance(x0, y0, x1, y1)
+    # 設法表示 triangle 所對應的 local 角度,表示為已知變數與 t 的函式
+    angle3 = acos((pow(L2,2)+pow(L5,2)-pow(L6,2))/(2*L2*L5));
+    for i in range(NUM_OF_POINTS):
+        angle = input_angles[i]*degree
+        rr_length = rr(L1, dd_length, angle)
+        # 第一次三角形疊代
+        link1_tip = triangletip_coord(x0, y0, L1, rr_length, x1, y1, angle)
+        #print(angle, rr_length, link1_tip.x, link1_tip.y)
+        # 第二次三角形疊代
+        # 設法表示 link2 所對應的 local 角度,表示為已知變數與 t 的函式
+        angle2 = acos((pow(L2,2)+pow(rr_length,2)-pow(L3,2))/(2*L2*rr_length))
+        link2_tip = triangletip_coord(link1_tip.x, link1_tip.y, L2, L3, x1, y1, angle2)
+        # 第三次三角形疊代 (改為以 finaltip_coord() 取值, 而非第三次疊代
+        '''
+        triangle_tip = triangletip_coord(link1_tip.x, link1_tip.y, L5, L6, link2_tip.x, link2_tip.y, angle3);
+        output_points[i] = triangletip_coord(link1_tip.x, link1_tip.y, L5, L6, link2_tip.x, link2_tip.y, angle3);
+        '''
+        # 這裡要嘗試利用 finaltip_coord() 求 tip3 座標, 而 L5 與 L6 可 0 可負
+        output_points.append(finaltip_coord(link1_tip, link2_tip, L5, L6))
+    return output_points
+
+def finaltip_coord(tip1_coord, tip2_coord, r1, r2):
+    tip3_coord = Point(0,0)
+    length3 = sqrt(pow(tip2_coord.x - tip1_coord.x,2) + pow(tip2_coord.y - tip1_coord.y,2))
+    length4 = sqrt(pow(r1,2) + pow(r2,2))
+    theta3 = acos((tip2_coord.x - tip1_coord.x) / length3)
+    theta4 = acos(r1/length4)
+    tip3_coord.x = tip1_coord.x + length4 * cos(theta3 + theta4)
+    tip3_coord.y = tip1_coord.y + length4 * sin(theta3 + theta4)
+    return tip3_coord
+
+# 誤差函式
+def error_function(output_points, target_points):
+    NUM_OF_POINTS = 5
+    error = 0
+    for i in range(NUM_OF_POINTS):
+        error += fabs(distance(output_points[i].x, output_points[i].y, target_points[i].x, target_points[i].y))
+    return error
+
+# 組成機構的變數個樹 9 + 通過點數所對應的角度值, 若通過 5 點則共有 14 個變數
+#   mechanism(tmp[0], tmp[1], tmp[2], tmp[3], tmp[4], tmp[5], tmp[6], tmp[7], tmp[8], input_angles, output_points);
+def fourbar(x):
+    PENALITY = 1000
+    NUM_OF_POINTS = 10
+
+    # x0 與 x1 點位於 -50 與 50 中間, 0, 1, 2, 3
+    for i in range(4):
+        if(x[i] &lt; -50 or x[i] &gt; 50):
+            return PENALITY
+    # 三個連桿值, 一定要為正, 4, 5, 6,
+    for i in range(4, 7):
+        if(x[i] &lt; 0 or x[i] &gt;50):
+            return PENALITY
+
+    # L5 L6 可以為 0 或負值, 7, 8 
+    for i in range(7, 9):
+        if(x[i] &lt; -50 or x[i] &gt; 50):
+            return PENALITY
+
+    # 角度值一定要大於 0
+    for i in range(NUM_OF_POINTS):
+        if(x[9+i] &lt; 0):
+            return PENALITY
+
+    result = 0
+    target_points = list()
+    output_points = list()
+    input_angles = list()
+    # 定義四連桿關鍵點所要通過的點
+    p1 = Point(1, 1)
+    p2 = Point(2, 2)
+    p3 = Point(3, 3)
+    p4 = Point(4, 4)
+    p5 = Point(5, 5)
+    p6 = Point(6, 6)
+    p7 = Point(7, 7)
+    p8 = Point(8, 8)
+    p9 = Point(9, 9)
+    p10 = Point(10, 10)
+    target_points = [p1, p2, p3, p4, p5, p6, p7, p8, p9, p10]
+    for i in range(9, 9+NUM_OF_POINTS):
+        input_angles.append(x[i])
+    # 這裡要加入查驗各參數是否符合四連桿組成條件
+    try:
+        output_points = mechanism(x[0],x[1],x[2],x[3],x[4],x[5],x[6],x[7],x[8],input_angles)
+    except:
+        return PENALITY
+    result = error_function(output_points, target_points)
+    return result
+
+#ga=GA(square, dim=2, popsize=40, ngen=50, pc=0.9, pm=0.1, etac=2, etam=100, min=-1)
+# min = -1 表示要最大化適應方程式的值, 若 min = 1 表示要最小化
+#ga=GA(volume, dim=2, popsize=400, ngen=500, pc=0.9, pm=0.1, etac=2, etam=100, min=-1)
+# 請注意 popsize 必須為 4 的倍數
+#ga=GA(miniex1, dim=2, popsize=12, ngen=50, pc=0.9, pm=0.1, etac=2, etam=100, min=1)
+ga=GA(fourbar, dim=19, popsize=120000, ngen=10000, pc=0.9, pm=0.5, etac=2, etam=100, min=1)
+#ga.setbounds(np.zeros(10), 10*np.ones(10))
+#ga.setbounds(-10*np.ones(10), 10*np.ones(10))
+ga.setbounds(-50*np.ones(20), 50*np.ones(20))
+#ga.pop_init()
+print(ga.run())
+&lt;/pre&gt;
+
+&lt;p&gt;利用 C 與 Differential Evolution 解上述相同問題的原始碼:&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+    // 必須在演算過程中, 設法限制各變數的上下限!!! 否則演化非常容易發散??
+
+    /***************************************************************
+    **                                                            **
+    **        D I F F E R E N T I A L     E V O L U T I O N       **
+    **                                                            **
+    ** Program: de.c                                              **
+    ** Version: 3.6                                               **
+    **                                                            **
+    ** Authors: Dr. Rainer Storn                                  **
+    **          c/o ICSI, 1947 Center Street, Suite 600           **
+    **          Berkeley, CA 94707                                **
+    **          Tel.:   510-642-4274 (extension 192)              **
+    **          Fax.:   510-643-7684                              **
+    **          E-mail: storn@icsi.berkeley.edu                   **
+    **          WWW: http://http.icsi.berkeley.edu/~storn/        **
+    **          on leave from                                     **
+    **          Siemens AG, ZFE T SN 2, Otto-Hahn Ring 6          **
+    **          D-81739 Muenchen, Germany                         **
+    **          Tel:    636-40502                                 **
+    **          Fax:    636-44577                                 **
+    **          E-mail: rainer.storn@zfe.siemens.de               **
+    **                                                            **
+    **          Kenneth Price                                     **
+    **          836 Owl Circle                                    **
+    **          Vacaville, CA 95687                               **
+    **          E-mail: kprice@solano.community.net               ** 
+    **                                                            **
+    ** This program implements some variants of Differential      **
+    ** Evolution (DE) as described in part in the techreport      **
+    ** tr-95-012.ps of ICSI. You can get this report either via   **
+    ** ftp.icsi.berkeley.edu/pub/techreports/1995/tr-95-012.ps.Z  **
+    ** or via WWW: http://http.icsi.berkeley.edu/~storn/litera.html*
+    ** A more extended version of tr-95-012.ps is submitted for   **
+    ** publication in the Journal Evolutionary Computation.       ** 
+    **                                                            **
+    ** You may use this program for any purpose, give it to any   **
+    ** person or change it according to your needs as long as you **
+    ** are referring to Rainer Storn and Ken Price as the origi-  **
+    ** nators of the the DE idea.                                 **
+    ** If you have questions concerning DE feel free to contact   **
+    ** us. We also will be happy to know about your experiences   **
+    ** with DE and your suggestions of improvement.               **
+    **                                                            **
+    ***************************************************************/
+    /**H*O*C**************************************************************
+    **                                                                  **
+    ** No.!Version! Date ! Request !    Modification           ! Author **
+    ** ---+-------+------+---------+---------------------------+------- **
+    **  1 + 3.1  +5/18/95+   -     + strategy DE/rand-to-best/1+  Storn **
+    **    +      +       +         + included                  +        **
+    **  1 + 3.2  +6/06/95+C.Fleiner+ change loops into memcpy  +  Storn **
+    **  2 + 3.2  +6/06/95+   -     + update comments           +  Storn **
+    **  1 + 3.3  +6/15/95+ K.Price + strategy DE/best/2 incl.  +  Storn **
+    **  2 + 3.3  +6/16/95+   -     + comments and beautifying  +  Storn **
+    **  3 + 3.3  +7/13/95+   -     + upper and lower bound for +  Storn **
+    **    +      +       +         + initialization            +        **
+    **  1 + 3.4  +2/12/96+   -     + increased printout prec.  +  Storn **
+    **  1 + 3.5  +5/28/96+   -     + strategies revisited      +  Storn **
+    **  2 + 3.5  +5/28/96+   -     + strategy DE/rand/2 incl.  +  Storn **
+    **  1 + 3.6  +8/06/96+ K.Price + Binomial Crossover added  +  Storn **
+    **  2 + 3.6  +9/30/96+ K.Price + cost variance output      +  Storn **
+    **  3 + 3.6  +9/30/96+   -     + alternative to ASSIGND    +  Storn **
+    **  4 + 3.6  +10/1/96+   -    + variable checking inserted +  Storn **
+    **  5 + 3.6  +10/1/96+   -     + strategy indic. improved  +  Storn **
+    **                                                                  **
+    ***H*O*C*E***********************************************************/
+
+    #include "stdio.h"
+    #include "stdlib.h"
+    #include "math.h"
+    #include "memory.h"
+    #include &amp;lt;time.h&amp;gt;
+
+    // 最大族群數, NP
+    #define MAXPOP  5000
+    // 最大向量維度, D
+    #define MAXDIM  35
+    #define MAXIMAPROBLEM 0
+    #define PENALITY 1000
+
+    /*------Constants for rnd_uni()--------------------------------------------*/
+
+    #define IM1 2147483563
+    #define IM2 2147483399
+    #define AM (1.0/IM1)
+    #define IMM1 (IM1-1)
+    #define IA1 40014
+    #define IA2 40692
+    #define IQ1 53668
+    #define IQ2 52774
+    #define IR1 12211
+    #define IR2 3791
+    #define NTAB 32
+    #define NDIV (1+IMM1/NTAB)
+    #define EPS 1.2e-7
+    #define RNMX (1.0-EPS)
+
+    // 與機構合成相關的常數定義
+    #define PI 3.1415926
+    #define degree PI/180.0
+    #define mech_loop -1
+    #define NUM_OF_POINTS 10
+
+    /*------------------------Macros----------------------------------------*/
+
+    /*#define ASSIGND(a,b) memcpy((a),(b),sizeof(double)*D) */  /* quick copy by Claudio */
+                                                               /* works only for small  */
+                                                               /* arrays, but is faster.*/
+
+    /*------------------------Globals---------------------------------------*/
+
+    long  rnd_uni_init;                 /* serves as a seed for rnd_uni()   */
+    double c[MAXPOP][MAXDIM], d[MAXPOP][MAXDIM];
+    double (*pold)[MAXPOP][MAXDIM], (*pnew)[MAXPOP][MAXDIM], (*pswap)[MAXPOP][MAXDIM];
+
+    /*---------Function declarations----------------------------------------*/
+
+    void  assignd(int D, double a[], double b[]);
+    double rnd_uni(long *idum);    /* uniform pseudo random number generator */
+    double extern evaluate(int D, double tmp[], long *nfeval); /* obj. funct. */
+
+    // 與機構合成相關的函式宣告
+    double distance(double x0, double y0, double x1, double y1);
+    double rr(double L1, double dd, double theta);
+    struct Coord triangletip_coord( double x0, double y0, double R0, double R1, double x1, double y1, double localt);
+    void mechanism(double x0, double y0, double x1, double y1, double L1,
+      double L2, double L3, double L5, double L6, double input_angles[NUM_OF_POINTS], struct Coord output_points[NUM_OF_POINTS]);
+    double error_function(struct Coord output_points[NUM_OF_POINTS], struct Coord target_points[NUM_OF_POINTS]);
+
+    struct Coord finaltip_coord(struct Coord tip1_coord, struct Coord tip2_coord, double r1, double r2);
+
+    /*---------Function definitions-----------------------------------------*/
+    // 指定向量 b 為 a
+    void  assignd(int D, double a[], double b[])
+    /**C*F****************************************************************
+    **                                                                  **
+    ** Assigns D-dimensional vector b to vector a.                      **
+    ** You might encounter problems with the macro ASSIGND on some      **
+    ** machines. If yes, better use this function although it's slower. **
+    **                                                                  **
+    ***C*F*E*************************************************************/
+    {
+       int j;
+       for (j=0; j&amp;lt;D; j++)
+       {
+          a[j] = b[j];
+       }
+    }
+
+    // 產生 0 ~ 1 間的亂數
+    double rnd_uni(long *idum)
+    /**C*F****************************************************************
+    **                                                                  **
+    ** SRC-FUNCTION   :rnd_uni()                                        **
+    ** LONG_NAME      :random_uniform                                   **
+    ** AUTHOR         :(see below)                                      **
+    **                                                                  **
+    ** DESCRIPTION    :rnd_uni() generates an equally distributed ran-  **
+    **                 dom number in the interval [0,1]. For further    **
+    **                 reference see Press, W.H. et alii, Numerical     **
+    **                 Recipes in C, Cambridge University Press, 1992.  **
+    **                                                                  **
+    ** FUNCTIONS      :none                                             **
+    **                                                                  **
+    ** GLOBALS        :none                                             **
+    **                                                                  **
+    ** PARAMETERS     :*idum    serves as a seed value                  **
+    **                                                                  **
+    ** PRECONDITIONS  :*idum must be negative on the first call.        **
+    **                                                                  **
+    ** POSTCONDITIONS :*idum will be changed                            **
+    **                                                                  **
+    ***C*F*E*************************************************************/
+    {
+      long j;
+      long k;
+      static long idum2=123456789;
+      static long iy=0;
+      static long iv[NTAB];
+      double temp;
+
+      if (*idum &amp;lt;= 0)
+      {
+        if (-(*idum) &amp;lt; 1) *idum=1;
+        else *idum = -(*idum);
+        idum2=(*idum);
+        for (j=NTAB+7;j&amp;gt;=0;j--)
+        {
+          k=(*idum)/IQ1;
+          *idum=IA1*(*idum-k*IQ1)-k*IR1;
+          if (*idum &amp;lt; 0) *idum += IM1;
+          if (j &amp;lt; NTAB) iv[j] = *idum;
+        }
+        iy=iv[0];
+      }
+      k=(*idum)/IQ1;
+      *idum=IA1*(*idum-k*IQ1)-k*IR1;
+      if (*idum &amp;lt; 0) *idum += IM1;
+      k=idum2/IQ2;
+      idum2=IA2*(idum2-k*IQ2)-k*IR2;
+      if (idum2 &amp;lt; 0) idum2 += IM2;
+      j=iy/NDIV;
+      iy=iv[j]-idum2;
+      iv[j] = *idum;
+      if (iy &amp;lt; 1) iy += IMM1;
+      if ((temp=AM*iy) &amp;gt; RNMX) return RNMX;
+      else return temp;
+
+    }/*------End of rnd_uni()--------------------------*/
+
+    // 將上下限轉為全域變數
+    double inibound_h;      /* upper parameter bound              */
+    double inibound_l;      /* lower parameter bound              */
+    // 與機構合成相關的全域變數
+    // 宣告一個座標結構
+    struct Coord {
+        double x;
+        double y;
+      // 這裡保留 double z;
+    };
+
+    main(int argc, char *argv[])
+    /**C*F****************************************************************
+    **                                                                  **
+    ** SRC-FUNCTION   :main()                                           **
+    ** LONG_NAME      :main program                                     **
+    ** AUTHOR         :Rainer Storn, Kenneth Price                      **
+    **                                                                  **
+    ** DESCRIPTION    :driver program for differential evolution.       **
+    **                                                                  **
+    ** FUNCTIONS      :rnd_uni(), evaluate(), printf(), fprintf(),      **
+    **                 fopen(), fclose(), fscanf().                     **
+    **                                                                  **
+    ** GLOBALS        :rnd_uni_init    input variable for rnd_uni()     **
+    **                                                                  **
+    ** PARAMETERS     :argc            #arguments = 3                   **
+    **                 argv            pointer to argument strings      **
+    **                                                                  **
+    ** PRECONDITIONS  :main must be called with three parameters        **
+    **                 e.g. like de1 &amp;lt;input-file&amp;gt; &amp;lt;output-file&amp;gt;, if     **
+    **                 the executable file is called de1.               **
+    **                 The input file must contain valid inputs accor-  **
+    **                 ding to the fscanf() section of main().          **
+    **                                                                  **
+    ** POSTCONDITIONS :main() produces consecutive console outputs and  **
+    **                 writes the final results in an output file if    **
+    **                 the program terminates without an error.         **
+    **                                                                  **
+    ***C*F*E*************************************************************/
+
+    {
+       char  chr;             /* y/n choice variable                */
+       char  *strat[] =       /* strategy-indicator                 */
+       {
+                "",
+                "DE/best/1/exp",
+                "DE/rand/1/exp",
+                "DE/rand-to-best/1/exp",
+                "DE/best/2/exp",
+                "DE/rand/2/exp",
+                "DE/best/1/bin",
+                "DE/rand/1/bin",
+                "DE/rand-to-best/1/bin",
+                "DE/best/2/bin",
+                "DE/rand/2/bin"
+       };
+
+       int   i, j, L, n;      /* counting variables                 */
+       int   r1, r2, r3, r4;  /* placeholders for random indexes    */
+       int   r5;              /* placeholders for random indexes    */
+       int   D;               /* Dimension of parameter vector      */
+       int   NP;              /* number of population members       */
+       int   imin;            /* index to member with lowest energy */
+       int   refresh;         /* refresh rate of screen output      */
+       int   strategy;        /* choice parameter for screen output */
+       int   gen, genmax, seed;   
+
+       long  nfeval;          /* number of function evaluations     */
+
+       double trial_cost;      /* buffer variable                    */
+       // 將上下限轉為全域變數, 可能要根據各變數加以設定
+       //double inibound_h;      /* upper parameter bound              */
+       //double inibound_l;      /* lower parameter bound              */
+       double tmp[MAXDIM], best[MAXDIM], bestit[MAXDIM]; /* members  */
+       double cost[MAXPOP];    /* obj. funct. values                 */
+       double cvar;            /* computes the cost variance         */
+       double cmean;           /* mean cost                          */
+       double F,CR;            /* control variables of DE            */
+       double cmin;            /* help variables                     */
+
+       FILE  *fpin_ptr;
+       FILE  *fpout_ptr;
+
+    // 計算執行過程所需時間起點, 需要導入 time.h
+      clock_t start = clock();
+
+    /*------Initializations----------------------------*/
+
+     //if (argc != 3)                                 /* number of arguments */
+     //{
+        //printf("\nUsage : de &amp;lt;input-file&amp;gt; &amp;lt;output-file&amp;gt;\n");
+        //exit(1);
+     //}
+
+    // 將結果寫入 out.dat
+     fpout_ptr = fopen("out.dat","w");          /* open output file for reading,    */
+                                              /* to see whether it already exists */
+     /*
+     if ( fpout_ptr != NULL )
+     {
+        printf("\nOutput file %s does already exist, \ntype y if you ",argv[2]);
+        printf("want to overwrite it, \nanything else if you want to exit.\n");
+        chr = (char)getchar();
+        if ((chr != 'y') &amp;amp;&amp;amp; (chr != 'Y'))
+        {
+          exit(1);
+        }
+        fclose(fpout_ptr);
+     }
+    */
+
+    /*-----Read input data------------------------------------------------*/
+
+     //fpin_ptr   = fopen(argv[1],"r");
+    /*
+     if (fpin_ptr == NULL)
+     {
+        printf("\nCannot open input file\n");
+        exit(1);
+     }*/
+
+     //fscanf(fpin_ptr,"%d",&amp;amp;strategy);       /*---choice of strategy-----------------*/
+     //fscanf(fpin_ptr,"%d",&amp;amp;genmax);         /*---maximum number of generations------*/
+     //fscanf(fpin_ptr,"%d",&amp;amp;refresh);        /*---output refresh cycle---------------*/
+     //fscanf(fpin_ptr,"%d",&amp;amp;D);              /*---number of parameters---------------*/
+     //fscanf(fpin_ptr,"%d",&amp;amp;NP);             /*---population size.-------------------*/
+     //fscanf(fpin_ptr,"%lf",&amp;amp;inibound_h);    /*---upper parameter bound for init-----*/
+     //fscanf(fpin_ptr,"%lf",&amp;amp;inibound_l);    /*---lower parameter bound for init-----*/
+     //fscanf(fpin_ptr,"%lf",&amp;amp;F);             /*---weight factor----------------------*/
+     //fscanf(fpin_ptr,"%lf",&amp;amp;CR);            /*---crossing over factor---------------*/
+     //fscanf(fpin_ptr,"%d",&amp;amp;seed);           /*---random seed------------------------*/
+    // 目前已經採用 strategy 3 可以得到最佳結果
+      strategy = 3;
+      genmax = 2000;
+      refresh = 100;
+      // 配合機構尺寸合成, 每一個體有 9 個機構尺寸值與 5 個通過點角度值
+      D = 19;
+      NP = 200;
+      inibound_h = 50.;
+      inibound_l = 0.;
+    /*得到最佳解
+      F = 0.85;
+    CR 必須介於 0 to 1. 之間
+      CR = 1.;
+    */
+      F = 0.85;
+      CR = 1.;
+      seed = 3;
+
+     //fclose(fpin_ptr);
+
+    /*-----Checking input variables for proper range----------------------------*/
+
+      if (D &amp;gt; MAXDIM)
+      {
+         printf("\nError! D=%d &amp;gt; MAXDIM=%d\n",D,MAXDIM);
+         exit(1);
+      }
+      if (D &amp;lt;= 0)
+      {
+         printf("\nError! D=%d, should be &amp;gt; 0\n",D);
+         exit(1);
+      }
+      if (NP &amp;gt; MAXPOP)
+      {
+         printf("\nError! NP=%d &amp;gt; MAXPOP=%d\n",NP,MAXPOP);
+         exit(1);
+      }
+      if (NP &amp;lt;= 0)
+      {
+         printf("\nError! NP=%d, should be &amp;gt; 0\n",NP);
+         exit(1);
+      }
+      if ((CR &amp;lt; 0) || (CR &amp;gt; 1.0))
+      {
+         printf("\nError! CR=%f, should be ex [0,1]\n",CR);
+         exit(1);
+      }
+      if (seed &amp;lt;= 0)
+      {
+         printf("\nError! seed=%d, should be &amp;gt; 0\n",seed);
+         exit(1);
+      }
+      if (refresh &amp;lt;= 0)
+      {
+         printf("\nError! refresh=%d, should be &amp;gt; 0\n",refresh);
+         exit(1);
+      }
+      if (genmax &amp;lt;= 0)
+      {
+         printf("\nError! genmax=%d, should be &amp;gt; 0\n",genmax);
+         exit(1);
+      }
+      if ((strategy &amp;lt; 0) || (strategy &amp;gt; 10))
+      {
+         printf("\nError! strategy=%d, should be ex {1,2,3,4,5,6,7,8,9,10}\n",strategy);
+         exit(1);
+      }
+      if (inibound_h &amp;lt; inibound_l)
+      {
+         printf("\nError! inibound_h=%f &amp;lt; inibound_l=%f\n",inibound_h, inibound_l);
+         exit(1);
+      }
+
+
+    /*-----Open output file-----------------------------------------------*/
+
+       //fpout_ptr   = fopen(argv[2],"w");  /* open output file for writing */
+
+       //if (fpout_ptr == NULL)
+       //{
+          //printf("\nCannot open output file\n");
+          //exit(1);
+       //}
+
+
+    /*-----Initialize random number generator-----------------------------*/
+
+     rnd_uni_init = -(long)seed;  /* initialization of rnd_uni() */
+     nfeval       =  0;  /* reset number of function evaluations */
+
+
+
+    /*------Initialization------------------------------------------------*/
+    /*------Right now this part is kept fairly simple and just generates--*/
+    /*------random numbers in the range [-initfac, +initfac]. You might---*/
+    /*------want to extend the init part such that you can initialize-----*/
+    /*------each parameter separately.------------------------------------*/
+
+       for (i=0; i&amp;lt;NP; i++)
+       {
+          for (j=0; j&amp;lt;D; j++) /* spread initial population members */
+          {
+            c[i][j] = inibound_l + rnd_uni(&amp;amp;rnd_uni_init)*(inibound_h - inibound_l);
+          }
+          cost[i] = evaluate(D,c[i],&amp;amp;nfeval); /* obj. funct. value */
+       }
+       cmin = cost[0];
+       imin = 0;
+       for (i=1; i&amp;lt;NP; i++)
+       {
+         if(MAXIMAPROBLEM == 1)
+         {
+           // 改為最大化
+            if (cost[i]&amp;gt;cmin)
+            {
+              cmin = cost[i];
+              imin = i;
+            }
+          }
+          else
+          {
+            // 最小化問題
+            if (cost[i]&amp;lt;cmin)
+            {
+              cmin = cost[i];
+              imin = i;
+            }
+          }
+       }
+
+       assignd(D,best,c[imin]);            /* save best member ever          */
+       assignd(D,bestit,c[imin]);          /* save best member of generation */
+
+       pold = &amp;amp;c; /* old population (generation G)   */
+       pnew = &amp;amp;d; /* new population (generation G+1) */
+
+    /*=======================================================================*/
+    /*=========Iteration loop================================================*/
+    /*=======================================================================*/
+
+       gen = 0;                          /* generation counter reset */
+       while ((gen &amp;lt; genmax) /*&amp;amp;&amp;amp; (kbhit() == 0)*/) /* remove comments if conio.h */
+       {                                            /* is accepted by compiler    */
+          gen++;
+          imin = 0;
+
+          for (i=0; i&amp;lt;NP; i++)         /* Start of loop through ensemble  */
+          {
+         do                        /* Pick a random population member */
+         {                         /* Endless loop for NP &amp;lt; 2 !!!     */
+           r1 = (int)(rnd_uni(&amp;amp;rnd_uni_init)*NP);
+         }while(r1==i);            
+
+         do                        /* Pick a random population member */
+         {                         /* Endless loop for NP &amp;lt; 3 !!!     */
+           r2 = (int)(rnd_uni(&amp;amp;rnd_uni_init)*NP);
+         }while((r2==i) || (r2==r1));
+
+         do                        /* Pick a random population member */
+         {                         /* Endless loop for NP &amp;lt; 4 !!!     */
+           r3 = (int)(rnd_uni(&amp;amp;rnd_uni_init)*NP);
+         }while((r3==i) || (r3==r1) || (r3==r2));
+
+         do                        /* Pick a random population member */
+         {                         /* Endless loop for NP &amp;lt; 5 !!!     */
+           r4 = (int)(rnd_uni(&amp;amp;rnd_uni_init)*NP);
+         }while((r4==i) || (r4==r1) || (r4==r2) || (r4==r3));
+
+         do                        /* Pick a random population member */
+         {                         /* Endless loop for NP &amp;lt; 6 !!!     */
+           r5 = (int)(rnd_uni(&amp;amp;rnd_uni_init)*NP);
+         }while((r5==i) || (r5==r1) || (r5==r2) || (r5==r3) || (r5==r4));
+
+
+    /*=======Choice of strategy===============================================================*/
+    /*=======We have tried to come up with a sensible naming-convention: DE/x/y/z=============*/
+    /*=======DE :  stands for Differential Evolution==========================================*/
+    /*=======x  :  a string which denotes the vector to be perturbed==========================*/
+    /*=======y  :  number of difference vectors taken for perturbation of x===================*/
+    /*=======z  :  crossover method (exp = exponential, bin = binomial)=======================*/
+    /*                                                                                        */
+    /*=======There are some simple rules which are worth following:===========================*/
+    /*=======1)  F is usually between 0.5 and 1 (in rare cases &amp;gt; 1)===========================*/
+    /*=======2)  CR is between 0 and 1 with 0., 0.3, 0.7 and 1. being worth to be tried first=*/
+    /*=======3)  To start off NP = 10*D is a reasonable choice. Increase NP if misconvergence=*/
+    /*           happens.                                                                     */
+    /*=======4)  If you increase NP, F usually has to be decreased============================*/
+    /*=======5)  When the DE/best... schemes fail DE/rand... usually works and vice versa=====*/
+
+
+    /*=======EXPONENTIAL CROSSOVER============================================================*/
+
+    /*-------DE/best/1/exp--------------------------------------------------------------------*/
+    /*-------Our oldest strategy but still not bad. However, we have found several------------*/
+    /*-------optimization problems where misconvergence occurs.-------------------------------*/
+         if (strategy == 1) /* strategy DE0 (not in our paper) */
+         {
+           assignd(D,tmp,(*pold)[i]);
+           n = (int)(rnd_uni(&amp;amp;rnd_uni_init)*D);
+           L = 0;
+           do
+           {                       
+             tmp[n] = bestit[n] + F*((*pold)[r2][n]-(*pold)[r3][n]);
+             n = (n+1)%D;
+             L++;
+           }while((rnd_uni(&amp;amp;rnd_uni_init) &amp;lt; CR) &amp;amp;&amp;amp; (L &amp;lt; D));
+         }
+    /*-------DE/rand/1/exp-------------------------------------------------------------------*/
+    /*-------This is one of my favourite strategies. It works especially well when the-------*/
+    /*-------"bestit[]"-schemes experience misconvergence. Try e.g. F=0.7 and CR=0.5---------*/
+    /*-------as a first guess.---------------------------------------------------------------*/
+         else if (strategy == 2) /* strategy DE1 in the techreport */
+         {
+           assignd(D,tmp,(*pold)[i]);
+           n = (int)(rnd_uni(&amp;amp;rnd_uni_init)*D);
+           L = 0;
+           do
+           {                       
+             tmp[n] = (*pold)[r1][n] + F*((*pold)[r2][n]-(*pold)[r3][n]);
+             n = (n+1)%D;
+             L++;
+           }while((rnd_uni(&amp;amp;rnd_uni_init) &amp;lt; CR) &amp;amp;&amp;amp; (L &amp;lt; D));
+         }
+    /*-------DE/rand-to-best/1/exp-----------------------------------------------------------*/
+    /*-------This strategy seems to be one of the best strategies. Try F=0.85 and CR=1.------*/
+    /*-------If you get misconvergence try to increase NP. If this doesn't help you----------*/
+    /*-------should play around with all three control variables.----------------------------*/
+         else if (strategy == 3) /* similiar to DE2 but generally better */
+         { 
+           assignd(D,tmp,(*pold)[i]);
+           n = (int)(rnd_uni(&amp;amp;rnd_uni_init)*D); 
+           L = 0;
+           do
+           {                       
+             tmp[n] = tmp[n] + F*(bestit[n] - tmp[n]) + F*((*pold)[r1][n]-(*pold)[r2][n]);
+             n = (n+1)%D;
+             L++;
+           }while((rnd_uni(&amp;amp;rnd_uni_init) &amp;lt; CR) &amp;amp;&amp;amp; (L &amp;lt; D));
+         }
+    /*-------DE/best/2/exp is another powerful strategy worth trying--------------------------*/
+         else if (strategy == 4)
+         { 
+           assignd(D,tmp,(*pold)[i]);
+           n = (int)(rnd_uni(&amp;amp;rnd_uni_init)*D); 
+           L = 0;
+           do
+           {                           
+             tmp[n] = bestit[n] + 
+                  ((*pold)[r1][n]+(*pold)[r2][n]-(*pold)[r3][n]-(*pold)[r4][n])*F;
+             n = (n+1)%D;
+             L++;
+           }while((rnd_uni(&amp;amp;rnd_uni_init) &amp;lt; CR) &amp;amp;&amp;amp; (L &amp;lt; D));
+         }
+    /*-------DE/rand/2/exp seems to be a robust optimizer for many functions-------------------*/
+         else if (strategy == 5)
+         { 
+           assignd(D,tmp,(*pold)[i]);
+           n = (int)(rnd_uni(&amp;amp;rnd_uni_init)*D); 
+           L = 0;
+           do
+           {                           
+             tmp[n] = (*pold)[r5][n] + 
+                  ((*pold)[r1][n]+(*pold)[r2][n]-(*pold)[r3][n]-(*pold)[r4][n])*F;
+             n = (n+1)%D;
+             L++;
+           }while((rnd_uni(&amp;amp;rnd_uni_init) &amp;lt; CR) &amp;amp;&amp;amp; (L &amp;lt; D));
+         }
+
+    /*=======Essentially same strategies but BINOMIAL CROSSOVER===============================*/
+
+    /*-------DE/best/1/bin--------------------------------------------------------------------*/
+         else if (strategy == 6) 
+         {
+           assignd(D,tmp,(*pold)[i]);
+           n = (int)(rnd_uni(&amp;amp;rnd_uni_init)*D); 
+               for (L=0; L&amp;lt;D; L++) /* perform D binomial trials */
+               {
+             if ((rnd_uni(&amp;amp;rnd_uni_init) &amp;lt; CR) || L == (D-1)) /* change at least one parameter */
+             {                       
+               tmp[n] = bestit[n] + F*((*pold)[r2][n]-(*pold)[r3][n]);
+             }
+             n = (n+1)%D;
+               }
+         }
+    /*-------DE/rand/1/bin-------------------------------------------------------------------*/
+         else if (strategy == 7) 
+         {
+           assignd(D,tmp,(*pold)[i]);
+           n = (int)(rnd_uni(&amp;amp;rnd_uni_init)*D); 
+               for (L=0; L&amp;lt;D; L++) /* perform D binomial trials */
+               {
+             if ((rnd_uni(&amp;amp;rnd_uni_init) &amp;lt; CR) || L == (D-1)) /* change at least one parameter */
+             {                       
+               tmp[n] = (*pold)[r1][n] + F*((*pold)[r2][n]-(*pold)[r3][n]);
+             }
+             n = (n+1)%D;
+               }
+         }
+    /*-------DE/rand-to-best/1/bin-----------------------------------------------------------*/
+         else if (strategy == 8) 
+         { 
+           assignd(D,tmp,(*pold)[i]);
+           n = (int)(rnd_uni(&amp;amp;rnd_uni_init)*D); 
+               for (L=0; L&amp;lt;D; L++) /* perform D binomial trials */
+               {
+             if ((rnd_uni(&amp;amp;rnd_uni_init) &amp;lt; CR) || L == (D-1)) /* change at least one parameter */
+             {                       
+               tmp[n] = tmp[n] + F*(bestit[n] - tmp[n]) + F*((*pold)[r1][n]-(*pold)[r2][n]);
+             }
+             n = (n+1)%D;
+               }
+         }
+    /*-------DE/best/2/bin--------------------------------------------------------------------*/
+         else if (strategy == 9)
+         { 
+           assignd(D,tmp,(*pold)[i]);
+           n = (int)(rnd_uni(&amp;amp;rnd_uni_init)*D); 
+               for (L=0; L&amp;lt;D; L++) /* perform D binomial trials */
+               {
+             if ((rnd_uni(&amp;amp;rnd_uni_init) &amp;lt; CR) || L == (D-1)) /* change at least one parameter */
+             {                       
+               tmp[n] = bestit[n] + 
+                  ((*pold)[r1][n]+(*pold)[r2][n]-(*pold)[r3][n]-(*pold)[r4][n])*F;
+             }
+             n = (n+1)%D;
+               }
+         }
+    /*-------DE/rand/2/bin--------------------------------------------------------------------*/
+         else
+         { 
+           assignd(D,tmp,(*pold)[i]);
+           n = (int)(rnd_uni(&amp;amp;rnd_uni_init)*D); 
+               for (L=0; L&amp;lt;D; L++) /* perform D binomial trials */
+               {
+             if ((rnd_uni(&amp;amp;rnd_uni_init) &amp;lt; CR) || L == (D-1)) /* change at least one parameter */
+             {                       
+               tmp[n] = (*pold)[r5][n] + 
+                  ((*pold)[r1][n]+(*pold)[r2][n]-(*pold)[r3][n]-(*pold)[r4][n])*F;
+             }
+             n = (n+1)%D;
+               }
+         }
+
+
+    /*=======Trial mutation now in tmp[]. Test how good this choice really was.==================*/
+
+         trial_cost = evaluate(D,tmp,&amp;amp;nfeval);  /* Evaluate new vector in tmp[] */
+       if(MAXIMAPROBLEM == 1)
+       {
+        // 改為最大化
+           if (trial_cost &amp;gt;= cost[i])   /* improved objective function value ? */
+           {                                  
+              cost[i]=trial_cost;         
+              assignd(D,(*pnew)[i],tmp);
+              if (trial_cost&amp;gt;cmin)          /* Was this a new minimum? */
+              {                               /* if so...*/
+                 cmin=trial_cost;           /* reset cmin to new low...*/
+                 imin=i;
+                 assignd(D,best,tmp);           
+              }                           
+           }                            
+           else
+           {
+              assignd(D,(*pnew)[i],(*pold)[i]); /* replace target with old value */
+           }
+        }
+        else
+        {
+              // 最小化問題
+           if (trial_cost &amp;lt;= cost[i])   /* improved objective function value ? */
+           {                                  
+              cost[i]=trial_cost;         
+              assignd(D,(*pnew)[i],tmp);
+              if (trial_cost&amp;lt;cmin)          /* Was this a new minimum? */
+              {                               /* if so...*/
+                 cmin=trial_cost;           /* reset cmin to new low...*/
+                 imin=i;
+                 assignd(D,best,tmp);           
+              }                           
+           }                            
+           else
+           {
+              assignd(D,(*pnew)[i],(*pold)[i]); /* replace target with old value */
+           }
+        }
+
+          }   /* End mutation loop through pop. */
+
+          assignd(D,bestit,best);  /* Save best population member of current iteration */
+
+          /* swap population arrays. New generation becomes old one */
+
+          pswap = pold;
+          pold  = pnew;
+          pnew  = pswap;
+
+    /*----Compute the energy variance (just for monitoring purposes)-----------*/
+
+          cmean = 0.;          /* compute the mean value first */
+          for (j=0; j&amp;lt;NP; j++)
+          {
+             cmean += cost[j];
+          }
+          cmean = cmean/NP;
+
+          cvar = 0.;           /* now the variance              */
+          for (j=0; j&amp;lt;NP; j++)
+          {
+             cvar += (cost[j] - cmean)*(cost[j] - cmean);
+          }
+          cvar = cvar/(NP-1);
+
+
+    /*----Output part----------------------------------------------------------*/
+
+          if (gen%refresh==1)   /* display after every refresh generations */
+          { /* ABORT works only if conio.h is accepted by your compiler */
+        printf("\n\n                         PRESS ANY KEY TO ABORT"); 
+        printf("\n\n\n Best-so-far cost funct. value=%-15.10g\n",cmin);
+
+        for (j=0;j&amp;lt;D;j++)
+        {
+          printf("\n best[%d]=%-15.10g",j,best[j]);
+        }
+        printf("\n\n Generation=%d  NFEs=%ld   Strategy: %s    ",gen,nfeval,strat[strategy]);
+        printf("\n NP=%d    F=%-4.2g    CR=%-4.2g   cost-variance=%-10.5g\n",
+                   NP,F,CR,cvar);
+          }
+
+          fprintf(fpout_ptr,"%ld   %-15.10g\n",nfeval,cmin);
+       }
+    /*=======================================================================*/
+    /*=========End of iteration loop=========================================*/
+    /*=======================================================================*/
+
+    /*-------Final output in file-------------------------------------------*/
+
+
+       fprintf(fpout_ptr,"\n\n\n Best-so-far obj. funct. value = %-15.10g\n",cmin);
+
+       for (j=0;j&amp;lt;D;j++)
+       {
+         fprintf(fpout_ptr,"\n best[%d]=%-15.10g",j,best[j]);
+       }
+       fprintf(fpout_ptr,"\n\n Generation=%d  NFEs=%ld   Strategy: %s    ",gen,nfeval,strat[strategy]);
+       fprintf(fpout_ptr,"\n NP=%d    F=%-4.2g    CR=%-4.2g    cost-variance=%-10.5g\n",
+               NP,F,CR,cvar); 
+
+      fclose(fpout_ptr);
+
+      /* Code you want timed here */
+      printf("Time elapsed: %f\n", ((double)clock() - start) / CLOCKS_PER_SEC);
+       return(0);
+    }
+
+    /*-----------End of main()------------------------------------------*/
+
+    // 適應函式 fittness function (cost function)
+    double evaluate(int D, double tmp[], long *nfeval)
+    {
+      // 先處理通過 5 個點的四連桿問題
+      // x0, y0 為左方固定點座標, 必須在 0 ~ 100 間 - 設為 tmp[0], tmp[1]
+      // x1, y1 為右方固定點座標, 必須在 0 ~ 100 間 - 設為 tmp[2], tmp[3]
+      // L1 為第一桿件的長度, 必須 &amp;gt; 0, 且小於 100 - 設為 tmp[4]
+      // L2 為第二桿件的長度, 必須 &amp;gt; 0, 且小於 100 - 設為 tmp[5]
+      // L3 為第三桿件的長度, 必須 &amp;gt; 0, 且小於 100 - 設為 tmp[6]
+      // L5, L6 與 L2 共同圍出可動桿 L2 對應的三角形, 關注的三角形頂點即 L5 與 L6 的交點, 而 angle3 則為 L6 之對應角(為固定值)
+      // L5, L6 必須 &amp;gt; 0, 且小於 100 - 設為 tmp[7], tmp[8]
+      // 以下的角度輸入值, 會隨著目標點數的增加而增加, 其索引值由 9 + 通過點數 - 1 決定, 5 點, 則索引至 13, 若通過 25 點, 則索引值為 9 + 24 = 33
+      // input_angles[] 為五的輸入的雙浮點數角度值,代表個體的角度向量值 - 分別設為 tmp[9], tmp[10], tmp[11], tmp[12], tmp[13]
+      // output_points[] 則為與 input_angles[] 對應的五個三角形的頂點值, 為座標結構值, 分別有 x 與 y 分量值
+      // 當利用個體的向量值, 代入 mechanism 後所得到得 output_points[] 再與 target_points[] 進行 cost function 的誤差值最小化
+      /* void mechanism(double x0, double y0, double x1, double y1, double L1,
+      double L2, double L3, double L5, double L6, double input_angles[NUM_OF_POINTS], struct Coord output_points[NUM_OF_POINTS])*/
+      struct Coord target_points[NUM_OF_POINTS], output_points[NUM_OF_POINTS];
+      double input_angles[NUM_OF_POINTS], result;
+      int i;
+
+      (*nfeval)++;
+
+      target_points[0].x = 1.0;
+      target_points[0].y = 1.0;
+
+      target_points[1].x = 2.0;
+      target_points[1].y = 2.0;
+
+      target_points[2].x = 3.0;
+      target_points[2].y = 3.0;
+
+      target_points[3].x = 4.0;
+      target_points[3].y = 4.0;
+
+      target_points[4].x = 5.0;
+      target_points[4].y = 5.0;
+
+      target_points[5].x = 6.0;
+      target_points[5].y = 6.0;
+
+      target_points[6].x = 7.0;
+      target_points[6].y = 7.0;
+
+      target_points[7].x = 8.0;
+      target_points[7].y = 8.0;
+
+      target_points[8].x = 9.0;
+      target_points[8].y = 9.0;
+
+      target_points[9].x = 10.0;
+      target_points[9].y = 10.0;
+
+      // 輸入角度值與 tmp[] 的設定
+      for(i = 0; i &amp;lt; NUM_OF_POINTS; i++)
+      {
+        input_angles[i] = tmp[i + 9];
+      }
+      // 呼叫 mechanism() 以便計算 output_points[]
+      mechanism(tmp[0], tmp[1], tmp[2], tmp[3], tmp[4], tmp[5], tmp[6], tmp[7], tmp[8], input_angles, output_points);
+
+      // for debug
+      /*
+      if(*nfeval%3000 == 0)
+      {
+        for(i = 0; i &amp;lt; NUM_OF_POINTS; i++)
+        {
+          printf("%-15.10g : %-15.10g\n", output_points[i].x, output_points[i].y);
+        }
+        printf("#####################################\n");
+      }
+      */
+      // 利用 output_points[] 與 target_points 計算誤差值, 該誤差值就是 cost
+      result = error_function(output_points, target_points);
+      // 這裡要分別針對各變數的約束條件與範圍值來設定傳回 PENALITY 或 誤差值 result
+
+      // x0 與 x1 點位於 -500 與 500 中間
+        for(i = 0; i &amp;lt; 4; i++)
+      {
+        if(tmp[i] &amp;lt; -50 || tmp[i] &amp;gt; 50){
+          return PENALITY;
+        }
+      }
+
+      // 三個連桿值, 一定要為正
+        for(i = 4; i &amp;lt; 7; i++)
+      {
+        if(tmp[i] &amp;lt; 0 || tmp[i] &amp;gt; 50){
+          return PENALITY;
+        }
+      }
+
+        // L5 L6 可以為 0 或負值
+        for(i = 7; i &amp;lt; 9; i++)
+      {
+        if(tmp[i] &amp;lt; -50 || tmp[i] &amp;gt; 50){
+          return PENALITY;
+        }
+      }
+
+      // 角度值一定要大於 0
+
+      for(i = 1; i &amp;lt;= NUM_OF_POINTS; i++)
+      {
+        if((tmp[D-i] &amp;lt; 0)){
+          return PENALITY;
+        }
+      }
+
+      return result;
+
+      /*
+       double result=0, surface = 80.0, z, volume, penality;
+       (*nfeval)++;
+       z = (surface-tmp[0]*tmp[1])/(2.0*(tmp[0]+tmp[1]));
+       volume = tmp[0]*tmp[1]*z;
+
+      if(volume &amp;lt;= 0){
+        return PENALITY;
+      }
+
+      if((tmp[0] &amp;lt;= inibound_l)|| (tmp[0] &amp;gt;inibound_h)){
+        return PENALITY;
+      }
+
+      if((tmp[1] &amp;lt;= inibound_l) || (tmp[1] &amp;gt;inibound_h)){
+        return PENALITY;
+      }
+      // volume must &amp;gt;0 and max volume
+      // 目前為最小化問題
+       return 1+1/(volume*volume);
+       */
+    }
+
+    struct Coord triangletip_coord( double x0, double y0, double R0, double R1, double x1, double y1, double localt)
+    {
+        struct Coord tip_coord;
+
+        if (localt&amp;gt;=0 &amp;amp;&amp;amp; localt &amp;lt;PI)
+        {
+            // 目前蓋掉的式子為利用手動代換出來的版本
+            //x_value = ((x1-x0)*(-pow(R1,2)+pow(R0,2)+pow((y1-y0),2)+pow((x1-x0),2))/(2*sqrt(pow((y1-y0),2)+pow((x1-x0),2)))-(y1-y0)*(-mech_loop)*sqrt(fabs(pow(R0,2)-pow((-pow(R1,2)+pow(R0,2)+pow((y1-y0),2)+pow((x1-x0),2)),2)/(4*(pow((y1-y0),2)+pow((x1-x0),2))))))/sqrt(pow((y1-y0),2)+pow((x1-x0),2))+x0;
+            // 以下的式子,先利用文字編輯器,將原先 stringout() 出來的  sqrt 替換成  sqrtt, 以防止被  maxima 中的 subst("^"=pow,expr) 所替換, subst 之後,再使用文字編輯器換回來,就可以得到正確的 C 對應碼.
+            tip_coord.x = pow(sqrt(pow(y1-y0,2)+pow(x1-x0,2)),-1)*(mech_loop*(y1-y0)*sqrt(fabs(pow(R0,2)-pow(pow(y1-y0,2)+
+        pow(x1-x0,2),-1)*pow(-pow(R1,2)+pow(R0,2)+pow(y1-y0,2)+pow(x1-x0,2),2)/4))+(x1-x0)*pow(sqrt(pow(y1-y0,2)+
+        pow(x1-x0,2)),-1)*(-pow(R1,2)+pow(R0,2)+pow(y1-y0,2)+pow(x1-x0,2))/2)+x0;
+        }
+        else
+        {
+            // 目前蓋掉的式子為利用手動代換出來的版本
+            //x_value = ((x1-x0)*(-pow(R1,2)+pow(R0,2)+pow((y1-y0),2)+pow((x1-x0),2))/(2*sqrt(pow((y1-y0),2)+pow((x1-x0),2)))-(y1-y0)*(mech_loop)*sqrt(fabs(pow(R0,2)-pow((-pow(R1,2)+pow(R0,2)+pow((y1-y0),2)+pow((x1-x0),2)),2)/(4*(pow((y1-y0),2)+pow((x1-x0),2))))))/sqrt(pow((y1-y0),2)+pow((x1-x0),2))+x0;
+            tip_coord.x = pow(sqrt(pow(y1-y0,2)+pow(x1-x0,2)),-1)*(-mech_loop*(y1-y0)*sqrt(fabs(pow(R0,2)-pow(pow(y1-y0,2)+
+        pow(x1-x0,2),-1)*pow(-pow(R1,2)+pow(R0,2)+pow(y1-y0,2)+pow(x1-x0,2),2)/4))+(x1-x0)*pow(sqrt(pow(y1-y0,2)+
+        pow(x1-x0,2)),-1)*(-pow(R1,2)+pow(R0,2)+pow(y1-y0,2)+
+        pow(x1-x0,2))/2)+x0;
+        }
+
+    // 請注意,與 Maxma 公式中的差異為,在 sqrt()中加入 fabs(),避免因為sqrt()中的負值而造成 NaN (Not a Number 問題.
+        if (localt&amp;gt;=0 &amp;amp;&amp;amp; localt &amp;lt;PI)
+        {
+            tip_coord.y = /*((x1-x0)*(-mech_loop)*sqrt(
+                    fabs(pow(R0,2)-pow((-pow(R1,2)+pow(R0,2)+pow((y1-y0),2)+pow((x1-x0),2)),2)
+                    /(4*(pow((y1-y0),2)+pow((x1-x0),2)))
+                    ))
+                    +(y1-y0)*(-pow(R1,2)+pow(R0,2)+pow((y1-y0),2)+pow((x1-x0),2))/(2*sqrt(pow((y1-y0),2)+pow((x1-x0),2))))/sqrt(pow((y1-y0),2)+pow((x1-x0),2))
+                    +y0;*/
+                    // 利用 sqrtt 居中進行代換所得到的式子
+                    pow(sqrt(pow(y1-y0,2)+pow(x1-x0,2)),-1)*((y1-y0)*pow(sqrt(pow(y1-y0,2)+pow(x1-x0,2)),-1)*(-pow(R1,2)+
+        pow(R0,2)+pow(y1-y0,2)+pow(x1-x0,2))/2-mech_loop*(x1-x0)*sqrt(fabs(pow(R0,2)-pow(pow(y1-y0,2)+
+        pow(x1-x0,2),-1)*pow(-pow(R1,2)+pow(R0,2)+pow(y1-y0,2)+pow(x1-x0,2),2)/4)))+y0;
+
+        }
+        else
+        {
+            tip_coord.y = /*((x1-x0)*(mech_loop)*sqrt(
+                    fabs(pow(R0,2)-pow((-pow(R1,2)+pow(R0,2)+pow((y1-y0),2)+pow((x1-x0),2)),2)
+                    /(4*(pow((y1-y0),2)+pow((x1-x0),2)))
+                    ))
+                    +(y1-y0)*(-pow(R1,2)+pow(R0,2)+pow((y1-y0),2)+pow((x1-x0),2))/(2*sqrt(pow((y1-y0),2)+pow((x1-x0),2))))/sqrt(pow((y1-y0),2)+pow((x1-x0),2))
+                    +y0;*/
+                    pow(sqrt(pow(y1-y0,2)+pow(x1-x0,2)),-1)*((y1-y0)*pow(sqrt(pow(y1-y0,2)+pow(x1-x0,2)),-1)*(-pow(R1,2)+
+        pow(R0,2)+pow(y1-y0,2)+pow(x1-x0,2))/2+mech_loop*(x1-x0)*sqrt(fabs(pow(R0,2)-pow(pow(y1-y0,2)+
+        pow(x1-x0,2),-1)*pow(-pow(R1,2)+pow(R0,2)+pow(y1-y0,2)+pow(x1-x0,2),2)/4)))+y0;
+        }
+
+      return tip_coord;
+    }
+
+    double distance(double x0, double y0, double x1, double y1)
+    {
+        double distance_value;
+        distance_value = sqrt(pow((x1-x0),2) + pow((y1-y0),2));
+        return distance_value;
+    }
+
+    double rr(double L1, double dd, double theta)
+    {
+        double rr_value;
+        rr_value = sqrt(L1*L1+dd*dd-2*L1*dd*cos(theta));
+        return rr_value;
+    }
+
+    // 輸入每一個體的變數向量, 然後求各三角形頂點的座標陣列[NUM_OF_POINTS]
+    void mechanism(double x0, double y0, double x1, double y1, double L1,
+      double L2, double L3, double L5, double L6, double input_angles[NUM_OF_POINTS], struct Coord output_points[NUM_OF_POINTS])
+    {
+      // 此函式要輸入控制變數, 然後計算機構尺寸合成的關注點座標位置
+      // 以下為可能的處理變數宣告
+      // 這裡希望能夠定義一個 struct 來處理座標點
+      double rr_length, dd_length, angle;
+      struct Coord link1_tip, link2_tip, triangle_tip;
+        double angle2, angle3;
+      int i;
+
+      // 開始進行三角形頂點座標的計算
+      // 以下變數由每一個體向量提供
+      /*
+        x0 = 0.0;
+        y0 = 0.0;
+        x1 = 10.0;
+        y1 = 0.0;
+        L1 = 5.0;
+        L2 = 20;
+        L3 = 10;
+        L5 = 10;
+        L6 = 10;
+      */
+      dd_length = distance(x0, y0, x1, y1);
+      /* 設法表示 triangle 所對應的 local 角度,表示為已知變數與 t 的函式 */
+      angle3 = acos((pow(L2,2)+pow(L5,2)-pow(L6,2))/(2*L2*L5));
+
+      for(i = 0; i &amp;lt; NUM_OF_POINTS; i++)
+      {
+        // 先建立第一點座標, 即 i=0 者
+        // i=0;
+        // angle = i*degree;
+        /*
+        // 利用角度增量進行運算, 相對於 input_angles[0] 作為基準
+        if(i &amp;gt; 0)
+        {
+          input_angles[i] = input_angles[i] + input_angles[i-1];
+        }
+        */
+        angle = input_angles[i]*degree;
+        rr_length = rr(L1, dd_length, angle);
+        // 第一次三角形疊代
+        link1_tip = triangletip_coord(x0, y0, L1, rr_length, x1, y1, angle);
+        // 第二次三角形疊代
+        /* 設法表示 link2 所對應的 local 角度,表示為已知變數與 t 的函式 */
+        angle2 = acos((pow(L2,2)+pow(rr_length,2)-pow(L3,2))/(2*L2*rr_length));
+        link2_tip = triangletip_coord(link1_tip.x, link1_tip.y, L2, L3, x1, y1, angle2);
+        // 第三次三角形疊代
+        //triangle_tip = triangletip_coord(link1_tip.x, link1_tip.y, L5, L6, link2_tip.x, link2_tip.y, angle3);
+        // output_points[i] = triangletip_coord(link1_tip.x, link1_tip.y, L5, L6, link2_tip.x, link2_tip.y, angle3);
+        // 這裡要嘗試利用 finaltip_coord() 求 tip3 座標, 而 L5 與 L6 可 0 可負
+        output_points[i] = finaltip_coord(link1_tip, link2_tip, L5, L6);
+      }
+    }
+
+    double error_function(struct Coord output_points[NUM_OF_POINTS], struct Coord target_points[NUM_OF_POINTS])
+    {
+      double error = 0.0;
+      int i;
+      for(i = 0; i &amp;lt; NUM_OF_POINTS; i++)
+      {
+        error += fabs(distance(output_points[i].x, output_points[i].y, target_points[i].x, target_points[i].y));
+      }
+      return error;
+    }
+
+    struct Coord finaltip_coord(struct Coord tip1_coord, struct Coord tip2_coord, double r1, double r2)
+    {
+      struct Coord tip3_coord;
+      double theta3, theta4, length3, length4;
+      length3 = sqrt(pow(tip2_coord.x - tip1_coord.x,2) + pow(tip2_coord.y - tip1_coord.y,2));
+      length4 = sqrt(pow(r1,2) + pow(r2,2));  
+      theta3 = acos((tip2_coord.x - tip1_coord.x) / length3);
+      theta4 = acos(r1 / length4);
+      tip3_coord.x = tip1_coord.x + length4 * cos(theta3 + theta4);
+      tip3_coord.y = tip1_coord.y + length4 * sin(theta3 + theta4);
+
+      return tip3_coord;
+    }
+&lt;/pre&gt;
+
+&lt;p&gt;為了要讓 C 程式碼可以在 Pelican 網誌 Markdown 格式編輯模式下能夠與 highlight 套件結合, 首先程式碼中的所有大於與小於符號必須轉為 html special charactor 之外, 還要全部內縮, 否則內容將會在 Pelican 轉換過程中被視為 html 而自動加入錯誤的標註符號.&lt;/p&gt;
+&lt;p&gt;以下則為 de 25 點四連桿尺寸合成參考程式:&lt;/p&gt;
+&lt;pre class="brush: c"&gt;
+    /***************************************************************
+    **                                                            **
+    **        D I F F E R E N T I A L     E V O L U T I O N       **
+    **                                                            **
+    ** Program: de.c                                              **
+    ** Version: 3.6                                               **
+    **                                                            **
+    ** Authors: Dr. Rainer Storn                                  **
+    **          c/o ICSI, 1947 Center Street, Suite 600           **
+    **          Berkeley, CA 94707                                **
+    **          Tel.:   510-642-4274 (extension 192)              **
+    **          Fax.:   510-643-7684                              **
+    **          E-mail: storn@icsi.berkeley.edu                   **
+    **          WWW: http://http.icsi.berkeley.edu/~storn/        **
+    **          on leave from                                     **
+    **          Siemens AG, ZFE T SN 2, Otto-Hahn Ring 6          **
+    **          D-81739 Muenchen, Germany                         **
+    **          Tel:    636-40502                                 **
+    **          Fax:    636-44577                                 **
+    **          E-mail: rainer.storn@zfe.siemens.de               **
+    **                                                            **
+    **          Kenneth Price                                     **
+    **          836 Owl Circle                                    **
+    **          Vacaville, CA 95687                               **
+    **          E-mail: kprice@solano.community.net               ** 
+    **                                                            **
+    ** This program implements some variants of Differential      **
+    ** Evolution (DE) as described in part in the techreport      **
+    ** tr-95-012.ps of ICSI. You can get this report either via   **
+    ** ftp.icsi.berkeley.edu/pub/techreports/1995/tr-95-012.ps.Z  **
+    ** or via WWW: http://http.icsi.berkeley.edu/~storn/litera.html*
+    ** A more extended version of tr-95-012.ps is submitted for   **
+    ** publication in the Journal Evolutionary Computation.       ** 
+    **                                                            **
+    ** You may use this program for any purpose, give it to any   **
+    ** person or change it according to your needs as long as you **
+    ** are referring to Rainer Storn and Ken Price as the origi-  **
+    ** nators of the the DE idea.                                 **
+    ** If you have questions concerning DE feel free to contact   **
+    ** us. We also will be happy to know about your experiences   **
+    ** with DE and your suggestions of improvement.               **
+    **                                                            **
+    ***************************************************************/
+    /**H*O*C**************************************************************
+    **                                                                  **
+    ** No.!Version! Date ! Request !    Modification           ! Author **
+    ** ---+-------+------+---------+---------------------------+------- **
+    **  1 + 3.1  +5/18/95+   -     + strategy DE/rand-to-best/1+  Storn **
+    **    +      +       +         + included                  +        **
+    **  1 + 3.2  +6/06/95+C.Fleiner+ change loops into memcpy  +  Storn **
+    **  2 + 3.2  +6/06/95+   -     + update comments           +  Storn **
+    **  1 + 3.3  +6/15/95+ K.Price + strategy DE/best/2 incl.  +  Storn **
+    **  2 + 3.3  +6/16/95+   -     + comments and beautifying  +  Storn **
+    **  3 + 3.3  +7/13/95+   -     + upper and lower bound for +  Storn **
+    **    +      +       +         + initialization            +        **
+    **  1 + 3.4  +2/12/96+   -     + increased printout prec.  +  Storn **
+    **  1 + 3.5  +5/28/96+   -     + strategies revisited      +  Storn **
+    **  2 + 3.5  +5/28/96+   -     + strategy DE/rand/2 incl.  +  Storn **
+    **  1 + 3.6  +8/06/96+ K.Price + Binomial Crossover added  +  Storn **
+    **  2 + 3.6  +9/30/96+ K.Price + cost variance output      +  Storn **
+    **  3 + 3.6  +9/30/96+   -     + alternative to ASSIGND    +  Storn **
+    **  4 + 3.6  +10/1/96+   -    + variable checking inserted +  Storn **
+    **  5 + 3.6  +10/1/96+   -     + strategy indic. improved  +  Storn **
+    **                                                                  **
+    ***H*O*C*E***********************************************************/
+
+    #include "stdio.h"
+    #include "stdlib.h"
+    #include "math.h"
+    #include "memory.h"
+    #include &amp;lt;time.h&amp;gt;
+
+    // 最大族群數, NP
+    #define MAXPOP  5000
+    // 最大向量維度, D
+    #define MAXDIM  60
+    // 1 為最大化問題, 0 為最小化問題
+    #define MAXIMAPROBLEM 0
+    // 可能要配合最大或最小化進行變號
+    #define PENALITY 1.0E20
+
+    /*------Constants for rnd_uni()--------------------------------------------*/
+
+    #define IM1 2147483563
+    #define IM2 2147483399
+    #define AM (1.0/IM1)
+    #define IMM1 (IM1-1)
+    #define IA1 40014
+    #define IA2 40692
+    #define IQ1 53668
+    #define IQ2 52774
+    #define IR1 12211
+    #define IR2 3791
+    #define NTAB 32
+    #define NDIV (1+IMM1/NTAB)
+    #define EPS 1.2e-7
+    #define RNMX (1.0-EPS)
+
+    // 與機構合成相關的常數定義
+    #define PI 3.1415926
+    #define degree PI/180.0
+    #define mech_loop -1
+    #define NUM_OF_POINTS 25
+
+    /*------------------------Macros----------------------------------------*/
+
+    /*#define ASSIGND(a,b) memcpy((a),(b),sizeof(double)*D) */  /* quick copy by Claudio */
+                                                               /* works only for small  */
+                                                               /* arrays, but is faster.*/
+
+    /*------------------------Globals---------------------------------------*/
+
+    long  rnd_uni_init;                 /* serves as a seed for rnd_uni()   */
+    double c[MAXPOP][MAXDIM], d[MAXPOP][MAXDIM];
+    double (*pold)[MAXPOP][MAXDIM], (*pnew)[MAXPOP][MAXDIM], (*pswap)[MAXPOP][MAXDIM];
+
+    /*---------Function declarations----------------------------------------*/
+
+    void  assignd(int D, double a[], double b[]);
+    double rnd_uni(long *idum);    /* uniform pseudo random number generator */
+    double extern evaluate(int D, double tmp[], long *nfeval); /* obj. funct. */
+
+    // 與機構合成相關的函式宣告
+    double distance(double x0, double y0, double x1, double y1);
+    double rr(double L1, double dd, double theta);
+    struct Coord triangletip_coord(double x0, double y0, double R0, double R1, double x1, double y1, double localt);
+    void mechanism(double x0, double y0, double x1, double y1, double L1,
+      double L2, double L3, double L5, double L6, double input_angles[NUM_OF_POINTS], struct Coord output_points[NUM_OF_POINTS]);
+    double error_function(struct Coord output_points[NUM_OF_POINTS], struct Coord target_points[NUM_OF_POINTS]);
+    // 用來利用 tip1 與 tip2 的座標, 以及 r1, r2 求最後的三角形頂點座標
+    struct Coord finaltip_coord(struct Coord tip1_coord, struct Coord tip2_coord, double r1, double r2);
+
+    /*---------Function definitions-----------------------------------------*/
+    // 指定向量 b 為 a
+    void  assignd(int D, double a[], double b[])
+    /**C*F****************************************************************
+    **                                                                  **
+    ** Assigns D-dimensional vector b to vector a.                      **
+    ** You might encounter problems with the macro ASSIGND on some      **
+    ** machines. If yes, better use this function although it's slower. **
+    **                                                                  **
+    ***C*F*E*************************************************************/
+    {
+       int j;
+       for (j=0; j&amp;lt;D; j++)
+       {
+          a[j] = b[j];
+       }
+    }
+
+    // 產生 0 ~ 1 間的亂數
+    double rnd_uni(long *idum)
+    /**C*F****************************************************************
+    **                                                                  **
+    ** SRC-FUNCTION   :rnd_uni()                                        **
+    ** LONG_NAME      :random_uniform                                   **
+    ** AUTHOR         :(see below)                                      **
+    **                                                                  **
+    ** DESCRIPTION    :rnd_uni() generates an equally distributed ran-  **
+    **                 dom number in the interval [0,1]. For further    **
+    **                 reference see Press, W.H. et alii, Numerical     **
+    **                 Recipes in C, Cambridge University Press, 1992.  **
+    **                                                                  **
+    ** FUNCTIONS      :none                                             **
+    **                                                                  **
+    ** GLOBALS        :none                                             **
+    **                                                                  **
+    ** PARAMETERS     :*idum    serves as a seed value                  **
+    **                                                                  **
+    ** PRECONDITIONS  :*idum must be negative on the first call.        **
+    **                                                                  **
+    ** POSTCONDITIONS :*idum will be changed                            **
+    **                                                                  **
+    ***C*F*E*************************************************************/
+    {
+      long j;
+      long k;
+      static long idum2=123456789;
+      static long iy=0;
+      static long iv[NTAB];
+      double temp;
+
+      if (*idum &amp;lt;= 0)
+      {
+        if (-(*idum) &amp;lt; 1) *idum=1;
+        else *idum = -(*idum);
+        idum2=(*idum);
+        for (j=NTAB+7;j&amp;gt;=0;j--)
+        {
+          k=(*idum)/IQ1;
+          *idum=IA1*(*idum-k*IQ1)-k*IR1;
+          if (*idum &amp;lt; 0) *idum += IM1;
+          if (j &amp;lt; NTAB) iv[j] = *idum;
+        }
+        iy=iv[0];
+      }
+      k=(*idum)/IQ1;
+      *idum=IA1*(*idum-k*IQ1)-k*IR1;
+      if (*idum &amp;lt; 0) *idum += IM1;
+      k=idum2/IQ2;
+      idum2=IA2*(idum2-k*IQ2)-k*IR2;
+      if (idum2 &amp;lt; 0) idum2 += IM2;
+      j=iy/NDIV;
+      iy=iv[j]-idum2;
+      iv[j] = *idum;
+      if (iy &amp;lt; 1) iy += IMM1;
+      if ((temp=AM*iy) &amp;gt; RNMX) return RNMX;
+      else return temp;
+
+    }/*------End of rnd_uni()--------------------------*/
+
+    // 將上下限轉為全域變數
+    double inibound_h;      /* upper parameter bound              */
+    double inibound_l;      /* lower parameter bound              */
+    // 與機構合成相關的全域變數
+    // 宣告一個座標結構
+    struct Coord {
+        double x;
+        double y;
+      // 這裡保留 double z;
+    };
+
+    int main(int argc, char *argv[])
+    /**C*F****************************************************************
+    **                                                                  **
+    ** SRC-FUNCTION   :main()                                           **
+    ** LONG_NAME      :main program                                     **
+    ** AUTHOR         :Rainer Storn, Kenneth Price                      **
+    **                                                                  **
+    ** DESCRIPTION    :driver program for differential evolution.       **
+    **                                                                  **
+    ** FUNCTIONS      :rnd_uni(), evaluate(), printf(), fprintf(),      **
+    **                 fopen(), fclose(), fscanf().                     **
+    **                                                                  **
+    ** GLOBALS        :rnd_uni_init    input variable for rnd_uni()     **
+    **                                                                  **
+    ** PARAMETERS     :argc            #arguments = 3                   **
+    **                 argv            pointer to argument strings      **
+    **                                                                  **
+    ** PRECONDITIONS  :main must be called with three parameters        **
+    **                 e.g. like de1 &amp;lt;input-file&amp;gt; &amp;lt;output-file&amp;gt;, if     **
+    **                 the executable file is called de1.               **
+    **                 The input file must contain valid inputs accor-  **
+    **                 ding to the fscanf() section of main().          **
+    **                                                                  **
+    ** POSTCONDITIONS :main() produces consecutive console outputs and  **
+    **                 writes the final results in an output file if    **
+    **                 the program terminates without an error.         **
+    **                                                                  **
+    ***C*F*E*************************************************************/
+
+    {
+       char  chr;             /* y/n choice variable                */
+       char  *strat[] =       /* strategy-indicator                 */
+       {
+                "",
+                "DE/best/1/exp",
+                "DE/rand/1/exp",
+                "DE/rand-to-best/1/exp",
+                "DE/best/2/exp",
+                "DE/rand/2/exp",
+                "DE/best/1/bin",
+                "DE/rand/1/bin",
+                "DE/rand-to-best/1/bin",
+                "DE/best/2/bin",
+                "DE/rand/2/bin"
+       };
+
+       int   i, j, L, n;      /* counting variables                 */
+       int   r1, r2, r3, r4;  /* placeholders for random indexes    */
+       int   r5;              /* placeholders for random indexes    */
+       int   D;               /* Dimension of parameter vector      */
+       int   NP;              /* number of population members       */
+       int   imin;            /* index to member with lowest energy */
+       int   refresh;         /* refresh rate of screen output      */
+       int   strategy;        /* choice parameter for screen output */
+       int   gen, genmax, seed;   
+
+       long  nfeval;          /* number of function evaluations     */
+
+       double trial_cost;      /* buffer variable   */
+
+       // 將上下限轉為全域變數, 可能要根據各變數加以設定
+       //double inibound_h;      /* upper parameter bound              */
+       //double inibound_l;      /* lower parameter bound              */
+       double tmp[MAXDIM], best[MAXDIM], bestit[MAXDIM]; /* members  */
+       double cost[MAXPOP];    /* obj. funct. values                 */
+       double cvar;            /* computes the cost variance         */
+       double cmean;           /* mean cost                          */
+       double F,CR;            /* control variables of DE            */
+       double cmin;            /* help variables                     */
+
+       FILE  *fpin_ptr;
+       FILE  *fpout_ptr;
+
+    // 計算執行過程所需時間起點, 需要導入 time.h
+      clock_t start = clock();
+
+    /*------Initializations----------------------------*/
+
+     //if (argc != 3)                                 /* number of arguments */
+     //{
+        //printf("\nUsage : de &amp;lt;input-file&amp;gt; &amp;lt;output-file&amp;gt;\n");
+        //exit(1);
+     //}
+
+    // 將結果寫入 out.dat
+     fpout_ptr = fopen("out.dat","w");          /* open output file for reading,    */
+                                              /* to see whether it already exists */
+     /*
+     if ( fpout_ptr != NULL )
+     {
+        printf("\nOutput file %s does already exist, \ntype y if you ",argv[2]);
+        printf("want to overwrite it, \nanything else if you want to exit.\n");
+        chr = (char)getchar();
+        if ((chr != 'y') &amp;amp;&amp;amp; (chr != 'Y'))
+        {
+          exit(1);
+        }
+        fclose(fpout_ptr);
+     }
+    */
+
+    /*-----Read input data------------------------------------------------*/
+
+     //fpin_ptr   = fopen(argv[1],"r");
+    /*
+     if (fpin_ptr == NULL)
+     {
+        printf("\nCannot open input file\n");
+        exit(1);
+     }*/
+
+     //fscanf(fpin_ptr,"%d",&amp;amp;strategy);       /*---choice of strategy-----------------*/
+     //fscanf(fpin_ptr,"%d",&amp;amp;genmax);         /*---maximum number of generations------*/
+     //fscanf(fpin_ptr,"%d",&amp;amp;refresh);        /*---output refresh cycle---------------*/
+     //fscanf(fpin_ptr,"%d",&amp;amp;D);              /*---number of parameters---------------*/
+     //fscanf(fpin_ptr,"%d",&amp;amp;NP);             /*---population size.-------------------*/
+     //fscanf(fpin_ptr,"%lf",&amp;amp;inibound_h);    /*---upper parameter bound for init-----*/
+     //fscanf(fpin_ptr,"%lf",&amp;amp;inibound_l);    /*---lower parameter bound for init-----*/
+     //fscanf(fpin_ptr,"%lf",&amp;amp;F);             /*---weight factor----------------------*/
+     //fscanf(fpin_ptr,"%lf",&amp;amp;CR);            /*---crossing over factor---------------*/
+     //fscanf(fpin_ptr,"%d",&amp;amp;seed);           /*---random seed------------------------*/
+      strategy = 3;
+      genmax = 200000;
+      // refresh 為每幾筆運算後進行資料列印
+      refresh = 100;
+      // 配合機構尺寸合成, 每一個體有 9 個機構尺寸值與 25 (NUM_OF_POINTS) 個通過點角度值
+      // tmp[0~8] 為機構尺寸, tmp[9~33] 為通過點角度值
+      D = 9 + NUM_OF_POINTS;
+      NP = 200;
+      // 機構變數值上限
+      inibound_h = 50.;
+      // 機構變數值下限
+      inibound_l = 0.;
+      // for strategy 1, F=0.9, CR = 1.
+      // for strategy 2 F=0.7, CR=0.5
+      // 一個小時得到 9.7 的誤差
+      // 25 點的題目, 若 penality 只取 1000 則 F = 0.7 似乎為 最大 bound for strategy 1, CR = 1.
+      F = 0.85;
+      CR = 0.7;
+      seed = 3;
+
+     //fclose(fpin_ptr);
+
+    /*-----Checking input variables for proper range----------------------------*/
+
+      if (D &amp;gt; MAXDIM)
+      {
+         printf("\nError! D=%d &amp;gt; MAXDIM=%d\n",D,MAXDIM);
+         exit(1);
+      }
+      if (D &amp;lt;= 0)
+      {
+         printf("\nError! D=%d, should be &amp;gt; 0\n",D);
+         exit(1);
+      }
+      if (NP &amp;gt; MAXPOP)
+      {
+         printf("\nError! NP=%d &amp;gt; MAXPOP=%d\n",NP,MAXPOP);
+         exit(1);
+      }
+      if (NP &amp;lt;= 0)
+      {
+         printf("\nError! NP=%d, should be &amp;gt; 0\n",NP);
+         exit(1);
+      }
+      if ((CR &amp;lt; 0) || (CR &amp;gt; 1.0))
+      {
+         printf("\nError! CR=%f, should be ex [0,1]\n",CR);
+         exit(1);
+      }
+      if (seed &amp;lt;= 0)
+      {
+         printf("\nError! seed=%d, should be &amp;gt; 0\n",seed);
+         exit(1);
+      }
+      if (refresh &amp;lt;= 0)
+      {
+         printf("\nError! refresh=%d, should be &amp;gt; 0\n",refresh);
+         exit(1);
+      }
+      if (genmax &amp;lt;= 0)
+      {
+         printf("\nError! genmax=%d, should be &amp;gt; 0\n",genmax);
+         exit(1);
+      }
+      if ((strategy &amp;lt; 0) || (strategy &amp;gt; 10))
+      {
+         printf("\nError! strategy=%d, should be ex {1,2,3,4,5,6,7,8,9,10}\n",strategy);
+         exit(1);
+      }
+      if (inibound_h &amp;lt; inibound_l)
+      {
+         printf("\nError! inibound_h=%f &amp;lt; inibound_l=%f\n",inibound_h, inibound_l);
+         exit(1);
+      }
+
+
+    /*-----Open output file-----------------------------------------------*/
+
+       //fpout_ptr   = fopen(argv[2],"w");  /* open output file for writing */
+
+       //if (fpout_ptr == NULL)
+       //{
+          //printf("\nCannot open output file\n");
+          //exit(1);
+       //}
+
+
+    /*-----Initialize random number generator-----------------------------*/
+
+     rnd_uni_init = -(long)seed;  /* initialization of rnd_uni() */
+     nfeval       =  0;  /* reset number of function evaluations */
+
+
+
+    /*------Initialization------------------------------------------------*/
+    /*------Right now this part is kept fairly simple and just generates--*/
+    /*------random numbers in the range [-initfac, +initfac]. You might---*/
+    /*------want to extend the init part such that you can initialize-----*/
+    /*------each parameter separately.------------------------------------*/
+
+       for (i=0; i&amp;lt;NP; i++)
+       {
+          for (j=0; j&amp;lt;D; j++) /* spread initial population members */
+          {
+            c[i][j] = inibound_l + rnd_uni(&amp;amp;rnd_uni_init)*(inibound_h - inibound_l);
+          }
+          cost[i] = evaluate(D,c[i],&amp;amp;nfeval); /* obj. funct. value */
+       }
+       cmin = cost[0];
+       imin = 0;
+       for (i=1; i&amp;lt;NP; i++)
+       {
+         if(MAXIMAPROBLEM == 1)
+         {
+           // 最大化問題
+            if (cost[i]&amp;gt;cmin)
+            {
+              cmin = cost[i];
+              imin = i;
+            }
+          }
+          else
+          {
+            // 最小化問題
+            if (cost[i]&amp;lt;cmin)
+            {
+              cmin = cost[i];
+              imin = i;
+            }
+          }
+       }
+
+       assignd(D,best,c[imin]);            /* save best member ever          */
+       assignd(D,bestit,c[imin]);          /* save best member of generation */
+
+       pold = &amp;amp;c; /* old population (generation G)   */
+       pnew = &amp;amp;d; /* new population (generation G+1) */
+
+    /*=======================================================================*/
+    /*=========Iteration loop================================================*/
+    /*=======================================================================*/
+
+       gen = 0;                          /* generation counter reset */
+       while ((gen &amp;lt; genmax) /*&amp;amp;&amp;amp; (kbhit() == 0)*/) /* remove comments if conio.h */
+       {                                            /* is accepted by compiler    */
+          gen++;
+          imin = 0;
+
+          for (i=0; i&amp;lt;NP; i++)         /* Start of loop through ensemble  */
+          {
+         do                        /* Pick a random population member */
+         {                         /* Endless loop for NP &amp;lt; 2 !!!     */
+           r1 = (int)(rnd_uni(&amp;amp;rnd_uni_init)*NP);
+         }while(r1==i);            
+
+         do                        /* Pick a random population member */
+         {                         /* Endless loop for NP &amp;lt; 3 !!!     */
+           r2 = (int)(rnd_uni(&amp;amp;rnd_uni_init)*NP);
+         }while((r2==i) || (r2==r1));
+
+         do                        /* Pick a random population member */
+         {                         /* Endless loop for NP &amp;lt; 4 !!!     */
+           r3 = (int)(rnd_uni(&amp;amp;rnd_uni_init)*NP);
+         }while((r3==i) || (r3==r1) || (r3==r2));
+
+         do                        /* Pick a random population member */
+         {                         /* Endless loop for NP &amp;lt; 5 !!!     */
+           r4 = (int)(rnd_uni(&amp;amp;rnd_uni_init)*NP);
+         }while((r4==i) || (r4==r1) || (r4==r2) || (r4==r3));
+
+         do                        /* Pick a random population member */
+         {                         /* Endless loop for NP &amp;lt; 6 !!!     */
+           r5 = (int)(rnd_uni(&amp;amp;rnd_uni_init)*NP);
+         }while((r5==i) || (r5==r1) || (r5==r2) || (r5==r3) || (r5==r4));
+
+
+    /*=======Choice of strategy===============================================================*/
+    /*=======We have tried to come up with a sensible naming-convention: DE/x/y/z=============*/
+    /*=======DE :  stands for Differential Evolution==========================================*/
+    /*=======x  :  a string which denotes the vector to be perturbed==========================*/
+    /*=======y  :  number of difference vectors taken for perturbation of x===================*/
+    /*=======z  :  crossover method (exp = exponential, bin = binomial)=======================*/
+    /*                                                                                        */
+    /*=======There are some simple rules which are worth following:===========================*/
+    /*=======1)  F is usually between 0.5 and 1 (in rare cases &amp;gt; 1)===========================*/
+    /*=======2)  CR is between 0 and 1 with 0., 0.3, 0.7 and 1. being worth to be tried first=*/
+    /*=======3)  To start off NP = 10*D is a reasonable choice. Increase NP if misconvergence=*/
+    /*           happens.                                                                     */
+    /*=======4)  If you increase NP, F usually has to be decreased============================*/
+    /*=======5)  When the DE/best... schemes fail DE/rand... usually works and vice versa=====*/
+
+
+    /*=======EXPONENTIAL CROSSOVER============================================================*/
+
+    /*-------DE/best/1/exp--------------------------------------------------------------------*/
+    /*-------Our oldest strategy but still not bad. However, we have found several------------*/
+    /*-------optimization problems where misconvergence occurs.-------------------------------*/
+    // 1 為最原始的解題邏輯方法
+         if (strategy == 1) /* strategy DE0 (not in our paper) */
+         {
+           assignd(D,tmp,(*pold)[i]);
+           n = (int)(rnd_uni(&amp;amp;rnd_uni_init)*D);
+           L = 0;
+           do
+           {                       
+             tmp[n] = bestit[n] + F*((*pold)[r2][n]-(*pold)[r3][n]);
+             n = (n+1)%D;
+             L++;
+           }while((rnd_uni(&amp;amp;rnd_uni_init) &amp;lt; CR) &amp;amp;&amp;amp; (L &amp;lt; D));
+         }
+    /*-------DE/rand/1/exp-------------------------------------------------------------------*/
+    /*-------This is one of my favourite strategies. It works especially well when the-------*/
+    /*-------"bestit[]"-schemes experience misconvergence. Try e.g. F=0.7 and CR=0.5---------*/
+    /*-------as a first guess.---------------------------------------------------------------*/
+      // 配合邏輯方法 2 選用 R=0.7, CR=0.5
+       else if (strategy == 2) /* strategy DE1 in the techreport */
+         {
+           assignd(D,tmp,(*pold)[i]);
+           n = (int)(rnd_uni(&amp;amp;rnd_uni_init)*D);
+           L = 0;
+           do
+           {                       
+             tmp[n] = (*pold)[r1][n] + F*((*pold)[r2][n]-(*pold)[r3][n]);
+             n = (n+1)%D;
+             L++;
+           }while((rnd_uni(&amp;amp;rnd_uni_init) &amp;lt; CR) &amp;amp;&amp;amp; (L &amp;lt; D));
+         }
+    /*-------DE/rand-to-best/1/exp-----------------------------------------------------------*/
+    /*-------This strategy seems to be one of the best strategies. Try F=0.85 and CR=1.------*/
+    /*-------If you get misconvergence try to increase NP. If this doesn't help you----------*/
+    /*-------should play around with all three control variables.----------------------------*/
+         // 方法 3 建議 F=0.85 CR=1.
+       else if (strategy == 3) /* similiar to DE2 but generally better */
+         { 
+           assignd(D,tmp,(*pold)[i]);
+           n = (int)(rnd_uni(&amp;amp;rnd_uni_init)*D); 
+           L = 0;
+           do
+           {                       
+             tmp[n] = tmp[n] + F*(bestit[n] - tmp[n]) + F*((*pold)[r1][n]-(*pold)[r2][n]);
+             n = (n+1)%D;
+             L++;
+           }while((rnd_uni(&amp;amp;rnd_uni_init) &amp;lt; CR) &amp;amp;&amp;amp; (L &amp;lt; D));
+         }
+    /*-------DE/best/2/exp is another powerful strategy worth trying--------------------------*/
+         else if (strategy == 4)
+         { 
+           assignd(D,tmp,(*pold)[i]);
+           n = (int)(rnd_uni(&amp;amp;rnd_uni_init)*D); 
+           L = 0;
+           do
+           {                           
+             tmp[n] = bestit[n] + 
+                  ((*pold)[r1][n]+(*pold)[r2][n]-(*pold)[r3][n]-(*pold)[r4][n])*F;
+             n = (n+1)%D;
+             L++;
+           }while((rnd_uni(&amp;amp;rnd_uni_init) &amp;lt; CR) &amp;amp;&amp;amp; (L &amp;lt; D));
+         }
+    /*-------DE/rand/2/exp seems to be a robust optimizer for many functions-------------------*/
+         else if (strategy == 5)
+         { 
+           assignd(D,tmp,(*pold)[i]);
+           n = (int)(rnd_uni(&amp;amp;rnd_uni_init)*D); 
+           L = 0;
+           do
+           {                           
+             tmp[n] = (*pold)[r5][n] + 
+                  ((*pold)[r1][n]+(*pold)[r2][n]-(*pold)[r3][n]-(*pold)[r4][n])*F;
+             n = (n+1)%D;
+             L++;
+           }while((rnd_uni(&amp;amp;rnd_uni_init) &amp;lt; CR) &amp;amp;&amp;amp; (L &amp;lt; D));
+         }
+
+    /*=======Essentially same strategies but BINOMIAL CROSSOVER===============================*/
+
+    /*-------DE/best/1/bin--------------------------------------------------------------------*/
+         else if (strategy == 6) 
+         {
+           assignd(D,tmp,(*pold)[i]);
+           n = (int)(rnd_uni(&amp;amp;rnd_uni_init)*D); 
+               for (L=0; L&amp;lt;D; L++) /* perform D binomial trials */
+               {
+             if ((rnd_uni(&amp;amp;rnd_uni_init) &amp;lt; CR) || L == (D-1)) /* change at least one parameter */
+             {                       
+               tmp[n] = bestit[n] + F*((*pold)[r2][n]-(*pold)[r3][n]);
+             }
+             n = (n+1)%D;
+               }
+         }
+    /*-------DE/rand/1/bin-------------------------------------------------------------------*/
+         else if (strategy == 7) 
+         {
+           assignd(D,tmp,(*pold)[i]);
+           n = (int)(rnd_uni(&amp;amp;rnd_uni_init)*D); 
+               for (L=0; L&amp;lt;D; L++) /* perform D binomial trials */
+               {
+             if ((rnd_uni(&amp;amp;rnd_uni_init) &amp;lt; CR) || L == (D-1)) /* change at least one parameter */
+             {                       
+               tmp[n] = (*pold)[r1][n] + F*((*pold)[r2][n]-(*pold)[r3][n]);
+             }
+             n = (n+1)%D;
+               }
+         }
+    /*-------DE/rand-to-best/1/bin-----------------------------------------------------------*/
+         else if (strategy == 8) 
+         { 
+           assignd(D,tmp,(*pold)[i]);
+           n = (int)(rnd_uni(&amp;amp;rnd_uni_init)*D); 
+               for (L=0; L&amp;lt;D; L++) /* perform D binomial trials */
+               {
+             if ((rnd_uni(&amp;amp;rnd_uni_init) &amp;lt; CR) || L == (D-1)) /* change at least one parameter */
+             {                       
+               tmp[n] = tmp[n] + F*(bestit[n] - tmp[n]) + F*((*pold)[r1][n]-(*pold)[r2][n]);
+             }
+             n = (n+1)%D;
+               }
+         }
+    /*-------DE/best/2/bin--------------------------------------------------------------------*/
+         else if (strategy == 9)
+         { 
+           assignd(D,tmp,(*pold)[i]);
+           n = (int)(rnd_uni(&amp;amp;rnd_uni_init)*D); 
+               for (L=0; L&amp;lt;D; L++) /* perform D binomial trials */
+               {
+             if ((rnd_uni(&amp;amp;rnd_uni_init) &amp;lt; CR) || L == (D-1)) /* change at least one parameter */
+             {                       
+               tmp[n] = bestit[n] + 
+                  ((*pold)[r1][n]+(*pold)[r2][n]-(*pold)[r3][n]-(*pold)[r4][n])*F;
+             }
+             n = (n+1)%D;
+               }
+         }
+    /*-------DE/rand/2/bin--------------------------------------------------------------------*/
+         else
+         { 
+           assignd(D,tmp,(*pold)[i]);
+           n = (int)(rnd_uni(&amp;amp;rnd_uni_init)*D); 
+               for (L=0; L&amp;lt;D; L++) /* perform D binomial trials */
+               {
+             if ((rnd_uni(&amp;amp;rnd_uni_init) &amp;lt; CR) || L == (D-1)) /* change at least one parameter */
+             {                       
+               tmp[n] = (*pold)[r5][n] + 
+                  ((*pold)[r1][n]+(*pold)[r2][n]-(*pold)[r3][n]-(*pold)[r4][n])*F;
+             }
+             n = (n+1)%D;
+               }
+         }
+
+
+    /*=======Trial mutation now in tmp[]. Test how good this choice really was.==================*/
+         trial_cost = evaluate(D,tmp,&amp;amp;nfeval);  /* Evaluate new vector in tmp[] */
+       if(MAXIMAPROBLEM == 1)
+       {
+        // 改為最大化
+           if (trial_cost &amp;gt;= cost[i])   /* improved objective function value ? */
+           {                                  
+              cost[i]=trial_cost;         
+              assignd(D,(*pnew)[i],tmp);
+              if (trial_cost&amp;gt;cmin)          /* Was this a new minimum? */
+              {                               /* if so...*/
+                 cmin=trial_cost;           /* reset cmin to new low...*/
+                 imin=i;
+                 assignd(D,best,tmp);           
+              }                           
+           }                            
+           else
+           {
+              assignd(D,(*pnew)[i],(*pold)[i]); /* replace target with old value */
+           }
+        }
+        else
+        {
+              // 最小化問題
+           if (trial_cost &amp;lt;= cost[i])   /* improved objective function value ? */
+           {                                  
+              cost[i]=trial_cost;         
+              assignd(D,(*pnew)[i],tmp);
+              if (trial_cost&amp;lt;cmin)          /* Was this a new minimum? */
+              {                               /* if so...*/
+                 cmin=trial_cost;           /* reset cmin to new low...*/
+                 imin=i;
+                 assignd(D,best,tmp);           
+              }                           
+           }                            
+           else
+           {
+              assignd(D,(*pnew)[i],(*pold)[i]); /* replace target with old value */
+           }
+        }
+
+          }   /* End mutation loop through pop. */
+
+          assignd(D,bestit,best);  /* Save best population member of current iteration */
+
+          /* swap population arrays. New generation becomes old one */
+
+          pswap = pold;
+          pold  = pnew;
+          pnew  = pswap;
+
+    /*----Compute the energy variance (just for monitoring purposes)-----------*/
+
+          cmean = 0.;          /* compute the mean value first */
+          for (j=0; j&amp;lt;NP; j++)
+          {
+             cmean += cost[j];
+          }
+          cmean = cmean/NP;
+
+          cvar = 0.;           /* now the variance              */
+          for (j=0; j&amp;lt;NP; j++)
+          {
+             cvar += (cost[j] - cmean)*(cost[j] - cmean);
+          }
+          cvar = cvar/(NP-1);
+
+
+    /*----Output part----------------------------------------------------------*/
+
+          if (gen%refresh==1)   /* display after every refresh generations */
+          { /* ABORT works only if conio.h is accepted by your compiler */
+        printf("\n\n                         PRESS ANY KEY TO ABORT"); 
+        printf("\n\n\n Best-so-far cost funct. value=%-15.10g\n",cmin);
+
+        for (j=0;j&amp;lt;D;j++)
+        {
+          printf("\n best[%d]=%-15.10g",j,best[j]);
+        }
+        printf("\n\n Generation=%d  NFEs=%ld   Strategy: %s    ",gen,nfeval,strat[strategy]);
+        printf("\n NP=%d    F=%-4.2g    CR=%-4.2g   cost-variance=%-10.5g\n",
+                   NP,F,CR,cvar);
+          }
+
+          fprintf(fpout_ptr,"%ld   %-15.10g\n",nfeval,cmin);
+       }
+    /*=======================================================================*/
+    /*=========End of iteration loop=========================================*/
+    /*=======================================================================*/
+
+    /*-------Final output in file-------------------------------------------*/
+
+
+       fprintf(fpout_ptr,"\n\n\n Best-so-far obj. funct. value = %-15.10g\n",cmin);
+
+       for (j=0;j&amp;lt;D;j++)
+       {
+         fprintf(fpout_ptr,"\n best[%d]=%-15.10g",j,best[j]);
+       }
+       fprintf(fpout_ptr,"\n\n Generation=%d  NFEs=%ld   Strategy: %s    ",gen,nfeval,strat[strategy]);
+       fprintf(fpout_ptr,"\n NP=%d    F=%-4.2g    CR=%-4.2g    cost-variance=%-10.5g\n",
+               NP,F,CR,cvar); 
+
+      fclose(fpout_ptr);
+
+      /* Code you want timed here */
+      printf("Time elapsed: %f\n", ((double)clock() - start) / CLOCKS_PER_SEC);
+      return(0);
+    }
+
+    /*-----------End of main()------------------------------------------*/
+
+    // 適應函式 fittness function (cost function)
+    double evaluate(int D, double tmp[], long *nfeval)
+    {
+      // 先處理通過 5 個點的四連桿問題
+      // x0, y0 為左方固定點座標, 必須在 0 ~ 100 間 - 設為 tmp[0], tmp[1]
+      // x1, y1 為右方固定點座標, 必須在 0 ~ 100 間 - 設為 tmp[2], tmp[3]
+      // L1 為第一桿件的長度, 必須 &amp;gt; 0, 且小於 100 - 設為 tmp[4]
+      // L2 為第二桿件的長度, 必須 &amp;gt; 0, 且小於 100 - 設為 tmp[5]
+      // L3 為第三桿件的長度, 必須 &amp;gt; 0, 且小於 100 - 設為 tmp[6]
+      // L5, L6 與 L2 共同圍出可動桿 L2 對應的三角形, 關注的三角形頂點即 L5 與 L6 的交點, 而 angle3 則為 L6 之對應角(為固定值)
+      // L5, L6 必須 &amp;gt; 0, 且小於 100 - 設為 tmp[7], tmp[8]
+      // 以下的角度輸入值, 會隨著目標點數的增加而增加, 其索引值由 9 + 通過點數 - 1 決定, 5 點, 則索引至 13, 若通過 25 點, 則索引值為 9 + 24 = 33
+      // input_angles[] 為五的輸入的雙浮點數角度值,代表個體的角度向量值 - 分別設為 tmp[9], tmp[10], tmp[11], tmp[12], tmp[13]
+      // 這裡的輸入角度值, 將採用以第一角度&amp;gt;0 作為起點, 隨後則為角度增量, 也都必須大於零
+      // output_points[] 則為與 input_angles[] 對應的五個三角形的頂點值, 為座標結構值, 分別有 x 與 y 分量值
+      // 當利用個體的向量值, 代入 mechanism 後所得到得 output_points[] 再與 target_points[] 進行 cost function 的誤差值最小化
+      /* void mechanism(double x0, double y0, double x1, double y1, double L1,
+      double L2, double L3, double L5, double L6, double input_angles[NUM_OF_POINTS], struct Coord output_points[NUM_OF_POINTS])*/
+      struct Coord target_points[NUM_OF_POINTS], output_points[NUM_OF_POINTS];
+      double input_angles[NUM_OF_POINTS], result, total_angle;
+      int i;
+
+      (*nfeval)++;
+
+      target_points[0].x = 4.5;
+      target_points[0].y = 6.75;
+
+      target_points[1].x = 5.07;
+      target_points[1].y = 6.85;
+
+      target_points[2].x = 5.45;
+      target_points[2].y = 6.84;
+
+      target_points[3].x = 5.89;
+      target_points[3].y = 6.83;
+
+      target_points[4].x = 6.41;
+      target_points[4].y = 6.8;
+
+      target_points[5].x = 6.92;
+      target_points[5].y = 6.58;
+
+      target_points[6].x = 7.03;
+      target_points[6].y = 5.99;
+
+      target_points[7].x = 6.95;
+      target_points[7].y = 5.45;
+
+      target_points[8].x = 6.77;
+      target_points[8].y = 5.03;
+
+      target_points[9].x = 6.4;
+      target_points[9].y = 4.6;
+
+      target_points[10].x = 5.91;
+      target_points[10].y = 4.03;
+
+      target_points[11].x = 5.43;
+      target_points[11].y = 3.56;
+
+      target_points[12].x = 4.93;
+      target_points[12].y = 2.94;
+
+      target_points[13].x = 4.67;
+      target_points[13].y = 2.6;
+
+      target_points[14].x = 4.38;
+      target_points[14].y = 2.2;
+
+      target_points[15].x = 4.04;
+      target_points[15].y = 1.67;
+
+      target_points[16].x = 3.76;
+      target_points[16].y = 1.22;
+
+      target_points[17].x = 3.76;
+      target_points[17].y = 1.97;
+
+      target_points[18].x = 3.76;
+      target_points[18].y = 2.78;
+
+      target_points[19].x = 3.76;
+      target_points[19].y = 3.56;
+
+      target_points[20].x = 3.76;
+      target_points[20].y = 4.34;
+
+      target_points[21].x = 3.76;
+      target_points[21].y = 4.91;
+
+      target_points[22].x = 3.76;
+      target_points[22].y = 5.47;
+
+      target_points[23].x = 3.8;
+      target_points[23].y = 5.98;
+
+      target_points[24].x = 4.07;
+      target_points[24].y = 6.4;
+
+
+      // 輸入角度值與 tmp[] 的設定
+      for(i = 0; i &amp;lt; NUM_OF_POINTS; i++)
+      {
+        input_angles[i] = tmp[i + 9];
+      }
+
+      // 呼叫 mechanism() 以便計算 output_points[]
+      mechanism(tmp[0], tmp[1], tmp[2], tmp[3], tmp[4], tmp[5], tmp[6], tmp[7], tmp[8], input_angles, output_points);
+
+      // for debug
+      /*
+      if(*nfeval%5000 == 0)
+      {
+        for(i = 0; i &amp;lt; NUM_OF_POINTS; i++)
+        {
+          printf("%-15.10g : %-15.10g\n", output_points[i].x, output_points[i].y);
+        }
+        printf("#####################################\n");
+      }
+    */
+      // 利用 output_points[] 與 target_points 計算誤差值, 該誤差值就是 cost
+      result = error_function(output_points, target_points);
+      // 這裡要分別針對各變數的約束條件與範圍值來設定傳回 PENALITY 或 誤差值 result
+
+     // x0 與 x1 點位於 -50 與 50 中間
+        for(i = 0; i &amp;lt; 4; i++)
+      {
+        if(tmp[i] &amp;lt; -100 || tmp[i] &amp;gt; 100){
+          return PENALITY;
+        }
+      }
+
+      // 三個連桿值, 一定要為正
+        for(i = 4; i &amp;lt; 7; i++)
+      {
+        if(tmp[i] &amp;lt; 0 || tmp[i] &amp;gt; 100){
+          return PENALITY;
+        }
+      }
+
+        // L5 L6 可以為 0 或負值
+        for(i = 7; i &amp;lt; 9; i++)
+      {
+        if(tmp[i] &amp;lt; -100 || tmp[i] &amp;gt; 100){
+          return PENALITY;
+        }
+      }
+
+      // 角度值不可以小於 0
+
+      for(i = 1; i &amp;lt;= NUM_OF_POINTS; i++)
+      {
+        if(tmp[D-i] &amp;lt; 0){
+          return PENALITY;
+        }
+      }
+
+
+      /*
+      for(i = 0; i &amp;lt; D - NUM_OF_POINTS; i++)
+      {
+          if((tmp[i] &amp;lt;= inibound_l)|| (tmp[i] &amp;gt;inibound_h)){
+          return PENALITY;
+        }
+      }
+
+      for(i = 1; i &amp;lt;= NUM_OF_POINTS; i++)
+      {
+        if(tmp[D-i] &amp;lt; 0){
+          return PENALITY;
+        }
+      }
+      */
+      return result;
+
+      /*
+       double result=0, surface = 80.0, z, volume, penality;
+       (*nfeval)++;
+       z = (surface-tmp[0]*tmp[1])/(2.0*(tmp[0]+tmp[1]));
+       volume = tmp[0]*tmp[1]*z;
+
+      if(volume &amp;lt;= 0){
+        return PENALITY;
+      }
+
+      if((tmp[0] &amp;lt;= inibound_l)|| (tmp[0] &amp;gt;inibound_h)){
+        return PENALITY;
+      }
+
+      if((tmp[1] &amp;lt;= inibound_l) || (tmp[1] &amp;gt;inibound_h)){
+        return PENALITY;
+      }
+      // volume must &amp;gt;0 and max volume
+      // 目前為最小化問題
+       return 1+1/(volume*volume);
+       */
+    }
+
+    struct Coord triangletip_coord( double x0, double y0, double R0, double R1, double x1, double y1, double localt)
+    {
+        struct Coord tip_coord;
+
+        if (localt&amp;gt;=0 &amp;amp;&amp;amp; localt &amp;lt;PI)
+        {
+            // 目前蓋掉的式子為利用手動代換出來的版本
+            //x_value = ((x1-x0)*(-pow(R1,2)+pow(R0,2)+pow((y1-y0),2)+pow((x1-x0),2))/(2*sqrt(pow((y1-y0),2)+pow((x1-x0),2)))-(y1-y0)*(-mech_loop)*sqrt(fabs(pow(R0,2)-pow((-pow(R1,2)+pow(R0,2)+pow((y1-y0),2)+pow((x1-x0),2)),2)/(4*(pow((y1-y0),2)+pow((x1-x0),2))))))/sqrt(pow((y1-y0),2)+pow((x1-x0),2))+x0;
+            // 以下的式子,先利用文字編輯器,將原先 stringout() 出來的  sqrt 替換成  sqrtt, 以防止被  maxima 中的 subst("^"=pow,expr) 所替換, subst 之後,再使用文字編輯器換回來,就可以得到正確的 C 對應碼.
+            tip_coord.x = pow(sqrt(pow(y1-y0,2)+pow(x1-x0,2)),-1)*(mech_loop*(y1-y0)*sqrt(fabs(pow(R0,2)-pow(pow(y1-y0,2)+
+        pow(x1-x0,2),-1)*pow(-pow(R1,2)+pow(R0,2)+pow(y1-y0,2)+pow(x1-x0,2),2)/4))+(x1-x0)*pow(sqrt(pow(y1-y0,2)+
+        pow(x1-x0,2)),-1)*(-pow(R1,2)+pow(R0,2)+pow(y1-y0,2)+pow(x1-x0,2))/2)+x0;
+        }
+        else
+        {
+            // 目前蓋掉的式子為利用手動代換出來的版本
+            //x_value = ((x1-x0)*(-pow(R1,2)+pow(R0,2)+pow((y1-y0),2)+pow((x1-x0),2))/(2*sqrt(pow((y1-y0),2)+pow((x1-x0),2)))-(y1-y0)*(mech_loop)*sqrt(fabs(pow(R0,2)-pow((-pow(R1,2)+pow(R0,2)+pow((y1-y0),2)+pow((x1-x0),2)),2)/(4*(pow((y1-y0),2)+pow((x1-x0),2))))))/sqrt(pow((y1-y0),2)+pow((x1-x0),2))+x0;
+            tip_coord.x = pow(sqrt(pow(y1-y0,2)+pow(x1-x0,2)),-1)*(-mech_loop*(y1-y0)*sqrt(fabs(pow(R0,2)-pow(pow(y1-y0,2)+
+        pow(x1-x0,2),-1)*pow(-pow(R1,2)+pow(R0,2)+pow(y1-y0,2)+pow(x1-x0,2),2)/4))+(x1-x0)*pow(sqrt(pow(y1-y0,2)+
+        pow(x1-x0,2)),-1)*(-pow(R1,2)+pow(R0,2)+pow(y1-y0,2)+
+        pow(x1-x0,2))/2)+x0;
+        }
+
+    // 請注意,與 Maxma 公式中的差異為,在 sqrt()中加入 fabs(),避免因為sqrt()中的負值而造成 NaN (Not a Number 問題.
+        if (localt&amp;gt;=0 &amp;amp;&amp;amp; localt &amp;lt;PI)
+        {
+            tip_coord.y = /*((x1-x0)*(-mech_loop)*sqrt(
+                    fabs(pow(R0,2)-pow((-pow(R1,2)+pow(R0,2)+pow((y1-y0),2)+pow((x1-x0),2)),2)
+                    /(4*(pow((y1-y0),2)+pow((x1-x0),2)))
+                    ))
+                    +(y1-y0)*(-pow(R1,2)+pow(R0,2)+pow((y1-y0),2)+pow((x1-x0),2))/(2*sqrt(pow((y1-y0),2)+pow((x1-x0),2))))/sqrt(pow((y1-y0),2)+pow((x1-x0),2))
+                    +y0;*/
+                    // 利用 sqrtt 居中進行代換所得到的式子
+                    pow(sqrt(pow(y1-y0,2)+pow(x1-x0,2)),-1)*((y1-y0)*pow(sqrt(pow(y1-y0,2)+pow(x1-x0,2)),-1)*(-pow(R1,2)+
+        pow(R0,2)+pow(y1-y0,2)+pow(x1-x0,2))/2-mech_loop*(x1-x0)*sqrt(fabs(pow(R0,2)-pow(pow(y1-y0,2)+
+        pow(x1-x0,2),-1)*pow(-pow(R1,2)+pow(R0,2)+pow(y1-y0,2)+pow(x1-x0,2),2)/4)))+y0;
+
+        }
+        else
+        {
+            tip_coord.y = /*((x1-x0)*(mech_loop)*sqrt(
+                    fabs(pow(R0,2)-pow((-pow(R1,2)+pow(R0,2)+pow((y1-y0),2)+pow((x1-x0),2)),2)
+                    /(4*(pow((y1-y0),2)+pow((x1-x0),2)))
+                    ))
+                    +(y1-y0)*(-pow(R1,2)+pow(R0,2)+pow((y1-y0),2)+pow((x1-x0),2))/(2*sqrt(pow((y1-y0),2)+pow((x1-x0),2))))/sqrt(pow((y1-y0),2)+pow((x1-x0),2))
+                    +y0;*/
+                    pow(sqrt(pow(y1-y0,2)+pow(x1-x0,2)),-1)*((y1-y0)*pow(sqrt(pow(y1-y0,2)+pow(x1-x0,2)),-1)*(-pow(R1,2)+
+        pow(R0,2)+pow(y1-y0,2)+pow(x1-x0,2))/2+mech_loop*(x1-x0)*sqrt(fabs(pow(R0,2)-pow(pow(y1-y0,2)+
+        pow(x1-x0,2),-1)*pow(-pow(R1,2)+pow(R0,2)+pow(y1-y0,2)+pow(x1-x0,2),2)/4)))+y0;
+        }
+
+      return tip_coord;
+    }
+
+    double distance(double x0, double y0, double x1, double y1)
+    {
+        double distance_value;
+        distance_value = sqrt(pow((x1-x0),2) + pow((y1-y0),2));
+        return distance_value;
+    }
+
+    double rr(double L1, double dd, double theta)
+    {
+        double rr_value;
+        rr_value = sqrt(L1*L1+dd*dd - 2*L1*dd*cos(theta));
+        return rr_value;
+    }
+
+    // 輸入每一個體的變數向量, 然後求各三角形頂點的座標陣列[NUM_OF_POINTS]
+    void mechanism(double x0, double y0, double x1, double y1, double L1,
+      double L2, double L3, double L5, double L6, double input_angles[NUM_OF_POINTS], struct Coord output_points[NUM_OF_POINTS])
+    {
+      // 這裡的輸入角度, 改採第一角度為起始角, 隨後的角度值則為增量值
+      // 此函式要輸入控制變數, 然後計算機構尺寸合成的關注點座標位置
+      // 以下為可能的處理變數宣告
+      // 這裡希望能夠定義一個 struct 來處理座標點
+      double rr_length, dd_length, angle;
+      struct Coord link1_tip, link2_tip, triangle_tip;
+        double angle2, angle3;
+      int i;
+
+      // 開始進行三角形頂點座標的計算
+      // 以下變數由每一個體向量提供
+      /*
+        x0 = 0.0;
+        y0 = 0.0;
+        x1 = 10.0;
+        y1 = 0.0;
+        L1 = 5.0;
+        L2 = 20;
+        L3 = 10;
+        L5 = 10;
+        L6 = 10;
+      */
+      dd_length = distance(x0, y0, x1, y1);
+      /* 設法表示 triangle 所對應的 local 角度,表示為已知變數與 t 的函式 */
+      // 假如採用 finaltip_coord, 則不需要 angle3
+      angle3 = acos((pow(L2,2)+pow(L5,2)-pow(L6,2))/(2*L2*L5));
+
+      for(i = 0; i &amp;lt; NUM_OF_POINTS; i++)
+      {
+        // 先建立第一點座標, 即 i=0 者
+        // i=0;
+        // angle = i*degree;
+
+        /*
+        // 利用角度增量進行運算, 相對於 input_angles[0] 作為基準
+        if(i &amp;gt; 0)
+        {
+          input_angles[i] = input_angles[i] + input_angles[i-1];
+        }
+        */
+        angle = input_angles[i]*degree;
+        rr_length = rr(L1, dd_length, angle);
+        // 第一次三角形疊代
+        link1_tip = triangletip_coord(x0, y0, L1, rr_length, x1, y1, angle);
+        // 第二次三角形疊代
+        /* 設法表示 link2 所對應的 local 角度,表示為已知變數與 t 的函式 */
+        angle2 = acos((pow(L2,2)+pow(rr_length,2)-pow(L3,2))/(2*L2*rr_length));
+        link2_tip = triangletip_coord(link1_tip.x, link1_tip.y, L2, L3, x1, y1, angle2);
+        // 第三次三角形疊代
+        //triangle_tip = triangletip_coord(link1_tip.x, link1_tip.y, L5, L6, link2_tip.x, link2_tip.y, angle3);
+        // output_points[i] = triangletip_coord(link1_tip.x, link1_tip.y, L5, L6, link2_tip.x, link2_tip.y, angle3);
+        // 這裡要嘗試利用 finaltip_coord() 求 tip3 座標, 而 L5 與 L6 可 0 可負
+        output_points[i] = finaltip_coord(link1_tip, link2_tip, L5, L6);
+      }
+    }
+
+    double error_function(struct Coord output_points[NUM_OF_POINTS], struct Coord target_points[NUM_OF_POINTS])
+    {
+      double error = 0.0;
+      int i;
+      for(i = 0; i &amp;lt; NUM_OF_POINTS; i++)
+      {
+        error += fabs(distance(output_points[i].x, output_points[i].y, target_points[i].x, target_points[i].y));
+      }
+      return error;
+    }
+
+    struct Coord finaltip_coord(struct Coord tip1_coord, struct Coord tip2_coord, double r1, double r2)
+    {
+      struct Coord tip3_coord;
+      double theta3, theta4, length3, length4;
+      length3 = sqrt(pow(tip2_coord.x - tip1_coord.x,2) + pow(tip2_coord.y - tip1_coord.y,2));
+      length4 = sqrt(pow(r1,2) + pow(r2,2));  
+      theta3 = acos((tip2_coord.x - tip1_coord.x) / length3);
+      theta4 = acos(r1 / length4);
+      tip3_coord.x = tip1_coord.x + length4 * cos(theta3 + theta4);
+      tip3_coord.y = tip1_coord.y + length4 * sin(theta3 + theta4);
+
+      return tip3_coord;
+    }
+&lt;/pre&gt;</content><category term="RGA"></category></entry><entry><title>yen - 如何建立一好的 Wordpress 網站</title><link href="http://project.mde.tw/blog/yen-ru-he-jian-li-yi-hao-de-wordpress-wang-zhan.html" rel="alternate"></link><published>2016-04-08T01:20:00+08:00</published><updated>2016-04-08T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-04-08:/blog/yen-ru-he-jian-li-yi-hao-de-wordpress-wang-zhan.html</id><summary type="html">&lt;p&gt;機械設計專題專用的 Wordpress 必須俱備幾項特點: 能夠輸入數學公式, 能夠放入高亮顯示的程式碼, 能夠內嵌影片, 能夠利用 Gmail 帳號寄信, 能夠納入 Disqus 討論區, 能夠杜絕垃圾註冊.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;機械設計專題專用的 Wordpress 必須俱備幾項特點: 能夠輸入數學公式, 能夠放入高亮顯示的程式碼, 能夠內嵌影片, 能夠利用 Gmail 帳號寄信, 能夠納入 Disqus 討論區, 能夠杜絕垃圾註冊.&lt;/p&gt;
+
+
+&lt;p&gt;當然假如能夠如 &lt;a href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html"&gt;http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html&lt;/a&gt; 中所言, 可以利用 Leo Editor 的指令按鈕, 讓 Wordpress 網誌內容能與 Pelican 靜態網誌內容保持同步, 或許就能同時擁有改版歷程資料與即時動態維護內容的優點.&lt;/p&gt;
+&lt;p&gt;Disqus 的討論區留言首推: &lt;a href="https://wordpress.org/plugins/disqus-comment-system/"&gt;https://wordpress.org/plugins/disqus-comment-system/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;嵌入影片專用: &lt;a href="https://wordpress.org/plugins/iframe/"&gt;https://wordpress.org/plugins/iframe/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;程式碼的高亮則建議使用: &lt;a href="https://wordpress.org/plugins/syntaxhighlighter/"&gt;https://wordpress.org/plugins/syntaxhighlighter/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;輸入數學公式: &lt;a href="https://wordpress.org/plugins/wp-latex/"&gt;https://wordpress.org/plugins/wp-latex/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;寄信 plugin: &lt;a href="https://wordpress.org/plugins/wp-latex/"&gt;https://wordpress.org/plugins/wp-latex/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;防止垃圾註冊 plugin: &lt;a href="https://wordpress.org/plugins/wp-recaptcha/"&gt;https://wordpress.org/plugins/wp-recaptcha/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;至於, 在 WordPress 網誌中利用 &lt;a href="https://wordpress.org/plugins/wp-mail-smtp/"&gt;https://wordpress.org/plugins/wp-mail-smtp/&lt;/a&gt; Plugin 與 Gmail 帳號寄信的設定, 有兩個關鍵:&lt;/p&gt;
+&lt;p&gt;第1項就是設定選項:&lt;/p&gt;
+&lt;p&gt;選擇 Send all WordPress emails via SMTP&lt;/p&gt;
+&lt;p&gt;選擇 smtp.gmail.com: 465&lt;/p&gt;
+&lt;p&gt;選擇 Use SSL encryption&lt;/p&gt;
+&lt;p&gt;選擇 Use SMTP authentication&lt;/p&gt;
+&lt;p&gt;然後給定對應的 Gmail 帳號 與 Gmail 密碼 之後存檔.&lt;/p&gt;
+&lt;p&gt;第2項設定則是必須配合所使用的 Gmail 帳號, 利用 &lt;a href="https://www.google.com/settings/security/lesssecureapps"&gt;https://www.google.com/settings/security/lesssecureapps&lt;/a&gt; 將原定的 Turn off 改為 Turn on, 也就是降低安全設定等級, 接著就可以寄出測試信件, 若成功, 則 WordPress 中的其他模組就可以利用設定寄信.&lt;/p&gt;</content><category term="Wordpress"></category></entry><entry><title>yen - Solvespace 與 V-rep 結合應用</title><link href="http://project.mde.tw/blog/yen-solvespace-yu-v-rep-jie-he-ying-yong.html" rel="alternate"></link><published>2016-04-05T01:20:00+08:00</published><updated>2016-04-05T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-04-05:/blog/yen-solvespace-yu-v-rep-jie-he-ying-yong.html</id><summary type="html">&lt;p&gt;Solvespace 是一套小型的參數式 3D 繪圖開源套件, 而 V-rep 則是一套允許教育界免費使用的開源動態模擬套件, 結合這兩個套件在機械設計專題應用, 一方面使用者可以在可攜的架構下來進行產品開發與模擬, 更重要的是, 使用者可以透過原始程式碼, 一窺專業人士編寫電腦輔助機械設計與分析工具時, 所應用的理論分析與基本架構.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;Solvespace 是一套小型的參數式 3D 繪圖開源套件, 而 V-rep 則是一套允許教育界免費使用的開源動態模擬套件, 結合這兩個套件在機械設計專題應用, 一方面使用者可以在可攜的架構下來進行產品開發與模擬, 更重要的是, 使用者可以透過原始程式碼, 一窺專業人士編寫電腦輔助機械設計與分析工具時, 所應用的理論分析與基本架構.&lt;/p&gt;
+
+
+&lt;p&gt;Solvespace: &lt;a href="http://solvespace.com/"&gt;http://solvespace.com/&lt;/a&gt; 與 &lt;a href="https://github.com/whitequark/solvespace"&gt;https://github.com/whitequark/solvespace&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;V-rep: &lt;a href="http://www.coppeliarobotics.com/"&gt;http://www.coppeliarobotics.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/solvespace_v-rep.png" width="800" /&gt;&lt;/p&gt;</content><category term="Solvespace"></category><category term="V-rep"></category></entry><entry><title>yen - 編譯 Solvespace</title><link href="http://project.mde.tw/blog/yen-bian-yi-solvespace.html" rel="alternate"></link><published>2016-03-10T01:20:00+08:00</published><updated>2016-03-10T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-10:/blog/yen-bian-yi-solvespace.html</id><summary type="html">&lt;p&gt;我們有沒有能力在機械設計專題中, 自行編譯 Solvespace, 並且了解其中的原理後, 新增自己需要的零件設計功能?&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;我們有沒有能力在機械設計專題中, 自行編譯 Solvespace, 並且了解其中的原理後, 新增自己需要的零件設計功能?&lt;/p&gt;
+
+
+&lt;p&gt;&lt;a href="https://github.com/whitequark/solvespace"&gt;https://github.com/whitequark/solvespace&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://solvespace.com"&gt;http://solvespace.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;自行編譯 solvespace:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;從 &lt;a href="http://www.activestate.com/activeperl/downloads"&gt;http://www.activestate.com/activeperl/downloads&lt;/a&gt; 下載 ActivePerl, 並完成安裝.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;下載並安裝 Visual Studio Express.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;從 Visual Studio Express 表單中啟動 Dos Command.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;進入 Solvespace Makefile 所在目錄, 執行 nmake.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;就可以完成 Solvespace.exe 的編譯.&lt;/p&gt;</content><category term="Solvespace"></category><category term="MCAD"></category></entry><entry><title>yen - 如何參與 project.mde.tw 的協同編輯</title><link href="http://project.mde.tw/blog/yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html" rel="alternate"></link><published>2016-03-09T01:20:00+08:00</published><updated>2016-03-09T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-09:/blog/yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html</id><summary type="html">&lt;p&gt;只要是 KMOL 機械設計專題的成員, 就可以依照特定程序, 管理 project.mde.tw 網站上的資料&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;只要是 KMOL 機械設計專題的成員, 就可以依照特定程序, 管理 project.mde.tw 網站上的資料&lt;/p&gt;
+
+
+&lt;p&gt;首先, 你必須是 &lt;a href="https://github.com/coursemdetw/project_site/watchers"&gt;https://github.com/coursemdetw/project_site/watchers&lt;/a&gt; 名單上的成員, 否則就必須透過 Pull Request 的方式來參與 &lt;a href="http://project.mde.tw"&gt;http://project.mde.tw&lt;/a&gt; 網誌內容的協同管理.&lt;/p&gt;
+&lt;p&gt;接下來, 利用 git clone 的方式, 將 &lt;a href="https://github.com/coursemdetw/project_site"&gt;https://github.com/coursemdetw/project_site&lt;/a&gt; 的倉儲資料複製到近端, 並且將分支切換到 gh-pages, 就可以利用 Leo Editor 開啟或建立, 位於 users 目錄中的 user_template.leo, 然後轉存為"學號.leo" 檔案, 透過這個 Leo Editor 的專案檔, 就可以新增文章, 修改其他人的文章, 甚至修改本網誌系統中的任何設定.&lt;/p&gt;
+&lt;p&gt;將 user_template.leo 轉存為 "學號.leo" 後, 第1件重要的事就是修改 @edit user_20160301.md 中的 user_20160301.md 的存檔檔名, 改為 學號_當天日期.md, 然後修改此一 md 檔案的文章標題: Title: user - 使用者的範例網誌文章標題, 因為這個網誌系統根據 Title: 之後的名稱來轉換 html, 若有兩個 .md 檔案的 Title: 資料完全一樣, Pelican 將無法轉檔, 並且會在轉檔的命令列中出現錯誤訊息.&lt;/p&gt;
+&lt;p&gt;其他的 .md 檔案中, Category: 為文章的類別, 可以參考現有的"2016g1, Misc 與 Tutorial" 等3個類別, 可以是組別或是文章的屬性類別.
+Tags: 則是文章的內容標籤,可以就文章的內容關鍵字加以界定, 至於 Author: 則是用戶的名稱.&lt;/p&gt;
+&lt;p&gt;在每一個 .md 檔案中, 出現在 "PELICAN_END_SUMMARY" 超文件註解標註之前的內容, Pelican 會視為文章的摘要, 當各文章並列時, 文章只會列出標題與摘要.&lt;/p&gt;
+&lt;p&gt;"PELICAN_END_SUMMARY" 超文件註解標註之後的內容就是文章的主要內容.&lt;/p&gt;
+&lt;p&gt;文章中的程式可以利用:&lt;/p&gt;
+&lt;pre class="brush: python;"&gt;
+for i in range(5):
+    print(i, ":hello")
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;來加以標示.&lt;/p&gt;
+&lt;p&gt;圖檔則可以利用 img 標註引用:&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://raw.githubusercontent.com/chiamingyen/kmolab/gh-pages/logo/kmol_1172x340_color_3yrs.png" width="600" /&gt;&lt;/p&gt;
+&lt;p&gt;影片引用則可以直接使用 Vimeo 或 Youtube 的 embedded 語法.&lt;/p&gt;
+&lt;p&gt;因為本網誌能夠在近端與遠端等兩個不同環境下運作, 而兩端的關鍵字搜尋流程與格式不同, 因此轉檔的按鈕也分為 local-pelican 與 gh-pages-pelican 等兩個, 要在近端測試時, 必須滑鼠停在 local-pelican 轉檔按鈕的對應節點上, 然後按下 local-pelican, 經過瀏覽器檢查近端文章轉檔與內容無誤後, 必須將滑鼠停在 gh-pages-pelican 轉檔按鈕的對應節點上, 然後按下 gh-pages-pelican 按鈕, 之後若無任何問題, 就可以將資料提交推送到遠端倉儲的 gh-pages 分支中, 指令如下:&lt;/p&gt;
+&lt;p&gt;git add -A&lt;/p&gt;
+&lt;p&gt;git commit -m "提交說明訊息"&lt;/p&gt;
+&lt;p&gt;git push origin gh-pages&lt;/p&gt;
+&lt;p&gt;最後, 與 &lt;a href="http://project.mde.tw"&gt;http://project.mde.tw&lt;/a&gt; 網站維護有關的訊息溝通或註記, 請透過 &lt;a href="https://github.com/coursemdetw/project_site/wiki/%E6%A9%9F%E6%A2%B0%E8%A8%AD%E8%A8%88%E5%B0%88%E9%A1%8C%E5%8D%94%E5%90%8C%E7%B6%B2%E7%AB%99%E8%A8%98%E4%BA%8B"&gt;倉儲 Wiki&lt;/a&gt; 進行.&lt;/p&gt;</content><category term="Pelican"></category><category term="Leo Editor"></category></entry><entry><title>yen - 網際 Flask 程式架構</title><link href="http://project.mde.tw/blog/yen-wang-ji-flask-cheng-shi-jia-gou.html" rel="alternate"></link><published>2016-03-08T01:20:00+08:00</published><updated>2016-03-08T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-08:/blog/yen-wang-ji-flask-cheng-shi-jia-gou.html</id><summary type="html">&lt;p&gt;Flask 是一套支援 Python3 的全球資訊網程式框架, 這裡希望用它來開發網際輔助機械設計程式.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;Flask 是一套支援 Python3 的全球資訊網程式框架, 這裡希望用它來開發網際輔助機械設計程式.&lt;/p&gt;
+
+
+&lt;p&gt;&lt;a href="http://flask.pocoo.org/"&gt;http://flask.pocoo.org/&lt;/a&gt; 是一套簡潔的 Python3 網際程式框架, 在這一系列的導引資料中, 將利用 &lt;a href="https://github.com/2015fallhw/simpleflask"&gt;https://github.com/2015fallhw/simpleflask&lt;/a&gt; 倉儲來存放資料, 並將資料同步推送到 &lt;a href="http://simpleflask-2014openshift.rhcloud.com/"&gt;http://simpleflask-2014openshift.rhcloud.com/&lt;/a&gt; 執行.&lt;/p&gt;
+&lt;h2&gt;程式環境&lt;/h2&gt;
+&lt;p&gt;假如在 Windows 環境中, 使用可攜套件: &lt;a href="https://github.com/chiamingyen/kmol2016"&gt;https://github.com/chiamingyen/kmol2016&lt;/a&gt;, 則已經內建 Flask 模組, 假如沒有, 可以利用&lt;/p&gt;
+&lt;p&gt;pip install Flask 安裝.&lt;/p&gt;
+&lt;p&gt;假如是在 Ubuntu, 可以要用 pip3 install Flask 安裝, 至於在 OpenShift 的 Python3 應用程式, 則是透過 setup.py 安裝.&lt;/p&gt;
+&lt;pre class="brush: python;"&gt;
+#setup.py 檔案
+from setuptools import setup
+
+setup(name='KMOL 2016 project',
+      version='1.0',
+      description='OpenShift App',
+      author='KMOL',
+      author_email='course@mde.tw',
+      url='https://www.python.org/community/sigs/current/distutils-sig',
+      install_requires=['Flask&gt;=0.10.1'],
+     )
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;由於這裡所開發的 Flask 程式, 需要在近端與 OpenShift 都能運作, 因此 wsgi.py 的內容設計為:&lt;/p&gt;
+&lt;pre class="brush: python;"&gt;
+#!/usr/bin/python
+# 導入 os 模組, 主要用來判斷是否在 OpenShift 上執行
+import os
+# 導入同目錄下的 myflaskapp.py
+import myflaskapp
+
+# 以下開始判斷在 OpenShift 或近端執行
+if 'OPENSHIFT_REPO_DIR' in os.environ.keys():
+    # 表示程式在雲端執行
+    application = myflaskapp.app
+else:
+    # 表示在近端執行, 以 python3 wsgi.py 執行,  若採 uwsgi 則與 Openshift 運作模式相同
+    myflaskapp.app.run(debug=True)
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;也就是說, wsgi.py  會透過os.environ.keys() 的值來判定執行的環境, 若是在 uwsgi 的環境執行時, 則必須使用與 OpenShift 環境相同的啟動模式.&lt;/p&gt;
+&lt;p&gt;而 wsgi.py 中所導入的 myflaskapp.py 內容則為:&lt;/p&gt;
+&lt;pre class="brush: python; html-script: false"&gt;
+# coding: utf-8
+from flask import Flask, send_from_directory, request, redirect, render_template, session, make_response
+import random
+
+app = Flask(__name__)
+
+# 使用 session 必須要設定 secret_key
+# In order to use sessions you have to set a secret key
+# set the secret key.  keep this really secret:
+app.secret_key = 'A0Zr9@8j/3yX R~XHH!jmN]LWX/,?R@T'
+
+@app.route("/")
+def index():
+    #這是猜數字遊戲的起始表單, 主要在產生答案, 並且將 count 歸零
+    # 將標準答案存入 answer session 對應區
+    theanswer = random.randint(1, 100)
+    thecount = 0
+    # 將答案與計算次數變數存進 session 對應變數
+    session['answer'] = theanswer
+    session['count'] = thecount
+
+    return render_template("index.html", answer=theanswer, count=thecount)
+
+@app.route('/user/&lt;name&gt;')
+# 為了避免 syntaxhighlighter 自動加上 &lt;/name&gt;, 在這裡先行用註解補上, 之後再找解決方案
+def user(name):
+    return render_template("user.html", name=name)
+@app.route('/red')
+def red():
+    # 重新導向 google
+    return redirect("http://www.google.com")
+@app.route('/guessform')
+def guessform():
+    session["count"] += 1
+    guess = session.get("guess")
+    theanswer = session.get("answer")
+    count = session.get("count")
+    return render_template("guessform.html", guess=guess, answer=theanswer, count=count)
+@app.route('/docheck', methods=['POST'])
+def docheck():
+    # session[] 存資料
+    # session.get() 取 session 資料
+    # 利用 request.form[] 取得表單欄位資料, 然後送到 template
+    guess = request.form["guess"]
+    session["guess"] = guess
+    # 假如使用者直接執行 doCheck, 則設法轉回根方法
+    if guess is None:
+        redirect("/")
+    # 從 session 取出 answer 對應資料, 且處理直接執行 docheck 時無法取 session 值情況
+    try:
+        theanswer = int(session.get('answer'))
+    except:
+        redirect("/")
+    # 經由表單所取得的 guess 資料型別為 string
+    try:
+        theguess = int(guess)
+    except:
+        return redirect("/guessform")
+    # 每執行 doCheck 一次,次數增量一次
+    session["count"] += 1
+    count = session.get("count")
+    # 答案與所猜數字進行比對
+    if theanswer &lt; theguess:
+        return render_template("toobig.html", guess=guess, answer=theanswer, count=count)
+    elif theanswer &gt; theguess:
+        return render_template("toosmall.html", guess=guess, answer=theanswer, count=count)
+    else:
+        # 已經猜對, 從 session 取出累計猜測次數
+        thecount = session.get('count')
+        return "猜了 "+str(thecount)+" 次, 終於猜對了, 正確答案為 "+str(theanswer)+": &lt;a href='/'&gt;再猜&lt;/a&gt;"
+    return render_template("docheck.html", guess=guess)
+
+@app.route('/option', methods=["GET", "POST"])
+def option():
+    option_list1 = ["1", "2", "3", "4"]
+    option_list2 = ["a", "b"]
+
+    return render_template('option.html', option_list1=option_list1, option_list2=option_list2)
+@app.route('/optionaction', methods=['POST'])
+def optionaction():
+    # 這裡將根據使用者所選擇的選項值, 來進行後續的設計運算
+    return request.form["option1"] + ":" + request.form["option2"]
+    # 等運算或資料處理結束後, 再將相關值送到對應的 template 進行資料的展示
+    #return render_template('optionaction.html', option_list1=option_list1, option_list2=option_list2)
+
+
+if __name__ == "__main__":
+    app.run()
+&lt;/pre&gt;
+
+&lt;p&gt;&lt;br /&gt;&lt;/p&gt;
+&lt;p&gt;此外, 因為 Flask 內定靜態目錄名稱為 static, 且 template 名稱為 templates, 因此在最基本的 Flask 程式架構中, 也需要自行建立這兩個目錄, 然後將靜態文件放入 static 目錄中, 而對應的  template 文件檔案, 則放入 templates 目錄中.&lt;/p&gt;</content><category term="OpenShift"></category><category term="Flask"></category></entry><entry><title>user - 使用者的範例網誌文章標題</title><link href="http://project.mde.tw/blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html" rel="alternate"></link><published>2016-03-01T21:00:00+08:00</published><updated>2016-03-01T21:00:00+08:00</updated><author><name>user</name></author><id>tag:project.mde.tw,2016-03-01:/blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 user 所寫的文章摘要&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;這裡放入 user 所寫的文章摘要&lt;/p&gt;
+
+
+&lt;p&gt;這裡為 user 所寫的文章主要內容&lt;/p&gt;</content><category term="範例"></category></entry><entry><title>yen - 2016 年專題啟動</title><link href="http://project.mde.tw/blog/yen-2016-nian-zhuan-ti-qi-dong.html" rel="alternate"></link><published>2016-03-01T01:20:00+08:00</published><updated>2016-03-01T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-01:/blog/yen-2016-nian-zhuan-ti-qi-dong.html</id><summary type="html">&lt;p&gt;利用 Github Pages 與 Pelican 建立協同專題製作網誌&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;利用 Github Pages 與 Pelican 建立協同專題製作網誌&lt;/p&gt;
+
+
+&lt;h2&gt;機械設計工程網誌啟動&lt;/h2&gt;
+&lt;p&gt;本網誌自 2016 Spring 開始啟動, 相關建置步驟如下:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;以 &lt;a href="https://github.com/coursemdetw"&gt;https://github.com/coursemdetw&lt;/a&gt; 帳號建立 Gihub 倉儲 &lt;a href="https://github.com/coursemdetw/project_site"&gt;https://github.com/coursemdetw/project_site&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;將倉儲資料 git clone 到近端&lt;/li&gt;
+&lt;li&gt;利用 git branch 指令, 建立 gh-pages 分支&lt;/li&gt;
+&lt;li&gt;利用 git checkout 指令, 切換至 gh-pages 分支&lt;/li&gt;
+&lt;li&gt;開始建立 Pelican 網誌所需的協同架構資料&lt;/li&gt;
+&lt;li&gt;安排 users 目錄, 將分別存放各協同組員的 .leo 檔案&lt;/li&gt;
+&lt;li&gt;確定 gh-pages 分支中的網誌 &lt;a href="http://coursemdetw.github.io/project_site/"&gt;http://coursemdetw.github.io/project_site/&lt;/a&gt; 可以正常運作&lt;/li&gt;
+&lt;li&gt;根據 Github pages 專用網域設定說明 &lt;a href="https://help.github.com/articles/using-a-custom-domain-with-github-pages/"&gt;https://help.github.com/articles/using-a-custom-domain-with-github-pages/&lt;/a&gt;, 建立 CNAME, 納入 project.mde.tw&lt;/li&gt;
+&lt;li&gt;將 &lt;a href="https://github.com/coursemdetw/project_site"&gt;https://github.com/coursemdetw/project_site&lt;/a&gt; 倉儲的 Default Branch 設為 gh-pages 分支&lt;/li&gt;
+&lt;li&gt;在 mde.tw 網域的 DNS 代管設定中, 加入 project.mde.tw 與 coursemdetw.github.io 之間的 CNAME 別名設定&lt;/li&gt;
+&lt;li&gt;等待 CNAME 別名生效後, &lt;a href="http://project.mde.tw"&gt;http://project.mde.tw&lt;/a&gt; 即可正常連結使用&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;Pelican 網誌設定&lt;/h2&gt;
+&lt;p&gt;由於本網誌將 Pelican &lt;a href="https://github.com/getpelican/pelican"&gt;https://github.com/getpelican/pelican&lt;/a&gt; 設定相關的所有資料都留在 Gihub 倉儲 &lt;a href="https://github.com/coursemdetw/project_site"&gt;https://github.com/coursemdetw/project_site&lt;/a&gt; 中, 目的在讓其他人可以參考本網誌的所有細節內容. 一般在實際應用, 只需將 blog 目錄 &lt;a href="https://github.com/coursemdetw/project_site/tree/gh-pages/blog"&gt;https://github.com/coursemdetw/project_site/tree/gh-pages/blog&lt;/a&gt; 中的資料送到全球資訊網伺服器即可.&lt;/p&gt;
+&lt;p&gt;本專題製作採用 &lt;a href="http://leoeditor.com/"&gt;http://leoeditor.com/&lt;/a&gt; 管理所有資料, 但各參與協同的人員各自在 users 目錄下擁有一個 .leo 檔案, 可以分別控管本網誌的所有設定, 並且以協同方式維護網誌內容.&lt;/p&gt;
+&lt;p&gt;本網誌分為近端與 Github Pages 端的資料管理配置, 關鍵字搜尋採用 &lt;a href="https://github.com/getpelican/pelican-plugins/tree/master/tipue_search"&gt;https://github.com/getpelican/pelican-plugins/tree/master/tipue_search&lt;/a&gt;, 近端的設定檔案為 local_publishconf.py, 而 Github Pages 端的特有設定為 publishconf.py, 且為了區隔兩端的資料連結差異, 近端的 Pelican 轉檔按鈕為 @button local pelican, 而 Github Pages 端的轉檔按鈕為 @button gh-pages pelican.&lt;/p&gt;
+&lt;p&gt;最後, 為了有效區隔各組員所寫的網誌文章, content 目錄內的各 .md 檔案, 除了要求必須冠上組員帳號外, 也希望在文章標題前面加上組員帳號標示, 以避免組員間因為使用相同的文章標題名稱而無法正確完成 Pelican 網誌的轉檔 (本系統採用自動文章標題轉換為 html 檔名的設定).&lt;/p&gt;
+&lt;h2&gt;組員參與協同&lt;/h2&gt;
+&lt;p&gt;所有專題製作成員均為 &lt;a href="https://github.com/coursemdetw/project_site"&gt;https://github.com/coursemdetw/project_site&lt;/a&gt; 倉儲的協同者, git clone 資料後, 即可將分支固定在 gh-pages 後進行各項資料協同管理的工作.&lt;/p&gt;
+&lt;p&gt;參與協同的步驟:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;git clone 倉儲資料.&lt;/li&gt;
+&lt;li&gt;確定在近端已經切換分支到 gh-pages, 利用  Leo Editor 開啟 users 目錄下的 user_template.leo 檔案.&lt;/li&gt;
+&lt;li&gt;修改 @edit user_20160301.md 的標題與內容, 例如, 將 @edit user_20160301.md 改為 @edit 學號_20160301.md, 且將 "Title: user - 使用者的範例網誌文章標題" 改為 "Title: 學號 - 使用者的範例網誌文章標題", "Author: user" 改為 "Author: 學號" 之後, 記得將已經修改過的 user_template.leo 存為 學號.leo 檔案.&lt;/li&gt;
+&lt;li&gt;在學號.leo 專案檔案中, 將滑鼠停在 @button local pelican 節點上, 再點擊 local-pelican 按鈕進行轉檔, 最後利用瀏覽器開啟 project_site 目錄中的 index.html, 檢查是否在近端可以正確轉檔.&lt;/li&gt;
+&lt;li&gt;若近端的 Pelican 網誌可以正確納入所新增的文章內容, 改將滑鼠停在 @button gh-pages pelican 節點上, 再點擊 gh-pages-pelican 按鈕, 進行 Github Pages 端所需要的內容轉檔.&lt;/li&gt;
+&lt;li&gt;利用 git add -A, git commit -m "訊息", git push origin gh-pages 等3個步驟, 將 gh-pages 分支資料,  提交並推送到 &lt;a href="http://project.mde.tw"&gt;http://project.mde.tw&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;網誌資料儲存規劃&lt;/h2&gt;
+&lt;p&gt;一個靜態網站的內容除了文字檔案外, 還包括 Javascript 檔案, Brython 檔案, 圖檔, 影片檔案, 以及其他各種非 html 的文件檔, 為了保有本網誌專案倉儲的簡潔, 除了必要的設定與文字檔案外, 其他資料均存放在倉儲以外的相關資源位置, 其規劃如下:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Javascript 與 Brython 程式檔案, 除了儘量使用各 CDN 所提供的最新版本外, 目前以 &lt;a href="https://github.com/2015fallhw/cptocadp/tree/master/static"&gt;https://github.com/2015fallhw/cptocadp/tree/master/static&lt;/a&gt; 對應的 OpenShift 網站存放, 例如, Cango-8v03.js 位於 &lt;a href="http://cptocadp-2015fallhw.rhcloud.com/static/Cango-8v03.js"&gt;http://cptocadp-2015fallhw.rhcloud.com/static/Cango-8v03.js&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;一般圖檔與非 html 文件檔案, 建議以 Github Pages 的網頁架構儲存在獨立的倉儲中, 且該倉儲僅存放檔案, 而無文字檔案, 例如:
+&lt;a href="http://coursemdetw.github.io/project_site_files/files/kmol_1172x340_color_3yrs.png"&gt;http://coursemdetw.github.io/project_site_files/files/kmol_1172x340_color_3yrs.png&lt;/a&gt; 即為其中的一個圖檔.&lt;/li&gt;
+&lt;li&gt;影片檔案則分別存在 &lt;a href="https://vimeo.com/"&gt;https://vimeo.com/&lt;/a&gt; 與 &lt;a href="https://www.youtube.com/"&gt;https://www.youtube.com/&lt;/a&gt; (相同檔案各存一份).&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;圖檔引用&lt;/h2&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/kmol_1172x340_color_3yrs.png" width="600" /&gt;&lt;/p&gt;
+&lt;h2&gt;影片檔引用&lt;/h2&gt;
+&lt;iframe src="https://player.vimeo.com/video/147991541" width="600" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen&gt;&lt;/iframe&gt;
+
+&lt;p&gt;&lt;a href="https://vimeo.com/147991541"&gt;Gocycle_disassemble&lt;/a&gt; from &lt;a href="https://vimeo.com/user24079973"&gt;虎尾科大機械設計工程&lt;/a&gt; on &lt;a href="https://vimeo.com"&gt;Vimeo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h2&gt;特別提醒&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;本網誌為了同時支援近端與遠端的資料內容使用, 資料轉檔分為近端按鈕與遠端按鈕, 協同成員在推送資料到遠端之前, 必須確定資料為遠端 Github Pages 格式.&lt;/li&gt;
+&lt;li&gt;鼓勵各成員深入研究本網誌的細節架構, 勇於提出問題, 解決問題, 打造出最適合機械設計工程團隊使用的網際協同架構、模式與系統工具.&lt;/li&gt;
+&lt;/ol&gt;</content><category term="教學導引"></category><category term="網誌設定"></category></entry></feed>

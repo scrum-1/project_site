@@ -1,5 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE) - 2016g1</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-25T23:00:00+08:00</updated><entry><title>Pyquino 日誌 - 106/02/25</title><link href="http://project.mde.tw/blog/pyquino-ri-zhi-1060225.html" rel="alternate"></link><published>2017-02-25T23:00:00+08:00</published><updated>2017-02-25T23:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2017-02-25:/blog/pyquino-ri-zhi-1060225.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE) - 2016g1</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g1.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-26T23:00:00+08:00</updated><entry><title>Pyquino 日誌 - 106/02/26</title><link href="http://project.mde.tw/blog/pyquino-ri-zhi-1060226.html" rel="alternate"></link><published>2017-02-26T23:00:00+08:00</published><updated>2017-02-26T23:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2017-02-26:/blog/pyquino-ri-zhi-1060226.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;開發日誌&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Vrep連動控制&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;新增remoteAPI到pyqruino裡面&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</summary><content type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;開發日誌&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Vrep連動控制&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;新增remoteAPI到pyqruino裡面&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;使用remoteAPI來控制Vrep內步的馬達旋轉，目前還沒製做把值存進去的功能，還在思考要如何內外同動，包括訊號傳輸，有想過直接使用之前做的可變電阻的方式，利用Arduino直接使用lua收值把外部的狀況輸入到內部裡面，這部分還在思考要怎麼製做比較盡善盡美。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/coursemdetw/project_site_files/blob/gh-pages/files/pyquino/machine/pyquino_vrep.PNG?raw=true"&gt;&lt;/p&gt;
+&lt;h2&gt;增加檔案&lt;/h2&gt;
+&lt;p&gt;新增了core裡面的涵式庫，將RemoteAPI的dll包到裡面，目前.so的部分還沒做，要等換到linux系統的時候在製做兩個不一樣版本的差異。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/coursemdetw/project_site_files/blob/gh-pages/files/pyquino/machine/file_update.PNG?raw=true"&gt;&lt;/p&gt;
+&lt;h2&gt;程式部分&lt;/h2&gt;
+&lt;p&gt;在思考要不要額外把串列通訊的部分拉成獨立的控制，不然要一個使用者，在使用串列通訊的功能的時候安裝opengl或者pyqtgraphy之類的模組，感覺有些不適當，除非說變成將得到的值畫成圖表之類的可能比較好。&lt;/p&gt;
+&lt;p&gt;RemoteAPI在連線部分，不太確定支援的式點對點的控制還是說連線是走同一條線路，這部分要再看資料的規定才會理解他的運作方法，現在的寫法是每按一個按鈕就連線一次，不太確定這樣會不會有問題發生，這可能要看技術手冊或者使用後才會知道。&lt;/p&gt;</content><category term="Pyquino"></category></entry><entry><title>Pyquino 日誌 - 106/02/25</title><link href="http://project.mde.tw/blog/pyquino-ri-zhi-1060225.html" rel="alternate"></link><published>2017-02-25T23:00:00+08:00</published><updated>2017-02-25T23:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2017-02-25:/blog/pyquino-ri-zhi-1060225.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;開發日誌&lt;/p&gt;
 &lt;ul&gt;

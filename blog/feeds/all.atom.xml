@@ -1,8 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
-<<<<<<< HEAD
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-25T17:04:45Z</updated></feed>
-=======
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-25T23:00:00+08:00</updated><entry><title>Pyquino 日誌 - 106/02/25</title><link href="http://project.mde.tw/blog/pyquino-ri-zhi-1060225.html" rel="alternate"></link><published>2017-02-25T23:00:00+08:00</published><updated>2017-02-25T23:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2017-02-25:/blog/pyquino-ri-zhi-1060225.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-02-26T23:00:00+08:00</updated><entry><title>Pyquino 日誌 - 106/02/26</title><link href="http://project.mde.tw/blog/pyquino-ri-zhi-1060226.html" rel="alternate"></link><published>2017-02-26T23:00:00+08:00</published><updated>2017-02-26T23:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2017-02-26:/blog/pyquino-ri-zhi-1060226.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;開發日誌&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Vrep連動控制&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;新增remoteAPI到pyqruino裡面&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</summary><content type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;開發日誌&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Vrep連動控制&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;新增remoteAPI到pyqruino裡面&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;使用remoteAPI來控制Vrep內步的馬達旋轉，目前還沒製做把值存進去的功能，還在思考要如何內外同動，包括訊號傳輸，有想過直接使用之前做的可變電阻的方式，利用Arduino直接使用lua收值把外部的狀況輸入到內部裡面，這部分還在思考要怎麼製做比較盡善盡美。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/coursemdetw/project_site_files/blob/gh-pages/files/pyquino/machine/pyquino_vrep.PNG?raw=true"&gt;&lt;/p&gt;
+&lt;h2&gt;增加檔案&lt;/h2&gt;
+&lt;p&gt;新增了core裡面的涵式庫，將RemoteAPI的dll包到裡面，目前.so的部分還沒做，要等換到linux系統的時候在製做兩個不一樣版本的差異。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://github.com/coursemdetw/project_site_files/blob/gh-pages/files/pyquino/machine/file_update.PNG?raw=true"&gt;&lt;/p&gt;
+&lt;h2&gt;程式部分&lt;/h2&gt;
+&lt;p&gt;在思考要不要額外把串列通訊的部分拉成獨立的控制，不然要一個使用者，在使用串列通訊的功能的時候安裝opengl或者pyqtgraphy之類的模組，感覺有些不適當，除非說變成將得到的值畫成圖表之類的可能比較好。&lt;/p&gt;
+&lt;p&gt;RemoteAPI在連線部分，不太確定支援的式點對點的控制還是說連線是走同一條線路，這部分要再看資料的規定才會理解他的運作方法，現在的寫法是每按一個按鈕就連線一次，不太確定這樣會不會有問題發生，這可能要看技術手冊或者使用後才會知道。&lt;/p&gt;</content><category term="Pyquino"></category></entry><entry><title>40323230日誌 - 106/02/26</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060226.html" rel="alternate"></link><published>2017-02-26T21:00:00+08:00</published><updated>2017-02-26T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-26:/blog/40323230ri-zhi-1060226.html</id><summary type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;slvs 格式 - 命名規則&lt;/li&gt;
+&lt;li&gt;參數式設計&lt;/li&gt;
+&lt;li&gt;新增一些範例&lt;/li&gt;
+&lt;/ul&gt;
+</summary><content type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;slvs 格式 - 命名規則&lt;/li&gt;
+&lt;li&gt;參數式設計&lt;/li&gt;
+&lt;li&gt;新增一些範例&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1&gt;Pyslvs 開發進度&lt;/h1&gt;
+&lt;h2&gt;slvs 格式 - 命名規則&lt;/h2&gt;
+&lt;p&gt;將命名的選項調整完善，如下圖把尺寸資訊編入檔名裡。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0226_01.png"&gt;&lt;/p&gt;
+&lt;p&gt;再加上幾個測試應該就能使用全部的自訂選項了。&lt;/p&gt;
+&lt;p&gt;另外還把組合圖第一層的草圖函式獨立出來，另外有選項可以單獨生成 2D slvs 檔案。&lt;/p&gt;
+&lt;h2&gt;參數式設計&lt;/h2&gt;
+&lt;p&gt;之前荒廢有點久的參數功能，因為表格統整等等項目還沒做好，所以都沒維護相關區域。&lt;/p&gt;
+&lt;p&gt;後來寫好 QUndoCommand 後，統整好表格增刪功能，幾個函式的適應力更為活用，稍微增加判斷式就能接手 Parameter 的增删功能。&lt;/p&gt;
+&lt;p&gt;所以現在 Parameter 表格也支援復原重做功能了。&lt;/p&gt;
+&lt;p&gt;新增一個 n0 參數。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0226_02.png"&gt;&lt;/p&gt;
+&lt;p&gt;新增一個點，座標打上 (n0, 0.0)。&lt;/p&gt;
+&lt;p&gt;如下圖，點座標會自己對應到 (70.0, 0.0) 的位置。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0226_03.png"&gt;&lt;/p&gt;
+&lt;p&gt;原理是更新數據（將表格內容轉為 list 與 dict 儲存）時，會偵測 n 開頭的字元，並自動對應到 Parameter 的字典裡找尋。表格上的樣子是紀錄對應到哪個參數。&lt;/p&gt;
+&lt;p&gt;若是使用該參數，並在之後刪除它，程式會在刪除前將該參數的代號換回它代表的數據。&lt;/p&gt;
+&lt;p&gt;以上的流程都能任意復原重做，Parameter 的功能支援在節點、連桿、呆鍊的尺寸中使用。&lt;/p&gt;
+&lt;p&gt;另外可能還有一些問題待處理，會再檢查一下。&lt;/p&gt;</content><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>Pyquino 日誌 - 106/02/25</title><link href="http://project.mde.tw/blog/pyquino-ri-zhi-1060225.html" rel="alternate"></link><published>2017-02-25T23:00:00+08:00</published><updated>2017-02-25T23:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2017-02-25:/blog/pyquino-ri-zhi-1060225.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;開發日誌&lt;/p&gt;
 &lt;ul&gt;
@@ -21880,4 +21944,3 @@ G指令
 &lt;p&gt;完成座位安排後, 必須將各組組員名單與分組名單分別存入資料庫, 以便後續讓使用者查詢各組座位與分組資訊, 並且在隨後
 加入各組員回報電腦使用情形與各組員自評登錄成績之應用.&lt;/p&gt;
 &lt;p&gt;原始倉儲資料: &lt;a href="https://github.com/2015fallhw/2016springcd/tree/gh-pages"&gt;https://github.com/2015fallhw/2016springcd/tree/gh-pages&lt;/a&gt;&lt;/p&gt;</content><category term="Flask"></category><category term="Brython"></category><category term="Python"></category><category term="練習"></category><category term="流程自動化"></category></entry></feed>
->>>>>>> 8c8c16784198d02b7f3a6b4cd7ba79b14f625ce5

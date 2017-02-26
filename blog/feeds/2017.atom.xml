@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE) - 2017</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2017.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-16T09:00:00+08:00</updated><entry><title>轉換基準的 Pull Requests</title><link href="http://project.mde.tw/blog/zhuan-huan-ji-zhun-de-pull-requests.html" rel="alternate"></link><published>2016-12-16T09:00:00+08:00</published><updated>2016-12-16T09:00:00+08:00</updated><author><name>scrum1</name></author><id>tag:project.mde.tw,2016-12-16:/blog/zhuan-huan-ji-zhun-de-pull-requests.html</id><summary type="html">&lt;p&gt;在 &lt;a href="yi-pull-requests-can-yu-wang-zhi-bian-ji.html"&gt;"以 Pull Requests 參與網誌編輯"&lt;/a&gt;文章中, scrum-1 學員已經成功利用 pull requests 機制參與機械設計專題網誌的編寫.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;在 &lt;a href="yi-pull-requests-can-yu-wang-zhi-bian-ji.html"&gt;"以 Pull Requests 參與網誌編輯"&lt;/a&gt;文章中, scrum-1 學員已經成功利用 pull requests 機制參與機械設計專題網誌的編寫.&lt;/p&gt;
+
+
+&lt;p&gt;此一利用 pull requests 參與倉儲改版的流程為:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;登入 scrum-1 帳號, fork project_site 倉儲&lt;/li&gt;
+&lt;li&gt;git clone scrum-1 帳號下的 project_site 倉儲至近端&lt;/li&gt;
+&lt;li&gt;在近端以 git checkout gh-pages, 將工作目錄指向 gh-pages 分支&lt;/li&gt;
+&lt;li&gt;在近端的 project_site 倉儲中進行改版後, 新增提交並推送至 github&lt;/li&gt;
+&lt;li&gt;在 github 平台上送出 pull requests&lt;/li&gt;
+&lt;li&gt;project_site 倉儲管理者設法合併 scrum-1 送出的 pull requests&lt;/li&gt;
+&lt;li&gt;scrum-1 所增加的網誌內容將可呈現在機械設計專題網頁上&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;接下來當原始的 project_site 倉儲持續改版後, 位於 scrum-1 帳號下的 project_site 倉儲將會與原始的倉儲產生差異, 假如 scrum-1 希望先前所 fork 下來的 project_site 倉儲更新到原始倉儲的最新版本, 就是使用"轉換基準 Pull Requests"(switching base Pull Requests)的時機.&lt;/p&gt;
+&lt;p&gt;建立"轉換基準 Pull Requests", 是由 scrum-1 帳號提出, 基本流程與前述提出改版 Pull Requests 要求類似, 唯一的差別就是"改版基準"的互換, 以遠端的原始倉儲 gh-pages 分支為新版, "要求"將原始倉儲的版本合併至 scrum-1 帳號下的 project_site 倉儲.&lt;/p&gt;
+&lt;p&gt;由於此一轉換基準的改版倉儲位於 scrum-1 帳號下, 因此 scrum-1 具有合併此一自我提出要求的權限, 如下圖所示, 在沒有衝突的情況下, 可以直接在線上完成合併.&lt;/p&gt;
+&lt;p&gt;scrum-1 用戶可以利用"switching base"連結, 要求建立"轉換基準"的 Pull Requests:&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://coursemdetw.github.io/project_site_files/files/4042/scrum1/scrum-1_gh-pages_switching_base.png" width="600" /&gt;&lt;/p&gt;
+&lt;p&gt;根據下圖, 轉換基準的合併要求可以直接在線上進行, 不會產生衝突:&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://coursemdetw.github.io/project_site_files/files/4042/scrum1/scrum-1_gh-pages_switching_base-2.png" width="600" /&gt;&lt;/p&gt;
+&lt;p&gt;最後, 如下圖所示, scrum-1 具有同意此一"轉換基準版本合併請求"的權限:&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://coursemdetw.github.io/project_site_files/files/4042/scrum1/scrum-1_gh-pages_switching_base-3.png" width="600" /&gt;&lt;/p&gt;</content><category term="4042g1"></category><category term="Leo Editor"></category><category term="樣板"></category></entry><entry><title>以 Pull Requests 參與網誌編輯</title><link href="http://project.mde.tw/blog/yi-pull-requests-can-yu-wang-zhi-bian-ji.html" rel="alternate"></link><published>2016-12-15T09:00:00+08:00</published><updated>2016-12-15T09:00:00+08:00</updated><author><name>scrum1</name></author><id>tag:project.mde.tw,2016-12-15:/blog/yi-pull-requests-can-yu-wang-zhi-bian-ji.html</id><summary type="html">&lt;p&gt;&lt;a href="https://help.github.com/articles/about-pull-requests/"&gt;Pull Requests&lt;/a&gt; 是一種間接 git 倉儲改版的模式. 在此展示如何利用 github 的拉回請求, 以及 Leo Editor 專案檔案的建立, 對機械設計專題網誌新增文章.&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;&lt;a href="https://help.github.com/articles/about-pull-requests/"&gt;Pull Requests&lt;/a&gt; 是一種間接 git 倉儲改版的模式. 在此展示如何利用 github 的拉回請求, 以及 Leo Editor 專案檔案的建立, 對機械設計專題網誌新增文章.&lt;/p&gt;
+
+
+&lt;h3&gt;Fork 倉儲&lt;/h3&gt;
+&lt;p&gt;希望使用 Github 的 Pull Requests 功能, 必須在 github 系統中, 先登記用戶帳號, 啟用帳號後登入, 然後以瀏覽器連線到希望 Pull Requests 的倉儲網址, 利用 fork 功能, 將該倉儲"互刻"(所謂互刻, 就是一種互相具有連結關係的倉儲複刻) 到所登錄的 github 帳號下.&lt;/p&gt;
+&lt;p&gt;接下來則建議對於該 forked (互刻) 的倉儲, 儘量 git clone 到近端改版之外, 並且每間隔一段時間, 利用 github 所提供的"反向 pull requests", 保持與原始倉儲版本的同步, 避免因版本差異過大的情況下, 提出 Pull Requests, 而提高合併衝突的困難度.&lt;/p&gt;
+&lt;p&gt;如前所述, 這篇網誌是由 github 帳號 scrum-1 所建立, 截至目前, scrum-1 用戶已經完成 fork project_site 倉儲的動作, 而且以 git clone 將機械設計專題複製到近端改版. 而改版前的第一要務就是確認近端倉儲所在的分支.&lt;/p&gt;
+&lt;h3&gt;切換分支&lt;/h3&gt;
+&lt;p&gt;因 project_site 在 github 上的 default branch 為 master, 因此 git clone 到近端之後, 必須利用 git checkout gh-pages 切換到 gh-pages 分之後, 才能在正確的工作目錄中進行改版, 之後提交推送, 也必須注意, 一定要指定 gh-pages 分支, 才能正確對 github pages 網誌內容改版.&lt;/p&gt;
+&lt;p&gt;其次, 因為 scrum-1 用戶代表 2017 年學號以 4042 開頭的學員, 因此先在 clone 下來的倉儲中, 利用 git checkout gh-pages 將工作目錄轉到 gh-pages 分之後, 新增 users/4042 與 content/4042 目錄, 並將其個人用戶所屬的 .leo 檔案存為 users/4042/scrum1.leo, 並且利用 Leo Editor 的節點指令 @path 與 @edit, 將個人所屬的 .md 檔案, 存在 content/4042 目錄中, 例如: 目前這篇網誌的 .md 檔案為 content/4042/scrum1_20161215.md&lt;/p&gt;
+&lt;p&gt;因為同屬 4042 專題學員的 .md 檔案都規劃存在 content/4042 目錄中, 因此要求各用戶將各自所寫的 .md 檔案名稱中冠上 github 帳號, 除了避免彼此覆蓋內容外, 也可以明確找出不同用戶所寫的網誌 .md 檔案.&lt;/p&gt;
+&lt;h3&gt;圖檔管理&lt;/h3&gt;
+&lt;p&gt;在 Pelican 網誌系統中管理文章中所引用的圖檔, 是一項大工程, 假如文章內容與所引用的圖檔都要全部納入分散式版本管理的架構, 方法之一是將專門存放圖檔的 project_site_files 倉儲 gh-page 分支設為 project_site gh-pages 分支的子模組, 然後兩個倉儲分別改版 (也就是不要在 project_site 的改版過程中企圖修改 project_site_files 子模組對應目錄下的檔案). 但是在兩個倉儲利用 pull requests 或者 git submodule update 的過程並非同步時, 近端無法即時看到納入 project_site_files 倉儲中的圖檔.&lt;/p&gt;
+&lt;p&gt;另外一個比較建議採用的方式則是兩個倉儲分開維護, 若參與協同的學員擁有 project_site_files 倉儲的管理權限 ,就必須先將近端引用的圖檔先推送到 project_site_files 的 gh-pages 分支, 然後在 .md 文章中, 直接引用圖檔的絕對目錄, 例如下圖:&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://coursemdetw.github.io/project_site_files/files/4042/scrum1/scrum1_20161215-1.png" width="600" /&gt;&lt;/p&gt;
+&lt;p&gt;以下的三個圖檔, 也是先放到 scrum-1 近端的 project_site_files gh-pages 分支工作目錄中之後 ,以&lt;/p&gt;
+&lt;p&gt;git add -A&lt;/p&gt;
+&lt;p&gt;git commit -m "add scrum1 20161215 picture files"&lt;/p&gt;
+&lt;p&gt;git push origin gh-pages&lt;/p&gt;
+&lt;p&gt;提交推送到 scrum-1 帳號所屬的 project_site_files 倉儲之後, 再建立 pull requests, 然後由 project_site_files 倉儲的管理者接受後合併版本 ,就可以直接以圖檔案的絕對 URL 引用如下:&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://coursemdetw.github.io/project_site_files/files/4042/scrum1/scrum1_20161215-2.png" width="600" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://coursemdetw.github.io/project_site_files/files/4042/scrum1/scrum1_20161215-3.png" width="600" /&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://coursemdetw.github.io/project_site_files/files/4042/scrum1/scrum1_20161215-4.png" width="600" /&gt;&lt;/p&gt;
+&lt;h3&gt;網誌提交推送&lt;/h3&gt;
+&lt;p&gt;一旦 scrum-1 學員完成 .md 的文章原始檔案編輯, 且透過近端 local-pelican 按鈕轉為 pelican 網誌 html 系統之後, 可以利用支援 IPv4 的 https-server 按鈕或支援 IPv6 的 ipv6-https-server 按鈕, 在近端以 https 檢視網誌後, 直接提交推送到 scrum-1 的 project_site 倉儲後進行 pull requests, 由於拉回請求的過程, 管理者除了必須納入 scrum-1 所新增的 .md 檔案外, 其餘都必須先在近端用 local-pelican 按鈕轉檔檢驗, 因此 scrum-1 無需在 pull requests 的流程中提交 gh-pages-pelican 按鈕所產生的遠端格式版本(多了 disqus 留言系統), 可以直接提交近端版本即可.&lt;/p&gt;
+&lt;p&gt;但是負責審核 pull requests 的管理學員, 除了在近端檢查機械設計專題的網誌改版內容之外, 必須記得在提交推送到 project_site 倉儲 gh-pages 分支之前, 利用 gh-pages-pelican 按鈕, 將 .md 檔案轉為遠端網誌格式, 否則 disqus 留言系統將無法正確呈現.&lt;/p&gt;
+&lt;p&gt;最後, scrum-1 學員一旦完成互刻 project_site 倉儲 gh-pages 分支的提交推送後, 即可針對 gh-pages 分支, 新增 pull requests, 接下來就是 project_site 倉儲管理端審核請求, 以及納入改版內容的流程.&lt;/p&gt;</content><category term="4042g1"></category><category term="Leo Editor"></category><category term="樣板"></category></entry></feed>

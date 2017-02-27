@@ -315,7 +315,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-07-15T19:00:00+08:00"> 五 15 七月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-07-15T19:00:00+08:00"> Fri 15 July 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -339,12 +339,12 @@ init_mathjax();
 <p>從官方網站下載最新的Anaconda 3，配有Python 3.5.2。</p>
 <p><a href="https://www.continuum.io/downloads" title="continuum.io">https://www.continuum.io/downloads</a></p>
 <p>使用Path指令檢查環境變數。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0715_01.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0715_01.jpg" /></p>
 <p>確定無誤後放入可攜式環境中，並把原本的Python 3.5移除，將start.bat的環境位置改成Anaconda的資料夾。</p>
 <p>接著再檢查Anaconda程式的運作狀態。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0715_02.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0715_02.jpg" /></p>
 <p>安裝了其他工具，也包含Leo 5.3。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0715_03.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0715_03.jpg" /></p>
 <hr>
 
 <h2>說明 :</h2>
@@ -354,12 +354,12 @@ init_mathjax();
 <p>而根據協同者們留下的"VbDemo.vb"紀錄，應該是用VC來編譯它的。</p>
 <p>若要使用Solid-python，必須用"git submodule update --init"指令額外下載它，不然只有空資料夾。</p>
 <p>不過目前沒有要使用Solid-python，所以可以不用下載。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0715_04.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0715_04.jpg" /></p>
 <p>按照Readme的說明，要用make指令來編譯檔案。</p>
 <p>但是在make的時候出錯了，顯示"missing separator. Stop."的錯誤，查了下面的網站，貌似是make.exe的新版本讀取舊的Makefile的問題，必須改寫他們的Makefile或使用舊版的MSYS。</p>
 <p><a href="http://www.crifan.com/error_missing_separator_stop_while_make_in_windows_cmd/" title="crifan.com">http://www.crifan.com/error_missing_separator_stop_while_make_in_windows_cmd/</a></p>
 <p>而顯示的錯誤如下圖：</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0715_05.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0715_05.jpg" /></p>
 <hr>
 
 <h2>與Whitequark的版本比較 :</h2>
@@ -373,24 +373,24 @@ swig -c++ -python -py3 slvs.i
 <p>新版有用到cmake來建置檔案，但是Python-Solvespace沒有，所以沒有CMakelist的清單。而CMakelist是要手動編寫的，視規模大小來分配。</p>
 <p>Python-Solvespace似乎是只有原本Solvespace的"src"資料夾部分（不過外面原本就是給編譯器介紹用）。</p>
 <p>並將"exposed"、"extlib"、"win32"等資料夾放了進來，並且將總標頭檔"slvs.h"和DLL的"lib.cpp"加入"exposed"中，讓CDemo成為主幹，調用Solvespace裡的約束函式。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0715_06.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0715_06.jpg" /></p>
 <p>但是"exposed"中除了原本的CDemo，還有一個h++的標頭檔"slvs_python.hpp"、一個"DOC.txt"說明Python要如何呼叫編譯好的函式列表，以及一些Python的小程式。</p>
 <hr>
 
 <h2>test.py :</h2>
 
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0715_07.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0715_07.jpg" /></p>
 <p>py檔總共有3個，其中一個是使用Solid-python的呼叫工具，其他的"test.py"分別用"2.scad"和"3.scad"命名。</p>
 <p>檢查了一下Python-Solvespace附上的py檔，最後作者做了3個測試，並寫下了一些註解。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0715_08.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0715_08.jpg" /></p>
 <p>第一個"test.py"，展示了Python要如何取用slvs.dll的函式，長得跟原先的"CDemo.c"十分相似。</p>
 <p>在這裡，可以注意到SWIG轉換後的函式名稱還是一樣，用法也極其相似。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0715_09.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0715_09.jpg" /></p>
 <p>第二個"test2.scad.py"匯入了slvs和solid。</p>
 <p>由於Python只要在附近資料中尋找到宣告的項目就可運作，所以不太確定它們的副檔名究竟是DLL還是SO、PYD之類的連結庫或Python程式。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0715_10.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0715_10.jpg" /></p>
 <p>第三個"test3.scad.py"明顯使用了"slvs_solid.py"的內容，不過只有稍微閱讀過Solid-python的Readme，所以不太知道它的函式，但是看似比Solvespace更方便。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0715_11.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0715_11.jpg" /></p>
 <hr>
 
 <p>這次在Python-Solvespace碰上一些小瓶頸。</p>
@@ -442,6 +442,11 @@ swig -c++ -python -py3 slvs.i
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060227.html">
+                            40323230日誌 - 106/02/27
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060226.html">
                             Pyquino 日誌 - 106/02/26
                         </a>
@@ -459,11 +464,6 @@ swig -c++ -python -py3 slvs.i
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1060225.html">
                             40323230日誌 - 106/02/25
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060222.html">
-                            40323230日誌 - 106/02/22
                         </a>
                     </li>
                 </ul>

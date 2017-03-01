@@ -314,7 +314,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-02-26T21:00:00+08:00"> Sun 26 February 2017</time>
+        <i class="fa fa-calendar"></i><time datetime="2017-02-26T21:00:00+08:00"> 日 26 二月 2017</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -339,7 +339,7 @@ init_mathjax();
 <h1>Pyslvs 開發進度</h1>
 <h2>slvs 格式 - 命名規則</h2>
 <p>將命名的選項調整完善，如下圖把尺寸資訊編入檔名裡。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0226_01.png" /></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0226_01.png"></p>
 <p>再加上幾個測試應該就能使用全部的自訂選項了。</p>
 <p>另外還把組合圖第一層的草圖函式獨立出來，另外有選項可以單獨生成 2D slvs 檔案。</p>
 <h2>參數式設計</h2>
@@ -347,10 +347,10 @@ init_mathjax();
 <p>後來寫好 QUndoCommand 後，統整好表格增刪功能，幾個函式的適應力更為活用，稍微增加判斷式就能接手 Parameter 的增删功能。</p>
 <p>所以現在 Parameter 表格也支援復原重做功能了。</p>
 <p>新增一個 n0 參數。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0226_02.png" /></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0226_02.png"></p>
 <p>新增一個點，座標打上 (n0, 0.0)。</p>
 <p>如下圖，點座標會自己對應到 (70.0, 0.0) 的位置。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0226_03.png" /></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0226_03.png"></p>
 <p>原理是更新數據（將表格內容轉為 list 與 dict 儲存）時，會偵測 n 開頭的字元，並自動對應到 Parameter 的字典裡找尋。表格上的樣子是紀錄對應到哪個參數。</p>
 <p>若是使用該參數，並在之後刪除它，程式會在刪除前將該參數的代號換回它代表的數據。</p>
 <p>以上的流程都能任意復原重做，Parameter 的功能支援在節點、連桿、呆鍊的尺寸中使用。</p>
@@ -403,6 +403,11 @@ init_mathjax();
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060301.html">
+                            40323230日誌 - 106/03/01
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1060228.html">
                             40323230日誌 - 106/02/28
                         </a>
@@ -420,11 +425,6 @@ init_mathjax();
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1060226.html">
                             40323230日誌 - 106/02/26
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060225.html">
-                            Pyquino 日誌 - 106/02/25
                         </a>
                     </li>
                 </ul>

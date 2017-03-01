@@ -15,7 +15,7 @@
 &lt;p&gt;可用參數基本和 slvs 格式差不多，亦可自訂每個元件的間隙。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0301_01.png"&gt;&lt;/p&gt;
 &lt;p&gt;這樣大量的 2D 圖形需要轉出時就很方便了。&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0301_01.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0301_02.png"&gt;&lt;/p&gt;
 &lt;p&gt;有稍微花時間研究這個 DXF write 模組，似乎也能支援畫出 3D 的模型，可能是一個匯入 V-rep 的途徑？&lt;/p&gt;
 &lt;p&gt;這週末整理好功能後會釋出 Version 0.5，包含在寒假進行的大量更動，比 Version 0.4 更穩定。&lt;/p&gt;</content><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 106/02/28</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060228.html" rel="alternate"></link><published>2017-02-28T21:00:00+08:00</published><updated>2017-02-28T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-02-28:/blog/40323230ri-zhi-1060228.html</id><summary type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
 &lt;ul&gt;

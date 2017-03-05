@@ -314,7 +314,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-07-14T19:00:00+08:00"> 四 14 七月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-07-14T19:00:00+08:00"> Thu 14 July 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -394,7 +394,7 @@ pause
 </pre>
 
 <p>檔案如下圖：</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0714_01.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0714_01.jpg" /></p>
 <p>將interface.bat和pyd.bat分開的原因是為了檢察途中example.i和example_wrap.c是否出了問題。</p>
 <hr>
 
@@ -402,17 +402,17 @@ pause
 
 <p>之前的example.c和example.i內容並沒有更動。</p>
 <p>第一次執行後，發現會出現以下錯誤：</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0714_02.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0714_02.jpg" /></p>
 <p>然後就發現example_wrap.c中的這句錯誤了，多了一個底線符號，刪除後就能導入了。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0714_03.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0714_03.jpg" /></p>
 <p>這個錯誤經過搜索後是SWIG本身的問題，要解決的話必須重新編譯原始碼。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0714_04.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0714_04.jpg" /></p>
 <p>但是這個舉動實在是太耗費時間了，所以後來放棄了。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0714_05.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0714_05.jpg" /></p>
 <p>不過更改那行後，runme.py就可以導入example.pyd，不過卻會出現TypeError，如下圖：</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0714_06.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0714_06.jpg" /></p>
 <p>估計是這裡有錯誤：</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0714_07.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0714_07.jpg" /></p>
 <p>不過不知道怎麼調整。</p>
 <hr>
 
@@ -463,6 +463,11 @@ pause
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060305.html">
+                            40323230日誌 - 106/03/05
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1060304.html">
                             40323230日誌 - 106/03/04
                         </a>
@@ -480,11 +485,6 @@ pause
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1060227.html">
                             40323230日誌 - 106/02/27
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060226.html">
-                            Pyquino 日誌 - 106/02/26
                         </a>
                     </li>
                 </ul>

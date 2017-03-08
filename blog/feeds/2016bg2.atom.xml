@@ -1,5 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE) - 2016bg2</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-03-04T21:00:00+08:00</updated><entry><title>40323230日誌 - 106/03/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060304.html" rel="alternate"></link><published>2017-03-04T21:00:00+08:00</published><updated>2017-03-04T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-03-04:/blog/40323230ri-zhi-1060304.html</id><summary type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE) - 2016bg2</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016bg2.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-03-08T21:00:00+08:00</updated><entry><title>Python Parser for command-line options</title><link href="http://project.mde.tw/blog/python-parser-for-command-line-options.html" rel="alternate"></link><published>2017-03-08T21:00:00+08:00</published><updated>2017-03-08T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-03-08:/blog/python-parser-for-command-line-options.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Python 的命令列參數管理&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;argparse 模組&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;部署說明資訊&lt;/li&gt;
+&lt;li&gt;參數類型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</summary><content type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;Python 的命令列參數管理&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;argparse 模組&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;部署說明資訊&lt;/li&gt;
+&lt;li&gt;參數類型&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;h1&gt;Python 的命令列參數管理&lt;/h1&gt;
+&lt;p&gt;當使用 sys 模組下的 argv，可以觀看當前的參數內容。&lt;/p&gt;
+&lt;p&gt;參數在 sys.argv 下是成 string 型態儲存，但是 list 成次序排列，且只會儲存當前輸入項目，因此在調用上十分不方便。&lt;/p&gt;
+&lt;p&gt;Python 的 argparse 模組是一個不錯的選擇（3.2 版加入），可以用簡單的設定設置參數名稱和類型，並自動生成類 Unix OS 的 help 選項供調用。&lt;/p&gt;
+&lt;h1&gt;argparse 模組&lt;/h1&gt;
+&lt;p&gt;簡單列出常用的選項。&lt;/p&gt;
+&lt;p&gt;參考資料：&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="https://docs.python.org/3/library/argparse.html"&gt;https://docs.python.org/3/library/argparse.html&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://stackoverflow.com/questions/5262702/argparse-module-how-to-add-option-without-any-argument"&gt;http://stackoverflow.com/questions/5262702/argparse-module-how-to-add-option-without-any-argument&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Python 函式庫語法範例字典：&lt;a href="http://www.books.com.tw/products/0010726838"&gt;http://www.books.com.tw/products/0010726838&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2&gt;部署說明資訊&lt;/h2&gt;
+&lt;p&gt;在腳本中設定：&lt;/p&gt;
+&lt;pre class="brush: python"&gt;
+import argparse
+
+parser = argparse.ArgumentParser(
+    prog='prog.py', #程式名稱，預設 sys.argv[0]
+    usage='%(prog)s [options]', #自訂使用方法外觀，預設由參數產生
+    description='程式說明', #頂端程式說明，預設 None
+    epilog='程式說明2', #底端程式說明，預設 None
+    prefix_chars='-', #參數起始字串，預設 '-'
+    add_help=False, #是否開啟 Help 選項，預設 True
+    )
+parser.add_argument('integers', metavar='N', type=int, nargs='+',
+                    help='an integer for the accumulator') #第一個參數
+parser.add_argument('--sum', dest='accumulate', action='store_const',
+                    const=sum, default=max,
+                    help='sum the integers (default: find the max)') #第二個參數
+args = parser.parse_args() #解析
+&lt;/pre&gt;
+
+&lt;p&gt;如果有啟用 add_help 選項，模組產出的 Help 說明如下：&lt;/p&gt;
+&lt;pre&gt;
+$ python3 prog.py -h
+usage: prog.py [options]
+
+程式說明
+
+positional arguments:
+ N           an integer for the accumulator
+
+optional arguments:
+ -h, --help  show this help message and exit
+ --sum       sum the integers (default: find the max)
+
+ 程式說明2
+&lt;/pre&gt;
+
+&lt;h2&gt;參數類型&lt;/h2&gt;
+&lt;p&gt;add_argument() 方法中可使用的選項。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;name or flags&lt;/p&gt;
+&lt;p&gt;名稱或標籤，看之前設置的 prefix_chars 決定，名稱只能為一個，標籤表示法可以有多個。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;action&lt;/p&gt;
+&lt;p&gt;傳入參數的動作，預設為 &lt;code&gt;'store'&lt;/code&gt;。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;'store'&lt;/code&gt;：儲存，啟用此標籤時會存入後方跟著的項目，按照 type 選項儲存輸入值。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;'store_const'&lt;/code&gt;：儲存為常數，啟用此標籤時會存入一個定值，這時必須設定 const 選項。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;'store_true'&lt;/code&gt; 和 &lt;code&gt;'store_false'&lt;/code&gt;：儲存為 True 或 False，啟用此標籤時會存入 True 或 False。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;'append'&lt;/code&gt;：產生一個 list，啟用此標籤時會將後方跟著的項目，按照 type 選項儲存到 list 中。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;'append_const'&lt;/code&gt;：產生一個 list，啟用此標籤時會將 const 選項的類型存入 list 中。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;'count'&lt;/code&gt;：紀錄這個標籤出現的次數，如 &lt;code&gt;-v&lt;/code&gt; 選項輸入成 &lt;code&gt;-vvv&lt;/code&gt; 時會回傳 3。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;'help'&lt;/code&gt;：預設已經加入，此時若是自行設置會導致衝突。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;'version'&lt;/code&gt;：顯示版本而不啟動程式，這時必須設定 version 選項。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;argparse.Action&lt;/code&gt; 類型：繼承後，透過修改 &lt;strong&gt;call&lt;/strong&gt; 和 &lt;strong&gt;init&lt;/strong&gt; 方法來達成額外的條件。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;nargs&lt;/p&gt;
+&lt;p&gt;決定多個參數傳入時的處理方式，預設由 action 選項決定。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;'N'&lt;/code&gt;：迭代，使用一個 list 包裝此標籤後的參數。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;'?'&lt;/code&gt;：單一，一次只能傳入一個參數，後方的項目會被視為其他標籤。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;'*'&lt;/code&gt;：不限，使用一個 list 包裝此標籤後的參數，多餘的參數會自動歸類到此標籤下。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;'+'&lt;/code&gt;：至少一個，類似 &lt;code&gt;'*'&lt;/code&gt;，但是在此標籤沒有任何參數時會跳出錯誤訊息。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;argparse.REMAINDER&lt;/code&gt; 物件：存為 list，使用一個 list 包裝此標籤和其參數。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;const&lt;/p&gt;
+&lt;p&gt;根據 action 和 nargs 選項決定的定值。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;default&lt;/p&gt;
+&lt;p&gt;未輸入時的預設值，不受 type 選項的轉換。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;argparse.SUPPRESS&lt;/code&gt; 物件：若此選項沒有任何參數，不會建立這個選項。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;type&lt;/p&gt;
+&lt;p&gt;轉換輸入值的類型，支援任何可呼叫(callable)的類型，預設為 string。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;open&lt;/code&gt;：這個類型可以開啟純文字格式的檔案。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;argparse.FileType('w')&lt;/code&gt;：argparse 也提供讀寫檔案的選項，作用同上。&lt;/li&gt;
+&lt;li&gt;choices 選項會在 type 選項轉換完畢後才比對。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;choices&lt;/p&gt;
+&lt;p&gt;比對輸入值的項目是否符合，可接受 list 與 generator，若否則跳出錯誤。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;required&lt;/p&gt;
+&lt;p&gt;是否為必要標籤，預設為 False。若要啟用，將其設為 True 即可，Help 項目中會歸類成必要標籤。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;help&lt;/p&gt;
+&lt;p&gt;當顯示 Help 項目時的說明文字，預設為空字串。&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;'%(arg)s'&lt;/code&gt;：說明文字中可以引用其他選項，如 &lt;code&gt;%(default)s&lt;/code&gt;、&lt;code&gt;%(type)s&lt;/code&gt; 等，若要使用 &lt;code&gt;%&lt;/code&gt; 符號，可以用 &lt;code&gt;%%&lt;/code&gt; 表示。&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;argparse.SUPPRESS&lt;/code&gt; 物件：這個標籤不會顯示在 Help 項目中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;</content><category term="Python3"></category></entry><entry><title>40323230日誌 - 106/03/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060304.html" rel="alternate"></link><published>2017-03-04T21:00:00+08:00</published><updated>2017-03-04T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-03-04:/blog/40323230ri-zhi-1060304.html</id><summary type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Release version 0.5&lt;/li&gt;
 &lt;/ul&gt;

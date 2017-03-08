@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>機械設計專題 (虎尾科大MDE)</title>
+    <title>Python Parser for command-line options - 機械設計專題 (虎尾科大MDE)</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -166,15 +166,21 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 
-<link rel="canonical" href="http://project.mde.tw/blog">
-        <meta name="author" content="KMOL" />
+<link rel="canonical" href="http://project.mde.tw/blog/python-parser-for-command-line-options.html">
 
-    <!-- Open Graph tags -->
+        <meta name="author" content="40323230" />
+        <meta name="keywords" content="Python3" />
+        <meta name="description" content="Python 的命令列參數管理 argparse 模組 部署說明資訊 參數類型" />
+
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
-        <meta property="og:type" content="website"/>
-        <meta property="og:title" content="機械設計專題 (虎尾科大MDE)"/>
-        <meta property="og:url" content="http://project.mde.tw/blog"/>
-        <meta property="og:description" content="機械設計專題 (虎尾科大MDE)"/>
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Python Parser for command-line options"/>
+        <meta property="og:url" content="http://project.mde.tw/blog/python-parser-for-command-line-options.html"/>
+        <meta property="og:description" content="Python 的命令列參數管理 argparse 模組 部署說明資訊 參數類型"/>
+        <meta property="article:published_time" content="2017-03-08" />
+            <meta property="article:section" content="2016bg2" />
+            <meta property="article:tag" content="Python3" />
+            <meta property="article:author" content="40323230" />
 
 
     <!-- Bootstrap -->
@@ -253,7 +259,7 @@ init_mathjax();
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                     <li><a href="/blog/pages/about/">About</a></li>
-                        <li >
+                        <li class="active">
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
                         <li >
@@ -290,162 +296,204 @@ init_mathjax();
     <div class="row">
         <div class="col-sm-9">
 
-            <article>
-                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1051206.html">40323230日誌 - 105/12/06</a></h2>
-                <div class="summary"><ol>
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="http://project.mde.tw/blog/python-parser-for-command-line-options.html"
+                       rel="bookmark"
+                       title="Permalink to Python Parser for command-line options">
+                        Python Parser for command-line options
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-03-08T21:00:00+08:00"> 三 08 三月 2017</time>
+    </span>
+            <span class="label label-default">By</span>
+            <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="http://project.mde.tw/blog/tag/python3.html">Python3</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <ol>
 <li>
-<p>Windows 環境</p>
+<p>Python 的命令列參數管理</p>
 </li>
 <li>
-<p>Pyslvs 編譯進度</p>
+<p>argparse 模組</p>
+<ul>
+<li>部署說明資訊</li>
+<li>參數類型</li>
+</ul>
 </li>
 </ol>
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1051206.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://project.mde.tw/blog/ji-tai-kong-zhi.html">機台控制</a></h2>
-                <div class="summary">
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/ji-tai-kong-zhi.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1051127.html">40323230日誌 - 105/11/27</a></h2>
-                <div class="summary"><p>關於 Pyslvs 格式整合的計畫</p>
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1051127.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://project.mde.tw/blog/40323214ri-zhi-chi-lun-ji-suan.html">40323214日誌-齒輪計算</a></h2>
-                <div class="summary">
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323214ri-zhi-chi-lun-ji-suan.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1051120.html">40323230日誌 - 105/11/20</a></h2>
-                <div class="summary"><p>Pyslvs 編譯進度</p>
-
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1051120.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1051119.html">40323230日誌 - 105/11/19</a></h2>
-                <div class="summary"><ol>
-<li>Pyslvs 編譯進度</li>
+<h1>Python 的命令列參數管理</h1>
+<p>當使用 sys 模組下的 argv，可以觀看當前的參數內容。</p>
+<p>參數在 sys.argv 下是成 string 型態儲存，但是 list 成次序排列，且只會儲存當前輸入項目，因此在調用上十分不方便。</p>
+<p>Python 的 argparse 模組是一個不錯的選擇（3.2 版加入），可以用簡單的設定設置參數名稱和類型，並自動生成類 Unix OS 的 help 選項供調用。</p>
+<h1>argparse 模組</h1>
+<p>簡單列出常用的選項。</p>
+<p>參考資料：</p>
+<ol>
+<li><a href="https://docs.python.org/3/library/argparse.html">https://docs.python.org/3/library/argparse.html</a></li>
+<li><a href="http://stackoverflow.com/questions/5262702/argparse-module-how-to-add-option-without-any-argument">http://stackoverflow.com/questions/5262702/argparse-module-how-to-add-option-without-any-argument</a></li>
+<li>Python 函式庫語法範例字典：<a href="http://www.books.com.tw/products/0010726838">http://www.books.com.tw/products/0010726838</a></li>
 </ol>
+<h2>部署說明資訊</h2>
+<p>在腳本中設定：</p>
+<pre class="brush: python">
+import argparse
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1051119.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1051118.html">40323230日誌 - 105/11/18</a></h2>
-                <div class="summary"><ol>
-<li>Pyslvs v0.2.0 Release &amp; informations</li>
+parser = argparse.ArgumentParser(
+    prog='prog.py', #程式名稱，預設 sys.argv[0]
+    usage='%(prog)s [options]', #自訂使用方法外觀，預設由參數產生
+    description='程式說明', #頂端程式說明，預設 None
+    epilog='程式說明2', #底端程式說明，預設 None
+    prefix_chars='-', #參數起始字串，預設 '-'
+    add_help=False, #是否開啟 Help 選項，預設 True
+    )
+parser.add_argument('integers', metavar='N', type=int, nargs='+',
+                    help='an integer for the accumulator') #第一個參數
+parser.add_argument('--sum', dest='accumulate', action='store_const',
+                    const=sum, default=max,
+                    help='sum the integers (default: find the max)') #第二個參數
+args = parser.parse_args() #解析
+</pre>
+
+<p>如果有啟用 add_help 選項，模組產出的 Help 說明如下：</p>
+<pre>
+$ python3 prog.py -h
+usage: prog.py [options]
+
+程式說明
+
+positional arguments:
+ N           an integer for the accumulator
+
+optional arguments:
+ -h, --help  show this help message and exit
+ --sum       sum the integers (default: find the max)
+
+ 程式說明2
+</pre>
+
+<h2>參數類型</h2>
+<p>add_argument() 方法中可使用的選項。</p>
+<ol>
+<li>
+<p>name or flags</p>
+<p>名稱或標籤，看之前設置的 prefix_chars 決定，名稱只能為一個，標籤表示法可以有多個。</p>
+</li>
+<li>
+<p>action</p>
+<p>傳入參數的動作，預設為 <code>'store'</code>。</p>
+<ul>
+<li><code>'store'</code>：儲存，啟用此標籤時會存入後方跟著的項目，按照 type 選項儲存輸入值。</li>
+<li><code>'store_const'</code>：儲存為常數，啟用此標籤時會存入一個定值，這時必須設定 const 選項。</li>
+<li><code>'store_true'</code> 和 <code>'store_false'</code>：儲存為 True 或 False，啟用此標籤時會存入 True 或 False。</li>
+<li><code>'append'</code>：產生一個 list，啟用此標籤時會將後方跟著的項目，按照 type 選項儲存到 list 中。</li>
+<li><code>'append_const'</code>：產生一個 list，啟用此標籤時會將 const 選項的類型存入 list 中。</li>
+<li><code>'count'</code>：紀錄這個標籤出現的次數，如 <code>-v</code> 選項輸入成 <code>-vvv</code> 時會回傳 3。</li>
+<li><code>'help'</code>：預設已經加入，此時若是自行設置會導致衝突。</li>
+<li><code>'version'</code>：顯示版本而不啟動程式，這時必須設定 version 選項。</li>
+<li><code>argparse.Action</code> 類型：繼承後，透過修改 <strong>call</strong> 和 <strong>init</strong> 方法來達成額外的條件。</li>
+</ul>
+</li>
+<li>
+<p>nargs</p>
+<p>決定多個參數傳入時的處理方式，預設由 action 選項決定。</p>
+<ul>
+<li><code>'N'</code>：迭代，使用一個 list 包裝此標籤後的參數。</li>
+<li><code>'?'</code>：單一，一次只能傳入一個參數，後方的項目會被視為其他標籤。</li>
+<li><code>'*'</code>：不限，使用一個 list 包裝此標籤後的參數，多餘的參數會自動歸類到此標籤下。</li>
+<li><code>'+'</code>：至少一個，類似 <code>'*'</code>，但是在此標籤沒有任何參數時會跳出錯誤訊息。</li>
+<li><code>argparse.REMAINDER</code> 物件：存為 list，使用一個 list 包裝此標籤和其參數。</li>
+</ul>
+</li>
+<li>
+<p>const</p>
+<p>根據 action 和 nargs 選項決定的定值。</p>
+</li>
+<li>
+<p>default</p>
+<p>未輸入時的預設值，不受 type 選項的轉換。</p>
+<ul>
+<li><code>argparse.SUPPRESS</code> 物件：若此選項沒有任何參數，不會建立這個選項。</li>
+</ul>
+</li>
+<li>
+<p>type</p>
+<p>轉換輸入值的類型，支援任何可呼叫(callable)的類型，預設為 string。</p>
+<ul>
+<li><code>open</code>：這個類型可以開啟純文字格式的檔案。</li>
+<li><code>argparse.FileType('w')</code>：argparse 也提供讀寫檔案的選項，作用同上。</li>
+<li>choices 選項會在 type 選項轉換完畢後才比對。</li>
+</ul>
+</li>
+<li>
+<p>choices</p>
+<p>比對輸入值的項目是否符合，可接受 list 與 generator，若否則跳出錯誤。</p>
+</li>
+<li>
+<p>required</p>
+<p>是否為必要標籤，預設為 False。若要啟用，將其設為 True 即可，Help 項目中會歸類成必要標籤。</p>
+</li>
+<li>
+<p>help</p>
+<p>當顯示 Help 項目時的說明文字，預設為空字串。</p>
+<ul>
+<li><code>'%(arg)s'</code>：說明文字中可以引用其他選項，如 <code>%(default)s</code>、<code>%(type)s</code> 等，若要使用 <code>%</code> 符號，可以用 <code>%%</code> 表示。</li>
+<li><code>argparse.SUPPRESS</code> 物件：這個標籤不會顯示在 Help 項目中。</li>
+</ul>
+</li>
 </ol>
+            </div>
+            <!-- /.entry-content -->
+    <hr/>
+    <section class="comments" id="comments">
+        <h2>Comments</h2>
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1051118.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://project.mde.tw/blog/40323205ri-zhi-opencv-hui-tu-han-shi.html">40323205日誌 - OpenCV (繪圖函式)</a></h2>
-                <div class="summary"><h4>繪圖函式 - cv2.line, cv2.circle, cv2.rectangle, cv2.ellipse</h4>
+        <div id="disqus_thread"></div>
+        <script type="text/javascript">
+            /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
+            var disqus_shortname = 'projectmdetw'; // required: replace example with your forum shortname
 
+                    var disqus_identifier = 'python-parser-for-command-line-options';
+                var disqus_url = 'http://project.mde.tw/blog/python-parser-for-command-line-options.html';
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323205ri-zhi-opencv-hui-tu-han-shi.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://project.mde.tw/blog/40323203ri-zhi-opencvzai-ru-tu-xiang.html">40323203日誌 - OpenCV(載入圖像)</a></h2>
-                <div class="summary"><h3>載入圖片及影像--cv2.imread,cv2.VideoCapture</h3>
+            var disqus_config = function () {
+                this.language = "en";
+            };
 
+            /* * * DON'T EDIT BELOW THIS LINE * * */
+            (function () {
+                var dsq = document.createElement('script');
+                dsq.type = 'text/javascript';
+                dsq.async = true;
+                dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+            })();
+        </script>
+        <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by
+            Disqus.</a></noscript>
+        <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323203ri-zhi-opencvzai-ru-tu-xiang.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-            <article>
-                <h2><a href="http://project.mde.tw/blog/40323206ri-zhi-opencv-dots.html">40323206日誌 - OpenCV (Dots)</a></h2>
-                <div class="summary"><p>物體角落(點)的辨識 --- cv2.cornerHarris &amp; cv2.dilate</p>
+    </section>
+        </article>
+    </section>
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323206ri-zhi-opencv-dots.html">more ...</a>
-                </div>
-            </article>
-            <hr/>
-
-        <ul class="pagination">
-                <li class="prev"><a href="http://project.mde.tw/blog/index7.html">&laquo;</a>
-                </li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index.html">1</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index2.html">2</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index3.html">3</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index4.html">4</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index5.html">5</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index6.html">6</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index7.html">7</a></li>
-                    <li class="active"><a
-                            href="http://project.mde.tw/blog/index8.html">8</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index9.html">9</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index10.html">10</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index11.html">11</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index12.html">12</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index13.html">13</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index14.html">14</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index15.html">15</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index16.html">16</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index17.html">17</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index18.html">18</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index19.html">19</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index20.html">20</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index21.html">21</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index22.html">22</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index23.html">23</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index24.html">24</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index25.html">25</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index26.html">26</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index27.html">27</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index28.html">28</a></li>
-                    <li class=""><a
-                            href="http://project.mde.tw/blog/index29.html">29</a></li>
-                <li class="next"><a
-                        href="http://project.mde.tw/blog/index9.html">&raquo;</a></li>
-        </ul>
         </div>
         <div class="col-sm-3" id="sidebar">
             <aside>

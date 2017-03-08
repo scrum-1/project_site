@@ -144,7 +144,21 @@ optional arguments:
 &lt;li&gt;&lt;code&gt;argparse.SUPPRESS&lt;/code&gt; 物件：這個標籤不會顯示在 Help 項目中。&lt;/li&gt;
 &lt;/ul&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</content><category term="Python3"></category></entry><entry><title>40323230日誌 - 106/03/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060304.html" rel="alternate"></link><published>2017-03-04T21:00:00+08:00</published><updated>2017-03-04T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-03-04:/blog/40323230ri-zhi-1060304.html</id><summary type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
+&lt;/ol&gt;</content><category term="Python3"></category></entry><entry><title>40323230日誌 - 106/03/05</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060305.html" rel="alternate"></link><published>2017-03-05T21:00:00+08:00</published><updated>2017-03-05T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-03-05:/blog/40323230ri-zhi-1060305.html</id><summary type="html">&lt;p&gt;Leo editor 報告樣板&lt;/p&gt;
+</summary><content type="html">&lt;p&gt;Leo editor 報告樣板&lt;/p&gt;
+
+
+&lt;h1&gt;Leo editor 報告樣板&lt;/h1&gt;
+&lt;p&gt;統整了一下之前在 Pyslvs 手冊的紀錄，將 Pandoc 和 Reveal.js 的整合放在 Github 倉儲。&lt;/p&gt;
+&lt;p&gt;倉儲位址：&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/KmolYuan/Leo-editor-report-template"&gt;https://github.com/KmolYuan/Leo-editor-report-template&lt;/a&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;PDF 按鈕在儲存 Markdown 後使用，會存成一份內含英文目錄的 PDF 在 pdf 資料夾中。&lt;/li&gt;
+&lt;li&gt;Reveal.js 按鈕會將文章處理後存到 html 的節點去，所以轉換完後要再存一次檔，才會寫入 html 中。&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;相關設定皆可到個別 Cloned node 中修改。&lt;/p&gt;
+&lt;p&gt;之後研究看看 pelican 或 Sphinx 輸出成說明網頁。&lt;/p&gt;
+&lt;p&gt;接下來會參照學長的論文格式寫關於「電腦輔助設計（CAD）應用程式框架」、「平面機構解題」、「四連桿尺寸合成系統」的 paper。&lt;/p&gt;</content><category term="pandoc"></category></entry><entry><title>40323230日誌 - 106/03/04</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060304.html" rel="alternate"></link><published>2017-03-04T21:00:00+08:00</published><updated>2017-03-04T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-03-04:/blog/40323230ri-zhi-1060304.html</id><summary type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Release version 0.5&lt;/li&gt;
 &lt;/ul&gt;

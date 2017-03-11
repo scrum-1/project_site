@@ -1,5 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-03-08T21:00:00+08:00</updated><entry><title>Python Parser for command-line options</title><link href="http://project.mde.tw/blog/python-parser-for-command-line-options.html" rel="alternate"></link><published>2017-03-08T21:00:00+08:00</published><updated>2017-03-08T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-03-08:/blog/python-parser-for-command-line-options.html</id><summary type="html">&lt;ol&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/all.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-03-11T23:00:00+08:00</updated><entry><title>Pyquino 日誌 - 106/03/11</title><link href="http://project.mde.tw/blog/pyquino-ri-zhi-1060311.html" rel="alternate"></link><published>2017-03-11T23:00:00+08:00</published><updated>2017-03-11T23:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2017-03-11:/blog/pyquino-ri-zhi-1060311.html</id><summary type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;開發日誌&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;製作gcode解析器&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;目標&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+</summary><content type="html">&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;開發日誌&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;製作gcode解析器&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;目標&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;製作了Gcode解析器,可以將檔案轉換成（Ⅹ Y Z)的位置和傳出來給Vrep的列印機使用,目前單純就列表在圖框中,接下來會結合pyqtgraphy進行3d的模型繪製&lt;/p&gt;
+&lt;p&gt;製作方法為分析每行G指令在運作的方式&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://i.imgur.com/yQhrVN6.png"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="http://i.imgur.com/ueUhBRv.png"&gt;&lt;/p&gt;</content><category term="Pyquino"></category></entry><entry><title>Python Parser for command-line options</title><link href="http://project.mde.tw/blog/python-parser-for-command-line-options.html" rel="alternate"></link><published>2017-03-08T21:00:00+08:00</published><updated>2017-03-08T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-03-08:/blog/python-parser-for-command-line-options.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;Python 的命令列參數管理&lt;/p&gt;
 &lt;/li&gt;

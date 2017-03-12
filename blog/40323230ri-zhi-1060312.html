@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>Pelican - Windows Python Error - 機械設計專題 (虎尾科大MDE)</title>
+    <title>40323230日誌 - 106/03/12 - 機械設計專題 (虎尾科大MDE)</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -166,21 +166,21 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 
-<link rel="canonical" href="http://project.mde.tw/blog/pelican-windows-python-error.html">
+<link rel="canonical" href="http://project.mde.tw/blog/40323230ri-zhi-1060312.html">
 
         <meta name="author" content="40323230" />
-        <meta name="keywords" content="Pelican,Leo Editor" />
-        <meta name="description" content="解決 ValueError: embedded null byte 錯誤" />
+        <meta name="keywords" content="Kmol,Pyslvs" />
+        <meta name="description" content="Pyslvs 開發進度： 三角求解器模組" />
 
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Pelican - Windows Python Error"/>
-        <meta property="og:url" content="http://project.mde.tw/blog/pelican-windows-python-error.html"/>
-        <meta property="og:description" content="解決 ValueError: embedded null byte 錯誤"/>
-        <meta property="article:published_time" content="2017-01-22" />
+        <meta property="og:title" content="40323230日誌 - 106/03/12"/>
+        <meta property="og:url" content="http://project.mde.tw/blog/40323230ri-zhi-1060312.html"/>
+        <meta property="og:description" content="Pyslvs 開發進度： 三角求解器模組"/>
+        <meta property="article:published_time" content="2017-03-12" />
             <meta property="article:section" content="2016bg2" />
-            <meta property="article:tag" content="Pelican" />
-            <meta property="article:tag" content="Leo Editor" />
+            <meta property="article:tag" content="Kmol" />
+            <meta property="article:tag" content="Pyslvs" />
             <meta property="article:author" content="40323230" />
 
 
@@ -301,10 +301,10 @@ init_mathjax();
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="http://project.mde.tw/blog/pelican-windows-python-error.html"
+                    <a href="http://project.mde.tw/blog/40323230ri-zhi-1060312.html"
                        rel="bookmark"
-                       title="Permalink to Pelican - Windows Python Error">
-                        Pelican - Windows Python Error
+                       title="Permalink to 40323230日誌 - 106/03/12">
+                        40323230日誌 - 106/03/12
                     </a>
                 </h1>
             </header>
@@ -314,7 +314,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-01-22T21:00:00+08:00"> 日 22 一月 2017</time>
+        <i class="fa fa-calendar"></i><time datetime="2017-03-12T21:00:00+08:00"> 日 12 三月 2017</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -322,59 +322,128 @@ init_mathjax();
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://project.mde.tw/blog/tag/pelican.html">Pelican</a>
+	<a href="http://project.mde.tw/blog/tag/kmol.html">Kmol</a>
         /
-	<a href="http://project.mde.tw/blog/tag/leo-editor.html">Leo Editor</a>
+	<a href="http://project.mde.tw/blog/tag/pyslvs.html">Pyslvs</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <ul>
-<li>解決 ValueError: embedded null byte 錯誤</li>
+                <p>Pyslvs 開發進度：</p>
+<ul>
+<li>三角求解器模組</li>
 </ul>
 
 
-<h1>解決 ValueError: embedded null byte 錯誤</h1>
-<p>一直以來，某些使用 Python 3.5（無論 Anaconda 與否）的 Windows 電腦會無法使用 Pelican 轉換網誌。</p>
-<p>於是加入 <code>--debug</code> 指令檢查。</p>
-<pre>
-    ...
-
-    File "c:\users\...\pelican\utils.py", line 101, in strftime
-        return super(SafeDatetime, self).strftime(fmt)
-ValueError: embedded null byte
-</pre>
-
-<p>重新搜尋了這個問題，找到了一篇新的文章：</p>
-<p><a href="http://xingjian.me/how-to-fix-value-error-embedded-null-byte-error.html">http://xingjian.me/how-to-fix-value-error-embedded-null-byte-error.html</a></p>
-<p>於是到 cmd 的 Python 直譯器打入下列指令檢查：</p>
+<h1>Pyslvs 開發進度</h1>
+<h2>三角求解器模組</h2>
+<p>寫了一個小模組求解，還未連接使用者界面。</p>
+<p>主要功能是傳入一個 list（包含大量題目）並解題。不過 class 裡的函式可以單獨使用。</p>
 <pre class="brush: python">
-import locale, time
-locale.setlocale(locale.LC_ALL, 'ko')
-time.strftime('%a')
+from math import *
+
+##Directions:
+##[{'p1':Point1, 'p2':Point2, 'len1':Line1, ('len2':Line2, 'angle':angle)}, ...]
+
+class solver():
+    def __init__(self, Directions=list()):
+        #Cosine Theorem
+        self.CosineTheoremAngle = lambda a, b, c: acos((b**2+c**2-a**2)/(2*b*c))
+        self.CosineTheoremSide = lambda alpha, b, c: b**2+c**2-2*b*c*cos(alpha)
+        self.Directions = Directions
+
+    def set(self, Directions): self.Directions = Directions
+
+    def answer(self):
+        answer = self.Iterator() if self.Parser() else None
+        self.Directions.clear()
+        return answer
+
+    def Parser(self):
+        for e in self.Directions:
+            pos = self.Directions.index(e)
+            if e.get('p1', False) is False: return False
+            if e.get('p2', False) is False: return False
+            if e.get('len1', False) is False: return False
+            if e.get('len2', False) is False and e.get('angle', False) is False: return False
+            if e.get('len2', False) is False: self.Directions[pos]['Type'] = 'PLAP'
+            elif e.get('angle', False) is False: self.Directions[pos]['Type'] = 'PLLP'
+        return True
+
+    def Iterator(self):
+        results = list()
+        for e in self.Directions:
+            p1 = results[e['p1']] if type(e['p1'])==int else e['p1']
+            p2 = results[e['p2']] if type(e['p2'])==int else e['p2']
+            #Direction of the point
+            other = e.get('other', False)
+            ##True: Toward len1.
+            ##False: Toward len2.
+            if e['Type']=='PLAP': results.append(self.PLAP(p1, e['len1'], e['angle'], p2, other))
+            elif e['Type']=='PLLP': results.append(self.PLLP(p1, e['len1'], e['len2'], p2, other))
+        return results
+
+    def PLAP(self, p1, line1, angle, p2, other=False):
+        x1 = p1[0]
+        y1 = p1[1]
+        len1 = float(line1)
+        angle2 = radians(float(angle))
+        angle1 = self.m(p1, p2)
+        if other:
+            cx = x1+len1*cos(angle1-angle2)
+            cy = y1+len1*sin(angle1-angle2)
+        else:
+            cx = x1+len1*cos(angle1+angle2)
+            cy = y1+len1*sin(angle1+angle2)
+        return cx, cy
+
+    def PLLP(self, p1, line1, line2, p2, other=False):
+        x1 = p1[0]
+        y1 = p1[1]
+        x2 = p2[0]
+        y2 = p2[1]
+        len1 = float(line1)
+        len2 = float(line2)
+        diffAB = sqrt((x1-x2)**2+(y2-y1)**2)
+        angle1 = self.m(p1, p2)
+        angle2 = self.CosineTheoremAngle(len2, len1, diffAB)
+        if other:
+            cx = x1+len1*cos(angle1+angle2)
+            cy = y1+len1*sin(angle1+angle2)
+        else:
+            cx = x1+len1*cos(angle1-angle2)
+            cy = y1-len1*sin(angle1-angle2)
+        return cx, cy
+
+    def m(self, p1, p2):
+        x1 = p1[0]
+        y1 = p1[1]
+        x2 = p2[0]
+        y2 = p2[1]
+        x = abs(x2-x1)
+        y = abs(y2-y1)
+        diffAB = sqrt(x**2+y**2)
+        return self.CosineTheoremAngle(y, x, diffAB)
+
+if __name__=='__main__':
+    #Test
+    s = solver([
+        {'p1':(-60, 0), 'p2':(0, 0), 'len1':30, 'angle':50}, #C
+        {'p1':0, 'p2':(0, 0), 'len1':50, 'len2':60}, #D
+        {'p1':0, 'p2':1, 'len1':50, 'len2':50, 'other':True}, #E
+        ])
+    print("C={}\nD={}\nE={}".format(*s.answer()))
+
+    ##cx= -40.716371709403816 cy= 22.98133329356934
+    ##dx= -6.698073034033397 dy= 59.62495968661744
+    ##ex= -55.44153371488418 ey= 70.76385733649067
 </pre>
 
-<p>Python Rise 了相同的錯誤如下：</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0122_01.jpg"></p>
-<p>解決方式就是重新設定 local 的設定。</p>
-<p>到 Anaconda 的資料夾中找到 pelican，編輯其 utils.py 檔案（如：<code>Anaconda3\Lib\site-packages\pelican</code>）。</p>
-<p>搜尋 <code>def strftime(date, date_format)</code> 這個函式。</p>
-<p>在函式這片註解後加入 <code>locale.setlocale(locale.LC_ALL, 'en')</code> 指令，如下：</p>
-<pre class="brush: python">
-def strftime(date, date_format):
-    '''
-    Replacement for built-in strftime
-
-    ...
-
-    This works by 'grabbing' possible format strings (those starting with %),
-    formatting them with the date, (if necessary) decoding the output and
-    replacing formatted output back.
-    '''
-    locale.setlocale(locale.LC_ALL, 'en')
-</pre>
-
-<p>之後存檔關閉即可。</p>
-<p>接著就能使用 Pelican 的功能了。</p>
+<p>解題方向指定 p1、p2、len1、angle 或 len2，Parser 會檢查填入項的完整性；Iterator 會自動判斷輸入內容選擇解題。</p>
+<p>而 p1 與 p2 的座標是使用 list 或 tuple 型態給兩個座標軸（取 [0]、[1]），或是引用上一個解（之後會增加順序檢查機制）。其他數據皆為 float 型態。</p>
+<p>角度方面使用 degree，不過 Python 的 math 模組是用 radian，途中會進行轉換。</p>
+<p>原理都是先求 AB 與水平夾的角度（angle1），最後將 CAB 夾角（angle2）加上 angle1 求 AC 與水平夾的角度，最後求出 C 點座標。</p>
+<p>之中為了方便，將餘弦定理做成 lambda 使用。</p>
+<p>程式可能還有一些漏洞，接上 Gui 之前會再檢查一遍。</p>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -386,8 +455,8 @@ def strftime(date, date_format):
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'projectmdetw'; // required: replace example with your forum shortname
 
-                    var disqus_identifier = 'pelican-windows-python-error';
-                var disqus_url = 'http://project.mde.tw/blog/pelican-windows-python-error.html';
+                    var disqus_identifier = '40323230ri-zhi-1060312';
+                var disqus_url = 'http://project.mde.tw/blog/40323230ri-zhi-1060312.html';
 
             var disqus_config = function () {
                 this.language = "en";

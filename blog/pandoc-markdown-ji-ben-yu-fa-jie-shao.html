@@ -360,6 +360,9 @@ init_mathjax();
 <li>
 <p><a href="#連結與圖片">連結</a></p>
 </li>
+<li>
+<p><a href="#數學符號">數學符號</a></p>
+</li>
 </ol>
 <h2><a name="書目與換頁"></a>Pandoc 書目與換頁</h2>
 <h3>書目</h3>
@@ -503,6 +506,16 @@ __粗體文字__
 [圖片名稱]: image/a.jpg {@fig:圖片代稱}
 </pre>
 
+<h2><a name="數學符號"></a>數學符號</h2>
+<p>Pandoc 支援插入 Latex 的數學公式，可以藉由網頁服務轉換。</p>
+<p><a href="http://www.hostmath.com/">http://www.hostmath.com/</a></p>
+<p>使用時兩端包上錢幣符號，如下：</p>
+<pre>
+$$\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
+</pre>
+
+<p>會生成：</p>
+<p>$$\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$</p>
 <h2><a name="注意事項"></a>注意事項</h2>
 <p>不像其他語言，在 Leo Editor 中使用 <code>@others</code> 與 <code>@clean</code> 編輯 Markdown 論文或技術手冊時，<strong>子節點必須多留一個換行</strong>。</p>
 <p>否則 Leo Editor 在儲存時會把下一個子節點的第一行對齊到前個節點的最後一行，導致<strong>沒有換行標記</strong>，會誤認這兩行的內容為同一行而沒做換行處理。</p>

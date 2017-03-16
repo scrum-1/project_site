@@ -60,6 +60,8 @@
 &lt;h1&gt;Pyslvs 開發進度&lt;/h1&gt;
 &lt;h2&gt;卡車尾門範例&lt;/h2&gt;
 &lt;p&gt;新增伸縮桿的簡單範例，機構源自 &lt;a href="https://www.google.com/patents/US7547055"&gt;https://www.google.com/patents/US7547055&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;改變 Point0 到 Point2 的距離可以收合尾門。&lt;/p&gt;
+&lt;p&gt;兩段式的升降裝置找不太到清楚的機構圖，可能要操控 2 個以上的伸縮桿才能達成。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0316_01.png"&gt;&lt;/p&gt;</content><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>Pyquino 日誌 - 106/03/15</title><link href="http://project.mde.tw/blog/pyquino-ri-zhi-1060315.html" rel="alternate"></link><published>2017-03-15T23:00:00+08:00</published><updated>2017-03-15T23:00:00+08:00</updated><author><name>40323123</name></author><id>tag:project.mde.tw,2017-03-15:/blog/pyquino-ri-zhi-1060315.html</id><summary type="html">&lt;ol&gt;
 &lt;li&gt;
 &lt;p&gt;開發日誌&lt;/p&gt;
@@ -2381,6 +2383,9 @@ $endif$
 &lt;li&gt;
 &lt;p&gt;&lt;a href="#連結與圖片"&gt;連結&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;a href="#數學符號"&gt;數學符號&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ol&gt;
 &lt;h2&gt;&lt;a name="書目與換頁"&gt;&lt;/a&gt;Pandoc 書目與換頁&lt;/h2&gt;
 &lt;h3&gt;書目&lt;/h3&gt;
@@ -2524,6 +2529,16 @@ __粗體文字__
 [圖片名稱]: image/a.jpg {@fig:圖片代稱}
 &lt;/pre&gt;
 
+&lt;h2&gt;&lt;a name="數學符號"&gt;&lt;/a&gt;數學符號&lt;/h2&gt;
+&lt;p&gt;Pandoc 支援插入 Latex 的數學公式，可以藉由網頁服務轉換。&lt;/p&gt;
+&lt;p&gt;&lt;a href="http://www.hostmath.com/"&gt;http://www.hostmath.com/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;使用時兩端包上錢幣符號，如下：&lt;/p&gt;
+&lt;pre&gt;
+$$\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
+&lt;/pre&gt;
+
+&lt;p&gt;會生成：&lt;/p&gt;
+&lt;p&gt;$$\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$&lt;/p&gt;
 &lt;h2&gt;&lt;a name="注意事項"&gt;&lt;/a&gt;注意事項&lt;/h2&gt;
 &lt;p&gt;不像其他語言，在 Leo Editor 中使用 &lt;code&gt;@others&lt;/code&gt; 與 &lt;code&gt;@clean&lt;/code&gt; 編輯 Markdown 論文或技術手冊時，&lt;strong&gt;子節點必須多留一個換行&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;否則 Leo Editor 在儲存時會把下一個子節點的第一行對齊到前個節點的最後一行，導致&lt;strong&gt;沒有換行標記&lt;/strong&gt;，會誤認這兩行的內容為同一行而沒做換行處理。&lt;/p&gt;

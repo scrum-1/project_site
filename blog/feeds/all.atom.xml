@@ -2526,7 +2526,7 @@ __粗體文字__
 
 請參考圖 @fig:圖片代稱 中的內容。
 
-[圖片名稱]: image/a.jpg {@fig:圖片代稱}
+[圖片名稱]: image/a.jpg {#fig:圖片代稱}
 &lt;/pre&gt;
 
 &lt;h2&gt;&lt;a name="數學符號"&gt;&lt;/a&gt;數學符號&lt;/h2&gt;

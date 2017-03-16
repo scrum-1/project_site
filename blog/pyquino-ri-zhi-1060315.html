@@ -2,7 +2,7 @@
 <html lang="en"
 >
 <head>
-    <title>40323230日誌 - 105/10/05 - 機械設計專題 (虎尾科大MDE)</title>
+    <title>Pyquino 日誌 - 106/03/15 - 機械設計專題 (虎尾科大MDE)</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -166,22 +166,21 @@ init_mathjax = function() {
 init_mathjax();
 </script>
 
-<link rel="canonical" href="http://project.mde.tw/blog/40323230ri-zhi-1051005.html">
+<link rel="canonical" href="http://project.mde.tw/blog/pyquino-ri-zhi-1060315.html">
 
-        <meta name="author" content="40323230" />
-        <meta name="keywords" content="Kmol,Pyslvs" />
-        <meta name="description" content="Ubuntu MinGW Ubuntu 16.04 與 Windows 10 Leo Editor IDE" />
+        <meta name="author" content="40323123" />
+        <meta name="keywords" content="Pyquino" />
+        <meta name="description" content="開發日誌 完成gcode送值到Vrep 討論vrep的ik合成" />
 
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="40323230日誌 - 105/10/05"/>
-        <meta property="og:url" content="http://project.mde.tw/blog/40323230ri-zhi-1051005.html"/>
-        <meta property="og:description" content="Ubuntu MinGW Ubuntu 16.04 與 Windows 10 Leo Editor IDE"/>
-        <meta property="article:published_time" content="2016-10-05" />
-            <meta property="article:section" content="2016bg2" />
-            <meta property="article:tag" content="Kmol" />
-            <meta property="article:tag" content="Pyslvs" />
-            <meta property="article:author" content="40323230" />
+        <meta property="og:title" content="Pyquino 日誌 - 106/03/15"/>
+        <meta property="og:url" content="http://project.mde.tw/blog/pyquino-ri-zhi-1060315.html"/>
+        <meta property="og:description" content="開發日誌 完成gcode送值到Vrep 討論vrep的ik合成"/>
+        <meta property="article:published_time" content="2017-03-15" />
+            <meta property="article:section" content="2016g1" />
+            <meta property="article:tag" content="Pyquino" />
+            <meta property="article:author" content="40323123" />
 
 
     <!-- Bootstrap -->
@@ -260,10 +259,10 @@ init_mathjax();
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
                     <li><a href="/blog/pages/about/">About</a></li>
-                        <li class="active">
+                        <li >
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
-                        <li >
+                        <li class="active">
                             <a href="http://project.mde.tw/blog/category/2016g1.html">2016g1</a>
                         </li>
                         <li >
@@ -301,10 +300,10 @@ init_mathjax();
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="http://project.mde.tw/blog/40323230ri-zhi-1051005.html"
+                    <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060315.html"
                        rel="bookmark"
-                       title="Permalink to 40323230日誌 - 105/10/05">
-                        40323230日誌 - 105/10/05
+                       title="Permalink to Pyquino 日誌 - 106/03/15">
+                        Pyquino 日誌 - 106/03/15
                     </a>
                 </h1>
             </header>
@@ -314,59 +313,41 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-10-05T21:00:00+08:00"> 三 05 十月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2017-03-15T23:00:00+08:00"> 三 15 三月 2017</time>
     </span>
             <span class="label label-default">By</span>
-            <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
+            <a href="http://project.mde.tw/blog/author/40323123.html"><i class="fa fa-user"></i> 40323123</a>
 
 
 
 <span class="label label-default">Tags</span>
-	<a href="http://project.mde.tw/blog/tag/kmol.html">Kmol</a>
-        /
-	<a href="http://project.mde.tw/blog/tag/pyslvs.html">Pyslvs</a>
+	<a href="http://project.mde.tw/blog/tag/pyquino.html">Pyquino</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
                 <ol>
 <li>
-<p>Ubuntu MinGW</p>
+<p>開發日誌</p>
+<ul>
+<li>
+<p>完成gcode送值到Vrep</p>
 </li>
 <li>
-<p>Ubuntu 16.04 與 Windows 10</p>
+<p>討論vrep的ik合成</p>
 </li>
-<li>
-<p>Leo Editor IDE</p>
+</ul>
 </li>
 </ol>
 
 
-<h2>Ubuntu MinGW</h2>
-<p>用 apt-get 安裝 MinGW，以在 Ubuntu 編譯 Windows 的可執行檔 <code>.exe</code>。</p>
-<pre>
-$sudo apt-get install mingw-w64
-</pre>
-
-<p>編譯時使用下列指令（相當於 GNU 工具）：</p>
-<pre>
-$x86_64-w64-mingw32-gcc
-$x86_64-w64-mingw32-g++
-</pre>
-
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/1005_01.jpg"></p>
-<p>不過若要使用在 Pyslvs，Qt 方面仍要做相應的調整。</p>
-<h1>Ubuntu 16.04 與 Windows 10</h1>
-<p>目前研究室沒有實體機使用這兩個系統，所以打算使用一台學校的電腦安裝 Virtualbox，模擬兩個系統的環境。</p>
-<p>該電腦由於安裝雙系統，Ubuntu 不使用時 Virtualbox 不會佔用 Windows 7 的記憶體，所以應該能提供較流暢的模擬環境。</p>
-<p>明天早上會裝好 Virtualbox 的設定。</p>
-<h1>Leo Editor IDE</h1>
-<p>目前觀察利用 Python 3 的程式碼編譯 Solvespace 是沒有問題的，不過在 14.04 與 16.04 的 Python 3.4 和 3.5 之間需要切換 Makefile。不然會沒有 include 或 lib 位置。</p>
-<pre>
-slvs_wrap.cxx:14:23: fatal error: Python.h: 沒有此一檔案或目錄
-</pre>
-
-<p>而若是編譯給 Windows 使用，也是要改一些設定。</p>
-<p>除了之前無法輸入中文的問題以外，測試執行 Button 的 Script 是沒問題。</p>
+<p>開發日誌
+＝＝＝</p>
+<h2>完成gcode送值到Vrep</h2>
+<p>利用gcode parser 解析gcode為點位置,及可以完成送刀尖點到vrep裡面進行模擬</p>
+<h2>Vrep的ik</h2>
+<p>和武鉦老師討論到vrep的可行性部份,做出一個任意的機構,列用vrep的ik解題方法,把逆向運動學解出來後,使用自己寫的控制器,完成一套任意機械,都可以直接做出來控制器,讓使用者使用</p>
+<p>今天沒有很多時間來製作網誌,明天在詳細講述內容</p>
+<p><img alt="" src="https://github.com/coursemdetw/project_site_files/blob/gh-pages/files/pyquino/vrep.png?raw=true"></p>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -378,8 +359,8 @@ slvs_wrap.cxx:14:23: fatal error: Python.h: 沒有此一檔案或目錄
             /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
             var disqus_shortname = 'projectmdetw'; // required: replace example with your forum shortname
 
-                    var disqus_identifier = '40323230ri-zhi-1051005';
-                var disqus_url = 'http://project.mde.tw/blog/40323230ri-zhi-1051005.html';
+                    var disqus_identifier = 'pyquino-ri-zhi-1060315';
+                var disqus_url = 'http://project.mde.tw/blog/pyquino-ri-zhi-1060315.html';
 
             var disqus_config = function () {
                 this.language = "en";

@@ -313,7 +313,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-02-26T23:00:00+08:00"> 日 26 二月 2017</time>
+        <i class="fa fa-calendar"></i><time datetime="2017-02-26T23:00:00+08:00"> Sun 26 February 2017</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323123.html"><i class="fa fa-user"></i> 40323123</a>
@@ -341,10 +341,10 @@ init_mathjax();
 
 
 <p>使用remoteAPI來控制Vrep內步的馬達旋轉，目前還沒製做把值存進去的功能，還在思考要如何內外同動，包括訊號傳輸，有想過直接使用之前做的可變電阻的方式，利用Arduino直接使用lua收值把外部的狀況輸入到內部裡面，這部分還在思考要怎麼製做比較盡善盡美。</p>
-<p><img alt="" src="https://github.com/coursemdetw/project_site_files/blob/gh-pages/files/pyquino/machine/pyquino_vrep.PNG?raw=true"></p>
+<p><img alt="" src="https://github.com/coursemdetw/project_site_files/blob/gh-pages/files/pyquino/machine/pyquino_vrep.PNG?raw=true" /></p>
 <h2>增加檔案</h2>
 <p>新增了core裡面的涵式庫，將RemoteAPI的dll包到裡面，目前.so的部分還沒做，要等換到linux系統的時候在製做兩個不一樣版本的差異。</p>
-<p><img alt="" src="https://github.com/coursemdetw/project_site_files/blob/gh-pages/files/pyquino/machine/file_update.PNG?raw=true"></p>
+<p><img alt="" src="https://github.com/coursemdetw/project_site_files/blob/gh-pages/files/pyquino/machine/file_update.PNG?raw=true" /></p>
 <h2>程式部分</h2>
 <p>在思考要不要額外把串列通訊的部分拉成獨立的控制，不然要一個使用者，在使用串列通訊的功能的時候安裝opengl或者pyqtgraphy之類的模組，感覺有些不適當，除非說變成將得到的值畫成圖表之類的可能比較好。</p>
 <p>RemoteAPI在連線部分，不太確定支援的式點對點的控制還是說連線是走同一條線路，這部分要再看資料的規定才會理解他的運作方法，現在的寫法是每按一個按鈕就連線一次，不太確定這樣會不會有問題發生，這可能要看技術手冊或者使用後才會知道。</p>
@@ -403,18 +403,18 @@ init_mathjax();
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/pandoc-markdown-ji-ben-yu-fa-jie-shao.html">
+                            Pandoc - Markdown 基本語法介紹
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html">
+                            Pandoc - Markdown 轉 PDF 格式
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060315.html">
                             Pyquino 日誌 - 106/03/15
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060313.html">
-                            Pyquino 日誌 - 106/03/13
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060312.html">
-                            40323230日誌 - 106/03/12
                         </a>
                     </li>
                 </ul>

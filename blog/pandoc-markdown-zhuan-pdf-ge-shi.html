@@ -170,14 +170,14 @@ init_mathjax();
 
         <meta name="author" content="40323230" />
         <meta name="keywords" content="pandoc" />
-        <meta name="description" content="Ubuntu 安裝方式 Windows 安裝方式 圖片參照擴充套件 使用範例 轉換中文字型與換行說明 生成目錄 Pyslvs 手冊倉儲：https://github.com/KmolYuan/Pyslvs-manual" />
+        <meta name="description" content="Ubuntu 安裝方式 Windows 安裝方式 圖片參照擴充套件 使用範例 Pyslvs 手冊倉儲：https://github.com/KmolYuan/Pyslvs-manual" />
 
         <meta property="og:site_name" content="機械設計專題 (虎尾科大MDE)" />
         <meta property="og:type" content="article"/>
         <meta property="og:title" content="Pandoc - Markdown 轉 PDF 格式"/>
         <meta property="og:url" content="http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html"/>
-        <meta property="og:description" content="Ubuntu 安裝方式 Windows 安裝方式 圖片參照擴充套件 使用範例 轉換中文字型與換行說明 生成目錄 Pyslvs 手冊倉儲：https://github.com/KmolYuan/Pyslvs-manual"/>
-        <meta property="article:published_time" content="2017-01-30" />
+        <meta property="og:description" content="Ubuntu 安裝方式 Windows 安裝方式 圖片參照擴充套件 使用範例 Pyslvs 手冊倉儲：https://github.com/KmolYuan/Pyslvs-manual"/>
+        <meta property="article:published_time" content="2017-03-16" />
             <meta property="article:section" content="2016bg2" />
             <meta property="article:tag" content="pandoc" />
             <meta property="article:author" content="40323230" />
@@ -313,7 +313,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-01-30T21:00:00+08:00"> 一 30 一月 2017</time>
+        <i class="fa fa-calendar"></i><time datetime="2017-03-16T21:00:00+08:00"> Thu 16 March 2017</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -337,12 +337,6 @@ init_mathjax();
 </li>
 <li>
 <p>使用範例</p>
-</li>
-<li>
-<p>轉換中文字型與換行說明</p>
-</li>
-<li>
-<p>生成目錄</p>
 </li>
 </ul>
 <p>Pyslvs 手冊倉儲：<a href="https://github.com/KmolYuan/Pyslvs-manual">https://github.com/KmolYuan/Pyslvs-manual</a></p>
@@ -379,16 +373,17 @@ pandoc: Error producing PDF
 <p><a href="https://github.com/jgm/pandoc/releases/">https://github.com/jgm/pandoc/releases/</a></p>
 <p>然後根據 XeLaTex 的說明安裝 MikTex，並執行 MikTex Update 更新 xetex 的檔案。</p>
 <p><a href="http://www.texts.io/support/0002/">http://www.texts.io/support/0002/</a></p>
-<p>Windows 同樣也需要 etoolbox 的樣板，不過可以使用 MikTex Package Manager 來安裝，在過濾器中打上 etoolbox 搜尋安裝即可。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0121_01.jpg"></p>
+<p>Windows 可以使用 MikTex Package Manager 來安裝套件，在過濾器中打上套件搜尋安裝即可。</p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0121_01.jpg" /></p>
+<p>以下是 Windows 必須安裝的套件名稱：</p>
+<ul>
+<li>etoolbox</li>
+<li>cjk（中文、日文、韓文語法支援，包含漢字數字）</li>
+<li>xecjk（基本的 CJK 支援）</li>
+<li>makecmds（Latex 的自定義函式，提供自訂與複寫參數）</li>
+</ul>
 <h1>圖片參照擴充套件</h1>
-<p>為了達成下列效果，必須使用圖片參照：</p>
-<pre>
-![圖片名稱](圖片連結)
-
-請參考 [圖片名稱] 中的內容。
-</pre>
-
+<p>文章中常有「引用圖 1.1」之類的編號說明。</p>
 <p>不過 Pandoc 沒有內建這個功能，所以必須安裝 pandoc-fignos。</p>
 <p>pandoc-fignos 是 Python 套件，使用 pip 安裝。</p>
 <pre>
@@ -396,23 +391,6 @@ $sudo pip3 install pandoc-fignos
 </pre>
 
 <p>之後在 pandoc 參數中增加 <code>--filter pandoc-fignos</code> 來啟用這個語法。</p>
-<p>語法雖然很多樣，但是使用下列方式呈現較佳。</p>
-<pre>
-![圖片名稱]
-
-請參考 @fig:圖片代稱 中的內容。
-
-[圖片名稱]: 圖片連結 {@fig:圖片代稱}
-</pre>
-
-<p>會變成：</p>
-<pre>
-[圖片]
-Figure 1: 圖片名稱
-
-請參考 Figure 1 中的內容。
-</pre>
-
 <h1>使用範例</h1>
 <p><a href="http://pandoc.org/demos.html">http://pandoc.org/demos.html</a></p>
 <p>參照 pandoc 的 demo，下載 MANUAL.txt 這個 Markdown 檔案來測試。</p>
@@ -426,46 +404,9 @@ $pandoc MANUAL.txt --latex-engine=xelatex -o MANUAL.pdf
 <p>若是結合 <code>--latex-engine=xelatex</code> 或是 <code>-o</code> 參數，更可以直接輸出成 pdf 檔案。</p>
 <p>而輸出的 pdf 檔案會自動分頁、排版、標記頁碼。demo 網頁上還有其他範例，可以轉換成不同格式的文件。</p>
 <p>手冊方面全局使用 Leo editor 管理，並整合轉檔的工作，圖片則使用另一個倉儲儲存，不過這些 Markdown 樣板的語法跟網誌的語法不太相同，可能要稍微測試並習慣其用法。</p>
-<h1>轉換中文字型說明</h1>
-<p>若是只使用以上指令，英文以外的字元會無法順利轉換而變成空白文字。</p>
-<h2>中文字型</h2>
-<p>使用 <code>-V mainfont="中文字型"</code> 指令即可。</p>
-<p>在 leo editor 文件中，使用參數替換，以套用到不同檔案中：</p>
-<pre class="brush: python">
-import os, platform
-if platform.system().lower()=="linux": font = "文泉驛微米黑"
-elif platform.system().lower()=="windows": font = "DFKai-SB"
-else: font = "Arial"
-fontsize = "12"
-settingFlag = "--latex-engine=xelatex -V \"mainfont:{0}\" -V fontsize={1}pt".format(font, fontsize)
-os.system("pandoc {0}.md {1} -o PDF/{0}.pdf".format(filename, settingFlag))
-g.es("{} PDF 轉換完畢".format(filename))
-</pre>
-
-<p>之後會依據平台選擇字型輸出。</p>
-<h2>換行</h2>
-<p>在 Pandoc 的轉換中，英文使用空白來斷定是否要換行，並且會在換行後補足空白字元。</p>
-<p>這樣會導致無法讓其他語系正確換行，所以必須先導出模板後自訂。</p>
-<p>使用下列指令導出 Pandoc 模板。</p>
-<pre>
->pandoc -D latex > template.tex
-</pre>
-
-<p>接著找到下面這段：</p>
-<pre>
-...
-$if(mathfont)$
-    \setmathfont(Digits,Latin,Greek){$mathfont$}
-$endif$
-...
-</pre>
-
-<p>在 <code>$if(mathfont)$</code> 上方插入 <code>\XeTeXlinebreaklocale "zh"</code>。</p>
-<p>接著指令中加入 <code>--template=template.tex</code> 來使用自訂模板。</p>
-<h1>生成目錄</h1>
-<p>加入 <code>--toc</code> 參數自動生成目錄，為 table of contents 的縮寫。</p>
+<p>另外還可以加入 <code>--toc</code> 參數自動生成目錄，為 table of contents 的縮寫。</p>
 <p>生成的目錄如下的形式，並會自動加上連結。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0121_02.png"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0121_02.png" /></p>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -521,18 +462,18 @@ $endif$
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/pandoc-markdown-ji-ben-yu-fa-jie-shao.html">
+                            Pandoc - Markdown 基本語法介紹
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html">
+                            Pandoc - Markdown 轉 PDF 格式
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060315.html">
                             Pyquino 日誌 - 106/03/15
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060313.html">
-                            Pyquino 日誌 - 106/03/13
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060312.html">
-                            40323230日誌 - 106/03/12
                         </a>
                     </li>
                 </ul>

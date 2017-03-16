@@ -314,7 +314,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-02-02T21:00:00+08:00"> 四 02 二月 2017</time>
+        <i class="fa fa-calendar"></i><time datetime="2017-02-02T21:00:00+08:00"> Thu 02 February 2017</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -341,13 +341,13 @@ init_mathjax();
 
 <h1>Leo Editor - Pyslvs 手冊</h1>
 <p>目前以 Leo Editor 編輯 Markdown 檔案，為了讓章節更分明，用 node 的方式統整內容。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0202_01.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0202_01.jpg" /></p>
 <p>匯出的 PDF 輸出在 <code>/PDF</code> 資料夾內，而 Reveal.js 則是放在 <code>/reveal.js</code> 資料夾內。</p>
 <p>至於 Pelican 的部份還沒研究樣板的關係，暫時未加入。</p>
 <h2>Pandoc - PDF</h2>
 <p>這部份使用 Pandoc 的命令匯出，在語法上會用到擴展的功能，Pelican 和 Reveal.js 可能不會支援。</p>
 <p>在 Leo Editor 中設計了 3 個按鈕轉檔，Python code 判斷平台與字型，Windows 採用<strong>標楷體</strong>；Ubuntu 後來由<strong>文泉驛微米黑</strong>改成<strong>教育部標準楷書</strong>。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0202_04.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0202_04.jpg" /></p>
 <p>Python code 使用 Clone node 的方式，使三本手冊套用一樣的設定輸出。</p>
 <pre class="brush: python">
 import os, platform
@@ -387,9 +387,9 @@ Reveal.initialize({
 </pre>
 
 <p>並利用 Clone node 與原文件同步。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0202_02.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0202_02.jpg" /></p>
 <p>使用後的樣式如下：</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0202_03.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0202_03.jpg" /></p>
 <p>另外還有需要換頁的問題，官方提供的語法可以自動分行、輸入現成 md 檔等等。</p>
 <pre class="brush: html">
 <section data-markdown="example.md"  
@@ -457,18 +457,18 @@ Reveal.initialize({
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/pandoc-markdown-ji-ben-yu-fa-jie-shao.html">
+                            Pandoc - Markdown 基本語法介紹
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html">
+                            Pandoc - Markdown 轉 PDF 格式
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060315.html">
                             Pyquino 日誌 - 106/03/15
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060313.html">
-                            Pyquino 日誌 - 106/03/13
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060312.html">
-                            40323230日誌 - 106/03/12
                         </a>
                     </li>
                 </ul>

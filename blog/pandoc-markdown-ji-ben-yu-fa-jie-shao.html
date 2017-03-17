@@ -507,7 +507,7 @@ __粗體文字__
 <pre>
 ![圖片名稱][]
 
-請參考圖 @fig:圖片代稱 中的內容。
+請參考圖 {@fig:圖片代稱} 中的內容。
 
 [圖片名稱]: image/a.jpg {#fig:圖片代稱}
 </pre>
@@ -516,11 +516,15 @@ __粗體文字__
 <p>Markdown 的表格分為 4 種樣式，並有不同表達法。</p>
 <p>正式表格多用管表格表示：</p>
 <pre>
+Table: 表格名稱 {#tbl:表格代號}
+
 | Tables   |      Are      |  Cool |
 |----------|:-------------:|------:|
 | col 1 is |  left-aligned | $1600 |
 | col 2 is |    centered   |   $12 |
 | col 3 is | right-aligned |    $1 |
+
+參照表 {@tbl:表格代號}
 </pre>
 
 <p>使用網頁服務生成：<a href="http://www.tablesgenerator.com/markdown_tables">http://www.tablesgenerator.com/markdown_tables</a></p>

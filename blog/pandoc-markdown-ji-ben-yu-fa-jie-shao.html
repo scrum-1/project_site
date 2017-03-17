@@ -177,7 +177,7 @@ init_mathjax();
         <meta property="og:title" content="Pandoc - Markdown 基本語法介紹"/>
         <meta property="og:url" content="http://project.mde.tw/blog/pandoc-markdown-ji-ben-yu-fa-jie-shao.html"/>
         <meta property="og:description" content="一些 Pandoc 常用的 Markdown 語法及注意事項"/>
-        <meta property="article:published_time" content="2017-01-29" />
+        <meta property="article:published_time" content="2017-03-16" />
             <meta property="article:section" content="2016bg2" />
             <meta property="article:tag" content="pandoc" />
             <meta property="article:tag" content="Leo Editor" />
@@ -314,7 +314,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-01-29T21:00:00+08:00"> 日 29 一月 2017</time>
+        <i class="fa fa-calendar"></i><time datetime="2017-03-16T21:00:00+08:00"> 四 16 三月 2017</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -362,6 +362,9 @@ init_mathjax();
 </li>
 <li>
 <p><a href="#數學符號">數學符號</a></p>
+</li>
+<li>
+<p><a href="#程式碼">程式碼</a></p>
 </li>
 </ol>
 <h2><a name="書目與換頁"></a>Pandoc 書目與換頁</h2>
@@ -516,11 +519,38 @@ $$\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
 
 <p>會生成：</p>
 <p>$$\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$</p>
+<h2><a name="程式碼"></a>程式碼</h2>
+<p>Markdown 用簡單的縮排插入程式碼，如：</p>
+<pre>
+這是一段 Python 程式：
+
+    if __name__='__main__':
+        print("Hello world!")
+
+印出 Hello world! 字樣。
+</pre>
+
+<p>或是使用重音符（Grave accent）包起單一程式碼：</p>
+<pre>
+一段程式：
+
+`print("Hello world!")`
+</pre>
+
+<p>若一大串程式碼，可以用三個以上的重音符包起，也能用語言名稱加註：</p>
+<pre>
+Bash 指令：
+
+```bash
+sudo apt install python3-pip
+sudo pip3 install markdown
+```</pre>
+
 <h2><a name="注意事項"></a>注意事項</h2>
 <p>不像其他語言，在 Leo Editor 中使用 <code>@others</code> 與 <code>@clean</code> 編輯 Markdown 論文或技術手冊時，<strong>子節點必須多留一個換行</strong>。</p>
 <p>否則 Leo Editor 在儲存時會把下一個子節點的第一行對齊到前個節點的最後一行，導致<strong>沒有換行標記</strong>，會誤認這兩行的內容為同一行而沒做換行處理。</p>
 <hr>
-<p><strong><strong>未完待續</strong></strong></p>
+<p>更多內容請參見：<a href="http://markdown.tw/">http://markdown.tw/</a></p>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -576,18 +606,18 @@ $$\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/pandoc-markdown-ji-ben-yu-fa-jie-shao.html">
+                            Pandoc - Markdown 基本語法介紹
+                        </a>
+                    </li>
+                    <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html">
+                            Pandoc - Markdown 轉 PDF 格式
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060315.html">
                             Pyquino 日誌 - 106/03/15
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060313.html">
-                            Pyquino 日誌 - 106/03/13
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060312.html">
-                            40323230日誌 - 106/03/12
                         </a>
                     </li>
                 </ul>

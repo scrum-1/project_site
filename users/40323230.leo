@@ -30,6 +30,7 @@
 <v t="ahshoe.20170316194859.7"><vh>清單</vh></v>
 <v t="ahshoe.20170316195711.1"><vh>連結與圖片</vh></v>
 <v t="ahshoe.20170316202819.1"><vh>數學符號</vh></v>
+<v t="40323230.20170316231712.1"><vh>程式碼</vh></v>
 <v t="ahshoe.20170316194859.8"><vh>注意事項</vh></v>
 </v>
 <v t="ahshoe.20170316194819.1"><vh>@edit 40323230_20170315.md</vh></v>
@@ -258,6 +259,39 @@
 </vnodes>
 <tnodes>
 <t tx="40323230.20170227141101.1"></t>
+<t tx="40323230.20170316231712.1">&lt;a name="程式碼"&gt;&lt;/a&gt;程式碼
+---
+
+Markdown 用簡單的縮排插入程式碼，如：
+
+&lt;pre&gt;
+這是一段 Python 程式：
+
+    if __name__='__main__':
+        print("Hello world!")
+
+印出 Hello world! 字樣。
+&lt;/pre&gt;
+
+或是使用重音符（Grave accent）包起單一程式碼：
+
+&lt;pre&gt;
+一段程式：
+
+`print("Hello world!")`
+&lt;/pre&gt;
+
+若一大串程式碼，可以用三個以上的重音符包起，也能用語言名稱加註：
+
+&lt;pre&gt;
+Bash 指令：
+
+```bash
+sudo apt install python3-pip
+sudo pip3 install markdown
+```&lt;/pre&gt;
+
+</t>
 <t tx="ahshoe.20160821213649.1"></t>
 <t tx="ahshoe.20160828214004.1"></t>
 <t tx="ahshoe.20160902195148.1"></t>
@@ -289,7 +323,7 @@
 <t tx="ahshoe.20170315224843.1"></t>
 <t tx="ahshoe.20170316194859.1">@language md
 Title: Pandoc - Markdown 基本語法介紹
-Date: 2017-01-29 21:00
+Date: 2017-03-16 21:00
 Category: 2016bg2
 Tags: pandoc, Leo Editor
 Author: 40323230
@@ -330,11 +364,13 @@ Author: 40323230
 
 1. [數學符號](#數學符號)
 
+1. [程式碼](#程式碼)
+
 @others
 
 ---
 
-__**未完待續**__</t>
+更多內容請參見：&lt;http://markdown.tw/&gt;</t>
 <t tx="ahshoe.20170316194859.2">&lt;a name="書目與換頁"&gt;&lt;/a&gt;Pandoc 書目與換頁
 ---
 

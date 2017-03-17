@@ -37,16 +37,10 @@
 &lt;li&gt;英文字型：Times New Roman&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;預覽圖&lt;/h2&gt;
-&lt;p&gt;封面標題可以使用空白加上反斜線 &lt;code&gt;\&lt;/code&gt; 換行，列出作者的部份無法換行，會如英文論文一樣行列出作者名字。&lt;/p&gt;
-&lt;p&gt;若是之後覺得行距不妥，可以再到模板那裡修正。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0315_01.png"&gt;&lt;/p&gt;
-&lt;p&gt;中文目錄，不過大章節只有號碼顯示。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0315_02.png"&gt;&lt;/p&gt;
-&lt;p&gt;自動收集文章的表格和圖片編號，表目錄在圖目錄前方，若是沒有表格或任何圖片，記得關掉該選項。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0315_03.png"&gt;&lt;/p&gt;
-&lt;p&gt;章節的表示方式要讀取變數才能將數字置於中間，未來會想辦法修正。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0315_04.png"&gt;&lt;/p&gt;
-&lt;p&gt;按照論文模板，圖號是以章節依出現順序命名，不過這部份 Pandoc 和模組 pandoc-fignos 會幫忙處理，只要按照一般方式插入圖片即可。&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0315_05.png"&gt;&lt;/p&gt;</content><category term="Leo Editor"></category><category term="Pandoc"></category></entry><entry><title>40323230日誌 - 106/03/16</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060316.html" rel="alternate"></link><published>2017-03-16T21:00:00+08:00</published><updated>2017-03-16T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-03-16:/blog/40323230ri-zhi-1060316.html</id><summary type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;卡車尾門範例&lt;/li&gt;

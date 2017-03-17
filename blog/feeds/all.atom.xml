@@ -25,7 +25,8 @@
 &lt;h2&gt;設定&lt;/h2&gt;
 &lt;p&gt;採用以下設定：&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;自動生成：目錄、表目錄、圖目錄（&lt;code&gt;--toc -V lof=true -V lot=true&lt;/code&gt;）&lt;/li&gt;
+&lt;li&gt;語系：中文（&lt;code&gt;-V lang=chinese&lt;/code&gt;）&lt;/li&gt;
+&lt;li&gt;自動生成：目錄、表目錄、圖目錄（&lt;code&gt;--toc&lt;/code&gt;）&lt;/li&gt;
 &lt;li&gt;自動分節（&lt;code&gt;-N&lt;/code&gt;）&lt;/li&gt;
 &lt;li&gt;程式碼標示：Kate（&lt;code&gt;--highlight-style kate&lt;/code&gt;）&lt;/li&gt;
 &lt;li&gt;整體設定（&lt;code&gt;-V documentclass=report&lt;/code&gt;）&lt;/li&gt;

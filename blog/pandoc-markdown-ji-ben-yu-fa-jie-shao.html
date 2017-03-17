@@ -361,6 +361,9 @@ init_mathjax();
 <p><a href="#連結與圖片">連結</a></p>
 </li>
 <li>
+<p><a href="#表格">表格</a></p>
+</li>
+<li>
 <p><a href="#數學符號">數學符號</a></p>
 </li>
 <li>
@@ -509,6 +512,18 @@ __粗體文字__
 [圖片名稱]: image/a.jpg {#fig:圖片代稱}
 </pre>
 
+<h2><a name="表格"></a>表格</h2>
+<p>Markdown 的表格分為 4 種樣式，並有不同表達法。</p>
+<p>正式表格多用管表格表示：</p>
+<pre>
+| Tables   |      Are      |  Cool |
+|----------|:-------------:|------:|
+| col 1 is |  left-aligned | $1600 |
+| col 2 is |    centered   |   $12 |
+| col 3 is | right-aligned |    $1 |
+</pre>
+
+<p>使用網頁服務生成：<a href="http://www.tablesgenerator.com/markdown_tables">http://www.tablesgenerator.com/markdown_tables</a></p>
 <h2><a name="數學符號"></a>數學符號</h2>
 <p>Pandoc 支援插入 Latex 的數學公式，可以藉由網頁服務轉換。</p>
 <p><a href="http://www.hostmath.com/">http://www.hostmath.com/</a></p>

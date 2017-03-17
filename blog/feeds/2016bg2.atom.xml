@@ -91,6 +91,9 @@
 &lt;p&gt;&lt;a href="#連結與圖片"&gt;連結&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
+&lt;p&gt;&lt;a href="#表格"&gt;表格&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
 &lt;p&gt;&lt;a href="#數學符號"&gt;數學符號&lt;/a&gt;&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
@@ -239,6 +242,18 @@ __粗體文字__
 [圖片名稱]: image/a.jpg {#fig:圖片代稱}
 &lt;/pre&gt;
 
+&lt;h2&gt;&lt;a name="表格"&gt;&lt;/a&gt;表格&lt;/h2&gt;
+&lt;p&gt;Markdown 的表格分為 4 種樣式，並有不同表達法。&lt;/p&gt;
+&lt;p&gt;正式表格多用管表格表示：&lt;/p&gt;
+&lt;pre&gt;
+| Tables   |      Are      |  Cool |
+|----------|:-------------:|------:|
+| col 1 is |  left-aligned | $1600 |
+| col 2 is |    centered   |   $12 |
+| col 3 is | right-aligned |    $1 |
+&lt;/pre&gt;
+
+&lt;p&gt;使用網頁服務生成：&lt;a href="http://www.tablesgenerator.com/markdown_tables"&gt;http://www.tablesgenerator.com/markdown_tables&lt;/a&gt;&lt;/p&gt;
 &lt;h2&gt;&lt;a name="數學符號"&gt;&lt;/a&gt;數學符號&lt;/h2&gt;
 &lt;p&gt;Pandoc 支援插入 Latex 的數學公式，可以藉由網頁服務轉換。&lt;/p&gt;
 &lt;p&gt;&lt;a href="http://www.hostmath.com/"&gt;http://www.hostmath.com/&lt;/a&gt;&lt;/p&gt;
@@ -288,7 +303,7 @@ sudo pip3 install markdown
 &lt;p&gt;Windows 安裝方式&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;圖片參照擴充套件&lt;/p&gt;
+&lt;p&gt;圖片與表格的參照擴充套件&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;使用範例&lt;/p&gt;
@@ -303,7 +318,7 @@ sudo pip3 install markdown
 &lt;p&gt;Windows 安裝方式&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;圖片參照擴充套件&lt;/p&gt;
+&lt;p&gt;圖片與表格的參照擴充套件&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
 &lt;p&gt;使用範例&lt;/p&gt;
@@ -352,15 +367,16 @@ pandoc: Error producing PDF
 &lt;li&gt;xecjk（基本的 CJK 支援）&lt;/li&gt;
 &lt;li&gt;makecmds（Latex 的自定義函式，提供自訂與複寫參數）&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h1&gt;圖片參照擴充套件&lt;/h1&gt;
+&lt;h1&gt;圖片與表格的參照擴充套件&lt;/h1&gt;
 &lt;p&gt;文章中常有「引用圖 1.1」之類的編號說明。&lt;/p&gt;
-&lt;p&gt;不過 Pandoc 沒有內建這個功能，所以必須安裝 pandoc-fignos。&lt;/p&gt;
+&lt;p&gt;不過 Pandoc 沒有內建這個功能，所以必須安裝 pandoc-fignos 和 pandoc-tablenos。&lt;/p&gt;
 &lt;p&gt;pandoc-fignos 是 Python 套件，使用 pip 安裝。&lt;/p&gt;
 &lt;pre&gt;
 $sudo pip3 install pandoc-fignos
+$sudo pip3 install pandoc-tablenos
 &lt;/pre&gt;
 
-&lt;p&gt;之後在 pandoc 參數中增加 &lt;code&gt;--filter pandoc-fignos&lt;/code&gt; 來啟用這個語法。&lt;/p&gt;
+&lt;p&gt;之後在 pandoc 參數中增加 &lt;code&gt;--filter pandoc-fignos&lt;/code&gt; 和 &lt;code&gt;--filter pandoc-tablenos&lt;/code&gt; 來啟用這個語法。&lt;/p&gt;
 &lt;h1&gt;使用範例&lt;/h1&gt;
 &lt;p&gt;&lt;a href="http://pandoc.org/demos.html"&gt;http://pandoc.org/demos.html&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;參照 pandoc 的 demo，下載 MANUAL.txt 這個 Markdown 檔案來測試。&lt;/p&gt;

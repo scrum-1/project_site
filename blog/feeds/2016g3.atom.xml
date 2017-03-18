@@ -1,8 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE) - 2016g3</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g3.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-03-06T19:30:00+08:00</updated><entry><title>40323203&amp;05&amp;06日誌 - Measuring distance</title><link href="http://project.mde.tw/blog/403232030506ri-zhi-measuring-distance.html" rel="alternate"></link><published>2017-03-06T19:30:00+08:00</published><updated>2017-03-06T19:30:00+08:00</updated><author><name>40323206</name></author><id>tag:project.mde.tw,2017-03-06:/blog/403232030506ri-zhi-measuring-distance.html</id><summary type="html">&lt;p&gt;辨識圖片中兩物體的實際距離
-&lt;/br&gt;
-Measuring distance between objects in an image&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;辨識圖片中兩物體的實際距離
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/2016g3.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2017-03-06T19:30:00+08:00</updated><entry><title>40323203&amp;05&amp;06日誌 - Measuring distance</title><link href="http://project.mde.tw/blog/403232030506ri-zhi-measuring-distance.html" rel="alternate"></link><published>2017-03-06T19:30:00+08:00</published><updated>2017-03-06T19:30:00+08:00</updated><author><name>40323206</name></author><id>tag:project.mde.tw,2017-03-06:blog/403232030506ri-zhi-measuring-distance.html</id><summary type="html">&lt;p&gt;辨識圖片中兩物體的實際距離
 &lt;/br&gt;
 Measuring distance between objects in an image&lt;/p&gt;
 
@@ -215,7 +212,7 @@ cv2.waitKey(0)
 &lt;img src="http://i.imgur.com/2qZJ5Z8.jpg"&gt;
 &lt;img src="http://i.imgur.com/VLVWr8G.jpg"&gt;
 &lt;/br&gt;
-&lt;/h4&gt;</content><category term="Kmol &amp; OpenCV &amp; Python"></category></entry><entry><title>40323214日誌- Install Scipy on windows</title><link href="http://project.mde.tw/blog/40323214ri-zhi-install-scipy-on-windows.html" rel="alternate"></link><published>2017-01-20T21:00:00+08:00</published><updated>2017-01-20T21:00:00+08:00</updated><author><name>40323214</name></author><id>tag:project.mde.tw,2017-01-20:/blog/40323214ri-zhi-install-scipy-on-windows.html</id><summary type="html"></summary><content type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;/h4&gt;</summary><category term="Kmol &amp; OpenCV &amp; Python"></category></entry><entry><title>40323214日誌- Install Scipy on windows</title><link href="http://project.mde.tw/blog/40323214ri-zhi-install-scipy-on-windows.html" rel="alternate"></link><published>2017-01-20T21:00:00+08:00</published><updated>2017-01-20T21:00:00+08:00</updated><author><name>40323214</name></author><id>tag:project.mde.tw,2017-01-20:blog/40323214ri-zhi-install-scipy-on-windows.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;h3&gt;一.Scipy基本介紹&lt;/h3&gt;
 
@@ -269,7 +266,7 @@ SciPy包含的模組有最佳化、線性代數、積分、插值、特殊函式
 &lt;/br&gt;
 &lt;/br&gt;
 3.下載步驟參考影片:https://www.youtube.com/watch?v=jnpC_Ib_lbc
-&lt;/h4&gt;&lt;/p&gt;</content><category term="OpenCv"></category></entry><entry><title>40323214日誌-齒輪計算</title><link href="http://project.mde.tw/blog/40323214ri-zhi-chi-lun-ji-suan.html" rel="alternate"></link><published>2016-11-23T10:00:00+08:00</published><updated>2016-11-23T10:00:00+08:00</updated><author><name>40323214</name></author><id>tag:project.mde.tw,2016-11-23:/blog/40323214ri-zhi-chi-lun-ji-suan.html</id><summary type="html"></summary><content type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;/h4&gt;&lt;/p&gt;</summary><category term="OpenCv"></category></entry><entry><title>40323214日誌-齒輪計算</title><link href="http://project.mde.tw/blog/40323214ri-zhi-chi-lun-ji-suan.html" rel="alternate"></link><published>2016-11-23T10:00:00+08:00</published><updated>2016-11-23T10:00:00+08:00</updated><author><name>40323214</name></author><id>tag:project.mde.tw,2016-11-23:blog/40323214ri-zhi-chi-lun-ji-suan.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;h3&gt;一.齒輪的公式轉換&lt;/h3&gt;
 
@@ -330,9 +327,7 @@ def tes5(m):
 &lt;/br&gt;
 2.Sympy安裝網頁:https://pypi.python.org/pypi/sympy
 &lt;/br&gt;
-&lt;/h4&gt;&lt;/p&gt;</content><category term="OpenCv"></category></entry><entry><title>40323205日誌 - OpenCV (繪圖函式)</title><link href="http://project.mde.tw/blog/40323205ri-zhi-opencv-hui-tu-han-shi.html" rel="alternate"></link><published>2016-11-17T22:30:00+08:00</published><updated>2016-11-17T22:30:00+08:00</updated><author><name>40323205</name></author><id>tag:project.mde.tw,2016-11-17:/blog/40323205ri-zhi-opencv-hui-tu-han-shi.html</id><summary type="html">&lt;h4&gt;繪圖函式 - cv2.line, cv2.circle, cv2.rectangle, cv2.ellipse&lt;/h4&gt;
-
-</summary><content type="html">&lt;h4&gt;繪圖函式 - cv2.line, cv2.circle, cv2.rectangle, cv2.ellipse&lt;/h4&gt;
+&lt;/h4&gt;&lt;/p&gt;</summary><category term="OpenCv"></category></entry><entry><title>40323205日誌 - OpenCV (繪圖函式)</title><link href="http://project.mde.tw/blog/40323205ri-zhi-opencv-hui-tu-han-shi.html" rel="alternate"></link><published>2016-11-17T22:30:00+08:00</published><updated>2016-11-17T22:30:00+08:00</updated><author><name>40323205</name></author><id>tag:project.mde.tw,2016-11-17:blog/40323205ri-zhi-opencv-hui-tu-han-shi.html</id><summary type="html">&lt;h4&gt;繪圖函式 - cv2.line, cv2.circle, cv2.rectangle, cv2.ellipse&lt;/h4&gt;
 
 
 
@@ -430,13 +425,11 @@ cv2.destroyAllWindows()
 &lt;/pre&gt;
 
 &lt;p&gt;&lt;/br&gt;&lt;/p&gt;
-&lt;h4&gt;後記 - 目前正在研究其他OpenCV程式，在這裡先呈現最基礎的繪圖函式。&lt;/h4&gt;</content><category term="Kmol &amp; OpenCV"></category></entry><entry><title>40323203日誌 - OpenCV(載入圖像)</title><link href="http://project.mde.tw/blog/40323203ri-zhi-opencvzai-ru-tu-xiang.html" rel="alternate"></link><published>2016-11-17T22:00:00+08:00</published><updated>2016-11-17T22:00:00+08:00</updated><author><name>40323203</name></author><id>tag:project.mde.tw,2016-11-17:/blog/40323203ri-zhi-opencvzai-ru-tu-xiang.html</id><summary type="html">&lt;h3&gt;載入圖片及影像--cv2.imread,cv2.VideoCapture&lt;/h3&gt;
-
-</summary><content type="html">&lt;h3&gt;載入圖片及影像--cv2.imread,cv2.VideoCapture&lt;/h3&gt;
+&lt;h4&gt;後記 - 目前正在研究其他OpenCV程式，在這裡先呈現最基礎的繪圖函式。&lt;/h4&gt;</summary><category term="Kmol &amp; OpenCV"></category></entry><entry><title>40323203日誌 - OpenCV(載入圖像)</title><link href="http://project.mde.tw/blog/40323203ri-zhi-opencvzai-ru-tu-xiang.html" rel="alternate"></link><published>2016-11-17T22:00:00+08:00</published><updated>2016-11-17T22:00:00+08:00</updated><author><name>40323203</name></author><id>tag:project.mde.tw,2016-11-17:blog/40323203ri-zhi-opencvzai-ru-tu-xiang.html</id><summary type="html">&lt;h3&gt;載入圖片及影像--cv2.imread,cv2.VideoCapture&lt;/h3&gt;
 
 
 
-&lt;hr&gt;
+&lt;hr /&gt;
 &lt;h4&gt;載入圖片程式&lt;/h4&gt;
 
 &lt;pre class="brush: bash"&gt;
@@ -486,8 +479,7 @@ while(cap.isOpened()):
 
 cap.release()
 cv2.destroyAllWindows()
-&lt;/pre&gt;</content><category term="Kmol &amp; OpenCV"></category></entry><entry><title>40323206日誌 - OpenCV (Dots)</title><link href="http://project.mde.tw/blog/40323206ri-zhi-opencv-dots.html" rel="alternate"></link><published>2016-11-15T20:53:00+08:00</published><updated>2016-11-15T20:53:00+08:00</updated><author><name>40323206</name></author><id>tag:project.mde.tw,2016-11-15:/blog/40323206ri-zhi-opencv-dots.html</id><summary type="html">&lt;p&gt;物體角落(點)的辨識 --- cv2.cornerHarris &amp;amp; cv2.dilate&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;物體角落(點)的辨識 --- cv2.cornerHarris &amp;amp; cv2.dilate&lt;/p&gt;
+&lt;/pre&gt;</summary><category term="Kmol &amp; OpenCV"></category></entry><entry><title>40323206日誌 - OpenCV (Dots)</title><link href="http://project.mde.tw/blog/40323206ri-zhi-opencv-dots.html" rel="alternate"></link><published>2016-11-15T20:53:00+08:00</published><updated>2016-11-15T20:53:00+08:00</updated><author><name>40323206</name></author><id>tag:project.mde.tw,2016-11-15:blog/40323206ri-zhi-opencv-dots.html</id><summary type="html">&lt;p&gt;物體角落(點)的辨識 --- cv2.cornerHarris &amp;amp; cv2.dilate&lt;/p&gt;
 
 
 &lt;h3&gt;★cv2.cornerHarris的使用&amp;格式&lt;/h3&gt;
@@ -581,8 +573,7 @@ cv2.destroyAllWindows()
 
 &lt;h3&gt;★齒輪辨識結果&lt;/h3&gt;
 &lt;img src="http://i.imgur.com/116TeT4.jpg"&gt;
-&lt;/br&gt;</content><category term="Kmol &amp; OpenCV"></category></entry><entry><title>40323206日誌 - OpenCV (Circles)</title><link href="http://project.mde.tw/blog/40323206ri-zhi-opencv-circles.html" rel="alternate"></link><published>2016-11-14T20:16:00+08:00</published><updated>2016-11-14T20:16:00+08:00</updated><author><name>40323206</name></author><id>tag:project.mde.tw,2016-11-14:/blog/40323206ri-zhi-opencv-circles.html</id><summary type="html">&lt;p&gt;圓形的辨識 --- cv2.HoughCircles&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;圓形的辨識 --- cv2.HoughCircles&lt;/p&gt;
+&lt;/br&gt;</summary><category term="Kmol &amp; OpenCV"></category></entry><entry><title>40323206日誌 - OpenCV (Circles)</title><link href="http://project.mde.tw/blog/40323206ri-zhi-opencv-circles.html" rel="alternate"></link><published>2016-11-14T20:16:00+08:00</published><updated>2016-11-14T20:16:00+08:00</updated><author><name>40323206</name></author><id>tag:project.mde.tw,2016-11-14:blog/40323206ri-zhi-opencv-circles.html</id><summary type="html">&lt;p&gt;圓形的辨識 --- cv2.HoughCircles&lt;/p&gt;
 
 
 &lt;h3&gt;★cv2.HoughCircles的使用&amp;格式&lt;/h3&gt;
@@ -672,7 +663,7 @@ cv2.waitKey(0)
 &lt;h3&gt;★齒輪辨識結果&lt;/h3&gt;
 
 &lt;p&gt;&lt;img src="http://i.imgur.com/1gvQ3vH.jpg"&gt;
-&lt;/br&gt;&lt;/p&gt;</content><category term="Kmol &amp; OpenCV"></category></entry><entry><title>40323214日誌-Opencv範例</title><link href="http://project.mde.tw/blog/40323214ri-zhi-opencvfan-li.html" rel="alternate"></link><published>2016-08-04T15:00:00+08:00</published><updated>2016-08-04T15:00:00+08:00</updated><author><name>40323214</name></author><id>tag:project.mde.tw,2016-08-04:/blog/40323214ri-zhi-opencvfan-li.html</id><summary type="html"></summary><content type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
+&lt;/br&gt;&lt;/p&gt;</summary><category term="Kmol &amp; OpenCV"></category></entry><entry><title>40323214日誌-Opencv範例</title><link href="http://project.mde.tw/blog/40323214ri-zhi-opencvfan-li.html" rel="alternate"></link><published>2016-08-04T15:00:00+08:00</published><updated>2016-08-04T15:00:00+08:00</updated><author><name>40323214</name></author><id>tag:project.mde.tw,2016-08-04:blog/40323214ri-zhi-opencvfan-li.html</id><summary type="html">&lt;!-- PELICAN_END_SUMMARY --&gt;
 
 &lt;h3&gt;一.Windows執行範例程式&lt;/h3&gt;
 
@@ -811,4 +802,4 @@ if __name__ == "__main__":
 3.大兵萊恩學習OpenCv路程:http://gogoprivateryan.blogspot.tw/2015/09/opencv-3-opencv-python-face-recognition.html
 &lt;/br&gt;
 &lt;/br&gt;
-4.Python2 to Python3程式改變部分:https://docs.python.org/2/library/2to3.html&lt;/p&gt;</content><category term="OpenCv"></category></entry></feed>
+4.Python2 to Python3程式改變部分:https://docs.python.org/2/library/2to3.html&lt;/p&gt;</summary><category term="OpenCv"></category></entry></feed>

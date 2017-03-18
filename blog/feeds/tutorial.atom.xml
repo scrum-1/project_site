@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE) - Tutorial</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/tutorial.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-28T11:29:00+08:00</updated><entry><title>機械設計工程系網路講座(四)</title><link href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-si.html" rel="alternate"></link><published>2016-12-28T11:29:00+08:00</published><updated>2016-12-28T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-28:/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-si.html</id><summary type="html">&lt;p&gt;在這個講座文章中, 我們將以機械設計專題室的純 IPv6 網路連線設定為例, 說明機械設計工程系中的任一用戶, 若想透過設定連線上網, 應該要如何做?&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;在這個講座文章中, 我們將以機械設計專題室的純 IPv6 網路連線設定為例, 說明機械設計工程系中的任一用戶, 若想透過設定連線上網, 應該要如何做?&lt;/p&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>機械設計專題 (虎尾科大MDE)</title><link href="http://project.mde.tw/blog/" rel="alternate"></link><link href="http://project.mde.tw/blog/feeds/tutorial.atom.xml" rel="self"></link><id>http://project.mde.tw/blog/</id><updated>2016-12-28T11:29:00+08:00</updated><entry><title>機械設計工程系網路講座(四)</title><link href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-si.html" rel="alternate"></link><published>2016-12-28T11:29:00+08:00</published><updated>2016-12-28T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-28:blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-si.html</id><summary type="html">&lt;p&gt;在這個講座文章中, 我們將以機械設計專題室的純 IPv6 網路連線設定為例, 說明機械設計工程系中的任一用戶, 若想透過設定連線上網, 應該要如何做?&lt;/p&gt;
 
 
 &lt;p&gt;好了, 您作為機械設計工程系的一員, 電腦網路線接到系上的主幹, 而電腦的使用時機除了在實體電腦硬體之前上網之外, 也經常利用校外的光世代連線遠端登入此系上的電腦進行 remote 操作, 那麼該如何設定純 IPv6 協定上網, 無需耗用任何 IPv4 的固定位址?&lt;/p&gt;
@@ -14,9 +13,7 @@
 &lt;h3&gt;建立 Proxy Server&lt;/h3&gt;
 &lt;p&gt;建立使用 Ubuntu 操作系統安裝 Squid proxy server, 請參考&lt;a href="cadlab-jiu-dian-nao-de-chu-li.html"&gt;安裝設定流程&lt;/a&gt;.&lt;/p&gt;
 &lt;h3&gt;從光世代遠端登入&lt;/h3&gt;
-&lt;p&gt;請參考 &lt;a href="https://chiamingyen.github.io/kmolab/blog/mechanical-designer-and-ipv6.html"&gt;Mechanical Designer and IPV6&lt;/a&gt; 中的說明, 若在 Ubuntu 則以 Remmina Remote Desktop Client, 以 RDP 協定進行連線, 前題是必須申請&lt;a href="http://www.ipv6.hinet.net/"&gt;光世代 IPV6 服務&lt;/a&gt;, 然後在主機中執行 sudo pon dsl-provider 進行 IPv6 撥號連線後執行遠端登入.&lt;/p&gt;</content><category term="機械設計"></category><category term="網路"></category><category term="導引"></category></entry><entry><title>何謂機械設計?</title><link href="http://project.mde.tw/blog/he-wei-ji-jie-she-ji.html" rel="alternate"></link><published>2016-12-07T11:29:00+08:00</published><updated>2016-12-07T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-07:/blog/he-wei-ji-jie-she-ji.html</id><summary type="html">&lt;p&gt;所謂機械設計, 就是歷經詳細思慮考量, 完成互動元件間之精巧配置, 使其展現特定功能之具體規劃表達.&lt;/p&gt;
-&lt;p&gt;其中, 詳細思慮考量, 就是"計"的字義, 而精巧配置互動元件, 就是"機"的字義, 展現特定功能, 就是"械"的字義, 最後, 必須完成具體規劃表達則是"設"的字義.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;所謂機械設計, 就是歷經詳細思慮考量, 完成互動元件間之精巧配置, 使其展現特定功能之具體規劃表達.&lt;/p&gt;
+&lt;p&gt;請參考 &lt;a href="https://chiamingyen.github.io/kmolab/blog/mechanical-designer-and-ipv6.html"&gt;Mechanical Designer and IPV6&lt;/a&gt; 中的說明, 若在 Ubuntu 則以 Remmina Remote Desktop Client, 以 RDP 協定進行連線, 前題是必須申請&lt;a href="http://www.ipv6.hinet.net/"&gt;光世代 IPV6 服務&lt;/a&gt;, 然後在主機中執行 sudo pon dsl-provider 進行 IPv6 撥號連線後執行遠端登入.&lt;/p&gt;</summary><category term="機械設計"></category><category term="網路"></category><category term="導引"></category></entry><entry><title>何謂機械設計?</title><link href="http://project.mde.tw/blog/he-wei-ji-jie-she-ji.html" rel="alternate"></link><published>2016-12-07T11:29:00+08:00</published><updated>2016-12-07T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-12-07:blog/he-wei-ji-jie-she-ji.html</id><summary type="html">&lt;p&gt;所謂機械設計, 就是歷經詳細思慮考量, 完成互動元件間之精巧配置, 使其展現特定功能之具體規劃表達.&lt;/p&gt;
 &lt;p&gt;其中, 詳細思慮考量, 就是"計"的字義, 而精巧配置互動元件, 就是"機"的字義, 展現特定功能, 就是"械"的字義, 最後, 必須完成具體規劃表達則是"設"的字義.&lt;/p&gt;
 
 
@@ -30,8 +27,7 @@
 &lt;p&gt;而一般工程表達的方法, 包括口語表達, 文字表達, 2D 表達, 3D 表達, 理論解析(定性定量)表達, 實體表達等.&lt;/p&gt;
 &lt;p&gt;且上述各類表達, 會因時間、地點、參與者、團隊組織的遷流變化而衍生出各式版本, 機械產品的協同設計, 便在各式表達的版本中, 尋求各互動元件組成的可用性外, 也期望透過相同功能的不同供應者, 作為精巧配置的選項, 以降低風險.&lt;/p&gt;
 &lt;p&gt;至於機械設計的所謂互動元件, 包括固體、流體與軟體, 隨著全球化數位經濟的蓬勃發展, 直接利用雲端統合機械協同設計過程中的所有內容, 已然成為可行方案之一.&lt;/p&gt;
-&lt;p&gt;當然, 隨著 &lt;a href="https://www.onshape.com/"&gt;Onshape&lt;/a&gt; 雲端設計表達工具的出現, 各公司目前將所有資料集中在雲端, 統一由一組團隊控管的模式, 未來勢必要納入如 Git 分散式版次管理的模式, 讓資料擁有者可以在無網路支援的單機狀態也能改版, 畢竟, 雲端 CAD/CAE/CAM, 充其量, 只不過是機械設計工程表達的方式之一而已.&lt;/p&gt;</content><category term="機械設計"></category><category term="導引"></category></entry><entry><title>數學有何用?</title><link href="http://project.mde.tw/blog/shu-xue-you-he-yong.html" rel="alternate"></link><published>2016-11-14T11:29:00+08:00</published><updated>2016-11-14T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-11-14:/blog/shu-xue-you-he-yong.html</id><summary type="html">&lt;p&gt;簡單的算術, 在日常生活購物流程, 隨時都會用到. 至於各種數學範疇的研究, 也都與工程應用的發展息息相關, 數學有何用? 請參考以下的說明.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;簡單的算術, 在日常生活購物流程, 隨時都會用到. 至於各種數學範疇的研究, 也都與工程應用的發展息息相關, 數學有何用? 請參考以下的說明.&lt;/p&gt;
+&lt;p&gt;當然, 隨著 &lt;a href="https://www.onshape.com/"&gt;Onshape&lt;/a&gt; 雲端設計表達工具的出現, 各公司目前將所有資料集中在雲端, 統一由一組團隊控管的模式, 未來勢必要納入如 Git 分散式版次管理的模式, 讓資料擁有者可以在無網路支援的單機狀態也能改版, 畢竟, 雲端 CAD/CAE/CAM, 充其量, 只不過是機械設計工程表達的方式之一而已.&lt;/p&gt;</summary><category term="機械設計"></category><category term="導引"></category></entry><entry><title>數學有何用?</title><link href="http://project.mde.tw/blog/shu-xue-you-he-yong.html" rel="alternate"></link><published>2016-11-14T11:29:00+08:00</published><updated>2016-11-14T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-11-14:blog/shu-xue-you-he-yong.html</id><summary type="html">&lt;p&gt;簡單的算術, 在日常生活購物流程, 隨時都會用到. 至於各種數學範疇的研究, 也都與工程應用的發展息息相關, 數學有何用? 請參考以下的說明.&lt;/p&gt;
 
 
 &lt;h2&gt;微積分的用途&lt;/h2&gt;
@@ -45,8 +41,7 @@
 &lt;li&gt;數學可用來作為培育人才的訓練工具 - 數學除了可以用來表達設計理念之外,  還能用來訓練工程師的邏輯與數值分析能力.&lt;/li&gt;
 &lt;li&gt;數學有實際解題的應用功能 - 電腦的發展主要從數位邏輯出發,  結合各種數值分析與數學演算法, 發展出各式應用, 工程師為了更進一步應用電腦解題, 就必須熟悉各種數值分析方法與數學演算法.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;而機械工程需要用到的數學, 通常包括代數 (Algebra)、幾何 (Geometry)、三角函數 (Trigonometry)、微積分 (Calculus)、微分方程 (Differential Equations) 與統計 (Statistics) 等.&lt;/p&gt;</content><category term="機械設計"></category><category term="數學"></category><category term="導引"></category></entry><entry><title>機械設計工程系網路講座(三)</title><link href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-san.html" rel="alternate"></link><published>2016-11-12T11:29:00+08:00</published><updated>2016-11-12T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-11-12:/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-san.html</id><summary type="html">&lt;p&gt;執行機械設計專題的過程, 經常需要在不同操作系統與網路位置使用不同的軟硬體, 以 &lt;a href="http://project.mde.tw/blog/yen-dian-nao-fu-zhu-she-ji-shi-dian-nao-pei-zhi.html"&gt;CADLab 電腦硬體&lt;/a&gt; 為例, 連同實體操作系統, 總共可以開啟三台虛擬主機, 其中實體操作系統安裝 Ubuntu 16.04 伺服器加上 ubuntu-desktop, 而虛擬主機則分別安裝 Ubuntu 16.04 伺服器加上 ubuntu-desktop, Windows 10 64 位元 Professional 與 Windows 7 64 位元 Professional 版本.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;執行機械設計專題的過程, 經常需要在不同操作系統與網路位置使用不同的軟硬體, 以 &lt;a href="http://project.mde.tw/blog/yen-dian-nao-fu-zhu-she-ji-shi-dian-nao-pei-zhi.html"&gt;CADLab 電腦硬體&lt;/a&gt; 為例, 連同實體操作系統, 總共可以開啟三台虛擬主機, 其中實體操作系統安裝 Ubuntu 16.04 伺服器加上 ubuntu-desktop, 而虛擬主機則分別安裝 Ubuntu 16.04 伺服器加上 ubuntu-desktop, Windows 10 64 位元 Professional 與 Windows 7 64 位元 Professional 版本.&lt;/p&gt;
+&lt;p&gt;而機械工程需要用到的數學, 通常包括代數 (Algebra)、幾何 (Geometry)、三角函數 (Trigonometry)、微積分 (Calculus)、微分方程 (Differential Equations) 與統計 (Statistics) 等.&lt;/p&gt;</summary><category term="機械設計"></category><category term="數學"></category><category term="導引"></category></entry><entry><title>機械設計工程系網路講座(三)</title><link href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-san.html" rel="alternate"></link><published>2016-11-12T11:29:00+08:00</published><updated>2016-11-12T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-11-12:blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-san.html</id><summary type="html">&lt;p&gt;執行機械設計專題的過程, 經常需要在不同操作系統與網路位置使用不同的軟硬體, 以 &lt;a href="http://project.mde.tw/blog/yen-dian-nao-fu-zhu-she-ji-shi-dian-nao-pei-zhi.html"&gt;CADLab 電腦硬體&lt;/a&gt; 為例, 連同實體操作系統, 總共可以開啟三台虛擬主機, 其中實體操作系統安裝 Ubuntu 16.04 伺服器加上 ubuntu-desktop, 而虛擬主機則分別安裝 Ubuntu 16.04 伺服器加上 ubuntu-desktop, Windows 10 64 位元 Professional 與 Windows 7 64 位元 Professional 版本.&lt;/p&gt;
 
 
 &lt;p&gt;除了當作 Squid Proxy 主機的 Ubuntu 16.04 虛擬主機需要使用 IPv4 與 IPv6 網路協定位址外, 其餘的 Windows 10 與 Windows 7 虛擬主機都僅使用 IPv6 網路協定, 然後透過 Proxy Server 使用各種網路服務.&lt;/p&gt;
@@ -59,8 +54,7 @@
 &lt;li&gt;跨網域管理實體主機, 可以採用 Putty 加上 X-Windows, 若在 Windows 環境則使用 &lt;a href="https://sourceforge.net/projects/xming/"&gt;Xming&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;跨網域管理 Windows 10 與 Windows 7 則使用 Remote Desktop 協定, 若在 Ubuntu 環境則使用內建的 &lt;a href="https://apps.ubuntu.com/cat/applications/oneiric/remmina/"&gt;Remmina&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;自 Virtualbox 5.0 之後, 可以在虛擬主機中, 再配置 32 位元的虛擬主機, 當作測試使用.&lt;/li&gt;
-&lt;/ol&gt;</content><category term="機械設計"></category><category term="網路"></category><category term="導引"></category></entry><entry><title>機械設計工程網站的短網址</title><link href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-wang-zhan-de-duan-wang-zhi.html" rel="alternate"></link><published>2016-11-07T11:29:00+08:00</published><updated>2016-11-07T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-11-07:/blog/ji-jie-she-ji-gong-cheng-wang-zhan-de-duan-wang-zhi.html</id><summary type="html">&lt;p&gt;機械設計工程的英文為 Mechanical Design Engineering, 簡稱為 MDE, 有很長一段時間, 機械設計工程系的網路符號名稱為 mde.nfu.edu.tw, 但是在 DNS 上下綁定經常出現問題之後, 權宜之計採用 mde.tw 作為  domain name, 現在可以透過 &lt;a href="http://mde.tw"&gt;http://mde.tw&lt;/a&gt;, 連結到相關網站.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;機械設計工程的英文為 Mechanical Design Engineering, 簡稱為 MDE, 有很長一段時間, 機械設計工程系的網路符號名稱為 mde.nfu.edu.tw, 但是在 DNS 上下綁定經常出現問題之後, 權宜之計採用 mde.tw 作為  domain name, 現在可以透過 &lt;a href="http://mde.tw"&gt;http://mde.tw&lt;/a&gt;, 連結到相關網站.&lt;/p&gt;
+&lt;/ol&gt;</summary><category term="機械設計"></category><category term="網路"></category><category term="導引"></category></entry><entry><title>機械設計工程網站的短網址</title><link href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-wang-zhan-de-duan-wang-zhi.html" rel="alternate"></link><published>2016-11-07T11:29:00+08:00</published><updated>2016-11-07T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-11-07:blog/ji-jie-she-ji-gong-cheng-wang-zhan-de-duan-wang-zhi.html</id><summary type="html">&lt;p&gt;機械設計工程的英文為 Mechanical Design Engineering, 簡稱為 MDE, 有很長一段時間, 機械設計工程系的網路符號名稱為 mde.nfu.edu.tw, 但是在 DNS 上下綁定經常出現問題之後, 權宜之計採用 mde.tw 作為  domain name, 現在可以透過 &lt;a href="http://mde.tw"&gt;http://mde.tw&lt;/a&gt;, 連結到相關網站.&lt;/p&gt;
 
 
 &lt;p&gt;簡短有意義的網路符號名稱在 Google 搜索引擎撲天蓋地提供完善服務之後, 好像變得不很重要, 但是隨著 IPv6 網址的逐漸普及, 若覺得每一種伺服器都帶著長位址, 使用非常不方便時, 透過雙協定支援的 DNS 伺服器, 所完成的簡短網站符號名稱就會愈來愈重要.&lt;/p&gt;
@@ -72,8 +66,7 @@
 &lt;li&gt;
 &lt;p&gt;進入 mde.tw DNS 管理設定, 根據 &lt;a href="https://help.github.com/articles/setting-up-an-apex-domain/"&gt;https://help.github.com/articles/setting-up-an-apex-domain/&lt;/a&gt; 中的說明, 建立兩筆 A 設定 (也就是 mde.tw Internet Address 的綁定), 分別指向 192.30.252.153 與 192.30.252.154 就算完成.&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</content><category term="機械設計"></category><category term="網路"></category><category term="導引"></category></entry><entry><title>機械設計工程系網路講座(二)</title><link href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-er.html" rel="alternate"></link><published>2016-11-06T11:29:00+08:00</published><updated>2016-11-06T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-11-06:/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-er.html</id><summary type="html">&lt;p&gt;因為 IPv4 與 IPv6 是兩種彼此不相容的網路協定, IPv4 採 32 位元定址, 而 IPv6 則為 128 位元定址. 因此, 採用純 IPv6 網路協定設置的連網裝置, 無法與純 IPv4 網路協定設置的連網裝置進行連線, 反之亦然, 也就是採用純 IPv4 網路協定設置的連網裝置, 無法與純 IPv6 網路協定設置的連網裝置進行連線.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;因為 IPv4 與 IPv6 是兩種彼此不相容的網路協定, IPv4 採 32 位元定址, 而 IPv6 則為 128 位元定址. 因此, 採用純 IPv6 網路協定設置的連網裝置, 無法與純 IPv4 網路協定設置的連網裝置進行連線, 反之亦然, 也就是採用純 IPv4 網路協定設置的連網裝置, 無法與純 IPv6 網路協定設置的連網裝置進行連線.&lt;/p&gt;
+&lt;/ol&gt;</summary><category term="機械設計"></category><category term="網路"></category><category term="導引"></category></entry><entry><title>機械設計工程系網路講座(二)</title><link href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-er.html" rel="alternate"></link><published>2016-11-06T11:29:00+08:00</published><updated>2016-11-06T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-11-06:blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-er.html</id><summary type="html">&lt;p&gt;因為 IPv4 與 IPv6 是兩種彼此不相容的網路協定, IPv4 採 32 位元定址, 而 IPv6 則為 128 位元定址. 因此, 採用純 IPv6 網路協定設置的連網裝置, 無法與純 IPv4 網路協定設置的連網裝置進行連線, 反之亦然, 也就是採用純 IPv4 網路協定設置的連網裝置, 無法與純 IPv6 網路協定設置的連網裝置進行連線.&lt;/p&gt;
 
 
 &lt;p&gt;假如您使用中華電信的光世代, 而且使用  VDSL2 P883 路由器, 根據 &lt;a href="https://chiamingyen.github.io/kmolab/blog/mechanical-designer-and-ipv6.html"&gt;https://chiamingyen.github.io/kmolab/blog/mechanical-designer-and-ipv6.html&lt;/a&gt; 流程設定後,  使用 sudo pon dsl-provider 進行撥號後, 出現 Plugin rp-pppoe.so loaded, 表示已經取得 IPv6 協定上網, 就可以透過瀏覽器連線到 &lt;a href="http://[2001:288:6004:17::17]"&gt;http://[2001:288:6004:17::17]&lt;/a&gt;, 其中 IPv6 位址與埠號結合的寫法為 [2001:288:6004:17::17]:3128, 假如要利用網路位址設定代理主機就必須採用 IPv6 的格式.&lt;/p&gt;
@@ -93,8 +86,7 @@
 &lt;li&gt;
 &lt;p&gt;使用電腦自行亂數設定位於 fe80::/10 區段的 IPv6 本地連結網址上網, 假如要連結到廣域網路, 則使用橫跨內外網段的代理主機上網.&lt;/p&gt;
 &lt;/li&gt;
-&lt;/ol&gt;</content><category term="機械設計"></category><category term="網路"></category><category term="導引"></category></entry><entry><title>機械設計工程系網路講座(一)</title><link href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-yi.html" rel="alternate"></link><published>2016-10-27T11:29:00+08:00</published><updated>2016-10-27T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-10-27:/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-yi.html</id><summary type="html">&lt;p&gt;過去在 IPV4 的網路環境中, 經常需要利用各種網路管理軟硬體, 進行用戶對於網路頻寬使用的限制或者綁定, 轉換到 IPV6 網路環境之後, 儘管可能無法直接擷取目前仍使用純 IPV4 協定的網路服務, 但是透過代理主機, 不但不會影響各用戶的權益, 反而因為 IPV6 協定的寬廣位址, 而過得海闊天空, 自由自在.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;過去在 IPV4 的網路環境中, 經常需要利用各種網路管理軟硬體, 進行用戶對於網路頻寬使用的限制或者綁定, 轉換到 IPV6 網路環境之後, 儘管可能無法直接擷取目前仍使用純 IPV4 協定的網路服務, 但是透過代理主機, 不但不會影響各用戶的權益, 反而因為 IPV6 協定的寬廣位址, 而過得海闊天空, 自由自在.&lt;/p&gt;
+&lt;/ol&gt;</summary><category term="機械設計"></category><category term="網路"></category><category term="導引"></category></entry><entry><title>機械設計工程系網路講座(一)</title><link href="http://project.mde.tw/blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-yi.html" rel="alternate"></link><published>2016-10-27T11:29:00+08:00</published><updated>2016-10-27T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-10-27:blog/ji-jie-she-ji-gong-cheng-xi-wang-lu-jiang-zuo-yi.html</id><summary type="html">&lt;p&gt;過去在 IPV4 的網路環境中, 經常需要利用各種網路管理軟硬體, 進行用戶對於網路頻寬使用的限制或者綁定, 轉換到 IPV6 網路環境之後, 儘管可能無法直接擷取目前仍使用純 IPV4 協定的網路服務, 但是透過代理主機, 不但不會影響各用戶的權益, 反而因為 IPV6 協定的寬廣位址, 而過得海闊天空, 自由自在.&lt;/p&gt;
 
 
 &lt;h2&gt;數量眾多的 IPV6 網址&lt;/h2&gt;
@@ -112,15 +104,13 @@
 &lt;h2&gt;網路認証授權主機的轉換&lt;/h2&gt;
 &lt;p&gt;當各用戶從 IPV4 網路協定轉而使用純 IPV6 協定上網之後, 若先前使用 SolidWorks、Matlab、Creo Parametric、Ansys 與 Comsol 等套件的網路授權, 也必須確定各授權主機啟用 IPV6 的協定, 有關這點, 我們極力推廣各系要自行管理各自的 DNS 伺服器, 如此一來, 無論使用者採用 IPV4 或 IPV6 協定要求認証 ,都只要將認証主機設為 solidworks.mde.nfu.edu.tw:埠號, mat.mde.nfu.edu.tw:埠號, creo.mde.nfu.edu.tw:埠號, ansys.mde.nfu.edu.tw:埠號與 comsol.mde.nfu.edu.tw:埠號即可, 無需使用 IPV6 或 IPV4 的網址要求認証, 因為這些主機可能因為各種原因進行硬體搬遷或固定網址而變換, 各管理者只要從各系的 DNS 伺服器中因應調整, 完全不需要更動認証客戶端的伺服器 IP 設定.&lt;/p&gt;
 &lt;h2&gt;結論&lt;/h2&gt;
-&lt;p&gt;從上述說明可以了解, IPV6 的網路架構就在我們的身旁, 只要各用戶依據&lt;a href="http://cadlab.mde.tw/post/ji-jie-she-ji-gong-cheng-xi-ipv6-wang-zhi-fen-pei.html"&gt;機械設計工程系 IPV6 網址分配&lt;/a&gt;使用, 就可以全面改善目前爭搶 IPV4 網路位址的情形, 也無需將個人電腦的 MAC 卡號交由電算中心綁定, 或者區分教師與學生網段, 只要讓管理室可以回收部份 IPV4 網址, 增加雙網路協定支援的代理主機, 並且推廣伺服主機也採用純 IPV6 設定, 就能逐步從舊 IPV4 進入新 IPV6 世代, 享受新協定所帶來的便利.&lt;/p&gt;</content><category term="機械設計"></category><category term="網路"></category><category term="導引"></category></entry><entry><title>yen - 機械設計課程對應網頁</title><link href="http://project.mde.tw/blog/yen-ji-jie-she-ji-ke-cheng-dui-ying-wang-ye.html" rel="alternate"></link><published>2016-10-13T11:29:00+08:00</published><updated>2016-10-13T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-10-13:/blog/yen-ji-jie-she-ji-ke-cheng-dui-ying-wang-ye.html</id><summary type="html">&lt;p&gt;今年機械設計專題的任務之一, 就是希望每一位學員都能各自維護一份自己的網頁, 修課的網頁以及分組的網頁, 過去我們選擇在 OpenShift 進行, 現在 Github Pages 應該是最佳選擇.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;今年機械設計專題的任務之一, 就是希望每一位學員都能各自維護一份自己的網頁, 修課的網頁以及分組的網頁, 過去我們選擇在 OpenShift 進行, 現在 Github Pages 應該是最佳選擇.&lt;/p&gt;
+&lt;p&gt;從上述說明可以了解, IPV6 的網路架構就在我們的身旁, 只要各用戶依據&lt;a href="http://cadlab.mde.tw/post/ji-jie-she-ji-gong-cheng-xi-ipv6-wang-zhi-fen-pei.html"&gt;機械設計工程系 IPV6 網址分配&lt;/a&gt;使用, 就可以全面改善目前爭搶 IPV4 網路位址的情形, 也無需將個人電腦的 MAC 卡號交由電算中心綁定, 或者區分教師與學生網段, 只要讓管理室可以回收部份 IPV4 網址, 增加雙網路協定支援的代理主機, 並且推廣伺服主機也採用純 IPV6 設定, 就能逐步從舊 IPV4 進入新 IPV6 世代, 享受新協定所帶來的便利.&lt;/p&gt;</summary><category term="機械設計"></category><category term="網路"></category><category term="導引"></category></entry><entry><title>yen - 機械設計課程對應網頁</title><link href="http://project.mde.tw/blog/yen-ji-jie-she-ji-ke-cheng-dui-ying-wang-ye.html" rel="alternate"></link><published>2016-10-13T11:29:00+08:00</published><updated>2016-10-13T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-10-13:blog/yen-ji-jie-she-ji-ke-cheng-dui-ying-wang-ye.html</id><summary type="html">&lt;p&gt;今年機械設計專題的任務之一, 就是希望每一位學員都能各自維護一份自己的網頁, 修課的網頁以及分組的網頁, 過去我們選擇在 OpenShift 進行, 現在 Github Pages 應該是最佳選擇.&lt;/p&gt;
 
 
 &lt;p&gt;首先, 必須要知道 Github 帳號啟用後, 可以 &lt;a href="https://help.github.com/articles/changing-your-primary-email-address/"&gt;更改對應的 email&lt;/a&gt;, 必須在學校 email 面臨被取消之前, 轉換到其他生命週期較長的電子郵箱.&lt;/p&gt;
 &lt;p&gt;根據課程的規劃, 2016Fall 的計算機程式對應網站位於 &lt;a href="https://mdecourse.github.io/2016fallcpa"&gt;https://mdecourse.github.io/2016fallcpa&lt;/a&gt;, 而 2016Fall 的電腦輔助設計實習課程則位於 &lt;a href="https://mdecourse.github.io/2016fallcadpa"&gt;https://mdecourse.github.io/2016fallcadpa&lt;/a&gt;, 在課程進行期間, 兩班將使用相同的 reveal.js 投影片, 但各自擁有一份 pelican 靜態網誌, 等到課程結束, 將會合併到年度的課程投影片與網誌中.&lt;/p&gt;
 &lt;p&gt;上述課程網頁的基本架構與過去幾年所使用的大致相同, 最大的區別在於, 各倉儲都只關注 gh-pages 分支, 且從班上的網頁到各組的網頁, 一直下達各學員的網際內容, 都透過 git submodule 綁定與時間對應的版本, 各組與各學員在規定檢核內容的時限之後, 仍可持續改版, 不致影響自評與互評的版本內容.&lt;/p&gt;
-&lt;p&gt;此外, 各倉儲中除了影片檔案, 必須放在 Vimeo 與 Youtube 外, 其他的相關檔案都建議存在各自對應的倉儲中, 並且以相對目錄設定, 如此, 一旦課程結束後, 班級課程倉儲就可以被 git clone 到近端繼續使用, 唯一必須處理的就是將各頁面所使用的 cdn 或統一的 Github Pages 對應 Javascripts, 以近端的程式庫取代, 並且使用各學年規劃下的版本.&lt;/p&gt;</content><category term="機械設計"></category><category term="課程"></category></entry><entry><title>yen - KMOL 的程式開發環境</title><link href="http://project.mde.tw/blog/yen-kmol-de-cheng-shi-kai-fa-huan-jing.html" rel="alternate"></link><published>2016-10-10T11:29:00+08:00</published><updated>2016-10-10T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-10-10:/blog/yen-kmol-de-cheng-shi-kai-fa-huan-jing.html</id><summary type="html">&lt;p&gt;當 Ubuntu 在年初推出 16.04 版本時, 因為許多舊型的 AMD 電腦顯示卡無法內建支援, 因此仍然停留在 Ubuntu 14.04 LTS 的使用, 但是隨著 Solvespace 與 PyQt5 相關應用程式的開發需要, Python 3.4 與 PyQt4 已經不敷使用, 因此從今天開始, 利用實體或虛擬安裝的方式, 將 KMOL 機械設計專題的主要程式開發系統, 定調採用 Ubuntu 16.04 版本.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;當 Ubuntu 在年初推出 16.04 版本時, 因為許多舊型的 AMD 電腦顯示卡無法內建支援, 因此仍然停留在 Ubuntu 14.04 LTS 的使用, 但是隨著 Solvespace 與 PyQt5 相關應用程式的開發需要, Python 3.4 與 PyQt4 已經不敷使用, 因此從今天開始, 利用實體或虛擬安裝的方式, 將 KMOL 機械設計專題的主要程式開發系統, 定調採用 Ubuntu 16.04 版本.&lt;/p&gt;
+&lt;p&gt;此外, 各倉儲中除了影片檔案, 必須放在 Vimeo 與 Youtube 外, 其他的相關檔案都建議存在各自對應的倉儲中, 並且以相對目錄設定, 如此, 一旦課程結束後, 班級課程倉儲就可以被 git clone 到近端繼續使用, 唯一必須處理的就是將各頁面所使用的 cdn 或統一的 Github Pages 對應 Javascripts, 以近端的程式庫取代, 並且使用各學年規劃下的版本.&lt;/p&gt;</summary><category term="機械設計"></category><category term="課程"></category></entry><entry><title>yen - KMOL 的程式開發環境</title><link href="http://project.mde.tw/blog/yen-kmol-de-cheng-shi-kai-fa-huan-jing.html" rel="alternate"></link><published>2016-10-10T11:29:00+08:00</published><updated>2016-10-10T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-10-10:blog/yen-kmol-de-cheng-shi-kai-fa-huan-jing.html</id><summary type="html">&lt;p&gt;當 Ubuntu 在年初推出 16.04 版本時, 因為許多舊型的 AMD 電腦顯示卡無法內建支援, 因此仍然停留在 Ubuntu 14.04 LTS 的使用, 但是隨著 Solvespace 與 PyQt5 相關應用程式的開發需要, Python 3.4 與 PyQt4 已經不敷使用, 因此從今天開始, 利用實體或虛擬安裝的方式, 將 KMOL 機械設計專題的主要程式開發系統, 定調採用 Ubuntu 16.04 版本.&lt;/p&gt;
 
 
 &lt;h2&gt;基本程式開發策略&lt;/h2&gt;
@@ -157,75 +147,59 @@ apt-get install libpng-dev libjson-c-dev libfreetype6-dev \
 &lt;p&gt;sudo pip3 install peewee pelican Markdown&lt;/p&gt;
 &lt;p&gt;接著下載 &lt;a href="http://download.qt.io/official_releases/qt/5.7/5.7.0/qt-opensource-linux-x64-5.7.0.run"&gt;http://download.qt.io/official_releases/qt/5.7/5.7.0/qt-opensource-linux-x64-5.7.0.run&lt;/a&gt;, 安裝 Qt5.7:&lt;/p&gt;
 &lt;p&gt;然後利用 gedit ~/.bashrc, 編輯 .bashrc, 加入:&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2
-3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;export QTDIR=/opt/Qt5.7.0/5.7/gcc_64/ 
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;export QTDIR=/opt/Qt5.7.0/5.7/gcc_64/ 
 export LD_LIBRARY_PATH=&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;LD_LIBRARY_PATH&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;:&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;QTDIR&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;/lib 
 export PATH=&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;QTDIR&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;/bin:&lt;span class="cp"&gt;${&lt;/span&gt;&lt;span class="n"&gt;PATH&lt;/span&gt;&lt;span class="cp"&gt;}&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 
 &lt;p&gt;然後以 source ~/.bashrc 讓設定生效.&lt;/p&gt;
 &lt;p&gt;要確認 Qt 版次, 使用:&lt;/p&gt;
 &lt;p&gt;qmake -v&lt;/p&gt;
 &lt;p&gt;接下來下載 &lt;a href="http://www.riverbankcomputing.com/software/sip/download "&gt;http://www.riverbankcomputing.com/software/sip/download &lt;/a&gt;, 然後以下列指令安裝 sip 4.18.1:&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2
-3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python3 configure.py 
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python3 configure.py 
 make
 sudo make install
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 
 &lt;p&gt;如同前面移除 sip 4.17.1 時相同, 利用  sip -V 確認系統中 sip 的版本, 假如要確認 Python3 導入時使用的 sip 版本, 利用下列程式碼檢查:&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sip&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;sip&lt;/span&gt;
 &lt;span class="k"&gt;print&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="n"&gt;sip&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;sip&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;SIP_VERSION_STR&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 
 &lt;p&gt;PyQt5 的安裝步驟與 sip 相同, 從 &lt;a href="http://www.riverbankcomputing.com/software/pyqt/download5"&gt;http://www.riverbankcomputing.com/software/pyqt/download5&lt;/a&gt; 下載原始碼之後:&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2
-3&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python3 configure.py 
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;python3 configure.py 
 make
 sudo make install
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 
 &lt;p&gt;至於 qscintilla 的安裝, 牽涉3個步驟, 首先從 &lt;a href="http://www.riverbankcomputing.com/software/qscintilla/download"&gt;http://www.riverbankcomputing.com/software/qscintilla/download&lt;/a&gt; 下載原始碼:&lt;/p&gt;
 &lt;p&gt;步驟一:&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2
-3
-4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd Qt4Qt5
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd Qt4Qt5
 qmake qscintilla.pro
 make
 sudo make install
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 
 &lt;p&gt;步驟二:&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2
-3
-4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd ../designer-Qt4Qt5
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd ../designer-Qt4Qt5
 qmake designer.pro
 make
 sudo make install
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 
 &lt;p&gt;步驟三:&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2
-3
-4&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd ../Python
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;cd ../Python
 python3 configure.py --pyqt=PyQt5
 make
 sudo make install
 &lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+
 
 &lt;p&gt;接下來則安裝 eric6, 從 &lt;a href="http://eric-ide.python-projects.org/eric-download.html"&gt;http://eric-ide.python-projects.org/eric-download.html&lt;/a&gt; 下載原始碼後, 以 sudo python3 install.py 進行安裝, 並以 eric6 開啟.&lt;/p&gt;
 &lt;h3&gt;安裝 Leo Editor&lt;/h3&gt;
@@ -235,8 +209,7 @@ sudo make install
 &lt;p&gt;sudo apt install fcitx fcitx-chewing&lt;/p&gt;
 &lt;p&gt;表示將採用 fcitx 中文輸入法中的酷音輸入套件.&lt;/p&gt;
 &lt;p&gt;酷音輸入法的使用牽涉3個步驟, 第1步驟就是上方的套件安裝, 而第2步驟就是進入系統設定中的 language support, 將原先內建的 ibus 改為 fcitx, 而第3步驟則是在輸入 configure 時, 加入 chewing 中文輸入法, 並且將原先的切換鍵 space 改為 ctrl+space.&lt;/p&gt;
-&lt;p&gt;完成上述步驟的安裝與設定後, 就可以利用 Leo Editor 及 eric6 來開發 Solvespace 與 api 應用, 包含所有相關系統原始碼的倉儲位於 &lt;a href="https://github.com/mdecourse/solvespack"&gt;https://github.com/mdecourse/solvespack&lt;/a&gt;, 以 submodule  設定的相同倉儲則位於: &lt;a href="https://github.com/mdecourse/solvk"&gt;https://github.com/mdecourse/solvk&lt;/a&gt;.&lt;/p&gt;</content><category term="機械設計"></category><category term="專題"></category></entry><entry><title>yen - 有關機械設計專題網站內容</title><link href="http://project.mde.tw/blog/yen-you-guan-ji-jie-she-ji-zhuan-ti-wang-zhan-nei-rong.html" rel="alternate"></link><published>2016-07-30T11:29:00+08:00</published><updated>2016-07-30T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-30:/blog/yen-you-guan-ji-jie-she-ji-zhuan-ti-wang-zhan-nei-rong.html</id><summary type="html">&lt;p&gt;本機械設計專題網誌採用 Leo Editor 管理文章內容與設定, 並且透過 Pelican 靜態網誌系統程式, 將各參與協同人員所分別建立的 .md 檔案, 轉為一系列的 html 檔案, 其中包括全文內容的搜尋, 以及網誌分類的架構.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;本機械設計專題網誌採用 Leo Editor 管理文章內容與設定, 並且透過 Pelican 靜態網誌系統程式, 將各參與協同人員所分別建立的 .md 檔案, 轉為一系列的 html 檔案, 其中包括全文內容的搜尋, 以及網誌分類的架構.&lt;/p&gt;
+&lt;p&gt;完成上述步驟的安裝與設定後, 就可以利用 Leo Editor 及 eric6 來開發 Solvespace 與 api 應用, 包含所有相關系統原始碼的倉儲位於 &lt;a href="https://github.com/mdecourse/solvespack"&gt;https://github.com/mdecourse/solvespack&lt;/a&gt;, 以 submodule  設定的相同倉儲則位於: &lt;a href="https://github.com/mdecourse/solvk"&gt;https://github.com/mdecourse/solvk&lt;/a&gt;.&lt;/p&gt;</summary><category term="機械設計"></category><category term="專題"></category></entry><entry><title>yen - 有關機械設計專題網站內容</title><link href="http://project.mde.tw/blog/yen-you-guan-ji-jie-she-ji-zhuan-ti-wang-zhan-nei-rong.html" rel="alternate"></link><published>2016-07-30T11:29:00+08:00</published><updated>2016-07-30T11:29:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-07-30:blog/yen-you-guan-ji-jie-she-ji-zhuan-ti-wang-zhan-nei-rong.html</id><summary type="html">&lt;p&gt;本機械設計專題網誌採用 Leo Editor 管理文章內容與設定, 並且透過 Pelican 靜態網誌系統程式, 將各參與協同人員所分別建立的 .md 檔案, 轉為一系列的 html 檔案, 其中包括全文內容的搜尋, 以及網誌分類的架構.&lt;/p&gt;
 
 
 &lt;p&gt;假如您檢視現在這篇文章的 .md 檔案, 在文章最前頭的內容為:&lt;/p&gt;
@@ -252,8 +225,7 @@ Author: yen
 &lt;p&gt;但是就實務應用的觀點, 各用戶一旦 git clone 本倉儲內容, 或者在操作系統中搬動或複製倉儲檔案, 而沒能利用像 cp -p 這種可以保留原始檔案建立時間的指令, 整個倉儲的 .md 檔案就會隨著不同操作流程, 而讓網誌的文章順序變來變去, 從讀者的角度來看, 我們應該要加以解決這個問題.&lt;/p&gt;
 &lt;p&gt;解決的方法很簡單, 我們仍然保留原先近端與遠端 DEFAULT_DATE = 'fs' 的設定, 也就是若使用者的文章沒有 Date: 註記, 就仍舊採用該 .md 檔案的建立時間作為文章登錄的時間 ,但是若使用者的 .md 檔案提供了 Date: 註記, 那麼就以註記的時間作為文章建立時間.&lt;/p&gt;
 &lt;p&gt;好了, 接下來就是要求所有參與協同的作者, 在各自的文章標題後面, 加上 Date:, 而格式則是 Date: 2016-07-27 11:29, 一旦所有的文章都各自標註建立的確切時間, 之後所產生的機械設計專題網誌文章順序, 應該就不會再變來變去了.&lt;/p&gt;
-&lt;p&gt;當然, 我們為了要讓現在這篇文章能夠放在網誌的最上頭幾天, 我們把它註記為三天後的時間.&lt;/p&gt;</content><category term="Pelican"></category><category term="文章日期"></category></entry><entry><title>yen - RGA 基因演算法</title><link href="http://project.mde.tw/blog/yen-rga-ji-yin-yan-suan-fa.html" rel="alternate"></link><published>2016-05-21T01:20:00+08:00</published><updated>2016-05-21T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-05-21:/blog/yen-rga-ji-yin-yan-suan-fa.html</id><summary type="html">&lt;p&gt;RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.&lt;/p&gt;
+&lt;p&gt;當然, 我們為了要讓現在這篇文章能夠放在網誌的最上頭幾天, 我們把它註記為三天後的時間.&lt;/p&gt;</summary><category term="Pelican"></category><category term="文章日期"></category></entry><entry><title>yen - RGA 基因演算法</title><link href="http://project.mde.tw/blog/yen-rga-ji-yin-yan-suan-fa.html" rel="alternate"></link><published>2016-05-21T01:20:00+08:00</published><updated>2016-05-21T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-05-21:blog/yen-rga-ji-yin-yan-suan-fa.html</id><summary type="html">&lt;p&gt;RGA 為 Real-coded Genetic Algorithm, 也就是實數編碼基因演算法, 以下為平面四連桿機構, 令其移動桿三角形頂點通過特定的 10 個座標點的尺寸合成運算.&lt;/p&gt;
 
 
 &lt;pre class="brush: python"&gt;
@@ -2906,8 +2878,7 @@ print(ga.run())
 
       return tip3_coord;
     }
-&lt;/pre&gt;</content><category term="RGA"></category></entry><entry><title>yen - 如何建立一好的 Wordpress 網站</title><link href="http://project.mde.tw/blog/yen-ru-he-jian-li-yi-hao-de-wordpress-wang-zhan.html" rel="alternate"></link><published>2016-04-08T01:20:00+08:00</published><updated>2016-04-08T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-04-08:/blog/yen-ru-he-jian-li-yi-hao-de-wordpress-wang-zhan.html</id><summary type="html">&lt;p&gt;機械設計專題專用的 Wordpress 必須俱備幾項特點: 能夠輸入數學公式, 能夠放入高亮顯示的程式碼, 能夠內嵌影片, 能夠利用 Gmail 帳號寄信, 能夠納入 Disqus 討論區, 能夠杜絕垃圾註冊.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;機械設計專題專用的 Wordpress 必須俱備幾項特點: 能夠輸入數學公式, 能夠放入高亮顯示的程式碼, 能夠內嵌影片, 能夠利用 Gmail 帳號寄信, 能夠納入 Disqus 討論區, 能夠杜絕垃圾註冊.&lt;/p&gt;
+&lt;/pre&gt;</summary><category term="RGA"></category></entry><entry><title>yen - 如何建立一好的 Wordpress 網站</title><link href="http://project.mde.tw/blog/yen-ru-he-jian-li-yi-hao-de-wordpress-wang-zhan.html" rel="alternate"></link><published>2016-04-08T01:20:00+08:00</published><updated>2016-04-08T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-04-08:blog/yen-ru-he-jian-li-yi-hao-de-wordpress-wang-zhan.html</id><summary type="html">&lt;p&gt;機械設計專題專用的 Wordpress 必須俱備幾項特點: 能夠輸入數學公式, 能夠放入高亮顯示的程式碼, 能夠內嵌影片, 能夠利用 Gmail 帳號寄信, 能夠納入 Disqus 討論區, 能夠杜絕垃圾註冊.&lt;/p&gt;
 
 
 &lt;p&gt;當然假如能夠如 &lt;a href="http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html"&gt;http://project.mde.tw/blog/yen-pelican-jing-tai-wang-ye-yu-wordpress-de-zheng-he-fang-an.html&lt;/a&gt; 中所言, 可以利用 Leo Editor 的指令按鈕, 讓 Wordpress 網誌內容能與 Pelican 靜態網誌內容保持同步, 或許就能同時擁有改版歷程資料與即時動態維護內容的優點.&lt;/p&gt;
@@ -2924,14 +2895,12 @@ print(ga.run())
 &lt;p&gt;選擇 Use SSL encryption&lt;/p&gt;
 &lt;p&gt;選擇 Use SMTP authentication&lt;/p&gt;
 &lt;p&gt;然後給定對應的 Gmail 帳號 與 Gmail 密碼 之後存檔.&lt;/p&gt;
-&lt;p&gt;第2項設定則是必須配合所使用的 Gmail 帳號, 利用 &lt;a href="https://www.google.com/settings/security/lesssecureapps"&gt;https://www.google.com/settings/security/lesssecureapps&lt;/a&gt; 將原定的 Turn off 改為 Turn on, 也就是降低安全設定等級, 接著就可以寄出測試信件, 若成功, 則 WordPress 中的其他模組就可以利用設定寄信.&lt;/p&gt;</content><category term="Wordpress"></category></entry><entry><title>yen - Solvespace 與 V-rep 結合應用</title><link href="http://project.mde.tw/blog/yen-solvespace-yu-v-rep-jie-he-ying-yong.html" rel="alternate"></link><published>2016-04-05T01:20:00+08:00</published><updated>2016-04-05T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-04-05:/blog/yen-solvespace-yu-v-rep-jie-he-ying-yong.html</id><summary type="html">&lt;p&gt;Solvespace 是一套小型的參數式 3D 繪圖開源套件, 而 V-rep 則是一套允許教育界免費使用的開源動態模擬套件, 結合這兩個套件在機械設計專題應用, 一方面使用者可以在可攜的架構下來進行產品開發與模擬, 更重要的是, 使用者可以透過原始程式碼, 一窺專業人士編寫電腦輔助機械設計與分析工具時, 所應用的理論分析與基本架構.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;Solvespace 是一套小型的參數式 3D 繪圖開源套件, 而 V-rep 則是一套允許教育界免費使用的開源動態模擬套件, 結合這兩個套件在機械設計專題應用, 一方面使用者可以在可攜的架構下來進行產品開發與模擬, 更重要的是, 使用者可以透過原始程式碼, 一窺專業人士編寫電腦輔助機械設計與分析工具時, 所應用的理論分析與基本架構.&lt;/p&gt;
+&lt;p&gt;第2項設定則是必須配合所使用的 Gmail 帳號, 利用 &lt;a href="https://www.google.com/settings/security/lesssecureapps"&gt;https://www.google.com/settings/security/lesssecureapps&lt;/a&gt; 將原定的 Turn off 改為 Turn on, 也就是降低安全設定等級, 接著就可以寄出測試信件, 若成功, 則 WordPress 中的其他模組就可以利用設定寄信.&lt;/p&gt;</summary><category term="Wordpress"></category></entry><entry><title>yen - Solvespace 與 V-rep 結合應用</title><link href="http://project.mde.tw/blog/yen-solvespace-yu-v-rep-jie-he-ying-yong.html" rel="alternate"></link><published>2016-04-05T01:20:00+08:00</published><updated>2016-04-05T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-04-05:blog/yen-solvespace-yu-v-rep-jie-he-ying-yong.html</id><summary type="html">&lt;p&gt;Solvespace 是一套小型的參數式 3D 繪圖開源套件, 而 V-rep 則是一套允許教育界免費使用的開源動態模擬套件, 結合這兩個套件在機械設計專題應用, 一方面使用者可以在可攜的架構下來進行產品開發與模擬, 更重要的是, 使用者可以透過原始程式碼, 一窺專業人士編寫電腦輔助機械設計與分析工具時, 所應用的理論分析與基本架構.&lt;/p&gt;
 
 
 &lt;p&gt;Solvespace: &lt;a href="http://solvespace.com/"&gt;http://solvespace.com/&lt;/a&gt; 與 &lt;a href="https://github.com/whitequark/solvespace"&gt;https://github.com/whitequark/solvespace&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;V-rep: &lt;a href="http://www.coppeliarobotics.com/"&gt;http://www.coppeliarobotics.com/&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/solvespace_v-rep.png" width="800" /&gt;&lt;/p&gt;</content><category term="Solvespace"></category><category term="V-rep"></category></entry><entry><title>yen - 編譯 Solvespace</title><link href="http://project.mde.tw/blog/yen-bian-yi-solvespace.html" rel="alternate"></link><published>2016-03-10T01:20:00+08:00</published><updated>2016-03-10T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-10:/blog/yen-bian-yi-solvespace.html</id><summary type="html">&lt;p&gt;我們有沒有能力在機械設計專題中, 自行編譯 Solvespace, 並且了解其中的原理後, 新增自己需要的零件設計功能?&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;我們有沒有能力在機械設計專題中, 自行編譯 Solvespace, 並且了解其中的原理後, 新增自己需要的零件設計功能?&lt;/p&gt;
+&lt;p&gt;&lt;img src="http://coursemdetw.github.io/project_site_files/files/2016spring/solvespace_v-rep.png" width="800" /&gt;&lt;/p&gt;</summary><category term="Solvespace"></category><category term="V-rep"></category></entry><entry><title>yen - 編譯 Solvespace</title><link href="http://project.mde.tw/blog/yen-bian-yi-solvespace.html" rel="alternate"></link><published>2016-03-10T01:20:00+08:00</published><updated>2016-03-10T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-10:blog/yen-bian-yi-solvespace.html</id><summary type="html">&lt;p&gt;我們有沒有能力在機械設計專題中, 自行編譯 Solvespace, 並且了解其中的原理後, 新增自己需要的零件設計功能?&lt;/p&gt;
 
 
 &lt;p&gt;&lt;a href="https://github.com/whitequark/solvespace"&gt;https://github.com/whitequark/solvespace&lt;/a&gt;&lt;/p&gt;
@@ -2951,8 +2920,7 @@ print(ga.run())
 &lt;p&gt;進入 Solvespace Makefile 所在目錄, 執行 nmake.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
-&lt;p&gt;就可以完成 Solvespace.exe 的編譯.&lt;/p&gt;</content><category term="Solvespace"></category><category term="MCAD"></category></entry><entry><title>yen - 如何參與 project.mde.tw 的協同編輯</title><link href="http://project.mde.tw/blog/yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html" rel="alternate"></link><published>2016-03-09T01:20:00+08:00</published><updated>2016-03-09T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-09:/blog/yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html</id><summary type="html">&lt;p&gt;只要是 KMOL 機械設計專題的成員, 就可以依照特定程序, 管理 project.mde.tw 網站上的資料&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;只要是 KMOL 機械設計專題的成員, 就可以依照特定程序, 管理 project.mde.tw 網站上的資料&lt;/p&gt;
+&lt;p&gt;就可以完成 Solvespace.exe 的編譯.&lt;/p&gt;</summary><category term="Solvespace"></category><category term="MCAD"></category></entry><entry><title>yen - 如何參與 project.mde.tw 的協同編輯</title><link href="http://project.mde.tw/blog/yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html" rel="alternate"></link><published>2016-03-09T01:20:00+08:00</published><updated>2016-03-09T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-09:blog/yen-ru-he-can-yu-projectmdetw-de-xie-tong-bian-ji.html</id><summary type="html">&lt;p&gt;只要是 KMOL 機械設計專題的成員, 就可以依照特定程序, 管理 project.mde.tw 網站上的資料&lt;/p&gt;
 
 
 &lt;p&gt;首先, 你必須是 &lt;a href="https://github.com/coursemdetw/project_site/watchers"&gt;https://github.com/coursemdetw/project_site/watchers&lt;/a&gt; 名單上的成員, 否則就必須透過 Pull Request 的方式來參與 &lt;a href="http://project.mde.tw"&gt;http://project.mde.tw&lt;/a&gt; 網誌內容的協同管理.&lt;/p&gt;
@@ -2977,8 +2945,7 @@ for i in range(5):
 &lt;p&gt;git add -A&lt;/p&gt;
 &lt;p&gt;git commit -m "提交說明訊息"&lt;/p&gt;
 &lt;p&gt;git push origin gh-pages&lt;/p&gt;
-&lt;p&gt;最後, 與 &lt;a href="http://project.mde.tw"&gt;http://project.mde.tw&lt;/a&gt; 網站維護有關的訊息溝通或註記, 請透過 &lt;a href="https://github.com/coursemdetw/project_site/wiki/%E6%A9%9F%E6%A2%B0%E8%A8%AD%E8%A8%88%E5%B0%88%E9%A1%8C%E5%8D%94%E5%90%8C%E7%B6%B2%E7%AB%99%E8%A8%98%E4%BA%8B"&gt;倉儲 Wiki&lt;/a&gt; 進行.&lt;/p&gt;</content><category term="Pelican"></category><category term="Leo Editor"></category></entry><entry><title>yen - 網際 Flask 程式架構</title><link href="http://project.mde.tw/blog/yen-wang-ji-flask-cheng-shi-jia-gou.html" rel="alternate"></link><published>2016-03-08T01:20:00+08:00</published><updated>2016-03-08T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-08:/blog/yen-wang-ji-flask-cheng-shi-jia-gou.html</id><summary type="html">&lt;p&gt;Flask 是一套支援 Python3 的全球資訊網程式框架, 這裡希望用它來開發網際輔助機械設計程式.&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;Flask 是一套支援 Python3 的全球資訊網程式框架, 這裡希望用它來開發網際輔助機械設計程式.&lt;/p&gt;
+&lt;p&gt;最後, 與 &lt;a href="http://project.mde.tw"&gt;http://project.mde.tw&lt;/a&gt; 網站維護有關的訊息溝通或註記, 請透過 &lt;a href="https://github.com/coursemdetw/project_site/wiki/%E6%A9%9F%E6%A2%B0%E8%A8%AD%E8%A8%88%E5%B0%88%E9%A1%8C%E5%8D%94%E5%90%8C%E7%B6%B2%E7%AB%99%E8%A8%98%E4%BA%8B"&gt;倉儲 Wiki&lt;/a&gt; 進行.&lt;/p&gt;</summary><category term="Pelican"></category><category term="Leo Editor"></category></entry><entry><title>yen - 網際 Flask 程式架構</title><link href="http://project.mde.tw/blog/yen-wang-ji-flask-cheng-shi-jia-gou.html" rel="alternate"></link><published>2016-03-08T01:20:00+08:00</published><updated>2016-03-08T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-08:blog/yen-wang-ji-flask-cheng-shi-jia-gou.html</id><summary type="html">&lt;p&gt;Flask 是一套支援 Python3 的全球資訊網程式框架, 這裡希望用它來開發網際輔助機械設計程式.&lt;/p&gt;
 
 
 &lt;p&gt;&lt;a href="http://flask.pocoo.org/"&gt;http://flask.pocoo.org/&lt;/a&gt; 是一套簡潔的 Python3 網際程式框架, 在這一系列的導引資料中, 將利用 &lt;a href="https://github.com/2015fallhw/simpleflask"&gt;https://github.com/2015fallhw/simpleflask&lt;/a&gt; 倉儲來存放資料, 並將資料同步推送到 &lt;a href="http://simpleflask-2014openshift.rhcloud.com/"&gt;http://simpleflask-2014openshift.rhcloud.com/&lt;/a&gt; 執行.&lt;/p&gt;
@@ -3113,12 +3080,10 @@ if __name__ == "__main__":
 &lt;/pre&gt;
 
 &lt;p&gt;&lt;br /&gt;&lt;/p&gt;
-&lt;p&gt;此外, 因為 Flask 內定靜態目錄名稱為 static, 且 template 名稱為 templates, 因此在最基本的 Flask 程式架構中, 也需要自行建立這兩個目錄, 然後將靜態文件放入 static 目錄中, 而對應的  template 文件檔案, 則放入 templates 目錄中.&lt;/p&gt;</content><category term="OpenShift"></category><category term="Flask"></category></entry><entry><title>user - 使用者的範例網誌文章標題</title><link href="http://project.mde.tw/blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html" rel="alternate"></link><published>2016-03-01T21:00:00+08:00</published><updated>2016-03-01T21:00:00+08:00</updated><author><name>user</name></author><id>tag:project.mde.tw,2016-03-01:/blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 user 所寫的文章摘要&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;這裡放入 user 所寫的文章摘要&lt;/p&gt;
+&lt;p&gt;此外, 因為 Flask 內定靜態目錄名稱為 static, 且 template 名稱為 templates, 因此在最基本的 Flask 程式架構中, 也需要自行建立這兩個目錄, 然後將靜態文件放入 static 目錄中, 而對應的  template 文件檔案, 則放入 templates 目錄中.&lt;/p&gt;</summary><category term="OpenShift"></category><category term="Flask"></category></entry><entry><title>user - 使用者的範例網誌文章標題</title><link href="http://project.mde.tw/blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html" rel="alternate"></link><published>2016-03-01T21:00:00+08:00</published><updated>2016-03-01T21:00:00+08:00</updated><author><name>user</name></author><id>tag:project.mde.tw,2016-03-01:blog/user-shi-yong-zhe-de-fan-li-wang-zhi-wen-zhang-biao-ti.html</id><summary type="html">&lt;p&gt;這裡放入 user 所寫的文章摘要&lt;/p&gt;
 
 
-&lt;p&gt;這裡為 user 所寫的文章主要內容&lt;/p&gt;</content><category term="範例"></category></entry><entry><title>yen - 2016 年專題啟動</title><link href="http://project.mde.tw/blog/yen-2016-nian-zhuan-ti-qi-dong.html" rel="alternate"></link><published>2016-03-01T01:20:00+08:00</published><updated>2016-03-01T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-01:/blog/yen-2016-nian-zhuan-ti-qi-dong.html</id><summary type="html">&lt;p&gt;利用 Github Pages 與 Pelican 建立協同專題製作網誌&lt;/p&gt;
-</summary><content type="html">&lt;p&gt;利用 Github Pages 與 Pelican 建立協同專題製作網誌&lt;/p&gt;
+&lt;p&gt;這裡為 user 所寫的文章主要內容&lt;/p&gt;</summary><category term="範例"></category></entry><entry><title>yen - 2016 年專題啟動</title><link href="http://project.mde.tw/blog/yen-2016-nian-zhuan-ti-qi-dong.html" rel="alternate"></link><published>2016-03-01T01:20:00+08:00</published><updated>2016-03-01T01:20:00+08:00</updated><author><name>yen</name></author><id>tag:project.mde.tw,2016-03-01:blog/yen-2016-nian-zhuan-ti-qi-dong.html</id><summary type="html">&lt;p&gt;利用 Github Pages 與 Pelican 建立協同專題製作網誌&lt;/p&gt;
 
 
 &lt;h2&gt;機械設計工程網誌啟動&lt;/h2&gt;
@@ -3171,4 +3136,4 @@ if __name__ == "__main__":
 &lt;ol&gt;
 &lt;li&gt;本網誌為了同時支援近端與遠端的資料內容使用, 資料轉檔分為近端按鈕與遠端按鈕, 協同成員在推送資料到遠端之前, 必須確定資料為遠端 Github Pages 格式.&lt;/li&gt;
 &lt;li&gt;鼓勵各成員深入研究本網誌的細節架構, 勇於提出問題, 解決問題, 打造出最適合機械設計工程團隊使用的網際協同架構、模式與系統工具.&lt;/li&gt;
-&lt;/ol&gt;</content><category term="教學導引"></category><category term="網誌設定"></category></entry></feed>
+&lt;/ol&gt;</summary><category term="教學導引"></category><category term="網誌設定"></category></entry></feed>

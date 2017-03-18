@@ -313,7 +313,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-07-13T19:00:00+08:00"> 三 13 七月 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-07-13T19:00:00+08:00"> Wed 13 July 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -342,14 +342,14 @@ init_mathjax();
 <p>Python 3.5.2下載處：</p>
 <p><a href="https://www.python.org/downloads/" title="python.org">https://www.python.org/downloads/</a></p>
 <p>刪除Python34資料的所有內容後，將安裝完的Python35放進W:內，並將start.bat內的Python34位置全數改成Python35。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0713_01.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0713_01.jpg" /></p>
 <p>在Y:槽中執行以下指令以取得舊有的軟體資訊，存成名為rq.txt的清單。</p>
 <pre class="brush: c">
 pip freeze > rq.txt
 </pre>
 
 <p>清單中列的就是Python 3.4安裝的套件版本。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0713_02.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0713_02.jpg" /></p>
 <p>進入Python 3.5後使用pip指令時出現類似"Fatal error in launcher"的訊息，原因是官方的pip版本較舊。</p>
 <p>如果不更新，只能用"python -m pip"的方式驅動它，所以先命令它為自己升級。</p>
 <pre>
@@ -357,14 +357,14 @@ python -m pip install pip --upgrade
 </pre>
 
 <p>然後再利用Y:槽傳來的清單安裝，不過之前的Leo 5.1沒有在pip的下載網站裡，5.3版也要從Leo的官方下載，所以暫時先把leo剔除。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0713_03.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0713_03.jpg" /></p>
 <p>接著利用下列指令更新：</p>
 <pre>
 pip install -r rq.txt
 </pre>
 
 <p>就會裝回所有的套件了。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0713_04.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0713_04.jpg" /></p>
 <p>使用下列指令可以查看已安裝的套件。</p>
 <p>而只要在安裝時加入--upgrade參數就能更新，不過目前沒有全部更新的指令。</p>
 <pre class="brush: c">
@@ -387,7 +387,7 @@ python setup.py install
 <p>安裝完後，接著就能把解壓縮的檔案刪除了。</p>
 <p>不過在pip的紀錄中還是5.0 Bata2的樣子。</p>
 <p>新版的Leo介面（設定檔複製之前的）。</p>
-<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0713_05.jpg"></p>
+<p><img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0713_05.jpg" /></p>
 <hr>
 
 <p>上次的swig還是沒成功，"_wrap.c"中似乎還要加一些python3的判斷式。</p>
@@ -443,6 +443,11 @@ python setup.py install
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060318.html">
+                            40323230日誌 - 106/03/18
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1060316.html">
                             40323230日誌 - 106/03/16
                         </a>
@@ -455,11 +460,6 @@ python setup.py install
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html">
                             Pandoc - Markdown 轉 PDF 格式
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060315.html">
-                            Pyquino 日誌 - 106/03/15
                         </a>
                     </li>
                 </ul>

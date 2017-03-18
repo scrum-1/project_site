@@ -314,7 +314,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-03-16T21:00:00+08:00"> 四 16 三月 2017</time>
+        <i class="fa fa-calendar"></i><time datetime="2017-03-16T21:00:00+08:00"> Thu 16 March 2017</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -391,13 +391,11 @@ init_mathjax();
 
 <h2><a name="換行記號"></a>換行記號</h2>
 <p>使用<strong>空行</strong>的方式來作換行，如下：</p>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span>第一段文字
+<div class="highlight"><pre><span></span>第一段文字
 
 第二段文字
 </pre></div>
-</td></tr></table>
+
 
 <p>「看起來像」空行也會被視作空行，如該行只有空白或 tab 字元。</p>
 <p>若是沒有換行，兩段緊貼的文字仍會視為同一段。</p>
@@ -537,7 +535,7 @@ $$\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$
 </pre>
 
 <p>會生成：</p>
-<p>$$\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$</p>
+<div class="math">$$\frac{-b\pm\sqrt{b^2-4ac}}{2a}$$</div>
 <h2><a name="程式碼"></a>程式碼</h2>
 <p>Markdown 用簡單的縮排插入程式碼，如：</p>
 <pre>
@@ -568,8 +566,65 @@ sudo pip3 install markdown
 <h2><a name="注意事項"></a>注意事項</h2>
 <p>不像其他語言，在 Leo Editor 中使用 <code>@others</code> 與 <code>@clean</code> 編輯 Markdown 論文或技術手冊時，<strong>子節點必須多留一個換行</strong>。</p>
 <p>否則 Leo Editor 在儲存時會把下一個子節點的第一行對齊到前個節點的最後一行，導致<strong>沒有換行標記</strong>，會誤認這兩行的內容為同一行而沒做換行處理。</p>
-<hr>
+<hr />
 <p>更多內容請參見：<a href="http://markdown.tw/">http://markdown.tw/</a></p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -620,6 +675,11 @@ sudo pip3 install markdown
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060318.html">
+                            40323230日誌 - 106/03/18
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1060316.html">
                             40323230日誌 - 106/03/16
                         </a>
@@ -632,11 +692,6 @@ sudo pip3 install markdown
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html">
                             Pandoc - Markdown 轉 PDF 格式
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/pyquino-ri-zhi-1060315.html">
-                            Pyquino 日誌 - 106/03/15
                         </a>
                     </li>
                 </ul>

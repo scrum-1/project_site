@@ -313,7 +313,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-07-19T12:00:00+08:00"> Tue 19 July 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-07-19T12:00:00+08:00"> 週二 19 七月 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323143.html"><i class="fa fa-user"></i> 40323143</a>
@@ -329,7 +329,7 @@ init_mathjax();
 </p>
 <p>本篇接續7/18的文章，使用輸入脈衝寬度控制的方法控制，並將序列埠輸入的程式寫進來，完成由序列埠輸入最終角度的脈衝寬度來控制馬達的程式。</p>
 <p>MG996R馬達角度由0度到180度相對的脈衝寬度為500到2500，1個脈衝寬度相對的角度值為0.09度。</p>
-<div class="highlight"><pre><span></span><span class="cp">#include</span> <span class="cpf">&lt;Servo.h&gt;</span><span class="cp"></span>
+<div class="highlight"><pre><span class="cp">#include &lt;Servo.h&gt;</span>
 
 <span class="n">Servo</span> <span class="n">myservo</span><span class="p">;</span>      <span class="c1">//第一顆馬達</span>
 <span class="n">Servo</span> <span class="n">myservo2</span><span class="p">;</span>    <span class="c1">//第二顆馬達</span>
@@ -370,7 +370,7 @@ init_mathjax();
 
 <p>結語:</p>
 <p>以下方的程式可以將序列埠輸入的數值輸入程式中使用。</p>
-<div class="highlight"><pre><span></span>int d;
+<div class="highlight"><pre>int d;
 if(Serial.available()){           
 d = Serial.parseInt();    //定義輸入訊號值為d
 Serial.println(d);            
@@ -431,6 +431,11 @@ if(0 &lt;= d &amp;&amp; d &lt;= 2500){   //限制訊號範圍
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/403232030506ri-zhi-measuring-size.html">
+                            40323203&05&06日誌 -  Measuring size
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1060318.html">
                             40323230日誌 - 106/03/18
                         </a>
@@ -443,11 +448,6 @@ if(0 &lt;= d &amp;&amp; d &lt;= 2500){   //限制訊號範圍
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/pandoc-markdown-ji-ben-yu-fa-jie-shao.html">
                             Pandoc - Markdown 基本語法介紹
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html">
-                            Pandoc - Markdown 轉 PDF 格式
                         </a>
                     </li>
                 </ul>

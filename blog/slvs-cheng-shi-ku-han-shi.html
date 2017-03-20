@@ -317,7 +317,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2016-08-17T12:00:00+08:00"> Wed 17 August 2016</time>
+        <i class="fa fa-calendar"></i><time datetime="2016-08-17T12:00:00+08:00"> 週三 17 八月 2016</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323230.html"><i class="fa fa-user"></i> 40323230</a>
@@ -465,7 +465,7 @@ sys.get_param(0).val
 </ol>
 <p>根據這些關係，在約束時必須判斷其分類以填入。</p>
 <p>輸入值後方加入<code>, sys</code>，以傳入系統清單<code>sys</code>中（也許有<code>sys2</code>或<code>sys3</code>等等）；亦可用<code>sys.add_</code>加入以下支援的實體，而取出的編號取決於註冊的順序。</p>
-<div class="highlight"><pre><span></span>add_param( )
+<div class="highlight"><pre>add_param( )
 add_point2d( )
 add_point3d( )
 add_entity( )
@@ -473,7 +473,7 @@ add_entity( )
 
 
 <p>取出時亦同（函數中加上編號就能指定）：</p>
-<div class="highlight"><pre><span></span>get_Point2d( )
+<div class="highlight"><pre>get_Point2d( )
 get_Point3d( )
 get_LineSegment2d( )
 get_LineSegment3d( )
@@ -524,7 +524,7 @@ Normal3d(Workplane wrkpl)
 <p>可以想像這個四元數代表一個通過原點的平面。</p>
 <p>這個平面跟三個向量相關：基礎向量<code>U</code>和<code>V</code>在平面上、而法線<code>N</code>則垂直它，相當於<code>[ U V N ]'</code>。</p>
 <p>因此U、N、N都有單位長度，而他們都正交，所以：</p>
-<div class="highlight"><pre><span></span>U cross V = N
+<div class="highlight"><pre>U cross V = N
 V cross N = U
 N cross U = V
 </pre></div>
@@ -550,7 +550,7 @@ plane = Workplane(c, normal)
 
 <p>這個公式在製作2D平面時非常方便。</p>
 <p>以下是不同平面參考：</p>
-<div class="highlight"><pre><span></span>XY平面：[1 0 0], [0 1 0]
+<div class="highlight"><pre>XY平面：[1 0 0], [0 1 0]
 MakeQuaternion(1, 0, 0, 0, 1, 0)
 
 YZ平面：[0 1 0], [0 0 1]
@@ -1013,6 +1013,11 @@ sys.set_dragged(Point p)
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/403232030506ri-zhi-measuring-size.html">
+                            40323203&05&06日誌 -  Measuring size
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1060318.html">
                             40323230日誌 - 106/03/18
                         </a>
@@ -1025,11 +1030,6 @@ sys.set_dragged(Point p)
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/pandoc-markdown-ji-ben-yu-fa-jie-shao.html">
                             Pandoc - Markdown 基本語法介紹
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/pandoc-markdown-zhuan-pdf-ge-shi.html">
-                            Pandoc - Markdown 轉 PDF 格式
                         </a>
                     </li>
                 </ul>

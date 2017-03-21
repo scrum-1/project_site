@@ -538,7 +538,7 @@ sudo pip3 install markdown
 &lt;p&gt;&lt;a href="https://github.com/jgm/pandoc/releases/"&gt;https://github.com/jgm/pandoc/releases/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;接著用 apt 安裝 texLive。&lt;/p&gt;
 &lt;pre&gt;
-$sudo apt install texlive texlive-xetex texlive-lang-chinese etoolbox
+$sudo apt install texlive texlive-xetex texlive-lang-chinese texlive-bibtex-extra etoolbox
 &lt;/pre&gt;
 
 &lt;p&gt;若是有檔案缺損，直接轉檔，可能會缺少所需的轉換範本，出現類似下面的警告：  &lt;/p&gt;

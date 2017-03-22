@@ -50,19 +50,15 @@
 &lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0315_03.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0315_04.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0315_05.png"&gt;&lt;/p&gt;</content><category term="Leo Editor"></category><category term="Pandoc"></category></entry><entry><title>40323230日誌 - 106/03/22</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060322.html" rel="alternate"></link><published>2017-03-22T21:00:00+08:00</published><updated>2017-03-22T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-03-22:/blog/40323230ri-zhi-1060322.html</id><summary type="html">&lt;p&gt;Pyslvs 開發進度 - 三角求解器&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;* 完成合併功能
-* 演算法合併校正
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
+&lt;ul&gt;
+&lt;li&gt;完成合併功能&lt;/li&gt;
+&lt;li&gt;演算法合併校正&lt;/li&gt;
+&lt;/ul&gt;
 </summary><content type="html">&lt;p&gt;Pyslvs 開發進度 - 三角求解器&lt;/p&gt;
-&lt;table class="highlighttable"&gt;&lt;tr&gt;&lt;td class="linenos"&gt;&lt;div class="linenodiv"&gt;&lt;pre&gt;1
-2&lt;/pre&gt;&lt;/div&gt;&lt;/td&gt;&lt;td class="code"&gt;&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;* 完成合併功能
-* 演算法合併校正
-&lt;/pre&gt;&lt;/div&gt;
-&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
-
+&lt;ul&gt;
+&lt;li&gt;完成合併功能&lt;/li&gt;
+&lt;li&gt;演算法合併校正&lt;/li&gt;
+&lt;/ul&gt;
 
 
 &lt;h1&gt;Pyslvs 開發進度 - 三角求解器&lt;/h1&gt;

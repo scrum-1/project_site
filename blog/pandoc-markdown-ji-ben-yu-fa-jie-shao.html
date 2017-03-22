@@ -369,6 +369,12 @@ init_mathjax();
 <li>
 <p><a href="#程式碼">程式碼</a></p>
 </li>
+<li>
+<p><a href="#參考文獻">參考文獻</a></p>
+</li>
+<li>
+<p><a href="#注意事項">注意事項</a></p>
+</li>
 </ol>
 <h2><a name="書目與換頁"></a>Pandoc 書目與換頁</h2>
 <h3>書目</h3>
@@ -565,6 +571,28 @@ sudo apt install python3-pip
 sudo pip3 install markdown
 ```</pre>
 
+<h2><a name="參考文獻"></a>參考文獻</h2>
+<p>將參考資料的資訊放入 bibtex 檔案中，並給予一個識別名稱（如 myart），結構如下：</p>
+<pre>
+@article{myart,
+  author  = {作者名字}, 
+  title   = {標題},
+  journal = {刊物名稱},
+  year    = 1993,
+  number  = 2,
+  pages   = {201-213},
+  month   = 7,
+  note    = {選擇性註解}, 
+  volume  = 4
+}
+</pre>
+
+<p>接著可以在內文中使用：</p>
+<pre>
+參考於書籍[@myart]。
+</pre>
+
+<p>Pabdoc 會自動編碼，套用不同的 csl 檔案可以改變條列外觀。</p>
 <h2><a name="注意事項"></a>注意事項</h2>
 <p>不像其他語言，在 Leo Editor 中使用 <code>@others</code> 與 <code>@clean</code> 編輯 Markdown 論文或技術手冊時，<strong>子節點必須多留一個換行</strong>。</p>
 <p>否則 Leo Editor 在儲存時會把下一個子節點的第一行對齊到前個節點的最後一行，導致<strong>沒有換行標記</strong>，會誤認這兩行的內容為同一行而沒做換行處理。</p>
@@ -620,6 +648,11 @@ sudo pip3 install markdown
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060322.html">
+                            40323230日誌 - 106/03/22
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1060320.html">
                             40323230日誌 - 106/03/20
                         </a>
@@ -632,11 +665,6 @@ sudo pip3 install markdown
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1060318.html">
                             40323230日誌 - 106/03/18
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060316.html">
-                            40323230日誌 - 106/03/16
                         </a>
                     </li>
                 </ul>

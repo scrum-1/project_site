@@ -313,7 +313,7 @@ init_mathjax();
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-03-13T23:00:00+08:00"> 一 13 三月 2017</time>
+        <i class="fa fa-calendar"></i><time datetime="2017-03-13T23:00:00+08:00"> 週一 13 三月 2017</time>
     </span>
             <span class="label label-default">By</span>
             <a href="http://project.mde.tw/blog/author/40323123.html"><i class="fa fa-user"></i> 40323123</a>
@@ -366,21 +366,78 @@ init_mathjax();
 <p>$$a_{1x}</p>
 <p>a_{1y}</p>
 <p>a_{1z}$$</p>
-<p>$$a_{1x} = (tx + pa)$$</p>
-<p>$$a_{1y} = (ty)$$</p>
-<p>$$a_{1z} = (tz+to)$$</p>
-<p>$$a_{2x} = sp $$</p>
-<p>$$a_{2y} = 0 $$</p>
-<p>$$a_{2z} = ??? $$</p>
+<div class="math">$$a_{1x} = (tx + pa)$$</div>
+<div class="math">$$a_{1y} = (ty)$$</div>
+<div class="math">$$a_{1z} = (tz+to)$$</div>
+<div class="math">$$a_{2x} = sp $$</div>
+<div class="math">$$a_{2y} = 0 $$</div>
+<div class="math">$$a_{2z} = ??? $$</div>
 <p>因為要得到每個滑塊要移動的量(a2z),未知滑塊的高度</p>
 <p>利用畢氏定理可以得到旁邊滑塊的伸縮量</p>
-<p>$$aa = \sqrt{(a_{2x}-a_{1x})^2-(a_{2y}-a_{1y})^2}$$</p>
-<p>$$ha = \sqrt{(l_{a})^2-(aa)^2}$$</p>
-<p>$$a_{2z} = tz + to +ha $$</p>
+<div class="math">$$aa = \sqrt{(a_{2x}-a_{1x})^2-(a_{2y}-a_{1y})^2}$$</div>
+<div class="math">$$ha = \sqrt{(l_{a})^2-(aa)^2}$$</div>
+<div class="math">$$a_{2z} = tz + to +ha $$</div>
 <p>後面再把圖補上</p>
 <p>更新了新的界面負責把值傳到vrep裡面,目前已經把gcode解出來,也把逆向運動學推導完成</p>
-<p><img alt="" src="https://github.com/coursemdetw/project_site_files/blob/gh-pages/files/pyquino/machine/dynamic_math.jpg?raw=true"></p>
-<p><img alt="" src="https://github.com/coursemdetw/project_site_files/blob/gh-pages/files/pyquino/panel.png?raw=true"></p>
+<p><img alt="" src="https://github.com/coursemdetw/project_site_files/blob/gh-pages/files/pyquino/machine/dynamic_math.jpg?raw=true" /></p>
+<p><img alt="" src="https://github.com/coursemdetw/project_site_files/blob/gh-pages/files/pyquino/panel.png?raw=true" /></p>
+<script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
+    var align = "center",
+        indent = "0em",
+        linebreak = "false";
+
+    if (false) {
+        align = (screen.width < 768) ? "left" : align;
+        indent = (screen.width < 768) ? "0em" : indent;
+        linebreak = (screen.width < 768) ? 'true' : linebreak;
+    }
+
+    var mathjaxscript = document.createElement('script');
+    var location_protocol = (false) ? 'https' : document.location.protocol;
+    if (location_protocol !== 'http' && location_protocol !== 'https') location_protocol = 'https:';
+    mathjaxscript.id = 'mathjaxscript_pelican_#%@#$@#';
+    mathjaxscript.type = 'text/javascript';
+    mathjaxscript.src = location_protocol + '//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML';
+    mathjaxscript[(window.opera ? "innerHTML" : "text")] =
+        "MathJax.Hub.Config({" +
+        "    config: ['MMLorHTML.js']," +
+        "    TeX: { extensions: ['AMSmath.js','AMSsymbols.js','noErrors.js','noUndefined.js'], equationNumbers: { autoNumber: 'AMS' } }," +
+        "    jax: ['input/TeX','input/MathML','output/HTML-CSS']," +
+        "    extensions: ['tex2jax.js','mml2jax.js','MathMenu.js','MathZoom.js']," +
+        "    displayAlign: '"+ align +"'," +
+        "    displayIndent: '"+ indent +"'," +
+        "    showMathMenu: true," +
+        "    messageStyle: 'normal'," +
+        "    tex2jax: { " +
+        "        inlineMath: [ ['\\\\(','\\\\)'] ], " +
+        "        displayMath: [ ['$$','$$'] ]," +
+        "        processEscapes: true," +
+        "        preview: 'TeX'," +
+        "    }, " +
+        "    'HTML-CSS': { " +
+        "        styles: { '.MathJax_Display, .MathJax .mo, .MathJax .mi, .MathJax .mn': {color: 'inherit ! important'} }," +
+        "        linebreaks: { automatic: "+ linebreak +", width: '90% container' }," +
+        "    }, " +
+        "}); " +
+        "if ('default' !== 'default') {" +
+            "MathJax.Hub.Register.StartupHook('HTML-CSS Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax['HTML-CSS'].FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+            "MathJax.Hub.Register.StartupHook('SVG Jax Ready',function () {" +
+                "var VARIANT = MathJax.OutputJax.SVG.FONTDATA.VARIANT;" +
+                "VARIANT['normal'].fonts.unshift('MathJax_default');" +
+                "VARIANT['bold'].fonts.unshift('MathJax_default-bold');" +
+                "VARIANT['italic'].fonts.unshift('MathJax_default-italic');" +
+                "VARIANT['-tex-mathit'].fonts.unshift('MathJax_default-italic');" +
+            "});" +
+        "}";
+    (document.body || document.getElementsByTagName('head')[0]).appendChild(mathjaxscript);
+}
+</script>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -431,6 +488,11 @@ init_mathjax();
                         </a>
                     </li>
                     <li class="list-group-item">
+                        <a href="http://project.mde.tw/blog/403232030506ri-zhi-mark-number.html">
+                            40323203&05&06日誌 -  Mark Number
+                        </a>
+                    </li>
+                    <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/40323230ri-zhi-1060322.html">
                             40323230日誌 - 106/03/22
                         </a>
@@ -443,11 +505,6 @@ init_mathjax();
                     <li class="list-group-item">
                         <a href="http://project.mde.tw/blog/403232030506ri-zhi-measuring-size.html">
                             40323203&05&06日誌 -  Measuring size
-                        </a>
-                    </li>
-                    <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060318.html">
-                            40323230日誌 - 106/03/18
                         </a>
                     </li>
                 </ul>

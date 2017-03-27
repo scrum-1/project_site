@@ -180,10 +180,10 @@
 &lt;h4&gt;
 將下列程式碼建立好，儲存於建立的資料夾中。
 &lt;/br&gt;
-&lt;/br&gt;
-&lt;pre class="brush: bash"&gt;&lt;/p&gt;
-&lt;h1&gt;導入函式庫&lt;/h1&gt;
-&lt;p&gt;from matplotlib import pyplot as plt
+&lt;/br&gt;&lt;/p&gt;
+&lt;pre class="brush: bash"&gt;
+#導入函式庫
+from matplotlib import pyplot as plt
 import vrep
 import sys
 import cv2
@@ -193,139 +193,131 @@ from scipy.spatial import distance as dist
 from imutils import perspective
 from imutils import contours
 import argparse
-import imutils&lt;/p&gt;
-&lt;p&gt;vrep.simxFinish(-1) #終止所有連接
-clientID=vrep.simxStart('127.0.0.1',19999,True,True,5000,5) #設立一個連接口19999(默認地址)&lt;/p&gt;
-&lt;p&gt;if clientID!=-1:
-    print ('Conexion establecida')&lt;/p&gt;
-&lt;p&gt;else:
-    sys.exit("Error: no se puede conectar")&lt;/p&gt;
-&lt;h1&gt;保存參考相機&lt;/h1&gt;
-&lt;p&gt;_, camhandle = vrep.simxGetObjectHandle(clientID, 'Vision_sensor', vrep.simx_opmode_oneshot_wait)&lt;/p&gt;
-&lt;h1&gt;啟動相機電源&lt;/h1&gt;
-&lt;p&gt;_, resolution, image = vrep.simxGetVisionSensorImage(clientID, camhandle, 0, vrep.simx_opmode_streaming)
-time.sleep(1)&lt;/p&gt;
-&lt;p&gt;while(1):
+import imutils
+
+vrep.simxFinish(-1) #終止所有連接
+clientID=vrep.simxStart('127.0.0.1',19999,True,True,5000,5) #設立一個連接口19999(默認地址)
+
+if clientID!=-1:
+    print ('Conexion establecida')
+
+else:
+    sys.exit("Error: no se puede conectar")
+
+#保存參考相機
+_, camhandle = vrep.simxGetObjectHandle(clientID, 'Vision_sensor', vrep.simx_opmode_oneshot_wait)
+#啟動相機電源
+_, resolution, image = vrep.simxGetVisionSensorImage(clientID, camhandle, 0, vrep.simx_opmode_streaming)
+time.sleep(1)
+
+while(1):
     #保存攝像機並轉換為BGR
     _, resolution, image=vrep.simxGetVisionSensorImage(clientID, camhandle, 0, vrep.simx_opmode_buffer)
     img = np.array(image, dtype = np.uint8)
     img.resize([resolution[0], resolution[1], 3])
     img = np.rot90(img,2)
     img = np.fliplr(img)
-    img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR) &lt;br /&gt;
+    img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)   
     #影像存檔 名為gear4
-    tecla = cv2.waitKey(5) &amp;amp; 0xFF
+    tecla = cv2.waitKey(5) &amp; 0xFF
     file = "gear4.png"
-    cv2.imwrite(file, img)&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;def midpoint(ptA, ptB):
-    return ((ptA[0] + ptB[0]) * 0.5, (ptA[1] + ptB[1]) * 0.5)
-
-ap = argparse.ArgumentParser()
-&lt;/pre&gt;&lt;/div&gt;
+    cv2.imwrite(file, img)
 
 
-&lt;h1&gt;讓圖檔於開啟指令執行時輸入最左端的矩形寬度&lt;/h1&gt;
-&lt;h1&gt;cmd進入py檔和圖檔所在資料夾後，輸入python 1117_distance.py --width 寬度(inch) 開啟&lt;/h1&gt;
-&lt;h1&gt;寬度可直接輸入數字&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;ap.add_argument(&amp;quot;-w&amp;quot;, &amp;quot;--width&amp;quot;, type=float, required=True)
 
-args = vars(ap.parse_args())
-&lt;/pre&gt;&lt;/div&gt;
+    def midpoint(ptA, ptB):
+        return ((ptA[0] + ptB[0]) * 0.5, (ptA[1] + ptB[1]) * 0.5)
 
+    ap = argparse.ArgumentParser()
 
-&lt;h1&gt;讀取圖檔→灰階→模糊&lt;/h1&gt;
-&lt;h1&gt;cv2.GaussianBlur模糊程度可以用3x3, 5x5, 7x7&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;img = cv2.imread(&amp;quot;gear4.png&amp;quot;, 1)
-Gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
-gray = cv2.GaussianBlur(Gray, (3, 3), 0)
-&lt;/pre&gt;&lt;/div&gt;
+#讓圖檔於開啟指令執行時輸入最左端的矩形寬度
+#cmd進入py檔和圖檔所在資料夾後，輸入python 1117_distance.py --width 寬度(inch) 開啟
+#寬度可直接輸入數字
+    ap.add_argument("-w", "--width", type=float, required=True)
 
+    args = vars(ap.parse_args())
 
-&lt;h1&gt;輪廓描邊→補空&amp;amp;侵蝕&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;edged = cv2.Canny(gray, 50, 100)
-edged = cv2.dilate(edged, None, iterations=1)
-edged = cv2.erode(edged, None, iterations=1)
-&lt;/pre&gt;&lt;/div&gt;
+#讀取圖檔→灰階→模糊
+#cv2.GaussianBlur模糊程度可以用3x3, 5x5, 7x7
+    img = cv2.imread("gear4.png", 1)
+    Gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
+    gray = cv2.GaussianBlur(Gray, (3, 3), 0)
 
+#輪廓描邊→補空&amp;侵蝕
+    edged = cv2.Canny(gray, 50, 100)
+    edged = cv2.dilate(edged, None, iterations=1)
+    edged = cv2.erode(edged, None, iterations=1)
 
-&lt;h1&gt;進行偵測&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;cnts = cv2.findContours(edged.copy(), cv2.RETR_EXTERNAL,
-    cv2.CHAIN_APPROX_SIMPLE)
-cnts = cnts[0] if imutils.is_cv2() else cnts[1]
-&lt;/pre&gt;&lt;/div&gt;
+#進行偵測
+    cnts = cv2.findContours(edged.copy(), cv2.RETR_EXTERNAL,
+        cv2.CHAIN_APPROX_SIMPLE)
+    cnts = cnts[0] if imutils.is_cv2() else cnts[1]
 
+#以最左矩形四點&amp;中心為基準到其他物品的距離標示線顏色
+    (cnts, _) = contours.sort_contours(cnts)
+    colors = ((0, 0, 255), (240, 0, 159), (0, 165, 255), (255, 255, 0),
+        (255, 0, 255))
+    refObj = None
 
-&lt;h1&gt;以最左矩形四點&amp;amp;中心為基準到其他物品的距離標示線顏色&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;(cnts, _) = contours.sort_contours(cnts)
-colors = ((0, 0, 255), (240, 0, 159), (0, 165, 255), (255, 255, 0),
-    (255, 0, 255))
-refObj = None
-&lt;/pre&gt;&lt;/div&gt;
+#進行一連串的輪廓校準
+    for c in cnts:
+    # 忽略過小的輪廓 (限定輪廓描繪範圍)
+        if cv2.contourArea(c) &lt; 100: #後方的值若是太大則讀不到vrep照出來的形狀
+            continue
 
+    # 計算輪廓旋轉邊界
+        gear4 = cv2.minAreaRect(c)
+        gear4 = cv2.cv.BoxPoints(gear4) if imutils.is_cv2() else cv2.boxPoints(gear4)
+        gear4 = np.array(gear4, dtype="int")
 
-&lt;h1&gt;進行一連串的輪廓校準&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;for c in cnts:
-# 忽略過小的輪廓 (限定輪廓描繪範圍)
-    if cv2.contourArea(c) &amp;lt; 100: #後方的值若是太大則讀不到vrep照出來的形狀
-        continue
+    # 重新設定邊界角落座標的順序, 由左上 右上 右下 左下, 順時針方向繞
+        gear4 = perspective.order_points(gear4)
 
-# 計算輪廓旋轉邊界
-    gear4 = cv2.minAreaRect(c)
-    gear4 = cv2.cv.BoxPoints(gear4) if imutils.is_cv2() else cv2.boxPoints(gear4)
-    gear4 = np.array(gear4, dtype=&amp;quot;int&amp;quot;)
+    # 計算物體的中心
+        cX = np.average(gear4[:, 0])
+        cY = np.average(gear4[:, 1])
 
-# 重新設定邊界角落座標的順序, 由左上 右上 右下 左下, 順時針方向繞
-    gear4 = perspective.order_points(gear4)
+# 以左邊邊界輪廓當基準, 當參考對象
+        if refObj is None:
+        # 計算物品左右邊界的中點
+            (tl, tr, br, bl) = gear4
+            (tlblX, tlblY) = midpoint(tl, bl)
+            (trbrX, trbrY) = midpoint(tr, br)
 
-# 計算物體的中心
-    cX = np.average(gear4[:, 0])
-    cY = np.average(gear4[:, 1])
-&lt;/pre&gt;&lt;/div&gt;
+        # 用座標法計算兩物體中心距離
+            D = dist.euclidean((tlblX, tlblY), (trbrX, trbrY))
+            refObj = (gear4, (cX, cY), D / args["width"])
+            continue
 
+    # 輪廓描繪
+        orig = img.copy()
+        cv2.drawContours(orig, [gear4.astype("int")], -1, (0, 255, 0), 2) # 其餘物品的輪廓描繪
+        cv2.drawContours(orig, [refObj[0].astype("int")], -1, (0, 255, 0), 2) # 最左邊物品的輪廓描繪
 
-&lt;h1&gt;以左邊邊界輪廓當基準, 當參考對象&lt;/h1&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;    if refObj is None:
-    # 計算物品左右邊界的中點
-        (tl, tr, br, bl) = gear4
-        (tlblX, tlblY) = midpoint(tl, bl)
-        (trbrX, trbrY) = midpoint(tr, br)
+    # refObj[0] = 最左邊物品輪廓邊緣的左上
+    # refObj[1] = 物品中心
+    # refCoords為基準物, objCoords為測量物
+        refCoords = np.vstack([refObj[0], refObj[1]])
+        objCoords = np.vstack([gear4, (cX, cY)])
 
-    # 用座標法計算兩物體中心距離
-        D = dist.euclidean((tlblX, tlblY), (trbrX, trbrY))
-        refObj = (gear4, (cX, cY), D / args[&amp;quot;width&amp;quot;])
-        continue
+        for ((xA, yA), (xB, yB), color) in zip(refCoords, objCoords, colors):
+        # 基準物的四個角&amp;中心點 測量物的四個角&amp;中心點 點到點的距離
+            cv2.circle(orig, (int(xA), int(yA)), 5, color, -1)
+            cv2.circle(orig, (int(xB), int(yB)), 5, color, -1)
+            cv2.line(orig, (int(xA), int(yA)), (int(xB), int(yB)), color, 2)
 
-# 輪廓描繪
-    orig = img.copy()
-    cv2.drawContours(orig, [gear4.astype(&amp;quot;int&amp;quot;)], -1, (0, 255, 0), 2) # 其餘物品的輪廓描繪
-    cv2.drawContours(orig, [refObj[0].astype(&amp;quot;int&amp;quot;)], -1, (0, 255, 0), 2) # 最左邊物品的輪廓描繪
+        #用座標距離法算出圖中的座標距離，並和實際的距離做比值，求出待測實際距離
+            D = dist.euclidean((xA, yA), (xB, yB)) / refObj[2]
+            (mX, mY) = midpoint((xA, yA), (xB, yB))
+            cv2.putText(orig, "{:.1f}in".format(D), (int(mX), int(mY - 10)),
+            cv2.FONT_HERSHEY_SIMPLEX, 0.55, color, 2)
+        # "{:.1f}in" 取到小數點第一位
 
-# refObj[0] = 最左邊物品輪廓邊緣的左上
-# refObj[1] = 物品中心
-# refCoords為基準物, objCoords為測量物
-    refCoords = np.vstack([refObj[0], refObj[1]])
-    objCoords = np.vstack([gear4, (cX, cY)])
+            cv2.imshow("Image2", orig)
+            cv2.waitKey(0)
+&lt;/pre&gt;
 
-    for ((xA, yA), (xB, yB), color) in zip(refCoords, objCoords, colors):
-    # 基準物的四個角&amp;amp;中心點 測量物的四個角&amp;amp;中心點 點到點的距離
-        cv2.circle(orig, (int(xA), int(yA)), 5, color, -1)
-        cv2.circle(orig, (int(xB), int(yB)), 5, color, -1)
-        cv2.line(orig, (int(xA), int(yA)), (int(xB), int(yB)), color, 2)
-
-    #用座標距離法算出圖中的座標距離，並和實際的距離做比值，求出待測實際距離
-        D = dist.euclidean((xA, yA), (xB, yB)) / refObj[2]
-        (mX, mY) = midpoint((xA, yA), (xB, yB))
-        cv2.putText(orig, &amp;quot;{:.1f}in&amp;quot;.format(D), (int(mX), int(mY - 10)),
-        cv2.FONT_HERSHEY_SIMPLEX, 0.55, color, 2)
-    # &amp;quot;{:.1f}in&amp;quot; 取到小數點第一位
-
-        cv2.imshow(&amp;quot;Image2&amp;quot;, orig)
-        cv2.waitKey(0)
-&lt;/pre&gt;&lt;/div&gt;
-
-
-&lt;p&gt;&lt;/pre&gt;
-&lt;/br&gt;
+&lt;p&gt;&lt;/br&gt;
 &lt;/h4&gt;
 &lt;/br&gt;
 &lt;h3&gt;四.執行結果&lt;/h3&gt;

@@ -49,7 +49,35 @@
 &lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0315_02.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0315_03.png"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0315_04.png"&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0315_05.png"&gt;&lt;/p&gt;</content><category term="Leo Editor"></category><category term="Pandoc"></category></entry><entry><title>40323230日誌 - 106/03/27</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060327.html" rel="alternate"></link><published>2017-03-27T21:00:00+08:00</published><updated>2017-03-27T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-03-27:/blog/40323230ri-zhi-1060327.html</id><summary type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0315_05.png"&gt;&lt;/p&gt;</content><category term="Leo Editor"></category><category term="Pandoc"></category></entry><entry><title>40323230日誌 - 106/03/29</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060329.html" rel="alternate"></link><published>2017-03-29T21:00:00+08:00</published><updated>2017-03-29T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-03-29:/blog/40323230ri-zhi-1060329.html</id><summary type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;輸入介面改善&lt;/li&gt;
+&lt;li&gt;Debian package&lt;/li&gt;
+&lt;li&gt;Drive shaft 面板功能&lt;/li&gt;
+&lt;li&gt;Path track 面板功能 - &lt;strong&gt;計畫&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</summary><content type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;輸入介面改善&lt;/li&gt;
+&lt;li&gt;Debian package&lt;/li&gt;
+&lt;li&gt;Drive shaft 面板功能&lt;/li&gt;
+&lt;li&gt;Path track 面板功能 - &lt;strong&gt;計畫&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+
+&lt;h1&gt;Pyslvs 開發進度&lt;/h1&gt;
+&lt;h2&gt;輸入介面改善&lt;/h2&gt;
+&lt;p&gt;連桿和呆鍊的設定視窗會偵測當前兩點的距離，方便使用者估算。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0329_01.png"&gt;&lt;/p&gt;
+&lt;h2&gt;Debian package&lt;/h2&gt;
+&lt;p&gt;在 Makefile 中加入 deb 選項可以讓編譯完的 Pyslvs 包裝成 Debian 系統的安裝檔，可以當成類似 Windows 的壓縮檔安裝到 Ubuntu 使用者的家目錄 &lt;code&gt;~/Pyslvs&lt;/code&gt; 中。&lt;/p&gt;
+&lt;h2&gt;Drive shaft 面板功能&lt;/h2&gt;
+&lt;p&gt;改進了之前的水平滑桿，變成比較易懂的 QDial 旋鈕，旋轉方向與圖面一致，逆時針為正。&lt;/p&gt;
+&lt;p&gt;不過 QDial 的預設 0 的位置在正下方，要調整可能比較麻煩，因為讀值會變負的，而且起始和終止位置不一定是 0 和 360 度，所以目前尚未改掉。&lt;/p&gt;
+&lt;p&gt;&lt;img alt="" src="https://raw.githubusercontent.com/coursemdetw/project_site_files/gh-pages/files/2016spring/g2/Python_solvespace/0329_02.png"&gt;&lt;/p&gt;
+&lt;p&gt;旁邊的播放鈕會自動旋轉 10 圈，可以隨時中斷，也能重新播放。&lt;/p&gt;
+&lt;h2&gt;Path track 面板功能&lt;/h2&gt;
+&lt;p&gt;&lt;strong&gt;速度&lt;/strong&gt;和&lt;strong&gt;加速度&lt;/strong&gt;的功能預計歸類到路徑追蹤的項目中，可以推導該座標的公式，並能藉由輸入值求出當前座標的速度和加速度。&lt;/p&gt;</content><category term="Kmol"></category><category term="Pyslvs"></category></entry><entry><title>40323230日誌 - 106/03/27</title><link href="http://project.mde.tw/blog/40323230ri-zhi-1060327.html" rel="alternate"></link><published>2017-03-27T21:00:00+08:00</published><updated>2017-03-27T21:00:00+08:00</updated><author><name>40323230</name></author><id>tag:project.mde.tw,2017-03-27:/blog/40323230ri-zhi-1060327.html</id><summary type="html">&lt;p&gt;Pyslvs 開發進度：&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Release version 0.6&lt;/li&gt;
 &lt;li&gt;關於報告&lt;/li&gt;

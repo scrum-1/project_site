@@ -11,6 +11,162 @@
 
 
 
+<style type="text/css">
+
+/*some stuff for output/input prompts*/
+div.cell{border:1px solid transparent;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch}div.cell.selected{border-radius:4px;border:thin #ababab solid}
+div.cell.edit_mode{border-radius:4px;border:thin #008000 solid}
+div.cell{width:100%;padding:5px 5px 5px 0;margin:0;outline:none}
+div.prompt{min-width:11ex;padding:.4em;margin:0;font-family:monospace;text-align:right;line-height:1.21429em}
+@media (max-width:480px){div.prompt{text-align:left}}div.inner_cell{display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;display:flex;flex-direction:column;align-items:stretch;-webkit-box-flex:1;-moz-box-flex:1;box-flex:1;flex:1}
+div.input_area{border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;line-height:1.21429em}
+div.prompt:empty{padding-top:0;padding-bottom:0}
+div.input{page-break-inside:avoid;display:-webkit-box;-webkit-box-orient:horizontal;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:horizontal;-moz-box-align:stretch;display:box;box-orient:horizontal;box-align:stretch;}
+div.inner_cell{width:90%;}
+div.input_area{border:1px solid #cfcfcf;border-radius:4px;background:#f7f7f7;}
+div.input_prompt{color:navy;border-top:1px solid transparent;}
+div.output_wrapper{margin-top:5px;position:relative;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}
+div.output_scroll{height:24em;width:100%;overflow:auto;border-radius:4px;-webkit-box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);-moz-box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);box-shadow:inset 0 2px 8px rgba(0, 0, 0, 0.8);}
+div.output_collapsed{margin:0px;padding:0px;display:-webkit-box;-webkit-box-orient:vertical;-webkit-box-align:stretch;display:-moz-box;-moz-box-orient:vertical;-moz-box-align:stretch;display:box;box-orient:vertical;box-align:stretch;width:100%;}
+div.out_prompt_overlay{height:100%;padding:0px 0.4em;position:absolute;border-radius:4px;}
+div.out_prompt_overlay:hover{-webkit-box-shadow:inset 0 0 1px #000000;-moz-box-shadow:inset 0 0 1px #000000;box-shadow:inset 0 0 1px #000000;background:rgba(240, 240, 240, 0.5);}
+div.output_prompt{color:darkred;}
+
+a.anchor-link:link{text-decoration:none;padding:0px 20px;visibility:hidden;}
+h1:hover .anchor-link,h2:hover .anchor-link,h3:hover .anchor-link,h4:hover .anchor-link,h5:hover .anchor-link,h6:hover .anchor-link{visibility:visible;}
+/* end stuff for output/input prompts*/
+
+
+.highlight-ipynb .hll { background-color: #ffffcc }
+.highlight-ipynb  { background: #f8f8f8; }
+.highlight-ipynb .c { color: #408080; font-style: italic } /* Comment */
+.highlight-ipynb .err { border: 1px solid #FF0000 } /* Error */
+.highlight-ipynb .k { color: #008000; font-weight: bold } /* Keyword */
+.highlight-ipynb .o { color: #666666 } /* Operator */
+.highlight-ipynb .cm { color: #408080; font-style: italic } /* Comment.Multiline */
+.highlight-ipynb .cp { color: #BC7A00 } /* Comment.Preproc */
+.highlight-ipynb .c1 { color: #408080; font-style: italic } /* Comment.Single */
+.highlight-ipynb .cs { color: #408080; font-style: italic } /* Comment.Special */
+.highlight-ipynb .gd { color: #A00000 } /* Generic.Deleted */
+.highlight-ipynb .ge { font-style: italic } /* Generic.Emph */
+.highlight-ipynb .gr { color: #FF0000 } /* Generic.Error */
+.highlight-ipynb .gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.highlight-ipynb .gi { color: #00A000 } /* Generic.Inserted */
+.highlight-ipynb .go { color: #888888 } /* Generic.Output */
+.highlight-ipynb .gp { color: #000080; font-weight: bold } /* Generic.Prompt */
+.highlight-ipynb .gs { font-weight: bold } /* Generic.Strong */
+.highlight-ipynb .gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.highlight-ipynb .gt { color: #0044DD } /* Generic.Traceback */
+.highlight-ipynb .kc { color: #008000; font-weight: bold } /* Keyword.Constant */
+.highlight-ipynb .kd { color: #008000; font-weight: bold } /* Keyword.Declaration */
+.highlight-ipynb .kn { color: #008000; font-weight: bold } /* Keyword.Namespace */
+.highlight-ipynb .kp { color: #008000 } /* Keyword.Pseudo */
+.highlight-ipynb .kr { color: #008000; font-weight: bold } /* Keyword.Reserved */
+.highlight-ipynb .kt { color: #B00040 } /* Keyword.Type */
+.highlight-ipynb .m { color: #666666 } /* Literal.Number */
+.highlight-ipynb .s { color: #BA2121 } /* Literal.String */
+.highlight-ipynb .na { color: #7D9029 } /* Name.Attribute */
+.highlight-ipynb .nb { color: #008000 } /* Name.Builtin */
+.highlight-ipynb .nc { color: #0000FF; font-weight: bold } /* Name.Class */
+.highlight-ipynb .no { color: #880000 } /* Name.Constant */
+.highlight-ipynb .nd { color: #AA22FF } /* Name.Decorator */
+.highlight-ipynb .ni { color: #999999; font-weight: bold } /* Name.Entity */
+.highlight-ipynb .ne { color: #D2413A; font-weight: bold } /* Name.Exception */
+.highlight-ipynb .nf { color: #0000FF } /* Name.Function */
+.highlight-ipynb .nl { color: #A0A000 } /* Name.Label */
+.highlight-ipynb .nn { color: #0000FF; font-weight: bold } /* Name.Namespace */
+.highlight-ipynb .nt { color: #008000; font-weight: bold } /* Name.Tag */
+.highlight-ipynb .nv { color: #19177C } /* Name.Variable */
+.highlight-ipynb .ow { color: #AA22FF; font-weight: bold } /* Operator.Word */
+.highlight-ipynb .w { color: #bbbbbb } /* Text.Whitespace */
+.highlight-ipynb .mf { color: #666666 } /* Literal.Number.Float */
+.highlight-ipynb .mh { color: #666666 } /* Literal.Number.Hex */
+.highlight-ipynb .mi { color: #666666 } /* Literal.Number.Integer */
+.highlight-ipynb .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight-ipynb .sb { color: #BA2121 } /* Literal.String.Backtick */
+.highlight-ipynb .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight-ipynb .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
+.highlight-ipynb .s2 { color: #BA2121 } /* Literal.String.Double */
+.highlight-ipynb .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
+.highlight-ipynb .sh { color: #BA2121 } /* Literal.String.Heredoc */
+.highlight-ipynb .si { color: #BB6688; font-weight: bold } /* Literal.String.Interpol */
+.highlight-ipynb .sx { color: #008000 } /* Literal.String.Other */
+.highlight-ipynb .sr { color: #BB6688 } /* Literal.String.Regex */
+.highlight-ipynb .s1 { color: #BA2121 } /* Literal.String.Single */
+.highlight-ipynb .ss { color: #19177C } /* Literal.String.Symbol */
+.highlight-ipynb .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight-ipynb .vc { color: #19177C } /* Name.Variable.Class */
+.highlight-ipynb .vg { color: #19177C } /* Name.Variable.Global */
+.highlight-ipynb .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight-ipynb .il { color: #666666 } /* Literal.Number.Integer.Long */
+</style>
+
+<style type="text/css">
+/* Overrides of notebook CSS for static HTML export */
+div.entry-content {
+  overflow: visible;
+  padding: 8px;
+}
+.input_area {
+  padding: 0.2em;
+}
+
+a.heading-anchor {
+ white-space: normal;
+}
+
+.rendered_html
+code {
+ font-size: .8em;
+}
+
+pre.ipynb {
+  color: black;
+  background: #f7f7f7;
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0;
+  padding: 0;
+  margin: 0px;
+  font-size: 13px;
+}
+
+/* remove the prompt div from text cells */
+div.text_cell .prompt {
+    display: none;
+}
+
+/* remove horizontal padding from text cells, */
+/* so it aligns with outer body text */
+div.text_cell_render {
+    padding: 0.5em 0em;
+}
+
+img.anim_icon{padding:0; border:0; vertical-align:middle; -webkit-box-shadow:none; -box-shadow:none}
+</style>
+
+<script src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML" type="text/javascript"></script>
+<script type="text/javascript">
+init_mathjax = function() {
+    if (window.MathJax) {
+        // MathJax loaded
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                displayMath: [ ['$$','$$'], ["\\[","\\]"] ]
+            },
+            displayAlign: 'left', // Change this to 'center' to center equations.
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}}
+            }
+        });
+        MathJax.Hub.Queue(["Typeset",MathJax.Hub]);
+    }
+}
+init_mathjax();
+</script>
+
+
         <meta name="author" content="KMOL" />
 
     <!-- Open Graph tags -->
@@ -96,9 +252,7 @@
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav">
-                         <li><a href="http://project.mde.tw/blog/pages/about/">
-                             About
-                          </a></li>
+                    <li><a href="/blog/pages/about/">About</a></li>
                         <li >
                             <a href="http://project.mde.tw/blog/category/2016bg2.html">2016bg2</a>
                         </li>
@@ -137,182 +291,164 @@
         <div class="col-sm-9">
 
             <article>
-                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1050912.html">40323230日誌 - 105/09/12</a></h2>
+                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1060207.html">40323230日誌 - 106/02/07</a></h2>
                 <div class="summary"><ol>
 <li>
-<p>Pyslvs 編譯進度</p>
+<p>Leo Editor - 簡單的節點控制</p>
+<p>簡述 Leo Editor 的 @button 節點運用。</p>
+<ul>
+<li>Generators</li>
+<li>Position Getters</li>
+</ul>
 </li>
 <li>
-<p>第二對連桿腳</p>
+<p>Pyslvs 手冊應用</p>
+</li>
+<li>
+<p>Pyslvs 目標 - 模型銜接 V-rep</p>
 </li>
 </ol>
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1050912.html">more ...</a>
+                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1060207.html">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1050911.html">40323230日誌 - 105/09/11</a></h2>
+                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1060204.html">40323230日誌 - 106/02/04</a></h2>
                 <div class="summary"><ol>
 <li>
-<p>Pyslvs 編譯進度 - 參數式架構核心完成</p>
+<p>Leo Editor - 簡單的節點控制</p>
+<p>簡述 Leo Editor 的 @button 節點運用。</p>
+<ul>
+<li>
+<p>預先定義名稱：c、g、p</p>
 </li>
 <li>
-<p>倉儲<a href="https://github.com/40323230/python-solvespace" title="github.com">python-solvespace</a>已更新</p>
+<p>Vnode</p>
+</li>
+<li>
+<p>Position</p>
+</li>
+<li>
+<p>Generator</p>
+</li>
+<li>
+<p>使用 @button 複製節點正文</p>
+</li>
+</ul>
+</li>
+<li>
+<p>Pyslvs 手冊應用</p>
 </li>
 </ol>
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1050911.html">more ...</a>
+                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1060204.html">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1050910.html">40323230日誌 - 105/09/10</a></h2>
+                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1060203.html">40323230日誌 - 106/02/03</a></h2>
                 <div class="summary"><ol>
 <li>
-<p>Pyslvs 編譯進度</p>
+<p>Leo Editor - Pyslvs 手冊 - Reveal.js</p>
+<p>兩種方式轉成 Reveal.js 樣板：</p>
+<ul>
+<li>
+<p>Leo Editor Cloned Node</p>
 </li>
 <li>
-<p>參數式架構</p>
+<p>Pandoc - Template</p>
+</li>
+</ul>
 </li>
 <li>
-<p>測試影片</p>
+<p>Pelican 的 Pandoc Plugin</p>
 </li>
 </ol>
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1050910.html">more ...</a>
+                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1060203.html">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1050909.html">40323230日誌 - 105/09/09</a></h2>
-                <div class="summary"><ol>
+                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1060202.html">40323230日誌 - 106/02/02</a></h2>
+                <div class="summary"><p>Leo Editor - Pyslvs 手冊</p>
+<ul>
 <li>
-<p>Pyslvs 編譯進度</p>
+<p>Pandoc - PDF</p>
 </li>
 <li>
-<p>近似直線機構問題</p>
+<p>Reveal.js - HTML 簡報</p>
 </li>
-<li>
-<p>活塞 → 動力源而非被動元件</p>
-</li>
-<li>
-<p>參數式設計？</p>
-</li>
-<li>
-<p>測量能力待加強</p>
-</li>
-</ol>
+</ul>
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1050909.html">more ...</a>
+                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1060202.html">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1050908.html">40323230日誌 - 105/09/08</a></h2>
-                <div class="summary"><ol>
-<li>
-<p>Pyslvs 編譯進度</p>
-</li>
-<li>
-<p>倉儲<a href="https://github.com/40323230/python-solvespace" title="github.com">python-solvespace</a>已更新</p>
-</li>
-<li>
-<p>Pyslvs Demo 功能介紹 錄影準備中</p>
-</li>
-</ol>
+                <h2><a href="http://project.mde.tw/blog/qt5-ubuntu-switch-fcitx-input-method.html">Qt5 - Ubuntu switch Fcitx input method</a></h2>
+                <div class="summary"><ul>
+<li>解決 Ubuntu 平台無法在 Qt5 切換 Fcitx 輸入法的問題</li>
+</ul>
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1050908.html">more ...</a>
+                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/qt5-ubuntu-switch-fcitx-input-method.html">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1050907.html">40323230日誌 - 105/09/07</a></h2>
-                <div class="summary"><ol>
-<li>
-<p>路徑計算解決</p>
-</li>
-<li>
-<p>程式碼功能簡介</p>
-</li>
-<li>
-<p>PyQt5 線程 QThread 教學</p>
-</li>
-<li>
-<p>PyQt5 信號槽教學</p>
-</li>
-<li>
-<p>PyQt5 進度條教學</p>
-</li>
-<li>
-<p>倉儲<a href="https://github.com/40323230/python-solvespace" title="github.com">python-solvespace</a>已更新</p>
-</li>
-</ol>
+                <h2><a href="http://project.mde.tw/blog/pelican-windows-python-error.html">Pelican - Windows Python Error</a></h2>
+                <div class="summary"><ul>
+<li>解決 ValueError: embedded null byte 錯誤</li>
+</ul>
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1050907.html">more ...</a>
+                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/pelican-windows-python-error.html">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1050906.html">40323230日誌 - 105/09/06</a></h2>
-                <div class="summary"><ol>
-<li>
-<p>表格管理與程式碼</p>
-</li>
-<li>
-<p>路徑計算問題</p>
-</li>
-</ol>
+                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1060120.html">40323230日誌 - 106/01/20</a></h2>
+                <div class="summary"><p>Pyslvs version 0.4 Relese</p>
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1050906.html">more ...</a>
+                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1060120.html">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1050905.html">40323230日誌 - 105/09/05</a></h2>
-                <div class="summary"><ol>
-<li>
-<p>小細節修正</p>
-</li>
-<li>
-<p>程式碼顯示功能</p>
-</li>
-<li>
-<p>路徑計算問題</p>
-</li>
-</ol>
+                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1060119.html">40323230日誌 - 106/01/19</a></h2>
+                <div class="summary"><p>Pyslvs 編譯進度：</p>
+<ul>
+<li>平行軸 Bug</li>
+</ul>
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1050905.html">more ...</a>
+                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1060119.html">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1050903.html">40323230日誌 - 105/09/03</a></h2>
-                <div class="summary"><ol>
+                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1060116.html">40323230日誌 - 106/01/16</a></h2>
+                <div class="summary"><p>Pyslvs 編譯進度：</p>
+<ul>
 <li>
-<p>QPaint 繪圖</p>
+<p>拖放檔案開啟功能</p>
 </li>
 <li>
-<p>模擬功能-目標</p>
+<p>反轉 Y 軸初始位置功能</p>
 </li>
-</ol>
+</ul>
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1050903.html">more ...</a>
+                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1060116.html">more ...</a>
                 </div>
             </article>
             <hr/>
             <article>
-                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1050902.html">40323230日誌 - 105/09/02</a></h2>
-                <div class="summary"><ol>
-<li>
-<p>改換 Qt 5.7 與 PyQt 5.7</p>
-</li>
-<li>
-<p>一些操作重點</p>
-</li>
-</ol>
+                <h2><a href="http://project.mde.tw/blog/40323230ri-zhi-1060115.html">40323230日誌 - 106/01/15</a></h2>
+                <div class="summary"><p>Pyslvs 編譯進度：</p>
+<ul>
+<li>路徑演算法功能</li>
+</ul>
 
-                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1050902.html">more ...</a>
+                    <a class="btn btn-default btn-xs" href="http://project.mde.tw/blog/40323230ri-zhi-1060115.html">more ...</a>
                 </div>
             </article>
             <hr/>
@@ -340,6 +476,16 @@
                             href="http://project.mde.tw/blog/author/403232309.html">9</a></li>
                     <li class=""><a
                             href="http://project.mde.tw/blog/author/4032323010.html">10</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/author/4032323011.html">11</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/author/4032323012.html">12</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/author/4032323013.html">13</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/author/4032323014.html">14</a></li>
+                    <li class=""><a
+                            href="http://project.mde.tw/blog/author/4032323015.html">15</a></li>
                 <li class="next"><a
                         href="http://project.mde.tw/blog/author/403232305.html">&raquo;</a></li>
         </ul>
@@ -353,28 +499,28 @@
             <li class="list-group-item"><h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
                 <ul class="list-group" id="recentposts">
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1051214.html">
-                            40323230日誌 - 105/12/14
+                        <a href="http://project.mde.tw/blog/zhuan-ti-mo-ban-shuo-ming.html">
+                            專題模板說明
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1051213.html">
-                            40323230日誌 - 105/12/13
+                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060329.html">
+                            40323230日誌 - 106/03/29
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1051212.html">
-                            40323230日誌 - 105/12/12
+                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060327.html">
+                            40323230日誌 - 106/03/27
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1051209.html">
-                            40323230日誌 - 105/12/09
+                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060325.html">
+                            40323230日誌 - 106/03/25
                         </a>
                     </li>
                     <li class="list-group-item">
-                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1051208.html">
-                            40323230日誌 - 105/12/08
+                        <a href="http://project.mde.tw/blog/40323230ri-zhi-1060322.html">
+                            40323230日誌 - 106/03/22
                         </a>
                     </li>
                 </ul>
@@ -453,7 +599,7 @@
    <div class="container">
       <hr>
       <div class="row">
-         <div class="col-xs-10">&copy; 2016 KMOL
+         <div class="col-xs-10">&copy; 2017 KMOL
             &middot; Powered by <a href="https://github.com/DandyDev/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
             <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
@@ -465,6 +611,12 @@
 
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="http://project.mde.tw/blog/theme/js/bootstrap.min.js"></script>
+
+<!-- for https://github.com/jsor/lity lightbox video popup -->
+
+<link href="http://project.mde.tw/blog/theme/css/lity.css" rel="stylesheet">
+
+<script src="http://project.mde.tw/blog/theme/js/lity.js"></script>
 
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
 <script src="http://project.mde.tw/blog/theme/js/respond.min.js"></script>

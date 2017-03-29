@@ -24,7 +24,7 @@
 <v t="amd.20151215180106.1" a="E"><vh>設定與開發</vh>
 <v t="amd.20151216151325.1"><vh>@edit index.html</vh></v>
 <v t="amd.20151216152209.1"><vh>@edit README.md</vh></v>
-<v t="leo.20151213230723.1"><vh>Pelican 設定</vh>
+<v t="leo.20151213230723.1" a="E"><vh>Pelican 設定</vh>
 <v t="leo.20151213230957.1"><vh>文章 Date 設定</vh></v>
 <v t="leo.20151213230729.1"><vh>使用 summary plugin</vh></v>
 </v>
@@ -55,6 +55,7 @@
 <v t="amd.20151215154950.4"><vh>@edit search.html</vh></v>
 <v t="amd.20151215162536.1" a="E"><vh>@path includes</vh>
 <v t="amd.20151215162510.1"><vh>@edit sidebar.html</vh></v>
+<v t="yen.20170114233207.1"><vh>@edit liquid_tags_nb_header.html</vh></v>
 </v>
 <v t="amd.20151215154950.5"><vh>@edit tags.html</vh></v>
 </v>
@@ -118,7 +119,7 @@
 </v>
 <v t="amd.20160309123311.1" a="E"><vh>處理錯誤</vh>
 <v t="amd.20160309123318.1" a="E"><vh>@path content</vh>
-<v t="amd.20160309123402.1"><vh>@edit 40323130_20160301.md</vh></v>
+<v t="amd.20160309123402.1"><vh>@@edit 40323130_20160301.md</vh></v>
 <v t="amd.20160309123451.1"><vh>@edit 40323143_20160309.md</vh></v>
 </v>
 </v>
@@ -206,16 +207,20 @@
 <v t="yen.20161207105714.1"><vh>@edit yen_20161207.md</vh></v>
 <v t="yen.20161208222809.1"><vh>@edit yen_20161208.md</vh></v>
 <v t="yen.20161215110203.1"><vh>@edit yen_20161215.md</vh></v>
+<v t="yen.20161217063133.1"><vh>@edit yen_20161217.md</vh></v>
+<v t="yen.20161228103910.1"><vh>@edit yen_20161228.md</vh></v>
+<v t="yen.20170107071836.1"><vh>@edit yen_20170107.md</vh></v>
 </v>
 </v>
 </v>
-<v t="amd.20160106094754.1" a="E"><vh>@path ./../content/pages</vh>
+<v t="amd.20160106094754.1"><vh>@path ./../content/pages</vh>
 <v t="amd.20160106094829.1" a="E"><vh>yen 所寫的 pages 文章</vh>
 <v t="amd.20160106094844.1"><vh>@edit yen_pages_1.md</vh></v>
 </v>
 </v>
 <v t="yen.20161207105111.1"><vh>@button https server</vh></v>
 <v t="yen.20161207105124.1"><vh>@button ipv6 https server</vh></v>
+<v t="yen.20170215004706.1"><vh>20170215 改版</vh></v>
 </vnodes>
 <tnodes>
 <t tx="amd.20151215121740.1"></t>
@@ -934,6 +939,7 @@ Tags:
 </t>
 <t tx="amd.20160309123311.1"></t>
 <t tx="amd.20160309123318.1"></t>
+<t tx="amd.20160309123402.1"></t>
 <t tx="amd.20160309141114.1">execute-script predefines:
 
 c: The commander of the present outline.
@@ -1479,5 +1485,6 @@ def domake():
 # 利用執行緒執行 https 伺服器
 make = threading.Thread(target=domake)
 make.start()</t>
+<t tx="yen.20170215004706.1">目的在救回 About</t>
 </tnodes>
 </leo_file>

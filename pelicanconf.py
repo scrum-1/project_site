@@ -38,7 +38,7 @@ DEFAULT_PAGINATION = 10
 
 # 必須絕對目錄或相對於設定檔案所在目錄
 PLUGIN_PATHS = ['plugin']
-PLUGINS = ['summary', 'tipue_search', 'sitemap']
+PLUGINS = ['liquid_tags.notebook', 'summary', 'tipue_search', 'sitemap', 'render_math']
 
 # for sitemap plugin
 SITEMAP = {
@@ -66,6 +66,9 @@ DISPLAY_TAGS_ON_SIDEBAR = True
 DISPLAY_TAGS_INLINE = True
 TAGS_URL = "tags.html"
 CATEGORIES_URL = "categories.html"
+MENUITEMS = [('About', '/blog/pages/about/')]
 #SHOW_ARTICLE_AUTHOR = True
 
 #MENUITEMS = [('Home', '/'), ('Archives', '/archives.html'), ('Search', '/search.html')]
+
+DISPLAY_PAGES_ON_MENU = False
